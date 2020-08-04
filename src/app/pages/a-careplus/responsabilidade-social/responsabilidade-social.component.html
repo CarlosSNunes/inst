@@ -1,0 +1,47 @@
+<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToNextSection()"></app-simple-banner>
+<section #iniciativaSection id="responsabilidadeSocialIniciativaSection">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half-desktop is-full">
+                    <div class="box-infos">
+                        <p class="small-title">
+                            iniciativa care plus
+                        </p>
+                        <h4 class="big-title">
+                            Confira algumas de nossas ações já realizadas
+                        </h4>
+                    </div>
+                </div>
+                <div class="column is-half-desktop is-full">
+                    <p class="description no-margin">
+                        A Care Plus é uma empresa que se preocupa com o seu papel na sociedade e além de fornecer
+                        cobertura de saúde premium, estamos trabalhando diariamente para marcar a nossa história com
+                        responsabilidade e compromisso social.
+                    </p>
+                    <p class="sub-description">
+                        Há 27 anos estamos atuando em programas de responsabilidade sociais capazes de auxiliar pessoas
+                        e oferecer o melhor para a sociedade e as empresas que atendemos. Nossa responsabilidade vai
+                        desde o nosso relacionamento com os colaboradores respeitando e pensando em diversidade,
+                        representatividade e oportunidade de atuação no mercado até ações que desempenhamos em dois
+                        programas que temos, são eles os programas: Programa 1 de Melhoria e Responsabilidade Social e o
+                        Programa 2 de Melhoria e Responsabilidade Social.
+                        Aqui você vai conhecer e entender um pouco mais desses programas e também do nosso foco em
+                        Sustentabilidade e Responsabilidade Ambiental, que vai desde o nosso novo prédio equipado com
+                        sistema de reciclagem, com transporte para a redução de gases, com processos de reutilização de
+                        água e energia e outras ações visando um futuro melhor para todos, essa é a nossa
+                        responsabilidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<app-a-careplus-video [videoModel]="videoModel" [backgroundColor]="'#0079C81A'"></app-a-careplus-video>
+
+<app-info-section *ngFor="let infoSection of infoSections" [sectionInfo]="infoSection"></app-info-section>
+
+<app-learn-more></app-learn-more>
+
+<app-careplus-plus></app-careplus-plus>

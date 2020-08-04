@@ -1,0 +1,110 @@
+@import "~src/scss/_variables";
+
+section#highlightPost {
+    .container {
+        .columns {
+            .column {
+                &.info-col {
+                    padding-left: 116px;
+                    .small-title {
+                        .separator {
+                            color: getColor(_bupa, _grey);
+                            margin: 0 15px;
+                        }
+                        .posted {
+                            img {
+                                margin-bottom: -4px;
+                            }
+
+                            .text {
+                                margin-left: 10px;
+                                font-weight: normal;
+                                font-size: getSize("sbm");
+                                line-height: 150%;
+                                color: getColor(_bupa, _grey);
+                                margin-bottom: 4px;
+                            }
+                        }
+                    }
+
+                    .btn {
+                        margin-top: 32px;
+                        &.btn-text {
+                            padding-left: 0;
+                        }
+                    }
+                }
+
+                &.image-col {
+                    &.video {
+                        position: relative;
+                        display: flex;
+                        &::before {
+                            content: "";
+                            width: 95.27px;
+                            height: 95.27px;
+                            background-image: getSvg("playVideo.svg");
+                            background-size: contain;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            margin: 0 auto;
+                            align-self: center;
+                            pointer-events: none;
+                        }
+
+                        &::after {
+                            background: linear-gradient(
+                                to left,
+                                getColor(_bupa, _digital-cian) 60%,
+                                getColor(_bottom-line, _dark-green) 60%,
+                                getColor(_bottom-line, _dark-green) 80%,
+                                getColor(_bottom-line, _light-green) 80%
+                            );
+                            content: "";
+                            position: absolute;
+                            height: 4px;
+                            right: 16px;
+                            top: 50px;
+                            width: 160px;
+                            transform: translateX(50%);
+                        }
+                    }
+                    a {
+                        cursor: pointer;
+                        width: 100%;
+                        img {
+                            object-fit: cover;
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#highlightPost {
+        .container {
+            .columns {
+                .column {
+                    &.info-col {
+                        padding-left: 16px;
+                    }
+                    &.image-col {
+                        &.video {
+                            &::after {
+                                left: 16px;
+                                right: unset;
+                                top: -20px;
+                                transform: unset;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

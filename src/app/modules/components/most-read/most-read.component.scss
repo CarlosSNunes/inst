@@ -1,0 +1,72 @@
+@import "~src/scss/_variables.scss";
+
+#most-read {
+    width: 100%;
+
+    /*somente para teste*/
+    margin: auto;
+    /*somente para teste*/
+
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-size: getSize("sbm");
+        line-height: getLineHeight("sbm");
+        color: getColor(_bupa, _digital-cian);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+    .description {
+        font-size: getSize("mbt");
+        line-height: getLineHeight("mbt");
+        color: getColor(_bupa, _navy);
+        margin-bottom: 16px;
+    }
+    .post {
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        margin-bottom: 8px;
+        height: 80px;
+        .title {
+            padding: 0 16px;
+            display: flex;
+            margin-bottom: 0;
+
+            p {
+                color: getColor(_bupa, _grey-2);
+                align-self: center;
+            }
+        }
+    }
+    .post:after{
+        left: 0px;
+        position: absolute;
+        content: "";
+        display: none;
+        height: 80px;
+        width: 3px;
+        background-color: getColor(_bupa, _digital-cian);
+    }
+    .post:hover {
+        .title {
+            background-color: #f4f9fc;
+            p{
+                color: getColor(_bupa, _digital-cian);
+
+            }
+        }
+        
+    }
+    .post:hover:after{
+        display: block;
+    }
+    .post:last-child{
+        margin-bottom: 24px;
+    }
+    .btn-text{
+        justify-content: flex-end;
+    }
+}

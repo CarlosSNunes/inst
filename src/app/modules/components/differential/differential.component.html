@@ -1,0 +1,39 @@
+<section class="is-diferencial" [ngClass]="backgroundColorClass">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column left-column is-hidden-touch">
+                    <img src="../../../assets/img/diferencial.png" />
+                </div>
+                <div class="column has-divider is-hidden-touch">
+                    <hr class="bupa-divider" />
+                </div>
+                <div class="column right-column">
+                    <p class="small-title">
+                        Diferenciais da care plus
+                    </p>
+                    <h4 class="big-title">
+                        3 das 5 melhores empresas escolhem Care Plus.
+                    </h4>
+                    <div class="is-hidden-desktop mobile-image">
+                        <img src="../../../assets/img/diferencial.png" />
+                    </div>
+                    <div class="accordion-wrapper">
+                        <div class="accordion-item open" [class.active]="differential.active"
+                            *ngFor="let differential of differentials; let i = index;">
+                            <h2 class="accordion-item-heading" [class.active]="differential.active"
+                                (click)="activate(i)">
+                                {{differential.title}}
+                            </h2>
+                            <div class="accordion-item-content" [class.active]="differential.active">
+                                <p>
+                                    {{differential.content}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

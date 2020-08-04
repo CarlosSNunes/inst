@@ -1,0 +1,42 @@
+@mixin underline($color) {
+    &:after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: -5px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: $color;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+    &.active:after {
+        width: 100%;
+        left: 0;
+    }
+    &:hover:after {
+        width: 100%;
+        left: 0;
+    }
+}
+
+@mixin fade ($time) {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: $time;
+    animation-name: fade;
+    animation-duration: $time;
+}
+
+@mixin animationCrossContent() {
+    box-shadow: 0 0 0px 0px rgba(getColor(_bupa, _digital-cian-rgb), 1);
+    transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        -webkit-box-shadow: -11px 9px 0px 0px rgba(getColor(_bupa, _digital-cian-rgb), 1);
+        -moz-box-shadow: -11px 9px 0px 0px rgba(getColor(_bupa, _digital-cian-rgb), 1);
+        box-shadow: -11px 9px 0px 0px rgba(getColor(_bupa, _digital-cian-rgb), 1);
+        transform: translate(11px, -9px);
+    }
+}

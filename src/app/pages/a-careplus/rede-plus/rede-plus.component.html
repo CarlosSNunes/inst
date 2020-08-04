@@ -1,0 +1,52 @@
+<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToNextSection()"></app-simple-banner>
+<section #aboutCarePlus id="aboutCarePlus">
+    <article>
+        <div class="container">
+            <div class="columns flex-wrap">
+                <div class="column is-full is-6-desktop">
+                    <div class="box-infos">
+                        <p class="small-title">
+                            Sobre a Rede Plus
+                        </p>
+                        <h4 class="big-title">
+                            Veja como funciona e de onde nasceu a Rede Plus.
+                        </h4>
+                    </div>
+                </div>
+                <div class="column is-full is-6-desktop">
+                    <p class="description no-margin">
+                        A Rede Plus é a rede credenciada exclusiva Care Plus composta pelos melhores profissinais do
+                        mercado,
+                    </p>
+                    <p class="sub-description">
+                        exclusiva para nossos beneficiários e conta com os melhores profissionais de medicina do Brasil,
+                        nossos profissionais atendem grandes nomes do nosso país como politicos, celebridades e outras
+                        pessoas influentes.
+                    </p>
+                    <p class="sub-description">
+                        A Rede Plus pode ser utilizada em diversos dos nosssos planos e ela inclui o atendimento
+                        completo como o de qualquer um dos nossos profissionais, a diferença é que você pode contar com
+                        os melhores currículos do Brasil e o melhor atendimento para a sua saúde e o cuidado com ela.
+                        Converse com o seu RH e entenda como funciona.
+                    </p>
+                    <div class="blue-background-box blue-background-color">
+                        <p class="box-title">
+                            Este é um tópico de benefício da Rede Plus
+                        </p>
+                        <p class="box-description">
+                            Aqui você pode ler uma descrição detalhada do benefício e de como o beneficiário pode
+                            utilizar o serviço completo da Rede Plus. O objetivo desse bloco é tornar o Rede Plus
+                            conhecido e mais utilizado pelos beneficiários, tornando ele mais relevante dentro da rede
+                            credenciada Care Plus
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<app-a-careplus-video [videoModel]="videoModel" [backgroundColor]="'#0079C81A'"></app-a-careplus-video>
+<app-info-section [sectionInfo]="accreditedSection"></app-info-section>
+<app-accredited-network [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
+<app-learn-more></app-learn-more>
+<app-careplus-plus></app-careplus-plus>

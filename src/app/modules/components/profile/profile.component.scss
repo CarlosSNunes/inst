@@ -1,0 +1,155 @@
+@import "~src/scss/_variables";
+
+section.is-perfil {
+    width: 100%;
+    overflow: hidden;
+    .container {
+        position: relative;
+
+        .small-title {
+            text-align: center;
+        }
+        .big-title {
+            max-width: 432px;
+            margin: 6px auto 0 auto;
+            text-align: center;
+        }
+
+        .beneficios-tabs {
+            margin-top: 40px;
+            .column {
+                padding-top: 0;
+            }
+        }
+
+        .perfil-title {
+            font-style: normal;
+            font-weight: 600;
+            font-size: getSize("h4");
+            line-height: getLingHeight("h4");
+        }
+
+        .content {
+            margin: 1.5rem 0;
+        }
+
+        .ambient-image {
+            width: 100%;
+        }
+
+        .tab-content {
+            width: 100%;
+            margin-top: 80px;
+
+            &.active {
+                transform: translateX(0%);
+                animation: fromRightToLeft 0.3s;
+                -webkit-animation: fromRightToLeft 0.3s;
+            }
+
+            @keyframes fromRightToLeft {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+
+            @-moz-keyframes fromRightToLeft {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+
+            @-webkit-keyframes fromRightToLeft {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+
+            @-ms-keyframes fromRightToLeft {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+
+            @-o-keyframes fromRightToLeft {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(0%);
+                }
+            }
+
+            .btn-primary {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section.is-perfil {
+        .container {
+            .perfil-title {
+                font-size: getSize("p");
+            }
+
+            .content {
+                margin: 1rem 0;
+                font-size: 0.875em;
+            }
+
+            .tabs {
+                ul {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    li {
+                        width: calc(50% - 11.5px);
+                        flex: 0 0 calc(50% - 11.5px);
+                        margin: 8px 11.5px;
+                        padding: 8px auto;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                        &:nth-child(2) {
+                            margin-right: 0;
+                        }
+                        &:nth-child(3) {
+                            margin-left: 0;
+                        }
+                        &:nth-child(4) {
+                            margin-right: 0;
+                        }
+
+                        a {
+                            border-radius: 2px;
+                            border-spacing: 2px;
+                        }
+                    }
+                }
+            }
+
+            .tab-content {
+                margin-top: 30px;
+                .btn-text {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,315 @@
+@import "./variables";
+
+:root {
+    // Hexadecimal colors
+    --bupa_digital-cian: #0079c8;
+    --bupa_navy: #00335b;
+    --bupa_purple: #6a2ca1;
+    --bupa_violet: #a4219b;
+    --bupa_fuchsia: #c6007e;
+    --bupa_burgundy: #942151;
+    --bupa_digital-orange: #db3907;
+    --bupa_green: #007a3d;
+    --bupa_dark-green: #18542c;
+    --bupa_digital-lime: #678004;
+    --bupa_grey: #333333;
+    --bupa_grey-2: #808080;
+    --bupa_grey-3: #c9c9c9;
+    --bupa_grey-4: #f1efeb;
+    --bupa_grey-5: #7f7f7f;
+    --bupa_white: #ffffff;
+    --bupa_black: #000;
+    --bupa_blue-menu: #50a1ff;
+    --carePlus_green: #00837b;
+    --carePlus_light-green: #a7d59d;
+    --carePlus_light-blue: #f2f8fc;
+    --carePlus_dark-green: #006660;
+    --carePlus_blue-btn-text: #0064a5;
+    --carePlus_error: #ff3e1d;
+    --carePlus_valid: #00d200;
+    --carePlus_drop-down-option: #2c2c2c;
+    --carePlus_checkbox-border: #a8a7a4;
+    --carePlus_warning: #a4904b;
+    --carePlus_success: #49b869;
+    --carePlus_blue-section: #e5f2fa;
+    --carePlus_grey_inactive_tab: #c9c9c9;
+    --carePlus_grey-5: #F5F6F8;
+    --bottom-line_light-green: #b3d59c;
+    --bottom-line_dark-green: #007777;
+    --banner-background: #fff;
+
+    // Rgb colors
+    --bupa_digital-cian-rgb: 0, 121, 200;
+    --bupa_navy-rgb: 0, 51, 91;
+    --bupa_purple-rgb: 106, 44, 161;
+    --bupa_violet-rgb: 164, 33, 155;
+    --bupa_fuchsia-rgb: 198, 0, 126;
+    --bupa_burgundy-rgb: 148, 33, 81;
+    --bupa_digital-orange-rgb: 219, 57, 7;
+    --bupa_green-rgb: 0, 122, 61;
+    --bupa_dark-green-rgb: 24, 84, 44;
+    --bupa_digital-lime-rgb: 103, 128, 4;
+    --bupa_grey-rgb: 51, 51, 51;
+    --bupa_grey-2-rgb: 128, 128, 128;
+    --bupa_grey-3-rgb: 201, 201, 201;
+    --bupa_grey-4-rgb: 241, 239, 235;
+    --bupa_grey-5-rgb: 127, 127, 127;
+    --bupa_white-rgb: 255, 255, 255;
+    --bupa_black-rgb: 0, 0, 0;
+    --bupa_blue-menu-rgb: 80, 161, 255;
+    --carePlus_green-rgb: 0, 131, 123;
+    --carePlus_light-green-rgb: 167, 213, 157;
+    --carePlus_light-blue-rgb: 242, 248, 252;
+    --carePlus_dark-green-rgb: 0, 102, 96;
+    --carePlus_blue-btn-text-rgb: 0, 100, 165;
+    --carePlus_error-rgb: 255, 62, 29;
+    --carePlus_valid-rgb: 0, 210, 0;
+    --carePlus_drop-down-option-rgb: 44, 44, 44;
+    --carePlus_checkbox-border-rgb: 168, 167, 164;
+    --carePlus_warning-rgb: 164, 144, 75;
+    --carePlus_success-rgb: 73, 184, 105;
+    --carePlus_grey_inactive_tab-rgb: 201, 201, 201;
+    --carePlus_grey-5-rgb: 245, 246, 248;
+    --bottom-line_light-green-rgb: 179, 213, 156;
+    --bottom-line_dark-green-rgb: 0, 119, 119;
+
+    // Hexadecimal colors for background
+    --bupa_digital-cian-background: #0079c8;
+    --bupa_navy-background: #00335b;
+    --bupa_purple-background: #6a2ca1;
+    --bupa_violet-background: #a4219b;
+    --bupa_fuchsia-background: #c6007e;
+    --bupa_burgundy-background: #942151;
+    --bupa_digital-orange-background: #db3907;
+    --bupa_green-background: #007a3d;
+    --bupa_dark-green-background: #18542c;
+    --bupa_digital-lime-background: #678004;
+    --bupa_grey-background: #333333;
+    --bupa_grey-2-background: #808080;
+    --bupa_grey-3-background: #c9c9c9;
+    --bupa_grey-4-background: #f1efeb;
+    --bupa_grey-5-background: #7f7f7f;
+    --bupa_white-background: #ffffff;
+    --bupa_black-background: #000;
+    --bupa_blue-menu-background: #50a1ff;
+    --carePlus_green-background: #00837b;
+    --carePlus_light-green-background: #a7d59d;
+    --carePlus_light-blue-background: #f2f8fc;
+    --carePlus_dark-green-background: #006660;
+    --carePlus_blue-btn-text-background: #0064a5;
+    --carePlus_error-background: #ff3e1d;
+    --carePlus_valid-background: #00d200;
+    --carePlus_drop-down-option-background: #2c2c2c;
+    --carePlus_checkbox-border-background: #a8a7a4;
+    --carePlus_warning-background: #a4904b;
+    --carePlus_success-background: #49b869;
+    --carePlus_blue-section-background: #e5f2fa;
+    --carePlus_grey_inactive_tab-background: #c9c9c9;
+    --bottom-line_light-green-background: #b3d59c;
+    --bottom-line_dark-green-background: #007777;
+
+    // Rgb colors background
+    --bupa_digital-cian-rgb-background: 0, 121, 200;
+    --bupa_navy-rgb-background: 0, 51, 91;
+    --bupa_purple-rgb-background: 106, 44, 161;
+    --bupa_violet-rgb-background: 164, 33, 155;
+    --bupa_fuchsia-rgb-background: 198, 0, 126;
+    --bupa_burgundy-rgb-background: 148, 33, 81;
+    --bupa_digital-orange-rgb-background: 219, 57, 7;
+    --bupa_green-rgb-background: 0, 122, 61;
+    --bupa_dark-green-rgb-background: 24, 84, 44;
+    --bupa_digital-lime-rgb-background: 103, 128, 4;
+    --bupa_grey-rgb-background: 51, 51, 51;
+    --bupa_grey-2-rgb-background: 128, 128, 128;
+    --bupa_grey-3-rgb-background: 201, 201, 201;
+    --bupa_grey-4-rgb-background: 241, 239, 235;
+    --bupa_grey-5-rgb-background: 127, 127, 127;
+    --bupa_white-rgb-background: 255, 255, 255;
+    --bupa_black-rgb-background: 0, 0, 0;
+    --bupa_blue-menu-rgb-background: 80, 161, 255;
+    --carePlus_green-rgb-background: 0, 131, 123;
+    --carePlus_light-green-rgb-background: 167, 213, 157;
+    --carePlus_light-blue-rgb-background: 242, 248, 252;
+    --carePlus_dark-green-rgb-background: 0, 102, 96;
+    --carePlus_blue-btn-text-rgb-background: 0, 100, 165;
+    --carePlus_error-rgb-background: 255, 62, 29;
+    --carePlus_valid-rgb-background: 0, 210, 0;
+    --carePlus_drop-down-option-rgb-background: 44, 44, 44;
+    --carePlus_checkbox-border-rgb-background: 168, 167, 164;
+    --carePlus_warning-rgb-background: 164, 144, 75;
+    --carePlus_success-rgb-background: 73, 184, 105;
+    --carePlus_grey_inactive_tab-rgb-background: 201, 201, 201;
+    --bottom-line_light-green-rgb-background: 179, 213, 156;
+    --bottom-line_dark-green-rgb-background: 0, 119, 119;
+}
+
+html,
+body {
+    font-size: 16px;
+
+    &.using-mouse {
+        outline: none;
+        * {
+            outline: none !important;
+        }
+    }
+}
+
+h1 {
+    font-size: getSize("h1");
+    line-height: getLineHeight("h1");
+}
+
+h2 {
+    font-size: getSize("h2");
+    line-height: getLineHeight("h2");
+}
+
+h3 {
+    font-size: getSize("h3");
+    line-height: getLineHeight("h3");
+}
+
+h4 {
+    font-size: getSize("h4");
+    line-height: getLineHeight("h4");
+}
+
+p {
+    font-size: getSize("p");
+    line-height: getLineHeight("p");
+}
+
+.small-title {
+    font-weight: 500;
+    font-size: getSize("sbm");
+    line-height: getLineHeight("sbm");
+    color: getColor(_bupa, _digital-cian);
+    text-transform: uppercase;
+}
+.big-title {
+    max-width: 488px;
+    margin-top: 8px;
+    color: getColor(_bupa, _navy);
+    font-weight: 600;
+    &.no-margin {
+        margin-top: 0;
+    }
+}
+
+.description {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: getSize("mbt");
+    line-height: getLineHeight("mbt");
+    color: getColor(_bupa, _grey);
+
+    &.no-margin {
+        margin-top: 0;
+    }
+}
+
+.sub-description {
+    margin-top: 32px;
+    font-weight: normal;
+    font-size: getSize("p");
+    line-height: getLineHeight("p");
+    color: getColor(_bupa, _grey);
+    &.no-margin {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1023px) {
+    .big-title {
+        font-size: 1.25em;
+        line-height: 120%;
+    }
+
+    .description {
+        font-size: 1.125em;
+        line-height: 150%;
+    }
+
+    .sub-description {
+        font-size: 0.875em;
+        line-height: 150%;
+    }
+}
+
+/*
+  Fade animation
+*/
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.white-background-color {
+    background-color: getColor(_bupa, _white);
+}
+
+.blue-background-color {
+    background-color: getColor(_carePlus, _blue-section);
+}
+
+.is-paddingless-vertical{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.align-self-center{
+    align-self: center;
+}

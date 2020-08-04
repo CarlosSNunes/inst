@@ -1,0 +1,70 @@
+/*
+  Bounce animation
+*/
+
+@mixin animatedBounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Firefox < 16 */
+    @-moz-keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes bounce {
+        0%,
+        100% {
+            -webkit-transform: translateY(0);
+        }
+        50% {
+            -webkit-transform: translateY(-5px);
+        }
+    }
+
+    /* Internet Explorer */
+    @-ms-keyframes bounce {
+        0%,
+        100% {
+            -webkit-transform: translateY(0);
+        }
+        50% {
+            -webkit-transform: translateY(-5px);
+        }
+    }
+
+    /* Opera < 12.1 */
+    @-o-keyframes bounce {
+        0%,
+        100% {
+            -webkit-transform: translateY(0);
+        }
+        50% {
+            -webkit-transform: translateY(-5px);
+        }
+    }
+}

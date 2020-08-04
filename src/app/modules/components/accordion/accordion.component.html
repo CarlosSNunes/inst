@@ -1,0 +1,17 @@
+<div class="columns ac">
+
+    <div class="column is-12">
+        <div class="accordion">
+            <div class="item" *ngFor="let item of questions; let i = index;">
+                <a [href]="'#acc' + i" class="acc-heading">{{item.title}}</a>
+
+                <section [attr.id]="'acc' + i" class="acc-content is-paddingless">
+                    <div class="inner">
+                        <h5> {{item.description}} </h5>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

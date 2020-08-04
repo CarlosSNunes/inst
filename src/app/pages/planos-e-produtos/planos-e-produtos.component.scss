@@ -1,0 +1,218 @@
+@import "~src/scss/_variables";
+
+.get-price-box {
+    position: fixed;
+    width: 280px;
+    height: 60px;
+    background-color: getColor(_carePlus, _light-green);
+    display: flex;
+    padding: 21.5px 32px;
+    right: 144px;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 1;
+
+    .text {
+        align-self: center;
+        margin: 0;
+        color: getColor(_bupa, _navy);
+        font-size: getSize("sbm");
+        line-height: getLineHeight("sbm");
+    }
+
+    img {
+        position: absolute;
+        right: 16px;
+        align-self: center;
+    }
+}
+
+.anchor-buttons {
+    height: 62px;
+    z-index: 202;
+    .container {
+        position: relative;
+        .buttons-box {
+            z-index: 203;
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            width: 504px;
+            height: 82px;
+            background-color: getColor(_bupa, _white);
+            border-radius: 2px;
+            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black-rgb), 0.25);
+            display: flex;
+
+            a {
+                flex: 0 0 calc(50% - 0.5px);
+                width: calc(50% - 0.5px);
+                height: 100%;
+                text-align: center;
+                font-size: getSize("p");
+                line-height: 82px;
+                color: getColor(_bupa, _black);
+
+                &:first-child {
+                    border-right: 0.5px solid getColor(_bupa, _grey-3);
+                }
+
+                &:last-child {
+                    border-left: 0.5px solid getColor(_bupa, _grey-3);
+                }
+            }
+        }
+    }
+}
+
+section {
+    &#simulateYourPlan {
+        .container {
+            .small-title {
+                text-align: center;
+            }
+
+            .big-title {
+                margin: 0 auto;
+                text-align: center;
+                max-width: 800px;
+            }
+        }
+
+        .background {
+            background-image: getImage("simulate-your-plan-banner.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 520px;
+            margin-top: 56px;
+            padding: 68px 0;
+            .container {
+                .info-card {
+                    width: 384px;
+                    height: 100%;
+                    background-color: getColor(_bupa, _white);
+                    padding: 36px 28px;
+                    float: right;
+
+                    .info-card-title {
+                        font-weight: normal;
+                        font-size: getSize("mbt");
+                        line-height: getLineHeight("mbt");
+                        color: getColor(_bupa, _digital-cian);
+                    }
+
+                    .sub-description {
+                        margin-top: 16px;
+                    }
+
+                    .btn {
+                        margin-top: 32px;
+                    }
+                }
+            }
+        }
+    }
+
+    &#plans {
+        .container {
+            .columns {
+                .column {
+                    .small-title {
+                        text-align: center;
+                    }
+
+                    .big-title {
+                        max-width: 592px;
+                        margin: 8px auto 0 auto;
+                        text-align: center;
+                    }
+
+                    .sub-description {
+                        max-width: 592px;
+                        margin: 32px auto 0 auto;
+                        text-align: center;
+                    }
+                }
+
+                &:not(.plans-columns) {
+                    margin-bottom: 0;
+                    .column {
+                        padding-bottom: 0;
+                    }
+                }
+
+                &.plans-columns {
+                    .column {
+                        padding-top: 60px;
+                        padding-bottom: 60px;
+
+                        &:first-child {
+                            padding-top: 100px;
+                        }
+
+                        &:last-child {
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#simulateYourPlan {
+            .background {
+                .container {
+                    .info-card {
+                        .btn-text {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .get-price-box {
+        top: unset;
+        bottom: 84px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        position: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        &#simulateYourPlan {
+            .background {
+                height: auto;
+                .container {
+                    .info-card {
+                        width: 100%;
+                        float: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 504px) {
+    .anchor-buttons {
+        height: 112px;
+        .container {
+            .buttons-box {
+                width: 100%;
+                transform: translateY(0%);
+                margin-top: 30px;
+            }
+        }
+    }
+}

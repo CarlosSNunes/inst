@@ -1,0 +1,20 @@
+<app-header *ngIf="width >= 1400"></app-header>
+<app-header-mobile *ngIf="width < 1400"></app-header-mobile>
+<section class="section no-margin principal-section">
+    <nav *ngIf="routes?.length > 0" class="breadcrumb is-small" aria-label="breadcrumbs">
+        <ul>
+            <li [ngClass]="{'is-invisible': routes?.length === 0}">
+                <a [routerLink]="['/']">
+                    Home
+                </a>
+            </li>
+            <li *ngFor="let route of routes; last as isLast;" [ngClass]="{'is-active': isLast}">
+                <a [routerLink]="[route.rota, route.parametros]">
+                    {{route.descricao}}
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+</section>
+<app-footer></app-footer>

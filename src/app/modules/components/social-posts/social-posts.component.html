@@ -1,0 +1,53 @@
+<section id="socialPosts" [ngClass]="backgroundColorClass">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-full">
+                    <p class="section-breadcrumb">REDES SOCIAIS</p>
+                    <h4 class="title">Care Plus na mídia</h4>
+                </div>
+            </div>
+            <div class="columns flex-wrap">
+                <div class="column is-2 is-full-mobile is-half-tablet-only" *ngFor="let post of posts">
+                    <a class="post" [attr.href]="post.link" target="_blank">
+                        <img [src]="post.url" alt="Post url">
+                    </a>
+                </div>
+                <div class="column is-2 is-full-mobile is-half-tablet-only media-box">
+                    <div class="social-media-box">
+                        <div class="columns flex-wrap">
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a href="https://www.instagram.com/careplusoficial/" target="_blank">
+                                        <img src="assets/svg/instagram.svg" alt="Instagram">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a href="https://www.facebook.com/careplusnarede/" target="_blank">
+                                        <img src="assets/svg/facebook.svg" alt="Facebook">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a href="https://www.youtube.com/user/careplusnarede" target="_blank">
+                                        <img src="assets/svg/youtube.svg" alt="Youtube">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a href="https://br.linkedin.com/company/care-plus" target="_blank">
+                                        <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

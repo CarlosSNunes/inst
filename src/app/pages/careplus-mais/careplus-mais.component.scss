@@ -1,0 +1,278 @@
+@import "~src/scss/_variables";
+
+section {
+    &#careplusPlusFilters {
+        .container {
+            .columns {
+                .column {
+                    &.filter-box {
+                        position: relative;
+                        .filters {
+                            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black-rgb), 0.25);
+                            background-color: getColor(_bupa, _white);
+                            border-radius: 2px;
+                            position: absolute;
+                            top: 0;
+                            left: 16px;
+                            width: calc(100% - 32px);
+                            padding: 28px 24px;
+                            transform: translateY(-50%);
+                            form {
+                                .columns {
+                                    display: flex;
+                                    .column {
+                                        align-self: center;
+                                        display: inline-flex;
+                                        flex-wrap: wrap;
+                                        padding: 0;
+                                        padding-left: 16px;
+                                        padding-right: 16px;
+
+                                        &:first-child {
+                                            padding-left: 0;
+                                        }
+
+                                        &:last-child {
+                                            margin-right: 0px;
+                                            padding-right: 0;
+                                        }
+
+                                        .filter-title {
+                                            font-weight: 600;
+                                            font-size: getSize("p");
+                                            line-height: 100%;
+                                            width: 100%;
+                                            flex: 0 0 100%;
+                                            letter-spacing: 3.5px;
+                                            color: getColor(_bupa, _navy);
+                                        }
+
+                                        .category-filter {
+                                            width: 100%;
+                                            flex: 0 0 100%;
+                                            display: flex;
+                                            justify-content: space-between;
+                                            li {
+                                                display: inline;
+                                                margin: 8px 0;
+
+                                                a {
+                                                    font-weight: normal;
+                                                    font-size: getSize("p");
+                                                    line-height: getLineHeight("p");
+                                                    color: getColor(_bupa, _grey-2);
+
+                                                    &.active {
+                                                        font-weight: 500;
+                                                        color: getColor(_bupa, _grey);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .field {
+                                            max-width: 100%;
+                                            width: 100%;
+                                            display: block;
+                                            height: 56px;
+                                            .control {
+                                                display: flex;
+                                                width: 100%;
+
+                                                input:not([type="radio"]) {
+                                                    min-width: 100px;
+                                                }
+                                            }
+
+                                            .is-search {
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    app-banner ::ng-deep {
+        .section.home-banner {
+            height: 450px;
+            #carouselBanner {
+                @media (min-width: 1024px) {
+                    height: 450px !important;
+                }
+                .item {
+                    height: 450px;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .container.breadcrumb-container {
+                        width: 100%;
+                        flex: 0 0 100%;
+                    }
+                    .container:not(.breadcrumb-container) {
+                        // align-self: center;
+                        width: 100%;
+                        flex: 0 0 100%;
+
+                        .banner-home-description {
+                            padding-top: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    ::ng-deep {
+        #lastPosts {
+            padding-bottom: 0;
+
+            .column:last-child {
+                padding-bottom: 0;
+            }
+
+            ::ng-deep app-newsletter {
+                #newsletter {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        section.cross-content-section {
+            padding-top: 0;
+            .container {
+                .columns {
+                    .column {
+                        padding-top: 0;
+                    }
+                }
+                .content-info {
+                    margin-top: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    section {
+        &#careplusPlusFilters {
+            .container {
+                .columns {
+                    .column {
+                        &.filter-box {
+                            .filters {
+                                form {
+                                    .columns {
+                                        .column {
+                                            .category-filter {
+                                                li {
+                                                    min-width: 70px;
+
+                                                    a {
+                                                        display: block;
+                                                        margin: 0 auto;
+                                                        text-align: center;
+                                                    }
+
+                                                    &:first-child {
+                                                        a {
+                                                            text-align: left;
+                                                            margin: unset;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    app-banner {
+        ::ng-deep {
+            .section.home-banner {
+                height: calc(100vh - 156px);
+                #carouselBanner {
+                    height: calc(100vh - (156px + 224px));
+                    .item {
+                        height: calc(100vh - (156px + 224px));
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+        }
+    }
+    section {
+        &#careplusPlusFilters {
+            .container {
+                padding: 0;
+                .columns {
+                    padding: 0;
+                    .column {
+                        padding: 0;
+                        &.filter-box {
+                            .filters {
+                                position: initial;
+                                transform: unset;
+                                margin: 0;
+                                width: 100%;
+                                box-shadow: unset;
+                                padding: 30px 16px;
+
+                                form {
+                                    .columns {
+                                        flex-wrap: wrap;
+                                        .column {
+                                            padding: 0 16px;
+                                            width: 100%;
+                                            flex: 0 0 100%;
+
+                                            &:first-child {
+                                                padding-left: 16px;
+                                            }
+
+                                            &:last-child {
+                                                padding-right: 16px;
+                                            }
+
+                                            .category-filter {
+                                                margin-top: 20px;
+                                                justify-content: unset;
+                                                flex-wrap: wrap;
+                                                li {
+                                                    width: 100%;
+                                                    flex: 0 0 100%;
+                                                }
+                                            }
+
+                                            .field {
+                                                margin-top: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

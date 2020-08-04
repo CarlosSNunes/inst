@@ -1,0 +1,79 @@
+@import "~src/scss/_variables";
+@import "~src/scss/_animations";
+
+section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 450px;
+    padding: 60px 0 0 0;
+    &.hasFilters {
+        padding: 60px 0;
+    }
+
+    .container {
+        height: 390px;
+        .banner-content {
+            .sub-description {
+                max-width: 382px;
+                font-weight: 500;
+            }
+        }
+
+        .mouse-image {
+            position: absolute;
+            bottom: 0;
+            left: 32px;
+            cursor: pointer;
+            @include animatedBounce();
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        height: 350px;
+        padding: 30px 0 0 0;
+        &.hasFilters {
+            padding: 30px 0;
+        }
+        .container {
+            height: 320px;
+            .banner-content {
+                .big-title {
+                    margin-top: 50px;
+                }
+                .sub-description {
+                    max-width: 382px;
+                    font-weight: 500;
+                }
+            }
+
+            .mouse-image {
+                position: absolute;
+                bottom: 15px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                cursor: pointer;
+                @include animatedBounce();
+            }
+
+            .hasFilters {
+                .banner-content {
+                    .big-title {
+                        margin-top: 8px;
+                    }
+                    .sub-description {
+                        margin-top: 16px;
+                    }
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

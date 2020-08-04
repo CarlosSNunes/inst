@@ -1,0 +1,58 @@
+@import "~src/scss/_variables";
+
+section#contact {
+    padding: 80px 0;
+    background: getColor(_carePlus, _light-blue);
+    .title {
+        color: getColor(_bupa, _navy);
+        font-weight: 600;
+        width: 384px;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+
+    .cards {
+        margin-top: 71px;
+        .phone-description {
+            font-size: getSize("mbt");
+            line-height: getLineHeight("mbt");
+            color: getColor(_bupa, _grey);
+            font-weight: normal;
+            span {
+                &.contact-info {
+                    a {
+                        color: getColor(_bupa, _grey);
+                        cursor: pointer;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                &.info {
+                    display: block;
+                    font-size: getSize("sbm");
+                    line-height: getLineHeight("sbm");
+                    font-weight: normal;
+                }
+            }
+        }
+
+        .phone ::ng-deep app-card{
+            img{
+                top: -23px;
+                height: 46px;
+                max-height: 46px;
+                
+            }
+        }
+    }
+    .button-column {
+        padding: 0;
+        margin-top: 45px;
+        #button {
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}

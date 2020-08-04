@@ -1,0 +1,23 @@
+.go-section-back {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 48px !important;
+    height: 48px !important;
+    z-index: 100;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    svg {
+        position: absolute;
+    }
+
+    * {
+        color: #ffffff;
+        fill: #ffffff;
+    }
+}
+
+.has-text-centered {
+    justify-content: center;
+}

@@ -1,0 +1,103 @@
+@import "~src/scss/_variables";
+
+section#appCareplus {
+    position: relative;
+    margin: 60px 0;
+
+    .container {
+        .columns {
+            .column {
+                &.image {
+                    position: relative;
+                    .cellphone {
+                        position: absolute;
+                        top: -108px;
+                        left: 0;
+                        width: 400px;
+                    }
+                }
+
+                .infos {
+                    margin-top: 30px;
+                    li {
+                        font-size: getSize("p");
+                        line-height: 200%;
+                        color: getColor(_bupa, _grey);
+                        display: flex;
+                        position: relative;
+                        padding-left: 32px;
+
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            background-image: getSvg("list-star.svg");
+                            width: 19px;
+                            height: 19px;
+                            align-self: center;
+                            left: 0;
+                        }
+                    }
+                }
+
+                .app-stores-box {
+                    margin-top: 57px;
+                    width: 100%;
+                    display: flex;
+                    a {
+                        width: 176px;
+                        height: 52px;
+
+                        &.app-store {
+                            margin-left: 32px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#appCareplus {
+        margin: 0;
+        .container {
+            .columns {
+                &.principal {
+                    flex-direction: column-reverse;
+                    display: flex;
+                }
+                .column {
+                    &.image {
+                        .cellphone {
+                            position: relative;
+                            top: unset;
+                            left: unset;
+                            width: 100%;
+                            max-width: 400px;
+                            height: auto;
+                        }
+                    }
+
+                    &.mobile-store-infos {
+                        position: relative;
+                        .store-infos {
+                            position: absolute;
+                            bottom: 16px;
+                            a {
+                                display: block;
+
+                                &.play-store {
+                                    margin-top: 9px;
+                                }
+
+                                &.app-store {
+                                    margin-top: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

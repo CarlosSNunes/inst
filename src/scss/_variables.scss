@@ -1,0 +1,266 @@
+/* All default colors */
+$color-map: (
+    _bupa: (
+        
+        // Hexadecimal background colors
+      
+        _digital-cian: var(--bupa_digital-cian),
+        _navy: var(--bupa_navy),
+        _purple: var(--bupa_purple),
+        _violet: var(--bupa_violet),
+        _fuchsia: var(--bupa_fuchsia),
+        _burgundy: var(--bupa_burgundy),
+        _digital-orange: var(--bupa_digital-orange),
+        _green: var(--bupa_green),
+        _dark-green: var(--bupa_dark-green),
+        _digital-lime: var(--bupa_digital-lime),
+        _grey: var(--bupa_grey),
+        _grey-2: var(--bupa_grey-2),
+        _grey-3: var(--bupa_grey-3),
+        _grey-4: var(--bupa_grey-4),
+        _grey-5: var(--bupa_grey-5),
+        _white: var(--bupa_white),
+        _black: var(--bupa_black),
+        _blue-menu: var(--bupa_blue-menu),
+
+        // Rgb colors
+        
+        _digital-cian-rgb: var(--bupa_digital-cian-rgb),
+        _navy-rgb: var(--bupa_navy-rgb),
+        _purple-rgb: var(--bupa_purple-rgb),
+        _violet-rgb: var(--bupa_violet-rgb),
+        _fuchsia-rgb: var(--bupa_fuchsia-rgb),
+        _burgundy-rgb: var(--bupa_burgundy-rgb),
+        _digital-orange-rgb: var(--bupa_digital-orange-rgb),
+        _green-rgb: var(--bupa_green-rgb),
+        _dark-green-rgb: var(--bupa_dark-green-rgb),
+        _digital-lime-rgb: var(--bupa_digital-lime-rgb),
+        _grey-rgb: var(--bupa_grey-rgb),
+        _grey-2-rgb: var(--bupa_grey-2-rgb),
+        _grey-3-rgb: var(--bupa_grey-3-rgb),
+        _grey-4-rgb: var(--bupa_grey-4-rgb),
+        _grey-5-rgb: var(--bupa_grey-5-rgb),
+        _white-rgb: var(--bupa_white-rgb),
+        _black-rgb: var(--bupa_black-rgb),
+        _blue-menu-rgb: var(--bupa_blue-menu-rgb),
+
+        // Hexadecimal background colors
+
+        _digital-cian-background: var(--bupa_digital-cian-background),
+        _navy-background: var(--bupa_navy-background),
+        _purple-background: var(--bupa_purple-background),
+        _violet-background: var(--bupa_violet-background),
+        _fuchsia-background: var(--bupa_fuchsia-background),
+        _burgundy-background: var(--bupa_burgundy-background),
+        _digital-orange-background: var(--bupa_digital-orange-background),
+        _green-background: var(--bupa_green-background),
+        _dark-green-background: var(--bupa_dark-green-background),
+        _digital-lime-background: var(--bupa_digital-lime-background),
+        _grey-background: var(--bupa_grey-background),
+        _grey-2-background: var(--bupa_grey-2-background),
+        _grey-3-background: var(--bupa_grey-3-background),
+        _grey-4-background: var(--bupa_grey-4-background),
+        _grey-5-background: var(--bupa_grey-5-background),
+        _white-background: var(--bupa_white-background),
+        _black-background: var(--bupa_black-background),
+        _blue-menu-background: var(--bupa_blue-menu-background),
+
+        // Rgb background colors
+        
+        _digital-cian-rgb-background: var(--bupa_digital-cian-rgb-background),
+        _navy-rgb-background: var(--bupa_navy-rgb-background),
+        _purple-rgb-background: var(--bupa_purple-rgb-background),
+        _violet-rgb-background: var(--bupa_violet-rgb-background),
+        _fuchsia-rgb-background: var(--bupa_fuchsia-rgb-background),
+        _burgundy-rgb-background: var(--bupa_burgundy-rgb-background),
+        _digital-orange-rgb-background: var(--bupa_digital-orange-rgb-background),
+        _green-rgb-background: var(--bupa_green-rgb-background),
+        _dark-green-rgb-background: var(--bupa_dark-green-rgb-background),
+        _digital-lime-rgb-background: var(--bupa_digital-lime-rgb-background),
+        _grey-rgb-background: var(--bupa_grey-rgb-background),
+        _grey-2-rgb-background: var(--bupa_grey-2-rgb-background),
+        _grey-3-rgb-background: var(--bupa_grey-3-rgb-background),
+        _grey-4-rgb-background: var(--bupa_grey-4-rgb-background),
+        _grey-5-rgb-background: var(--bupa_grey-5-rgb-background),
+        _white-rgb-background: var(--bupa_white-rgb-background),
+        _black-rgb-background: var(--bupa_black-rgb-background),
+        _blue-menu-rgb-background: var(--bupa_blue-menu-rgb-background),
+    ),
+    _carePlus: (
+        // Hexadecimal colors
+        _green: var(--carePlus_green),
+        _light-green: var(--carePlus_light-green),
+        _light-blue: var(--carePlus_light-blue),
+        _dark-green: var(--carePlus_dark-green),
+        _blue-btn-text: var(--carePlus_blue-btn-text),
+        _error: var(--carePlus_error),
+        _valid: var(--carePlus_valid),
+        _drop-down-option: var(--carePlus_drop-down-option),
+        _checkbox-border: var(--carePlus_checkbox-border),
+        _warning: var(--carePlus_warning),
+        _success: var(--carePlus_success),
+        _blue-section: var(--carePlus_blue-section),
+        _grey_inactive_tab: var(--carePlus_grey_inactive_tab),
+        _grey-5: var(--carePlus_grey-5),
+         // Hexadecimal background colors
+        _green-background: var(--carePlus_green-background),
+        _light-green-background: var(--carePlus_light-green-background),
+        _light-blue-background: var(--carePlus_light-blue-background),
+        _dark-green-background: var(--carePlus_dark-green-background),
+        _blue-btn-text-background: var(--carePlus_blue-btn-text-background),
+        _error-background: var(--carePlus_error-background),
+        _valid-background: var(--carePlus_valid-background),
+        _drop-down-option-background: var(--carePlus_drop-down-option-background),
+        _checkbox-border-background: var(--carePlus_checkbox-border-background),
+        _warning-background: var(--carePlus_warning-background),
+        _success-background: var(--carePlus_success-background),
+        _blue-section-background: var(--carePlus_blue-section-background),
+        _grey_inactive_tab-background: var(--carePlus_grey_inactive_tab-background),
+        _grey-5-rgb: var(--carePlus_grey-5-rgb),
+
+        // Rgb colors
+        
+        _green-rgb: var(--carePlus_green-rgb),
+        _light-green-rgb: var(--carePlus_light-green-rgb),
+        _light-blue-rgb: var(--carePlus_light-blue-rgb),
+        _dark-green-rgb: var(--carePlus_dark-green-rgb),
+        _blue-btn-text-rgb: var(--carePlus_blue-btn-text-rgb),
+        _error-rgb: var(--carePlus_error-rgb),
+        _valid-rgb: var(--carePlus_valid-rgb),
+        _drop-down-option-rgb: var(--carePlus_drop-down-option-rgb),
+        _checkbox-border-rgb: var(--carePlus_checkbox-border-rgb),
+        _warning-rgb: var(--carePlus_warning-rgb),
+        _success-rgb: var(--carePlus_success-rgb),
+        _grey_inactive_tab-rgb: var(--carePlus_grey_inactive_tab-rgb),
+
+        // Rgb background colors
+
+        _green-rgb-background: var(--carePlus_green-rgb-background),
+        _light-green-rgb-background: var(--carePlus_light-green-rgb-background),
+        _light-blue-rgb-background: var(--carePlus_light-blue-rgb-background),
+        _dark-green-rgb-background: var(--carePlus_dark-green-rgb-background),
+        _blue-btn-text-rgb-background: var(--carePlus_blue-btn-text-rgb-background),
+        _error-rgb-background: var(--carePlus_error-rgb-background),
+        _valid-rgb-background: var(--carePlus_valid-rgb-background),
+        _drop-down-option-rgb-background: var(--carePlus_drop-down-option-rgb-background),
+        _checkbox-border-rgb-background: var(--carePlus_checkbox-border-rgb-background),
+        _warning-rgb-background: var(--carePlus_warning-rgb-background),
+        _success-rgb-background: var(--carePlus_success-rgb-background),
+        _grey_inactive_tab-rgb-background: var(--carePlus_grey_inactive_tab-rgb-background),
+    ),
+    _bottom-line: (
+        // Hexadecimal colors
+        _light-green: var(--bottom-line_light-green),
+        _dark-green: var(--bottom-line_dark-green),
+
+        // Hexadecimal background colors
+        _light-green-background: var(--bottom-line_light-green-background),
+        _dark-green-background: var(--bottom-line_dark-green-background),
+
+        // Rgb colors
+
+        _light-green-rgb: var(--bottom-line_light-green-rgb),
+        _dark-green-rgb: var(--bottom-line_dark-green-rgb),
+
+        // Rgb background colors
+
+        _light-green-rgb-background: var(--bottom-line_light-green-rgb-background),
+        _dark-green-rgb-background: var(--bottom-line_dark-green-rgb-background),
+    ),
+);
+
+$asset-base-path: "~src/assets";
+
+/* Default font */
+$mainFont: "Montserrat";
+
+/* The default font size for html is 16px */
+$base-size: 16;
+
+/* A function to get color from color map */
+@function getColor($color, $shade: "base", $map: $color-map) {
+    // check color exists
+    @if (map-has-key($map, $color)) {
+        $value: map-get($map, unquote($color));
+        // check if color or map
+        @if type-of($value) == function {
+            // return color
+            @return $value;
+        }
+        // check shade of color exists
+        @if (map-has-key($value, $shade)) {
+            // return shade of color
+            @return map-get($value, $shade);
+        }
+    }
+    // else do nothing
+    @return null;
+}
+
+/* A function to create all type of assets path */
+@function asset($type, $file) {
+    @return url($asset-base-path + "/" + $type + "/" + $file);
+}
+
+/* A function to create image Path */
+@function getImage($file) {
+    @return asset("img", $file);
+}
+
+/* A function to create svg Path */
+@function getSvg($file) {
+    @return asset("svg", $file);
+}
+
+@function getSize($tag) {
+    @if $tag == "h1" {
+        @return (56 / $base-size) * 1em;
+    }
+    @if $tag == "h2" {
+        @return (48 / $base-size) * 1em;
+    }
+    @if $tag == "h3" {
+        @return (40 / $base-size) * 1em;
+    }
+    @if $tag == "h4" {
+        @return (32 / $base-size) * 1em;
+    }
+    @if $tag == "mbt" {
+        @return (24 / $base-size) * 1em;
+    }
+    @if $tag == "p" {
+        @return (16 / $base-size) * 1em;
+    }
+    @if $tag == "sbm" {
+        @return (12 / $base-size) * 1em;
+    }
+    @if $tag == "cta" {
+        @return (16 / $base-size) * 1em;
+    }
+}
+@function getLineHeight($tag) {
+    @if $tag == "h1" {
+        @return 120%;
+    }
+    @if $tag == "h2" {
+        @return 120%;
+    }
+    @if $tag == "h3" {
+        @return 120%;
+    }
+    @if $tag == "h4" {
+        @return 120%;
+    }
+    @if $tag == "mbt" {
+        @return 150%;
+    }
+    @if $tag == "p" {
+        @return 150%;
+    }
+    @if $tag == "sbm" {
+        @return 150%;
+    }
+    @if $tag == "cta" {
+        @return 150%;
+    }
+}

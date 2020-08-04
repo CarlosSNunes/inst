@@ -1,0 +1,57 @@
+@import "~src/scss/_variables";
+@import "~src/scss/_animations";
+
+section {
+    &#premiosECertificacoesPremiosSection {
+        padding-top: 120px;
+        .container {
+            .big-title {
+                max-width: 614px;
+            }
+
+            .cards {
+                margin-top: 70px;
+            }
+        }
+    }
+
+    &#premiosECertificacoesCertificationsSection {
+        .container {
+            .big-title {
+                max-width: 614px;
+            }
+
+            .cards {
+                margin-top: 70px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#premiosECertificacoesPremiosSection {
+            padding-top: 60px;
+            .container {
+                .cards {
+                    margin-top: 30px;
+                    .column {
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                    }
+                }
+            }
+        }
+        &#premiosECertificacoesCertificationsSection {
+            .container {
+                .cards {
+                    margin-top: 30px;
+                    .column {
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

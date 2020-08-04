@@ -1,0 +1,285 @@
+@import "~src/scss/_variables";
+
+section {
+    &#aCareplusMainContent {
+        position: relative;
+
+        &::before {
+            background: linear-gradient(
+                to right,
+                getColor(_bupa, _digital-cian) 60%,
+                getColor(_bottom-line, _dark-green) 60%,
+                getColor(_bottom-line, _dark-green) 80%,
+                getColor(_bottom-line, _light-green) 80%
+            );
+            content: "";
+            position: absolute;
+            height: 4px;
+            left: 0;
+            top: 260px;
+            width: 33.33%;
+        }
+
+        .container {
+            .main-title {
+                font-weight: 500;
+                font-size: getSize("h4");
+                line-height: 150%;
+                color: getColor(_bupa, _navy);
+                max-width: 696px;
+            }
+            .section-text {
+                color: getColor(_bupa, _black);
+            }
+
+            .main-section-image {
+                margin-top: 90px;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            .columns {
+                &:not(:last-child) {
+                    margin-bottom: 0;
+                }
+
+                .column {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+
+                &.our-numbers {
+                    margin-top: 90px;
+                    transition: transform 0.8s ease-in-out;
+                    transform: translateY(20%);
+
+                    &.animate {
+                        transform: translateY(0%);
+                    }
+
+                    .column {
+                        &.has-line {
+                            position: relative;
+                            &::before {
+                                background: linear-gradient(
+                                    to left,
+                                    getColor(_bupa, _digital-cian) 60%,
+                                    getColor(_bottom-line, _dark-green) 60%,
+                                    getColor(_bottom-line, _dark-green) 80%,
+                                    getColor(_bottom-line, _light-green) 80%
+                                );
+                                content: "";
+                                position: absolute;
+                                height: 4px;
+                                left: -30px;
+                                transform: translateX(-100%);
+                                top: 70px;
+                                width: 126px;
+                            }
+                        }
+
+                        .description {
+                            margin-top: 0;
+                        }
+                    }
+                }
+
+                &.infos-cols {
+                    margin-top: 120px;
+                    transition: transform 0.8s ease-in-out;
+                    transform: translateY(20%);
+
+                    &.animate {
+                        transform: translateY(0%);
+                    }
+
+                    .first-title {
+                        font-size: getSize("mbt");
+                        line-height: getLineHeight("mbt");
+                        text-align: center;
+                        color: getColor(_bupa, _grey-1);
+                    }
+                    .col-title {
+                        margin-top: 10px;
+                        color: getColor(_bupa, _digital-cian);
+                        font-weight: 600;
+                        .small {
+                            font-size: 0.6666em;
+                        }
+                    }
+
+                    .subtitle {
+                        margin-top: 4px;
+                        font-weight: normal;
+                        font-size: getSize("mbt");
+                        line-height: getLineHeight("mbt");
+                        text-align: center;
+                        color: getColor(_bupa, _grey);
+                    }
+
+                    .content {
+                        margin-top: 40px;
+                        font-weight: normal;
+                        font-size: getSize("p");
+                        line-height: getLineHeight("p");
+                        text-align: center;
+                        color: getColor(_bupa, _grey);
+                    }
+                }
+            }
+        }
+    }
+
+    &#aCareplusAboutBupa {
+        .container {
+            position: relative;
+            .bupa-logo {
+                width: 72px;
+                height: 72px;
+                transition: transform 0.8s ease-in-out;
+                transform: translateY(100px);
+
+                &.animate {
+                    transform: translateY(0%);
+                }
+            }
+
+            .description {
+                font-weight: normal;
+
+                &.has-line {
+                    position: relative;
+                    &::before {
+                        background: linear-gradient(
+                            to left,
+                            getColor(_bupa, _digital-cian) 60%,
+                            getColor(_bottom-line, _dark-green) 60%,
+                            getColor(_bottom-line, _dark-green) 80%,
+                            getColor(_bottom-line, _light-green) 80%
+                        );
+                        content: "";
+                        position: absolute;
+                        height: 4px;
+                        left: -30px;
+                        transform: translateX(-100%);
+                        top: 50px;
+                        width: 126px;
+                    }
+                }
+            }
+
+            .about-bupa {
+                transition: transform 0.8s ease-in-out;
+                transform: translateY(20%);
+
+                &.animate {
+                    transform: translateY(0%);
+                }
+            }
+
+            .about-bupa-description {
+                transition: transform 0.8s ease-in-out;
+                transform: translateY(20%);
+
+                &.animate {
+                    transform: translateY(0%);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#aCareplusMainContent {
+            &::before {
+                content: unset;
+            }
+            .container {
+                .main-title {
+                    position: relative;
+                    max-width: 100%;
+                    font-size: 1.125em;
+                    margin-bottom: 40px;
+                    &::before {
+                        background: linear-gradient(
+                            to right,
+                            getColor(_bupa, _digital-cian) 60%,
+                            getColor(_bottom-line, _dark-green) 60%,
+                            getColor(_bottom-line, _dark-green) 80%,
+                            getColor(_bottom-line, _light-green) 80%
+                        );
+                        content: "";
+                        position: absolute;
+                        height: 4px;
+                        left: -32px;
+                        bottom: -16px;
+                        width: 33.33%;
+                    }
+                }
+
+                .main-section-image {
+                    margin-top: 30px;
+                }
+
+                .columns {
+                    &.our-numbers {
+                        margin-top: 30px;
+                        .column {
+                            .description {
+                                margin-top: 16px;
+                            }
+                        }
+                    }
+
+                    &.infos-cols {
+                        margin-top: 30px;
+
+                        .column {
+                            margin-top: 20px;
+                            &:first-child {
+                                margin-top: 0;
+                            }
+                        }
+
+                        .first-title {
+                            font-size: 1.125em;
+                        }
+
+                        .col-title {
+                            font-size: 3em;
+                            .small {
+                                font-size: 0.6666em;
+                            }
+                        }
+
+                        .subtitle {
+                            font-size: 1.125em;
+                        }
+
+                        .content {
+                            font-size: 0.875em;
+                            margin-top: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    section {
+        &#aCareplusAboutBupa {
+            .container {
+                .description {
+                    &.has-line {
+                        &::before {
+                            content: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

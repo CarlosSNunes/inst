@@ -1,0 +1,24 @@
+<section [ngStyle]="simpleBannerModel?.image ? { 'background-image' :'url(' + simpleBannerModel?.image + ')' } : {}"
+    [class.hasFilters]="simpleBannerModel?.hasFilters">
+    <article>
+        <div class="container">
+            <div class="columns" [class.hasFilters]="simpleBannerModel?.hasFilters">
+                <div class="column" *ngIf="simpleBannerModel?.breadcrumbs?.length > 0">
+                    <app-breadcrumb [breadcrumbs]="simpleBannerModel?.breadcrumbs"></app-breadcrumb>
+                </div>
+            </div>
+            <div class="columns" [class.hasFilters]="simpleBannerModel?.hasFilters">
+                <div class="column banner-content" *ngIf="simpleBannerModel?.title">
+                    <h4 class="big-title">
+                        {{simpleBannerModel?.title}}
+                    </h4>
+                    <p class="sub-description" *ngIf="simpleBannerModel?.description">
+                        {{simpleBannerModel?.description}}
+                    </p>
+                </div>
+            </div>
+            <img *ngIf="simpleBannerModel?.hasAnchor" src="assets/svg/mouse-blue.svg" class="mouse-image"
+                (click)="goToNextSection.emit()" alt="Ir para próxima seção.">
+        </div>
+    </article>
+</section>

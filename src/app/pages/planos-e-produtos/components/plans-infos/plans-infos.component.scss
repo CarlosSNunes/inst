@@ -1,0 +1,163 @@
+@import "~src/scss/_variables";
+
+section#plansDetails {
+    article {
+        .container {
+            .plan-tabs {
+                list-style: none;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                li {
+                    position: relative;
+                    display: inline-block;
+                    margin-left: 48px;
+                    font-size: getSize("mbt");
+                    line-height: getLineHeight("mbt");
+                    color: getColor(_bupa, _grey-2);
+                    font-weight: normal;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: color 0.3s ease-in-out;
+
+                    &::before {
+                        content: "";
+                        transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+                        height: 2px;
+                        width: 0;
+                        background-color: getColor(_carePlus, _green);
+                        bottom: 0;
+                        left: 50%;
+                        position: absolute;
+                    }
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    &.active {
+                        font-weight: 600;
+                        color: getColor(_bupa, _navy);
+
+                        &::before {
+                            content: "";
+                            height: 2px;
+                            width: 100%;
+                            background-color: getColor(_carePlus, _green);
+                            bottom: 0;
+                            left: 0;
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+
+            ::ng-deep app-card {
+                .content {
+                    .card.default {
+                        padding: 35px;
+                        .card-content {
+                            padding: 0;
+
+                            .card-title {
+                                font-weight: normal;
+                                font-size: getSize("mbt");
+                                line-height: getLineHeight("mbt");
+                                color: getColor(_bupa, _digital-cian);
+                                margin-bottom: 0;
+                            }
+
+                            .card-description {
+                                margin-top: 8px;
+                                font-weight: normal;
+                                font-size: getSize("p");
+                                line-height: getLineHeight("p");
+                                color: getColor(_bupa, _black);
+                                margin-bottom: 0;
+                            }
+
+                            .card-items {
+                                margin-top: 32px;
+                                list-style: none;
+                                margin-left: 0;
+
+                                li {
+                                    padding-left: 27px;
+                                    position: relative;
+                                    margin-top: 8px;
+                                    margin-bottom: 8px;
+                                    display: inline-block;
+
+                                    &:first-child {
+                                        margin-top: 0;
+                                    }
+
+                                    &:last-child {
+                                        margin-bottom: 0;
+                                    }
+
+                                    &::before {
+                                        position: absolute;
+                                        content: "";
+                                        width: 19px;
+                                        height: 19px;
+                                        left: 0;
+                                        top: 0;
+                                        background-image: getSvg("list-star.svg");
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                    }
+
+                                    p {
+                                        font-weight: normal;
+                                        color: getColor(_bupa, _grey);
+                                        margin: 0;
+
+                                        &.obs {
+                                            margin-top: 5px;
+                                            font-size: getSize("sbm");
+                                            line-height: getLingHeight("sbm");
+                                            color: getColor(_bupa, _grey);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            ::ng-deep app-plan-card {
+                .info-title {
+                    color: #ae9962;
+                }
+            }
+
+            .plan-card {
+                margin-top: 78px;
+            }
+
+            .cards {
+                margin-top: 24px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#plansDetails {
+        article {
+            .container {
+                .plan-tabs {
+                    li {
+                        font-size: 1.2em;
+                        padding-bottom: 5px;
+                        margin-left: 24px;
+                    }
+                }
+            }
+        }
+    }
+}

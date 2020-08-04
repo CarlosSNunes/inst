@@ -1,0 +1,33 @@
+<section id="contact">
+    <article>
+        <div class="container">
+            <h4 class="title">Para saber mais, entre em contato</h4>
+            <div class="columns cards flex-wrap">
+                <div class="column is-6">
+                    <app-card [card]="contactCard"></app-card>
+                </div>
+                <div class="column is-6 phone">
+                    <app-card [card]="phoneCard">
+                        <p class="phone-description">
+                            <span class="contact-info">
+                                <a href="tel:11 4197-9017" class="first-phone"> 4197-9017</a>
+                            </span>
+                            ou
+                            <span class="contact-info">
+                                <a href="tel:11 0800 771 1234" class="second-phone"> 0800 771 1234</a>
+                            </span>
+                            <span class="info">
+                                (para beneficiários que não residem em São Paulo).
+                            </span>
+                        </p>
+                    </app-card>
+                </div>
+                <div class="column is-12 button-column">
+                    <button #buttonElement id="button" class="btn btn-primary small" *ngIf="button">
+                        {{button.text}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

@@ -1,0 +1,16 @@
+section {
+    &#termosECondicoes {
+        .container {
+            .term-section {
+                margin-top: 22px;
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                .big-title {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}

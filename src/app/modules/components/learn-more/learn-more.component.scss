@@ -1,0 +1,55 @@
+@import "~src/scss/_variables";
+
+section#learnMore {
+    .small-title {
+        color: getColor(_bupa, _digital-cian);
+    }
+    .big-title {
+        color: getColor(_bupa, _navy);
+    }
+    .cards {
+        margin: 0;
+        margin-top: 95px;
+        .btn-text {
+            margin-top: 24px;
+            padding-left: 0;
+        }
+    }
+
+    .is-mobile {
+        overflow-x: auto;
+        .column {
+            min-width: 255px;
+        }
+    }
+
+    .btn-column {
+        margin: 0;
+        margin-top: 69px;
+        .learn-more-button {
+            margin-top: 69px;
+            margin: 0 auto;
+            display: block;
+            width: fit-content;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#learnMore {
+        .small-title {
+            text-align: center;
+        }
+        .big-title {
+            text-align: center;
+            font-size: 1.25em;
+            line-height: 120%;
+        }
+        .cards {
+            margin-top: 0px;
+        }
+        .btn-column {
+            margin-top: 32px;
+        }
+    }
+}

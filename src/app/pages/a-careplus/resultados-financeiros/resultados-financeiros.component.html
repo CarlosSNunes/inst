@@ -1,0 +1,68 @@
+<app-simple-banner [simpleBannerModel]="simpleBannerModel"></app-simple-banner>
+<section id="aCareplusFinancialReportsFilters">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column filter-box">
+                    <div class="filters">
+                        <form [formGroup]="filterForm">
+                            <div class="columns">
+                                <div class="column is-9-desktop is-full">
+                                    <app-dropdown [options]="dropDownOptions"
+                                        [default]="{ key: 'Todos', value: 'all' }"
+                                        (setFilter)="changeCategory($event); "></app-dropdown>
+                                </div>
+                                <!-- <div class="column is-5-desktop is-full">
+                                    <div class="field">
+                                        <p class="control has-icons-right">
+                                            <input [ngClass]="{ 'is-touched': form.search.value?.length > 0 }"
+                                                class="input" formControlName="search" name="search" type="text"
+                                                (keyup)="filter()">
+                                            <label class="label">Buscar</label>
+                                            <span class="icon is-small is-right has-tooltip-left"
+                                                data-tooltip="Digite aqui o nome do documento que deseja pesquisar">
+                                                <img src="assets/svg/search.svg" alt="">
+                                            </span>
+                                        </p>
+                                        <div *ngIf="form.search.touched && getErrors(form.search).length > 0"
+                                            class="errors">
+                                            <p *ngFor="let error of getErrors(form.search)" class="help is-danger">
+                                                {{error}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="column is-3-desktop is-full buttons">
+                                    <div class="images">
+                                        <img src="assets/svg/grid-menu-active.svg" class="grid" alt=""
+                                            [class.active]="menuStyle === 'grid'" (click)="changeMenuStyle('grid')">
+                                        <img src="assets/svg/grid-menu.svg" alt="" class="grid"
+                                            [class.active]="menuStyle === 'list'" (click)="changeMenuStyle('grid')">
+                                        <img src="assets/svg/list-menu-active.svg" alt=""
+                                            [class.active]="menuStyle === 'list'" class="list-image"
+                                            (click)="changeMenuStyle('list')">
+                                        <img src="assets/svg/list-menu.svg" alt="" class="list-image"
+                                            [class.active]="menuStyle === 'grid'" (click)="changeMenuStyle('list')">
+                                    </div>
+                                    <button class="btn btn-primary medium is-hidden-touch" (click)="filter()">
+                                        Filtrar
+                                    </button>
+                                    <button class="btn btn-text small is-hidden-desktop" (click)="filter()">
+                                        Filtrar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <app-documents *ngIf="menuStyle === 'grid'" [documents]="documentsFiltered"></app-documents>
+            <div class="columns" *ngIf="menuStyle === 'list'">
+                <div class="column is-12 list-table">
+                    <app-table [table]="table"></app-table>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<app-learn-more></app-learn-more>

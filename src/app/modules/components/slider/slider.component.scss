@@ -1,0 +1,205 @@
+@import "~src/scss/_variables";
+.image-slider {
+    margin-top: 50px;
+    ::ng-deep ng-image-slider {
+        .img-div {
+            cursor: pointer;
+            border-radius: 2px !important;
+            background: getColor(_bupa, _white);
+            opacity: 0.6;
+            border-bottom: 5px solid getColor(_bupa, _digital-cian);
+
+            &.active {
+                opacity: 1;
+            }
+
+            &:first-child {
+                margin-left: 0 !important;
+            }
+
+            &:last-child {
+                margin-right: 0 !important;
+            }
+
+            margin-left: 16px !important;
+            margin-right: 16px !important;
+
+            img {
+                max-height: 204px;
+                margin: 0 auto !important;
+                border-radius: 0 !important;
+                object-fit: cover;
+            }
+
+            .caption {
+                background-image: unset !important;
+                font-weight: normal !important;
+                font-size: getSize("mbt") !important;
+                line-height: getLineHeight("mbt") !important;
+                color: getColor(_bupa, _grey) !important;
+                padding: 32px 24px !important;
+            }
+        }
+    }
+
+    .arrows-box {
+        margin-top: 24px;
+        a {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            border: 1px solid getColor(_bupa, _digital-cian);
+            border-radius: 2px;
+            padding: 13px 9px;
+
+            &.disable {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            &.next {
+                margin-left: 18px;
+                img {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+.video-slider {
+    margin-top: 50px;
+    ::ng-deep ng-image-slider {
+        .img-div {
+            cursor: pointer;
+            border-radius: 2px !important;
+            background: getColor(_bupa, _white);
+            opacity: 0.6;
+            position: relative;
+            &.active {
+                opacity: 1;
+            }
+
+            &:first-child {
+                margin-left: 0 !important;
+            }
+
+            &:last-child {
+                margin-right: 0 !important;
+            }
+
+            margin-left: 16px !important;
+            margin-right: 16px !important;
+
+            &:before {
+                content: "";
+                width: 100%;
+                height: 5px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                background: linear-gradient(
+                    to right,
+                    getColor(_bupa, _digital-cian) 60%,
+                    getColor(_bottom-line, _dark-green) 60%,
+                    getColor(_bottom-line, _dark-green) 80%,
+                    getColor(_bottom-line, _light-green) 80%
+                );
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                display: block;
+                margin: 0 auto;
+                width: 72px;
+                height: 72px;
+                top: calc(50% - 36px);
+                background-image: getSvg("playVideo.svg");
+                background-size: contain;
+            }
+
+            img {
+                // max-height: 204px;
+                margin: 0 auto !important;
+                border-radius: 0 !important;
+                object-fit: cover;
+            }
+
+            .caption {
+                background-image: unset !important;
+                font-weight: normal !important;
+                font-size: getSize("mbt") !important;
+                line-height: getLineHeight("mbt");
+                color: getColor(_bupa, _white) !important;
+                padding: 0 !important;
+                text-align: unset !important;
+                top: 25px;
+                left: 29px;
+            }
+        }
+    }
+
+    .arrows-box {
+        margin-top: 24px;
+        a {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            border: 1px solid getColor(_bupa, _digital-cian);
+            border-radius: 2px;
+            padding: 13px 9px;
+
+            &.disable {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            &.next {
+                margin-left: 18px;
+                img {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .video-slider {
+        ::ng-deep ng-image-slider {
+            .img-div {
+                .caption {
+                    line-height: 120%;
+                }
+            }
+        }
+
+        .arrows-box {
+            margin-top: 24px;
+            a {
+                width: 38px;
+                height: 38px;
+                display: inline-flex;
+                border: 1px solid getColor(_bupa, _digital-cian);
+                border-radius: 2px;
+                padding: 13px 9px;
+
+                &.disable {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+
+                &.next {
+                    margin-left: 18px;
+                    img {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

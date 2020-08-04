@@ -1,0 +1,85 @@
+<div class="get-price-box" routerLink="/fale-conosco">
+    <p class="text">
+        SOLICITE UMA COTAÇÃO
+    </p>
+    <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma cotação">
+</div>
+<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToSection('#aboutPlan')">
+</app-simple-banner>
+<div class="anchor-buttons">
+    <div class="container">
+        <div class="buttons-box">
+            <a (click)="goToSection('#products', 1)" tabindex="0" (keyup.enter)="goToSection('#products', 1)"
+                class="anchor-button">Planos de saúde</a>
+            <a (click)="goToSection('#products', 2)" tabindex="0" (keyup.enter)="goToSection('#products', 2)"
+                class="anchor-button">Planos Odontológicos</a>
+        </div>
+    </div>
+</div>
+<app-info-section id="aboutPlan" [sectionInfo]="sectionAboutPlan"></app-info-section>
+<app-plans-infos id="products" (setSelectedOptionId)="selectedOptionId = $event" [selectedOptionId]="selectedOptionId"
+    [backgroundColorClass]="'blue-background-color'">
+</app-plans-infos>
+<app-info-section [sectionInfo]="dentalSection"></app-info-section>
+<app-hospitals-list></app-hospitals-list>
+<app-info-section [sectionInfo]="plansSection"></app-info-section>
+<app-icon-cards-section id="products" [iconCardsSectionModel]="iconCardsSectionModel"
+    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
+<app-info-section [sectionInfo]="clinicSection"></app-info-section>
+<section id="clinicServices">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h4 class="big-title">
+                        Veja alguns dos serviços e atendimento da clínica Care Plus
+                    </h4>
+                </div>
+            </div>
+
+            <div class="columns flex-wrap cards">
+                <div class="column is-3-desktop is-full">
+                    <app-card>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Consultas com Clínicos Gerais e Pediatras
+                            </p>
+                        </div>
+                    </app-card>
+                </div>
+                <div class="column is-3-desktop is-full">
+                    <app-card>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Consulta médica após a realização de check-up
+                            </p>
+                        </div>
+                    </app-card>
+                </div>
+                <div class="column is-3-desktop is-full">
+                    <app-card>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Esclarecimento de dúvidas sobre assuntos de saúde
+                            </p>
+                        </div>
+                    </app-card>
+                </div>
+                <div class="column is-3-desktop is-full">
+                    <app-card>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Indicação e agendamento com especialistas da rede
+                            </p>
+                        </div>
+                    </app-card>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<app-accredited-network [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
+<app-info-section [sectionInfo]="travelSection"></app-info-section>
+<app-contact-schedule-a-visit [secondCard]="secondCard" [bigTitle]="'Entre em contato ou solicite um cotação'"
+    [backgroundColorClass]="'blue-background-color'"></app-contact-schedule-a-visit>
+<app-careplus-plus></app-careplus-plus>

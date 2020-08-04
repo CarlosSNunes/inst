@@ -1,0 +1,143 @@
+@import "~src/scss/_animations.scss";
+@import "~src/scss/_variables.scss";
+
+vg-player {
+    max-height: calc(100vh - 151px);
+    position: relative;
+    pointer-events: none;
+    ::ng-deep .vg-icon-play_arrow:before {
+        content: "";
+    }
+    video {
+        margin-top: -75.5px;
+        z-index: 0;
+    }
+
+    .video-content {
+        pointer-events: visible;
+        z-index: 201;
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+
+        .container {
+            display: block;
+
+            &.is-breadcrumb {
+                flex: 0 0 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 55px;
+
+                app-breadcrumb {
+                    margin-bottom: 0;
+                    display: block;
+                    position: absolute;
+
+                    ::ng-deep {
+                        ul {
+                            li {
+                                &:before {
+                                    background-image: url('data:image/svg+xml;utf8,<svg width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 7.9425L3.09042 4.5L0 1.0575L0.951417 0L5 4.5L0.951417 9L0 7.9425Z" fill="%23C9C9C9"/> </svg>');
+                                }
+                                a {
+                                    color: getColor(_bupa, _grey-3);
+                                    &.active {
+                                        color: getColor(_bupa, _white);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.centered {
+                align-self: center;
+                max-width: 862px;
+                .big-title {
+                    max-width: 100%;
+                    margin-top: 0;
+                    color: getColor(_bupa, _white);
+                    text-align: center;
+                }
+
+                .btn {
+                    margin-top: 50px;
+                    transition: opacity 0.5s ease-in-out;
+                    &.btn-secondary {
+                        span {
+                            width: 20px;
+                            height: 19px;
+                            position: relative;
+                            margin-left: 15px;
+                            display: inline-flex;
+                            svg {
+                                position: absolute;
+                                align-self: center;
+                                bottom: -3px;
+                                transition: fill 0.3s ease-in-out;
+                                path {
+                                    transition: fill 0.3s ease-in-out;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            span {
+                                svg {
+                                    fill: getColor(_bupa, _white);
+                                    path {
+                                        fill: getColor(_bupa, _white);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.hide {
+                        pointer-events: none;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .mouse-icon {
+        position: absolute;
+        bottom: 25px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 202;
+        pointer-events: visible;
+        cursor: pointer;
+        @include animatedBounce();
+    }
+}
+
+@media (max-width: 1023px) {
+    vg-player {
+        max-height: calc(100vh - 72px);
+
+        video {
+            margin-top: 0;
+        }
+        .video-content {
+            .container {
+                &.is-breadcrumb {
+                    display: none;
+                }
+            }
+        }
+
+        .mouse-icon {
+            display: none;
+        }
+    }
+}

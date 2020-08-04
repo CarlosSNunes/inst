@@ -1,0 +1,21 @@
+<section id="related-posts">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12">
+                <p class="title">Artigos Relacionados</p>
+                <h4 class="description">
+                    Fique por dentro dos conteúdos mais recentes
+                </h4>
+            </div>
+        </div>
+        <div class="columns flex-wrap">
+            <div class="column is-full-mobile is-half-tablet is-one-quarter-desktop " *ngFor="let post of posts">
+                <app-card [card]="{
+                    type: 'image',
+                    post: post
+                }"></app-card>
+            </div>
+
+        </div>
+    </div>
+</section>

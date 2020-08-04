@@ -1,0 +1,222 @@
+@import "~src/scss/_variables";
+
+section.sectionInfo {
+    .description {
+        margin-top: 10px;
+    }
+    .sub-description {
+        margin-top: 32px;
+    }
+    .btn {
+        margin-top: 50px;
+    }
+
+    .columns {
+        &.reverse-columns {
+            flex-direction: row-reverse;
+
+            .column {
+                &.infos {
+                    padding-left: 130px;
+                    padding-right: 16px;
+                }
+
+                &.col-image {
+                    &::before {
+                        transform: translateX(50%);
+                        right: 0;
+                        top: 40px;
+                        left: unset;
+                    }
+                }
+            }
+        }
+
+        .column {
+            &.infos {
+                padding-right: 130px;
+
+                &.align-self-center {
+                    align-self: center;
+
+                    .description.no-margin {
+                        margin-top: 0;
+                    }
+                }
+
+                .items {
+                    margin-top: 32px;
+                    list-style: none;
+                    margin-left: 0;
+
+                    li {
+                        padding-left: 40px;
+                        position: relative;
+                        margin-top: 8px;
+                        margin-bottom: 8px;
+                        display: inline-block;
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            width: 19px;
+                            height: 19px;
+                            left: 0;
+                            top: 0;
+                            background-image: getSvg("list-star.svg");
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                        }
+
+                        p {
+                            font-weight: normal;
+                            color: getColor(_bupa, _grey);
+                            margin: 0;
+
+                            &.obs {
+                                margin-top: 5px;
+                                font-size: getSize("sbm");
+                                line-height: getLingHeight("sbm");
+                                color: getColor(_bupa, _grey);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.col-image {
+                position: relative;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 211px;
+                    height: 4px;
+                    background: linear-gradient(
+                        to left,
+                        getColor(_bupa, _digital-cian) 60%,
+                        getColor(_bottom-line, _dark-green) 60%,
+                        getColor(_bottom-line, _dark-green) 80%,
+                        getColor(_bottom-line, _light-green) 80%
+                    );
+                    transform: translateX(-50%);
+                    top: 40px;
+                    z-index: 1;
+                }
+
+                &.no-line {
+                    &::before {
+                        content: unset !important;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    height: 100%;
+                    &.hasModal {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section.sectionInfo {
+        .description {
+            margin-top: 15px;
+        }
+
+        .sub-description {
+            margin-top: 12px;
+        }
+
+        .btn {
+            padding-left: 0;
+            margin-top: 30px;
+        }
+
+        .columns {
+            &.reverse-columns {
+                .column {
+                    &.infos {
+                        padding-left: 16px;
+                    }
+                }
+            }
+
+            .column {
+                &.infos {
+                    padding-right: 16px;
+
+                    &.align-self-center {
+                        .description.no-margin {
+                            margin-top: 10px;
+                        }
+                    }
+
+                    .img-mobile-box {
+                        margin-top: 30px;
+                        position: relative;
+
+                        .image-mobile {
+                            width: 100%;
+                            height: 208px;
+                            margin: 0 auto;
+                            display: block;
+                            object-fit: cover;
+                            object-position: center;
+                            .hasModal {
+                                cursor: pointer;
+                            }
+                        }
+
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            width: 211px;
+                            height: 4px;
+                            background: linear-gradient(
+                                to left,
+                                getColor(_bupa, _digital-cian) 60%,
+                                getColor(_bottom-line, _dark-green) 60%,
+                                getColor(_bottom-line, _dark-green) 80%,
+                                getColor(_bottom-line, _light-green) 80%
+                            );
+                            transform: translateX(0%);
+                            top: -15px;
+                        }
+
+                        &.no-line {
+                            &::before {
+                                content: unset !important;
+                            }
+                        }
+                    }
+                }
+
+                &.col-image {
+                    &:before {
+                        left: -32px;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 208px;
+                        margin: 0 auto;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

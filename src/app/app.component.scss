@@ -1,0 +1,32 @@
+.section {
+    &.principal-section {
+        min-height: calc(100vh - 151px);
+    }
+    padding: 0;
+    @media (max-width: 1399px) {
+        padding-top: 72px;
+    }
+}
+
+.breadcrumb {
+    margin: 0 !important;
+}
+
+app-header-mobile {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 72px;
+    --webkit-transform: translate3d(0, 0, 0);
+}
+
+
+@media (max-width: 1023px) {
+    .section {
+        &.principal-section {
+            min-height: calc(100vh - 72px);
+        }
+    }
+}

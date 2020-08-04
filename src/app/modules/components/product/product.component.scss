@@ -1,0 +1,249 @@
+@import "~src/scss/_variables";
+
+section.is-produto {
+    padding-top: 60px;
+    .section-category {
+        color: getColor(_bupa, _digital-cian);
+        text-transform: uppercase;
+        font-size: getSize("sbm");
+        line-height: getLineHeight("sbm");
+    }
+
+    .title {
+        margin-bottom: 0;
+        color: getColor(_bupa, _navy);
+        max-width: 588px;
+        margin: 6px auto 0 auto;
+        font-size: getSize("h4");
+        font-weight: 600;
+        line-height: getLineHeight("h4");
+    }
+
+    p.content {
+        margin-top: 32px;
+        margin-bottom: 0;
+        color: getColor(_bupa, _grey);
+    }
+
+    .products {
+        margin-top: 72px;
+        margin-bottom: 0;
+
+        .product-padding {
+            position: relative;
+            padding-left: 3%;
+            padding-right: 3%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            border: 1px solid getColor(_bupa, _grey-3);
+
+            &:first-child {
+                border-right: none;
+            }
+
+            &:last-child {
+                border-left: none;
+            }
+
+            & * {
+                transition: color 0.3s ease-in-out;
+            }
+
+            h3.product-title {
+                font-style: normal;
+                font-weight: 500;
+                transition: color 0.3s ease-in-out;
+            }
+
+            h5.subtitle {
+                transition: color 0.3s ease-in-out;
+                margin-top: 0;
+            }
+
+            a.saiba-mais {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 21px;
+                line-height: 120%;
+                letter-spacing: 2px;
+                position: absolute;
+                display: block;
+                text-transform: uppercase;
+                bottom: 3rem;
+                transition: color 0.3s ease-in-out, fill 0.3s ease-in-out;
+                svg {
+                    transition: margin 0.3s ease-in-out, fill 0.3s ease-in-out;
+                    margin-left: 5px;
+                }
+
+                &:hover {
+                    svg {
+                        margin-left: 15px;
+                    }
+                }
+            }
+
+            p.content {
+                margin-top: 20%;
+                margin-bottom: 10%;
+            }
+
+            &.is-plano-saude {
+                h3.product-title {
+                    color: getColor(_bupa, _digital-cian);
+                }
+                a.saiba-mais {
+                    color: getColor(_bupa, _digital-cian);
+                    svg {
+                        fill: getColor(_bupa, _digital-cian);
+                    }
+                }
+                &:hover {
+                    background: getColor(_bupa, _digital-cian);
+                    border-color: getColor(_bupa, _digital-cian);
+                }
+            }
+
+            &.is-plano-odontologico {
+                h3.product-title {
+                    color: getColor(_carePlus, _green);
+                }
+                a.saiba-mais {
+                    color: getColor(_carePlus, _green);
+                    svg {
+                        fill: getColor(_carePlus, _green);
+                    }
+                }
+                &:hover {
+                    background: getColor(_carePlus, _green);
+                    border-color: getColor(_carePlus, _green);
+                }
+            }
+
+            &.is-medicina-ocupacional {
+                h3.product-title {
+                    color: getColor(_bupa, _digital-orange);
+                }
+                a.saiba-mais {
+                    color: getColor(_bupa, _digital-orange);
+                    svg {
+                        fill: getColor(_bupa, _digital-orange);
+                    }
+                }
+                &:hover {
+                    background: getColor(_bupa, _digital-orange);
+                    border-color: getColor(_bupa, _digital-orange);
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                *,
+                h3.product-title,
+                a.saiba-mais {
+                    color: getColor(_bupa, _white);
+                    fill: getColor(_bupa, _white);
+                }
+            }
+        }
+    }
+
+    .btn-primary {
+        margin-top: 48px;
+        display: inline-block;
+    }
+
+    .btn-text {
+        display: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    section.is-produto {
+        .title {
+            font-size: 1.25em;
+            line-height: 120%;
+            margin-top: 8px;
+        }
+
+        p.content {
+            margin-top: 16px;
+            font-size: 0.875em;
+            line-height: 150%;
+        }
+
+        .products {
+            margin-top: 20px;
+            padding: 0 32px;
+            .product-padding {
+                margin-top: 16px;
+                padding: 16px;
+                position: relative;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    right: 16px;
+                    top: calc(50% - 12px);
+                    width: 24px;
+                    height: 24px;
+                    background-image: getSvg("box-arrow-white.svg");
+                }
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                .product-title {
+                    font-weight: 500;
+                    font-size: 1.125em;
+                    line-height: 150%;
+                }
+
+                .product-subtitle {
+                    font-size: 0.875em;
+                    line-height: 150%;
+                }
+
+                *,
+                h3.product-title {
+                    color: getColor(_bupa, _white) !important;
+                    fill: getColor(_bupa, _white) !important;
+                }
+
+                a.saiba-mais,
+                p.content {
+                    display: none;
+                }
+
+                &.is-plano-saude {
+                    background: getColor(_bupa, _digital-cian);
+                    border-color: getColor(_bupa, _digital-cian);
+                }
+
+                &.is-plano-odontologico {
+                    background: getColor(_carePlus, _green);
+                    border-color: getColor(_carePlus, _green);
+                }
+
+                &.is-medicina-ocupacional {
+                    background: getColor(_bupa, _digital-orange);
+                    border-color: getColor(_bupa, _digital-orange);
+                }
+            }
+        }
+
+        .btn-primary {
+            display: none;
+        }
+
+        .btn-text {
+            display: block;
+            margin: 0 auto;
+            margin-top: 23px;
+            padding: 16px 0;
+        }
+    }
+}

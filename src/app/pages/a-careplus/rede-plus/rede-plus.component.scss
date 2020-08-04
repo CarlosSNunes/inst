@@ -1,0 +1,103 @@
+@import "~src/scss/_variables";
+@import "~src/scss/_animations";
+
+section {
+    &#aboutCarePlus {
+        .container {
+            .columns {
+                .column {
+                    &:first-child {
+                        padding-right: 170px;
+                        position: relative;
+                        .box-infos {
+                            position: sticky;
+                            position: -webkit-sticky;
+                            top: 15px;
+
+                            .big-title {
+                                position: relative;
+
+                                &::before {
+                                    position: absolute;
+                                    content: "";
+                                    width: 170px;
+                                    height: 4px;
+                                    background: linear-gradient(
+                                        to left,
+                                        getColor(_bupa, _digital-cian) 60%,
+                                        getColor(_bottom-line, _dark-green) 60%,
+                                        getColor(_bottom-line, _dark-green) 80%,
+                                        getColor(_bottom-line, _light-green) 80%
+                                    );
+                                    right: 0;
+                                    top: 40px;
+                                    transform: translateX(95%);
+                                }
+                            }
+                        }
+                    }
+                    &:last-child {
+                        .blue-background-box {
+                            padding: 24px;
+                            margin-top: 28px;
+                            .box-title {
+                                font-weight: 500;
+                                color: getColor(_bupa, _digital-cian);
+                            }
+
+                            .box-description {
+                                margin-top: 13px;
+                                color: getColor(_bupa, _grey-2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+    section {
+        &#aboutCarePlus {
+            .container {
+                .columns {
+                    .column {
+                        &:first-child {
+                            padding-right: 80px;
+                            .box-infos {
+                                &::before {
+                                    width: 70px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#aboutCarePlus {
+            .container {
+                .columns {
+                    .column {
+                        &:first-child {
+                            padding-right: 16px;
+                            .box-infos {
+                                position: initial;
+                                .big-title {
+                                    &::before {
+                                        content: unset;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

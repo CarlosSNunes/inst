@@ -1,0 +1,87 @@
+@import "~src/scss/_variables";
+
+section.plan-card {
+    width: 100%;
+    position: relative;
+    border: 1px solid getColor(_bupa, _grey-3);
+    padding: 0 0;
+    z-index: 0;
+
+    &:before {
+        z-index: -1;
+        content: "";
+        width: 51.58730159%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+    }
+
+    .info {
+        padding: 94px 0 94px 104px;
+        .info-title {
+            font-weight: 500;
+            line-height: 150%;
+            color: getColor(_bupa, _digital-cian);
+            margin-top: 0;
+        }
+
+        .info-sub-title {
+            margin-top: 8px;
+            font-weight: normal;
+            font-size: getSize("mbt");
+            line-height: getLineHeight("mbt");
+            color: getColor(_bupa, _grey);
+        }
+
+        .btn {
+            margin-top: 48px;
+        }
+
+        img {
+            z-index: 1;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section.plan-card {
+        &:before {
+            content: unset;
+        }
+        .info {
+            padding: 0;
+            .columns {
+                // flex-direction: row-reverse;\\
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                .column {
+                    &:first-child {
+                        order: 2;
+                    }
+                    &:last-child {
+                        order: 1;
+                        position: relative;
+                        &:before {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+                        }
+
+                        img {
+                            max-height: 168px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

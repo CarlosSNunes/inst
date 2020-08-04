@@ -1,0 +1,59 @@
+@import "~src/scss/_variables";
+
+ul {
+    list-style: none;
+    padding: 0;
+    width: auto; // 285px anteriormente
+    max-width: 285px;
+    max-height: calc(100vh - 30px);
+    overflow-y: auto;
+    position: sticky;
+    top: 15px;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: getColor(_bupa, _grey-4);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: getColor(_bupa, _grey-2);
+
+        &:hover {
+            background: getColor(_bupa, _grey-4);
+        }
+    }
+
+    li {
+        width: 100%;
+        height: auto; // 56px anteriormente
+        padding: 18px 50px;
+        font-weight: 500;
+        font-size: getSize("p");
+        line-height: 125%;
+        text-align: center;
+        border-left: 3px solid transparent;
+        cursor: pointer;
+        transition: color ease-in-out 0.4s, border-left ease-in-out 0.4s, background ease-in-out 0.4s;
+
+        a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            color: getColor(_bupa, _grey-2);
+            transition: color ease-in-out 0.4s;
+        }
+        
+        &.active {
+            background: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+            border-left: 3px solid getColor(_bupa, _digital-cian);
+            a {
+                color: getColor(_bupa, _digital-cian);
+            }
+        }
+    }
+}

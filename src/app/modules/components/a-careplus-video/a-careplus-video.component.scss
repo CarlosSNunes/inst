@@ -1,0 +1,115 @@
+@import "~src/scss/_variables.scss";
+:root {
+    --banner-background: #fff;
+}
+
+#a-care-plus {
+    p {
+        font-size: getSize("sbm");
+        font-weight: 500;
+        line-height: getLineHeight("sbm");
+        text-align: center;
+        color: getColor(_bupa, _digital-cian);
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    h4 {
+        font-weight: 600;
+        text-align: center;
+        color: getColor(_bupa, _navy);
+        margin-bottom: 48px;
+        width: 50%;
+        margin: auto;
+    }
+    .video-bg {
+        position: relative;
+    }
+    .video-bg:after {
+        position: absolute;
+        left: 0;
+        content: "";
+        z-index: -1;
+        top: 12.5%;
+        height: 75%;
+        left: 16px;
+        width: calc(100% - 32px);
+        background-color: var(--banner-background);
+    }
+    vg-player {
+        margin: auto;
+        max-height: 511px;
+        max-width: 90%;
+        position: relative;
+        ::ng-deep {
+            .overlay-play-container.vg-icon-play_arrow:before {
+                content: "";
+                background-image: getSvg("playVideo.svg");
+                width: 95.27px;
+                height: 95.27px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                transition: transform 0.4s ease-in-out;
+            }
+        }
+        vg-controls {
+            display: none;
+        }
+        &::before {
+            background: linear-gradient(
+                to right,
+                getColor(_bupa, _digital-cian) 60%,
+                getColor(_bottom-line, _dark-green) 60%,
+                getColor(_bottom-line, _dark-green) 80%,
+                getColor(_bottom-line, _light-green) 80%
+            );
+            content: "";
+            position: absolute;
+            height: 4px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    }
+
+    .columns{
+        margin-bottom: 0;
+
+        &.video-columns{
+            margin-top: 55px;
+        }
+        .column{
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .btn {
+        display: block;
+        margin: 0 auto;
+        margin-top: 50px;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 991px) {
+    #a-care-plus {
+        h4 {
+            font-size: 1.25em;
+            line-height: 120%;
+            width: 100%;
+        }
+        vg-player {
+            ::ng-deep {
+                .overlay-play-container.vg-icon-play_arrow:before {
+                    width: 55px;
+                    height: 55px;
+                }
+            }
+        }
+
+        .btn{
+            padding-left: 0;
+            margin: 30px 0 0 0;
+        }
+    }
+}

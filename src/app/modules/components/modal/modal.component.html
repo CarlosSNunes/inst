@@ -1,0 +1,77 @@
+<div class="custom-modal">
+    <div class="modal-body" [ngClass]="[modalModel.type, modalModel.layout]">
+        <img src="assets/svg/times.svg" alt="fechar" class="close" (click)="close()">
+
+        <div class="feedback-content" *ngIf="modalModel.layout === 'feedback'">
+
+            <img src="assets/svg/feedback-icon-success.svg" *ngIf="modalModel.type === 'info'" alt="Sucesso"
+                class="feedback-image">
+            <img src="assets/svg/feedback-icon-error.svg" *ngIf="modalModel.type === 'error'" alt="Erro"
+                class="feedback-image">
+
+            <p class="title">{{modalModel.title}}</p>
+            <p class="description">{{modalModel.description}}</p>
+
+            <button class="modal-button has-icon" (click)="close()">{{modalModel.buttonText}}</button>
+        </div>
+
+        <div class="table-content" *ngIf="modalModel.layout  === 'table'">
+            <p class="title">
+                Confira os produtos atendidos por este credenciado:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>Rede</td>
+                        <td>Registro ANS</td>
+                        <td>Nome comercial</td>
+                        <td>Tipo de Contratação</td>
+                        <td>Segmentação</td>
+                        <td>Situação do Plano</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of modalModel.items">
+                        <td>{{item.rede}}</td>
+                        <td>{{item.register}}</td>
+                        <td>{{item.fullName}}</td>
+                        <td>{{item.contratationType}}</td>
+                        <td>{{item.segmentation}}</td>
+                        <td>{{item.situation}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content" *ngIf="modalModel.layout  === 'content'">
+            <div class="columns">
+                <div class="column">
+                    <p class="small-title">
+                        {{modalModel.smallTitle}}
+                    </p>
+
+                    <p class="title">
+                        {{modalModel.title}}
+                    </p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-6">
+                    <div class="paragraphs" *ngFor="let p of modalModel.paragraphs">
+                        <p class="paragraph-title" *ngIf="p.title">
+                            {{p.title}}
+                        </p>
+                        <p class="paragraph" *ngIf="p.text">
+                            {{p.text}}
+                        </p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <img [src]="modalModel.imagePath" alt="Imágem do conteúdo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-close-div" (click)="close()"></div>
+</div>
