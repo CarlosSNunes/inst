@@ -58,14 +58,16 @@
                         <div class="card-content">
                             <p class="card-title">
                                 {{card?.title}}
-                                <a class="next is-hidden-desktop">
+                                <a class="next is-hidden-desktop" *ngIf="card?.button"
+                                    [routerLink]="[card?.button?.routerLink]">
                                     <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title">
                                 </a>
                             </p>
                             <p class="sub-description">
                                 {{card?.description }}
                             </p>
-                            <a *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]" class="btn btn-text">
+                            <a class="btn btn-text is-hidden-touch" *ngIf="card?.button"
+                                [routerLink]="[card?.button?.routerLink]">
                                 {{
                                     card?.button?.text
                                 }}

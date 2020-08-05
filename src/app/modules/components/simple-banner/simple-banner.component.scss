@@ -33,31 +33,38 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        height: 350px;
-        padding: 30px 0 0 0;
+        height: auto;
+        padding: 0 0 10px 0;
+        background-image: unset !important;
+        background-color: getColor(_bupa, _digital-cian);
         &.hasFilters {
-            padding: 30px 0;
+            padding: 0 0 80px 0;
         }
+
+        .mobile-image {
+            height: 216px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
         .container {
-            height: 320px;
+            height: auto;
             .banner-content {
                 .big-title {
-                    margin-top: 50px;
+                    color: getColor(_bupa, _white);
+                    margin-top: 0;
                 }
                 .sub-description {
+                    color: getColor(_bupa, _white);
                     max-width: 382px;
                     font-weight: 500;
+                    margin-top: 16px;
                 }
             }
 
             .mouse-image {
-                position: absolute;
-                bottom: 15px;
-                left: 0;
-                right: 0;
-                margin: 0 auto;
-                cursor: pointer;
-                @include animatedBounce();
+                display: none;
             }
 
             .hasFilters {

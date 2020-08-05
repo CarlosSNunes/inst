@@ -116,7 +116,7 @@ section {
         line-height: getLineHeight("p");
         @media (max-width: 991px) {
             font-weight: 600;
-            padding: 12px 24px;
+            padding: 8px 16px;
             letter-spacing: 3.5px;
         }
     }
@@ -127,7 +127,7 @@ section {
         line-height: getLineHeight("p");
         @media (max-width: 991px) {
             font-weight: 600;
-            padding: 16px 24px;
+            padding: 12px 24px;
             letter-spacing: 3.5px;
         }
     }

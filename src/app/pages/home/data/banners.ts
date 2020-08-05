@@ -8,7 +8,8 @@ export const bannersMock =  [
         descricao:
             'Com o Saúde em Casa, a Care Plus proporciona aos seus beneficiários consultas domiciliares nas especialidades de pediatria e clínico geral. ',
         slideAtual: true,
-        tempo: 10000
+        tempo: 10000,
+        linkExterno: '#'
     }),
     new BannerModel({
         caminhoImagem:

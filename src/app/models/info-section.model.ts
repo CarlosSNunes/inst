@@ -11,6 +11,11 @@ export class InfoSectionModel {
     description: string;
     subDescription: string;
     subDescriptions?: string[] = [];
+    /**
+     * @property {string} text
+     * @property {string} obs
+     * @type {Array<Item>}
+     */
     items?: Item[] = [];
     button: ButtonModel;
     imageSrc: string;

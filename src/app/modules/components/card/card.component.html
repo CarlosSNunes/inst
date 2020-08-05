@@ -5,8 +5,8 @@
 
     <div *ngIf="card.type === 'icon'" class="card icon-card" [ngClass]="card.backgroundColorClass" (click)="collapse()">
         <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image" [ngClass]="card.backgroundColorClass">
-        <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse">
-            {{card.title}}</p>
+        <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
+            [innerHTML]="card.title"></p>
         <p class="card-description" #p [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
             *ngIf="card.description">{{card.description}}</p>
         <a *ngIf="card.linkTitle" #link [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
@@ -21,7 +21,8 @@
     <a [routerLink]="[card?.link]" *ngIf="card.type === 'post'">
         <div class="card image-card">
 
-            <div class="img" [style.background]="'url(' + card.post.caminhoImagem + ')'" [style.background-position]="'center'">
+            <div class="img" [style.background]="'url(' + card.post.caminhoImagem + ')'"
+                [style.background-position]="'center'">
             </div>
             <div class="tags" *ngIf="card.post.postTag">
                 <p *ngFor="let tag of card.post.postTag | slice:0:2">{{tag?.descricao}}</p>

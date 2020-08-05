@@ -7,6 +7,10 @@ const routes: Routes = [
         component: GestaoDeSaudeComponent
     },
     {
+        path: 'programas-preventivos',
+        loadChildren: () => import('./programas-preventivos/programas-preventivos.module').then(m => m.ProgramasPreventivosModule)
+    },
+    {
         path: 'personal-system',
         loadChildren: () => import('./personal-system/personal-system.module').then(m => m.PersonalSystemModule)
     },

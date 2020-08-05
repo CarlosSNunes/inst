@@ -42,8 +42,12 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        padding-right: 25px;
+        position: relative;
 
         ::ng-deep fa-icon {
+            position: absolute;
+            right: 0px;
             height: 100%;
             margin-left: 10px;
             svg {

@@ -8,7 +8,7 @@
                         {{iconCardsSectionModel?.smallTitle}}
                     </p>
                     <h4 class="big-title" [class.centered]="iconCardsSectionModel?.cendered"
-                        *ngIf="iconCardsSectionModel?.bigTitle">
+                        *ngIf="iconCardsSectionModel?.bigTitle" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
                         {{iconCardsSectionModel?.bigTitle}}
                     </h4>
                     <p class="sub-description" [class.centered]="iconCardsSectionModel?.cendered"

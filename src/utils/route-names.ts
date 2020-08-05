@@ -119,7 +119,11 @@ export const routes: RouteModel[] = [
     }),
     new RouteModel({
         route: '/gestao-de-saude/personal-system',
-        description: 'Personal System'
+        description: 'Personal System - Gestão de saude'
+    }),
+    new RouteModel({
+        route: '/gestao-de-saude/programas-preventivos',
+        description: 'Programas Preventivos - Gestão de saude'
     }),
     new RouteModel({
         route: '/careplus-mais',

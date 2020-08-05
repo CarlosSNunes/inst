@@ -27,6 +27,13 @@ section.sectionInfo {
                         right: 0;
                         top: 40px;
                         left: unset;
+                        background: linear-gradient(
+                            to right,
+                            getColor(_bupa, _digital-cian) 60%,
+                            getColor(_bottom-line, _dark-green) 60%,
+                            getColor(_bottom-line, _dark-green) 80%,
+                            getColor(_bottom-line, _light-green) 80%
+                        );
                     }
                 }
             }
