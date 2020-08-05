@@ -1,11 +1,14 @@
 @import "~src/scss/_variables";
 
 .links {
+    min-height: 24px;
     .link {
         display: inline;
         margin-left: 21px;
         position: relative;
         display: inline-flex;
+        align-self: center;
+
         &::before {
             content: "";
             position: absolute;

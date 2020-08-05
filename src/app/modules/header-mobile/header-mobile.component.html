@@ -140,14 +140,31 @@
                             <li> <a routerLink="/produtos-e-planos-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Home </a></li>
+
+                            <li> <a routerLink="/produtos-e-planos-careplus/medicina-ocupacional"
+                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                                    (click)="initTransition()" tabindex="0">Medicina Ocupacional </a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a routerLink="/home/gestao-de-saude" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0">
+                    <a tabindex="0" (click)="expandAccordion('acc3')">
                         Gestão de saúde
                     </a>
+
+                    <input tabindex="-1" type="checkbox" id="acc3" name="acc3" [checked]="expandedAccordion === 'acc3'">
+                    <label tabindex="-1"></label>
+                    <div class="extra">
+                        <ul>
+                            <li> <a routerLink="/gestao-de-saude" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Home </a></li>
+
+                            <li> <a routerLink="/gestao-de-saude/personal-system" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Personal System </a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a routerLink="/carreiras-careplus" routerLinkActive="active"

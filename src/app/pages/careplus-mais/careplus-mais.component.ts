@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BannerModel, BreadcrumbModel, CategoryModel, CrossContentModel, PostCardModel } from 'src/app/models';
-import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
 import Banners from './data/banner';
@@ -9,7 +9,6 @@ import RecentPosts from './data/recent-posts';
 import { all, extra } from './data/all-posts';
 import { NotificationService, BlogService } from 'src/app/services';
 import { Router } from '@angular/router';
-
 
 @Component({
     selector: 'app-careplus-mais',
@@ -101,7 +100,7 @@ export class CareplusMaisComponent implements OnInit {
     ) {
         this.setSEOInfos();
         this.filterForm = this.fb.group({
-            search: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+            search: ['',],
             categoryId: [0,]
         });
     }
@@ -132,7 +131,7 @@ export class CareplusMaisComponent implements OnInit {
     activeCategory(categoryId: number) {
         this.selectCategoryId = categoryId;
         this.filterForm.controls.categoryId.setValue(this.selectCategoryId)
-        this.filter()
+        // this.filter()
     }
 
     getErrors(control: AbstractControl) {
@@ -144,7 +143,6 @@ export class CareplusMaisComponent implements OnInit {
     }
 
     filter() {
-        console.log(this.filterForm.value)
         this.router.navigate(['/careplus-mais/busca', this.filterForm.value.search])
     }
 

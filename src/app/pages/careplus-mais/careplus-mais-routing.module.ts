@@ -10,7 +10,7 @@ const routes: Routes = [
         component: CareplusMaisComponent
     },
     {
-        path: 'busca/:termo',
+        path: 'busca/:term',
         component: BuscaComponent
     },
     {

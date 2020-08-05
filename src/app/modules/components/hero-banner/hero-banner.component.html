@@ -27,7 +27,11 @@
 
     <div class="video-content" *ngIf="!fullScreen">
         <div class="container is-breadcrumb">
-            <app-breadcrumb [breadcrumbs]="heroBannerModel?.breadcrumbs"></app-breadcrumb>
+            <div class="columns">
+                <div class="column is-paddingless-vertical">
+                    <app-breadcrumb [breadcrumbs]="heroBannerModel?.breadcrumbs"></app-breadcrumb>
+                </div>
+            </div>
         </div>
         <div class="container centered" *ngIf="heroBannerModel?.bigTitle">
             <div class="columns">
@@ -48,6 +52,6 @@
             [attr.src]="subtitle.src" [attr.srclang]="subtitle.srclang" default>
     </video>
 
-    <img *ngIf="heroBannerModel?.hasAnchor" class="mouse-icon" src="assets/svg/mouse.svg" (click)="slideToNextElement.emit()"
-        alt="Mouse Down">
+    <img *ngIf="heroBannerModel?.hasAnchor" class="mouse-icon" src="assets/svg/mouse.svg"
+        (click)="slideToNextElement.emit()" alt="Mouse Down">
 </vg-player>

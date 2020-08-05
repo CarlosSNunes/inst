@@ -40,6 +40,11 @@
         //     padding-right: 32px;
         //     padding-left: 32px;
         // }
+
+        &.is-paddingless-vertical {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     }
 }
 
@@ -258,6 +263,18 @@ section {
                 margin-left: 20px;
                 path {
                     fill: getColor(_carePlus, _blue-btn-text);
+                }
+            }
+        }
+
+        &.reverse {
+            &:hover {
+                svg {
+                    margin-right: 30px;
+                    margin-left: 0px;
+                    path {
+                        fill: getColor(_carePlus, _blue-btn-text);
+                    }
                 }
             }
         }

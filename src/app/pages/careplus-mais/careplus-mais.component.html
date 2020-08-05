@@ -24,8 +24,8 @@
                                     <div class="field">
                                         <p class="control has-icons-right">
                                             <input
-                                                [ngClass]="{ 'is-valid': !form?.search?.errors, 'is-invalid' : form?.search.touched && form?.search.errors, 'is-touched': form?.search?.value?.length > 0 }"
-                                                class="input" formControlName="search" name="search" type="text">
+                                                class="input" formControlName="search" name="search" type="text"
+                                                (keyup.enter)="filter()">
                                             <label class="label">Buscar</label>
                                             <span (click)="filter()" class="icon is-small is-right is-search">
                                                 <img src="assets/svg/search.svg" alt="">
