@@ -30,7 +30,7 @@ export class ProgramasPreventivosComponent implements OnInit {
     ngOnInit() {
     }
 
-    setSEOInfos() {
+    private setSEOInfos() {
         this.title.setTitle('Programas Preventivos | Gestão de Saúde | Care Plus');
         this.meta.updateTag({
             name: 'description',

@@ -11,6 +11,10 @@ const routes: Routes = [
         loadChildren: () => import('./programas-preventivos/programas-preventivos.module').then(m => m.ProgramasPreventivosModule)
     },
     {
+        path: 'servicos-online',
+        loadChildren: () => import('./servicos-online/servicos-online.module').then(m => m.ServicosOnlineModule)
+    },
+    {
         path: 'personal-system',
         loadChildren: () => import('./personal-system/personal-system.module').then(m => m.PersonalSystemModule)
     },
