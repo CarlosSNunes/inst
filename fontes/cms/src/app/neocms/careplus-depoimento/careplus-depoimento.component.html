@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-content">
+        <div class="content">
+            <section class="hero is-dark is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            Depoimentos sobre a Careplus
+                        </h1>
+                    </div>
+                </div>
+            </section>
+            <table id="careplusDepoimentoTable" class="table">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th id="">Id</th>
+                        <th id="">Autor</th>
+                        <th id="">Descrição</th>
+                        <th id="">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td *ngIf="careplusDepoimentos.length == 0 && !loaded" colspan="4">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="careplusDepoimentos.length == 0 && loaded" colspan="4">
+                            Não há depoimentos sobre a Careplus cadastrados
+                        </td>
+                    </tr>
+                    <tr *ngFor="let careplusDepoimento of careplusDepoimentos">
+                        <td>{{careplusDepoimento.id}}</td>
+                        <td>{{careplusDepoimento.autor || 'Anônimo'}}</td>
+                        <td>{{careplusDepoimento.descricao}}</td>
+                        <td>
+                            <a [routerLink]="['./', careplusDepoimento.id]" routerLinkActive="active">
+                                <fa-icon [icon]="faPencilAlt"></fa-icon>
+                            </a>
+                            &nbsp;
+                            <a (click)="openCareplusDepoimentoDelete(careplusDepoimento)">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <a routerLink="/neocms/careplus-depoimento/create" routerLinkActive="active" class="card-footer-item">
+            Criar novo depoimento sobre a Careplus &nbsp;
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </a>
+    </footer>
+</div>
+
+<app-careplus-depoimento-delete *ngIf="showCareplusDepoimentoDelete" [careplusDepoimento]="careplusDepoimento"
+    (onClose)="getCareplusDepoimentos()">
+</app-careplus-depoimento-delete>

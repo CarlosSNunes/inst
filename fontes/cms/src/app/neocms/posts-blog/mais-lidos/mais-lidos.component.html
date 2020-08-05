@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-content">
+      <div class="content">
+          <section class="hero is-dark is-small">
+              <div class="hero-body">
+                  <div class="container">
+                      <h1 class="title">
+                        Posts Mais Lidos
+                      </h1>
+                  </div>
+              </div>
+          </section>
+          <table id="postsTable" class="table">
+              <caption></caption>
+              <thead>
+                  <tr>                      
+                      <th id="">Título do Post</th>
+                      <th id="">Vizualizações</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td *ngIf="posts.length == 0 && !loaded" colspan="6">
+                          <progress class="progress is-large is-info" max="100">60%</progress>
+                      </td>
+                      <td class="has-text-centered" *ngIf="posts.length == 0 && loaded" colspan="6">
+                          Não há Posts cadastrados
+                      </td>
+                  </tr>
+                  <tr *ngFor="let post of posts">
+                      <td>{{post.titulo}}</td>
+                      <td>{{post.vizualizacoes}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <footer class="card-footer">
+    
+  </footer>
+</div>
+

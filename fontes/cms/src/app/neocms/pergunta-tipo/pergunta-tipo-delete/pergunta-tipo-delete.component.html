@@ -1,0 +1,18 @@
+<div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Tem certeza que deseja excluir esse tipo de pergunta?</p>
+            <button class="delete" aria-label="close" (click)="closeModal()"></button>
+        </header>
+        <section class="modal-card-body">
+            <p>
+                <strong>Descrição:</strong> {{perguntaTipo?.descricao}}
+            </p>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-primary" (click)="closeModal()">Não</button>
+            <button class="button is-danger" (click)="deletePerguntaTipo()">Sim</button>
+        </footer>
+    </div>
+</div>

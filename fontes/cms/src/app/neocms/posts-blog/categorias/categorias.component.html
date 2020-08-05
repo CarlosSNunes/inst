@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-content">
+      <div class="content">
+          <section class="hero is-dark is-small">
+              <div class="hero-body">
+                  <div class="container">
+                      <h1 class="title">
+                        Categorias
+                      </h1>
+                  </div>
+              </div>
+          </section>
+          <table id="categoriasTable" class="table">
+              <caption></caption>
+              <thead>
+                  <tr>
+                      <th id="">ID</th>
+                      <th id="">Categoria</th>
+                      <th id="">Descrição</th>
+                      <th id="">Data</th> 
+                      <th id=""colspan="2"></th>                    
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td *ngIf="categorias.length == 0 && !loaded" colspan="6">
+                          <progress class="progress is-large is-info" max="100">60%</progress>
+                      </td>
+                      <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
+                          Não há Categorias cadastradas
+                      </td>
+                  </tr>
+                  <tr *ngFor="let categoria of categorias">
+                      <td>{{categoria.id}}</td>
+                      <td>{{categoria.titulo}}</td>
+                      <td>{{categoria.descricao}}</td>
+                      <td colspan="2">
+                        <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', categoria.id]" routerLinkActive="active ">
+                          <fa-icon [icon]="faPencilAlt"></fa-icon>
+                      </a>
+                      &nbsp;
+                      <a (click)="openCategoriaDelete(categoria)">
+                          <fa-icon [icon]="faTrash"></fa-icon>
+                      </a>
+                      </td>
+                      
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <footer class="card-footer">
+    <a routerLink="/neocms/posts-blog/categorias/create" routerLinkActive="active" class="card-footer-item">
+        Criar nova Categoria &nbsp;
+        <fa-icon [icon]="faPlus"></fa-icon>
+    </a>
+  </footer>
+</div>
+
+<app-categorias-delete *ngIf="showCategoriaDelete " [categoria]="categoria" (onClose)="getCategorias()"></app-categorias-delete>
