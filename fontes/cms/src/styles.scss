@@ -1,0 +1,27 @@
+@import "bulma-fluent/bulma.sass";
+
+.is-clickable {
+  cursor: pointer;
+}
+
+.textarea {
+  resize: none !important;
+}
+
+.modal-card-title {
+  flex: 1 !important;
+}
+
+.modal-card-head {
+  align-items: flex-start !important;
+}
+
+.modal-card-foot {
+  display: flex !important;
+}
+
+.modal-card-foot {
+  .button {
+    flex: 1 !important;
+  }
+}

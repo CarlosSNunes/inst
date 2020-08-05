@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-content">
+        <div class="content">
+            <section class="hero is-dark is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            Tags
+                        </h1>
+                    </div>
+                </div>
+            </section>
+            <table id="tagTable" class="table">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th id="">Id</th>
+                        <th id="">Descrição</th>
+                        <th id="">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td *ngIf="tags.length == 0 && !loaded" colspan="3">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="tags.length == 0 && loaded" colspan="3">
+                            Não há tags cadastradas
+                        </td>
+                    </tr>
+                    <tr *ngFor="let tag of tags">
+                        <td>{{tag.id}}</td>
+                        <td>{{tag.descricao}}</td>
+                        <td>
+                            <a [routerLink]="['/neocms/noticia/tag', tag.id]" routerLinkActive="active">
+                                <fa-icon [icon]="faPencilAlt"></fa-icon>
+                            </a>
+                            &nbsp;
+                            <a (click)="openTagDelete(tag)">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <a routerLink="/neocms/noticia/tag/create" routerLinkActive="active" class="card-footer-item">
+            Criar novas tags &nbsp;
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </a>
+    </footer>
+</div>
+
+<app-tag-delete *ngIf="showTagDelete" [tag]="tag" (onClose)="getTags()"></app-tag-delete>

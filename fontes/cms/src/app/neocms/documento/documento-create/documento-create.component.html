@@ -1,0 +1,111 @@
+<section class="hero is-dark is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Cadastrar novo documento
+            </h1>
+        </div>
+    </div>
+</section>
+<form [formGroup]="documentoForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="card-content">
+            <div class="field">
+                <label class="label">Descrição</label>
+                <div class="control">
+                    <input formControlName="descricao" class="input" type="text" placeholder=""
+                        [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }">
+                </div>
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Qual o perfil associado a esse documento?</label>
+                        <div class="control">
+                            <div class="select"
+                                [ngClass]="{ 'is-success': submitted && !f.careplusPerfilId.errors, 'is-danger' : submitted && f.careplusPerfilId.errors }">
+                                <select formControlName="careplusPerfilId">
+                                    <option value="">Selecione..</option>
+                                    <option *ngFor="let careplusPerfil of careplusPerfis" [value]="careplusPerfil.id">
+                                        {{careplusPerfil.descricao}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.careplusPerfilId)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Qual o tipo desse documento?</label>
+                        <div class="control">
+                            <div class="select"
+                                [ngClass]="{ 'is-success': submitted && !f.documentoTipoId.errors, 'is-danger' : submitted && f.documentoTipoId.errors }">
+                                <select formControlName="documentoTipoId">
+                                    <option value="">Selecione..</option>
+                                    <option *ngFor="let documentoTipo of documentoTipos" [value]="documentoTipo.id">
+                                        {{documentoTipo.descricao}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.documentoTipoId)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label class="label">Documento</label>
+                <div class="file has-name">
+                    <label class="file-label">
+                        <input class="file-input" type="file" (change)="updateFileName($event.srcElement.files)">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <fa-icon [icon]="faUpload"></fa-icon>
+                            </span>
+                            <span class="file-label">
+                                Escolha um arquivo…
+                            </span>
+                        </span>
+                        <span class="file-name">
+                            {{arquivoNome}}
+                        </span>
+                    </label>
+                </div>
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.arquivo)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <button routerLink="/neocms/documento" routerLinkActive="active" class="button is-light" type="button">
+                    Fechar &nbsp;
+                    <fa-icon [icon]="faTimes"></fa-icon>
+                </button>
+            </p>
+            <p class="card-footer-item">
+                <button class="button is-primary" type="submit" [ngClass]="{'is-loading': btnSubmitDisable}">
+                    Gravar &nbsp;
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </button>
+            </p>
+        </footer>
+    </div>
+</form>
