@@ -19,6 +19,10 @@ const routes: Routes = [
         loadChildren: () => import('./personal-system/personal-system.module').then(m => m.PersonalSystemModule)
     },
     {
+        path: 'programas-empresariais',
+        loadChildren: () => import('./programas-empresariais/programas-empresariais.module').then(m => m.ProgramasEmpresariaisModule)
+    },
+    {
         path: '**',
         loadChildren: () => import('../erro/erro.module').then(m => m.ErroModule)
     }

@@ -126,6 +126,10 @@ export const routes: RouteModel[] = [
         description: 'Programas Preventivos - Gestão de saude'
     }),
     new RouteModel({
+        route: '/gestao-de-saude/servicos-online',
+        description: 'Serviços online - Gestão de saude'
+    }),
+    new RouteModel({
         route: '/careplus-mais',
         description: 'Care Plus +'
     }),

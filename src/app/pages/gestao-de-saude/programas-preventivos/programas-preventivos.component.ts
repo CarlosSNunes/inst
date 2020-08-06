@@ -40,11 +40,13 @@ export class ProgramasPreventivosComponent implements OnInit {
 
     goToSection(anchor: string) {
         const element = this.elementRef.nativeElement.querySelector(anchor) as HTMLElement;
-        this.windowRef.nativeWindow.scrollTo({
-            left: 0,
-            top: element.offsetTop - parseInt(localStorage.getItem('elementOffset')),
-            behavior: 'smooth'
-        })
+        if (element) {
+            this.windowRef.nativeWindow.scrollTo({
+                left: 0,
+                top: element.offsetTop - parseInt(localStorage.getItem('elementOffset')),
+                behavior: 'smooth'
+            });
+        }
     }
 
 }
