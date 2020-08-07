@@ -41,4 +41,27 @@
             </div>
         </div>
     </a>
+
+    <div class="card promo-card" *ngIf="card.type === 'promo'">
+
+        <img [src]="card.promoImage" [alt]="card?.mainTitles[0]?.bigTitle + ' ' + card?.mainTitles[0]?.smallTitle">
+
+        <div class="card-body">
+            <div class="internal-content">
+                <p class="promocard-title" *ngFor="let mainTitle of card?.mainTitles">
+                    {{mainTitle?.bigTitle}}
+                    <span *ngIf="mainTitle?.smallTitle" class="small">
+                        {{mainTitle.smallTitle}}
+                    </span>
+                </p>
+
+                <p class="sub-description" [class.no-margin]="!card?.bigTitle && i == 0"
+                    *ngFor="let desciption of card?.desciptions; let i = index">
+                    {{desciption}}
+                </p>
+            </div>
+            <hr class="separator">
+            <ng-content select=".promo-content"></ng-content>
+        </div>
+    </div>
 </div>

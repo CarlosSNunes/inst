@@ -4,7 +4,7 @@
         <img class="is-hidden-desktop mobile-image" [src]="simpleBannerModel?.image" [alt]="simpleBannerModel?.title">
         <div class="container">
             <div class="columns is-hidden-touch" [class.hasFilters]="simpleBannerModel?.hasFilters">
-                <div class="column" *ngIf="simpleBannerModel?.breadcrumbs?.length > 0">
+                <div class="column is-paddingless-vertical" *ngIf="simpleBannerModel?.breadcrumbs?.length > 0">
                     <app-breadcrumb [breadcrumbs]="simpleBannerModel?.breadcrumbs"></app-breadcrumb>
                 </div>
             </div>

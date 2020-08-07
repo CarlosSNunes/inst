@@ -130,6 +130,10 @@ export const routes: RouteModel[] = [
         description: 'Serviços online - Gestão de saude'
     }),
     new RouteModel({
+        route: '/gestao-de-saude/nossas-parcerias',
+        description: 'Nossas parcerias - Gestão de saude'
+    }),
+    new RouteModel({
         route: '/careplus-mais',
         description: 'Care Plus +'
     }),

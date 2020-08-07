@@ -41,3 +41,25 @@ export class PostCardModel extends CardModel {
 
     post: NoticiaModel;
 }
+
+
+export class PromoCardModel extends CardModel {
+    public constructor(init?: Partial<PromoCardModel>) {
+        super(init)
+        Object.assign(this, init);
+        this.type = "promo";
+    }
+
+    mainTitles: MainTitle[] = [];
+    promoImage: string = '';
+    desciptions: string[] = [];
+}
+
+class MainTitle {
+    public constructor(init?: Partial<MainTitle>) {
+        Object.assign(this, init)
+    }
+
+    bigTitle: string;
+    smallTitle: string;
+}

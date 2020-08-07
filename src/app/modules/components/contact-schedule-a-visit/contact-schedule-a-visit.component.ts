@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IconCardModel } from 'src/app/models';
-import { Icon } from '@fortawesome/fontawesome-svg-core';
 import { WindowRef } from 'src/utils/window-ref';
 
 @Component({

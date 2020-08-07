@@ -47,6 +47,11 @@ export class PlusNetworkComponent implements OnInit {
     ngOnInit() {
         this.cdRef.detectChanges();
         if (this.isBrowser) {
+            this.banners.forEach((banner, i) => {
+                banner.slideAtual = true
+                if (i != 0) banner.slideAtual = false
+                return banner
+            });
             this.cdRef.detectChanges();
             this.time = this.banners[0].tempo
             this.startBannerPercentage(this.time / 100, this.time)
