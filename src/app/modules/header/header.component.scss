@@ -347,6 +347,7 @@ nav.is-home {
     padding-bottom: 15px;
     background: getColor(_bupa, _white);
     border-bottom: 1px solid getColor(_bupa, _grey-2);
+    z-index: unset;
 
     .img-careplus {
         width: 142px;
@@ -360,8 +361,14 @@ nav.is-home {
         padding-left: 24px;
         padding-right: 24px;
         cursor: unset;
+        position: relative;
+        z-index: 999;
+
         &:hover {
             background-color: unset;
+            .sub-menu {
+                display: flex;
+            }
         }
         &:focus {
             background-color: unset;
@@ -369,6 +376,7 @@ nav.is-home {
         &:focus-within {
             background-color: unset;
         }
+
         .item {
             font-style: normal;
             font-weight: 500;
@@ -385,6 +393,97 @@ nav.is-home {
                 outline: unset;
             }
         }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            background-color: getColor(_bupa, _white);
+            top: 80%;
+            left: 0;
+            padding: 42px;
+            .column {
+                min-width: calc(800px / 3);
+                position: relative;
+
+                .image-content {
+                    position: relative;
+
+                    img {
+                        width: 169px;
+                        height: 185px;
+                        object-fit: cover;
+                        object-position: center top;
+                        display: block;
+                        max-height: unset;
+                    }
+
+                    .infos {
+                        position: absolute;
+                        width: 147px;
+                        left: 11px;
+                        top: 104px;
+
+                        .image-description {
+                            font-weight: 600;
+                            font-size: getSize('sbm');
+                            line-height: getLineHeight('sbm');
+                            color: getColor(_bupa, _white);
+                        }
+
+                        .btn-text {
+                            color: getColor(_bupa, _white) !important;
+                            font-weight: 500;
+                            font-size: 0.625em;
+                            line-height: 120%;
+                            letter-spacing: 2px;
+                            padding-right: 0;
+                            padding-top: 20px;
+                            text-transform: unset;
+                            float: right;
+                            white-space: nowrap;
+
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                color: getColor(_bupa, _white) !important;
+                            }
+
+                            svg {
+                                fill: getColor(_bupa, _white) !important;
+                                path {
+                                    fill: getColor(_bupa, _white) !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .items {
+                    display: block;
+                    width: 100%;
+                    li {
+                        display: block;
+                        margin-top: 16px;
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+
+                        a {
+                            font-size: getSize("sbm");
+                            line-height: getLineHeight("sbm");
+                            color: getColor(_bupa, _grey);
+                            white-space: nowrap;
+
+                            &:hover {
+                                color: getColor(_bupa, _digital-cian);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         .button {
             color: getColor(_bupa, _white);
             height: 3em;

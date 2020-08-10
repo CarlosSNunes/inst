@@ -16,6 +16,7 @@
     .selected {
         cursor: pointer;
         ::ng-deep fa-icon {
+            transform: translate3d(0, 0, 0);
             svg {
                 vertical-align: -0.4em;
                 @media (max-width: 1023px) {
@@ -49,7 +50,6 @@
             position: absolute;
             right: 0px;
             height: 100%;
-            margin-left: 10px;
             svg {
                 transition: transform 0.5s;
                 height: 100%;
