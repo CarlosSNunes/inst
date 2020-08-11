@@ -10,7 +10,7 @@ import {NgxMaskModule} from 'ngx-mask';
 
 export const ISO_FORMAT = {
     parse: {
-        dateInput: 'LL',
+        dateInput: ['DD/MM/YYYY']
     },
     display: {
         dateInput: 'DD/MM/YYYY',

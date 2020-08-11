@@ -1,0 +1,70 @@
+@import "~src/scss/_variables";
+
+section#howItWorks {
+    .container {
+        .big-title {
+            max-width: 100%;
+            &.has-line {
+                position: sticky;
+                top: 15px;
+                padding-top: 42px;
+
+                &:before {
+                    background: linear-gradient(
+                        to right,
+                        getColor(_bupa, _digital-cian) 60%,
+                        getColor(_bottom-line, _dark-green) 60%,
+                        getColor(_bottom-line, _dark-green) 80%,
+                        getColor(_bottom-line, _light-green) 80%
+                    );
+                    content: "";
+                    position: absolute;
+                    height: 4px;
+                    left: 0;
+                    top: 6px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .items {
+            margin-top: 32px;
+            list-style: none;
+            margin-left: 0;
+
+            li {
+                padding-left: 40px;
+                position: relative;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                display: inline-block;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 19px;
+                    height: 19px;
+                    left: 0;
+                    top: 0;
+                    background-image: getSvg("list-star.svg");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+
+                p {
+                    font-weight: normal;
+                    color: getColor(_bupa, _grey);
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

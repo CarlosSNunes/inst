@@ -27,3 +27,4 @@ export * from './icon-cards-section.model';
 export * from './hero-banner.model';
 export * from './category.model';
 export * from './cross-content.model';
+export * from './unity.model';

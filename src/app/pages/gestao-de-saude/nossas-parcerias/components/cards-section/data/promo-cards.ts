@@ -1,7 +1,7 @@
 import { PromoCardModel } from 'src/app/models';
 
 export const congeladosDaSoniaCard = new PromoCardModel({
-    promoImage: 'assets/img/first-card-image.jpg',
+    promoImage: 'assets/img/first-card-image.png',
     mainTitles: [
         {
             bigTitle: '10% de desconto',
@@ -14,7 +14,7 @@ export const congeladosDaSoniaCard = new PromoCardModel({
 });
 
 export const promolightCard = new PromoCardModel({
-    promoImage: 'assets/img/card-promolight-image.jpg',
+    promoImage: 'assets/img/card-promolight-image.png',
     mainTitles: [
         {
             bigTitle: '15% de desconto',
@@ -27,7 +27,7 @@ export const promolightCard = new PromoCardModel({
 });
 
 export const emporioDaPapinhaCard = new PromoCardModel({
-    promoImage: 'assets/img/card-emporio-da-papinha.jpg',
+    promoImage: 'assets/img/card-emporio-da-papinha.png',
     mainTitles: [
         {
             bigTitle: '10% de desconto',
@@ -40,7 +40,7 @@ export const emporioDaPapinhaCard = new PromoCardModel({
 });
 
 export const personalCookCard = new PromoCardModel({
-    promoImage: 'assets/img/card-personal-cook.jpg',
+    promoImage: 'assets/img/card-personal-cook.png',
     mainTitles: [
         {
             bigTitle: 'Desconto',
@@ -54,7 +54,7 @@ export const personalCookCard = new PromoCardModel({
 });
 
 export const personalChefsCard = new PromoCardModel({
-    promoImage: 'assets/img/personal-chefs-card.jpg',
+    promoImage: 'assets/img/personal-chefs-card.png',
     desciptions: [
         'Neste serviço, os chefs de cozinha profissionais vão até a sua casa e preparam refeições para congelar com base em suas necessidades e preferências.',
         'Os pratos podem ser divididos em porções para quatro ou 16 pessoas.'
@@ -63,7 +63,7 @@ export const personalChefsCard = new PromoCardModel({
 
 
 export const fourAnyOneCard = new PromoCardModel({
-    promoImage: 'assets/img/four-any-one-card.jpg',
+    promoImage: 'assets/img/four-any-one-card.png',
     mainTitles: [
         {
             bigTitle: '10% de desconto',
@@ -73,7 +73,7 @@ export const fourAnyOneCard = new PromoCardModel({
 });
 
 export const antiloperacingteamCard = new PromoCardModel({
-    promoImage: 'assets/img/card-promolight-image.jpg',
+    promoImage: 'assets/img/card-promolight-image.png',
     mainTitles: [
         {
             bigTitle: '15% de desconto',

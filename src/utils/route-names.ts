@@ -114,6 +114,10 @@ export const routes: RouteModel[] = [
         description: 'Carreiras'
     }),
     new RouteModel({
+        route: '/carreiras-careplus/consulta-facil',
+        description: 'Consulta fácil'
+    }),
+    new RouteModel({
         route: '/gestao-de-saude',
         description: 'Gestão de saude'
     }),

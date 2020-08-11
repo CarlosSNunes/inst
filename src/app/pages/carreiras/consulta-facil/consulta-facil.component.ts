@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
+import { WindowRef } from 'src/utils/window-ref';
 
 @Component({
     selector: 'app-consulta-facil',
@@ -31,19 +32,33 @@ export class ConsultaFacilComponent implements OnInit {
     };
     constructor(
         private title: Title,
-        private meta: Meta
+        private meta: Meta,
+        private windowRef: WindowRef,
+        private elementRef: ElementRef<HTMLElement>
     ) {
-
+        this.setSEOInfos();
     }
 
     ngOnInit() {
+    }
+
+
+    goToSection(anchor: string) {
+        const element = this.elementRef.nativeElement.querySelector(anchor) as HTMLElement;
+        if (element) {
+            this.windowRef.nativeWindow.scrollTo({
+                left: 0,
+                top: element.offsetTop - parseInt(localStorage.getItem('elementOffset')),
+                behavior: 'smooth'
+            });
+        }
     }
 
     setSEOInfos() {
         this.title.setTitle('Consulta Fácil | Carreiras | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: ''
+            content: 'Consulta Fácil é mais uma facilidade da Care Plus para os beneficiários que precisam de atendimento clínico ou pediátrico.'
         })
     }
 }
