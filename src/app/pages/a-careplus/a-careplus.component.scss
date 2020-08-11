@@ -1,4 +1,46 @@
 @import "~src/scss/_variables";
+::ng-deep app-hero-banner#customForACareplus {
+    vg-player {
+        .video-content {
+            .container {
+                &.centered {
+                    .big-title {
+                        color: getColor(_bupa, _navy);
+                        max-width: 488px;
+                    }
+
+                    .sub-description {
+                        max-width: 382px;
+                    }
+                }
+
+                &.is-breadcrumb {
+                    app-breadcrumb {
+                        margin-bottom: 0;
+                        display: block;
+                        position: absolute;
+
+                        ::ng-deep {
+                            ul {
+                                li {
+                                    &:before {
+                                        background-image: url('data:image/svg+xml;utf8,<svg width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 7.9425L3.09042 4.5L0 1.0575L0.951417 0L5 4.5L0.951417 9L0 7.9425Z" fill="%23808080"/> </svg>') !important;
+                                    }
+                                    a {
+                                        color: getColor(_bupa, _grey-2) !important;
+                                        &.active {
+                                            color: getColor(_bupa, _digital-cian) !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 section {
     &#aCareplusMainContent {
@@ -190,6 +232,25 @@ section {
 }
 
 @media (max-width: 1023px) {
+    ::ng-deep app-hero-banner#customForACareplus {
+        vg-player {
+            .video-content {
+                .container {
+                    &.centered {
+                        .big-title {
+                            color: getColor(_bupa, _white);
+                            max-width: 100%;
+                        }
+
+                        .sub-description {
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     section {
         &#aCareplusMainContent {
             &::before {

@@ -6,6 +6,7 @@ import { VgControlsModule } from 'videogular2/compiled/src/controls/controls';
 import { VgBufferingModule } from 'videogular2/compiled/src/buffering/buffering';
 import { VgOverlayPlayModule } from 'videogular2/compiled/src/overlay-play/overlay-play';
 import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,6 +19,7 @@ import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
         VgOverlayPlayModule,
         VgBufferingModule,
         BreadcrumbModule,
+        RouterModule
     ],
     exports: [
         HeroBannerComponent

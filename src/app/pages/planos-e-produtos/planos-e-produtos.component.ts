@@ -82,6 +82,7 @@ export class PlanosEProdutosComponent implements OnInit {
             }
         ),
         bigTitle: 'Aqui você conhece a gama de planos e produtos de saúde Care Plus',
+        contentContainerMaxWidth: 862,
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',

@@ -28,6 +28,7 @@ export class GestaoDeSaudeComponent implements OnInit {
                 active: true
             })
         ],
+        contentContainerMaxWidth: 862,
         hasAnchor: true
     });
     infoSections: InfoSectionModel[] = [

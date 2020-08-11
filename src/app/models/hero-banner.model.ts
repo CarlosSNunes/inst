@@ -10,6 +10,9 @@ export class HeroBannerModel {
     video: VideoModel;
     breadcrumbs: BreadcrumbModel[] = [];
     bigTitle: string = '';
+    subTitle: string = '';
     button: ButtonModel;
+    isFullScreen: boolean = false;
     hasAnchor: boolean = false;
+    contentContainerMaxWidth: number = 1280;
 }

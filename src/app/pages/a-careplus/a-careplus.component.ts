@@ -9,7 +9,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
-import { IconCardModel, SliderModel } from 'src/app/models';
+import { IconCardModel, SliderModel, HeroBannerModel, VideoModel, BreadcrumbModel, ButtonModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -24,6 +24,32 @@ import { Title, Meta } from '@angular/platform-browser';
     offset: number = 0;
     elements: Array<HTMLElement> = [];
     cards: IconCardModel[] = Cards;
+    heroBannerModel: HeroBannerModel = new HeroBannerModel({
+        video: new VideoModel(
+            {
+                url: 'assets/videos/video-teste.mp4',
+                type: 'video/mp4'
+            }
+        ),
+        bigTitle: 'A melhor operadora de saúde premium do mercado',
+        subTitle: 'Referência em planos de saúde, planos odontológicos e medicina ocupacional.',
+        isFullScreen: true,
+        button: new ButtonModel({
+            text: 'ASSISTA E CONHEÇA',
+        }),
+        breadcrumbs: [
+            new BreadcrumbModel({
+                name: 'Home',
+                link: '/home'
+            }),
+            new BreadcrumbModel({
+                name: 'A Care Plus',
+                link: '/a-careplus',
+                active: true
+            })
+        ],
+        hasAnchor: false
+    });
     sliderModel = new SliderModel({
         type: 'image',
         cardSizes: {
