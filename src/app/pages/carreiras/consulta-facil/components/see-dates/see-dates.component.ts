@@ -7,6 +7,7 @@ import Units from './data/units';
 import { Unity } from 'src/app/models';
 import { NotificationService } from 'src/app/services';
 import { UnidadesService } from 'src/app/services/unidades/unidades.service';
+import { WindowRef } from 'src/utils/window-ref';
 
 @Component({
     selector: 'app-see-dates',
@@ -19,15 +20,20 @@ export class SeeDatesComponent implements OnInit, AfterViewInit {
     loading: boolean = false;
     isBrowser: boolean = false;
     units: Unity[] = Units;
+    width: number = 0;
 
     constructor(
         private elementRef: ElementRef<any>,
         @Inject(PLATFORM_ID) private platformId: Platform,
         private cdr: ChangeDetectorRef,
         private notificationService: NotificationService,
-        private unidadesSerice: UnidadesService
+        private unidadesSerice: UnidadesService,
+        private windowRef: WindowRef
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
+        if (this.isBrowser) {
+            this.width = this.windowRef.nativeWindow.innerWidth;
+        }
     }
 
     ngOnInit() {
@@ -39,8 +45,11 @@ export class SeeDatesComponent implements OnInit, AfterViewInit {
         }
     }
 
-    @HostListener('window: resize') onResize() {
-        this.resetAccordion();
+    @HostListener('window: resize', ['$event']) onResize(event) {
+        if (event.target.innerWidth != this.width) {
+            this.width = event.target.innerWidth;
+            this.resetAccordion();
+        }
     }
 
     resetAccordion() {
