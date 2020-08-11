@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { bannersMock } from './data/banners';
-import { InfoSectionModel, ButtonModel, IconCardsSectionModel } from 'src/app/models';
+import { InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
 import { AccreditedNetworkComponent } from 'src/app/modules/components/accredited-network/accredited-network.component';
 import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
@@ -50,6 +50,17 @@ export class BeneficiarioComponent implements OnInit {
         cards: Cards,
         columnClass: 'is-3-desktop'
     });
+    breadcrumbs: BreadcrumbModel[] = [
+        new BreadcrumbModel({
+            name: 'Home',
+            link: '/home'
+        }),
+        new BreadcrumbModel({
+            name: 'Sou beneficiário',
+            link: '/home/beneficiario',
+            active: true
+        }),
+    ];
     constructor(
         private windowRef: WindowRef,
         private title: Title,
@@ -71,7 +82,7 @@ export class BeneficiarioComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Home Beneficiário | Care Plus');
+        this.title.setTitle('Beneficiário | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'

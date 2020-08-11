@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbModule } from 'src/app/modules/components/breadcrumb/breadcrumb.module';
 import { BreadcrumbModel, SimpleBannerModel } from 'src/app/models';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
@@ -34,7 +33,7 @@ export class DocumentosComponent implements OnInit {
         hasFilters: true,
         image: 'assets/img/a-careplus-documents-banner.jpg'
     };
-    breadcrumbs: BreadcrumbModule[] = [
+    breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
             name: 'Home',
             link: '/home'

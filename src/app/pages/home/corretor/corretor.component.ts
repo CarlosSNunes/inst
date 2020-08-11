@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel } from 'src/app/models';
+import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
 import { bannersMock } from './data/banners';
 import { WindowRef } from 'src/utils/window-ref';
 import { ProductComponent } from 'src/app/modules/components/product/product.component';
@@ -36,12 +36,24 @@ export class CorretorComponent implements OnInit {
         cards: Cards,
         columnClass: 'is-3-desktop'
     });
-
+    breadcrumbs: BreadcrumbModel[] = [
+        new BreadcrumbModel({
+            name: 'Home',
+            link: '/home'
+        }),
+        new BreadcrumbModel({
+            name: 'Sou Corretor',
+            link: '/home/corretor',
+            active: true
+        }),
+    ];
     constructor(
         private windowRef: WindowRef,
         private meta: Meta,
         private title: Title
-    ) { }
+    ) {
+        this.setSEOInfos();
+    }
 
     ngOnInit() {
     }

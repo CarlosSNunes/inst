@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel } from 'src/app/models';
+import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
 import { bannersMock } from './data/banners';
 import { InfoSectionComponent } from 'src/app/modules/components/info-section/info-section.component';
 import { WindowRef } from 'src/utils/window-ref';
@@ -47,6 +47,17 @@ export class RhComponent implements OnInit {
         cards: Cards,
         columnClass: 'is-3-desktop'
     });
+    breadcrumbs: BreadcrumbModel[] = [
+        new BreadcrumbModel({
+            name: 'Home',
+            link: '/home'
+        }),
+        new BreadcrumbModel({
+            name: 'Sou RH',
+            link: '/home/rh',
+            active: true
+        }),
+    ];
 
     constructor(
         private windowRef: WindowRef,

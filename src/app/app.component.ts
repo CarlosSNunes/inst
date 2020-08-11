@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, DoCheck, Inject, PLATFORM_ID, HostListener } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, DoCheck, Inject, PLATFORM_ID, HostListener, AfterViewInit } from '@angular/core';
 import { AppService } from './services/app/app.service';
 import { RouteModel } from 'src/app/models';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { Router, Event, NavigationEnd, ActivatedRoute, Scroll } from '@angular/router';
+import { Router, Event, ActivatedRoute, Scroll } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -15,13 +15,14 @@ import { WindowRef } from 'src/utils/window-ref';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit, AfterViewInit {
     routes: RouteModel[] = [];
     isBrowser: boolean = false;
     width: number = 1440;
     elementOffset: number = 0;
+    initiated: boolean = false;
+
     constructor(
-        private appService: AppService,
         private cdRef: ChangeDetectorRef,
         private router: Router,
         private activatedRoute: ActivatedRoute,
@@ -52,6 +53,10 @@ export class AppComponent implements OnInit, DoCheck {
     }
 
     ngOnInit() {
+    }
+
+    ngAfterViewInit() {
+        this.initiated = true;
     }
 
     addAnchorListener() {
@@ -105,10 +110,5 @@ export class AppComponent implements OnInit, DoCheck {
                 this.document.body.classList.remove('using-mouse');
             }
         }
-    }
-
-    ngDoCheck() {
-        this.routes = this.appService.routes;
-        this.cdRef.detectChanges();
     }
 }

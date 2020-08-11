@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { bannersMock } from './data/banners';
-import { BannerModel, CareplusVideoModel, IconCardsSectionModel, ButtonModel } from 'src/app/models';
+import { BannerModel, CareplusVideoModel, IconCardsSectionModel, ButtonModel, BreadcrumbModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 import { ACareplusVideoComponent } from 'src/app/modules/components/a-careplus-video/a-careplus-video.component';
 import Cards from './data/cards';
@@ -38,6 +38,17 @@ export class CredenciadoComponent implements OnInit {
         cards: Cards,
         columnClass: 'is-3-desktop'
     });
+    breadcrumbs: BreadcrumbModel[] = [
+        new BreadcrumbModel({
+            name: 'Home',
+            link: '/home'
+        }),
+        new BreadcrumbModel({
+            name: 'Sou Credenciado',
+            link: '/home/credenciado',
+            active: true
+        }),
+    ];
 
     constructor(
         private windowRef: WindowRef,

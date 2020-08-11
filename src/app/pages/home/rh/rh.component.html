@@ -1,7 +1,9 @@
-<app-banner [banners]="banners" [area]="'rh'" [hasAnchor]="true" (slideToNextElement)="slideToSection()"></app-banner>
+<app-banner [banners]="banners" [area]="'rh'" [hasAnchor]="true" [breadcrumbs]="breadcrumbs"
+    (slideToNextElement)="slideToSection()"></app-banner>
 <app-info-section #infoSection [sectionInfo]="simulationSection"></app-info-section>
 <app-product></app-product>
-<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'">
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
+    [backgroundColorClass]="'blue-background-color'">
 </app-icon-cards-section>
 <app-differential></app-differential>
 <app-info-section [sectionInfo]="ocupationalSection"></app-info-section>

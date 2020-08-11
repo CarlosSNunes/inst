@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Input, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { NgImageSliderComponent } from 'ng-image-slider';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { SliderModel } from 'src/app/models';
@@ -34,6 +34,7 @@ export class SliderComponent implements OnInit {
             const imgDiv = this.elementRef.nativeElement.querySelector('.img-div');
             imgDiv.classList.add('active')
             this.overrideSliderSwipeMethod()
+            this.overrideOnResizeMethod()
         }
     }
 
@@ -59,6 +60,10 @@ export class SliderComponent implements OnInit {
                 }
             }
         }
+    }
+
+    overrideOnResizeMethod() {
+        this.slider.onResize = function (event) {}
     }
 
     changeSlide(action: string) {
