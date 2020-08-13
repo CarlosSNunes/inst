@@ -1,0 +1,48 @@
+<section id="simulador" [@finish]="finishAnimationState" (@finish.done)="captureDoneEvent($event)">
+    <a tabindex="0" class="times-icon" (keyup.enter)="finishAnimationState = 'close'"
+        (click)="finishAnimationState = 'close'">
+        <div class="lines">
+            <span class="first-line"></span>
+            <span class="second-line"></span>
+        </div>
+    </a>
+    <article>
+        <app-home-step [@homeLeaveAnimation]="homeAnimationState" (goToNextStep)="homeAnimationState = 'stepper'">
+        </app-home-step>
+        <div class="container stepper-container" [@stepperEnterAnimation]="homeAnimationState" (@stepperEnterAnimation.done)="captureDoneEvent($event)" [style.position]="stepperPosition">
+            <mat-horizontal-stepper labelPosition="right" [disableRipple]="true" [linear]="true" [ngClass]="stepClass"
+                (selectionChange)="onStepChange($event)">
+                <mat-step [stepControl]="firstStepForm">
+                    <ng-template matStepLabel>Tamanho da Empresa</ng-template>
+                    <form [formGroup]="firstStepForm">
+                        <app-first-step [firstStepForm]="firstStepForm"></app-first-step>
+                    </form>
+                    <div>
+                        <button class="btn btn-secondary medium align-right" [disabled]="!firstStepForm?.valid"
+                            matStepperNext>avançar</button>
+                    </div>
+                </mat-step>
+                <mat-step [stepControl]="secondStepForm">
+                    <ng-template matStepLabel>Customização</ng-template>
+                    <form [formGroup]="secondStepForm">
+                        <app-second-step [secondStepForm]="secondStepForm"></app-second-step>
+                    </form>
+                    <div>
+                        <button class="btn btn-secondary medium align-right" [disabled]="!secondStepForm?.valid"
+                            matStepperNext>avançar</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <app-third-step (finish)="scheduleAVisit()"></app-third-step>
+                </mat-step>
+
+                <ng-template matStepperIcon="edit" let-index="index">
+                    <span *ngIf="currentStep != 3">
+                        {{currentStep}}
+                    </span>
+                    <mat-icon *ngIf="currentStep == 3">done</mat-icon>
+                </ng-template>
+            </mat-horizontal-stepper>
+        </div>
+    </article>
+</section>

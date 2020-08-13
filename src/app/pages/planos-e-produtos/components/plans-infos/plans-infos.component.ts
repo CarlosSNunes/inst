@@ -31,7 +31,7 @@ export class PlansInfosComponent implements OnInit {
             text: 'SAIBA MAIS',
             link: 'https://www8.careplus.com.br/masterinternational/'
         }),
-        image: 'assets/svg/plan-card-4.svg'
+        image: 'assets/svg/plans-international.svg'
     });
     @Input() selectedOptionId: number = 1;
     @Output() setSelectedOptionId: EventEmitter<number> = new EventEmitter<number>();

@@ -330,6 +330,72 @@ section {
             padding: 0 !important;
         }
     }
+
+
+    /**
+        pt - Botão Digital cian
+        en - Digital cian button
+    */
+
+    &.btn-digital-cian {
+        border: 2px solid getColor(_bupa, _white);
+        color: getColor(_bupa, _white);
+        background-color: getColor(_bupa, _digital-cian);
+        outline: none;
+        text-align: center;
+
+        &:hover {
+            border: 2px solid getColor(_bupa, _white);
+            background-color: getColor(_bupa, _white);
+            color: getColor(_bupa, _digital-cian);
+        }
+
+        &:focus {
+            border: 2px solid getColor(_bupa, _white);
+            background-color: getColor(_bupa, _white);
+            color: getColor(_bupa, _digital-cian);
+        }
+
+        &:active {
+            border: 2px solid getColor(_bupa, _white);
+            background-color: getColor(_bupa, _white);
+            color: getColor(_bupa, _digital-cian);
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            border: 2px solid getColor(_bupa, _grey-3);
+            background-color: getColor(_bupa, _grey-3);
+        }
+
+        @media (max-width: 991px) {
+            background-color: getColor(_bupa, _white);
+            border: unset;
+            border-radius: 2px;
+            color: getColor(_bupa, _digital-cian);
+
+            &:hover {
+                border: unset;
+                background-color: getColor(_bupa, _white);
+            }
+
+            &:focus {
+                border: unset;
+                background-color: getColor(_bupa, _white);
+                box-shadow: unset;
+            }
+
+            &:active {
+                border: unset;
+                background-color: getColor(_bupa, _white);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+                box-shadow: unset;
+            }
+        }
+    }
 }
 
 /*

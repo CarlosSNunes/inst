@@ -187,6 +187,9 @@ p {
     line-height: getLineHeight("sbm");
     color: getColor(_bupa, _digital-cian);
     text-transform: uppercase;
+    &.white{
+        color: getColor(_bupa, _white);
+    }
 }
 .big-title {
     max-width: 488px;
@@ -195,6 +198,9 @@ p {
     font-weight: 600;
     &.no-margin {
         margin-top: 0;
+    }
+    &.white{
+        color: getColor(_bupa, _white);
     }
 }
 
@@ -208,6 +214,9 @@ p {
     &.no-margin {
         margin-top: 0;
     }
+    &.white{
+        color: getColor(_bupa, _white);
+    }
 }
 
 .sub-description {
@@ -218,6 +227,9 @@ p {
     color: getColor(_bupa, _grey);
     &.no-margin {
         margin-top: 0;
+    }
+    &.white{
+        color: getColor(_bupa, _white);
     }
 }
 

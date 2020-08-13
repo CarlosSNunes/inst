@@ -1,0 +1,185 @@
+@import "~src/scss/_variables";
+
+section#simulador {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transform: translateY(-100vh);
+    background-color: getColor(_bupa, _digital-cian);
+    display: flex;
+    overflow-y: scroll;
+
+    .times-icon {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        z-index: 3;
+
+        .lines {
+            position: relative;
+            width: 28px;
+            height: 28px;
+            display: flex;
+
+            .first-line {
+                position: absolute;
+                left: 0;
+                align-self: center;
+                width: 28px;
+                height: 2px;
+                background-color: getColor(_bupa, _white);
+                transform: rotate(-45deg);
+            }
+
+            .second-line {
+                position: absolute;
+                left: 0;
+                align-self: center;
+                width: 28px;
+                height: 2px;
+                background-color: getColor(_bupa, _white);
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    article {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+app-home-step {
+    display: block;
+    align-self: center;
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.stepper-container {
+    transform: translateY(100vh);
+    opacity: 0;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    ::ng-deep mat-horizontal-stepper {
+        .mat-horizontal-stepper-header {
+            padding: 0 12px;
+            overflow: visible;
+        }
+
+        .mat-step-header {
+            overflow: visible;
+        }
+
+        .mat-horizontal-stepper-header-container {
+            margin-bottom: 30px;
+            width: 50%;
+        }
+
+        .mat-step-label {
+            position: absolute;
+            left: 24px;
+            bottom: -20px;
+            display: none;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 150%;
+            /* identical to box height, or 18px */
+
+            /* Branco */
+
+            color: #ffffff;
+        }
+
+        .mat-step-header:hover {
+            background-color: unset;
+        }
+        .mat-step-header.cdk-program-focused {
+            background-color: unset;
+        }
+        .mat-step-header.cdk-mouse-focused {
+            background-color: unset;
+        }
+        .mat-step-header.cdk-focused {
+            background-color: unset;
+        }
+
+        .mat-step-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 4px;
+            margin-left: 4px;
+            background-color: getColor(_bupa, _digital-cian);
+            border: 2px solid #c9c9c9;
+
+            &.mat-step-icon-selected {
+                background-color: #00837b;
+                border: 2px solid #a7d59d;
+
+                + .mat-step-label {
+                    display: block;
+                }
+            }
+
+            &.mat-step-icon-state-done {
+                background-color: #a7d59d;
+                border: 2px solid #a7d59d;
+                mat-icon {
+                    color: getColor(_bupa, _digital-cian);
+                }
+            }
+        }
+
+        .mat-stepper-horizontal-line {
+            transition: all 0.3s ease-in-out;
+            border-top: 3px solid #c9c9c9;
+        }
+    }
+
+    ::ng-deep mat-horizontal-stepper.second {
+        .mat-horizontal-stepper-header-container mat-step-header:first-child + div.mat-stepper-horizontal-line {
+            width: 32px !important;
+            flex: 0 0 32px !important;
+            border-top: 3px solid #a7d59d;
+        }
+    }
+
+    ::ng-deep mat-horizontal-stepper.third {
+        .mat-horizontal-stepper-header-container div.mat-stepper-horizontal-line {
+            width: 32px;
+            flex: 0 0 32px;
+        }
+    }
+
+    .align-right {
+        float: right;
+    }
+}
+
+.mat-stepper-horizontal {
+    background-color: getColor(_bupa, _digital-cian);
+}
+
+@media (max-width: 1023px) {
+    .stepper-container {
+        ::ng-deep mat-horizontal-stepper {
+            .mat-horizontal-content-container{
+                padding: 0 24px 100px 24px;
+            }
+        }
+    }
+}

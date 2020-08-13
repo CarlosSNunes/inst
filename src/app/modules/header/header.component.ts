@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { WindowRef } from 'src/utils/window-ref';
 import { MatSliderChange } from '@angular/material';
 import { DOCUMENT } from '@angular/common';
+import { SimuladoresService } from 'src/app/services';
 
 @Component({
     selector: 'app-header',
@@ -16,31 +17,12 @@ export class HeaderComponent implements OnInit {
     bightnessMode: string = 'default';
 
     constructor(
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        private simuladoresService: SimuladoresService
     ) { }
 
     ngOnInit() {
     }
-
-    // openOuvidoria() {
-    //     this.winRef.nativeWindow.open('https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx', '_blank');
-    // }
-
-    // openCanalDeDenuncia() {
-    //     this.winRef.nativeWindow.open('https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx', '_blank');
-    // }
-
-    // openLinkedin() {
-    //     this.winRef.nativeWindow.open('https://linkedin.com/company/care-plus', '_blank')
-    // }
-
-    // openInstagram() {
-    //     this.winRef.nativeWindow.open('https://www.instagram.com/careplusoficial', '_blank')
-    // }
-
-    // openFacebook() {
-    //     this.winRef.nativeWindow.open('https://www.facebook.com/careplusnarede/', '_blank')
-    // }
 
     changeFontSize(event: MatSliderChange) {
         this.setFontSize(event.value)
@@ -64,5 +46,9 @@ export class HeaderComponent implements OnInit {
 
     setBrightness(mode: string) {
         this.bightnessMode = mode;
+    }
+
+    openSimulator() {
+        this.simuladoresService.open();
     }
 }

@@ -11,7 +11,7 @@ import { DOCUMENT } from '@angular/common';
     styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-    @Output() closeModal: EventEmitter<any> = new EventEmitter<any>();
+    @Output() closeModal: EventEmitter<{ scrollPosition: number }> = new EventEmitter<{ scrollPosition: number }>();
     scrollPosition: number = 0;
     @Input() modalModel: any;
 

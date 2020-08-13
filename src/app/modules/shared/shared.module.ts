@@ -6,7 +6,7 @@ import { SatDatepickerModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, Sa
 import { MatDatepickerModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 import { MomentDateAdapter } from '@angular/material-moment-adapter'
 import { ReactiveFormsModule } from '@angular/forms';
-import {NgxMaskModule} from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
 
 export const ISO_FORMAT = {
     parse: {
@@ -45,7 +45,7 @@ export const ISO_FORMAT = {
         MatInputModule,
         MatIconModule,
         ReactiveFormsModule,
-        NgxMaskModule
+        NgxMaskModule,
     ],
     providers: [
         { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },

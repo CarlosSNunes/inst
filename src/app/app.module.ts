@@ -3,7 +3,6 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AppService } from './services/app/app.service';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import { registerLocaleData } from '@angular/common';
@@ -17,6 +16,7 @@ import { HttpRequestInterceptor } from './app.interceptor';
 import { NotificationModule } from './modules/components/notification/notification.module';
 import { GestureConfig } from '@angular/material';
 import { ModalModule } from './modules/components/modal/modal.module';
+import { SimuladoresModule } from './modules/components/simuladores/simuladores.module';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 @NgModule({
@@ -34,10 +34,9 @@ registerLocaleData(localePt, 'pt', localePtExtra);
         BrowserAnimationsModule,
         NotificationModule,
         ModalModule,
-        
+        SimuladoresModule,
     ],
     providers: [
-        AppService,
         { provide: LOCALE_ID, useValue: 'pt' },
         WindowRef,
         { provide: 'locationObject', useValue: location},

@@ -1,13 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { AppService } from './services/app/app.service';
 import { WindowRef } from 'src/utils/window-ref';
 import { HeaderComponent } from 'src/app/modules/header/header.component';
 import { FooterComponent } from 'src/app/modules/footer/footer.component';
 
 describe('AppComponent', () => {
-  let appService: AppService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,10 +22,6 @@ describe('AppComponent', () => {
       ]
     }).compileComponents();
   }));
-
-  beforeEach(() => {
-    appService = TestBed.get(AppService);
-  });
 
   it('should create the app', (done: DoneFn) => {
     const fixture = TestBed.createComponent(AppComponent);

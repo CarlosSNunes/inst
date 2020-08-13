@@ -1,0 +1,57 @@
+<div class="second-step">
+    <h3 class="big-title white">
+        Além do plano de saúde, você tem interesse em outros produtos? Selecione abaixo ou clique para avançar.
+    </h3>
+    <div class="columns" [formGroup]="secondStepForm">
+        <div class="column is-4-desktop is-full">
+            <div class="illustration-check" [class.checked]="form?.plan.value == 'soho'">
+                <div class="green-primary-box"></div>
+                <div class="green-light-box"></div>
+                <img src="assets/svg/plans-international.svg" alt="Ilustração Plano de Saúde">
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="checkbox" type="radio" formControlName="plan" value="soho" name="plan" id="planSoho"
+                        [ngClass]="{ 'is-invalid' : form?.plan?.errors }" />
+                    <label class="checkbox-label" for="planSoho">
+                        Plano de Saúde
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-4-desktop is-full">
+            <div class="illustration-check" [class.checked]="form?.plan.value == 'clubeCarePlus'">
+                <div class="green-primary-box"></div>
+                <div class="green-light-box"></div>
+                <img src="assets/svg/plans-dental.svg" alt="Ilustração Plano Odontológico">
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input formControlName="plan" [ngClass]="{ 'is-invalid' : form?.plan?.errors }" class="checkbox"
+                        id="clubeCarePlus" type="radio" name="plan" value="clubeCarePlus">
+                    <label class="checkbox-label" for="clubeCarePlus">
+                        Plano Odontológico
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-4-desktop is-full illustration-check">
+            <div class="illustration-check" [class.checked]="form?.plan.value == 'empresarial'">
+                <div class="green-primary-box"></div>
+                <div class="green-light-box"></div>
+                <img src="assets/svg/art-image-one.svg" alt="Ilustração Plano Medicina Ocupacional">
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input formControlName="plan" [ngClass]="{ 'is-invalid' : form?.plan?.errors }" class="checkbox"
+                        type="radio" name="plan" value="empresarial">
+                    <label class="checkbox-label">
+                        MEDICINA OCUPACIONAL
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

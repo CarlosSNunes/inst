@@ -17,10 +17,6 @@ const routes: Routes = [
         loadChildren: () => import('./pages/a-careplus/a-careplus.module').then(m => m.ACareplusModule),
     },
     {
-        path: 'quem-somos',
-        loadChildren: () => import('./pages/quem-somos/quem-somos.module').then(m => m.QuemSomosModule)
-    },
-    {
         path: 'fale-conosco',
         loadChildren: () => import('./pages/fale-conosco/fale-conosco.module').then(m => m.FaleConoscoModule)
     },

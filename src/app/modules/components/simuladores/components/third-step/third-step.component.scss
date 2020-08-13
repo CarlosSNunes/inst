@@ -1,0 +1,42 @@
+.third-step {
+    .columns {
+        margin: 0 -16px;
+        .column {
+            h3.big-title {
+                margin-top: 20px;
+            }
+
+            .description {
+                margin-top: 36px;
+            }
+
+            .third-step-buttons {
+                margin-top: 50px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .third-step {
+        .columns {
+            .column {
+                .third-step-buttons {
+                    flex-wrap: wrap;
+
+                    .btn {
+                        width: 100%;
+                        flex: 0 0 100%;
+                        display: block;
+
+                        &.btn-secondary{
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 import { InfoSectionModel, ButtonModel, PlanCardModel, IconCardsSectionModel, IconCardModel, HeroBannerModel, VideoModel, BreadcrumbModel } from 'src/app/models';
 import Cards from './data/cards';
+import { SimuladoresService } from 'src/app/services';
 
 @Component({
     selector: 'app-planos-e-produtos',
@@ -99,7 +100,8 @@ export class PlanosEProdutosComponent implements OnInit {
         private title: Title,
         private meta: Meta,
         private elementRef: ElementRef<HTMLElement>,
-        private windowRef: WindowRef
+        private windowRef: WindowRef,
+        private simuladoresService: SimuladoresService
     ) {
         this.setSEOInfos();
     }
@@ -126,6 +128,10 @@ export class PlanosEProdutosComponent implements OnInit {
             name: 'description',
             content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
         })
+    }
+
+    openSimulator() {
+        this.simuladoresService.open();
     }
 
 }

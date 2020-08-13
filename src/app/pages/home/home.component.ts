@@ -7,7 +7,6 @@ import {
     Inject,
     PLATFORM_ID
 } from '@angular/core';
-import { AppService } from 'src/app/services';
 import { ProductComponent } from '../../modules/components/product/product.component';
 import { bannersMock } from './data/banners'
 import { isPlatformBrowser } from '@angular/common';
@@ -63,7 +62,6 @@ export class HomeComponent implements OnInit {
     });
 
     constructor(
-        private appService: AppService,
         private cdRef: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private plataformId,
         private windowRef: WindowRef
@@ -72,7 +70,6 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.appService.state = [];
         if (this.isBrowser) {
             this.cdRef.detectChanges();
         }

@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, DoCheck, Inject, PLATFORM_ID, HostListener, AfterViewInit } from '@angular/core';
-import { AppService } from './services/app/app.service';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Inject, PLATFORM_ID, HostListener, AfterViewInit } from '@angular/core';
 import { RouteModel } from 'src/app/models';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { Router, Event, ActivatedRoute, Scroll } from '@angular/router';

@@ -151,7 +151,7 @@ export class PlusNetworkComponent implements OnInit {
             this.stopBannerPercentage()
             this.time = this.banners[i].tempo;
             this.startBannerPercentage(this.time / 100, this.time)
-            this.banners.map((banner, index) => {
+            this.banners = this.banners.map((banner, index) => {
                 if (i != index) {
                     banner.slideAtual = false
                     banner.action = ''
@@ -159,7 +159,9 @@ export class PlusNetworkComponent implements OnInit {
                     banner.slideAtual = true
                     banner.action = action
                 }
-            })
+                return banner
+            });
+            this.cdRef.detectChanges();
         }
     }
 

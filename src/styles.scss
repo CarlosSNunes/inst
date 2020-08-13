@@ -40,6 +40,10 @@ body {
     font-family: $mainFont, Roboto, "Helvetica Neue", sans-serif;
 }
 
+.mat-icon {
+    font-family: "Material Icons" !important;
+}
+
 .no-scroll {
     overflow: hidden;
     position: fixed;
