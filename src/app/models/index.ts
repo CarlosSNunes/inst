@@ -28,3 +28,4 @@ export * from './hero-banner.model';
 export * from './category.model';
 export * from './cross-content.model';
 export * from './unity.model';
+export * from './plan.model';

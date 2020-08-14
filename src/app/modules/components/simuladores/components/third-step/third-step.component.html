@@ -10,22 +10,24 @@
             </h4>
 
             <h3 class="big-title white no-margin">
-                Care Plus Empresarial
+                {{selectedPlan?.name}}
             </h3>
 
             <p class="description white">
-                Este é o nosso plano que atende empresas de 30 a 200 vidas que atuam em diversos setores. Você pode
-                molda-lo à necessidade da sua empresa. Entre em contato para saber mais.
+                <!-- Este é o nosso plano que atende empresas de 30 a 200 vidas que atuam em diversos setores. Você pode
+                molda-lo à necessidade da sua empresa. Entre em contato para saber mais. -->
+
+                {{selectedPlan?.description}}
             </p>
 
             <div class="third-step-buttons">
 
-                <a href="" class="btn btn-digital-cian medium">
+                <a (click)="goToPlan()" class="btn btn-digital-cian medium">
                     Saiba mais
                 </a>
 
                 <button (click)="finish.emit()" class="btn btn-secondary medium">
-                    Agende uma visita
+                    Solicite uma cotação
                 </button>
             </div>
         </div>

@@ -19,32 +19,36 @@ export class ModalService {
 
     openModal(modalInfos: ModalModel | FeedbackModalModel | ErrorModalModel | ContentModalModel | TableModalModel) {
 
-        // 1. Create a component reference from the component 
-        const componentRef = this.componentFactoryResolver
-            .resolveComponentFactory(ModalComponent)
-            .create(this.injector);
+        const modal = this.document.querySelector('app-modal')
 
-        // Component Inputs
-        componentRef.instance.modalModel = modalInfos;
+        if (!modal) {
+            // 1. Create a component reference from the component 
+            const componentRef = this.componentFactoryResolver
+                .resolveComponentFactory(ModalComponent)
+                .create(this.injector);
 
-        // 2. Attach component to the appRef so that it's inside the ng component tree
-        this.appRef.attachView(componentRef.hostView);
+            // Component Inputs
+            componentRef.instance.modalModel = modalInfos;
 
-        // 3. Get DOM element from component
-        const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
-            .rootNodes[0] as HTMLElement;
+            // 2. Attach component to the appRef so that it's inside the ng component tree
+            this.appRef.attachView(componentRef.hostView);
 
-        // 4. Append DOM element to the body
-        this.document.body.appendChild(domElem);
+            // 3. Get DOM element from component
+            const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
+                .rootNodes[0] as HTMLElement;
+
+            // 4. Append DOM element to the body
+            this.document.body.appendChild(domElem);
 
 
-        componentRef.instance.closeModal.subscribe((evt) => {
-            this.appRef.detachView(componentRef.hostView)
-            if (this.document.body.classList.contains('no-scroll')) {
-                this.document.body.classList.remove('no-scroll');
-                this.windowRef.nativeWindow.scrollTo(0, evt.scrollPosition)
-            }
-        })
+            componentRef.instance.closeModal.subscribe((evt) => {
+                this.appRef.detachView(componentRef.hostView)
+                if (this.document.body.classList.contains('no-scroll')) {
+                    this.document.body.classList.remove('no-scroll');
+                    this.windowRef.nativeWindow.scrollTo(0, evt.scrollPosition)
+                }
+            })
+        }
 
     }
 }

@@ -10,10 +10,7 @@ import { CareplusVideoModel } from 'src/app/models';
 export class ACareplusVideoComponent implements OnInit {
     @Input() backgroundColor: string = '#fff';
     @Input() videoModel: CareplusVideoModel = new CareplusVideoModel({
-        video: {
-            link: 'http://static.videogular.com/assets/videos/videogular.mp4',
-            type: 'video/mp4'
-        }
+        embedSrc: 'https://www.youtube.com/embed/WVcRo6iWffM'
     })
     isBrowser: boolean = false;
     @ViewChild('sectionVideo', { static: false }) sectionVideo: ElementRef<HTMLElement>;

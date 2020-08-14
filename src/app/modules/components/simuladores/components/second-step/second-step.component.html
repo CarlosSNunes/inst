@@ -4,16 +4,16 @@
     </h3>
     <div class="columns" [formGroup]="secondStepForm">
         <div class="column is-4-desktop is-full">
-            <div class="illustration-check" [class.checked]="form?.plan.value == 'soho'">
+            <div class="illustration-check" [class.checked]="form?.planoSaude.value == true">
                 <div class="green-primary-box"></div>
                 <div class="green-light-box"></div>
                 <img src="assets/svg/plans-international.svg" alt="Ilustração Plano de Saúde">
             </div>
             <div class="field">
                 <div class="control">
-                    <input class="checkbox" type="radio" formControlName="plan" value="soho" name="plan" id="planSoho"
-                        [ngClass]="{ 'is-invalid' : form?.plan?.errors }" />
-                    <label class="checkbox-label" for="planSoho">
+                    <input class="checkbox" disabled [checked]="true" type="checkbox" formControlName="planoSaude"
+                        name="planoSaude" id="saude" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" />
+                    <label class="checkbox-label">
                         Plano de Saúde
                     </label>
                 </div>
@@ -21,16 +21,17 @@
         </div>
 
         <div class="column is-4-desktop is-full">
-            <div class="illustration-check" [class.checked]="form?.plan.value == 'clubeCarePlus'">
+            <div class="illustration-check" [class.checked]="form?.planoOdontologico.value == true">
                 <div class="green-primary-box"></div>
                 <div class="green-light-box"></div>
                 <img src="assets/svg/plans-dental.svg" alt="Ilustração Plano Odontológico">
             </div>
             <div class="field">
                 <div class="control">
-                    <input formControlName="plan" [ngClass]="{ 'is-invalid' : form?.plan?.errors }" class="checkbox"
-                        id="clubeCarePlus" type="radio" name="plan" value="clubeCarePlus">
-                    <label class="checkbox-label" for="clubeCarePlus">
+                    <input formControlName="planoOdontologico"
+                        [ngClass]="{ 'is-invalid' : form?.planoOdontologico?.errors }" class="checkbox"
+                        id="odontologico" type="checkbox" name="planoOdontologico">
+                    <label class="checkbox-label" for="odontologico">
                         Plano Odontológico
                     </label>
                 </div>
@@ -38,16 +39,17 @@
         </div>
 
         <div class="column is-4-desktop is-full illustration-check">
-            <div class="illustration-check" [class.checked]="form?.plan.value == 'empresarial'">
+            <div class="illustration-check" [class.checked]="form?.planoMedicinal.value == true">
                 <div class="green-primary-box"></div>
                 <div class="green-light-box"></div>
                 <img src="assets/svg/art-image-one.svg" alt="Ilustração Plano Medicina Ocupacional">
             </div>
             <div class="field">
                 <div class="control">
-                    <input formControlName="plan" [ngClass]="{ 'is-invalid' : form?.plan?.errors }" class="checkbox"
-                        type="radio" name="plan" value="empresarial">
-                    <label class="checkbox-label">
+                    <input formControlName="planoMedicinal" [ngClass]="{ 'is-invalid' : form?.planoMedicinal?.errors }"
+                        class="checkbox" type="checkbox" name="planoMedicinal" id="medicinaOcupacional"
+                        value="medicinaOcupacional">
+                    <label class="checkbox-label" for="medicinaOcupacional">
                         MEDICINA OCUPACIONAL
                     </label>
                 </div>

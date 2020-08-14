@@ -17,10 +17,7 @@ export class CredenciadoComponent implements OnInit {
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         smallTitle: 'A CARE PLUS',
         bigTitle: 'A maior operadora de saúde premium com 27 anos de mercado',
-        video: {
-            link: 'http://static.videogular.com/assets/videos/videogular.mp4',
-            type: 'video/mp4'
-        },
+        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8',
         button: new ButtonModel({
             text: 'CONHEÇA A CARE PLUS',
             title: 'CONHEÇA A CARE PLUS',

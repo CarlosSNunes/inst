@@ -103,6 +103,8 @@ $color-map: (
         _blue-section: var(--carePlus_blue-section),
         _grey_inactive_tab: var(--carePlus_grey_inactive_tab),
         _grey-5: var(--carePlus_grey-5),
+        _blue-plan-card: var(--carePlus_blue-plan-card),
+        
          // Hexadecimal background colors
         _green-background: var(--carePlus_green-background),
         _light-green-background: var(--carePlus_light-green-background),
@@ -117,8 +119,8 @@ $color-map: (
         _success-background: var(--carePlus_success-background),
         _blue-section-background: var(--carePlus_blue-section-background),
         _grey_inactive_tab-background: var(--carePlus_grey_inactive_tab-background),
-        _grey-5-rgb: var(--carePlus_grey-5-rgb),
-
+        _grey-5-background: var(--carePlus_grey-5-rgb),
+        _blue-plan-card-background: var(--carePlus_blue-plan-card-background),
         // Rgb colors
         
         _green-rgb: var(--carePlus_green-rgb),
@@ -133,7 +135,7 @@ $color-map: (
         _warning-rgb: var(--carePlus_warning-rgb),
         _success-rgb: var(--carePlus_success-rgb),
         _grey_inactive_tab-rgb: var(--carePlus_grey_inactive_tab-rgb),
-
+        _blue-plan-card-rgb: var(--carePlus_blue-plan-card-rgb),
         // Rgb background colors
 
         _green-rgb-background: var(--carePlus_green-rgb-background),
@@ -148,6 +150,7 @@ $color-map: (
         _warning-rgb-background: var(--carePlus_warning-rgb-background),
         _success-rgb-background: var(--carePlus_success-rgb-background),
         _grey_inactive_tab-rgb-background: var(--carePlus_grey_inactive_tab-rgb-background),
+        _blue-plan-card-rgb-background: var(--carePlus_blue-plan-card-rgb-background)
     ),
     _bottom-line: (
         // Hexadecimal colors

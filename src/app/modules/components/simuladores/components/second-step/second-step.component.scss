@@ -17,7 +17,7 @@
 
                 &::before {
                     content: "";
-                    background-color: #bce4ff;
+                    background-color: getColor(_carePlus, _blue-plan-card);
                     position: absolute;
                     width: 70%;
                     height: 100%;

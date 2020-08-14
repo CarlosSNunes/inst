@@ -33,10 +33,7 @@ export class RedePlusComponent implements OnInit {
     };
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         bigTitle: 'Assista nosso vídeo da Rede Plus e conheça este nosso diferencial de atendimento',
-        video: {
-            link: 'http://static.videogular.com/assets/videos/videogular.mp4',
-            type: 'video/mp4'
-        }
+        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8'
     });
     accreditedSection = new InfoSectionModel({
         smallTitle: 'credenciados rede plus',

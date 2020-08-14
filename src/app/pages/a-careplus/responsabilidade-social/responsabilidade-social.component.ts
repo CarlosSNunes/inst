@@ -38,10 +38,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
     offset: number = 0;
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         bigTitle: 'Assista nosso vídeo de como nossas ações estamos fazendo um mundo melhor.',
-        video: {
-            link: 'http://static.videogular.com/assets/videos/videogular.mp4',
-            type: 'video/mp4'
-        },
+        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8'
     });
     infoSections: InfoSectionModel[] = [
         new InfoSectionModel({
@@ -81,6 +78,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         private title: Title,
         private meta: Meta
     ) {
+        this.setSEOinfos();
         this.isBrowser = isPlatformBrowser(platformId);
         if (this.isBrowser) {
             this.width = this.windowRef.nativeWindow.innerWidth;
@@ -90,7 +88,6 @@ export class ResponsabilidadeSocialComponent implements OnInit {
                 this.offset = 0;
             }
         }
-        this.setSEOinfos();
     }
 
     ngOnInit() {

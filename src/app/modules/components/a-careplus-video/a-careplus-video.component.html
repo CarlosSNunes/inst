@@ -12,36 +12,14 @@
         </div>
         <div class="columns video-columns">
             <div class="column is-12 video-bg">
-                <vg-player (onPlayerReady)="onPlayerReady($event)">
-                    <vg-overlay-play></vg-overlay-play>
-                    <vg-buffering *ngIf="isBrowser"></vg-buffering>
 
-                    <vg-controls *ngIf="isBrowser">
-                        <vg-play-pause></vg-play-pause>
-                        <vg-playback-button></vg-playback-button>
+                <div class="videoBox">
 
-                        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                    <iframe width="560" height="315" [src]="videoModel?.embedSrc | safe"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen=""></iframe>
+                </div>
 
-                        <vg-scrub-bar>
-                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
-                        </vg-scrub-bar>
-
-                        <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
-                        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
-
-                        <vg-track-selector></vg-track-selector>
-                        <vg-mute></vg-mute>
-                        <vg-volume></vg-volume>
-
-                        <vg-fullscreen></vg-fullscreen>
-                    </vg-controls>
-
-                    <video [vgMedia]="media" #media id="singleVideo" preload="auto"
-                        [attr.poster]="videoModel?.video?.poster" crossorigin>
-                        <source [src]="videoModel.video.link" [type]="videoModel.video.type">
-                    </video>
-                </vg-player>
             </div>
 
         </div>

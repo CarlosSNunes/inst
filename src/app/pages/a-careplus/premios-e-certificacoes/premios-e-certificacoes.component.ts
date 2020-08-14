@@ -6,7 +6,6 @@ import { isPlatformBrowser } from '@angular/common';
 import Cards from './data/cards';
 import { Title, Meta } from '@angular/platform-browser';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { ContentModalModel } from 'src/app/models/modal.model';
 
 @Component({

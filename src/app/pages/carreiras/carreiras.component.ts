@@ -26,10 +26,7 @@ export class CarreirasComponent implements OnInit {
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         smallTitle: 'A CARE PLUS',
         bigTitle: 'Por que escolher a Care Plus?',
-        video: {
-            link: 'http://static.videogular.com/assets/videos/videogular.mp4',
-            type: 'video/mp4',
-        },
+        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8',
         button: new ButtonModel({
             text: 'Conheça a Care Plus',
             routerLink: '/a-careplus'

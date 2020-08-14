@@ -9,7 +9,7 @@
     <article>
         <app-home-step [@homeLeaveAnimation]="homeAnimationState" (goToNextStep)="homeAnimationState = 'stepper'">
         </app-home-step>
-        <div class="container stepper-container" [@stepperEnterAnimation]="homeAnimationState" (@stepperEnterAnimation.done)="captureDoneEvent($event)" [style.position]="stepperPosition">
+        <div class="container stepper-container" [hidden]="homeAnimationState == 'home'" [@stepperEnterAnimation]="homeAnimationState" (@stepperEnterAnimation.done)="captureDoneEvent($event)" [style.position]="stepperPosition">
             <mat-horizontal-stepper labelPosition="right" [disableRipple]="true" [linear]="true" [ngClass]="stepClass"
                 (selectionChange)="onStepChange($event)">
                 <mat-step [stepControl]="firstStepForm">
@@ -33,12 +33,19 @@
                     </div>
                 </mat-step>
                 <mat-step>
-                    <app-third-step (finish)="scheduleAVisit()"></app-third-step>
+                    <app-third-step (finish)="scheduleAVisit()" [selectedPlan]="selectedPlan"></app-third-step>
                 </mat-step>
 
                 <ng-template matStepperIcon="edit" let-index="index">
                     <span *ngIf="currentStep != 3">
                         {{currentStep}}
+                    </span>
+                    <mat-icon *ngIf="currentStep == 3">done</mat-icon>
+                </ng-template>
+
+                <ng-template matStepperIcon="number" let-index="index">
+                    <span *ngIf="currentStep != 3">
+                        {{index + 1}}
                     </span>
                     <mat-icon *ngIf="currentStep == 3">done</mat-icon>
                 </ng-template>

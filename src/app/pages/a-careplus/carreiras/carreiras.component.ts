@@ -33,10 +33,7 @@ export class CarreirasComponent implements OnInit {
     };
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         bigTitle: 'Por que somos apaixonados pela Care Plus?',
-        video: {
-            link: 'http://static.videogular.com/assets/videos/videogular.mp4',
-            type: 'video/mp4'
-        }
+        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8'
     });
     infoSections: InfoSectionModel[] = [
         new InfoSectionModel({

@@ -9,10 +9,5 @@ export class CareplusVideoModel {
     bigTitle?: string;
     button: ButtonModel;
     backgroundColor?: string = '#FFF';
-    video: {
-        link: string;
-        type: string;
-        subtitles?: SubtitleModel[];
-        poster?: string;
-    };
+    embedSrc: string = '';
 }

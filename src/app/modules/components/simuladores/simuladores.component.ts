@@ -5,6 +5,8 @@ import { AnimationEvent, trigger, state, style, transition, animate } from '@ang
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Plans from './data/plans';
+import { PlanModel } from 'src/app/models';
 
 @Component({
     selector: 'app-simuladores',
@@ -72,6 +74,8 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
     currentStep: number = 1;
     formsInfos: object = {};
     stepperPosition: string = 'absolute';
+    plans = Plans;
+    selectedPlan: PlanModel = new PlanModel({});
 
     constructor(
         private windowRef: WindowRef,
@@ -80,11 +84,13 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
         private router: Router
     ) {
         this.firstStepForm = this.fb.group({
-            planType: ['', Validators.compose([Validators.required])]
+            plano: ['', Validators.compose([Validators.required])]
         });
 
         this.secondStepForm = this.fb.group({
-            plan: ['',]
+            planoSaude: [true, Validators.compose([Validators.requiredTrue])],
+            planoOdontologico: [false,],
+            planoMedicinal: [false,]
         });
     }
 
@@ -126,6 +132,8 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
             ...this.firstStepForm.value,
             ...this.secondStepForm.value
         };
+
+        this.selectedPlan = this.plans.find((plan) => plan.id == this.firstStepForm.value.plano);
     }
 
     scheduleAVisit() {

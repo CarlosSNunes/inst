@@ -1,7 +1,4 @@
 @import "~src/scss/_variables.scss";
-:root {
-    --banner-background: #fff;
-}
 
 #a-care-plus {
     p {
@@ -35,25 +32,19 @@
         width: calc(100% - 32px);
         background-color: var(--banner-background);
     }
-    vg-player {
+    .videoBox {
         margin: auto;
         max-height: 511px;
         max-width: 90%;
         position: relative;
-        ::ng-deep {
-            .overlay-play-container.vg-icon-play_arrow:before {
-                content: "";
-                background-image: getSvg("playVideo.svg");
-                width: 95.27px;
-                height: 95.27px;
-                background-size: contain;
-                background-repeat: no-repeat;
-                transition: transform 0.4s ease-in-out;
-            }
+
+        iframe {
+            width: 100%;
+            height: 503px;
+            position: relative;
+            border: none;
         }
-        vg-controls {
-            display: none;
-        }
+
         &::before {
             background: linear-gradient(
                 to right,
@@ -64,20 +55,20 @@
             );
             content: "";
             position: absolute;
-            height: 4px;
+            height: 8px;
             left: 0;
             bottom: 0;
             width: 100%;
         }
     }
 
-    .columns{
+    .columns {
         margin-bottom: 0;
 
-        &.video-columns{
+        &.video-columns {
             margin-top: 55px;
         }
-        .column{
+        .column {
             padding-top: 0;
             padding-bottom: 0;
         }
@@ -98,18 +89,26 @@
             line-height: 120%;
             width: 100%;
         }
-        vg-player {
-            ::ng-deep {
-                .overlay-play-container.vg-icon-play_arrow:before {
-                    width: 55px;
-                    height: 55px;
-                }
+
+        .videoBox {
+            iframe {
+                height: 303px;
             }
         }
 
-        .btn{
+        .btn {
             padding-left: 0;
             margin: 30px 0 0 0;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    #a-care-plus {
+        .videoBox {
+            iframe {
+                height: 203px;
+            }
         }
     }
 }

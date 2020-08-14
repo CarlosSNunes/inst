@@ -12,7 +12,7 @@
                 <div class="column is-5-desktop is-full">
                     <mat-form-field>
                         <input matInput [min]="minDate" placeholder="Data" [satDatepicker]="picker3" value=""
-                            (dateChange)="onDate($event)">
+                            (dateChange)="onDate($event)" >
                         <sat-datepicker #picker3>
                         </sat-datepicker>
                         <sat-datepicker-toggle matSuffix [for]="picker3">
