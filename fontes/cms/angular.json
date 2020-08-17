@@ -32,7 +32,8 @@
               "node_modules/bulma/css/bulma.css",
               "src/assets/css/bulma-calendar.min.css",
               "node_modules/bulma-pageloader/dist/css/bulma-pageloader.min.css",
-              "node_modules/@ckeditor/ckeditor5-theme-lark/theme/ckeditor5-editor-classic/classiceditor.css"
+              "node_modules/@ckeditor/ckeditor5-theme-lark/theme/ckeditor5-editor-classic/classiceditor.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
