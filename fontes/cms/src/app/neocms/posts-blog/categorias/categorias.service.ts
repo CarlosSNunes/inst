@@ -8,7 +8,7 @@ import { CategoriasModel } from 'src/models/categorias/categorias.model';
   providedIn: 'root'
 })
 export class CategoriasService {
-  private url = 'https://localhost:4006/Categorias';
+  private url = 'https://localhost:4000/Categorias';
   
   
   constructor(
