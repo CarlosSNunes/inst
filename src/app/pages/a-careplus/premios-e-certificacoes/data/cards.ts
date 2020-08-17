@@ -1,4 +1,4 @@
-import { PostCardModel, NoticiaModel } from 'src/app/models';
+import { PostCardModel, NoticiaModel, ButtonModel } from 'src/app/models';
 
 export default [
     new PostCardModel({
@@ -9,7 +9,9 @@ export default [
             subtitulo: "Lorem ipsum dolor sit amet, consect adi elit. Scelerisque eu sit egestas am dorime",
             caminhoImagem: "assets/img/certified-image.jpg",
         }),
-        linkTitle: 'Saiba mais'
+        button: new ButtonModel({
+            text: 'Saiba mais'
+        })
     }),
     new PostCardModel({
         type: 'image',
@@ -19,7 +21,9 @@ export default [
             subtitulo: "Lorem ipsum dolor sit amet, consect adi elit. Scelerisque eu sit egestas am dorime",
             caminhoImagem: "assets/img/certified-image.jpg",
         }),
-        linkTitle: 'Saiba mais'
+        button: new ButtonModel({
+            text: 'Saiba mais'
+        })
     }),
     new PostCardModel({
         type: 'image',
@@ -29,7 +33,9 @@ export default [
             subtitulo: "Lorem ipsum dolor sit amet, consect adi elit. Scelerisque eu sit egestas am dorime",
             caminhoImagem: "assets/img/certified-image.jpg",
         }),
-        linkTitle: 'Saiba mais'
+        button: new ButtonModel({
+            text: 'Saiba mais'
+        })
     }),
     new PostCardModel({
         type: 'image',
@@ -39,6 +45,8 @@ export default [
             subtitulo: "Lorem ipsum dolor sit amet, consect adi elit. Scelerisque eu sit egestas am dorime",
             caminhoImagem: "assets/img/certified-image.jpg",
         }),
-        linkTitle: 'Saiba mais'
+        button: new ButtonModel({
+            text: 'Saiba mais'
+        })
     }),
 ]

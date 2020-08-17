@@ -29,5 +29,5 @@ export default new NoticiaModel({
     caminhoImagem: 'http://matheus.careplus.remote.neotix.com.br/images/highlight-image-mock.jpg',
     nomeImagem: 'Saiba todos os sintomas do Coronavírus',
     tipoImagem: 'video',
-    slug: 'coronavirus'
+    slug: 'coronavirus',
 });

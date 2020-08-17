@@ -40,6 +40,11 @@ export class FormSectionComponent implements OnInit {
             active: false
         }
     ];
+    activeChanel = {
+        title: 'Solicite uma cotação',
+        id: 1,
+        active: true
+    };
 
     constructor() { }
 
@@ -50,6 +55,7 @@ export class FormSectionComponent implements OnInit {
         this.chanelForms = this.chanelForms.map((chanel, i) => {
             if (i === index) {
                 chanel.active = true
+                this.activeChanel = chanel;
             } else {
                 chanel.active = false
             }

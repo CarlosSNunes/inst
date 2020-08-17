@@ -38,11 +38,11 @@
                     <!-- With routerLink-->
 
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
-                        class="btn btn-primary medium is-hidden-touch">
+                        [queryParams]="sectionInfo?.button?.queryParams" class="btn btn-primary medium is-hidden-touch">
                         {{sectionInfo?.button?.text}}
                     </a>
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
-                        class="btn btn-text small is-hidden-desktop">
+                        [queryParams]="sectionInfo?.button?.queryParams" class="btn btn-text small is-hidden-desktop">
                         {{sectionInfo?.button?.text}}
                         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path

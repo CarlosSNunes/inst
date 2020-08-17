@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID, Input } 
 import { ButtonModel, IconCardModel } from 'src/app/models';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { Button } from 'protractor';
 
 @Component({
     selector: 'app-contact',
@@ -19,8 +20,10 @@ export class ContactComponent implements OnInit {
     contactCard: IconCardModel = new IconCardModel({
         title: 'E-mail',
         type: 'icon',
-        link: 'mailto: gestaodesaude@careplus.com.br',
-        linkTitle: 'gestaodesaude@careplus.com.br',
+        button: new ButtonModel({
+            text: 'gestaodesaude@careplus.com.br',
+            link: 'mailto: gestaodesaude@careplus.com.br'
+        }),
         imagePath: 'assets/svg/email.svg',
         backgroundColorClass: 'white-background-color'
     });

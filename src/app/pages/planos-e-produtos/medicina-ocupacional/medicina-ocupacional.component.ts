@@ -21,7 +21,10 @@ export class MedicinaOcupacionalComponent implements OnInit {
         subDescription: 'Conte com os melhores serviços de medicina ocupacional. Todos eles seguem à risca as Normas Regulamentadoras (NRs). Confira quais são:',
         button: new ButtonModel({
             text: 'SOLICITE UMA COTAÇÃO',
-            routerLink: '/'
+            routerLink: '/fale-conosco',
+            queryParams: {
+                planoMedicinal: true
+            }
         }),
         cards: PersonalizedServicesCards,
         columnClass: 'is-4-desktop'

@@ -11,10 +11,17 @@
 
 .columns {
     margin: 0;
+
     &:last-child {
         margin: 0;
         margin-bottom: 0;
     }
+
+    &.has-negative-margin {
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+
     .column {
         // padding-top: 0;
         // padding-bottom: 0;
@@ -331,7 +338,6 @@ section {
         }
     }
 
-
     /**
         pt - Botão Digital cian
         en - Digital cian button
@@ -407,6 +413,13 @@ section {
         ul {
             li {
                 border: unset;
+                &:first-child {
+                    padding-left: 1px;
+                }
+
+                &:last-child {
+                    padding-right: 1px;
+                }
                 &.is-active {
                     a {
                         border: 1px solid getColor(_bupa, _digital-cian);

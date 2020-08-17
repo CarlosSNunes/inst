@@ -11,9 +11,6 @@ export class CardModel {
     title: string;
     description?: string;
     category?: string;
-    link?: string;
-    linkTitle?: string;
-    target?: string = '_blank';
     backgroundColorClass?: string = 'white-background-color';
     id: any;
     button?: ButtonModel;
@@ -22,7 +19,6 @@ export class CardModel {
 export class IconCardModel extends CardModel {
     public constructor(init?: Partial<IconCardModel>) {
         super(init)
-        this.target = '_blank';
         Object.assign(this, init);
         this.type = "icon";
     }
@@ -34,7 +30,6 @@ export class IconCardModel extends CardModel {
 export class PostCardModel extends CardModel {
     public constructor(init?: Partial<PostCardModel>) {
         super(init)
-        this.linkTitle = 'LER ARTIGO'
         Object.assign(this, init);
         this.type = "post";
     }

@@ -11,7 +11,7 @@
             </div>
             <div class="field">
                 <div class="control">
-                    <input class="checkbox" disabled [checked]="true" type="checkbox" formControlName="planoSaude"
+                    <input class="checkbox" [checked]="true" type="checkbox" formControlName="planoSaude"
                         name="planoSaude" id="saude" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" />
                     <label class="checkbox-label">
                         Plano de Saúde

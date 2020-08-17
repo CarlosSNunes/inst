@@ -110,3 +110,67 @@ section#faleConoscoForm {
         }
     }
 }
+
+@media (max-width: 1023px) {
+    section#faleConoscoForm {
+        .container {
+            .columns {
+                &.infos {
+                    margin-top: 0px;
+                }
+
+                .column {
+                    .tabs {
+                        ul {
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            li {
+                                width: calc(50% - 11.5px);
+                                flex: 0 0 calc(50% - 11.5px);
+                                margin: 8px 11.5px;
+                                padding: 8px auto;
+
+                                &:first-child {
+                                    margin-left: 0;
+                                }
+                                &:nth-child(2) {
+                                    margin-right: 0;
+                                }
+                                &:nth-child(3) {
+                                    margin-left: 0;
+                                }
+                                &:nth-child(4) {
+                                    margin-right: 0;
+                                }
+
+                                a {
+                                    border-radius: 2px;
+                                    border-spacing: 2px;
+
+                                    span {
+                                        font-size: 0.75em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .contact-info {
+                        .contact-content {
+                            .description {
+                                font-size: getSize("p");
+                                line-height: getLineHeight("p");
+                            }
+
+                            .contact-link {
+                                font-size: 1em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

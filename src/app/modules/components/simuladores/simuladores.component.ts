@@ -3,7 +3,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { DOCUMENT } from '@angular/common';
 import { AnimationEvent, trigger, state, style, transition, animate } from '@angular/animations';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import Plans from './data/plans';
 import { PlanModel } from 'src/app/models';
@@ -88,7 +88,7 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
         });
 
         this.secondStepForm = this.fb.group({
-            planoSaude: [true, Validators.compose([Validators.requiredTrue])],
+            planoSaude: new FormControl({ value: true, disabled: true }, Validators.compose([Validators.requiredTrue])),
             planoOdontologico: [false,],
             planoMedicinal: [false,]
         });

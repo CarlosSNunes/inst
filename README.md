@@ -3,6 +3,7 @@
 Refatoramento do website [CarePlus](https://www.careplus.com.br) 
 
 ## Informações de arquitetura do projeto
+
   
 **Institucional:**  
 
@@ -13,7 +14,6 @@ Refatoramento do website [CarePlus](https://www.careplus.com.br)
 5. Dentro da pasta src/utils foram criados alguns arquivos para auxiliar no desenvolvimento, sendo eles:  
     - "class-helper.ts" - Com métodos para ajudar a montar o formdata, em casos de upload de arquivo.  
     - "form-control-error.ts" - Com métodos para pegar os erros existentes em um controle de um reactive form.  
-    - "document-validator.ts" - Com métodos para validar CNPJ e CPF.  
     - "file-helper.ts" - Com métodos para pegar string de tamanho de dados através de um arquivo.  
     - "image-helper.ts" - Com métodos para pode consumir uma imagem no frontend.  
     - "window-ref.ts" - Com a ideia de poder usar a variavel "window", mas sem precisar javascript puro.
@@ -72,6 +72,7 @@ Segue [link](https://www.codeinwp.com/blog/bootstrap-vs-foundation-vs-bulma-vs-s
 * [simple-parallax-js](https://simpleparallax.com/) - Biblioteca para utilização de efeito de parallax.
 * [smoothscroll-polyfill](https://www.npmjs.com/package/smoothscroll-polyfill) - Biblioteca para utilizar a propriedade [behavior: smooth] da função window.scrollTo em qualquer browser.
 * [typeface-montserrat](https://www.npmjs.com/package/typeface-montserrat) - Biblioteca para utilização da fonte montserrat.
+* [angular-validate-br](https://www.npmjs.com/package/angular-validate-br) - Biblioteca para validação de cpf e cnpj com form reativo.
 
 ## Autores
 

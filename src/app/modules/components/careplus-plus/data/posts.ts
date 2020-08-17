@@ -1,4 +1,4 @@
-import { PostCardModel, TagModel, NoticiaTipoModel, NoticiaModel } from 'src/app/models';
+import { PostCardModel, TagModel, NoticiaTipoModel, NoticiaModel, ButtonModel } from 'src/app/models';
 
 export default [
     new PostCardModel({
@@ -31,6 +31,10 @@ export default [
             caminhoImagem: 'http://matheus.careplus.remote.neotix.com.br/images/careplus-plus-post-image-mock.jpg',
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -63,6 +67,10 @@ export default [
             caminhoImagem: 'assets/img/highlight-image-mock.jpg',
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -95,6 +103,10 @@ export default [
             caminhoImagem: 'http://matheus.careplus.remote.neotix.com.br/images/careplus-plus-post-image-mock.jpg',
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -127,6 +139,10 @@ export default [
             caminhoImagem: 'assets/img/highlight-image-mock.jpg',
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
 ]

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IconCardModel } from 'src/app/models';
+import { IconCardModel, ButtonModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 
 @Component({
@@ -13,19 +13,23 @@ export class ContactScheduleAVisitComponent implements OnInit {
     @Input() firstCard: IconCardModel = new IconCardModel({
         title: 'Central de atendimento',
         type: 'icon',
-        link: 'tel: 11 4197-9000',
-        linkTitle: '(11) 4197-9000',
+        button: new ButtonModel({
+            link: 'tel: 11 4197-9000',
+            text: '(11) 4197-9000',
+            target: '_self',
+        }),
         imagePath: 'assets/svg/phone.svg',
-        target: '_self',
         backgroundColorClass: this.backgroundColorClass
     });
     @Input() secondCard: IconCardModel = new IconCardModel({
         title: 'Agendar visita',
         type: 'icon',
-        link: 'https://goo.gl/maps/gCYmP561AMkpWeBTA',
-        linkTitle: 'Clique e agende uma visita',
         imagePath: 'assets/svg/calendar.svg',
-        target: '_blank',
+        button: new ButtonModel({
+            link: 'https://goo.gl/maps/gCYmP561AMkpWeBTA',
+            text: 'Clique e agende uma visita',
+            target: '_blank',
+        }),
         backgroundColorClass: this.backgroundColorClass
     })
     constructor(
@@ -39,7 +43,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
 
     open(card: IconCardModel) {
         if (this.windowRef.nativeWindow.innerWidth < 1024) {
-            this.windowRef.nativeWindow.open(card.link, '_blank');
+            this.windowRef.nativeWindow.open(card.button.link, '_blank');
 
         }
     }

@@ -1,4 +1,4 @@
-import { PostCardModel, TagModel, NoticiaTipoModel, NoticiaModel } from 'src/app/models';
+import { PostCardModel, TagModel, NoticiaTipoModel, NoticiaModel, ButtonModel } from 'src/app/models';
 
 export const all = [
     new PostCardModel({
@@ -32,6 +32,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -65,6 +69,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -98,6 +106,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -131,6 +143,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -164,6 +180,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -197,6 +217,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -230,6 +254,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -263,6 +291,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -296,6 +328,10 @@ export const all = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
 ];
@@ -332,6 +368,10 @@ export const extra = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -365,6 +405,10 @@ export const extra = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
     new PostCardModel({
@@ -398,6 +442,10 @@ export const extra = [
             nomeImagem: 'Saiba todos os sintomas do Coronavírus',
             tipoImagem: 'video',
             slug: 'coronavirus'
+        }),
+        button: new ButtonModel({
+            routerLink: '/careplus-mais/coronavirus',
+            text: 'LER ARTIGO'
         })
     }),
 ]

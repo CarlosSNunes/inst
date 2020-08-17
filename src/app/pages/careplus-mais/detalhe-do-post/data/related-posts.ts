@@ -1,4 +1,5 @@
-import { PostCardModel, TagModel, NoticiaTipoModel, NoticiaModel } from 'src/app/models';
+import { PostCardModel, TagModel, NoticiaTipoModel, NoticiaModel, ButtonModel } from 'src/app/models';
+import { Button } from 'protractor';
 
 export default [
     new PostCardModel({
@@ -33,7 +34,10 @@ export default [
             tipoImagem: 'video',
             slug: 'coronavirus'
         }),
-        link: '/careplus-mais/coronavirus'
+        button: new ButtonModel({
+            text: 'LER ARTIGO',
+            routerLink: '/careplus-mais/coronavirus'
+        })
     }),
     new PostCardModel({
         post: new NoticiaModel({
@@ -67,7 +71,10 @@ export default [
             tipoImagem: 'video',
             slug: 'coronavirus'
         }),
-        link: '/careplus-mais/coronavirus'
+        button: new ButtonModel({
+            text: 'LER ARTIGO',
+            routerLink: '/careplus-mais/coronavirus'
+        })
     }),
     new PostCardModel({
         post: new NoticiaModel({
@@ -101,7 +108,10 @@ export default [
             tipoImagem: 'video',
             slug: 'coronavirus'
         }),
-        link: '/careplus-mais/coronavirus'
+        button: new ButtonModel({
+            text: 'LER ARTIGO',
+            routerLink: '/careplus-mais/coronavirus'
+        })
     }),
     new PostCardModel({
         post: new NoticiaModel({
@@ -135,6 +145,9 @@ export default [
             tipoImagem: 'video',
             slug: 'coronavirus'
         }),
-        link: '/careplus-mais/coronavirus'
+        button: new ButtonModel({
+            text: 'LER ARTIGO',
+            routerLink: '/careplus-mais/coronavirus'
+        })
     }),
 ]

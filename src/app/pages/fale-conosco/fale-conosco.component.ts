@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FaleConoscoAutoFields } from 'src/app/models/fale-conosco.model';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-fale-conosco',
@@ -16,8 +18,11 @@ export class FaleConoscoComponent implements OnInit {
     selectedId: string = 'solicite-uma-cotacao';
     constructor(
         private activatedRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private title: Title,
+        private meta: Meta
     ) {
+        this.setSEOInfos();
         this.activatedRoute.params.subscribe(params => {
             if (params.id) {
                 const id = this.ids.find(id => params.id == id)
@@ -30,5 +35,13 @@ export class FaleConoscoComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    private setSEOInfos() {
+        this.title.setTitle('Fale Conosco | Care Plus');
+        this.meta.updateTag({
+            name: 'description',
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
     }
 }

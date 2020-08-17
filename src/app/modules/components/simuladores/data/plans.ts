@@ -10,7 +10,7 @@ export default [
     }),
     new PlanModel({
         name: 'Clube Care Plus',
-        id: 'clubeCarePlus',
+        id: 'clube-careplus',
         subTitle: 'Para 30 a 200 vidas',
         description: 'O Clube Care Plus é o plano para empresas com até 200 vidas, indicado para empresas que estão crescendo e expandindo seu negócio',
         linkId: 'clube-careplus'

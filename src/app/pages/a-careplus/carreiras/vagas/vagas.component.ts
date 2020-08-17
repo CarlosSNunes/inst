@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BreadcrumbModel, SimpleBannerModel, CrossContentModel } from 'src/app/models';
+import { BreadcrumbModel, SimpleBannerModel, CrossContentModel, ButtonModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 import { OurProgramsComponent } from './our-programs/our-programs.component';
 import { Meta, Title } from '@angular/platform-browser';
@@ -49,10 +49,10 @@ export class VagasComponent implements OnInit {
         boxContent: {
             title: 'Cadastre-se para integrar nosso banco de talentos',
             description: 'Estamos compondo um time repleto de talentos, envie para nós os seus dados pessoais e profissionais e entraremos em contato para futuras oportunidades.',
-            button: {
+            button: new ButtonModel({
                 text: 'saiba mais',
                 routerLink: '/a-careplus/carreiras/vagas/banco-de-talentos'
-            }
+            })
         }
     });
     constructor(

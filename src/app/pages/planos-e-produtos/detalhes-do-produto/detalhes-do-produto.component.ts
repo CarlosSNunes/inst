@@ -35,6 +35,7 @@ export class DetalhesDoProdutoComponent implements OnInit {
         cards: Cards,
         columnClass: 'is-3-desktop'
     });
+    queryParams: object = {};
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -68,6 +69,20 @@ export class DetalhesDoProdutoComponent implements OnInit {
                     link: `/produtos-e-planos-careplus/${this.id}`,
                     active: true
                 }));
+
+                this.queryParams = {
+                    plano: this.id
+                }
+
+                this.secondCard.button.routerLink = '/fale-conosco';
+                this.secondCard.button.queryParams = {
+                    plano: this.id
+                };
+
+                this.sectionAboutPlan.button.routerLink = '/fale-conosco';
+                this.sectionAboutPlan.button.queryParams = {
+                    plano: this.id
+                };
             } else {
                 this.router.navigate(['/error']);
             }

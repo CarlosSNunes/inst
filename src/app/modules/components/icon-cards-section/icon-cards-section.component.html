@@ -34,6 +34,7 @@
                     -->
                     <a *ngIf="iconCardsSectionModel?.button?.routerLink"
                         [routerLink]="iconCardsSectionModel?.button?.routerLink"
+                        [queryParams]="iconCardsSectionModel?.button?.queryParams"
                         class="btn btn-primary medium is-hidden-touch">
                         {{
                             iconCardsSectionModel?.button?.text
@@ -42,6 +43,7 @@
 
                     <a *ngIf="iconCardsSectionModel?.button?.routerLink"
                         [routerLink]="iconCardsSectionModel?.button?.routerLink"
+                        [queryParams]="iconCardsSectionModel?.button?.queryParams"
                         class="btn btn-text small is-hidden-desktop">
                         {{
                             iconCardsSectionModel?.button?.text

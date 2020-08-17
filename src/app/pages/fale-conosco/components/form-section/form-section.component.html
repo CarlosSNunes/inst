@@ -2,7 +2,7 @@
     <article>
         <div class="container">
 
-            <div class="columns">
+            <div class="columns is-hidden-touch">
                 <div class="column is-full is-paddingless-vertical">
                     <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
                 </div>
@@ -40,31 +40,7 @@
                         </ul>
                     </div>
 
-                    <form action="">
-                        <div class="columns flex-wrap">
-
-                            <div class="column is-4-desktop">
-                                <label>
-                                    Qual o tamanho da sua empresa?
-                                </label>
-                            </div>
-
-                            <div class="column is-8-desktop">
-
-                            </div>
-
-                            <div class="column is-4-desktop">
-                                <label>
-                                    Deseja cotar Plano ou Produto?
-                                </label>
-                            </div>
-
-                            <div class="column is-8-desktop">
-
-                            </div>
-                        </div>
-
-                    </form>
+                    <app-solicite-uma-cotacao *ngIf="activeChanel.id == 1"></app-solicite-uma-cotacao>
                 </div>
                 <div class="column is-full is-4-desktop">
                     <div class="contact-info blue-background-color">

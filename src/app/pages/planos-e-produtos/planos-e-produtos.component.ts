@@ -71,8 +71,10 @@ export class PlanosEProdutosComponent implements OnInit {
     secondCard: IconCardModel = new IconCardModel({
         title: 'Solicite uma Cotação',
         type: 'icon',
-        link: '#',
-        linkTitle: 'Clique e solicite cotação',
+        button: new ButtonModel({
+            routerLink: '/fale-conosco',
+            text: 'Clique e solicite cotação',
+        }),
         imagePath: 'assets/svg/calendar.svg'
     });
     heroBannerModel: HeroBannerModel = new HeroBannerModel({

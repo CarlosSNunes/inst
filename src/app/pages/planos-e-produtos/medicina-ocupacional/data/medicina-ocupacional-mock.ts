@@ -69,7 +69,12 @@ export const occupationalSection: InfoSectionModel = new InfoSectionModel({
 export const secondCard: IconCardModel = new IconCardModel({
     title: 'Solicite uma Cotação',
     type: 'icon',
-    link: '#',
-    linkTitle: 'Clique e solicite cotação',
+    button: new ButtonModel({
+        text: 'Clique e solicite cotação',
+        routerLink: '/fale-conosco',
+        queryParams: {
+            planoMedicinal: true
+        }
+    }),
     imagePath: 'assets/svg/calendar.svg'
 });

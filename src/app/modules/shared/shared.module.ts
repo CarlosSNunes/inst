@@ -7,6 +7,7 @@ import { MatDatepickerModule, MatFormFieldModule, MatInputModule, MatIconModule 
 import { MomentDateAdapter } from '@angular/material-moment-adapter'
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { AngularValidateBrLibModule } from 'angular-validate-br';
 
 export const ISO_FORMAT = {
     parse: {
@@ -34,6 +35,7 @@ export const ISO_FORMAT = {
         MatIconModule,
         ReactiveFormsModule,
         NgxMaskModule.forRoot(),
+        AngularValidateBrLibModule,
     ],
     exports: [
         FontAwesomeModule,
@@ -46,6 +48,7 @@ export const ISO_FORMAT = {
         MatIconModule,
         ReactiveFormsModule,
         NgxMaskModule,
+        AngularValidateBrLibModule,
     ],
     providers: [
         { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },

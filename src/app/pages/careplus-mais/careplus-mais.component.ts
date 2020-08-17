@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BannerModel, BreadcrumbModel, CategoryModel, CrossContentModel, PostCardModel } from 'src/app/models';
+import { BannerModel, BreadcrumbModel, CategoryModel, CrossContentModel, PostCardModel, ButtonModel } from 'src/app/models';
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
@@ -82,10 +82,10 @@ export class CareplusMaisComponent implements OnInit {
         boxContent: {
             title: 'Voce conheçe os nossos serviços online?',
             description: 'Serviços à distância com qualidade, carinho e cuidado. Conheça os serviços que a Care Plus disponibilizar a distância para seus beneciários.',
-            button: {
+            button: new ButtonModel({
                 text: 'saiba mais',
                 routerLink: '/gestao-de-saude/servicos-online'
-            }
+            })
         }
     });
     allPostsLoaded: boolean = false;
