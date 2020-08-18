@@ -29,3 +29,8 @@ export * from './category.model';
 export * from './cross-content.model';
 export * from './unity.model';
 export * from './plan.model';
+export * from './fale-conosco.model';
+export * from './ouvidoria.model';
+export * from './canal-de-denuncia.model';
+export * from './anexo.model';
+export * from './captcha.model';

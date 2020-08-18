@@ -1,9 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DropDownItem } from 'src/app/models';
+import { DropDownItem, FaleConoscoAutoFields } from 'src/app/models';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { ActivatedRoute } from '@angular/router';
-import { FaleConoscoAutoFields } from 'src/app/models/fale-conosco.model';
 import { ValidateBrService } from 'angular-validate-br';
 
 @Component({

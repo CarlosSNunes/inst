@@ -4,6 +4,7 @@ Refatoramento do website [CarePlus](https://www.careplus.com.br)
 
 ## Informações de arquitetura do projeto
 
+- Diretório raiz do projeto: `/fontes/site`
   
 **Institucional:**  
 
@@ -31,19 +32,55 @@ git clone https://github.com/CareplusBR/inst.git
 
 ### Instalação
 
- Execute o comando abaixo na pasta raiz para baixar os pacotes necessários para realizar o build do projeto
+ Execute o comando abaixo na pasta `/fontes/site` para baixar os pacotes necessários para realizar o build do projeto
 
 ``` 
 npm i
 ```
 
-E depois execute o comando
+Para executar o servidor local a fim de utilizar o projeto execute o comando:
 
 ``` 
 ng serve
 ```
 
-Para executar o servidor local a fim de utilizar o projeto
+### Build
+
+Para rodar o build execute o comando:
+
+```
+    ng build
+```
+
+
+Para rodar o build apontando para produção execute o comando:
+    
+```
+    ng build --prod
+```
+
+
+Para rodar o build apontando para produção com server side rendering execute o comando:
+
+Obs: O comando de build com server side rendering sempre apontará para produção, caso quera apontar para outro ambiente, um comando customizado deve ser criado no arquivo package.json em scripts.
+    
+```
+    npm run build:ssr
+```
+Para executar os arquivos gerados pelo build com server side rendering executar o comando:
+Obs: ele irá servir o projeto na porta 4001
+    
+```
+    npm run serve:ssr
+```
+
+Outra alternativa é utilizar o pacote Pm2, com ele é possivel servir o build com server side rendering em segundo plano como um processo do sistema.
+
+[Link de download do PM2](https://www.npmjs.com/package/pm2) para instalar ele no servidor.
+
+Para rodar o build com o pm2 basta após a instalação e geração do build com server side rendering, entrar no diretório raiz do projeto do site institucional, atualmente é `/fontes/site`, e rodar o comando `pm2 start dist/server.js --name careplus-institucional`;
+
+A opção --name do pm2 é opcional, ela server para dar um nome ao processo que está sendo executado.
 
 ### Estilos
 

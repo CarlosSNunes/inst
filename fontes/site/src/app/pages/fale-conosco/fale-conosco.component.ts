@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FaleConoscoAutoFields } from 'src/app/models/fale-conosco.model';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
