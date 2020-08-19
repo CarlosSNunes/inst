@@ -6,5 +6,5 @@ export class CaptchaSaida {
     CodigoMensagem: number;
     Mensagem: string;
     Captcha: number;
-    ImgCaptcha: String;
+    ImgCaptcha: string;
 }

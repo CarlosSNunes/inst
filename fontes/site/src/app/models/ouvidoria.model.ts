@@ -18,7 +18,7 @@ class Assunto {
     }
 
     Id: number;
-    TextoAssunto: String;
+    TextoAssunto: string;
 }
 
 
@@ -40,7 +40,7 @@ class Classificacao {
     }
 
     Id: number;
-    TextoClassificacao: String;
+    TextoClassificacao: string;
 }
 
 export class GravarOuvidoriaEntrada {

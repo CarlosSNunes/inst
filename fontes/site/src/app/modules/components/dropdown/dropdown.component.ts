@@ -11,6 +11,7 @@ export class DropdownComponent implements OnInit, OnChanges {
     selectedOption: DropDownItem = new DropDownItem({ value: '', key: '' });
     @Input() options: DropDownItem[];
     @Input() default: DropDownItem;
+    @Input() canUnselect: boolean = true;
     @Output() setFilter = new EventEmitter<DropDownItem>();
     constructor() { }
 
@@ -26,10 +27,10 @@ export class DropdownComponent implements OnInit, OnChanges {
     }
 
     public selectOption(opt: DropDownItem) {
-        if (this.selectedOption == opt || this.selectedOption == { key: '', value: '' }) {
+        if (this.canUnselect && (this.selectedOption == opt || this.selectedOption == { key: '', value: '' })) {
             this.selectedOption = new DropDownItem({ key: 'Selecione...', value: '' })
             this.setFilter.next(new DropDownItem({ key: '', value: '' }));
-        } else {
+        } else if (opt.value != this.selectedOption.value) {
             this.selectedOption = opt
             this.setFilter.next(opt);
         }
@@ -37,7 +38,6 @@ export class DropdownComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-    
         if (changes.default) {
             this.default = changes.default.currentValue;
             this.selectedOption = this.default;

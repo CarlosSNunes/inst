@@ -10,7 +10,7 @@ export class BlogService {
 
     constructor(private http: HttpClient) { }
 
-    private url = `${environment.API_URL}${environment.BLOG_API_PORT}/Blog`;
+    private url = `${environment.API_URL}/Blog`;
 
     async getRelatedPosts(post: NoticiaModel): Promise<NoticiaModel[]> {
         return this.http.post<NoticiaModel[]>(this.url, post).toPromise();

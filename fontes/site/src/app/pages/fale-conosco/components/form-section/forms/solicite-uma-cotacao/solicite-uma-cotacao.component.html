@@ -8,7 +8,8 @@
         </div>
 
         <div class="column is-full is-8-desktop">
-            <app-dropdown [options]="dropDownItems" [default]="defaultItem" (setFilter)="selectPlan($event)">
+            <app-dropdown [options]="dropDownItems" [default]="defaultItem" [canUnselect]="false"
+                (setFilter)="selectPlan($event)">
             </app-dropdown>
             <div class="field">
                 <div *ngIf="form.plano.touched" class="errors">
@@ -121,10 +122,10 @@
                     <input
                         [ngClass]="{ 'is-valid': !form.cpf.errors, 'is-invalid' : form.cpf.dirty && form.cpf.errors, 'is-touched': form.cpf.value.length > 0 }"
                         mask="000.000.000-00" [validation]="false" class="input" formControlName="cpf" type="text">
-                    <label class="label">Cpf *</label>
+                    <label class="label">CPF *</label>
                 </p>
                 <div *ngIf="form.cpf.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.cpf)" class="help is-danger">
+                    <p *ngFor="let error of getErrors(form.cpf, 'CPF')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>
@@ -137,10 +138,10 @@
                     <input
                         [ngClass]="{ 'is-valid': !form.cnpj.errors, 'is-invalid' : form.cnpj.dirty && form.cnpj.errors, 'is-touched': form.cnpj.value.length > 0 }"
                         mask="00.000.000/0000-00" [validation]="false" class="input" formControlName="cnpj" type="text">
-                    <label class="label">Cnpj *</label>
+                    <label class="label">CNPJ *</label>
                 </p>
                 <div *ngIf="form.cnpj.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.cnpj)" class="help is-danger">
+                    <p *ngFor="let error of getErrors(form.cnpj, 'CNPJ')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>

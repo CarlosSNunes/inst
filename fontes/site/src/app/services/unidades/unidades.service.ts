@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root'
 })
 export class UnidadesService {
-    url: string = `${environment.API_URL}${environment.UNIDADE_API_PORT}/api/`;
+    url: string = `${environment.API_URL}/api/`;
     constructor(
         private httpClient: HttpClient
     ) { }

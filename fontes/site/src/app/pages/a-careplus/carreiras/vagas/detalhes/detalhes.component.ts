@@ -113,7 +113,7 @@ export class DetalhesComponent implements OnInit {
         return this.vacancyForm.controls;
     }
 
-    getErrors(control: AbstractControl): String[] {
+    getErrors(control: AbstractControl): string[] {
         return FormControlError.GetErrors(control);
     }
 

@@ -3,6 +3,6 @@ export class Anexo {
         Object.assign(this, init);
     }
 
-    FileBytes: Buffer;
+    FileBytes: string; // base64 em string do arquivo
     FileName: string;
 }

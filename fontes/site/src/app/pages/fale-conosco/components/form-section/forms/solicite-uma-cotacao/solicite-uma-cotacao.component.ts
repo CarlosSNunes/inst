@@ -67,8 +67,8 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
         this.soliciteUmaCotacaoForm.controls.plano.setValue(item.value);
     }
 
-    getErrors(control: AbstractControl) {
-        return FormControlError.GetErrors(control);
+    getErrors(control: AbstractControl, fieldName?: string) {
+        return FormControlError.GetErrors(control, fieldName);
     }
 
     private fillForm(params) {
@@ -94,7 +94,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
 
     sendForm() {
         if (this.soliciteUmaCotacaoForm.valid) {
-
+            console.log('valid', this.soliciteUmaCotacaoForm.value)
         } else {
             Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
