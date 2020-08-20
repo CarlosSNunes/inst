@@ -61,7 +61,7 @@
                         <input
                             [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.dirty && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
                             [mask]="formFields.CPFCNPJ.mask" [validation]="false" class="input"
-                            formControlName="CPFCNPJ" type="text">
+                            formControlName="CPFCNPJ" type="tel">
                         <label class="label">{{formFields.CPFCNPJ.label}}
                             {{formFields.CPFCNPJ.required ? '*': ''}}</label>
                     </p>
@@ -79,7 +79,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.CodigoCarePlus?.errors && form?.CodigoCarePlus?.touched, 'is-invalid' : form.CodigoCarePlus?.dirty && form?.CodigoCarePlus?.errors, 'is-touched': form?.CodigoCarePlus?.value?.length > 0 }"
-                            class="input" formControlName="CodigoCarePlus" type="text" appOnlyNumbers>
+                            class="input" formControlName="CodigoCarePlus" type="tel" appOnlyNumbers>
                         <label class="label">{{formFields.CodigoCarePlus.label}}
                             {{formFields.CodigoCarePlus.required ? '*': ''}}</label>
                     </p>
@@ -96,7 +96,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.DDDTelefone1?.errors && form?.DDDTelefone1?.touched, 'is-invalid' : form.DDDTelefone1?.dirty && form?.DDDTelefone1?.errors, 'is-touched': form?.DDDTelefone1?.value?.length > 0 }"
-                            class="input" formControlName="DDDTelefone1" type="text" mask="000" [validation]="false">
+                            class="input" formControlName="DDDTelefone1" type="tel" mask="000" [validation]="false">
                         <label class="label">{{formFields.DDDTelefone1.label}}
                             {{formFields.DDDTelefone1.required ? '*': ''}}</label>
                     </p>
@@ -113,7 +113,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.Telefone1?.errors && form?.Telefone1?.touched, 'is-invalid' : form.Telefone1?.dirty && form?.Telefone1?.errors, 'is-touched': form?.Telefone1?.value?.length > 0 }"
-                            class="input" formControlName="Telefone1" type="text"
+                            class="input" formControlName="Telefone1" type="tel"
                             [mask]="form.Telefone1?.value?.length > 8 ? '00000-0000' : '0000-00000'"
                             [validation]="false">
                         <label class="label">{{formFields.Telefone1.label}}
@@ -132,7 +132,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.DDDTelefone2?.errors && form?.DDDTelefone2?.touched, 'is-invalid' : form.DDDTelefone2?.dirty && form?.DDDTelefone2?.errors, 'is-touched': form?.DDDTelefone2?.value?.length > 0 }"
-                            class="input" formControlName="DDDTelefone2" type="text" mask="000" [validation]="false">
+                            class="input" formControlName="DDDTelefone2" type="tel" mask="000" [validation]="false">
                         <label class="label">{{formFields.DDDTelefone2.label}}
                             {{formFields.DDDTelefone2.required ? '*': ''}}</label>
                     </p>
@@ -149,7 +149,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.Telefone2?.errors && form?.Telefone2?.touched, 'is-invalid' : form.Telefone2?.dirty && form?.Telefone2?.errors, 'is-touched': form?.Telefone2?.value?.length > 0 }"
-                            class="input" formControlName="Telefone2" type="text"
+                            class="input" formControlName="Telefone2" type="tel"
                             [mask]="form.Telefone2?.value?.length > 8 ? '00000-0000' : '0000-00000'"
                             [validation]="false">
                         <label class="label">{{formFields.Telefone2.label}}
@@ -168,7 +168,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.Certificado?.errors && form?.Certificado?.touched, 'is-invalid' : form.Certificado?.dirty && form?.Certificado?.errors, 'is-touched': form?.Certificado?.value?.length > 0 }"
-                            class="input" formControlName="Certificado" type="text" appOnlyNumbers>
+                            class="input" formControlName="Certificado" type="tel" appOnlyNumbers>
                         <label class="label">{{formFields.Certificado.label}}
                             {{formFields.Certificado.required ? '*': ''}}</label>
                     </p>
@@ -305,7 +305,7 @@
                             <p class="control">
                                 <input
                                     [ngClass]="{ 'is-valid': !form?.CaptchaCode?.errors && form?.CaptchaCode?.touched, 'is-invalid' : form.CaptchaCode?.dirty && form?.CaptchaCode?.errors, 'is-touched': form?.CaptchaCode?.value?.length > 0 }"
-                                    class="input" formControlName="CaptchaCode" type="text" mask="00000"
+                                    class="input" formControlName="CaptchaCode" type="tel" mask="00000"
                                     [validation]="false">
                                 <label class="label">Código *</label>
                             </p>

@@ -11,6 +11,7 @@ import { SoliciteUmaCotacaoComponent } from './components/form-section/forms/sol
 import { ContatoComponent } from './components/form-section/forms/contato/contato.component';
 import { OnlyNumbersModule } from 'src/app/directives/only-numbers/only-numbers.module';
 import { CanalDeDenunciasComponent } from './components/form-section/forms/canal-de-denuncias/canal-de-denuncias.component';
+import { OuvidoriaComponent } from './components/form-section/forms/ouvidoria/ouvidoria.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CanalDeDenunciasComponent } from './components/form-section/forms/canal
     SoliciteUmaCotacaoComponent,
     ContatoComponent,
     CanalDeDenunciasComponent,
+    OuvidoriaComponent,
   ],
   imports: [
     CommonModule,

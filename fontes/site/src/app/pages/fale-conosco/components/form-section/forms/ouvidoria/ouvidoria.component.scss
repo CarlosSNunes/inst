@@ -1,0 +1,28 @@
+@import "~src/scss/_variables";
+
+form {
+    .columns {
+        &.w-100 {
+            width: 100%;
+        }
+        .column {
+            &.display-flex {
+                display: flex;
+            }
+
+            .btn.right {
+                float: right;
+            }
+
+            .btn-text {
+                padding-left: 0;
+            }
+
+            .obs {
+                margin-top: 10px;
+                font-size: getSize("sbm");
+                color: getColor(_bupa, _grey-2);
+            }
+        }
+    }
+}

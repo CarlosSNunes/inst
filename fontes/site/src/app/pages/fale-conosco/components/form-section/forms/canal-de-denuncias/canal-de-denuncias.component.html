@@ -40,7 +40,7 @@
                         <p class="control">
                             <input
                                 [ngClass]="{ 'is-valid': !form?.DDDTelefone?.errors && form?.DDDTelefone?.touched, 'is-invalid' : form.DDDTelefone?.dirty && form?.DDDTelefone?.errors, 'is-touched': form?.DDDTelefone?.value?.length > 0 }"
-                                class="input" formControlName="DDDTelefone" type="text">
+                                class="input" formControlName="DDDTelefone" type="tel">
                             <label class="label">DDD</label>
                         </p>
                         <div *ngIf="form?.DDDTelefone?.touched" class="errors">
@@ -56,7 +56,7 @@
                         <p class="control">
                             <input
                                 [ngClass]="{ 'is-valid': !form?.Telefone?.errors && form?.Telefone?.touched, 'is-invalid' : form.Telefone?.dirty && form?.Telefone?.errors, 'is-touched': form?.Telefone?.value?.length > 0 }"
-                                class="input" formControlName="Telefone" type="text"
+                                class="input" formControlName="Telefone" type="tel"
                                 [mask]="form.Telefone?.value?.length > 8 ? '00000-0000' : '0000-00000'"
                                 [validation]="false">
                             <label class="label">Telefone</label>
@@ -76,7 +76,7 @@
                 <p class="control">
                     <input
                         [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.dirty && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
-                        mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="text">
+                        mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="tel">
                     <label class="label">CPF</label>
                 </p>
                 <div *ngIf="form.CPFCNPJ.touched" class="errors">
@@ -192,7 +192,7 @@
                         <p class="control">
                             <input
                                 [ngClass]="{ 'is-valid': !form?.CaptchaCode?.errors && form?.CaptchaCode?.touched, 'is-invalid' : form.CaptchaCode?.dirty && form?.CaptchaCode?.errors, 'is-touched': form?.CaptchaCode?.value?.length > 0 }"
-                                class="input" formControlName="CaptchaCode" type="text" mask="00000"
+                                class="input" formControlName="CaptchaCode" type="tel" mask="00000"
                                 [validation]="false">
                             <label class="label">Código *</label>
                         </p>

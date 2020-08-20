@@ -103,7 +103,7 @@
                 <p class="control">
                     <input
                         [ngClass]="{ 'is-valid': !form.telefone.errors, 'is-invalid' : form.telefone.dirty && form.telefone.errors, 'is-touched': form.telefone.value.length > 0 }"
-                        class="input" formControlName="telefone" type="text"
+                        class="input" formControlName="telefone" type="tel"
                         [mask]="form.telefone?.value?.length > 10 ? '(00) 00000-0000' : '(00) 0000-00000'"
                         [validation]="false">
                     <label class="label">Telefone *</label>
@@ -121,7 +121,7 @@
                 <p class="control">
                     <input
                         [ngClass]="{ 'is-valid': !form.cpf.errors, 'is-invalid' : form.cpf.dirty && form.cpf.errors, 'is-touched': form.cpf.value.length > 0 }"
-                        mask="000.000.000-00" [validation]="false" class="input" formControlName="cpf" type="text">
+                        mask="000.000.000-00" [validation]="false" class="input" formControlName="cpf" type="tel">
                     <label class="label">CPF *</label>
                 </p>
                 <div *ngIf="form.cpf.touched" class="errors">
@@ -137,7 +137,7 @@
                 <p class="control">
                     <input
                         [ngClass]="{ 'is-valid': !form.cnpj.errors, 'is-invalid' : form.cnpj.dirty && form.cnpj.errors, 'is-touched': form.cnpj.value.length > 0 }"
-                        mask="00.000.000/0000-00" [validation]="false" class="input" formControlName="cnpj" type="text">
+                        mask="00.000.000/0000-00" [validation]="false" class="input" formControlName="cnpj" type="tel">
                     <label class="label">CNPJ *</label>
                 </p>
                 <div *ngIf="form.cnpj.touched" class="errors">

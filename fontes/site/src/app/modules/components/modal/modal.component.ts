@@ -1,8 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
-import items from './data/table-items';
-import paragraphs from './data/paragraphs';
 import { WindowRef } from 'src/utils/window-ref';
-import { ModalModel, TableModalModel, FeedbackModalModel, ErrorModalModel, ContentModalModel } from 'src/app/models/modal.model';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
