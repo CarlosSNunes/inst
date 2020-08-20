@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { SoliciteUmaCotacaoComponent } from './components/form-section/forms/solicite-uma-cotacao/solicite-uma-cotacao.component';
 import { ContatoComponent } from './components/form-section/forms/contato/contato.component';
 import { OnlyNumbersModule } from 'src/app/directives/only-numbers/only-numbers.module';
+import { CanalDeDenunciasComponent } from './components/form-section/forms/canal-de-denuncias/canal-de-denuncias.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { OnlyNumbersModule } from 'src/app/directives/only-numbers/only-numbers.
     FormSectionComponent,
     SoliciteUmaCotacaoComponent,
     ContatoComponent,
+    CanalDeDenunciasComponent,
   ],
   imports: [
     CommonModule,

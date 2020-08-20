@@ -1,0 +1,70 @@
+@import "~src/scss/_variables";
+
+form {
+    .columns {
+        &.w-100 {
+            width: 100%;
+        }
+        .column {
+            &.display-flex {
+                display: flex;
+            }
+
+            .btn.right {
+                float: right;
+            }
+
+            .btn-text {
+                padding-left: 0;
+            }
+
+            .obs {
+                margin-top: 10px;
+                font-size: getSize("sbm");
+                color: getColor(_bupa, _grey-2);
+            }
+
+            .captcha-image {
+                width: 107px;
+                height: 35px;
+                border-radius: 5px;
+            }
+
+            .code-infos {
+                label {
+                    font-size: getSize("p");
+                    line-height: getLineHeight("p");
+                }
+
+                p {
+                    font-size: getSize("sbm");
+                    line-height: getLineHeight("sbm");
+                }
+            }
+
+            .captcha {
+                .column {
+                    &:first-child {
+                        padding-left: 0;
+                    }
+
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+            }
+
+            .message {
+                margin-top: 32px;
+                background-color: unset;
+            }
+
+            .field .control input.checkbox + label.checkbox-label {
+                left: 0;
+                &:before {
+                    min-width: 26px;
+                }
+            }
+        }
+    }
+}

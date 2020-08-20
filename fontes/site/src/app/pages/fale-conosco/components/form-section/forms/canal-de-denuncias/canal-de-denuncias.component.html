@@ -1,0 +1,240 @@
+<form [formGroup]="canalDeDenunciasForm">
+    <div class="columns flex-wrap has-negative-margin">
+
+        <div class="column is-full-touch is-6-desktop">
+            <div class="field">
+                <p class="control">
+                    <input
+                        [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.dirty && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
+                        class="input" formControlName="NomeContato" type="text">
+                    <label class="label">Nome</label>
+                </p>
+                <div *ngIf="form.NomeContato.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.NomeContato)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full-touch is-6-desktop">
+            <div class="field">
+                <p class="control">
+                    <input
+                        [ngClass]="{ 'is-valid': !form?.Email?.errors && form?.Email?.touched, 'is-invalid' : form.Email?.dirty && form?.Email?.errors, 'is-touched': form?.Email?.value?.length > 0 }"
+                        class="input" formControlName="Email" type="text">
+                    <label class="label">E-mail</label>
+                </p>
+                <div *ngIf="form?.Email?.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.Email)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-6">
+            <div class="columns display-flex has-negative-margin is-mobile">
+                <div class="column is-4 is-paddingless-vertical">
+                    <div class="field">
+                        <p class="control">
+                            <input
+                                [ngClass]="{ 'is-valid': !form?.DDDTelefone?.errors && form?.DDDTelefone?.touched, 'is-invalid' : form.DDDTelefone?.dirty && form?.DDDTelefone?.errors, 'is-touched': form?.DDDTelefone?.value?.length > 0 }"
+                                class="input" formControlName="DDDTelefone" type="text">
+                            <label class="label">DDD</label>
+                        </p>
+                        <div *ngIf="form?.DDDTelefone?.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.DDDTelefone)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-8 is-paddingless-vertical">
+                    <div class="field">
+                        <p class="control">
+                            <input
+                                [ngClass]="{ 'is-valid': !form?.Telefone?.errors && form?.Telefone?.touched, 'is-invalid' : form.Telefone?.dirty && form?.Telefone?.errors, 'is-touched': form?.Telefone?.value?.length > 0 }"
+                                class="input" formControlName="Telefone" type="text"
+                                [mask]="form.Telefone?.value?.length > 8 ? '00000-0000' : '0000-00000'"
+                                [validation]="false">
+                            <label class="label">Telefone</label>
+                        </p>
+                        <div *ngIf="form?.Telefone?.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.Telefone)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full-touch is-6-desktop">
+            <div class="field">
+                <p class="control">
+                    <input
+                        [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.dirty && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
+                        mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="text">
+                    <label class="label">CPF</label>
+                </p>
+                <div *ngIf="form.CPFCNPJ.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.CPFCNPJ, 'CPF')" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full">
+            <p class="sub-description no-margin">
+                No campo abaixo você deve descrever a situação que deseja denunciar. É importante
+                que a descrição seja
+                suficientemente completa de forma a permitir que a empresa tenha os dados necessários para apurar os
+                fatos:
+            </p>
+
+            <p class="sub-description">
+                O quê (descrição da situação) <br />
+                Quem (nome das pessoas envolvidas, envolvimento externo) <br />
+                Quando (data em que aconteceu, acontece ou acontecerá a situação) <br />
+                Por quê (a causa ou motivo) <br />
+                Quanto (se for possível mensurar) <br />
+                Provas (se elas existem e onde podemos encontrá-las).
+            </p>
+
+            <p class="sub-description">
+                Os dados fornecidos serão de responsabilidade do denunciante, tendo em vista que o efetivo andamento da
+                reclamação feita dependerá da veracidade das informações prestadas.
+            </p>
+
+            <div class="field message">
+                <p class="control">
+                    <textarea name="Mensagem" cols="30" rows="10"
+                        [ngClass]="{ 'is-valid': !form.Mensagem?.errors, 'is-invalid' : form.Mensagem.dirty && form.Mensagem?.errors, 'is-touched': form.Mensagem?.value?.length > 0 }"
+                        class="textarea" formControlName="Mensagem" placeholder="Comentário *"></textarea>
+                </p>
+                <p class="obs">
+                    LIMITADO A 4.000 CARACTERES
+                </p>
+                <div *ngIf="form.Mensagem.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.Mensagem, 'Comentário')" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full">
+            <div class="field">
+                <div class="control">
+                    <div class="file has-name">
+                        <label class="file-label">
+                            <input (change)="fileChangeEvent($event)" class="file-input" type="file" multiple
+                                accept="image/x-png,image/gif,image/jpeg, image/x-ms-bmp, application/pdf">
+                            <span class="file-cta">
+                                <span class="file-label">
+                                    Escolher arquivos &nbsp;
+                                    <svg width="24" height="16" viewBox="0 0 24 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM14 9V13H10V9H7L12 4L17 9H14Z"
+                                            fill="white" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="file-name">
+                                {{filesNumber == 1 ? filesNumber + ' arquivo selecionado' :  'Nenhum arquivo selecionado'}}
+                            </span>
+                        </label>
+                        <p class="obs">
+                            <strong>Importante:</strong> Extensões permitidas bmp, gif, jpg ou pdf, com no máximo
+                            2mb.
+                        </p>
+                        <div *ngFor="let file of files; let i = index;" class="file-details" [class.first]="i === 0">
+                            <h5 class="file-name-with-extension">
+                                {{file.name}}
+                                <span class="trash-icon" (click)="deleteFile(i)">
+                                    <img src="assets/svg/trash.svg" alt="Deletar">
+                                </span>
+                            </h5>
+                            <p class="file-size">
+                                {{filerHelper.humanFileSize(file.size, false)}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full-touch is-6-desktop display-flex">
+            <div class="align-self-center code-infos">
+                <label>
+                    CÓDIGO DE VERIFICAÇÃO*
+                </label>
+                <p>
+                    Digite os caracteres que você
+                    visualiza na figura ao lado
+                </p>
+            </div>
+        </div>
+
+        <div class="column is-full-touch is-6-desktop">
+            <div class="columns is-mobile captcha">
+                <div class="column is-6 display-flex">
+                    <img class="captcha-image align-self-center"
+                        src="data:image/gif;base64, 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"
+                        alt="Captcha image">
+                </div>
+                <div class="column is-6">
+                    <div class="field">
+                        <p class="control">
+                            <input
+                                [ngClass]="{ 'is-valid': !form?.CaptchaCode?.errors && form?.CaptchaCode?.touched, 'is-invalid' : form.CaptchaCode?.dirty && form?.CaptchaCode?.errors, 'is-touched': form?.CaptchaCode?.value?.length > 0 }"
+                                class="input" formControlName="CaptchaCode" type="text" mask="00000"
+                                [validation]="false">
+                            <label class="label">Código *</label>
+                        </p>
+                        <div *ngIf="form.CaptchaCode.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.CaptchaCode, 'Código')" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full">
+            <div class="field">
+                <div class="control">
+                    <input formControlName="Authorization"
+                        [ngClass]="{ 'is-invalid' : form?.Authorization?.errors && form?.Authorization?.touched }"
+                        class="checkbox" id="Authorization" type="checkbox" name="plano">
+                    <label class="checkbox-label" for="Authorization">
+                        Autorizo o encaminhamento de minha mensagem e
+                        identificação para as áreas da Care Plus responsáveis
+                        pela apuração dos fatos relatados.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full">
+            <button class="btn btn-primary medium is-hidden-touch right" (click)="sendForm()">
+                ENVIAR
+            </button>
+
+            <button class="btn btn-text small is-hidden-desktop" (click)="sendForm()">
+                ENVIAR
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11.3492 0.938082C11.1433 1.24975 11.187 1.70309 11.4477 1.94993L13.2895 3.69461L15.7088 6.28211L0.600826 6.28211C0.268769 6.28211 -2.39681e-07 6.60482 -2.25521e-07 7.00246C-2.11362e-07 7.40009 0.268769 7.7228 0.600826 7.7228L15.5578 7.7228L11.3604 12.0703C11.1097 12.3297 11.0812 12.7849 11.2983 13.086C11.5154 13.3871 11.8947 13.4203 12.1459 13.16L17.6218 7.48797C17.7528 7.35254 17.8285 7.15613 17.8301 6.94867C17.8301 6.94675 17.8301 6.94483 17.8301 6.94291C17.8301 6.73737 17.7572 6.54191 17.6294 6.40553L14.0621 2.592L12.1932 0.819944C11.9328 0.573104 11.5551 0.625931 11.3492 0.938082Z"
+                        fill="#0079C8" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</form>
