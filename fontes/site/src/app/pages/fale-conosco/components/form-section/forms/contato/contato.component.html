@@ -79,7 +79,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.CodigoCarePlus?.errors && form?.CodigoCarePlus?.touched, 'is-invalid' : form.CodigoCarePlus?.dirty && form?.CodigoCarePlus?.errors, 'is-touched': form?.CodigoCarePlus?.value?.length > 0 }"
-                            class="input" formControlName="CodigoCarePlus" type="text">
+                            class="input" formControlName="CodigoCarePlus" type="text" appOnlyNumbers>
                         <label class="label">{{formFields.CodigoCarePlus.label}}
                             {{formFields.CodigoCarePlus.required ? '*': ''}}</label>
                     </p>
@@ -168,7 +168,7 @@
                     <p class="control">
                         <input
                             [ngClass]="{ 'is-valid': !form?.Certificado?.errors && form?.Certificado?.touched, 'is-invalid' : form.Certificado?.dirty && form?.Certificado?.errors, 'is-touched': form?.Certificado?.value?.length > 0 }"
-                            class="input" formControlName="Certificado" type="text">
+                            class="input" formControlName="Certificado" type="text" appOnlyNumbers>
                         <label class="label">{{formFields.Certificado.label}}
                             {{formFields.Certificado.required ? '*': ''}}</label>
                     </p>

@@ -9,6 +9,7 @@ import { DropdownModule } from 'src/app/modules/components/dropdown/dropdown.mod
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { SoliciteUmaCotacaoComponent } from './components/form-section/forms/solicite-uma-cotacao/solicite-uma-cotacao.component';
 import { ContatoComponent } from './components/form-section/forms/contato/contato.component';
+import { OnlyNumbersModule } from 'src/app/directives/only-numbers/only-numbers.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContatoComponent } from './components/form-section/forms/contato/contat
     CommomQuestionsModule,
     BreadcrumbModule,
     DropdownModule,
-    SharedModule
+    SharedModule,
+    OnlyNumbersModule
   ]
 })
 export class FaleConoscoModule { }

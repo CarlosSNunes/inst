@@ -143,6 +143,22 @@ export class ContatoComponent implements OnInit {
     sendForm() {
         if (this.contatoForm.valid) {
             console.log('valid', this.contatoForm.value)
+
+            const formValue = { ...this.contatoForm.value };
+
+            if (!formValue.CodigoCarePlus) {
+                formValue.CodigoCarePlus = 0;
+            }
+
+            if (!formValue.DDDTelefone2) {
+                formValue.DDDTelefone2 = 0
+            }
+
+            if (!formValue.Telefone2) {
+                formValue.Telefone2 = 0
+            }
+
+            console.log(formValue)
         } else {
             Object.keys(this.contatoForm.controls).map(control => {
                 this.contatoForm.controls[control].markAsTouched();
