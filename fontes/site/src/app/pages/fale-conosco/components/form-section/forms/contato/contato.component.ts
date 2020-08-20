@@ -6,6 +6,8 @@ import { Types } from './data/mock-data'
 import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService } from 'src/app/services';
 import { filterFormFields } from './utils/mount-form';
+import { FeedbackModalModel } from 'src/app/models/modal.model';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
     selector: 'app-contato',
@@ -32,6 +34,7 @@ export class ContatoComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private notificationService: NotificationService,
+        private modalService: ModalService
     ) {
         this.mountForm();
         this.formFields = filterFormFields(1);
@@ -158,7 +161,11 @@ export class ContatoComponent implements OnInit {
                 formValue.Telefone2 = 0
             }
 
-            console.log(formValue)
+            const modal: FeedbackModalModel = new FeedbackModalModel({
+                title: 'Dados enviados com sucesso!'
+            });
+
+            this.modalService.openModal(modal)
         } else {
             Object.keys(this.contatoForm.controls).map(control => {
                 this.contatoForm.controls[control].markAsTouched();

@@ -4,6 +4,8 @@ import { FormControlError } from 'src/utils/form-control-error';
 import { ValidateBrService } from 'angular-validate-br'
 import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService } from 'src/app/services';
+import { ModalService } from 'src/app/services/modal/modal.service';
+import { FeedbackModalModel } from 'src/app/models/modal.model';
 
 @Component({
     selector: 'app-canal-de-denuncias',
@@ -19,7 +21,8 @@ export class CanalDeDenunciasComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private validateBrService: ValidateBrService,
-        private notificationService: NotificationService
+        private notificationService: NotificationService,
+        private modalService: ModalService
     ) {
         this.mountForm();
     }
@@ -82,7 +85,11 @@ export class CanalDeDenunciasComponent implements OnInit {
 
             delete formValue.Authorization;
 
+            const modal: FeedbackModalModel = new FeedbackModalModel({
+                title: 'Dados enviados com sucesso!'
+            });
 
+            this.modalService.openModal(modal)
         } else {
             Object.keys(this.canalDeDenunciasForm.controls).map(control => {
                 this.canalDeDenunciasForm.controls[control].markAsTouched();

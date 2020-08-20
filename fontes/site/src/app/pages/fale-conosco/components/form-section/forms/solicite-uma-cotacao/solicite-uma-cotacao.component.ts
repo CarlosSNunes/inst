@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from
 import { FormControlError } from 'src/utils/form-control-error';
 import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
+import { FeedbackModalModel } from 'src/app/models/modal.model';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
     selector: 'app-solicite-uma-cotacao',
@@ -35,7 +37,8 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
         private fb: FormBuilder,
         private activatedRoute: ActivatedRoute,
         private cdr: ChangeDetectorRef,
-        private validateBrService: ValidateBrService
+        private validateBrService: ValidateBrService,
+        private modalService: ModalService
     ) {
         this.soliciteUmaCotacaoForm = this.fb.group({
             plano: ['', Validators.compose([Validators.required])],
@@ -95,6 +98,12 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
     sendForm() {
         if (this.soliciteUmaCotacaoForm.valid) {
             console.log('valid', this.soliciteUmaCotacaoForm.value)
+
+            const modal: FeedbackModalModel = new FeedbackModalModel({
+                title: 'Dados enviados com sucesso!'
+            });
+
+            this.modalService.openModal(modal)
         } else {
             Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
