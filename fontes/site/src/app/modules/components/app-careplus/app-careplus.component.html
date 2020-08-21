@@ -2,8 +2,15 @@
     <article>
         <div class="container">
             <div class="columns principal">
-                <div class="column is-half-desktop is-full image is-hidden-touch">
-                    <img src="assets/img/cellphone.png" alt="App careplus" class="cellphone">
+                <div class="column is-half-desktop is-full image is-hidden-touch" *ngIf="width > 1023">
+                    <div class="smartphone">
+                        <div class="content">
+                            <video #video preload="auto" muted autoplay loop playsinline oncanplay="this.play()"
+                                onloadedmetadata="this.muted = true">
+                                <source src="assets/videos/CARE_PLUS_NAVEGACAO_APP_V2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 <div class="column is-half-desktop is-full">
                     <p class="small-title">
@@ -24,17 +31,27 @@
                     </ul>
 
                     <div class="app-stores-box is-hidden-touch">
-                        <a href="" class="play-store">
+                        <a href="https://apps.apple.com/br/app/care-plus/id899562421" class="play-store"
+                            target="_blank">
                             <img src="assets/svg/playstore.svg" alt="App Playstore">
                         </a>
-                        <a href="" class="app-store">
+                        <a href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR"
+                            class="app-store" target="_blank">
                             <img src="assets/svg/appstore.svg" alt="App Appsore">
                         </a>
                     </div>
 
-                    <div class="mobile-app-store-box is-hidden-desktop columns is-mobile">
+                    <div class="mobile-app-store-box is-hidden-desktop columns has-negative-margin is-mobile"
+                        *ngIf="width < 1024">
                         <div class="image column is-6">
-                            <img src="assets/img/cellphone.png" alt="App careplus" class="cellphone">
+                            <div class="smartphone">
+                                <div class="content">
+                                    <video #video preload="auto" muted autoplay loop playsinline oncanplay="this.play()"
+                                        onloadedmetadata="this.muted = true">
+                                        <source src="assets/videos/CARE_PLUS_NAVEGACAO_APP_V2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="column is-6 mobile-store-infos">
@@ -42,10 +59,12 @@
                                 <p class="description">
                                     Baixe agora!
                                 </p>
-                                <a href="" class="play-store">
+                                <a href="https://apps.apple.com/br/app/care-plus/id899562421" class="play-store"
+                                    target="_blank">
                                     <img src="assets/svg/playstore.svg" alt="App Playstore">
                                 </a>
-                                <a href="" class="app-store">
+                                <a href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR"
+                                    class="app-store" target="_blank">
                                     <img src="assets/svg/appstore.svg" alt="App Appsore">
                                 </a>
                             </div>

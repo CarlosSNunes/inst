@@ -19,11 +19,7 @@ export class BeneficiarioComponent implements OnInit {
         bigTitle: 'Vai viajar ao exterior? Conte com o Care Plus Travel',
         description: 'O Care Plus Travel tem cobertura internacional de até US$ 300.000,00',
         subDescription: 'Desbrave o mundo sem preocupação. A Care Plus garante segurança e saúde para você e sua família curtirem a viagem com tranquilidade. Entre em contato com o gestor do seu plano para contratar esse benefício.',
-        imageSrc: 'assets/img/plane.jpg',
-        button: new ButtonModel({
-            text: 'SAIBA MAIS',
-            link: '#'
-        })
+        imageSrc: 'assets/img/plane.jpg'
     });
     easyConsultingSection: InfoSectionModel = new InfoSectionModel({
         smallTitle: 'CONSULTA FÁCIL',
