@@ -161,9 +161,7 @@ export class ContatoComponent implements OnInit {
                 formValue.Telefone2 = 0
             }
 
-            const modal: FeedbackModalModel = new FeedbackModalModel({
-                title: 'Dados enviados com sucesso!'
-            });
+            const modal: FeedbackModalModel = new FeedbackModalModel();
 
             this.modalService.openModal(modal)
         } else {

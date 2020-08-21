@@ -120,9 +120,7 @@ export class OuvidoriaComponent implements OnInit {
 
             delete formValue.Authorization;
 
-            const modal: FeedbackModalModel = new FeedbackModalModel({
-                title: 'Dados enviados com sucesso!'
-            });
+            const modal: FeedbackModalModel = new FeedbackModalModel();
 
             this.modalService.openModal(modal)
         } else {

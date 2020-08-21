@@ -3,24 +3,12 @@
         <div class="columns buttons display-flex is-mobile is-hidden-up-tablet">
             <div class="column is-6">
                 <a href="tel:11 4197-9000">
-                    <app-card [card]="{
-                    type: 'icon',
-                    link: 'tel:11 4197-9000',
-                    linkTitle: 'Central de atendimento',
-                    imagePath: 'assets/svg/phone.svg',
-                    backgroundColorClass: 'white-background-color'
-                }"></app-card>
+                    <app-card [card]="centralDeAtendimentoCard"></app-card>
                 </a>
             </div>
             <div class="column is-6">
                 <a href="#">
-                    <app-card [card]="{
-                    type: 'icon',
-                    link: '#',
-                    linkTitle: 'Atendimento presencial',
-                    imagePath: 'assets/svg/maps.svg',
-                    backgroundColorClass: 'white-background-color'
-                }"></app-card>
+                    <app-card [card]="atendimentoPresencialCard"></app-card>
                 </a>
             </div>
 

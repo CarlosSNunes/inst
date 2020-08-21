@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 @media (max-width: 1399px) {
-    footer {
+    .footer {
         padding-bottom: 100px !important;
     }
 }
@@ -269,7 +269,7 @@
 }
 
 @media (max-width: 1023px) {
-    footer {
+    .footer {
         ::ng-deep app-card {
             .content {
                 padding-top: 0px;
@@ -283,6 +283,10 @@
                     }
                 }
             }
+        }
+
+        .certifications {
+            padding: 0 30px 22px 30px;
         }
     }
 }

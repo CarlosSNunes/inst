@@ -99,9 +99,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
         if (this.soliciteUmaCotacaoForm.valid) {
             console.log('valid', this.soliciteUmaCotacaoForm.value)
 
-            const modal: FeedbackModalModel = new FeedbackModalModel({
-                title: 'Dados enviados com sucesso!'
-            });
+            const modal: FeedbackModalModel = new FeedbackModalModel();
 
             this.modalService.openModal(modal)
         } else {

@@ -228,7 +228,7 @@
                     <p class="control">
                         <textarea name="Comentario" cols="30" rows="10"
                             [ngClass]="{ 'is-valid': !form.Comentario?.errors, 'is-invalid' : form.Comentario.dirty && form.Comentario?.errors, 'is-touched': form.Comentario?.value?.length > 0 }"
-                            class="textarea" formControlName="Comentario" placeholder="Comentário"></textarea>
+                            class="textarea" formControlName="Comentario" placeholder="Comentário *"></textarea>
                     </p>
                     <div *ngIf="form.Comentario.touched" class="errors">
                         <p *ngFor="let error of getErrors(form.Comentario, 'Comentário')" class="help is-danger">
