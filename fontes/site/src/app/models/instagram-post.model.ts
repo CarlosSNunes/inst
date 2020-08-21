@@ -6,4 +6,6 @@ export class InstagramPostModel {
     url: string;
     link: string;
     type: string;
+    alt: string;
+    title: string;
 }

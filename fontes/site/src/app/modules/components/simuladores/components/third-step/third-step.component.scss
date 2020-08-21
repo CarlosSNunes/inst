@@ -19,6 +19,23 @@
     }
 }
 
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .third-step {
+        .columns {
+            .column {
+                .third-step-buttons {
+                    .btn {
+                        &.medium {
+                            padding: 20px 22px;
+                            font-size: 0.75em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 1023px) {
     .third-step {
         .columns {
@@ -31,7 +48,7 @@
                         flex: 0 0 100%;
                         display: block;
 
-                        &.btn-secondary{
+                        &.btn-secondary {
                             margin-top: 20px;
                         }
                     }

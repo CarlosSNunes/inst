@@ -7,6 +7,7 @@ import { ResizedEvent } from 'angular-resize-event';
 import { WindowRef } from 'src/utils/window-ref';
 import { DOCUMENT } from '@angular/common';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
+import { SimuladoresService } from 'src/app/services';
 
 @Component({
     selector: 'app-header-mobile',
@@ -34,7 +35,8 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     constructor(
         private router: Router,
         private windowRef: WindowRef,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        private simuladoresService: SimuladoresService
     ) {
         const initialRoute = this.routesToFind.find(r => this.router.url === r.route);
         if (initialRoute) {
@@ -167,6 +169,10 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         } else {
             this.expandedAccordion = className;
         }
+    }
+
+    openSimulator() {
+        this.simuladoresService.open();
     }
 
     ngOnDestroy() {

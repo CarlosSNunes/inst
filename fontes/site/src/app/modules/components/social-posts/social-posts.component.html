@@ -9,8 +9,8 @@
             </div>
             <div class="columns flex-wrap">
                 <div class="column is-2 is-full-mobile is-half-tablet-only" *ngFor="let post of posts">
-                    <a class="post" [attr.href]="post.link" target="_blank">
-                        <img [src]="post.url" alt="Post url">
+                    <a class="post" [href]="post.link" [title]="post.title" target="_blank">
+                        <img [src]="post.url" [alt]="post.alt">
                     </a>
                 </div>
                 <div class="column is-2 is-full-mobile is-half-tablet-only media-box">
