@@ -5,6 +5,7 @@ import { InfoSectionComponent } from 'src/app/modules/components/info-section/in
 import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
 import { Meta, Title } from '@angular/platform-browser';
+import { SimuladoresService } from 'src/app/services';
 
 @Component({
     selector: 'app-rh',
@@ -33,7 +34,7 @@ export class RhComponent implements OnInit {
         imageSrc: 'assets/img/simulators.jpg',
         button: new ButtonModel({
             text: 'SIMULAR PLANO',
-            routerLink: '/simuladores'
+            action: () => this.simularesService.open()
         })
     });
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
@@ -62,7 +63,8 @@ export class RhComponent implements OnInit {
     constructor(
         private windowRef: WindowRef,
         private meta: Meta,
-        private title: Title
+        private title: Title,
+        private simularesService: SimuladoresService
     ) {
         this.setSEOInfos();
     }

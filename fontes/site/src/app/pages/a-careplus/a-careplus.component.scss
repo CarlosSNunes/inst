@@ -232,6 +232,16 @@ section {
     }
 }
 
+@media (min-width: 1024px) {
+    ::ng-deep app-card {
+        .content {
+            .card.icon-card {
+                padding: 39px 35px !important;
+            }
+        }
+    }
+}
+
 @media (max-width: 1023px) {
     ::ng-deep app-hero-banner#customForACareplus {
         vg-player {
