@@ -100,7 +100,7 @@ export const dentalSection: InfoSectionModel = new InfoSectionModel({
     imageSrc: 'assets/img/dental-plan.jpg',
     button: new ButtonModel({
         text: 'SOLICITE UMA COTAÇÃO',
-        routerLink: '/fale-conosco'
+        routerLink: '/fale-conosco',
     })
 });
 export const plansSection: InfoSectionModel = new InfoSectionModel({

@@ -83,6 +83,11 @@ export class DetalhesDoProdutoComponent implements OnInit {
                 this.sectionAboutPlan.button.queryParams = {
                     plano: this.id
                 };
+
+                this.dentalSection.button.queryParams = {
+                    plano: this.id,
+                    planoOdontologico: true
+                };
             } else {
                 this.router.navigate(['/error']);
             }

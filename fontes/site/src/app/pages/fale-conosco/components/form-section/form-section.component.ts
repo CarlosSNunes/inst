@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BreadcrumbModel } from 'src/app/models';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 
 @Component({
     selector: 'app-form-section',
@@ -53,8 +54,10 @@ export class FormSectionComponent implements OnInit {
     };
     constructor(
         private activatedRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private cdr: ChangeDetectorRef
     ) {
+        this.setActiveChanel(0);
         this.activatedRoute.params.subscribe(params => {
             if (params.id) {
                 const chanel = this.chanelForms.find(chanel => params.id == chanel.slug)
@@ -65,9 +68,14 @@ export class FormSectionComponent implements OnInit {
             }
         });
 
-        this.activatedRoute.queryParams.subscribe(query => {
-            this.setActiveChanel(0)
-        })
+        EventEmitterService.get('fale-conosco-form').subscribe(slug => {
+            const chanel = this.chanelForms.find(chanel => slug == chanel.slug)
+            if (!chanel) {
+                this.router.navigate(['/error']);
+            }
+            this.setActiveChanel(chanel.id - 1);
+            this.cdr.detectChanges();
+        }); 
     }
 
     ngOnInit() {

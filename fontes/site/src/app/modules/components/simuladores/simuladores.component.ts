@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import Plans from './data/plans';
 import { PlanModel } from 'src/app/models';
+import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 
 @Component({
     selector: 'app-simuladores',
@@ -147,6 +148,7 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
         if (event.toState == 'finished') {
             this.scrollPosition = 0;
             this.closeSimuladores();
+            EventEmitterService.get('fale-conosco-form').emit('solicite-uma-cotacao');
         }
 
         if (event.toState == 'close') {
