@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { InstagramPostModel } from 'src/app/models';
 import { postsMock } from './data/posts';
-import { InstagramService } from 'src/app/services';
 
 @Component({
     selector: 'app-social-posts',
@@ -11,9 +10,7 @@ import { InstagramService } from 'src/app/services';
 export class SocialPostsComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     posts: InstagramPostModel[] = [];
-    constructor(
-        private instagramService: InstagramService,
-    ) { }
+    constructor() { }
 
     ngOnInit() {
         this.mockPosts()
@@ -21,14 +18,6 @@ export class SocialPostsComponent implements OnInit {
 
     mockPosts() {
         this.posts = postsMock;
-    }
-
-    async getPosts() {
-        try {
-            const posts = await this.instagramService.getPosts();
-        } catch (error) {
-            console.log(error)
-        }
     }
 
 }

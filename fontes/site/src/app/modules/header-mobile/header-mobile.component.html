@@ -102,9 +102,9 @@
                             <li> <a routerLink="/a-careplus/documentos" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Documentos</a></li>
-                            <li><a routerLink="/a-careplus/premios-e-certificacoes" routerLinkActive="active"
+                            <!-- <li><a routerLink="/a-careplus/premios-e-certificacoes" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Premios e certificações</a></li>
+                                    tabindex="0">Premios e certificações</a></li> -->
                             <li><a routerLink="/a-careplus/responsabilidade-social" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Responsabilidade social</a></li>
@@ -140,7 +140,15 @@
                             <li> <a routerLink="/produtos-e-planos-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Home </a></li>
-
+                            <li> <a routerLink="/produtos-e-planos-careplus/soho" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Soho </a></li>
+                            <li> <a routerLink="/produtos-e-planos-careplus/clube-careplus" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Clube Care Plus </a></li>
+                            <li> <a routerLink="/produtos-e-planos-careplus/empresarial" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Empresarial </a></li>
                             <li> <a routerLink="/produtos-e-planos-careplus/medicina-ocupacional"
                                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
                                     (click)="initTransition()" tabindex="0">Medicina Ocupacional </a></li>
@@ -160,17 +168,47 @@
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Home </a></li>
 
+                            <li> <a routerLink="/gestao-de-saude/programas-preventivos" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Programas Preventivos </a></li>
+
+                            <li> <a routerLink="/gestao-de-saude/servicos-online" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Serviços Online </a></li>
+
                             <li> <a routerLink="/gestao-de-saude/personal-system" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Personal System </a></li>
+
+                            <li> <a routerLink="/gestao-de-saude/programas-empresariais" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Programas Empresariais </a></li>
+
+                            <li> <a routerLink="/gestao-de-saude/nossas-parcerias" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Nossas Parcerias </a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a routerLink="/carreiras-careplus" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0">
+                    <a tabindex="0" (click)="expandAccordion('acc4')">
                         Carreiras
                     </a>
+
+                    <input tabindex="-1" type="checkbox" id="acc4" name="acc4" [checked]="expandedAccordion === 'acc4'">
+                    <label tabindex="-1"></label>
+                    <div class="extra">
+                        <ul>
+                            <li> <a routerLink="/carreiras-careplus" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Home </a></li>
+
+                            <li> <a routerLink="/carreiras-careplus/consulta-facil" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Consulta Fácil </a></li>
+
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a routerLink="/careplus-mais" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
@@ -178,26 +216,26 @@
                         Care plus +
                     </a>
                 </li>
-                <li class="ac5">
-                    <a tabindex="0" (click)="expandAccordion('acc5')">
+                <li class="ac6">
+                    <a tabindex="0" (click)="expandAccordion('acc6')">
                         Fale conosco
                     </a>
-                    <input tabindex="-1" type="checkbox" id="acc5" [checked]="expandedAccordion === 'acc5'" name="acc5">
+                    <input tabindex="-1" type="checkbox" id="acc6" [checked]="expandedAccordion === 'acc6'" name="acc6">
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
-                            <li> <a routerLink="/saude" routerLinkActive="active"
+                            <li> <a routerLink="/fale-conosco" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Saúde </a></li>
-                            <li> <a routerLink="/odontologicos" routerLinkActive="active"
+                                    tabindex="0">Solicite uma cotação </a></li>
+                            <li> <a routerLink="/fale-conosco/fale-conosco" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Odontológicos</a></li>
-                            <li><a routerLink="/produtos-e-planos-careplus/medicina-ocupacional"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0">Medicina ocupacional</a></li>
-                            <li><a routerLink="/home/simulador" routerLinkActive="active"
+                                    tabindex="0">Fale Conosco </a></li>
+                            <li> <a routerLink="/fale-conosco/canal-de-denuncias" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Simulador</a></li>
+                                    tabindex="0">Canal De Denuncias </a></li>
+                            <li> <a routerLink="/fale-conosco/ouvidoria" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Ouvidoria </a></li>
                         </ul>
                     </div>
                 </li>

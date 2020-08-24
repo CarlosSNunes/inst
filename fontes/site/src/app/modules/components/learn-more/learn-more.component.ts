@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IconCardModel } from 'src/app/models';
 
 @Component({
@@ -7,7 +7,7 @@ import { IconCardModel } from 'src/app/models';
     styleUrls: ['./learn-more.component.scss']
 })
 export class LearnMoreComponent implements OnInit {
-    cards: IconCardModel[] = [
+    @Input() cards: IconCardModel[] = [
         new IconCardModel({
             type: 'icon',
             title: 'Rede Plus',
@@ -26,7 +26,7 @@ export class LearnMoreComponent implements OnInit {
             description: 'Já imaginou fazer parte de um time que transforma a vida das pessoas todos os dias? Veja a nossa proposta para a sua carreira e integre um time que está cada vez mais transformando vidas e sonhos de pessoas e empresas.',
             imagePath: 'assets/svg/business.svg'
         })
-    ]
+    ];
     constructor() { }
 
     ngOnInit() {

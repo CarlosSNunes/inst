@@ -40,6 +40,7 @@ export class SimuladoresService {
 
 
             componentRef.instance.close.subscribe((evt) => {
+                componentRef.instance.close.unsubscribe();
                 this.appRef.detachView(componentRef.hostView)
                 if (this.document.body.classList.contains('no-scroll')) {
                     this.document.body.classList.remove('no-scroll');

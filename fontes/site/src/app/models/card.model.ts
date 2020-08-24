@@ -1,5 +1,4 @@
 import { ButtonModel } from './button.model';
-import { TagModel } from './tag.model';
 import { NoticiaModel } from './noticia.model';
 
 export class CardModel {

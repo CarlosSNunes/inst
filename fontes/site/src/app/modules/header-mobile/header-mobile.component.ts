@@ -69,6 +69,8 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
                 if (route) {
                     this.selectedPage = route.description;
                 }
+
+                this.expandAccordion('');
             }
         });
 

@@ -11,10 +11,10 @@ const routes: Routes = [
         path: 'documentos',
         loadChildren: () => import('./documentos/documentos.module').then(m => m.DocumentosModule)
     },
-    {
-        path: 'premios-e-certificacoes',
-        loadChildren: () => import('./premios-e-certificacoes/premios-e-certificacoes.module').then(m => m.PremiosECertificacoesModule)
-    },
+    // {
+    //     path: 'premios-e-certificacoes',
+    //     loadChildren: () => import('./premios-e-certificacoes/premios-e-certificacoes.module').then(m => m.PremiosECertificacoesModule)
+    // },
     {
         path: 'responsabilidade-social',
         loadChildren: () => import('./responsabilidade-social/responsabilidade-social.module').then(m => m.ResponsabilidadeSocialModule)

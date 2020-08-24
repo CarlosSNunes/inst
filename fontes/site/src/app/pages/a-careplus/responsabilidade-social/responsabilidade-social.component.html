@@ -15,23 +15,34 @@
                 </div>
                 <div class="column is-half-desktop is-full">
                     <p class="description no-margin">
-                        A Care Plus é uma empresa que se preocupa com o seu papel na sociedade e além de fornecer
-                        cobertura de saúde premium, estamos trabalhando diariamente para marcar a nossa história com
-                        responsabilidade e compromisso social.
+                        Somos uma empresa que se preocupa com o seu papel na sociedade e, além de fornecer cobertura de
+                        saúde, diariamente trabalhamos para marcar a nossa história com responsabilidade e compromisso
+                        social.
                     </p>
                     <p class="sub-description">
-                        Há 27 anos estamos atuando em programas de responsabilidade sociais capazes de auxiliar pessoas
-                        e oferecer o melhor para a sociedade e as empresas que atendemos. Nossa responsabilidade vai
-                        desde o nosso relacionamento com os colaboradores respeitando e pensando em diversidade,
-                        representatividade e oportunidade de atuação no mercado até ações que desempenhamos em dois
-                        programas que temos, são eles os programas: Programa 1 de Melhoria e Responsabilidade Social e o
-                        Programa 2 de Melhoria e Responsabilidade Social.
-                        Aqui você vai conhecer e entender um pouco mais desses programas e também do nosso foco em
-                        Sustentabilidade e Responsabilidade Ambiental, que vai desde o nosso novo prédio equipado com
-                        sistema de reciclagem, com transporte para a redução de gases, com processos de reutilização de
-                        água e energia e outras ações visando um futuro melhor para todos, essa é a nossa
-                        responsabilidade.
+                        Ajudar as pessoas a terem vidas mais longas, saudáveis e felizes é o coração da nossa política
+                        de Responsabilidade Corporativa e Sustentabilidade (CRS). Nosso objetivo é gerar impacto
+                        positivo na comunidade por meio de cinco pilares de atuação, sempre trabalhando ao lado de
+                        nossos clientes, colaboradores, parceiros, fornecedores e com a sociedade em geral. Nossos
+                        pilares são:
                     </p>
+                    <ul class="items">
+                        <li class="item">
+                            <strong> Consumidor: </strong> prestar serviços de saúde com qualidade
+                        </li>
+                        <li class="item">
+                            <strong>Pessoas: </strong> ser um lugar onde as pessoas amam trabalhar
+                        </li>
+                        <li class="item">
+                            <strong>Ética: </strong> conduzir nossos negócios com ética e governança robusta
+                        </li>
+                        <li class="item">
+                            <strong>Comunidade: </strong> envolver-se e engajar-se com nossa comunidade
+                        </li>
+                        <li class="item">
+                            <strong>Meio-Ambiente: </strong> impactar positivamente o meio ambiente
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -42,6 +53,6 @@
 
 <app-info-section *ngFor="let infoSection of infoSections" [sectionInfo]="infoSection"></app-info-section>
 
-<app-learn-more></app-learn-more>
+<app-learn-more [cards]="cards"></app-learn-more>
 
 <app-careplus-plus></app-careplus-plus>

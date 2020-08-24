@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbModel } from 'src/app/models';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
     selector: 'app-form-section',
@@ -22,31 +23,52 @@ export class FormSectionComponent implements OnInit {
         {
             title: 'Solicite uma cotação',
             id: 1,
-            active: true
+            active: true,
+            slug: 'solicite-uma-cotacao'
         },
         {
             title: 'Fale Conosco',
             id: 2,
-            active: false
+            active: false,
+            slug: 'fale-conosco'
         },
         {
             title: 'Canal de Denúncias',
             id: 3,
-            active: false
+            active: false,
+            slug: 'canal-de-denuncias'
         },
         {
             title: 'Ouvidoria',
             id: 4,
-            active: false
+            active: false,
+            slug: 'ouvidoria'
         }
     ];
     activeChanel = {
         title: 'Solicite uma cotação',
         id: 1,
-        active: true
+        active: true,
+        slug: 'solicite-uma-cotacao'
     };
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private router: Router
+    ) {
+        this.activatedRoute.params.subscribe(params => {
+            if (params.id) {
+                const chanel = this.chanelForms.find(chanel => params.id == chanel.slug)
+                if (!chanel) {
+                    this.router.navigate(['/error']);
+                }
+                this.setActiveChanel(chanel.id - 1)
+            }
+        });
 
-    constructor() { }
+        this.activatedRoute.queryParams.subscribe(query => {
+            this.setActiveChanel(0)
+        })
+    }
 
     ngOnInit() {
     }

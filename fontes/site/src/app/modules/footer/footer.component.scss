@@ -1,7 +1,59 @@
 @import "~src/scss/_variables";
+
+@media (max-width: 1770px) {
+    .footer {
+        .site-map {
+            .social-media {
+                display: flex;
+                flex-wrap: wrap;
+                a {
+                    margin: 0;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    margin-top: 10px;
+                    flex: 0 0 100%;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 1399px) {
     .footer {
         padding-bottom: 100px !important;
+
+        .site-map {
+            .certificacoes {
+                a {
+                    margin: 0;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    margin-top: 10px;
+
+                    flex: 0 0 100%;
+                }
+            }
+
+            .stores {
+                a {
+                    margin: 0;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    margin-top: 10px;
+                    flex: 0 0 100%;
+                }
+            }
+
+            .ans {
+                a {
+                    margin: 0;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    margin-top: 10px;
+                    flex: 0 0 100%;
+                }
+            }
+        }
     }
 }
 
@@ -17,7 +69,7 @@
 }
 
 .footer {
-    padding: 4rem 4rem 0;
+    padding: 52px 75px 0;
     background: getColor(_bupa, _white);
     position: relative;
 
@@ -47,7 +99,7 @@
 
     hr {
         background-color: getColor(_bupa, _grey-3);
-        margin: 3rem 0;
+        margin: 26px 0;
         @media (max-width: 991px) {
             margin: 0;
         }
@@ -173,9 +225,56 @@
         }
 
         .certificacoes {
+            display: flex;
+            flex-wrap: wrap;
+
+            p {
+                width: 100%;
+                flex: 0 0 100%;
+            }
+
             a {
-                margin-left: 1%;
-                margin-right: 1%;
+                display: inline-block;
+                align-self: center;
+                margin-left: 20px;
+                margin-right: 20px;
+
+                &:nth-child(2) {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .stores {
+            display: flex;
+            flex-wrap: wrap;
+
+            p {
+                width: 100%;
+                flex: 0 0 100%;
+            }
+
+            a {
+                align-self: center;
+                display: inline-block;
+                margin-left: 6px;
+                margin-right: 6px;
+
+                &:nth-child(2) {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                img {
+                    width: 121px;
+                }
             }
         }
 
@@ -183,17 +282,44 @@
             align-self: flex-end;
 
             a {
-                padding-right: 8%;
-                padding-left: 8%;
+                padding-right: 10px;
+                padding-left: 10px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
 
         .ans {
             align-self: flex-end;
+            display: flex;
+            flex-wrap: wrap;
 
             a {
-                padding-right: 3%;
-                padding-left: 3%;
+                align-self: center;
+                margin-right: 12.5px;
+                margin-left: 12.5px;
+                display: inline-block;
+
+                &:first-child {
+                    margin-left: 0;
+                    img {
+                        width: 138px;
+                    }
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                    img {
+                        width: 111px;
+                        margin-top: 10px;
+                    }
+                }
             }
         }
     }
@@ -287,6 +413,19 @@
 
         .certifications {
             padding: 0 30px 22px 30px;
+
+            .certifications-images {
+                margin: 0 -10px;
+                img {
+                    &:first-child{
+                        margin-left: 10px;
+                    }
+
+                    &:last-child{
+                        margin-right: 10px;
+                    }
+                }
+            }
         }
     }
 }

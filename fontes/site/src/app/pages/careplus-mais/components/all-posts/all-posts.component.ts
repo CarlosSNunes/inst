@@ -16,8 +16,13 @@ export class AllPostsComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.posts = changes.posts.currentValue;
-        this.allPostsLoaded = changes.allPostsLoaded.currentValue;
+        if (changes.posts) {
+            this.posts = changes.posts.currentValue;
+        }
+
+        if (changes.allPostsLoaded) {
+            this.allPostsLoaded = changes.allPostsLoaded.currentValue;
+        }
     }
 
 }

@@ -8,6 +8,7 @@ import Posts from './data/posts';
 })
 export class CareplusPlusComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
+    @Input() title: string = '+ Saúde com + Informação: aproveite todos os nossos conteúdos sobre saúde e bem-estar';
     posts = Posts;
     constructor() { }
 

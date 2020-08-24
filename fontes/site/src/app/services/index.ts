@@ -4,7 +4,6 @@ export * from './home/home-service.service';
 export * from './noticia/noticia.service';
 export * from './noticia-tipo/noticia-tipo.service';
 export * from './tag/tag.service';
-export * from './instagram/instagram.service';
 export * from './blog/blog.service';
 export * from './notification/notification.service';
 export * from './simuladores/simuladores.service';

@@ -4,7 +4,7 @@ export default [
     {
         "type": "icon",
         "title": "Rede Plus",
-        "description": "Descubra a Rede Plus, uma seleção de médicos que possuem diferenciação curricular, estrutura de atendimento e relacionamento único com a Care Plus.",
+        "description": "Saiba mais sobre a Rede Plus, uma rede de profissionais diferente de tudo que você já viu no mercado. Além de sua seleção ter critérios rigorosos que envolvem a formação acadêmica e estrutura de atendimento, esta rede proporciona uma experiência de atendimento excepcional.",
         "imagePath": "assets/svg/star-hand.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
@@ -12,7 +12,7 @@ export default [
     {
         "type": "icon",
         "title": "Documentos",
-        "description": "Encontre todos os materiais e arquivos para download divulgados pela Care Plus: documentos da ANS, Tabela de Produtos e Planos, comunicados e muito mais.",
+        "description": "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
         "imagePath": "assets/svg/document.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
@@ -20,7 +20,7 @@ export default [
     {
         "type": "icon",
         "title": "Carreiras",
-        "description": "Já imaginou fazer parte de uma equipe talentosa e que transforma a vida das pessoas todos os dias? Trabalhe conosco e dê um passo importante na sua carreira.",
+        "description": "Já imaginou fazer parte de uma equipe talentosa, que transforma vidas e a saúde das pessoas diariamente? Trabalhe conosco e dê um passo importante em sua carreira.",
         "imagePath": "assets/svg/people.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
@@ -28,7 +28,7 @@ export default [
     {
         "type": "icon",
         "title": "Resultados Financeiros",
-        "description": "Tenha acesso aos nossos registros financeiros dos últimos anos e acompanhe o nosso balanço patrimonial. Mais transparência na prestação de contas.",
+        "description": "Tenha acesso aos nossos registros financeiros dos últimos anos e acompanhe o balanço patrimonial. Mais transparência na prestação de contas",
         "imagePath": "assets/svg/charts.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
@@ -36,7 +36,7 @@ export default [
     {
         "type": "icon",
         "title": "Responsabilidade Social",
-        "description": "Mais do que cuidar da saúde dos nossos beneficiários e apoiar as empresas nessa missão, a Care Plus contribui com a sociedade e o meio ambiente.",
+        "description": "Mais do que cuidar da saúde dos nossos beneficiários e apoiar as empresas nessa missão, nos preocupamos em contribuir com a sociedade e o meio ambiente.",
         "imagePath": "assets/svg/earth.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
@@ -44,15 +44,15 @@ export default [
     {
         "type": "icon",
         "title": "Prêmios e certificações",
-        "description": "Nessa área você vai conhecer todos os prêmios e certificados da Care Plus. Com anos de atuação no mercado a Care Plus já deixou uma marca na história do Brasil e carrega todas as certificações necessárias para isso.",
+        "description": "Confira os prêmios e certificações que atestam nossa qualidade no mercado. São mais de 28 anos de dedicação em saúde e bem-estar.",
         "imagePath": "assets/svg/medal.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
     },
     {
         "type": "icon",
-        "title": "FAQ",
-        "description": "Você possui dúvidas de como funcionanam nossos produtos? Sobre como simular ou contratar um plano para sua empresa? Quer tirar uma dúvida sobre o seu plano de saúde? Aqui temos algumas respostas para você.",
+        "title": "Perguntas frequentes",
+        "description": "Um espaço para você esclarecer todas as suas dúvidas, serviços disponíveis, rede credenciada e muito mais.",
         "imagePath": "assets/svg/faq.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
@@ -60,7 +60,7 @@ export default [
     {
         "type": "icon",
         "title": "Política de Privacidade",
-        "description": "Conheça a nossa Política de Privacidade e entenda ainda como funciona o nosso sistema de segurança de dados.",
+        "description": "Conheça a nossa Política de Privacidade e entenda como funciona nosso sistema de segurança de dados.",
         "imagePath": "assets/svg/lock.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true
@@ -68,7 +68,7 @@ export default [
     {
         "type": "icon",
         "title": "Termos & Condições",
-        "description": "Entenda como funciona o nossos termos e condições para que você possa usufruir dos nossos serviços sem nenhum problema ou dúvida sobre eles, acesse e saiba mais.",
+        "description": "Fique por dentro de todos os termos e condições para usufruir dos serviços e facilidades que proporcionamos.",
         "imagePath": "assets/svg/paper.svg",
         "backgroundColorClass": "white-background-color",
         "hasCollapse": true

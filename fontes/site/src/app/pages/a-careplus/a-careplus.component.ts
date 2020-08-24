@@ -31,11 +31,11 @@ import { Title, Meta } from '@angular/platform-browser';
                 type: 'video/mp4'
             }
         ),
-        bigTitle: 'A melhor operadora de saúde premium do mercado',
-        subTitle: 'Referência em planos de saúde, planos odontológicos e medicina ocupacional.',
+        bigTitle: 'Somos a maior operadora de saúde premium do mercado',
+        subTitle: 'Desde 2016 fazemos parte do grupo Bupa, empresa de saúde global, presente em mais de 190 países. Fornecemos soluções de saúde premium por meio de uma extensa variedade de serviços, entre eles medicina, odontologia, saúde ocupacional e medicina preventiva',
         isFullScreen: true,
         button: new ButtonModel({
-            text: 'ASSISTA E CONHEÇA',
+            text: 'Assista e saiba mais',
         }),
         breadcrumbs: [
             new BreadcrumbModel({

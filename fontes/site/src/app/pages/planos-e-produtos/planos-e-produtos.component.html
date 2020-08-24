@@ -8,9 +8,9 @@
 <div class="anchor-buttons">
     <div class="container">
         <div class="buttons-box">
-            <a (click)="goToSection('#plans')" tabindex="0" (keyup.enter)="goToSection('#plans')"
+            <a (click)="goToSection('#planos')" tabindex="0" (keyup.enter)="goToSection('#planos')"
                 class="anchor-button">Planos</a>
-            <a (click)="goToSection('#products')" tabindex="0" (keyup.enter)="goToSection('#products')"
+            <a (click)="goToSection('#produtos')" tabindex="0" (keyup.enter)="goToSection('#produtos')"
                 class="anchor-button">Produtos</a>
         </div>
     </div>
@@ -56,7 +56,7 @@
         </div>
     </article>
 </section>
-<section id="plans">
+<section id="planos">
     <article>
         <div class="container">
             <div class="columns">
@@ -83,7 +83,7 @@
     </article>
 </section>
 <app-info-section [sectionInfo]="ocupationalSection"></app-info-section>
-<app-icon-cards-section id="products" [iconCardsSectionModel]="iconCardsSectionModel"
+<app-icon-cards-section id="produtos" [iconCardsSectionModel]="iconCardsSectionModel"
     [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
 <app-contact-schedule-a-visit [secondCard]="secondCard" [bigTitle]="'Entre em contato ou solicite um cotação'">
 </app-contact-schedule-a-visit>
