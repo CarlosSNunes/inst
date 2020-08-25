@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, PLATFORM_ID, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { DropDownItem } from 'src/app/models';
@@ -8,6 +8,8 @@ import { NotificationService } from 'src/app/services';
 import { filterFormFields } from './utils/mount-form';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { Platform } from '@angular/cdk/platform';
+import { isPlatformBrowser } from '@angular/common';
 declare var grecaptcha: any;
 
 @Component({
@@ -33,13 +35,16 @@ export class ContatoComponent implements OnInit {
     formFields: any = filterFormFields(1);
     captchaRendered: boolean = false;
     validCaptcha: boolean = false;
+    isBrowser: boolean = false;
 
     constructor(
         private fb: FormBuilder,
         private notificationService: NotificationService,
         private modalService: ModalService,
-        private cdr: ChangeDetectorRef
+        private cdr: ChangeDetectorRef,
+        @Inject(PLATFORM_ID) private platformId: Platform
     ) {
+        this.isBrowser = isPlatformBrowser(this.platformId)
         this.mountForm();
         this.formFields = filterFormFields(1);
     }
@@ -51,12 +56,16 @@ export class ContatoComponent implements OnInit {
                 value: tipoAssunto.Id
             }));
         })
-        grecaptcha.reset();
+        if (this.isBrowser) {
+            grecaptcha.reset();
+        }
     }
 
     ngOnDestroy() {
-        if (this.captchaRendered) {
-            grecaptcha.reset();
+        if (this.isBrowser) {
+            if (this.captchaRendered) {
+                grecaptcha.reset();
+            }
         }
     }
 
@@ -87,14 +96,16 @@ export class ContatoComponent implements OnInit {
     }
 
     private renderCapcha() {
-        this.captchaRendered = true;
-        this.cdr.detectChanges();
-        grecaptcha.render('captcha_element_contato', {
-            sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
-            callback: this.getCaptchaCallback.bind(this),
-            'error-callback': this.getCaptchaErrorCallback.bind(this),
-            'expired-callback': this.getCaptchaExpiredCallback.bind(this),
-        });
+        if (this.isBrowser) {
+            this.captchaRendered = true;
+            this.cdr.detectChanges();
+            grecaptcha.render('captcha_element_contato', {
+                sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+                callback: this.getCaptchaCallback.bind(this),
+                'error-callback': this.getCaptchaErrorCallback.bind(this),
+                'expired-callback': this.getCaptchaExpiredCallback.bind(this),
+            });
+        }
     }
 
     selectSubject(subject: DropDownItem<number>) {

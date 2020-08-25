@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { DropDownItem, FaleConoscoAutoFields } from 'src/app/models';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { Platform } from '@angular/cdk/platform';
+import { isPlatformBrowser } from '@angular/common';
 declare var grecaptcha: any;
 
 @Component({
@@ -34,13 +36,17 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     });
     soliciteUmaCotacaoForm: FormGroup;
     faleConoscoAutoFiels: FaleConoscoAutoFields;
+    isBrowser: boolean = false;
+
     constructor(
         private fb: FormBuilder,
         private activatedRoute: ActivatedRoute,
         private cdr: ChangeDetectorRef,
         private validateBrService: ValidateBrService,
-        private modalService: ModalService
+        private modalService: ModalService,
+        @Inject(PLATFORM_ID) private platformId: Platform
     ) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
         this.soliciteUmaCotacaoForm = this.fb.group({
             plano: ['', Validators.compose([Validators.required])],
             planoSaude: new FormControl({ value: true, disabled: true }),
@@ -64,12 +70,14 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        grecaptcha.render('captcha_element_solicite_uma_cotacao', {
-            sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
-            callback: this.getCaptchaCallback.bind(this),
-            'error-callback': this.getCaptchaErrorCallback.bind(this),
-            'expired-callback': this.getCaptchaExpiredCallback.bind(this),
-        });
+        if (this.isBrowser) {
+            grecaptcha.render('captcha_element_solicite_uma_cotacao', {
+                sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+                callback: this.getCaptchaCallback.bind(this),
+                'error-callback': this.getCaptchaErrorCallback.bind(this),
+                'expired-callback': this.getCaptchaExpiredCallback.bind(this),
+            });
+        }
     }
 
     get form() {
@@ -138,7 +146,9 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     }
 
     ngOnDestroy() {
-        grecaptcha.reset();
+        if (this.isBrowser) {
+            grecaptcha.reset();
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { ValidateBrService } from 'angular-validate-br';
@@ -8,6 +8,8 @@ import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService } from 'src/app/services';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { Platform } from '@angular/cdk/platform';
+import { isPlatformBrowser } from '@angular/common';
 declare var grecaptcha: any;
 
 @Component({
@@ -30,13 +32,16 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     files: File[] = [];
     filesNumber: number = 0;
     filerHelper = FileHelper;
+    isBrowser: boolean = false;
 
     constructor(
         private fb: FormBuilder,
         private validateBrService: ValidateBrService,
         private notificationService: NotificationService,
-        private modalService: ModalService
+        private modalService: ModalService,
+        @Inject(PLATFORM_ID) private platformId: Platform
     ) {
+        this.isBrowser = isPlatformBrowser(this.platformId)
         this.mountForm();
     }
 
@@ -57,16 +62,20 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     }
 
     ngOnDestroy() {
-        grecaptcha.reset();
+        if (this.isBrowser) {
+            grecaptcha.reset();
+        }
     }
 
     ngAfterViewInit() {
-        grecaptcha.render('captcha_element_ouvidoria', {
-            sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
-            callback: this.getCaptchaCallback.bind(this),
-            'error-callback': this.getCaptchaErrorCallback.bind(this),
-            'expired-callback': this.getCaptchaExpiredCallback.bind(this),
-        });
+        if (this.isBrowser) {
+            grecaptcha.render('captcha_element_ouvidoria', {
+                sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+                callback: this.getCaptchaCallback.bind(this),
+                'error-callback': this.getCaptchaErrorCallback.bind(this),
+                'expired-callback': this.getCaptchaExpiredCallback.bind(this),
+            });
+        }
     }
 
     get form() {

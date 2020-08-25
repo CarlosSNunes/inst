@@ -14,7 +14,7 @@
     --bupa_digital-lime: #678004;
     --bupa_grey: #333333;
     --bupa_grey-2: #808080;
-    --bupa_red: #E8505B;
+    --bupa_red: #e8505b;
     --bupa_grey-3: #c9c9c9;
     --bupa_grey-4: #f1efeb;
     --bupa_grey-5: #7f7f7f;
@@ -34,8 +34,8 @@
     --carePlus_success: #49b869;
     --carePlus_blue-section: #e5f2fa;
     --carePlus_grey_inactive_tab: #c9c9c9;
-    --carePlus_grey-5: #F5F6F8;
-    --carePlus_blue-plan-card: #BCE4FF;
+    --carePlus_grey-5: #f5f6f8;
+    --carePlus_blue-plan-card: #bce4ff;
     --bottom-line_light-green: #b3d59c;
     --bottom-line_dark-green: #007777;
     --banner-background: #fff;
@@ -106,7 +106,7 @@
     --carePlus_warning-background: #a4904b;
     --carePlus_success-background: #49b869;
     --carePlus_blue-section-background: #e5f2fa;
-    --carePlus_blue-plan-card-background: #BCE4FF;
+    --carePlus_blue-plan-card-background: #bce4ff;
     --carePlus_grey_inactive_tab-background: #c9c9c9;
     --bottom-line_light-green-background: #b3d59c;
     --bottom-line_dark-green-background: #007777;
@@ -190,7 +190,7 @@ p {
     line-height: getLineHeight("sbm");
     color: getColor(_bupa, _digital-cian);
     text-transform: uppercase;
-    &.white{
+    &.white {
         color: getColor(_bupa, _white);
     }
 }
@@ -202,7 +202,7 @@ p {
     &.no-margin {
         margin-top: 0;
     }
-    &.white{
+    &.white {
         color: getColor(_bupa, _white);
     }
 }
@@ -217,7 +217,7 @@ p {
     &.no-margin {
         margin-top: 0;
     }
-    &.white{
+    &.white {
         color: getColor(_bupa, _white);
     }
 }
@@ -231,7 +231,7 @@ p {
     &.no-margin {
         margin-top: 0;
     }
-    &.white{
+    &.white {
         color: getColor(_bupa, _white);
     }
 }
@@ -321,11 +321,11 @@ p {
     background-color: getColor(_carePlus, _blue-section);
 }
 
-.is-paddingless-vertical{
+.is-paddingless-vertical {
     padding-top: 0;
     padding-bottom: 0;
 }
 
-.align-self-center{
+.align-self-center {
     align-self: center;
 }
