@@ -23,6 +23,17 @@ form {
                 font-size: getSize("sbm");
                 color: getColor(_bupa, _grey-2);
             }
+
+            #captcha_element_ouvidoria {
+                display: flex;
+                justify-content: flex-end;
+
+                + .field {
+                    max-width: 304px;
+                    width: 100%;
+                    float: right;
+                }
+            }
         }
     }
 }

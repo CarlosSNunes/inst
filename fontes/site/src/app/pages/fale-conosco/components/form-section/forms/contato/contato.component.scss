@@ -24,12 +24,6 @@ form {
                 color: getColor(_bupa, _grey-2);
             }
 
-            .captcha-image {
-                width: 107px;
-                height: 35px;
-                border-radius: 5px;
-            }
-
             .code-infos {
                 label {
                     font-size: getSize("p");
@@ -42,15 +36,14 @@ form {
                 }
             }
 
-            .captcha {
-                .column {
-                    &:first-child {
-                        padding-left: 0;
-                    }
+            #captcha_element_contato {
+                display: flex;
+                justify-content: flex-end;
 
-                    &:last-child {
-                        padding-right: 0;
-                    }
+                + .field {
+                    max-width: 304px;
+                    width: 100%;
+                    float: right;
                 }
             }
         }

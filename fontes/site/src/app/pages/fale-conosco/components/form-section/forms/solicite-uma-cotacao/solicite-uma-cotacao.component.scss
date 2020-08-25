@@ -1,6 +1,17 @@
 form {
     .columns {
         .column {
+            #captcha_element_solicite_uma_cotacao {
+                display: flex;
+                justify-content: flex-end;
+
+                + .field {
+                    max-width: 304px;
+                    width: 100%;
+                    float: right;
+                }
+            }
+
             .btn.right {
                 float: right;
             }

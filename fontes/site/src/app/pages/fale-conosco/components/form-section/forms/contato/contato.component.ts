@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { DropDownItem } from 'src/app/models';
@@ -8,6 +8,7 @@ import { NotificationService } from 'src/app/services';
 import { filterFormFields } from './utils/mount-form';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
+declare var grecaptcha: any;
 
 @Component({
     selector: 'app-contato',
@@ -30,11 +31,14 @@ export class ContatoComponent implements OnInit {
     filesNumber: number = 0;
     filerHelper = FileHelper;
     formFields: any = filterFormFields(1);
+    captchaRendered: boolean = false;
+    validCaptcha: boolean = false;
 
     constructor(
         private fb: FormBuilder,
         private notificationService: NotificationService,
-        private modalService: ModalService
+        private modalService: ModalService,
+        private cdr: ChangeDetectorRef
     ) {
         this.mountForm();
         this.formFields = filterFormFields(1);
@@ -70,6 +74,20 @@ export class ContatoComponent implements OnInit {
         this.changeFormStructureAndValidation();
         this.contatoForm.controls.IdTipo.setValue(type.value);
         this.contatoForm.controls.IdTipo.markAsTouched();
+        if (!this.captchaRendered) {
+            this.renderCapcha();
+        }
+    }
+
+    private renderCapcha() {
+        this.captchaRendered = true;
+        this.cdr.detectChanges();
+        grecaptcha.render('captcha_element_contato', {
+            sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+            callback: this.getCaptchaCallback.bind(this),
+            'error-callback': this.getCaptchaErrorCallback.bind(this),
+            'expired-callback': this.getCaptchaExpiredCallback.bind(this),
+        });
     }
 
     selectSubject(subject: DropDownItem<number>) {
@@ -93,7 +111,7 @@ export class ContatoComponent implements OnInit {
             IdTipo: [, Validators.compose([Validators.required])],
             NomeContato: [,],
             NomeEntidade: [,],
-            CaptchaCode: [, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5)])]
+            validCaptcha: [this.validCaptcha, Validators.compose([Validators.required, Validators.requiredTrue])]
             // lstAnexo não esquecer
         })
     }
@@ -169,6 +187,25 @@ export class ContatoComponent implements OnInit {
                 this.contatoForm.controls[control].markAsTouched();
             });
         }
+    }
+
+    /*
+    * Recaptcha functions
+    * 
+    */
+    getCaptchaErrorCallback(error) {
+        console.error(error)
+        this.contatoForm.controls.validCaptcha.setValue(false)
+    }
+
+    getCaptchaExpiredCallback(error) {
+        console.error(error)
+        this.contatoForm.controls.validCaptcha.setValue(false)
+    }
+
+    getCaptchaCallback(event) {
+        this.validCaptcha = true;
+        this.contatoForm.controls.validCaptcha.setValue(true)
     }
 
 }

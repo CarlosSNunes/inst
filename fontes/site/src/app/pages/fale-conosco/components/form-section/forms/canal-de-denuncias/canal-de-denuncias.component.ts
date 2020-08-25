@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { ValidateBrService } from 'angular-validate-br'
@@ -6,13 +6,15 @@ import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService } from 'src/app/services';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
+declare var grecaptcha: any;
+
 
 @Component({
     selector: 'app-canal-de-denuncias',
     templateUrl: './canal-de-denuncias.component.html',
     styleUrls: ['./canal-de-denuncias.component.scss']
 })
-export class CanalDeDenunciasComponent implements OnInit {
+export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
     canalDeDenunciasForm: FormGroup;
     files: File[] = [];
     filesNumber: number = 0;
@@ -30,6 +32,15 @@ export class CanalDeDenunciasComponent implements OnInit {
     ngOnInit() {
     }
 
+    ngAfterViewInit() {
+        grecaptcha.render('captcha_element_canal_de_denuncias', {
+            sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+            callback: this.getCaptchaCallback.bind(this),
+            'error-callback': this.getCaptchaErrorCallback.bind(this),
+            'expired-callback': this.getCaptchaExpiredCallback.bind(this),
+        });
+    }
+
     private mountForm() {
         this.canalDeDenunciasForm = this.fb.group({
             Origem: ['Partner', Validators.compose([Validators.required])],
@@ -43,8 +54,8 @@ export class CanalDeDenunciasComponent implements OnInit {
             // TelefoneCel: [,], // Verificar a utilização disto pois no site oficial não tem.
             Email: [, Validators.compose([Validators.email])],
             NomeContato: [,],
-            CaptchaCode: [, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5)])],
-            Authorization: [false, Validators.compose([Validators.requiredTrue])]
+            validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
+            Authorization: [false, Validators.compose([Validators.required, Validators.requiredTrue])]
         })
     }
 
@@ -93,6 +104,24 @@ export class CanalDeDenunciasComponent implements OnInit {
                 this.canalDeDenunciasForm.controls[control].markAsTouched();
             });
         }
+    }
+
+    /*
+     * Recaptcha functions
+     * 
+     */
+    getCaptchaErrorCallback(error) {
+        console.error(error)
+        this.canalDeDenunciasForm.controls.validCaptcha.setValue(false)
+    }
+
+    getCaptchaExpiredCallback(error) {
+        console.error(error)
+        this.canalDeDenunciasForm.controls.validCaptcha.setValue(false)
+    }
+
+    getCaptchaCallback(event) {
+        this.canalDeDenunciasForm.controls.validCaptcha.setValue(true)
     }
 
 }

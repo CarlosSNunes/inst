@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { ValidateBrService } from 'angular-validate-br';
@@ -8,13 +8,14 @@ import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService } from 'src/app/services';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
+declare var grecaptcha: any;
 
 @Component({
     selector: 'app-ouvidoria',
     templateUrl: './ouvidoria.component.html',
     styleUrls: ['./ouvidoria.component.scss']
 })
-export class OuvidoriaComponent implements OnInit {
+export class OuvidoriaComponent implements OnInit, AfterViewInit {
     ouvidoriaForm: FormGroup;
     subjects: DropDownItem<number>[] = [];
     defaultSubject: DropDownItem<number> = new DropDownItem<number>({
@@ -55,6 +56,15 @@ export class OuvidoriaComponent implements OnInit {
         })
     }
 
+    ngAfterViewInit() {
+        grecaptcha.render('captcha_element_ouvidoria', {
+            sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+            callback: this.getCaptchaCallback.bind(this),
+            'error-callback': this.getCaptchaErrorCallback.bind(this),
+            'expired-callback': this.getCaptchaExpiredCallback.bind(this),
+        });
+    }
+
     get form() {
         return this.ouvidoriaForm.controls;
     }
@@ -78,6 +88,7 @@ export class OuvidoriaComponent implements OnInit {
             ProtocoloAtendimento: [,],
             NomeContato: [, Validators.compose([Validators.required])],
             CPFCNPJ: [, Validators.compose([Validators.required, this.validateBrService.cpf])],
+            validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])]
         });
     }
 
@@ -130,4 +141,23 @@ export class OuvidoriaComponent implements OnInit {
         }
     }
 
+    /*
+    * Recaptcha functions
+    * 
+    */
+    getCaptchaErrorCallback(error) {
+        console.error(error)
+        this.ouvidoriaForm.controls.validCaptcha.setValue(false);
+        grecaptcha.reset();
+    }
+
+    getCaptchaExpiredCallback(error) {
+        console.error(error)
+        this.ouvidoriaForm.controls.validCaptcha.setValue(false);
+        grecaptcha.reset();
+    }
+
+    getCaptchaCallback(event) {
+        this.ouvidoriaForm.controls.validCaptcha.setValue(true)
+    }
 }

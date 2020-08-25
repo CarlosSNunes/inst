@@ -244,6 +244,17 @@
             </div>
         </div>
 
+        <div class="column is-6 is-offset-6-desktop">
+            <div id="captcha_element_ouvidoria"></div>
+            <div class="field">
+                <div *ngIf="form.validCaptcha.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.validCaptcha, 'Captcha')" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+        </div>    
+
         <div class="column is-full">
             <button class="btn btn-primary medium is-hidden-touch right" (click)="sendForm()">
                 ENVIAR

@@ -54,6 +54,17 @@ form {
                 }
             }
 
+            #captcha_element_canal_de_denuncias {
+                display: flex;
+                justify-content: flex-end;
+
+                + .field {
+                    max-width: 304px;
+                    width: 100%;
+                    float: right;
+                }
+            }
+
             .message {
                 margin-top: 32px;
                 background-color: unset;

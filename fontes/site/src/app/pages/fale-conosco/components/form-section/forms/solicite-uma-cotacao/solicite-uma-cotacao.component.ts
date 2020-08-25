@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { DropDownItem, FaleConoscoAutoFields } from 'src/app/models';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
@@ -6,13 +6,14 @@ import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
+declare var grecaptcha: any;
 
 @Component({
     selector: 'app-solicite-uma-cotacao',
     templateUrl: './solicite-uma-cotacao.component.html',
     styleUrls: ['./solicite-uma-cotacao.component.scss']
 })
-export class SoliciteUmaCotacaoComponent implements OnInit {
+export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     dropDownItems: DropDownItem[] = [
         new DropDownItem({
             key: '2 a 29 vidas - Soho',
@@ -52,12 +53,22 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
             email: ['', Validators.compose([Validators.required, Validators.email])],
             telefone: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
             mensagem: ['', Validators.compose([Validators.required])],
+            validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
         });
     }
 
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe(params => {
             this.fillForm(params)
+        });
+    }
+
+    ngAfterViewInit() {
+        grecaptcha.render('captcha_element_solicite_uma_cotacao', {
+            sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+            callback: this.getCaptchaCallback.bind(this),
+            'error-callback': this.getCaptchaErrorCallback.bind(this),
+            'expired-callback': this.getCaptchaExpiredCallback.bind(this),
         });
     }
 
@@ -94,7 +105,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
         this.soliciteUmaCotacaoForm.controls.planoMedicinal.setValue(this.faleConoscoAutoFiels.planoMedicinal);
     }
 
-
     sendForm() {
         if (this.soliciteUmaCotacaoForm.valid) {
             console.log('valid', this.soliciteUmaCotacaoForm.value)
@@ -107,6 +117,24 @@ export class SoliciteUmaCotacaoComponent implements OnInit {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
             });
         }
+    }
+
+    /*
+     * Recaptcha functions
+     * 
+     */
+    getCaptchaErrorCallback(error) {
+        console.error(error)
+        this.soliciteUmaCotacaoForm.controls.validCaptcha.setValue(false)
+    }
+
+    getCaptchaExpiredCallback(error) {
+        console.error(error)
+        this.soliciteUmaCotacaoForm.controls.validCaptcha.setValue(false)
+    }
+
+    getCaptchaCallback(event) {
+        this.soliciteUmaCotacaoForm.controls.validCaptcha.setValue(true)
     }
 
 }
