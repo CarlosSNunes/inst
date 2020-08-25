@@ -39,7 +39,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
         private validateBrService: ValidateBrService,
         private notificationService: NotificationService,
         private modalService: ModalService,
-        @Inject(PLATFORM_ID) private platformId: Platform
+        @Inject(PLATFORM_ID) private platformId: Platform,
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId)
         this.mountForm();
@@ -69,13 +69,24 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         if (this.isBrowser) {
-            grecaptcha.render('captcha_element_ouvidoria', {
-                sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
-                callback: this.getCaptchaCallback.bind(this),
-                'error-callback': this.getCaptchaErrorCallback.bind(this),
-                'expired-callback': this.getCaptchaExpiredCallback.bind(this),
-            });
+            this.initRecaptcha();
         }
+    }
+
+    initRecaptcha() {
+        let that = this
+        setTimeout(function () {
+            if (typeof grecaptcha === 'undefined' || typeof grecaptcha.render === 'undefined') {
+                that.initRecaptcha();
+            } else {
+                grecaptcha.render('captcha_element_ouvidoria', {
+                    sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',
+                    callback: that.getCaptchaCallback.bind(that),
+                    'error-callback': that.getCaptchaErrorCallback.bind(that),
+                    'expired-callback': that.getCaptchaExpiredCallback.bind(that),
+                });
+            }
+        }, 100)
     }
 
     get form() {
