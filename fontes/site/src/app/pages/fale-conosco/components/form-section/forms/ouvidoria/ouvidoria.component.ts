@@ -56,6 +56,10 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
         })
     }
 
+    ngOnDestroy() {
+        grecaptcha.reset();
+    }
+
     ngAfterViewInit() {
         grecaptcha.render('captcha_element_ouvidoria', {
             sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',

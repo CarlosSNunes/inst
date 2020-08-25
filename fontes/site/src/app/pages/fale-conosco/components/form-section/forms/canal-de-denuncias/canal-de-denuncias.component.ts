@@ -32,6 +32,10 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
     ngOnInit() {
     }
 
+    ngOnDestroy() {
+        grecaptcha.reset();
+    }
+
     ngAfterViewInit() {
         grecaptcha.render('captcha_element_canal_de_denuncias', {
             sitekey: '6LdULsMZAAAAAPGgoeLKfhIvt1pY9zg9iEhFO7eV',

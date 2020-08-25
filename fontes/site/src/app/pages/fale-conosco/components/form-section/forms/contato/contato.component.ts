@@ -51,6 +51,13 @@ export class ContatoComponent implements OnInit {
                 value: tipoAssunto.Id
             }));
         })
+        grecaptcha.reset();
+    }
+
+    ngOnDestroy() {
+        if (this.captchaRendered) {
+            grecaptcha.reset();
+        }
     }
 
     selectType(type: DropDownItem<number>) {

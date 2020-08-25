@@ -137,4 +137,8 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         this.soliciteUmaCotacaoForm.controls.validCaptcha.setValue(true)
     }
 
+    ngOnDestroy() {
+        grecaptcha.reset();
+    }
+
 }
