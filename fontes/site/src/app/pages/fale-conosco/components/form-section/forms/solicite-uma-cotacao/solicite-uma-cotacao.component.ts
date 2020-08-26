@@ -182,9 +182,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     ngOnDestroy() {
         if (this.isBrowser) {
             if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
-                if (this.document.querySelectorAll('div.g-recaptcha').length > 0) {
-                    grecaptcha.reset();
-                }
+                grecaptcha.reset();
             }
         }
     }
