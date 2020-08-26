@@ -9,7 +9,8 @@ import { filterFormFields } from './utils/mount-form';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { Platform } from '@angular/cdk/platform';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 declare var grecaptcha: any;
 
 @Component({
@@ -42,7 +43,9 @@ export class ContatoComponent implements OnInit {
         private notificationService: NotificationService,
         private modalService: ModalService,
         private cdr: ChangeDetectorRef,
-        @Inject(PLATFORM_ID) private platformId: Platform
+        @Inject(PLATFORM_ID) private platformId: Platform,
+        private scriptLoaderService: ScriptLoaderService,
+        @Inject(DOCUMENT) private document: Document
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId)
         this.mountForm();
@@ -57,13 +60,15 @@ export class ContatoComponent implements OnInit {
             }));
         })
         if (this.isBrowser) {
-            grecaptcha.reset();
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
+                grecaptcha.reset();
+            }
         }
     }
 
     ngOnDestroy() {
         if (this.isBrowser) {
-            if (this.captchaRendered) {
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
                 grecaptcha.reset();
             }
         }
@@ -97,8 +102,22 @@ export class ContatoComponent implements OnInit {
 
     private renderCapcha() {
         if (this.isBrowser) {
-            this.captchaRendered = true;
             this.cdr.detectChanges();
+            this.initRecaptchaScript();
+        }
+    }
+
+    initRecaptchaScript() {
+        const scriptObj = this.document.querySelector('script[src="https://www.google.com/recaptcha/api.js?render=explicit"]');
+        if (!scriptObj || scriptObj == null) {
+            const script: Partial<HTMLScriptElement> = {
+                src: 'https://www.google.com/recaptcha/api.js?render=explicit',
+                async: true,
+                defer: true,
+                onload: this.initRecaptcha.bind(this)
+            }
+            this.scriptLoaderService.injectScript(script, 'head');
+        } else {
             this.initRecaptcha();
         }
     }
@@ -116,6 +135,7 @@ export class ContatoComponent implements OnInit {
                     'error-callback': that.getCaptchaErrorCallback.bind(that),
                     'expired-callback': that.getCaptchaExpiredCallback.bind(that),
                 });
+                this.captchaRendered = true;
             }
         }, 100)
     }

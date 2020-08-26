@@ -7,7 +7,8 @@ import { NotificationService } from 'src/app/services';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { FeedbackModalModel } from 'src/app/models/modal.model';
 import { Platform } from '@angular/cdk/platform';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 declare var grecaptcha: any;
 
 
@@ -28,7 +29,9 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
         private validateBrService: ValidateBrService,
         private notificationService: NotificationService,
         private modalService: ModalService,
-        @Inject(PLATFORM_ID) private platformId: Platform
+        @Inject(PLATFORM_ID) private platformId: Platform,
+        private scriptLoaderService: ScriptLoaderService,
+        @Inject(DOCUMENT) private document: Document
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.mountForm();
@@ -39,12 +42,32 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
 
     ngOnDestroy() {
         if (this.isBrowser) {
-            grecaptcha.reset();
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
+                grecaptcha.reset();
+            }
         }
     }
 
     ngAfterViewInit() {
         if (this.isBrowser) {
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
+                grecaptcha.reset();
+            }
+            this.initRecaptchaScript();
+        }
+    }
+
+    initRecaptchaScript() {
+        const scriptObj = this.document.querySelector('script[src="https://www.google.com/recaptcha/api.js?render=explicit"]');
+        if (!scriptObj || scriptObj == null) {
+            const script: Partial<HTMLScriptElement> = {
+                src: 'https://www.google.com/recaptcha/api.js?render=explicit',
+                async: true,
+                defer: true,
+                onload: this.initRecaptcha.bind(this)
+            }
+            this.scriptLoaderService.injectScript(script, 'head');
+        } else {
             this.initRecaptcha();
         }
     }
