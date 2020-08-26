@@ -4,7 +4,7 @@
     </p>
     <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma cotação">
 </div>
-<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToSection('#aboutPlan')">
+<app-simple-banner [simpleBannerModel]="findedPlan?.simpleBannerModel" (goToNextSection)="goToSection('#aboutPlan')">
 </app-simple-banner>
 <div class="anchor-buttons">
     <div class="container">
@@ -16,60 +16,34 @@
         </div>
     </div>
 </div>
-<app-info-section id="aboutPlan" [sectionInfo]="sectionAboutPlan"></app-info-section>
-<app-plans-infos id="products" (setSelectedOptionId)="selectedOptionId = $event" [selectedOptionId]="selectedOptionId"
-    [backgroundColorClass]="'blue-background-color'">
+<app-info-section id="aboutPlan" [sectionInfo]="findedPlan?.aboutPlan"></app-info-section>
+<app-plans-infos id="products" [plan]="findedPlan" (setSelectedOptionId)="selectedOptionId = $event"
+    [selectedOptionId]="selectedOptionId" [backgroundColorClass]="'blue-background-color'">
 </app-plans-infos>
-<app-info-section [sectionInfo]="dentalSection"></app-info-section>
-<app-hospitals-list></app-hospitals-list>
-<app-info-section [sectionInfo]="plansSection"></app-info-section>
-<app-icon-cards-section id="products" [iconCardsSectionModel]="iconCardsSectionModel"
+<app-info-section [sectionInfo]="findedPlan?.dentalSection"></app-info-section>
+<app-hospitals-list [smallTitle]="findedPlan?.hospitalListSection?.smallTitle"
+    [bigTitle]="findedPlan?.hospitalListSection?.bigTitle"></app-hospitals-list>
+<app-info-section [sectionInfo]="findedPlan?.plansSection"></app-info-section>
+<app-icon-cards-section id="products" [iconCardsSectionModel]="findedPlan?.iconCardsSectionModel"
     [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
-<app-info-section [sectionInfo]="clinicSection"></app-info-section>
+<app-info-section [sectionInfo]="findedPlan?.clinicSection"></app-info-section>
 <section id="clinicServices">
     <article>
         <div class="container">
             <div class="columns">
                 <div class="column">
                     <h4 class="big-title">
-                        Veja alguns dos serviços e atendimento da clínica Care Plus
+                        {{findedPlan?.clinicInfos?.bigTitle}}
                     </h4>
                 </div>
             </div>
 
             <div class="columns flex-wrap cards">
-                <div class="column is-3-desktop is-full">
+                <div class="column is-3-desktop is-full" *ngFor="let item of findedPlan?.clinicInfos?.items">
                     <app-card>
                         <div class="card-content">
                             <p class="card-description">
-                                Consultas com Clínicos Gerais e Pediatras
-                            </p>
-                        </div>
-                    </app-card>
-                </div>
-                <div class="column is-3-desktop is-full">
-                    <app-card>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Consulta médica após a realização de check-up
-                            </p>
-                        </div>
-                    </app-card>
-                </div>
-                <div class="column is-3-desktop is-full">
-                    <app-card>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Esclarecimento de dúvidas sobre assuntos de saúde
-                            </p>
-                        </div>
-                    </app-card>
-                </div>
-                <div class="column is-3-desktop is-full">
-                    <app-card>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Indicação e agendamento com especialistas da rede
+                                {{item?.text}}
                             </p>
                         </div>
                     </app-card>
@@ -79,7 +53,8 @@
     </article>
 </section>
 <app-accredited-network [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
-<app-info-section [sectionInfo]="travelSection"></app-info-section>
-<app-contact-schedule-a-visit [secondCard]="secondCard" [bigTitle]="'Entre em contato ou solicite um cotação'"
-    [backgroundColorClass]="'blue-background-color'"></app-contact-schedule-a-visit>
+<app-info-section [sectionInfo]="findedPlan?.travelSection"></app-info-section>
+<app-contact-schedule-a-visit [secondCard]="findedPlan?.secondCard"
+    [bigTitle]="'Entre em contato ou solicite um cotação'" [backgroundColorClass]="'blue-background-color'">
+</app-contact-schedule-a-visit>
 <app-careplus-plus></app-careplus-plus>

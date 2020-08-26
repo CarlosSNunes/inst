@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import Hospitals from './dropdown-data/hospitals-list';
 import { DropDownItem } from 'src/app/models';
 
@@ -9,6 +9,8 @@ import { DropDownItem } from 'src/app/models';
     styleUrls: ['./hospitals-list.component.scss']
 })
 export class HospitalsListComponent implements OnInit {
+    @Input() bigTitle: string = 'Veja todos os hospitais e laboratórios de cada plano';
+    @Input() smallTitle: string = 'HOSPITAIS DA REDE CLUB CARE PLUS';
     allStates: DropDownItem[] = [];
     allHospitals: DropDownItem[] = [];
     allPlans: DropDownItem[] = [];

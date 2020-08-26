@@ -1,10 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, IconCardsSectionModel, ButtonModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WindowRef } from 'src/utils/window-ref';
 import { Meta, Title } from '@angular/platform-browser';
-import { plansMock, sectionAboutPlan, travelSection, dentalSection, plansSection, clinicSection, secondCard, } from './data/plans-mock';
-import Cards from './data/cards';
+import { plansMock } from './data/plans-mock';
 
 @Component({
     selector: 'app-detalhes-do-produto',
@@ -12,30 +10,11 @@ import Cards from './data/cards';
     styleUrls: ['./detalhes-do-produto.component.scss']
 })
 export class DetalhesDoProdutoComponent implements OnInit {
-    simpleBannerModel: SimpleBannerModel = {
-        hasAnchor: true,
-    };
     id: string = '';
     ids = plansMock;
-    sectionAboutPlan = sectionAboutPlan;
-    travelSection = travelSection
-    dentalSection = dentalSection;
-    plansSection = plansSection;
-    clinicSection = clinicSection;
-    secondCard = secondCard;
     selectedOptionId: number = 1;
-    iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
-        smallTitle: 'GESTÃO DE SAÚDE',
-        bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
-        subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
-        button: new ButtonModel({
-            text: 'CONHEÇA NOSSOS PROGRAMAS',
-            routerLink: '/gestao-de-saude'
-        }),
-        cards: Cards,
-        columnClass: 'is-3-desktop'
-    });
-    queryParams: object = {};
+    queryParams: any = {};
+    findedPlan: any = {};
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -47,47 +26,13 @@ export class DetalhesDoProdutoComponent implements OnInit {
     ) {
         this.activatedRoute.params.subscribe(params => {
             this.id = params.id;
-            this.simpleBannerModel.breadcrumbs = [
-                new BreadcrumbModel({
-                    name: 'Home',
-                    link: '/home',
-                }),
-                new BreadcrumbModel({
-                    name: 'Planos e Produtos',
-                    link: '/produtos-e-planos-careplus',
-                }),
-            ];
             const findedId = this.ids.find(id => id.id === this.id);
+            this.findedPlan = findedId;
             if (findedId) {
-                this.sectionAboutPlan = new InfoSectionModel(findedId.aboutPlan);
                 this.setSEOInfos(findedId);
-                this.simpleBannerModel.title = findedId.title;
-                this.simpleBannerModel.description = findedId.description;
-                this.simpleBannerModel.image = findedId.image;
-                this.simpleBannerModel.breadcrumbs.push(new BreadcrumbModel({
-                    name: findedId.name,
-                    link: `/produtos-e-planos-careplus/${this.id}`,
-                    active: true
-                }));
-
                 this.queryParams = {
                     plano: this.id
                 }
-
-                this.secondCard.button.routerLink = '/fale-conosco';
-                this.secondCard.button.queryParams = {
-                    plano: this.id
-                };
-
-                this.sectionAboutPlan.button.routerLink = '/fale-conosco';
-                this.sectionAboutPlan.button.queryParams = {
-                    plano: this.id
-                };
-
-                this.dentalSection.button.queryParams = {
-                    plano: this.id,
-                    planoOdontologico: true
-                };
             } else {
                 this.router.navigate(['/error']);
             }

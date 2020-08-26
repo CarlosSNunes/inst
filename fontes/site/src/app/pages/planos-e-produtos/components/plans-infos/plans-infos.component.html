@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="columns plan-card">
+            <div class="columns plan-card" *ngIf="cardPlan">
                 <div class="column is-full">
                     <app-plan-card [backgroundColorClass]="'white-background-color'" [planCardModel]="cardPlan">
                     </app-plan-card>

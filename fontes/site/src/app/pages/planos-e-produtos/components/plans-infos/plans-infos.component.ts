@@ -10,6 +10,15 @@ import { WindowRef } from 'src/utils/window-ref';
 })
 export class PlansInfosComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
+    @Input() selectedOptionId: number = 1;
+    @Input() plan: any = {
+        plansTypes: [
+            [],
+            []
+        ]
+    };
+    @Input() cardPlan: PlanCardModel;
+    @Output() setSelectedOptionId: EventEmitter<number> = new EventEmitter<number>();
     options = [
         {
             id: 1,
@@ -22,24 +31,13 @@ export class PlansInfosComponent implements OnInit {
             active: false
         },
     ];
-    cards = carePlusCards;
-    cardPlan: PlanCardModel = new PlanCardModel({
-        title: 'Master International',
-        subTitle: 'Plano internacional',
-        description: 'O Master International é o plano de cobertura internacional exclusivo dos Produtos de Saúde. (presente em todos os produtos de saúde)',
-        button: new ButtonModel({
-            text: 'SAIBA MAIS',
-            link: 'https://www8.careplus.com.br/masterinternational/'
-        }),
-        image: 'assets/svg/plans-international.svg'
-    });
-    @Input() selectedOptionId: number = 1;
-    @Output() setSelectedOptionId: EventEmitter<number> = new EventEmitter<number>();
+    cards = [];
     constructor(
         private windowRef: WindowRef
     ) { }
 
     ngOnInit() {
+        this.cards = this.plan.plansTypes[0].plans;
     }
 
     activeOption(optionId: number) {
@@ -67,14 +65,19 @@ export class PlansInfosComponent implements OnInit {
 
     changeCards(option) {
         if (option.id === 1) {
-            this.cards = carePlusCards;
+            this.cards = this.plan.plansTypes[0].plans;
         } else {
-            this.cards = carePlusCardsOdonto;
+            this.cards = this.plan.plansTypes[1].plans;
         }
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.activeOption(changes.selectedOptionId.currentValue)
+        if (changes.selectedOptionId) {
+            this.activeOption(changes.selectedOptionId.currentValue)
+        }
+        if (changes.cardPlan) {
+            this.cardPlan = changes.cardPlan.currentValue;
+        }
     }
 
 }

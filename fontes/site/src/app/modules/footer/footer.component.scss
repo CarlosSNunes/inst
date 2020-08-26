@@ -12,6 +12,11 @@
                     margin-right: 0 !important;
                     margin-top: 10px;
                     flex: 0 0 100%;
+
+                    svg {
+                        margin: 0 auto;
+                        display: block;
+                    }
                 }
             }
         }
@@ -417,11 +422,11 @@
             .certifications-images {
                 margin: 0 -10px;
                 img {
-                    &:first-child{
+                    &:first-child {
                         margin-left: 10px;
                     }
 
-                    &:last-child{
+                    &:last-child {
                         margin-right: 10px;
                     }
                 }
