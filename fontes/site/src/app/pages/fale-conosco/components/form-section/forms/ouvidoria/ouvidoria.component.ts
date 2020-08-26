@@ -67,7 +67,9 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     ngOnDestroy() {
         if (this.isBrowser) {
             if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
-                grecaptcha.reset();
+                if (this.document.querySelectorAll('div.g-recaptcha').length > 0) {
+                    grecaptcha.reset();
+                }
             }
         }
     }
@@ -75,7 +77,9 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         if (this.isBrowser) {
             if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
-                grecaptcha.reset();
+                if (this.document.querySelectorAll('div.g-recaptcha').length > 0) {
+                    grecaptcha.reset();
+                }
             }
             this.initRecaptchaScript();
         }
