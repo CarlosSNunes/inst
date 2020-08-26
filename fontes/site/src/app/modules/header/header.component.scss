@@ -366,7 +366,7 @@ nav.is-home {
 
         &:hover {
             background-color: unset;
-            .sub-menu {
+            .sub-menu, + .sub-menu {
                 display: flex;
             }
         }
@@ -394,7 +394,7 @@ nav.is-home {
             }
         }
 
-        .sub-menu {
+        .sub-menu, + .sub-menu {
             display: none;
             position: absolute;
             background-color: getColor(_bupa, _white);

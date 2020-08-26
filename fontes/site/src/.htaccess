@@ -1,3 +1,8 @@
+AuthType Basic
+AuthName "Careplus Protected Area"
+AuthUserFile /var/www/html/homolog/careplus.homolog.neotix.com.br/dist/browser/.htpasswd
+Require valid-user
+
 Options +FollowSymLinks -Multiviews -Indexes
 
 AddType application/font-woff           .woff
@@ -11,54 +16,8 @@ AddType video/mp4                       .mp4
 AddType video/ogg                       .ogv
 AddType video/webm                      .webm
 
-# Define tempos de expiração e compressão de conteúdo para o Apache
-# Define política de CORS para fontes
-<IfModule mod_headers.c>
-    # 1 ANO
-    ExpiresActive On
-    <FilesMatch "\.(otf|ico|pdf|flv|svg|woff)$">
-        Header set Cache-Control "max-age=29030400, public"
-        ExpiresDefault "access plus 1 years"
-        Header unset Last-Modified
-        Header unset ETag
-        SetOutputFilter DEFLATE
-    </FilesMatch>
-
-    # 1 MÊS
-    <FilesMatch "\.(jpg|jpeg|png|gif|swf|mp4)$">
-        Header set Cache-Control "max-age=2419200, public"
-        ExpiresDefault "access plus 1 month"
-        SetOutputFilter DEFLATE
-    </FilesMatch>
-
-    # 1 SEMANA
-    <FilesMatch "\.(xml|txt|css|js)$">
-        Header set Cache-Control "max-age=604800, public"
-        ExpiresDefault "access plus 1 week"
-        SetOutputFilter DEFLATE
-    </FilesMatch>
-
-    # 30 MIN
-    <FilesMatch "\.(html|htm|php)$">
-        SetOutputFilter DEFLATE
-    </FilesMatch>
-    # Fim dos tempos de expiração e compressão
-
-    # Define política de CORS para fontes
-    <FilesMatch ".(eot|otf|svg|ttf|woff2|json?)$">
-       Header set Access-Control-Allow-Origin "*"
-    </FilesMatch>
-</IfModule>
-
 RewriteEngine on
 RewriteBase /
-
-# HTTP para HTTPS
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteCond %{HTTP_HOST} !local$ [NC]
-RewriteCond %{HTTP_HOST} !localhost$ [NC]
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [NE,L,R=301]
 
 # Redirect all to index
 RewriteCond %{REQUEST_FILENAME} -f
@@ -67,3 +26,8 @@ RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ /$1.html [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*) /index.html [QSA,L]
+
+<ifmodule mod_expires.c>
+ExpiresActive On // shows the activation/deactivation of cache-control & expires headers
+ExpiresDefault "access plus 1 month"
+</ifmodule>

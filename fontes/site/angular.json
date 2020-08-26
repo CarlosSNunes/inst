@@ -26,7 +26,8 @@
             "assets": [
               "src/careplus-bupa.ico",
               "src/assets",
-              "src/.htaccess"
+              "src/.htaccess",
+              "src/.htpasswd"
             ],
             "styles": [
               "src/styles.scss",
