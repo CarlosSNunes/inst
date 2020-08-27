@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { WindowRef } from 'src/utils/window-ref';
 import { MatSliderChange } from '@angular/material';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { SimuladoresService } from 'src/app/services';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
     selector: 'app-header',
@@ -14,14 +15,25 @@ export class HeaderComponent implements OnInit {
     minValue: number = 16;
     maxValue: number = 18;
     step: number = 1;
-    bightnessMode: string = 'default';
+    isBrowser: boolean = false;
 
     constructor(
         @Inject(DOCUMENT) private document: Document,
+        @Inject(PLATFORM_ID) private platformId: Platform,
         private simuladoresService: SimuladoresService
-    ) { }
+    ) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
+    }
 
     ngOnInit() {
+        if (this.isBrowser) {
+            const fontSize = localStorage.getItem('defaultfontsize');
+            if (fontSize) {
+                this.setFontSize(parseInt(fontSize));
+            } else {
+                localStorage.setItem('defaultfontsize', `${this.fontInitialValue}`);
+            }
+        }
     }
 
     changeFontSize(event: MatSliderChange) {
@@ -32,6 +44,7 @@ export class HeaderComponent implements OnInit {
         this.fontInitialValue = value;
         this.document.documentElement.style.fontSize = `${value}px`;
         this.document.body.style.fontSize = `${value}px`;
+        localStorage.setItem('defaultfontsize', `${value}`);
     }
 
     changeStep(subtract: boolean) {
@@ -42,10 +55,6 @@ export class HeaderComponent implements OnInit {
             this.fontInitialValue += this.step;
             this.setFontSize(this.fontInitialValue)
         }
-    }
-
-    setBrightness(mode: string) {
-        this.bightnessMode = mode;
     }
 
     openSimulator() {
