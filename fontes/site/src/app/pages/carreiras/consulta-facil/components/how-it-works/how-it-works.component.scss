@@ -6,6 +6,7 @@ section#howItWorks {
             max-width: 100%;
             &.has-line {
                 position: sticky;
+                position: -webkit-sticky;
                 top: 15px;
                 padding-top: 42px;
 

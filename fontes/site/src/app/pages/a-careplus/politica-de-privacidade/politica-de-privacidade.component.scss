@@ -1,6 +1,11 @@
 section {
     &#politicaDePrivacidadeSection {
         .container {
+            app-sidebar {
+                height: 100%;
+                display: block;
+            }
+            
             .term-section {
                 margin-top: 22px;
                 &:first-child {

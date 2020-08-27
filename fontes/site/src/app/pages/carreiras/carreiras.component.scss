@@ -5,6 +5,7 @@ section {
         .container {
             .our-pillars-box {
                 position: sticky;
+                position: -webkit-sticky;
                 top: 15px;
 
                 .big-title {
@@ -65,6 +66,7 @@ section {
             .container {
                 .our-pillars-box {
                     position: sticky;
+                    position: -webkit-sticky;
                     top: 87px;
                 }
             }

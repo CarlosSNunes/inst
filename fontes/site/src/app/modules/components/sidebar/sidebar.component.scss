@@ -8,6 +8,7 @@ ul {
     max-height: calc(100vh - 30px);
     overflow-y: auto;
     position: sticky;
+    position: -webkit-sticky;
     top: 15px;
 
     &::-webkit-scrollbar {
@@ -47,7 +48,7 @@ ul {
             color: getColor(_bupa, _grey-2);
             transition: color ease-in-out 0.4s;
         }
-        
+
         &.active {
             background: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
             border-left: 3px solid getColor(_bupa, _digital-cian);

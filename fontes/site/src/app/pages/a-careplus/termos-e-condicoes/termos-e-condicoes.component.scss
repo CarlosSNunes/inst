@@ -11,6 +11,11 @@ section {
                     max-width: 100%;
                 }
             }
+
+            app-sidebar {
+                height: 100%;
+                display: block;
+            }
         }
     }
 }
