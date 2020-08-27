@@ -87,7 +87,8 @@
                             0800-13-2992
                         </span>
                     </a>
-                    <a class="button is-navbar-button login bupa-digital-cyan">
+                    <a class="button is-navbar-button login bupa-digital-cyan"
+                        href="https://www8.careplus.com.br/portal/LoginBeneficiario.aspx" target="_blank">
                         <span class="item-label">
                             Entrar
                         </span>
@@ -197,19 +198,17 @@
                     <div class="column is-4">
                         <ul class="items">
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus" [fragment]="'soho'" class="sub-menu-items">
+                                <a routerLink="/produtos-e-planos-careplus/soho" class="sub-menu-items">
                                     SoHo (de 2 a 29 vidas)
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus" [fragment]="'clubeCarePlus'"
-                                    class="sub-menu-items">
+                                <a routerLink="/produtos-e-planos-careplus/clube-careplus" class="sub-menu-items">
                                     Clube Care Plus (de 30 a 200 vidas)
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus" [fragment]="'empresarial'"
-                                    class="sub-menu-items">
+                                <a routerLink="/produtos-e-planos-careplus/empresarial" class="sub-menu-items">
                                     Empresarial (mais de 200 vidas)
                                 </a>
                             </li>
@@ -218,8 +217,8 @@
                 </div>
             </a>
             <a class="navbar-item">
-                <span class="item" [routerLink]="['/produtos-e-planos-careplus']" fragment="produtos" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
+                <span class="item" [routerLink]="['/produtos-e-planos-careplus']" fragment="produtos"
+                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     Produtos
                 </span>
                 <div class="sub-menu columns">
@@ -231,8 +230,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus" [fragment]="'produtos'"
-                                    class="sub-menu-items">
+                                <a routerLink="/gestao-de-saude" class="sub-menu-items">
                                     Gestão de saúde
                                 </a>
                             </li>

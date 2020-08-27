@@ -1,3 +1,4 @@
+import { CareplusVideoModel } from './careplus-video.model';
 
 export class ModalModel {
     public constructor(init?: Partial<ModalModel>) {
@@ -5,7 +6,7 @@ export class ModalModel {
     }
 
     type: 'info' | 'error';
-    layout: 'feedback' | 'table' | 'content';
+    layout: 'feedback' | 'table' | 'content' | 'video';
     title: string;
 }
 
@@ -69,4 +70,20 @@ export class Paragraph {
 
     title: string = '';
     text: string = '';
+}
+
+
+export class VideoModalModel extends ModalModel {
+    constructor(init?: Partial<VideoModalModel>) {
+        super(init)
+        this.type = 'info';
+        this.layout = 'video';
+        Object.assign(this, init);
+    }
+
+    videoModel: CareplusVideoModel = new CareplusVideoModel({
+        bigTitle: 'Por que somos apaixonados pela Care Plus?',
+        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8'
+    });
+
 }

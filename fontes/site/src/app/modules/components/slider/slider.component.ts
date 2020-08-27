@@ -1,11 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Input, Inject, PLATFORM_ID, HostListener } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { NgImageSliderComponent } from 'ng-image-slider';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { SliderModel } from 'src/app/models';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
-import { ContentModalModel } from 'src/app/models/modal.model';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { VideoModalModel } from 'src/app/models/modal.model';
 
 @Component({
     selector: 'app-slider',
@@ -92,22 +91,10 @@ export class SliderComponent implements OnInit {
 
             - Por enquanto as informações estão mocadas.
         */
-        const modalContent: ContentModalModel = new ContentModalModel({
-            layout: 'content',
+        const modalContent: VideoModalModel = new VideoModalModel({
+            layout: 'video',
             type: 'info',
-            title: 'Mitos e verdades sobre a escovação',
-            smallTitle: 'SAÚDE BUCAL',
-            paragraphs: [
-                {
-                    "title": "Importância da escovação",
-                    "text": "A escovação é extremamente importante, não apenas para ter um sorriso mais bonito, mas, também, para cuidar da saúde bucal, prevenir cáries, mal hálito e doenças como gengivite, periodontite, entre outras. Vamos esclarecer algumas dúvidas mais frequentes sobre a escovação."
-                },
-                {
-                    "title": "Tenho que escovar meus dentes logo depois de terminar uma refeição?",
-                    "text": "Mito! Ao fim de uma refeição o correto é aguardar até 30 minutos. Esse tempo é preciso, porque alguns alimentos possuem acidez e podem deixar o esmalte dos dentes sensíveis. Por esse motivo, é importante aguardar o PH da boca se equilibrar."
-                }
-            ],
-            imagePath: 'assets/svg/content-modal-image.svg'
+
         });
         this.modalService.openModal(modalContent)
     }

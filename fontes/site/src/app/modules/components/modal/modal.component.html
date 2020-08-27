@@ -1,6 +1,11 @@
 <div class="custom-modal">
     <div class="modal-body" [ngClass]="[modalModel.type, modalModel.layout]">
-        <img src="assets/svg/times.svg" alt="fechar" class="close" (click)="close()">
+        <a tabindex="0" class="times-icon" (keyup.enter)="close()" (click)="close()">
+            <div class="lines">
+                <span class="first-line"></span>
+                <span class="second-line"></span>
+            </div>
+        </a>
 
         <div class="feedback-content" *ngIf="modalModel.layout === 'feedback'">
 
@@ -70,6 +75,15 @@
                 <div class="column is-6">
                     <img [src]="modalModel.imagePath" alt="Imágem do conteúdo">
                 </div>
+            </div>
+        </div>
+
+        <div class="video" *ngIf="modalModel?.layout === 'video'">
+            <div class="videoBox">
+
+                <iframe width="560" height="315" [src]="modalModel?.videoModel?.embedSrc | safe"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen=""></iframe>
             </div>
         </div>
     </div>
