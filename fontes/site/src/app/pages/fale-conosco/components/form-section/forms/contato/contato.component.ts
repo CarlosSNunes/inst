@@ -60,9 +60,12 @@ export class ContatoComponent implements OnInit {
             }));
         })
         if (this.isBrowser) {
-            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
-                if (this.document.querySelectorAll('div.g-recaptcha').length > 0) {
+            const capctchaElements = this.document.querySelectorAll('.g-recaptcha-bubble-arrow');
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined' && capctchaElements.length > 0) {
+                try {
                     grecaptcha.reset();
+                } catch (error) {
+                    console.log(error)
                 }
             }
         }
@@ -70,8 +73,13 @@ export class ContatoComponent implements OnInit {
 
     ngOnDestroy() {
         if (this.isBrowser) {
-            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
-                grecaptcha.reset();
+            const capctchaElements = this.document.querySelectorAll('.g-recaptcha-bubble-arrow');
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined' && capctchaElements.length > 0) {
+                try {
+                    grecaptcha.reset();
+                } catch (error) {
+                    console.log(error)
+                }
             }
         }
     }

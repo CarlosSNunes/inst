@@ -74,9 +74,12 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         if (this.isBrowser) {
-            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
-                if (this.document.querySelectorAll('div.g-recaptcha').length > 0) {
+            const capctchaElements = this.document.querySelectorAll('.g-recaptcha-bubble-arrow');
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined' && capctchaElements.length > 0) {
+                try {
                     grecaptcha.reset();
+                } catch (error) {
+                    console.log(error)
                 }
             }
             this.initRecaptchaScript();
@@ -181,8 +184,13 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
     ngOnDestroy() {
         if (this.isBrowser) {
-            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined') {
-                grecaptcha.reset();
+            const capctchaElements = this.document.querySelectorAll('.g-recaptcha-bubble-arrow');
+            if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined' && capctchaElements.length > 0) {
+                try {
+                    grecaptcha.reset();
+                } catch (error) {
+                    console.log(error)
+                }
             }
         }
     }
