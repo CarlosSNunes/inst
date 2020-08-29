@@ -7015,19 +7015,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rhenr\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\NOVAS-APIS\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
+      "projectUniqueName": "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
       "projectName": "CarePlusAPI",
-      "projectPath": "D:\\Projetos\\NOVAS-APIS\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
-      "packagesPath": "C:\\Users\\rhenr\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\NOVAS-APIS\\CarePlusAPI\\CarePlusAPI\\obj\\",
+      "projectPath": "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rhenr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7120,7 +7120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
