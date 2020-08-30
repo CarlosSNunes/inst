@@ -1,3 +1,51 @@
+@import './../../assets/sass/variables';
+
 .is-login {
   background-color: #364150 !important;
+}
+
+div.card#cardLogin {
+  width           : 372px !important;
+  height          : 559px !important;
+  background-color: $azul-claro-primario !important;
+  border-radius   : 7px;
+
+  div.card-body {
+    width: 100%;
+
+    img.m-auto.img-logo-cms {
+      width: 100%;
+    }
+
+    form {
+      div.form-group.form-row {
+        p.form-text.is-danger.text-white {
+          position: absolute;
+          top     : 230px;
+        }
+      }
+
+      div.field {
+        btn.btn.btn-light {
+          position: absolute;
+          left    : 30px;
+        }
+      }
+    }
+  }
+}
+
+div.logo-footer {
+  width     : 100%;
+  margin    : auto;
+  text-align: center;
+
+  img.img-logo-careplus {
+    width : 150px;
+    margin: auto;
+  }
+}
+
+#exampleInputEmail1 {
+  margin-bottom: 0px;
 }

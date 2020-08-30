@@ -32,7 +32,6 @@
             "styles": [
               "src/styles.scss",
               "node_modules/videogular2/fonts/videogular.css",
-              "src/assets/css/bulma-tooltip.min.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

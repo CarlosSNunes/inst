@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj": {}
+    "C:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj": {}
   },
   "projects": {
-    "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj": {
+    "C:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
+        "projectUniqueName": "C:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
         "projectName": "CarePlusAPI",
-        "projectPath": "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
+        "projectPath": "C:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "Z:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\obj\\",
+        "outputPath": "C:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

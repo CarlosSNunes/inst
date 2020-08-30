@@ -27,8 +27,6 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "bootstrap": "^4.5.2",
-    "bulma-fluent": "^0.3.19",
-    "bulma-pageloader": "^0.3.0",
     "ckeditor5-simple-upload": "^1.0.7",
     "component": "^1.1.0",
     "file-server": "^2.1.0",

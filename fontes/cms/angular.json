@@ -29,9 +29,6 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bulma/css/bulma.css",
-              "src/assets/css/bulma-calendar.min.css",
-              "node_modules/bulma-pageloader/dist/css/bulma-pageloader.min.css",
               "node_modules/@ckeditor/ckeditor5-theme-lark/theme/ckeditor5-editor-classic/classiceditor.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
@@ -40,9 +37,7 @@
                 "src/assets/sass"
               ]
             },
-            "scripts": [
-              "src/assets/js/bulma-calendar.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -97,7 +92,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "codeCoverageExclude": [
-              "src/assets/**", 
+              "src/assets/**",
               "src/models/**",
               "src/utils/**"
             ],
@@ -112,9 +107,6 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bulma/css/bulma.css",
-              "src/assets/css/bulma-calendar.min.css",
-              "node_modules/bulma-pageloader/dist/css/bulma-pageloader.min.css",
               "node_modules/@ckeditor/ckeditor5-theme-lark/theme/ckeditor5-editor-classic/classiceditor.css"
             ],
             "stylePreprocessorOptions": {
@@ -122,9 +114,7 @@
                 "src/assets/sass"
               ]
             },
-            "scripts": [
-              "src/assets/js/bulma-calendar.min.js"
-            ]
+            "scripts": []
           }
         },
         "lint": {
