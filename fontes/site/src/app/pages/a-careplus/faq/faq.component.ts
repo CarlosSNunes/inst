@@ -3,8 +3,10 @@ import { BreadcrumbModel, SimpleBannerModel } from 'src/app/models';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
-import { questionsMock } from './data/commomQuestionsMock';
 import { DOCUMENT } from '@angular/common';
+import { questionsMock } from './data/commomQuestionsMock';
+import AuthorizationQuestionsMock from './data/authorizationQuestionsMock';
+import AuthorizationQuestionsExtraMock from './data/authorizationQuestionsMockExtra';
 
 @Component({
     selector: 'app-faq',
@@ -36,6 +38,8 @@ export class FaqComponent implements OnInit {
     };
     filterForm: FormGroup;
     questions = questionsMock;
+    authorizationQuestions = AuthorizationQuestionsMock;
+    authorizationQuestionsExtra = AuthorizationQuestionsExtraMock;
     script: HTMLScriptElement;
 
     constructor(

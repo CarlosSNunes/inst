@@ -6,9 +6,8 @@
                 <a [href]="'#acc' + i" class="acc-heading">{{item.title}}</a>
 
                 <section [attr.id]="'acc' + i" class="acc-content is-paddingless">
-                    <div class="inner">
-                        <h5> {{item.description}} </h5>
-
+                    <div class="inner" [innerHTML]="item?.description">
+                        
                     </div>
                 </section>
             </div>

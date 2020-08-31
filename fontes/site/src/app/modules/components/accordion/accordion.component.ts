@@ -1,10 +1,11 @@
-import { Component, OnInit, ElementRef, Inject, PLATFORM_ID, Input, HostListener } from '@angular/core';
+import { Component, OnInit, ElementRef, Inject, PLATFORM_ID, Input, HostListener, ViewEncapsulation } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-accordion',
     templateUrl: './accordion.component.html',
-    styleUrls: ['./accordion.component.scss']
+    styleUrls: ['./accordion.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class AccordionComponent implements OnInit {
     @Input() questions: Array<any> = [];

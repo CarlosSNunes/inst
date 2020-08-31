@@ -81,7 +81,19 @@
                     </div>
                 </div>
             </div>
-            <app-accordion [questions]="questions"></app-accordion>
+            <app-accordion class="first" *ngIf="questions?.length > 0" [questions]="questions"></app-accordion>
+            <h4 class="big-title is-centered" *ngIf="authorizationQuestions?.length > 0">
+                Autorização
+            </h4>
+            <app-accordion *ngIf="authorizationQuestions?.length > 0" [questions]="authorizationQuestions">
+            </app-accordion>
+            <p class="sub-description is-centered">
+                <strong>
+                    Como faço para conseguir autorização para:
+                </strong>
+            </p>
+            <app-accordion *ngIf="authorizationQuestionsExtra?.length > 0" [questions]="authorizationQuestionsExtra">
+            </app-accordion>
         </div>
     </article>
 </section>
