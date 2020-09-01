@@ -20,7 +20,7 @@ div.menu-lateral {
       left    : 10%;
       right   : 10%;
       width   : 80% !important;
-      top     : 2rem;
+      top     : 1rem;
     }
 
     ul.menu-list {
@@ -28,8 +28,8 @@ div.menu-lateral {
       margin    : 0px;
       padding   : 5px 10px;
       width     : 100%;
-
-      li.menu-list {}
+      top       : 0;
+      position  : relative;
 
       div.title-list {
         margin : 10px 0px 10px 0px;
@@ -40,6 +40,8 @@ div.menu-lateral {
           font-weight: bold;
           font-size  : 16px;
         }
+
+
 
         span.horizontal-line {
           border-bottom: 1px solid #fff;
@@ -53,6 +55,13 @@ div.menu-lateral {
 
       }
 
+      li.menu-item {
+        margin-left: 10px;
+
+        a {
+          color: white;
+        }
+      }
     }
   }
 }
