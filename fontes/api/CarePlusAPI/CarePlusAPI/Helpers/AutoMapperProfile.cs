@@ -13,6 +13,7 @@ using AutoMapper;
 using Neotix.Neocms.CarePlusAPI.Entities;
 using Neotix.Neocms.CarePlusAPI.Models.Banner;
 using Neotix.Neocms.CarePlusAPI.Models.Categorias;
+using Neotix.Neocms.CarePlusAPI.Models.ConsultaFacil;
 using Neotix.Neocms.CarePlusAPI.Models.Newsletter;
 using Neotix.Neocms.CarePlusAPI.Models.Perfil;
 using Neotix.Neocms.CarePlusAPI.Models.Post;
@@ -86,6 +87,19 @@ namespace Neotix.Neocms.CarePlusAPI.Helpers
 
             CreateMap<PostTagUpdateModel, PostTag>();
             CreateMap<PostTagCreateModel, PostTag>();
+
+            //ConsultaFacil
+            CreateMap<ConsultaFacilUpdateModel, Clinica>();
+            CreateMap<ConsultaFacilCreateModel, Clinica>();
+            CreateMap<Clinica, ConsultaFacilModel>()
+            .ForMember(e => e.EnderecoClinica, opt =>
+            {
+                opt.MapFrom(src => src.EnderecoClinica);
+            })
+            .ForMember(h => h.HorarioClinica, opt =>
+            {
+                opt.MapFrom(src => src.HorarioClinica);
+            });
         }
     }
 }

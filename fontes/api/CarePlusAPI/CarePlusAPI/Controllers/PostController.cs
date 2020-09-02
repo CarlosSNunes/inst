@@ -273,7 +273,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
 
             try
             {
-                Post noticia = await _postService.BuscarPorId(model.Id.Value);
+                Post post = await _postService.BuscarPorId(model.Id.Value);
 
 
                 if (model.Arquivo != null)
@@ -298,13 +298,13 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
                 }
                 else
                 {
-                    model.CaminhoImagem = noticia.CaminhoImagem;
-                    model.NomeImagem = noticia.NomeImagem;
+                    model.CaminhoImagem = post.CaminhoImagem;
+                    model.NomeImagem = post.NomeImagem;
                 }
 
-                noticia = Mapper.Map<Post>(model);
+                post = Mapper.Map<Post>(model);
 
-                await _postService.Atualizar(noticia);
+                await _postService.Atualizar(post);
 
                 return Ok();
             }
@@ -330,12 +330,12 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             if (id == 0)
                 throw new AppException("O id do Post não pode ser igual a 0");
 
-            Post noticia = await _postService.BuscarPorId(id);
+            Post post = await _postService.BuscarPorId(id);
 
-            if (System.IO.File.Exists(noticia.CaminhoImagem))
-                System.IO.File.Delete(noticia.CaminhoImagem);
+            if (System.IO.File.Exists(post.CaminhoImagem))
+                System.IO.File.Delete(post.CaminhoImagem);
 
-            await _postService.Excluir(id);
+            await _postService.Excluir(post.Id);
 
             return Ok();
         }        

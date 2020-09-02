@@ -108,8 +108,9 @@ namespace Neotix.Neocms.CarePlusAPI
             services.AddScoped<ICategoriasService, CategoriasService>();
             services.AddScoped<ITagService, TagService>();
             services.AddScoped<INewsletterService, NewsletterService>();
-            services.AddScoped<IPostService, PostService>(); 
-
+            services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IFaleConoscoService, FaleConoscoService>();
+           
             services.AddSwaggerGen(c =>
             {
 

@@ -14,7 +14,7 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         private readonly SqliteConnection _connection;
         private readonly DbContextOptions<DataContext> _options;
         private readonly CategoriasService _categoriasService;
-        private readonly Categoria _news = new Categoria
+        private readonly Categoria _categoria = new Categoria
         {
             Id = 1,
             Titulo = "Teste1",
@@ -40,7 +40,7 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         [Fact]
         public async Task ListaSucesso()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
 
             var result = await _categoriasService.Listar();
             Assert.NotEmpty(result);
@@ -49,7 +49,7 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         [Fact]
         public async Task BuscarErro()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
 
             await Assert.ThrowsAsync<AppException>(() => _categoriasService.Buscar(999));
         }
@@ -57,7 +57,7 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         [Fact]
         public async Task BuscarErroZero()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
 
             await Assert.ThrowsAsync<AppException>(() => _categoriasService.Buscar(0));
         }
@@ -65,7 +65,7 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         [Fact]
         public async Task BuscarSucesso()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
 
             var result = await _categoriasService.Buscar(1);
             Assert.NotNull(result);
@@ -74,7 +74,7 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         [Fact]
         public async Task CriarSucesso()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
             return;
         }
 
@@ -93,29 +93,29 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         [Fact]
         public async Task AtualizarSucesso()
         {
-            await _categoriasService.Criar(_news);
-            await _categoriasService.Atualizar(_news);
+            await _categoriasService.Criar(_categoria);
+            await _categoriasService.Atualizar(_categoria);
             return;
         }
 
         [Fact]
         public async Task AtualizarErro()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
             await Assert.ThrowsAsync<AppException>(() => _categoriasService.Atualizar(null));
         }
 
         [Fact]
         public async Task AtualizarErroNulo()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
             await Assert.ThrowsAsync<AppException>(() => _categoriasService.Atualizar(null));
         }
 
         [Fact]
         public async Task ExcluirSucesso()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
             await _categoriasService.Excluir(1);
             return;
         }
@@ -123,14 +123,14 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
         [Fact]
         public async Task ExcluirErro()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
             await Assert.ThrowsAsync<AppException>(() => _categoriasService.Excluir(999));
         }
 
         [Fact]
         public async Task ExcluirErroZero()
         {
-            await _categoriasService.Criar(_news);
+            await _categoriasService.Criar(_categoria);
             await Assert.ThrowsAsync<AppException>(() => _categoriasService.Excluir(0));
         }
         public void Dispose()
