@@ -26,7 +26,7 @@ using System.Linq;
 
 namespace Neotix.Neocms.CarePlusAPI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
