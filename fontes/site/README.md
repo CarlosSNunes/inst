@@ -59,6 +59,22 @@ Para rodar o build apontando para produção execute o comando:
     ng build --prod
 ```
 
+Para rodar o build apontando para um ambiente customizado basta rodar o comando:
+
+```
+    ng build --configuration="ambiente"
+```
+ex:
+
+```
+    ng build --configuration=homolog
+```
+
+Obs: Ele irá buscar as variáveis de ambiente no arquivo environment.["ambiente no qual você gerou o build"].
+
+Segue um link da documentação onde é explicado como se configura ambientes customizados:
+
+* [Angular build guide](https://angular.io/guide/build)
 
 Para rodar o build apontando para produção com server side rendering execute o comando:
 
@@ -110,6 +126,7 @@ Segue [link](https://www.codeinwp.com/blog/bootstrap-vs-foundation-vs-bulma-vs-s
 * [smoothscroll-polyfill](https://www.npmjs.com/package/smoothscroll-polyfill) - Biblioteca para utilizar a propriedade [behavior: smooth] da função window.scrollTo em qualquer browser.
 * [typeface-montserrat](https://www.npmjs.com/package/typeface-montserrat) - Biblioteca para utilização da fonte montserrat.
 * [angular-validate-br](https://www.npmjs.com/package/angular-validate-br) - Biblioteca para validação de cpf e cnpj com form reativo.
+* [remove-accents](https://www.npmjs.com/package/remove-accents) - Biblioteca para remover acentos das palavras, utilizamos para filtrar texto.
 
 ## Autores
 

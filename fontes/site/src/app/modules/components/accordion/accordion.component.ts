@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, Inject, PLATFORM_ID, Input, HostListener, ViewEncapsulation, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
+import DefaultContent from './data/default-content';
 
 @Component({
     selector: 'app-accordion',
@@ -9,7 +10,7 @@ import { WindowRef } from 'src/utils/window-ref';
     encapsulation: ViewEncapsulation.None,
 })
 export class AccordionComponent implements OnInit, OnChanges {
-    @Input() questions: Array<any> = [];
+    @Input() questions: Array<any> = DefaultContent;
     isBrowser: boolean = false;
     width: number = 0;
     constructor(

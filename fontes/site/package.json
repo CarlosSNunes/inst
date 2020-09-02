@@ -43,6 +43,7 @@
     "moment": "^2.26.0",
     "ng-image-slider": "^2.5.0",
     "ngx-mask": "^8.2.0",
+    "remove-accents": "^0.4.2",
     "rxjs": "~6.4.0",
     "saturn-datepicker": "^8.0.5",
     "simple-parallax-js": "^5.5.1",

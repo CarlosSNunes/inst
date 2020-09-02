@@ -15,6 +15,7 @@ import Tips from './data/tips';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
+import { remove } from 'remove-accents';
 
 @Component({
     selector: 'app-faq',
@@ -117,7 +118,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     filter() {
         if (this.filterForm.value.search && this.filterForm.value.search != null) {
             const filterFn = (arr: Array<{ title: string, description: string }>) => arr.filter(a => {
-                if (a.title.match(new RegExp(this.filterForm.value.search, 'gi')) || a.description.match(new RegExp(this.filterForm.value.search, 'gi'))) {
+                if ( remove(a.title).match(new RegExp(remove(this.filterForm.value.search), 'gi')) || remove(a.description).match(new RegExp(remove(this.filterForm.value.search), 'gi'))) {
                     return true
                 }
                 return false
