@@ -1,19 +1,28 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectorRef, AfterViewInit, ViewChild, ElementRef, PLATFORM_ID } from '@angular/core';
 import { BreadcrumbModel, SimpleBannerModel } from 'src/app/models';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { questionsMock } from './data/commomQuestionsMock';
 import AuthorizationQuestionsMock from './data/authorizationQuestionsMock';
 import AuthorizationQuestionsExtraMock from './data/authorizationQuestionsMockExtra';
+import PreviaDeReembolsoMock from './data/previa-de-reembolso-questions';
+import ReembolsoMock from './data/reembolso-questions';
+import ReembolsoExtraMock from './data/reembolso-extra-questions';
+import Excluded from './data/excluded';
+import Tips from './data/tips';
+import { fromEvent } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
     selector: 'app-faq',
     templateUrl: './faq.component.html',
     styleUrls: ['./faq.component.scss']
 })
-export class FaqComponent implements OnInit {
+export class FaqComponent implements OnInit, AfterViewInit {
+    @ViewChild('searchInput', { static: true }) searchInput: ElementRef<HTMLInputElement>;
     simpleBannerModel: SimpleBannerModel = {
         title: 'Perguntas Frequentes',
         description: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.',
@@ -37,17 +46,42 @@ export class FaqComponent implements OnInit {
         image: 'assets/img/a-careplus-faq-banner.jpg'
     };
     filterForm: FormGroup;
-    questions = questionsMock;
-    authorizationQuestions = AuthorizationQuestionsMock;
-    authorizationQuestionsExtra = AuthorizationQuestionsExtraMock;
     script: HTMLScriptElement;
+    isBrowser: boolean = false;
+
+    questionsDefault = questionsMock
+    questions = [];
+
+    authorizationQuestionsDefault = AuthorizationQuestionsMock;
+    authorizationQuestions = [];
+
+    authorizationQuestionsExtraDefault = AuthorizationQuestionsExtraMock;
+    authorizationQuestionsExtra = [];
+
+    previaDeReembolsoDefault = PreviaDeReembolsoMock;
+    previaDeReembolso = [];
+
+    reembolsoDefault = ReembolsoMock;
+    reembolso = []
+
+    reembolsoExtraDefault = ReembolsoExtraMock;
+    reembolsoExtra = [];
+
+    excludedDefault = Excluded;
+    excluded = []
+
+    tipsDefault = Tips;
+    tips = []
 
     constructor(
         private fb: FormBuilder,
         private meta: Meta,
         private title: Title,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        @Inject(PLATFORM_ID) private platformId: Platform,
+        private cdr: ChangeDetectorRef
     ) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
         this.filterForm = this.fb.group({
             document: ['all',],
             search: ['',]
@@ -57,28 +91,71 @@ export class FaqComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.initAcordions();
+    }
+
+    ngAfterViewInit() {
+        if (this.isBrowser) {
+            fromEvent(this.searchInput.nativeElement, 'keyup').pipe(debounceTime(100)).subscribe((value: Event) => {
+                this.filter();
+            })
+        }
+    }
+
+    initAcordions() {
+        this.questions = [...this.questionsDefault];;
+        this.authorizationQuestions = [...this.authorizationQuestionsDefault];
+        this.authorizationQuestionsExtra = [...this.authorizationQuestionsExtraDefault];
+        this.previaDeReembolso = [...this.previaDeReembolsoDefault];
+        this.reembolso = [...this.reembolsoDefault];
+        this.reembolsoExtra = [...this.reembolsoExtraDefault];
+        this.excluded = [...this.excludedDefault];
+        this.tips = [...this.tipsDefault];
+        this.cdr.detectChanges();
     }
 
     filter() {
-        // this.documentsFiltered = this.documents;
-        // if (this.filterForm.value.document != 'all' || this.filterForm.value.search != '') {
-        //     this.documentsFiltered = this.documentsFiltered.filter(doc => {
-        //         if ((this.filterForm.value.search != '' && doc.title.match(new RegExp(this.filterForm.value.search, 'gi'))) && doc.category === this.filterForm.value.document) {
-        //             return true
-        //         } else if (this.filterForm.value.search != '' && this.filterForm.value.document === 'all') {
-        //             if (doc.title.match(new RegExp(this.filterForm.value.search, 'gi'))) {
-        //                 return true
-        //             }
-        //             return false
-        //         } else if (this.filterForm.value.search === '' && this.filterForm.value.document != 'all') {
-        //             if (doc.category === this.filterForm.value.document) {
-        //                 return true
-        //             }
-        //             return false
-        //         }
-        //         return false
-        //     })
-        // }
+        if (this.filterForm.value.search && this.filterForm.value.search != null) {
+            const filterFn = (arr: Array<{ title: string, description: string }>) => arr.filter(a => {
+                if (a.title.match(new RegExp(this.filterForm.value.search, 'gi')) || a.description.match(new RegExp(this.filterForm.value.search, 'gi'))) {
+                    return true
+                }
+                return false
+            });
+
+            this.questions = filterFn(this.questionsDefault);
+
+            this.authorizationQuestions = filterFn(this.authorizationQuestionsDefault);
+
+            this.authorizationQuestionsExtra = filterFn(this.authorizationQuestionsExtraDefault);
+
+            this.previaDeReembolso = filterFn(this.previaDeReembolsoDefault);
+
+            this.reembolso = filterFn(this.reembolsoDefault);
+
+            this.reembolsoExtra = filterFn(this.reembolsoExtraDefault);
+
+            this.excluded = filterFn(this.excludedDefault);
+
+            this.tips = filterFn(this.tipsDefault);
+        } else {
+            this.questions = [...this.questionsDefault];
+
+            this.authorizationQuestions = [...this.authorizationQuestionsDefault];
+
+            this.authorizationQuestionsExtra = [...this.authorizationQuestionsExtraDefault];
+
+            this.previaDeReembolso = [...this.previaDeReembolsoDefault];
+
+            this.reembolso = [...this.reembolsoDefault];
+
+            this.reembolsoExtra = [...this.reembolsoExtraDefault];
+
+            this.excluded = [...this.excludedDefault];
+
+            this.tips = [...this.tipsDefault];
+        }
+        this.cdr.detectChanges();
     }
 
     getErrors(control: AbstractControl) {

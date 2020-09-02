@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef, Inject, PLATFORM_ID, Input, HostListener, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ElementRef, Inject, PLATFORM_ID, Input, HostListener, ViewEncapsulation, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { WindowRef } from 'src/utils/window-ref';
 
 @Component({
     selector: 'app-accordion',
@@ -7,14 +8,20 @@ import { isPlatformBrowser } from '@angular/common';
     styleUrls: ['./accordion.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class AccordionComponent implements OnInit {
+export class AccordionComponent implements OnInit, OnChanges {
     @Input() questions: Array<any> = [];
     isBrowser: boolean = false;
+    width: number = 0;
     constructor(
         private element: ElementRef<any>,
-        @Inject(PLATFORM_ID) private plataformId
+        @Inject(PLATFORM_ID) private plataformId,
+        private windowRef: WindowRef,
+        private cdr: ChangeDetectorRef
     ) {
         this.isBrowser = isPlatformBrowser(this.plataformId)
+        if (this.isBrowser) {
+            this.width = this.windowRef.nativeWindow.innerWidth;
+        }
     }
 
     ngOnInit() {
@@ -26,8 +33,24 @@ export class AccordionComponent implements OnInit {
         }
     }
 
-    @HostListener('window: resize') onResize() {
-        this.resetAccordion();
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.questions) {
+            this.questions = changes.questions.currentValue;
+            this.cdr.detectChanges();
+            this.initAccordion();
+            this.cdr.detectChanges();
+            setTimeout(() => {
+                this.cdr.detectChanges()
+                this.resetAccordion(), 100
+            })
+        }
+    }
+
+    @HostListener('window: resize', ['$event']) onResize(event) {
+        if (event.target.innerWidth != this.width) {
+            this.width = event.target.innerWidth;
+            this.resetAccordion();
+        }
     }
 
     resetAccordion() {
@@ -39,7 +62,9 @@ export class AccordionComponent implements OnInit {
                 accTitle[j].classList.remove("active");
                 accContent[j].style.height = '0px';
             }
-            let realHeight = accContent[j].scrollHeight;
+
+            const offset: number = 30;
+            let realHeight = (accContent[j].scrollHeight) + offset;
             accContent[j].setAttribute("data-height", realHeight + "px");
         }
     }
@@ -59,6 +84,8 @@ export class AccordionComponent implements OnInit {
         for (let i = 0; i < accTitle.length; i++) {
             const that = this
             accTitle[i].onclick = function (evt) {
+                evt.preventDefault();
+                that.cdr.detectChanges();
                 let openedAcc = evt.target.getAttribute('href');
                 if (evt.target.classList.contains("active")) {
                     evt.target.classList.remove("active");
@@ -78,7 +105,9 @@ export class AccordionComponent implements OnInit {
 
                 evt.target.classList.add("active");
 
-                that.element.nativeElement.querySelector(`${openedAcc}`).style.height = accContent[i].getAttribute("data-height");
+                const element = that.element.nativeElement.querySelector(`${openedAcc}`)
+
+                element.style.height = element.getAttribute("data-height");
 
                 return false;
             }

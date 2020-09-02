@@ -60,9 +60,8 @@
                                 <li>
                                     <div class="field">
                                         <p class="control has-icons-right">
-                                            <input [ngClass]="{ 'is-touched': form.search.value?.length > 0 }"
-                                                class="input" formControlName="search" name="search" type="text"
-                                                (keyup)="filter()">
+                                            <input #searchInput [ngClass]="{ 'is-touched': form.search.value?.length > 0 }"
+                                                class="input" formControlName="search" name="search" type="text">
                                             <label class="label">Buscar</label>
                                             <span class="icon is-small is-right has-tooltip-left"
                                                 data-tooltip="Digite aqui o nome do documento que deseja pesquisar">
@@ -87,12 +86,39 @@
             </h4>
             <app-accordion *ngIf="authorizationQuestions?.length > 0" [questions]="authorizationQuestions">
             </app-accordion>
-            <p class="sub-description is-centered">
+            <p class="sub-description is-centered" *ngIf="authorizationQuestionsExtra.length > 0">
                 <strong>
                     Como faço para conseguir autorização para:
                 </strong>
             </p>
             <app-accordion *ngIf="authorizationQuestionsExtra?.length > 0" [questions]="authorizationQuestionsExtra">
+            </app-accordion>
+            <h4 class="big-title is-centered" *ngIf="previaDeReembolso?.length > 0">
+                Prévia de Reembolso
+            </h4>
+            <app-accordion *ngIf="previaDeReembolso?.length > 0" [questions]="previaDeReembolso">
+            </app-accordion>
+            <h4 class="big-title is-centered" *ngIf="reembolso?.length > 0">
+                Reembolso
+            </h4>
+            <app-accordion *ngIf="reembolso?.length > 0" [questions]="reembolso">
+            </app-accordion>
+            <p class="sub-description is-centered" *ngIf="reembolsoExtra.length > 0">
+                <strong>
+                    Documentos necessários para reembolso de
+                </strong>
+            </p>
+            <app-accordion *ngIf="reembolsoExtra.length > 0" [questions]="reembolsoExtra">
+            </app-accordion>
+            <h4 class="big-title is-centered" *ngIf="excluded.length > 0">
+                Exclusões
+            </h4>
+            <app-accordion *ngIf="excluded.length > 0" [questions]="excluded">
+            </app-accordion>
+            <h4 class="big-title is-centered" *ngIf="tips.length > 0">
+                Dicas
+            </h4>
+            <app-accordion *ngIf="tips.length > 0" [questions]="tips">
             </app-accordion>
         </div>
     </article>

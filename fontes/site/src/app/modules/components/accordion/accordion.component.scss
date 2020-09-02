@@ -87,6 +87,11 @@
                         list-style: disc;
                     }
 
+                    &.circle {
+                        padding: 0 22px;
+                        list-style-type: circle;
+                    }
+
                     &.lower-latin {
                         padding: 0 22px;
                         list-style: lower-latin;
@@ -116,10 +121,16 @@
                 ol {
                     margin-top: 22px;
                     padding: 0 22px;
+
+                    &.no-margin {
+                        margin-top: 0;
+                    }
                 }
 
                 .tg-wrap {
                     margin-top: 22px;
+                    max-width: 100%;
+                    overflow-x: scroll;
 
                     table {
                         border-collapse: collapse;
@@ -180,6 +191,10 @@
 
                     &.no-margin {
                         margin-top: 0;
+                    }
+
+                    .underline {
+                        text-decoration: underline;
                     }
                 }
             }
