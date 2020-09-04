@@ -8,14 +8,10 @@
                 .caption {
                     background-color: getColor(_bupa, _white);
                 }
-            }
-        }
-    }
 
-    &.has-modal {
-        ::ng-deep ng-image-slider {
-            .img-div {
-                cursor: pointer;
+                &.has-modal {
+                    cursor: pointer;
+                }
             }
         }
     }

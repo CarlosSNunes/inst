@@ -88,7 +88,7 @@ export class ProfilesComponent implements OnInit {
     }
 
     goTo(id) {
-        this.router.navigate(['/carreiras-careplus', id]);
+        this.router.navigate(['/a-careplus/diferenciais', id]);
     }
 
 }

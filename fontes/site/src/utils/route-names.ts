@@ -90,31 +90,31 @@ export const routes: RouteModel[] = [
         description: 'Personal System'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus',
+        route: '/planos-e-produtos',
         description: 'Produtos e planos Careplus'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/clube-careplus',
+        route: '/planos-e-produtos/clube-careplus',
         description: 'Produtos e planos - Clube Careplus'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/soho',
+        route: '/planos-e-produtos/soho',
         description: 'Produtos e planos - Soho'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/empresarial',
+        route: '/planos-e-produtos/empresarial',
         description: 'Produtos e planos - Empresarial'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/medicina-ocupacional',
+        route: '/planos-e-produtos/medicina-ocupacional',
         description: 'Produtos e planos - Medicina Ocupacional'
     }),
     new RouteModel({
-        route: '/carreiras-careplus',
-        description: 'Carreiras'
+        route: '/a-careplus/diferenciais',
+        description: 'Diferenciais'
     }),
     new RouteModel({
-        route: '/carreiras-careplus/consulta-facil',
+        route: '/a-careplus/diferenciais/consulta-facil',
         description: 'Consulta fácil'
     }),
     new RouteModel({

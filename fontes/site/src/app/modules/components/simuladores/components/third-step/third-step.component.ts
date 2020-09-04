@@ -23,7 +23,7 @@ export class ThirdStepComponent implements OnInit, OnChanges {
     }
 
     goToPlan() {
-        this.windowRef.nativeWindow.open(`/produtos-e-planos-careplus/${this.selectedPlan.linkId}`, '_blank')
+        this.windowRef.nativeWindow.open(`/planos-e-produtos/${this.selectedPlan.linkId}`, '_blank')
     }
 
 }

@@ -20,16 +20,12 @@ export class VagasComponent implements OnInit {
                 link: '/home',
             }),
             new BreadcrumbModel({
-                name: 'A Care Plus',
-                link: '/a-careplus',
-            }),
-            new BreadcrumbModel({
                 name: 'Carreiras',
-                link: '/a-careplus/carreiras',
+                link: '/carreiras',
             }),
             new BreadcrumbModel({
                 name: 'Vagas',
-                link: '/a-careplus/carreiras/vagas',
+                link: '/carreiras/vagas',
                 active: true
             })
         ],

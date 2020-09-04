@@ -30,7 +30,7 @@
         .selected {
             ::ng-deep fa-icon {
                 svg {
-                    transform: rotate(180deg);
+                    transform: rotate(-180deg);
                 }
             }
         }

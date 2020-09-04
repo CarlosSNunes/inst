@@ -29,7 +29,7 @@ export default [
         category: 'beneficiario',
         id: 'consulta-facil',
         button: new ButtonModel({
-            routerLink: '/carreiras-careplus/consulta-facil',
+            routerLink: '/a-careplus/diferenciais/consulta-facil',
             text: 'SAIBA MAIS'
         })
     }),

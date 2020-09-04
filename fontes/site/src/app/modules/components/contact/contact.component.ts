@@ -12,8 +12,8 @@ import { Button } from 'protractor';
 export class ContactComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     button: ButtonModel = new ButtonModel({
-        link: '',
-        text: 'AGENDAR VISITA'
+        link: '/fale-conosco',
+        text: 'SOLICITE UMA COTAÇÃO'
     });
     @ViewChild('buttonElement', { static: false }) buttonElement: ElementRef<HTMLButtonElement>;
     isBrowser: boolean = false;

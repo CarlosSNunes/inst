@@ -14,11 +14,11 @@ export default {
             }),
             new BreadcrumbModel({
                 name: 'Planos e Produtos',
-                link: '/produtos-e-planos-careplus',
+                link: '/planos-e-produtos',
             }),
             new BreadcrumbModel({
                 name: 'Clube Care Plus',
-                link: '/produtos-e-planos-careplus/clube-careplus',
+                link: '/planos-e-produtos/clube-careplus',
                 active: true
             })
         ],
@@ -314,7 +314,7 @@ export default {
         imageSrc: 'assets/svg/plans-section-illustation.svg',
         button: new ButtonModel({
             text: 'VER TODOS OS PLANOS',
-            routerLink: '/produtos-e-planos-careplus'
+            routerLink: '/planos-e-produtos'
         }),
         reverse: true,
         removeLine: true
@@ -330,35 +330,33 @@ export default {
         cards: [
             new IconCardModel({
                 "type": "icon",
-                "title": "Programas preventivos",
-                "description": "A Care Plus oferece aos seus beneficiários diversos programas preventivos de saúde e de acompanhamento para auxiliar seus beneficiários a ter uma vida mais saudável.",
-                "imagePath": "assets/svg/shield.svg"
+                "title": "Programas Preventivos",
+                "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento para que os beneficiários tenham uma vida saudável.",
+                "imagePath": "assets/svg/shield.svg",
+                "routerLink": "/gestao-de-saude/programas-preventivos"
             }),
             new IconCardModel({
                 "type": "icon",
-                "title": "Serviços on-line",
-                "description": "OServiços à distância com qualidade, carinho e cuidado que só a Care Plus tem com seus clientes.",
+                "title": "Serviços Online",
+                "description": "Os beneficiários podem aproveitar alguns serviços a distância com a qualidade, o carinho e o cuidado que só a Care Plus tem.",
                 "imagePath": "assets/svg/monitor-screen.svg",
-                "backgroundColorClass": "white-background-color"
+                "backgroundColorClass": "white-background-color",
+                "routerLink": "/gestao-de-saude/servicos-online"
             }),
             new IconCardModel({
                 "type": "icon",
                 "title": "Personal System",
                 "description": "A Care Plus oferece consultas em clínicas próprias com médicos, nutricionistas e psicólogos. Conheça os programas.",
-                "imagePath": "assets/svg/doctor.svg"
+                "imagePath": "assets/svg/doctor.svg",
+                "routerLink": "/gestao-de-saude/personal-system"
             }),
             new IconCardModel({
                 "type": "icon",
-                "title": "Programas empresariais",
-                "description": "A Care Plus oferece alguns atendimentos de médicos, nutricionistas, enfermeiras e psicólogos nas empresas clientes. Conheça os programas.",
-                "imagePath": "assets/svg/doctorphone.svg"
-            }),
-            new IconCardModel({
-                "type": "icon",
-                "title": "Nossas parcerias",
-                "description": "A Care Plus tem parceiros que atuam em conformidade com os nossos valores, gerando bem-estar e saúde para você.",
-                "imagePath": "assets/svg/doctor.svg"
-            }),
+                "title": "Programas Empresariais",
+                "description": "A Care Plus disponibiliza  médicos, nutricionistas, enfermeiras e psicólogos para realizar atendimento no ambiente das empresas.",
+                "imagePath": "assets/svg/doctorphone.svg",
+                "routerLink": "/gestao-de-saude/programas-empresariais"
+            })
         ],
         columnClass: 'is-3-desktop'
     }),

@@ -10,11 +10,11 @@ export const simpleBannerModel: SimpleBannerModel = {
         }),
         new BreadcrumbModel({
             name: 'Planos e Produtos',
-            link: '/produtos-e-planos-careplus'
+            link: '/planos-e-produtos'
         }),
         new BreadcrumbModel({
             name: ' Medicina Ocupacional',
-            link: '/produtos-e-planos-careplus/medicina-ocupacional',
+            link: '/planos-e-produtos/medicina-ocupacional',
             active: true
         })
     ],

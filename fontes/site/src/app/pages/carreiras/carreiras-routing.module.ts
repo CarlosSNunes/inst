@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CarreirasComponent } from './carreiras.component';
-import { ConsultaFacilComponent } from './consulta-facil/consulta-facil.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: CarreirasComponent,
+        component: CarreirasComponent
     },
     {
-        path: 'consulta-facil',
-        component: ConsultaFacilComponent,
+        path: 'vagas',
+        loadChildren: () => import('./vagas/vagas.module').then(m => m.VagasModule)
     },
+    {
+        path: '**',
+        loadChildren: () => import('../erro/erro.module').then(m => m.ErroModule)
+    }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class CarreirasRoutingModule { }
+export class CarreiraRoutingModule { }

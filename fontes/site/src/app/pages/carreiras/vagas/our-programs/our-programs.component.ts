@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { SliderModel } from 'src/app/models';
+import { SliderModel, SliderImage } from 'src/app/models';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
+import { VideoModalModel } from 'src/app/models/modal.model';
 
 @Component({
     selector: 'app-our-programs',
@@ -23,33 +24,53 @@ export class OurProgramsComponent implements OnInit {
                 image: 'assets/img/slider-video-image.jpg',
                 thumbImage: 'assets/img/slider-video-image.jpg',
                 alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
+                title: 'Oferecendo à sua empresa escolha e flexibilidade.',
+                modal: new VideoModalModel({
+                    layout: 'video',
+                    type: 'info',
+                })
             },
             {
                 image: 'assets/img/slider-video-image-2.jpg',
                 thumbImage: 'assets/img/slider-video-image-2.jpg',
                 alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
+                title: 'Oferecendo à sua empresa escolha e flexibilidade.',
+                modal: new VideoModalModel({
+                    layout: 'video',
+                    type: 'info',
+                })
             },
             {
                 image: 'assets/img/slider-video-image.jpg',
                 thumbImage: 'assets/img/slider-video-image.jpg',
                 alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
+                title: 'Oferecendo à sua empresa escolha e flexibilidade.',
+                modal: new VideoModalModel({
+                    layout: 'video',
+                    type: 'info',
+                })
             },
             {
                 image: 'assets/img/slider-video-image-2.jpg',
                 thumbImage: 'assets/img/slider-video-image-2.jpg',
                 alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
+                title: 'Oferecendo à sua empresa escolha e flexibilidade.',
+                modal: new VideoModalModel({
+                    layout: 'video',
+                    type: 'info',
+                })
             },
             {
                 image: 'assets/img/slider-video-image.jpg',
                 thumbImage: 'assets/img/slider-video-image.jpg',
                 alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
+                title: 'Oferecendo à sua empresa escolha e flexibilidade.',
+                modal: new VideoModalModel({
+                    layout: 'video',
+                    type: 'info',
+                })
             },
-        ]
+        ],
     });
     isBrowser: boolean = false;
     width = 1400;

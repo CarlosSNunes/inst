@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { NgImageSliderComponent } from 'ng-image-slider';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { SliderModel } from 'src/app/models';
+import { SliderModel, SliderImage } from 'src/app/models';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { VideoModalModel } from 'src/app/models/modal.model';
@@ -30,8 +30,14 @@ export class SliderComponent implements OnInit {
 
     ngAfterViewInit() {
         if (this.isBrowser) {
-            const imgDiv = this.elementRef.nativeElement.querySelector('.img-div');
-            imgDiv.classList.add('active')
+            const imgDivs = this.elementRef.nativeElement.querySelectorAll('.img-div');
+            imgDivs[0].classList.add('active')
+
+            this.sliderModel.images.map((image, i) => {
+                if ((image as SliderImage).modal) {
+                    imgDivs[i].classList.add('modal');
+                }
+            })
             this.overrideSliderSwipeMethod()
             this.overrideOnResizeMethod()
         }
@@ -86,18 +92,8 @@ export class SliderComponent implements OnInit {
     }
 
     onImageClick(index: number) {
-        if (this.sliderModel.modal) {
-            /*
-                TODO - falta o conteúdo que deverá ser enviádo para o cliente.
-    
-                - Por enquanto as informações estão mocadas.
-            */
-            const modalContent: VideoModalModel = new VideoModalModel({
-                layout: 'video',
-                type: 'info',
-
-            });
-            this.modalService.openModal(modalContent)
+        if ((this.sliderModel.images[index] as SliderImage<VideoModalModel>).modal) {
+            this.modalService.openModal((this.sliderModel.images[index] as SliderImage<VideoModalModel>).modal)
         }
     }
 

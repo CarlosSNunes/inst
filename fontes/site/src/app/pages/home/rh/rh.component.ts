@@ -23,7 +23,7 @@ export class RhComponent implements OnInit {
         imageSrc: 'assets/img/occupational.jpg',
         button: new ButtonModel({
             text: 'SAIBA MAIS',
-            link: '/produtos-e-planos-careplus/medicina-ocupacional'
+            link: '/planos-e-produtos/medicina-ocupacional'
         })
     });
     simulationSection = new InfoSectionModel({

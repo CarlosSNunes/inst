@@ -18,12 +18,16 @@ export class ConsultaFacilComponent implements OnInit {
                 link: '/home',
             }),
             new BreadcrumbModel({
-                name: 'Carreiras',
-                link: '/carreiras-careplus',
+                name: 'A Care Plus',
+                link: '/a-careplus',
+            }),
+            new BreadcrumbModel({
+                name: 'Diferenciais',
+                link: '/a-careplus/diferenciais',
             }),
             new BreadcrumbModel({
                 name: 'Consulta Fácil',
-                link: `/carreiras-careplus/consulta-facil`,
+                link: `/a-careplus/diferenciais/consulta-facil`,
                 active: true
             })
         ],

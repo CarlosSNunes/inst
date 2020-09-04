@@ -19,17 +19,17 @@ export class PlanosEProdutosComponent implements OnInit {
         imageSrc: 'assets/img/occupational.jpg',
         button: new ButtonModel({
             text: 'SAIBA MAIS',
-            routerLink: '/produtos-e-planos-careplus/medicina-ocupacional'
+            routerLink: '/planos-e-produtos/medicina-ocupacional'
         })
     });
     planCards: PlanCardModel[] = [
         new PlanCardModel({
-            title: 'Soho',
+            title: 'Care Plus Soho',
             subTitle: 'Para 2 a 29 vidas',
-            description: 'O SoHo é o plano para até 29 vidas, indicado para pequenas empresas, empresas que atuam com home office e operações mais enxutas.',
+            description: 'O Care Plus SoHo apresenta planos para pequenas empresas, de 2 a 29 vidas e é indicado para aquelas que atuam em home office ou com operações mais enxutas.',
             button: new ButtonModel({
                 text: 'SAIBA MAIS',
-                routerLink: '/produtos-e-planos-careplus/soho'
+                routerLink: '/planos-e-produtos/soho'
             }),
             image: 'assets/svg/plans-soho.svg',
             id: 'soho'
@@ -37,21 +37,21 @@ export class PlanosEProdutosComponent implements OnInit {
         new PlanCardModel({
             title: 'Clube Care Plus',
             subTitle: 'Para 30 a 200 vidas',
-            description: 'O Clube Care Plus é o plano para empresas com até 200 vidas, indicado para empresas que estão crescendo e expandindo seu negócio',
+            description: 'O Clube Care Plus apresenta planos para empresas, de 30 a 200 vidas e é indicado para aquelas que estão em crescimento e expandindo seus negócios.',
             button: new ButtonModel({
                 text: 'SAIBA MAIS',
-                routerLink: '/produtos-e-planos-careplus/clube-careplus'
+                routerLink: '/planos-e-produtos/clube-careplus'
             }),
             image: 'assets/svg/clube-careplus.svg',
             id: 'clubeCarePlus'
         }),
         new PlanCardModel({
-            title: 'Empresarial',
+            title: 'Care Plus Empresarial',
             subTitle: 'Para mais de 200 vidas',
-            description: 'O Empresarial é o plano totalmente customizável da Care Plus, indicado para grandes empresas com mais de 200 vidas.',
+            description: 'O Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
             button: new ButtonModel({
                 text: 'SAIBA MAIS',
-                routerLink: '/produtos-e-planos-careplus/empresarial'
+                routerLink: '/planos-e-produtos/empresarial'
             }),
             image: 'assets/svg/empresarial.svg',
             id: 'empresarial'
@@ -93,7 +93,7 @@ export class PlanosEProdutosComponent implements OnInit {
             }),
             new BreadcrumbModel({
                 name: 'Planos e Produtos',
-                link: '/produtos-e-planos-careplus',
+                link: '/planos-e-produtos',
                 active: true
             })
         ]

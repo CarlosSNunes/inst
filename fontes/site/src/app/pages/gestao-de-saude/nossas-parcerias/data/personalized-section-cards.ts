@@ -2,21 +2,25 @@ import { IconCardModel } from 'src/app/models'
 
 export default [
     new IconCardModel({
-        type: "icon",
-        title: "Programas <br/> preventivos",
-        description: "A Care Plus oferece aos seus beneficiários diversos programas preventivos de saúde e acompanhamento para auxiliar seus beneficiários a ter uma vida melhor.",
-        imagePath: "assets/svg/shield.svg"
+        "type": "icon",
+        "title": "Programas <br/> Preventivos",
+        "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento para que os beneficiários tenham uma vida saudável.",
+        "imagePath": "assets/svg/shield.svg",
+        "routerLink": "/gestao-de-saude/programas-preventivos"
     }),
     new IconCardModel({
-        type: "icon",
-        title: "Programas <br/> empresariais",
-        description: "A Care Plus oferece alguns atendimentos de médicos, nutricionistas, enfermeiras e psicólogos na empresa clientes.",
-        imagePath: "assets/svg/doctorphone.svg"
+        "type": "icon",
+        "title": "Programas <br/> Empresariais",
+        "description": "A Care Plus disponibiliza  médicos, nutricionistas, enfermeiras e psicólogos para realizar atendimento no ambiente das empresas.",
+        "imagePath": "assets/svg/doctorphone.svg",
+        "routerLink": "/gestao-de-saude/programas-empresariais"
     }),
     new IconCardModel({
-        type: "icon",
-        title: "Serviços <br/> online",
-        description: "Serviços  à distância com qualidade, carinho e cuidado que só a Care Plus tem com seus clientes.",
-        imagePath: "assets/svg/monitor-screen.svg",
+        "type": "icon",
+        "title": "Serviços <br/> Online",
+        "description": "Os beneficiários podem aproveitar alguns serviços a distância com a qualidade, o carinho e o cuidado que só a Care Plus tem.",
+        "imagePath": "assets/svg/monitor-screen.svg",
+        "backgroundColorClass": "white-background-color",
+        "routerLink": "/gestao-de-saude/servicos-online"
     }),
-]
+];

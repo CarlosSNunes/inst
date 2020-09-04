@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CarreirasComponent } from './carreiras.component';
+import { VagasComponent } from './vagas.component';
+import { DetalhesComponent } from './detalhes/detalhes.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: CarreirasComponent
+        component: VagasComponent
     },
     {
-        path: 'vagas',
-        loadChildren: () => import('./vagas/vagas.module').then(m => m.VagasModule)
+        path: ':id',
+        component: DetalhesComponent
     },
     {
         path: '**',
@@ -21,4 +22,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class CarreiraRoutingModule { }
+export class VagasRoutingModule { }

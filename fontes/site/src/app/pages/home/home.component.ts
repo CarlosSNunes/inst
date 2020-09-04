@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         imageSrc: 'assets/img/occupational.jpg',
         button: new ButtonModel({
             text: 'SAIBA MAIS',
-            routerLink: '/produtos-e-planos-careplus/medicina-ocupacional'
+            routerLink: '/planos-e-produtos/medicina-ocupacional'
         })
     })
     videoModel: CareplusVideoModel = new CareplusVideoModel({

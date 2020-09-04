@@ -71,24 +71,6 @@ import { Title, Meta } from '@angular/platform-browser';
                 alt: 'alt of image',
                 title: 'O cuidado está no coração de tudo o que fazemos.'
             },
-            {
-                image: 'assets/img/slider-video-image.jpg',
-                thumbImage: 'assets/img/slider-video-image.jpg',
-                alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
-            },
-            {
-                image: 'assets/img/slider-video-image-2.jpg',
-                thumbImage: 'assets/img/slider-video-image-2.jpg',
-                alt: 'alt of image',
-                title: 'O cuidado está no coração de tudo o que fazemos.'
-            },
-            {
-                image: 'assets/img/slider-video-image.jpg',
-                thumbImage: 'assets/img/slider-video-image.jpg',
-                alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
-            },
         ]
     });
 

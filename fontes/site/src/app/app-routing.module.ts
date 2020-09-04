@@ -25,11 +25,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
     },
     {
-        path: 'produtos-e-planos-careplus',
+        path: 'planos-e-produtos',
         loadChildren: () => import('./pages/planos-e-produtos/planos-e-produtos.module').then(m => m.PlanosEProdutosModule),
     },
     {
-        path: 'carreiras-careplus',
+        path: 'carreiras',
         loadChildren: () => import('./pages/carreiras/carreiras.module').then(m => m.CarreirasModule),
     },
     {

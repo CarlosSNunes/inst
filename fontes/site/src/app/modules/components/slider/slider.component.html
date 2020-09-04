@@ -1,5 +1,5 @@
 <div class="image-slider" *ngIf="sliderModel.type === 'image'"
-    [class.has-background-color-white]="sliderModel.hasBackgroundColorWhite" [class.has-modal]="sliderModel.modal">
+    [class.has-background-color-white]="sliderModel.hasBackgroundColorWhite">
     <ng-image-slider [images]="sliderModel.images" #nav [imageSize]="sliderModel.cardSizes" [slideImage]="1"
         [animationSpeed]="0.5" [imagePopup]="false" [showArrow]="false" (imageClick)="onImageClick($event)"
         (arrowClick)="changeSlide($event)">

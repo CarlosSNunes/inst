@@ -29,7 +29,7 @@ export class BeneficiarioComponent implements OnInit {
         imageSrc: 'assets/svg/art-image-one.svg',
         button: new ButtonModel({
             text: 'CONSULTE DIAS E HORÁRIOS',
-            routerLink: '/carreiras-careplus/consulta-facil'
+            routerLink: '/a-careplus/diferenciais/consulta-facil'
         }),
         removeLine: true,
         reverse: true,
