@@ -57,6 +57,7 @@ import { Title, Meta } from '@angular/platform-browser';
             height: '364px',
             space: 16
         },
+        hasBackgroundColorWhite: true,
         images: [
             {
                 image: 'assets/img/slider-video-image.jpg',

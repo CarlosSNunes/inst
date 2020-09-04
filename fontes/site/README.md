@@ -1,6 +1,6 @@
-# CAREPLUS
+# CARE PLUS
 
-Refatoramento do website [CarePlus](https://www.careplus.com.br) 
+Refatoramento do website [Care Plus](https://www.careplus.com.br) 
 
 ## Informações de arquitetura do projeto
 
@@ -8,7 +8,7 @@ Refatoramento do website [CarePlus](https://www.careplus.com.br)
   
 **Institucional:**  
 
-1. Será o novo frontend do site da careplus.  
+1. Será o novo frontend do site da Care Plus.  
 2. Está utilizando SSR para atender requisitos mínimos de SEO.  
 3. Todos itens do styleguide foram criados usando classes CSS para facilitar seu reuso.  
 4. Foram utilizados alguns plugins cmo datepicker e carousel, porém modificado seus estilos para atender o design criado.  

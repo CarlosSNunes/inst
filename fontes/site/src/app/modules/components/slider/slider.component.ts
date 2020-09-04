@@ -62,7 +62,7 @@ export class SliderComponent implements OnInit {
     }
 
     overrideOnResizeMethod() {
-        this.slider.onResize = function (event) {}
+        this.slider.onResize = function (event) { }
     }
 
     changeSlide(action: string) {
@@ -86,17 +86,19 @@ export class SliderComponent implements OnInit {
     }
 
     onImageClick(index: number) {
-        /*
-            TODO - falta o conteúdo que deverá ser enviádo para o cliente.
+        if (this.sliderModel.modal) {
+            /*
+                TODO - falta o conteúdo que deverá ser enviádo para o cliente.
+    
+                - Por enquanto as informações estão mocadas.
+            */
+            const modalContent: VideoModalModel = new VideoModalModel({
+                layout: 'video',
+                type: 'info',
 
-            - Por enquanto as informações estão mocadas.
-        */
-        const modalContent: VideoModalModel = new VideoModalModel({
-            layout: 'video',
-            type: 'info',
-
-        });
-        this.modalService.openModal(modalContent)
+            });
+            this.modalService.openModal(modalContent)
+        }
     }
 
     next() {

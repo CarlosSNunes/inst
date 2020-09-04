@@ -1,4 +1,4 @@
-export class SliderModel {
+export class SliderModel<T = any> {
     constructor(init?: Partial<SliderModel>) {
         Object.assign(this, init)
     }
@@ -10,4 +10,6 @@ export class SliderModel {
         height: '364px',
         space: 16
     };
+    hasBackgroundColorWhite: boolean = false;
+    modal: T;
 }
