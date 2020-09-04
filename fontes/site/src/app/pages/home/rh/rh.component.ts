@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
 import { bannersMock } from './data/banners';
 import { InfoSectionComponent } from 'src/app/modules/components/info-section/info-section.component';
@@ -18,7 +18,7 @@ export class RhComponent implements OnInit {
     ocupationalSection = new InfoSectionModel({
         smallTitle: 'MEDICINA OCUPACIONAL',
         bigTitle: 'Mais saúde e qualidade no ambiente de trabalho',
-        description: 'A Care Plus tem o melhor serviço de medicina ocupacional para a sua empresa',
+        description: 'A Care Plus tem o melhor serviço de Medicina Ocupacional para a sua empresa',
         subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
         imageSrc: 'assets/img/occupational.jpg',
         button: new ButtonModel({
@@ -59,6 +59,8 @@ export class RhComponent implements OnInit {
             active: true
         }),
     ];
+    scrollTop: number = 0;
+    showBtnToTop: boolean = false;
 
     constructor(
         private windowRef: WindowRef,
@@ -70,6 +72,16 @@ export class RhComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    @HostListener('window:scroll', ['$event'])
+    onScroll(event) {
+        this.scrollTop = event.currentTarget.pageYOffset;
+        if (this.scrollTop > this.infoSection.offsetTop) {
+            this.showBtnToTop = true;
+        } else {
+            this.showBtnToTop = false;
+        }
     }
 
     slideToSection() {
@@ -87,6 +99,14 @@ export class RhComponent implements OnInit {
             name: 'description',
             content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
         });
+    }
+
+    goToTop() {
+        this.windowRef.nativeWindow.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: "smooth"
+        })
     }
 
 }

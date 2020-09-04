@@ -7,10 +7,10 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-documentos',
-    templateUrl: './documentos.component.html',
-    styleUrls: ['./documentos.component.scss']
+    templateUrl: './materiais.component.html',
+    styleUrls: ['./materiais.component.scss']
 })
-export class DocumentosComponent implements OnInit {
+export class MateriaisComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
         title: 'Biblioteca de documentos: encontre todos os nossos arquivos disponíveis',
         description: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.',
@@ -24,8 +24,8 @@ export class DocumentosComponent implements OnInit {
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({
-                name: 'Documentos',
-                link: '/a-careplus/documentos',
+                name: 'Materiais',
+                link: '/a-careplus/materiais',
                 active: true
             })
         ],
@@ -43,8 +43,8 @@ export class DocumentosComponent implements OnInit {
             link: '/a-careplus'
         }),
         new BreadcrumbModel({
-            name: 'Documentos',
-            link: '/a-careplus/documentos',
+            name: 'Materiais',
+            link: '/a-careplus/materiais',
             active: true
         })
     ];
@@ -98,7 +98,7 @@ export class DocumentosComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Documentos - A Care Plus');
+        this.title.setTitle('Materiais - A Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.'

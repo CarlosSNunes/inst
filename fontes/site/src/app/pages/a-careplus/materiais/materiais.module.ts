@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DocumentosComponent } from './documentos.component';
-import { DocumentosRoutingModule } from './documentos-routing.module';
+import { MateriaisComponent } from './materiais.component';
+import { MateriaisRoutingModule } from './materiais-routing.module';
 import { LearnMoreModule } from 'src/app/modules/components/learn-more/learn-more.module';
 import { BreadcrumbModule } from 'src/app/modules/components/breadcrumb/breadcrumb.module';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
@@ -11,14 +11,14 @@ import { SimpleBannerModule } from 'src/app/modules/components/simple-banner/sim
 
 
 @NgModule({
-  declarations: [DocumentosComponent],
+  declarations: [MateriaisComponent],
   imports: [
     CommonModule,
-    DocumentosRoutingModule,
+    MateriaisRoutingModule,
     LearnMoreModule,
     SharedModule,
     DocumentsModule,
     SimpleBannerModule
   ]
 })
-export class DocumentosModule { }
+export class MateriaisModule { }

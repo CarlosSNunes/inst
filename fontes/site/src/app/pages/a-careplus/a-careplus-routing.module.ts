@@ -8,8 +8,8 @@ const routes: Routes = [
         component: ACareplusComponent
     },
     {
-        path: 'documentos',
-        loadChildren: () => import('./documentos/documentos.module').then(m => m.DocumentosModule)
+        path: 'materiais',
+        loadChildren: () => import('./materiais/materiais.module').then(m => m.MateriaisModule)
     },
     // {
     //     path: 'premios-e-certificacoes',

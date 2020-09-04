@@ -43,7 +43,7 @@ export default {
     }),
     plansTypes: [
         {
-            title: 'Planos de Saúde',
+            title: 'Planos Clube Care Plus',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
             id: 1,
@@ -165,7 +165,7 @@ export default {
             ]
         },
         {
-            title: 'Planos de Odontológicos',
+            title: 'Planos Clube Care Plus',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
             id: 2,

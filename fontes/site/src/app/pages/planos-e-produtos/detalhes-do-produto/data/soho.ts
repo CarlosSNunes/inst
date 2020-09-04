@@ -17,7 +17,7 @@ export default {
                 link: '/produtos-e-planos-careplus',
             }),
             new BreadcrumbModel({
-                name: 'Soho',
+                name: 'Care Plus Soho',
                 link: '/produtos-e-planos-careplus/soho',
                 active: true
             })
@@ -42,7 +42,7 @@ export default {
     }),
     plansTypes: [
         {
-            title: 'Planos de Saúde',
+            title: 'Planos Care Plus Soho',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
             id: 1,
@@ -164,7 +164,7 @@ export default {
             ]
         },
         {
-            title: 'Planos de Odontológicos',
+            title: 'Planos Care Plus Soho',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
             id: 2,

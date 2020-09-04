@@ -17,7 +17,7 @@ export default {
                 link: '/produtos-e-planos-careplus',
             }),
             new BreadcrumbModel({
-                name: 'Empresarial',
+                name: 'Care Plus Empresarial',
                 link: '/produtos-e-planos-careplus/empresarial',
                 active: true
             })
@@ -30,7 +30,7 @@ export default {
         subDescriptions: [
             'Para empresas com mais de 200 colaboradores que buscam um plano de saúde com características diferenciadas e, acima de tudo, que possam contar com um parceiro na gestão para que seu benefício seja saudável, o Care Plus Empresarial é a melhor opção.',
             'Esse produto disponibiliza diversos diferenciais voltados a comodidade, praticidade, qualidade e, acima de tudo, muita segurança. Nossos beneficiários do Care Plus Empresarial contam com uma jornada de muito acolhimento e cuidado.',
-            'Alguns benefícios são semelhantes aos do Empresarial, inclusive com a possibilidade de contratar coberturas adicionais como medicina reprodutiva, dermatologia estética e cirurgia plástica.'
+            'Alguns benefícios são semelhantes aos do Clube Care Plus, inclusive com a possibilidade de contratar coberturas adicionais como medicina reprodutiva, dermatologia estética e cirurgia plástica.'
         ],
         imageSrc: 'assets/img/about-plan-section-careplus-club.jpg',
         button: new ButtonModel({
@@ -44,7 +44,7 @@ export default {
     }),
     plansTypes: [
         {
-            title: 'Planos de Saúde – Care Plus Empresarial',
+            title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
             id: 1,
@@ -166,7 +166,7 @@ export default {
             ]
         },
         {
-            title: 'Planos de Saúde – Care Plus Empresarial',
+            title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
             id: 2,

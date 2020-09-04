@@ -164,7 +164,7 @@ import { Title, Meta } from '@angular/platform-browser';
         this.title.setTitle('A Care Plus | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Referência em planos de saúde, planos odontológicos e medicina ocupacional.'
+            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
         });
     }
 

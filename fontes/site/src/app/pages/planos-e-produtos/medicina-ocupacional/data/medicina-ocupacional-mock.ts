@@ -59,7 +59,7 @@ export const occupationalSection: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'MEDICINA OCUPACIONAL',
     bigTitle: 'Excelência médica personalizada + eficiência administrativa',
     subDescriptions: [
-        'Além de oferecer qualidade no atendimento de saúde, o serviço de medicina ocupacional também contribui com a gestão de pessoas da sua empresa.',
+        'Além de oferecer qualidade no atendimento de saúde, o serviço de Medicina Ocupacional também contribui com a gestão de pessoas da sua empresa.',
         'Todas as nossas soluções propiciam facilidades e um ambiente mais seguro e agradável.',
         'Acreditamos que pessoas sadias e felizes trabalham mais motivadas e resultam em maior produtividade.'
     ],

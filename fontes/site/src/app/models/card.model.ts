@@ -13,6 +13,7 @@ export class CardModel {
     backgroundColorClass?: string = 'white-background-color';
     id: any;
     button?: ButtonModel;
+    routerLink: string;
 }
 
 export class IconCardModel extends CardModel {

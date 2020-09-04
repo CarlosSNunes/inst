@@ -42,8 +42,8 @@ export const routes: RouteModel[] = [
         description: 'A Careplus'
     }),
     new RouteModel({
-        route: '/a-careplus/documentos',
-        description: 'A Careplus - Documentos'
+        route: '/a-careplus/materiais',
+        description: 'A Careplus - Materiais'
     }),
     new RouteModel({
         route: '/a-careplus/premios-e-certificacoes',

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
 import { bannersMock } from './data/banners';
 import { WindowRef } from 'src/utils/window-ref';
@@ -43,6 +43,9 @@ export class CorretorComponent implements OnInit {
             active: true
         }),
     ];
+    scrollTop: number = 0;
+    showBtnToTop: boolean = false;
+
     constructor(
         private windowRef: WindowRef,
         private meta: Meta,
@@ -52,6 +55,16 @@ export class CorretorComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    @HostListener('window:scroll', ['$event'])
+    onScroll(event) {
+        this.scrollTop = event.currentTarget.pageYOffset;
+        if (this.scrollTop > this.sectionProduct.offsetTop) {
+            this.showBtnToTop = true;
+        } else {
+            this.showBtnToTop = false;
+        }
     }
 
     slideToSection() {
@@ -69,6 +82,14 @@ export class CorretorComponent implements OnInit {
             name: 'description',
             content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
         });
+    }
+
+    goToTop() {
+        this.windowRef.nativeWindow.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: "smooth"
+        })
     }
 
 }

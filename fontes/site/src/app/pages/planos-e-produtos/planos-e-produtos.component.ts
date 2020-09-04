@@ -14,7 +14,7 @@ export class PlanosEProdutosComponent implements OnInit {
     ocupationalSection = new InfoSectionModel({
         smallTitle: 'MEDICINA OCUPACIONAL',
         bigTitle: 'Mais saúde e qualidade no ambiente de trabalho',
-        description: 'A Care Plus tem o melhor serviço de medicina ocupacional para a sua empresa',
+        description: 'A Care Plus tem o melhor serviço de Medicina Ocupacional para a sua empresa',
         subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
         imageSrc: 'assets/img/occupational.jpg',
         button: new ButtonModel({

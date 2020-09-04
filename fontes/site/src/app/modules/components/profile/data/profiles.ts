@@ -7,7 +7,7 @@ export default [
         "active": true
     },
     {
-        "title": "Sou gestor de RH",
+        "title": "Sou RH",
         "description": "Para você, que possui um plano de saúde e/ou um plano odontológico da Care Plus.",
         "link": "/home/gestor-rh",
         "linkTitle": "Saiba mais",

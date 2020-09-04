@@ -102,7 +102,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         }),
         new IconCardModel({
             "type": "icon",
-            "title": "Documentos",
+            "title": "Materiais",
             "description": "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
             "imagePath": "assets/svg/document.svg",
             "backgroundColorClass": "white-background-color",
