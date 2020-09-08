@@ -1,6 +1,6 @@
 <div class="second-step">
     <h3 class="big-title white">
-        Além do plano de saúde, você tem interesse em outros produtos? Selecione abaixo ou clique para avançar.
+        Selecione abaixo os planos que você tem interesse e clique para avançar.
     </h3>
     <div class="columns" [formGroup]="secondStepForm">
         <div class="column is-4-desktop is-full">
@@ -11,7 +11,7 @@
             </div>
             <div class="field">
                 <div class="control">
-                    <input class="checkbox" [checked]="true" type="checkbox" formControlName="planoSaude"
+                    <input class="checkbox" type="checkbox" formControlName="planoSaude"
                         name="planoSaude" id="saude" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" />
                     <label class="checkbox-label">
                         Plano de Saúde
@@ -39,15 +39,15 @@
         </div>
 
         <div class="column is-4-desktop is-full illustration-check">
-            <div class="illustration-check" [class.checked]="form?.planoMedicinal.value == true">
+            <div class="illustration-check" [class.checked]="form?.medicinaOcupacional.value == true">
                 <div class="green-primary-box"></div>
                 <div class="green-light-box"></div>
                 <img src="assets/svg/art-image-one.svg" alt="Ilustração Plano Medicina Ocupacional">
             </div>
             <div class="field">
                 <div class="control">
-                    <input formControlName="planoMedicinal" [ngClass]="{ 'is-invalid' : form?.planoMedicinal?.errors }"
-                        class="checkbox" type="checkbox" name="planoMedicinal" id="medicinaOcupacional"
+                    <input formControlName="medicinaOcupacional" [ngClass]="{ 'is-invalid' : form?.medicinaOcupacional?.errors }"
+                        class="checkbox" type="checkbox" name="medicinaOcupacional" id="medicinaOcupacional"
                         value="medicinaOcupacional">
                     <label class="checkbox-label" for="medicinaOcupacional">
                         MEDICINA OCUPACIONAL

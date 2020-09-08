@@ -10,6 +10,8 @@ import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 declare var grecaptcha: any;
+import { requireAtLeastOne } from '../utils/validators';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-solicite-uma-cotacao',
@@ -38,6 +40,8 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     soliciteUmaCotacaoForm: FormGroup;
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
+    formValueChangesSubscription: Subscription;
+    changed: boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -51,10 +55,10 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.soliciteUmaCotacaoForm = this.fb.group({
-            plano: ['', Validators.compose([Validators.required])],
-            planoSaude: new FormControl({ value: true, disabled: true }),
+            plano: ['',],
+            planoSaude: [false,],
             planoOdontologico: [false,],
-            planoMedicinal: [false,],
+            medicinaOcupacional: [false,],
             nome: ['', Validators.compose([Validators.required])],
             razaoSocial: ['', Validators.compose([Validators.required])],
             cpf: ['', Validators.compose([Validators.required, this.validateBrService.cpf])],
@@ -63,6 +67,10 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             telefone: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
             mensagem: ['', Validators.compose([Validators.required])],
             validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
+        }, {
+            validators: [
+                requireAtLeastOne()
+            ]
         });
     }
 
@@ -137,7 +145,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         });
         let fields = { ...params }
         fields.planoOdontologico = (fields.planoOdontologico == 'true');
-        fields.planoMedicinal = (fields.planoMedicinal == 'true');
+        fields.medicinaOcupacional = (fields.medicinaOcupacional == 'true');
         fields.planoSaude = (fields.planoSaude == 'true');
         this.faleConoscoAutoFiels = new FaleConoscoAutoFields(fields);
         const item = this.dropDownItems.find(item => item.value === params.plano)
@@ -146,8 +154,9 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             this.soliciteUmaCotacaoForm.controls.plano.setValue(item.value);
             this.cdr.detectChanges();
         }
+        this.soliciteUmaCotacaoForm.controls.planoSaude.setValue(this.faleConoscoAutoFiels.planoSaude);
         this.soliciteUmaCotacaoForm.controls.planoOdontologico.setValue(this.faleConoscoAutoFiels.planoOdontologico);
-        this.soliciteUmaCotacaoForm.controls.planoMedicinal.setValue(this.faleConoscoAutoFiels.planoMedicinal);
+        this.soliciteUmaCotacaoForm.controls.medicinaOcupacional.setValue(this.faleConoscoAutoFiels.medicinaOcupacional);
     }
 
     sendForm() {
@@ -161,6 +170,26 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
             });
+        }
+    }
+
+    updateFormValidation() {
+        if (this.soliciteUmaCotacaoForm.value.planoSaude || this.soliciteUmaCotacaoForm.value.planoOdontologico && !this.changed) {
+            if (this.defaultItem.value != '') {
+                this.soliciteUmaCotacaoForm.controls.plano.setValue(this.defaultItem.value)
+            } else {
+                this.soliciteUmaCotacaoForm.controls.plano.setValue('')
+            }
+            this.soliciteUmaCotacaoForm.controls.plano.setValidators(
+                Validators.compose([Validators.required])
+            );
+            this.soliciteUmaCotacaoForm.controls.plano.updateValueAndValidity();
+
+        } else {
+            this.soliciteUmaCotacaoForm.controls.plano.setValue('');
+            this.soliciteUmaCotacaoForm.controls.plano.setValidators(null);
+            this.soliciteUmaCotacaoForm.controls.plano.updateValueAndValidity();
+            this.soliciteUmaCotacaoForm.controls.plano.markAsUntouched();
         }
     }
 
@@ -192,6 +221,10 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
                     console.log(error)
                 }
             }
+        }
+
+        if (this.formValueChangesSubscription) {
+            this.formValueChangesSubscription.unsubscribe();
         }
     }
 

@@ -59,7 +59,7 @@ export class ConsultaFacilComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Consulta Fácil | Carreiras | Care Plus');
+        this.title.setTitle('Consulta Fácil | Diferenciais | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Consulta Fácil é mais uma facilidade da Care Plus para os beneficiários que precisam de atendimento clínico ou pediátrico.'

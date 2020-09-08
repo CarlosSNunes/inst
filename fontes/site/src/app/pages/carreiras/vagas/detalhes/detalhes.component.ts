@@ -72,7 +72,7 @@ export class DetalhesComponent implements OnInit {
         if (bank) {
             this.breadcrumb = {
                 name: 'Banco de talentos',
-                link: `/a-careplus/carreiras/vagas/banco-de-talentos`,
+                link: `/carreiras/vagas/banco-de-talentos`,
                 active: true
             }
             this.vacancy = BankTalentsVacancy;
@@ -81,7 +81,7 @@ export class DetalhesComponent implements OnInit {
         } else {
             this.breadcrumb = {
                 name: 'Detalhes da vaga',
-                link: `/a-careplus/carreiras/vagas/${this.id}`,
+                link: `/carreiras/vagas/${this.id}`,
                 active: true
             }
         }
@@ -134,11 +134,11 @@ export class DetalhesComponent implements OnInit {
             }),
             new BreadcrumbModel({
                 name: 'Carreiras',
-                link: '/a-careplus/carreiras'
+                link: '/carreiras'
             }),
             new BreadcrumbModel({
                 name: 'Vagas',
-                link: '/a-careplus/carreiras/vagas'
+                link: '/carreiras/vagas'
             }),
             this.breadcrumb,
         ]

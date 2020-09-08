@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DiferenciaisComponent } from './diferenciais.component';
 import { BannerModule } from 'src/app/modules/components/banner/banner.module';
-import { CarreirasRoutingModule } from './diferenciais-routing.module';
+import { DiferenciaisRoutingModule } from './diferenciais-routing.module';
 import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { ACareplusVideoModule } from 'src/app/modules/components/a-careplus-video/a-careplus-video.module';
 import { ProfilesComponent } from './components/profiles/profiles.component';
@@ -20,7 +20,7 @@ import { OurDifferentialsComponent } from './consulta-facil/components/our-diffe
     imports: [
         CommonModule,
         BannerModule,
-        CarreirasRoutingModule,
+        DiferenciaisRoutingModule,
         CareplusPlusModule,
         ACareplusVideoModule,
         CardModule,

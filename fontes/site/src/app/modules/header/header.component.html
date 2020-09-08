@@ -112,7 +112,35 @@
     </div>
     <div id="navbarHome" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a class="navbar-item" *ngFor="let subMenuItem of subMenu.items">
+                <span class="item" [routerLink]="[subMenuItem.routerLink]" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}" [fragment]="subMenuItem.fragment">
+                    {{subMenuItem.title}}
+                </span>
+                <div class="sub-menu columns" *ngIf="subMenuItem.subItems">
+                    <div class="column is-6">
+                        <ul class="items">
+                            <li *ngFor="let subItem of subMenuItem.subItems | slice:0:5">
+                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
+                                    class="sub-menu-items">
+                                    {{subItem.title}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column is-6" *ngIf="subMenuItem.subItems.length > 5">
+                        <ul class="items">
+                            <li *ngFor="let subItem of subMenuItem.subItems | slice:5:10">
+                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
+                                    class="sub-menu-items">
+                                    {{subItem.title}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <!-- <a class="navbar-item">
                 <span class="item" [routerLink]="['/a-careplus']" routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact: true}">
                     A Care Plus
@@ -280,7 +308,7 @@
                         </ul>
                     </div>
                 </div>
-            </a>
+            </a> -->
         </div>
         <div class="navbar-end">
             <div class="navbar-item">

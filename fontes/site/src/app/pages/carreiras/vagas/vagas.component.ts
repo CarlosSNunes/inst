@@ -47,7 +47,7 @@ export class VagasComponent implements OnInit {
             description: 'Estamos compondo um time repleto de talentos, envie para nós os seus dados pessoais e profissionais e entraremos em contato para futuras oportunidades.',
             button: new ButtonModel({
                 text: 'saiba mais',
-                routerLink: '/a-careplus/carreiras/vagas/banco-de-talentos'
+                routerLink: '/carreiras/vagas/banco-de-talentos'
             })
         }
     });

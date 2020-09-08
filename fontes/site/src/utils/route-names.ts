@@ -74,16 +74,16 @@ export const routes: RouteModel[] = [
         description: 'A Careplus - Rede Plus'
     }),
     new RouteModel({
-        route: '/a-careplus/carreiras',
-        description: 'A Careplus - Carreiras'
+        route: '/carreiras',
+        description: 'Carreiras'
     }),
     new RouteModel({
-        route: '/a-careplus/carreiras/vagas',
-        description: 'A Careplus - Carreiras - Vagas'
+        route: '/carreiras/vagas',
+        description: 'Carreiras - Vagas'
     }),
     new RouteModel({
-        route: (number) => `/a-careplus/carreiras/vagas/${number}`,
-        description: 'A Careplus - Carreiras - Detalhes da vaga'
+        route: (number) => `/carreiras/vagas/${number}`,
+        description: 'Carreiras - Detalhes da vaga'
     }),
     new RouteModel({
         route: '/personal-system',

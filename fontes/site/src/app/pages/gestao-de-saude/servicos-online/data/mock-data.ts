@@ -1,5 +1,6 @@
 import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, IconCardsSectionModel, ButtonModel, SliderModel } from 'src/app/models';
 import PersonalizedSectionCards from './personalized-section-cards';
+import { VideoModalModel } from 'src/app/models/modal.model';
 
 export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
     title: 'Serviços online',
@@ -75,13 +76,21 @@ export const sliderModel = new SliderModel({
             image: 'assets/img/slider-video-image.jpg',
             thumbImage: 'assets/img/slider-video-image.jpg',
             alt: 'Outubro Rosa',
-            title: 'Outubro Rosa'
+            title: 'Outubro Rosa',
+            modal: new VideoModalModel({
+                layout: 'video',
+                type: 'info',
+            })
         },
         {
             image: 'assets/img/slider-video-image-2.jpg',
             thumbImage: 'assets/img/slider-video-image-2.jpg',
             alt: 'Outubro Rosa',
-            title: 'Outubro Rosa'
+            title: 'Outubro Rosa',
+            modal: new VideoModalModel({
+                layout: 'video',
+                type: 'info',
+            })
         },
     ]
 });

@@ -4,7 +4,7 @@ export default [
         description: 'Um breve descritivo ou informativo',
         location: 'Alphaville - SP',
         button: {
-            link: '/a-careplus/carreiras/vagas/1',
+            link: '/carreiras/vagas/1',
             title: 'Inscreva-se na vaga'
         }
     },
@@ -13,7 +13,7 @@ export default [
         description: 'Um breve descritivo ou informativo',
         location: 'Alphaville - SP',
         button: {
-            link: '/a-careplus/carreiras/vagas/2',
+            link: '/carreiras/vagas/2',
             title: 'Inscreva-se na vaga'
         }
     },
@@ -22,7 +22,7 @@ export default [
         description: 'Um breve descritivo ou informativo',
         location: 'Alphaville - SP',
         button: {
-            link: '/a-careplus/carreiras/vagas/3',
+            link: '/carreiras/vagas/3',
             title: 'Inscreva-se na vaga'
         }
     },
@@ -31,7 +31,7 @@ export default [
         description: 'Um breve descritivo ou informativo',
         location: 'Alphaville - SP',
         button: {
-            link: '/a-careplus/carreiras/vagas/4',
+            link: '/carreiras/vagas/4',
             title: 'Inscreva-se na vaga'
         }
     },
@@ -40,7 +40,7 @@ export default [
         description: 'Um breve descritivo ou informativo',
         location: 'Alphaville - SP',
         button: {
-            link: '/a-careplus/carreiras/vagas/5',
+            link: '/carreiras/vagas/5',
             title: 'Inscreva-se na vaga'
         }
     }

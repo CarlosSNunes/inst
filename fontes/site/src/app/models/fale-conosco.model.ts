@@ -8,7 +8,7 @@ export class FaleConoscoAutoFields {
     plano: string = '';
     planoSaude: boolean = false;
     planoOdontologico: boolean = false;
-    planoMedicinal: boolean = false;
+    medicinaOcupacional: boolean = false;
 }
 
 export class ListaTipoAssuntoFaleConosco {

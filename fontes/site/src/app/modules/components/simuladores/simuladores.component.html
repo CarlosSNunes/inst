@@ -9,19 +9,11 @@
     <article>
         <app-home-step [@homeLeaveAnimation]="homeAnimationState" (goToNextStep)="homeAnimationState = 'stepper'">
         </app-home-step>
-        <div class="container stepper-container" [hidden]="homeAnimationState == 'home'" [@stepperEnterAnimation]="homeAnimationState" (@stepperEnterAnimation.done)="captureDoneEvent($event)" [style.position]="stepperPosition">
+        <div class="container stepper-container" [hidden]="homeAnimationState == 'home'"
+            [@stepperEnterAnimation]="homeAnimationState" (@stepperEnterAnimation.done)="captureDoneEvent($event)"
+            [style.position]="stepperPosition">
             <mat-horizontal-stepper labelPosition="right" [disableRipple]="true" [linear]="true" [ngClass]="stepClass"
-                (selectionChange)="onStepChange($event)">
-                <mat-step [stepControl]="firstStepForm">
-                    <ng-template matStepLabel>Tamanho da Empresa</ng-template>
-                    <form [formGroup]="firstStepForm">
-                        <app-first-step [firstStepForm]="firstStepForm"></app-first-step>
-                    </form>
-                    <div>
-                        <button class="btn btn-secondary medium align-right" [disabled]="!firstStepForm?.valid"
-                            matStepperNext>avançar</button>
-                    </div>
-                </mat-step>
+                (selectionChange)="onStepChange($event)" #stepper>
                 <mat-step [stepControl]="secondStepForm">
                     <ng-template matStepLabel>Customização</ng-template>
                     <form [formGroup]="secondStepForm">
@@ -29,6 +21,17 @@
                     </form>
                     <div>
                         <button class="btn btn-secondary medium align-right" [disabled]="!secondStepForm?.valid"
+                            matStepperNext>avançar</button>
+                    </div>
+                </mat-step>
+                <mat-step [stepControl]="firstStepForm"
+                    *ngIf="secondStepForm.value.planoSaude || secondStepForm.value.planoOdontologico">
+                    <ng-template matStepLabel>Tamanho da Empresa</ng-template>
+                    <form [formGroup]="firstStepForm">
+                        <app-first-step [firstStepForm]="firstStepForm"></app-first-step>
+                    </form>
+                    <div>
+                        <button class="btn btn-secondary medium align-right" [disabled]="!firstStepForm?.valid"
                             matStepperNext>avançar</button>
                     </div>
                 </mat-step>

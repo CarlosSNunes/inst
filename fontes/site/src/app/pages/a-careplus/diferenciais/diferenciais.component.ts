@@ -56,7 +56,7 @@ export class DiferenciaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Carreiras | Care Plus');
+        this.title.setTitle('Diferenciais | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Atendimento, acolhimento e humanização que fazem toda a diferença na vida de quem contrata, usa e comercializa as soluções Care Plus.'
