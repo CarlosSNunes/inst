@@ -23,7 +23,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
             text: 'SOLICITE UMA COTAÇÃO',
             routerLink: '/fale-conosco',
             queryParams: {
-                planoMedicinal: true
+                medicinaOcupacional: true
             }
         }),
         cards: PersonalizedServicesCards,

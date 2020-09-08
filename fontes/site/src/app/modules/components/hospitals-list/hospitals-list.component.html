@@ -30,15 +30,15 @@
                         </app-dropdown>
                     </div>
                     <div class="column is-3 filter">
-                        <img src="assets/svg/grid-menu-active.svg" alt="" [class.active]="menuStyle== 'grid'"
-                            (click)="changeMenuStyle('grid')">
-                        <img src="assets/svg/grid-menu.svg" alt="" [class.active]="menuStyle== 'list'"
-                            (click)="changeMenuStyle('grid')">
                         <img src="assets/svg/list-menu-active.svg" alt="" [class.active]="menuStyle== 'list'"
                             (click)="changeMenuStyle('list')">
                         <img src="assets/svg/list-menu.svg" alt="" [class.active]="menuStyle== 'grid'"
                             (click)="changeMenuStyle('list')">
-                        <button class="btn btn-primary small" (click)="mountHospitalsList()">Comparar</button>
+                        <img src="assets/svg/grid-menu-active.svg" alt="" [class.active]="menuStyle== 'grid'"
+                            (click)="changeMenuStyle('grid')">
+                        <img src="assets/svg/grid-menu.svg" alt="" [class.active]="menuStyle== 'list'"
+                            (click)="changeMenuStyle('grid')">
+                        <button class="btn btn-primary small" (click)="mountHospitalsList()">Filtrar</button>
                     </div>
                 </div>
             </div>

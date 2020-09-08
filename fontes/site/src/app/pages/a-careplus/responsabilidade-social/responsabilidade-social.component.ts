@@ -37,7 +37,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
     width: number = 0;
     offset: number = 0;
     videoModel: CareplusVideoModel = new CareplusVideoModel({
-        bigTitle: 'Assista as nossas ações para criar um mundo melhor.',
+        bigTitle: 'Assista as nossas ações para criar um mundo melhor',
         embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8'
     });
     infoSections: InfoSectionModel[] = [

@@ -73,7 +73,7 @@ export const secondCard: IconCardModel = new IconCardModel({
         text: 'Clique e solicite cotação',
         routerLink: '/fale-conosco',
         queryParams: {
-            planoMedicinal: true
+            medicinaOcupacional: true
         }
     }),
     imagePath: 'assets/svg/calendar.svg'

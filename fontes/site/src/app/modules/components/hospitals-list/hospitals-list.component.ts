@@ -14,7 +14,7 @@ export class HospitalsListComponent implements OnInit {
     allStates: DropDownItem[] = [];
     allHospitals: DropDownItem[] = [];
     allPlans: DropDownItem[] = [];
-    menuStyle: string = "grid";
+    menuStyle: string = "list";
     gridList: {}[] = [];
     hiddenGrid: boolean = true;
     hiddenList: boolean = true;

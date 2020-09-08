@@ -303,11 +303,11 @@ export default {
     }),
     hospitalListSection: {
         smallTitle: 'Rede Credenciada Planos - Care Plus SoHo',
-        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus SoHo.'
+        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus SoHo'
     },
     plansSection: new InfoSectionModel({
         smallTitle: 'PLANOS',
-        bigTitle: 'Esse plano não atende o tamanho da sua empresa? Conheça os demais.',
+        bigTitle: 'Esse plano não atende o tamanho da sua empresa? Conheça os demais',
         description: 'Temos Planos para o tamanho exato de sua empresa.',
         subDescription: 'Temos planos para empresas de 2 a 29 vidas, de 30 a 200 vidas ou de mais de 200 vidas. Acesse nossa página de Planos e Produtos e conheça todos.',
         imageSrc: 'assets/svg/plans-section-illustation.svg',
@@ -393,10 +393,6 @@ export default {
         description: 'Com o Care Plus Travel você conta com uma cobertura internacional de até US$ 300.000,00',
         subDescription: 'Desbrave o mundo sem preocupação. Garantimos segurança e saúde para você e sua família curtirem a viagem com tranquilidade. Entre em contato com o gestor do seu plano para contratar esse benefício.',
         imageSrc: 'assets/img/plane.jpg',
-        button: new ButtonModel({
-            text: 'SAIBA MAIS',
-            routerLink: '/#'
-        }),
     }),
     secondCard: new IconCardModel({
         title: 'Solicite uma Cotação',
