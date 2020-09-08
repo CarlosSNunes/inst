@@ -74,6 +74,7 @@ section.plan-card {
                             top: 0;
                             right: 0;
                             background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+                            z-index: -1;
                         }
 
                         img {
