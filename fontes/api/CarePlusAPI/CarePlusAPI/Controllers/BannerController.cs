@@ -127,7 +127,6 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
                 throw new AppException("O banner não pode estar nulo");
 
             string path = "";
-            string directoryName;
             var Arquivo = model.Arquivo;
 
             string pathMobile = ""; 
@@ -188,7 +187,6 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
                 throw new AppException("O homeBanner não pode estar nulo");           
             
             string path = "";
-            string directoryName;
             var Arquivo = model.Arquivo;
 
             string pathMobile = "";

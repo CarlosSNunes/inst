@@ -3,7 +3,7 @@
         <ng-content select=".card-content"></ng-content>
     </div>
 
-    <div *ngIf="card.type === 'icon'" class="card icon-card" [ngClass]="card.backgroundColorClass" (click)="collapse()">
+    <div *ngIf="card.type === 'icon' && !card.routerLink" class="card icon-card" [ngClass]="card.backgroundColorClass" (click)="collapse()">
         <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image" [ngClass]="card.backgroundColorClass">
         <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
             [innerHTML]="card.title"></p>
@@ -31,6 +31,35 @@
         <span class="line-3"></span>
         <span class="line-4"></span>
     </div>
+
+    <a [routerLink]="card.routerLink" *ngIf="card.type === 'icon' && card.routerLink" class="card icon-card" [ngClass]="card.backgroundColorClass" (click)="collapse()">
+        <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image" [ngClass]="card.backgroundColorClass">
+        <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
+            [innerHTML]="card.title"></p>
+        <p class="card-description" #p [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
+            *ngIf="card.description">{{card.description}}</p>
+        <!--
+            Botão com routerLink
+        -->
+        <a *ngIf="card?.button?.routerLink" [routerLink]="[card?.button?.routerLink]"
+            [queryParams]="card?.button?.queryParams" #link [class.collapsed]="collapsed"
+            [class.hasCollapse]="card.hasCollapse" class="link">
+            {{card?.button?.text}}
+        </a>
+
+        <!--
+            Botão com href
+        -->
+        <a *ngIf="card?.button?.link" [href]="card?.button?.link" [target]="card?.button?.target" #link
+            [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse" class="link">
+            {{card?.button?.text}}
+        </a>
+        <ng-content></ng-content>
+        <span class="line-1"></span>
+        <span class="line-2"></span>
+        <span class="line-3"></span>
+        <span class="line-4"></span>
+    </a>
 
     <a [routerLink]="[card?.button?.routerLink]" *ngIf="card.type === 'post'">
         <div class="card image-card">

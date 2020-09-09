@@ -14,11 +14,11 @@ export default {
             }),
             new BreadcrumbModel({
                 name: 'Planos e Produtos',
-                link: '/produtos-e-planos-careplus',
+                link: '/planos-e-produtos',
             }),
             new BreadcrumbModel({
-                name: 'Empresarial',
-                link: '/produtos-e-planos-careplus/empresarial',
+                name: 'Care Plus Empresarial',
+                link: '/planos-e-produtos/empresarial',
                 active: true
             })
         ],
@@ -30,7 +30,7 @@ export default {
         subDescriptions: [
             'Para empresas com mais de 200 colaboradores que buscam um plano de saúde com características diferenciadas e, acima de tudo, que possam contar com um parceiro na gestão para que seu benefício seja saudável, o Care Plus Empresarial é a melhor opção.',
             'Esse produto disponibiliza diversos diferenciais voltados a comodidade, praticidade, qualidade e, acima de tudo, muita segurança. Nossos beneficiários do Care Plus Empresarial contam com uma jornada de muito acolhimento e cuidado.',
-            'Alguns benefícios são semelhantes aos do Empresarial, inclusive com a possibilidade de contratar coberturas adicionais como medicina reprodutiva, dermatologia estética e cirurgia plástica.'
+            'Alguns benefícios são semelhantes aos do Clube Care Plus, inclusive com a possibilidade de contratar coberturas adicionais como medicina reprodutiva, dermatologia estética e cirurgia plástica.'
         ],
         imageSrc: 'assets/img/about-plan-section-careplus-club.jpg',
         button: new ButtonModel({
@@ -44,7 +44,7 @@ export default {
     }),
     plansTypes: [
         {
-            title: 'Planos de Saúde – Care Plus Empresarial',
+            title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
             id: 1,
@@ -166,7 +166,7 @@ export default {
             ]
         },
         {
-            title: 'Planos de Saúde – Care Plus Empresarial',
+            title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
             id: 2,
@@ -305,17 +305,17 @@ export default {
     }),
     hospitalListSection: {
         smallTitle: 'Rede Credenciada Planos – Care Plus Empresarial',
-        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus Empresarial.'
+        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus Empresarial'
     },
     plansSection: new InfoSectionModel({
         smallTitle: 'PLANOS',
-        bigTitle: 'Esse plano não atende o tamanho da sua empresa? Conheça os demais.',
+        bigTitle: 'Esse plano não atende o tamanho da sua empresa? Conheça os demais',
         description: 'Temos Planos para o tamanho exato de sua empresa.',
         subDescription: 'Temos planos para empresas de 2 a 29 vidas, de 30 a 200 vidas ou de mais de 200 vidas. Acesse nossa página de Planos e Produtos e conheça todos.',
         imageSrc: 'assets/svg/plans-section-illustation.svg',
         button: new ButtonModel({
             text: 'VER TODOS OS PLANOS',
-            routerLink: '/produtos-e-planos-careplus'
+            routerLink: '/planos-e-produtos'
         }),
         reverse: true,
         removeLine: true
@@ -331,35 +331,33 @@ export default {
         cards: [
             new IconCardModel({
                 "type": "icon",
-                "title": "Programas preventivos",
-                "description": "A Care Plus oferece aos seus beneficiários diversos programas preventivos de saúde e de acompanhamento para auxiliar seus beneficiários a ter uma vida mais saudável.",
-                "imagePath": "assets/svg/shield.svg"
+                "title": "Programas Preventivos",
+                "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento para que os beneficiários tenham uma vida saudável.",
+                "imagePath": "assets/svg/shield.svg",
+                "routerLink": "/gestao-de-saude/programas-preventivos"
             }),
             new IconCardModel({
                 "type": "icon",
-                "title": "Serviços on-line",
-                "description": "OServiços à distância com qualidade, carinho e cuidado que só a Care Plus tem com seus clientes.",
+                "title": "Serviços Online",
+                "description": "Os beneficiários podem aproveitar alguns serviços a distância com a qualidade, o carinho e o cuidado que só a Care Plus tem.",
                 "imagePath": "assets/svg/monitor-screen.svg",
-                "backgroundColorClass": "white-background-color"
+                "backgroundColorClass": "white-background-color",
+                "routerLink": "/gestao-de-saude/servicos-online"
             }),
             new IconCardModel({
                 "type": "icon",
                 "title": "Personal System",
                 "description": "A Care Plus oferece consultas em clínicas próprias com médicos, nutricionistas e psicólogos. Conheça os programas.",
-                "imagePath": "assets/svg/doctor.svg"
+                "imagePath": "assets/svg/doctor.svg",
+                "routerLink": "/gestao-de-saude/personal-system"
             }),
             new IconCardModel({
                 "type": "icon",
-                "title": "Programas empresariais",
-                "description": "A Care Plus oferece alguns atendimentos de médicos, nutricionistas, enfermeiras e psicólogos nas empresas clientes. Conheça os programas.",
-                "imagePath": "assets/svg/doctorphone.svg"
-            }),
-            new IconCardModel({
-                "type": "icon",
-                "title": "Nossas parcerias",
-                "description": "A Care Plus tem parceiros que atuam em conformidade com os nossos valores, gerando bem-estar e saúde para você.",
-                "imagePath": "assets/svg/doctor.svg"
-            }),
+                "title": "Programas Empresariais",
+                "description": "A Care Plus disponibiliza  médicos, nutricionistas, enfermeiras e psicólogos para realizar atendimento no ambiente das empresas.",
+                "imagePath": "assets/svg/doctorphone.svg",
+                "routerLink": "/gestao-de-saude/programas-empresariais"
+            })
         ],
         columnClass: 'is-3-desktop'
     }),
@@ -397,10 +395,6 @@ export default {
         description: 'Com o Care Plus Travel você conta com uma cobertura internacional de até US$ 300.000,00',
         subDescription: 'Desbrave o mundo sem preocupação. Garantimos segurança e saúde para você e sua família curtirem a viagem com tranquilidade. Entre em contato com o gestor do seu plano para contratar esse benefício.',
         imageSrc: 'assets/img/plane.jpg',
-        button: new ButtonModel({
-            text: 'SAIBA MAIS',
-            routerLink: '/#'
-        }),
     }),
     secondCard: new IconCardModel({
         title: 'Solicite uma Cotação',

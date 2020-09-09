@@ -24,7 +24,7 @@ export const moreAboutMock = [
         isCompact: true
     },
     {
-        title: 'Documentos',
+        title: 'Materiais',
         description: "Encontre todos os materiais e arquivos para download divulgados pela Care Plus: documentos da ANS, Tabela de Produto e Planos, comunicados e muiuto mais.",
         imagePath: "assets/svg/files.svg",
         link: "#",

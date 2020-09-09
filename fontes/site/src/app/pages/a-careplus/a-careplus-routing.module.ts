@@ -8,8 +8,8 @@ const routes: Routes = [
         component: ACareplusComponent
     },
     {
-        path: 'documentos',
-        loadChildren: () => import('./documentos/documentos.module').then(m => m.DocumentosModule)
+        path: 'materiais',
+        loadChildren: () => import('./materiais/materiais.module').then(m => m.MateriaisModule)
     },
     // {
     //     path: 'premios-e-certificacoes',
@@ -40,8 +40,8 @@ const routes: Routes = [
         loadChildren: () => import('./rede-plus/rede-plus.module').then(m => m.RedePlusModule)
     },
     {
-        path: 'carreiras',
-        loadChildren: () => import('./carreiras/carreiras.module').then(m => m.CarreirasModule)
+        path: 'diferenciais',
+        loadChildren: () => import('./diferenciais/diferenciais.module').then(m => m.DiferenciaisModule)
     },
     {
         path: '**',

@@ -380,8 +380,8 @@ nav.is-home {
     }
 
     .navbar-item {
-        padding-left : 24px;
-        padding-right: 24px;
+        padding-left : 20px;
+        padding-right: 20px;
         cursor       : unset;
         position     : relative;
         z-index      : 999;
@@ -428,7 +428,7 @@ nav.is-home {
             background-color: getColor(_bupa, _white);
             top             : 80%;
             left            : 0;
-            padding         : 42px;
+            padding         : 18px 25px;
 
             .column {
                 min-width: calc(800px / 3);

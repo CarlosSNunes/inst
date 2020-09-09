@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Inject, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject, OnDestroy, ViewChild } from '@angular/core';
 import { WindowRef } from 'src/utils/window-ref';
 import { DOCUMENT } from '@angular/common';
 import { AnimationEvent, trigger, state, style, transition, animate } from '@angular/animations';
@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import Plans from './data/plans';
 import { PlanModel } from 'src/app/models';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
+import { requireAtLeastOne } from './utils/validators';
+import { MatStepper } from '@angular/material';
 
 @Component({
     selector: 'app-simuladores',
@@ -65,6 +67,7 @@ import { EventEmitterService } from 'src/app/services/event-emitter/event-emitte
 })
 export class SimuladoresComponent implements OnInit, OnDestroy {
     @Output() close: EventEmitter<{ scrollPosition: number }> = new EventEmitter<{ scrollPosition: number }>();
+    @ViewChild('stepper', { static: false }) stepper: MatStepper;
     scrollPosition: number = 0;
     step: number = 1;
     homeAnimationState: string = 'home';
@@ -89,9 +92,13 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
         });
 
         this.secondStepForm = this.fb.group({
-            planoSaude: new FormControl({ value: true, disabled: true }, Validators.compose([Validators.requiredTrue])),
+            planoSaude: [false,],
             planoOdontologico: [false,],
-            planoMedicinal: [false,]
+            medicinaOcupacional: [false,]
+        }, {
+            validators: [
+                requireAtLeastOne()
+            ]
         });
     }
 
@@ -114,10 +121,12 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
     }
 
     onStepChange(event) {
+
         switch (event.selectedIndex) {
             case 0:
                 this.stepClass = 'first';
                 this.currentStep = 1;
+                this.firstStepForm.reset();
                 break;
             case 1:
                 this.stepClass = 'second';

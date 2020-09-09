@@ -37,7 +37,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
     width: number = 0;
     offset: number = 0;
     videoModel: CareplusVideoModel = new CareplusVideoModel({
-        bigTitle: 'Assista as nossas ações para criar um mundo melhor.',
+        bigTitle: 'Assista as nossas ações para criar um mundo melhor',
         embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8'
     });
     infoSections: InfoSectionModel[] = [
@@ -102,7 +102,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         }),
         new IconCardModel({
             "type": "icon",
-            "title": "Documentos",
+            "title": "Materiais",
             "description": "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
             "imagePath": "assets/svg/document.svg",
             "backgroundColorClass": "white-background-color",

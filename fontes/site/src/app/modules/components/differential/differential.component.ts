@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID, Input } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, Input, ChangeDetectorRef } from '@angular/core';
 import DifferentialsArray from './data/differentials';
 import { Subscription, interval } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -15,13 +15,15 @@ export class DifferentialComponent implements OnInit {
     currentDifferential = 0
     @Input() backgroundColorClass: string = 'white-background-color';
     constructor(
-        @Inject(PLATFORM_ID) private platformId
+        @Inject(PLATFORM_ID) private platformId,
+        private cdr: ChangeDetectorRef
     ) {
-        this.isBrowser = isPlatformBrowser(platformId);
+        this.isBrowser = isPlatformBrowser(this.platformId);
     }
 
     ngOnInit() {
         if (this.isBrowser) {
+            this.currentDifferential = 0;
             this.startDifferentialSubscription(this.differentials[0].time)
         }
     }
@@ -39,6 +41,7 @@ export class DifferentialComponent implements OnInit {
         } else {
             this.activate(0)
         }
+        this.cdr.detectChanges();
     }
 
 

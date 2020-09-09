@@ -1,31 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarreirasComponent } from './carreiras.component';
-import { BannerModule } from 'src/app/modules/components/banner/banner.module';
-import { CarreirasRoutingModule } from './carreiras-routing.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
+import { CarreiraRoutingModule } from './carreiras-routing.module';
 import { ACareplusVideoModule } from 'src/app/modules/components/a-careplus-video/a-careplus-video.module';
-import { ProfilesComponent } from './components/profiles/profiles.component';
-import { CardModule } from 'src/app/modules/components/card/card.module';
+import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
+import { JoinTheTeamModule } from 'src/app/modules/components/join-the-team/join-the-team.module';
+import { LearnMoreModule } from 'src/app/modules/components/learn-more/learn-more.module';
+import { SocialPostsModule } from 'src/app/modules/components/social-posts/social-posts.module';
+import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { SimpleBannerModule } from 'src/app/modules/components/simple-banner/simple-banner.module';
-import { ConsultaFacilComponent } from './consulta-facil/consulta-facil.component';
-import { SeeDatesComponent } from './consulta-facil/components/see-dates/see-dates.component';
-import { SharedModule } from 'src/app/modules/shared/shared.module';
-import { HowItWorksComponent } from './consulta-facil/components/how-it-works/how-it-works.component';
-import { OurDifferentialsComponent } from './consulta-facil/components/our-differentials/our-differentials.component';
 
 
 @NgModule({
-    declarations: [CarreirasComponent, ProfilesComponent, ConsultaFacilComponent, SeeDatesComponent, HowItWorksComponent, OurDifferentialsComponent],
+    declarations: [CarreirasComponent],
     imports: [
         CommonModule,
-        BannerModule,
-        CarreirasRoutingModule,
-        CareplusPlusModule,
-        ACareplusVideoModule,
-        CardModule,
         SimpleBannerModule,
-        SharedModule
+        CarreiraRoutingModule,
+        ACareplusVideoModule,
+        InfoSectionModule,
+        JoinTheTeamModule,
+        LearnMoreModule,
+        CareplusPlusModule,
+        SocialPostsModule,
     ]
 })
 export class CarreirasModule { }

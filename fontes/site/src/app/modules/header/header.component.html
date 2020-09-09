@@ -14,7 +14,7 @@
             <a class="navbar-item is-home-link" [routerLink]="['/home/beneficiario']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
-                    Sou beneficiario
+                    Sou beneficiário
                 </span>
             </a>
             <a class="navbar-item is-home-link" [routerLink]="['/home/rh']" routerLinkActive="has-background-white"
@@ -101,7 +101,7 @@
 <nav class="navbar is-home" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" [routerLink]="['/']">
-            <img class="img-careplus" src="../../../assets/img/careplus-logo.png" alt="Careplus">
+            <img class="img-careplus" src="assets/img/careplus-logo.png" alt="Careplus">
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
             data-target="navbarBasicExample">
@@ -112,43 +112,50 @@
     </div>
     <div id="navbarHome" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a class="navbar-item" *ngFor="let subMenuItem of subMenu.items">
+                <span class="item" [routerLink]="[subMenuItem.routerLink]" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}" [fragment]="subMenuItem.fragment">
+                    {{subMenuItem.title}}
+                </span>
+                <div class="sub-menu columns" *ngIf="subMenuItem.subItems">
+                    <div class="column is-6">
+                        <ul class="items">
+                            <li *ngFor="let subItem of subMenuItem.subItems | slice:0:5">
+                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
+                                    class="sub-menu-items">
+                                    {{subItem.title}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column is-6" *ngIf="subMenuItem.subItems.length > 5">
+                        <ul class="items">
+                            <li *ngFor="let subItem of subMenuItem.subItems | slice:5:10">
+                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
+                                    class="sub-menu-items">
+                                    {{subItem.title}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <!-- <a class="navbar-item">
                 <span class="item" [routerLink]="['/a-careplus']" routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact: true}">
-                    A care plus
+                    A Care Plus
                 </span>
                 <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <div class="image-content">
-                            <img src="assets/img/rede-plus-sub-menu.jpg" alt="Rede plus">
-
-                            <div class="infos">
-                                <p class="image-description">
-                                    Saiba mais sobre a Rede Plus
-                                </p>
-
-                                <a routerLink="/a-careplus/rede-plus" class="btn btn-text small image-link">
-                                    Confira agora
-                                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M11.3492 0.938082C11.1433 1.24975 11.187 1.70309 11.4477 1.94993L13.2895 3.69461L15.7088 6.28211L0.600826 6.28211C0.268769 6.28211 -2.39681e-07 6.60482 -2.25521e-07 7.00246C-2.11362e-07 7.40009 0.268769 7.7228 0.600826 7.7228L15.5578 7.7228L11.3604 12.0703C11.1097 12.3297 11.0812 12.7849 11.2983 13.086C11.5154 13.3871 11.8947 13.4203 12.1459 13.16L17.6218 7.48797C17.7528 7.35254 17.8285 7.15613 17.8301 6.94867C17.8301 6.94675 17.8301 6.94483 17.8301 6.94291C17.8301 6.73737 17.7572 6.54191 17.6294 6.40553L14.0621 2.592L12.1932 0.819944C11.9328 0.573104 11.5551 0.625931 11.3492 0.938082Z"
-                                            fill="#0079C8" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
+                    <div class="column is-6">
                         <ul class="items">
                             <li>
                                 <a routerLink="/a-careplus" class="sub-menu-items">
-                                    A careplus
+                                    A Empresa
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/a-careplus/carreiras" class="sub-menu-items">
-                                    Carreiras
+                                <a routerLink="/a-careplus/diferenciais" class="sub-menu-items">
+                                    Diferenciais
                                 </a>
                             </li>
                             <li>
@@ -157,18 +164,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/a-careplus/termos-e-condicoes" class="sub-menu-items">
-                                    Termos e Condições
+                                <a routerLink="/a-careplus/rede-plus">
+                                    Rede Plus
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a routerLink="/a-careplus/premios-e-certificacoes" class="sub-menu-items">
-                                    Prêmios e Certificações
+                            <li>
+                                <a routerLink="/a-careplus/faq" class="sub-menu-items">
+                                    Perguntas Frequentes
                                 </a>
-                            </li> -->
+                            </li>
                         </ul>
                     </div>
-                    <div class="column is-4">
+                    <div class="column is-6">
                         <ul class="items">
                             <li>
                                 <a routerLink="/a-careplus/resultados-financeiros" class="sub-menu-items">
@@ -176,8 +183,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/a-careplus/documentos" class="sub-menu-items">
+                                <a routerLink="/a-careplus/materiais" class="sub-menu-items">
                                     Materiais
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/termos-e-condicoes" class="sub-menu-items">
+                                    Termos e Condições
                                 </a>
                             </li>
                             <li>
@@ -190,7 +202,7 @@
                 </div>
             </a>
             <a class="navbar-item">
-                <span class="item" [routerLink]="['/produtos-e-planos-careplus']" routerLinkActive="active"
+                <span class="item" [routerLink]="['/planos-e-produtos']" routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact: true}">
                     Planos
                 </span>
@@ -198,18 +210,18 @@
                     <div class="column is-4">
                         <ul class="items">
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus/soho" class="sub-menu-items">
-                                    SoHo (de 2 a 29 vidas)
+                                <a routerLink="/planos-e-produtos/soho" class="sub-menu-items">
+                                    Care Plus SoHo (de 2 a 29 vidas)
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus/clube-careplus" class="sub-menu-items">
+                                <a routerLink="/planos-e-produtos/clube-careplus" class="sub-menu-items">
                                     Clube Care Plus (de 30 a 200 vidas)
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus/empresarial" class="sub-menu-items">
-                                    Empresarial (mais de 200 vidas)
+                                <a routerLink="/planos-e-produtos/empresarial" class="sub-menu-items">
+                                    Care Plus Empresarial (mais de 200 vidas)
                                 </a>
                             </li>
                         </ul>
@@ -217,7 +229,7 @@
                 </div>
             </a>
             <a class="navbar-item">
-                <span class="item" [routerLink]="['/produtos-e-planos-careplus']" fragment="produtos"
+                <span class="item" [routerLink]="['/planos-e-produtos']" fragment="produtos"
                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     Produtos
                 </span>
@@ -225,8 +237,8 @@
                     <div class="column is-4">
                         <ul class="items">
                             <li>
-                                <a routerLink="/produtos-e-planos-careplus/medicina-ocupacional" class="sub-menu-items">
-                                    Ocupacional
+                                <a routerLink="/planos-e-produtos/medicina-ocupacional" class="sub-menu-items">
+                                    Medicina Ocupacional
                                 </a>
                             </li>
                             <li>
@@ -239,7 +251,7 @@
                 </div>
             </a>
             <a class="navbar-item">
-                <span class="item" [routerLink]="['/carreiras-careplus']" routerLinkActive="active"
+                <span class="item" [routerLink]="['/carreiras']" routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact: true}">
                     Carreiras
                 </span>
@@ -247,13 +259,13 @@
                     <div class="column is-4">
                         <ul class="items">
                             <li>
-                                <a routerLink="/carreiras-careplus" class="sub-menu-items">
+                                <a routerLink="/carreiras" class="sub-menu-items">
                                     Carreiras
                                 </a>
                             </li>
                             <li>
-                                <a routerLink="/carreiras-careplus/consulta-facil" class="sub-menu-items">
-                                    Consulta fácil
+                                <a routerLink="/carreiras/vagas" class="sub-menu-items">
+                                    Vagas
                                 </a>
                             </li>
                         </ul>
@@ -275,17 +287,17 @@
                         <ul class="items">
                             <li>
                                 <a routerLink="/fale-conosco" class="sub-menu-items">
-                                    Solicite uma cotação
+                                    Solicite Uma Cotação
                                 </a>
                             </li>
                             <li>
                                 <a routerLink="/fale-conosco/fale-conosco" class="sub-menu-items">
-                                    Fale conosco
+                                    Fale Conosco
                                 </a>
                             </li>
                             <li>
                                 <a routerLink="/fale-conosco/canal-de-denuncias" class="sub-menu-items">
-                                    Canal de denúncias
+                                    Canal De Denúncias
                                 </a>
                             </li>
                             <li>
@@ -296,13 +308,13 @@
                         </ul>
                     </div>
                 </div>
-            </a>
+            </a> -->
         </div>
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
                     <button class="btn btn-primary small" (click)="openSimulator()">
-                        Simule seu plano
+                        Simule Seu Plano
                     </button>
                 </div>
             </div>

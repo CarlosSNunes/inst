@@ -164,7 +164,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
 
             Newsletter newsletter = await _newsletterService.Buscar(id);
 
-            await _newsletterService.Excluir(id);
+            await _newsletterService.Excluir(newsletter.Id);
 
             return Ok();
         }

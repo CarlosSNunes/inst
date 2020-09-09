@@ -13,6 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { InfoSectionModel, ButtonModel, CareplusVideoModel, IconCardsSectionModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-home',
@@ -28,12 +29,12 @@ export class HomeComponent implements OnInit {
     ocupationalSection = new InfoSectionModel({
         smallTitle: 'MEDICINA OCUPACIONAL',
         bigTitle: 'Mais saúde e qualidade no ambiente de trabalho',
-        description: 'A Care Plus tem o melhor serviço de medicina ocupacional para a sua empresa',
+        description: 'A Care Plus tem o melhor serviço de Medicina Ocupacional para a sua empresa',
         subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
         imageSrc: 'assets/img/occupational.jpg',
         button: new ButtonModel({
             text: 'SAIBA MAIS',
-            routerLink: '/produtos-e-planos-careplus/medicina-ocupacional'
+            routerLink: '/planos-e-produtos/medicina-ocupacional'
         })
     })
     videoModel: CareplusVideoModel = new CareplusVideoModel({
@@ -61,9 +62,12 @@ export class HomeComponent implements OnInit {
     constructor(
         private cdRef: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private plataformId,
-        private windowRef: WindowRef
+        private windowRef: WindowRef,
+        private title: Title,
+        private meta: Meta
     ) {
-        this.isBrowser = isPlatformBrowser(plataformId);
+        this.setSEOInfos();
+        this.isBrowser = isPlatformBrowser(this.plataformId);
     }
 
     ngOnInit() {
@@ -97,5 +101,13 @@ export class HomeComponent implements OnInit {
             top: 0,
             behavior: "smooth"
         })
+    }
+
+    setSEOInfos() {
+        this.title.setTitle('Home | Care Plus');
+        this.meta.updateTag({
+            name: 'description',
+            content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
+        });
     }
 }

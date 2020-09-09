@@ -1,4 +1,4 @@
-    //===============================================================================
+//===============================================================================
 //Web API Usuario
 //
 //===============================================================================
@@ -7,15 +7,14 @@
 //Web API da entidade Usuario para uso do NEOCMS
 //==============================================================================
 
+using Microsoft.EntityFrameworkCore;
+using Neotix.Neocms.CarePlusAPI.Entities;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Entities;
 
 namespace Neotix.Neocms.CarePlusAPI.Helpers
 {
@@ -77,6 +76,16 @@ namespace Neotix.Neocms.CarePlusAPI.Helpers
                 .HasOne(t => t.Tag)
                 .WithMany(x => x.PostTag)
                 .HasForeignKey(f => f.TagId);
+
+            modelBuilder.Entity<EnderecoClinica>()
+                .HasOne(h => h.Clinica)
+                .WithMany(x => x.EnderecoClinica)
+                .HasForeignKey(f => f.ClinicaId);
+
+            modelBuilder.Entity<HorarioClinica>()
+               .HasOne(h => h.Clinica)
+               .WithMany(x => x.HorarioClinica)
+               .HasForeignKey(f => f.ClinicaId);
         }
 
         public DbSet<Usuario> Usuario { get; set; }
@@ -88,6 +97,9 @@ namespace Neotix.Neocms.CarePlusAPI.Helpers
         public DbSet<Newsletter> Newsletter { get; set; }
         public DbSet<Post> Post { get; set; }
         public DbSet<PostTag> PostTag { get; set; }
+        public DbSet<Clinica> Clinica { get; set; }
+        public DbSet<EnderecoClinica> EnderecoClinica { get; set; }
+        public DbSet<HorarioClinica> HorarioClinica { get; set; }
 
         public override int SaveChanges()
         {

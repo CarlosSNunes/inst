@@ -1,8 +1,5 @@
 @import "~src/scss/_variables.scss";
 
-.columns.ac {
-    margin-top: 40px;
-}
 .accordion {
     border: 1px solid getColor(_bupa, _grey-3);
     border-radius: 4px;
@@ -85,6 +82,28 @@
                     margin-top: 0;
                     padding-bottom: 30px;
 
+                    &.disc {
+                        padding: 0 22px;
+                        list-style: disc;
+                    }
+
+                    &.circle {
+                        padding: 0 22px;
+                        list-style-type: circle;
+                    }
+
+                    &.lower-latin {
+                        padding: 0 22px;
+                        list-style: lower-latin;
+
+                        li {
+                            font-weight: bold;
+                            span {
+                                font-weight: normal;
+                            }
+                        }
+                    }
+
                     li {
                         font-style: normal;
                         font-weight: 400;
@@ -92,6 +111,90 @@
                         line-height: 30px;
                         margin: 0;
                         color: getColor(_bupa, _gray-2);
+                    }
+                }
+
+                .m-t-22 {
+                    margin-top: 22px;
+                }
+
+                ol {
+                    margin-top: 22px;
+                    padding: 0 22px;
+
+                    &.no-margin {
+                        margin-top: 0;
+                    }
+                }
+
+                .tg-wrap {
+                    margin-top: 22px;
+                    max-width: 100%;
+                    overflow-x: scroll;
+
+                    table {
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        width: 100%;
+                        background-color: getColor(_bupa, _white);
+                        border: 1px solid getColor(_bupa, _grey-3);
+                        border-radius: 4px;
+
+                        th,
+                        td {
+                            text-align: left;
+                            padding: 8px;
+                            border: unset;
+                        }
+                        thead {
+                            width: 100%;
+                            tr {
+                                background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+                                td {
+                                    padding: 22px 15px;
+                                    font-weight: 500;
+                                    font-size: getSize("p");
+                                    line-height: 100%;
+                                    color: getColor(_bupa, _black);
+                                }
+                            }
+                        }
+
+                        tbody {
+                            width: 100%;
+                            tr {
+                                &:nth-child(even) {
+                                    background-color: #f2f2f2;
+                                }
+
+                                td {
+                                    padding: 22px 15px;
+                                    font-weight: 500;
+                                    font-size: getSize("p");
+                                    line-height: 100%;
+                                    color: getColor(_bupa, _grey-2);
+
+                                    &.custom {
+                                        border-top: 1px solid getColor(_bupa, _grey-3);
+                                        border-right: 1px solid getColor(_bupa, _grey-3);
+                                        vertical-align: middle;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .sub-description {
+                    margin-top: 22px;
+
+                    &.no-margin {
+                        margin-top: 0;
+                    }
+
+                    .underline {
+                        text-decoration: underline;
                     }
                 }
             }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { bannersMock } from './data/banners';
 import { InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
 import { AccreditedNetworkComponent } from 'src/app/modules/components/accredited-network/accredited-network.component';
@@ -29,7 +29,7 @@ export class BeneficiarioComponent implements OnInit {
         imageSrc: 'assets/svg/art-image-one.svg',
         button: new ButtonModel({
             text: 'CONSULTE DIAS E HORÁRIOS',
-            routerLink: '/carreiras-careplus/consulta-facil'
+            routerLink: '/a-careplus/diferenciais/consulta-facil'
         }),
         removeLine: true,
         reverse: true,
@@ -52,11 +52,14 @@ export class BeneficiarioComponent implements OnInit {
             link: '/home'
         }),
         new BreadcrumbModel({
-            name: 'Sou beneficiário',
+            name: 'Sou Beneficiário',
             link: '/home/beneficiario',
             active: true
         }),
     ];
+    scrollTop: number = 0;
+    showBtnToTop: boolean = false;
+
     constructor(
         private windowRef: WindowRef,
         private title: Title,
@@ -66,6 +69,16 @@ export class BeneficiarioComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    @HostListener('window:scroll', ['$event'])
+    onScroll(event) {
+        this.scrollTop = event.currentTarget.pageYOffset;
+        if (this.scrollTop > this.sectionAccreditedNetwork.offsetTop) {
+            this.showBtnToTop = true;
+        } else {
+            this.showBtnToTop = false;
+        }
     }
 
     slideToSection() {
@@ -83,6 +96,14 @@ export class BeneficiarioComponent implements OnInit {
             name: 'description',
             content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
         });
+    }
+
+    goToTop() {
+        this.windowRef.nativeWindow.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: "smooth"
+        })
     }
 
 }

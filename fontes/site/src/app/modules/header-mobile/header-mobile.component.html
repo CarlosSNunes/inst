@@ -20,7 +20,7 @@
         <li>
             <a routerLink="/home/rh" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
                 (click)="toggleDropDown(false)">
-                Sou Gestor de RH
+                Sou RH
             </a>
         </li>
         <li>
@@ -90,7 +90,7 @@
             <ul class="vantagens">
                 <li class="acc1">
                     <a tabindex="0" (click)="expandAccordion('acc1')">
-                        A care plus
+                        A Care Plus
                     </a>
                     <input tabindex="-1" type="checkbox" id="acc1" name="acc1" [checked]="expandedAccordion === 'acc1'">
                     <label tabindex="-1"></label>
@@ -99,9 +99,9 @@
                             <li> <a routerLink="/a-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Home </a></li>
-                            <li> <a routerLink="/a-careplus/documentos" routerLinkActive="active"
+                            <li> <a routerLink="/a-careplus/materiais" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Documentos</a></li>
+                                    tabindex="0">Materiais</a></li>
                             <!-- <li><a routerLink="/a-careplus/premios-e-certificacoes" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Premios e certificações</a></li> -->
@@ -123,9 +123,15 @@
                             <li><a routerLink="/a-careplus/rede-plus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Rede plus</a></li>
-                            <li><a routerLink="/a-careplus/carreiras" routerLinkActive="active"
+                            <li><a routerLink="/a-careplus/diferenciais" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Carreiras</a></li>
+                                    tabindex="0">Diferenciais</a></li>
+                            <li><a routerLink="/a-careplus/diferenciais/consulta-facil" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Consulta Fácil</a></li>
+                            <!-- <li><a routerLink="/carreiras" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Carreiras</a></li> -->
                         </ul>
                     </div>
                 </li>
@@ -137,21 +143,21 @@
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
-                            <li> <a routerLink="/produtos-e-planos-careplus" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Home </a></li>
-                            <li> <a routerLink="/produtos-e-planos-careplus/soho" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/soho" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Soho </a></li>
-                            <li> <a routerLink="/produtos-e-planos-careplus/clube-careplus" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/clube-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Clube Care Plus </a></li>
-                            <li> <a routerLink="/produtos-e-planos-careplus/empresarial" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/empresarial" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Empresarial </a></li>
-                            <li> <a routerLink="/produtos-e-planos-careplus/medicina-ocupacional"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0">Medicina Ocupacional </a></li>
+                            <li> <a routerLink="/planos-e-produtos/medicina-ocupacional" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                                    tabindex="0">Medicina Ocupacional </a></li>
                         </ul>
                     </div>
                 </li>
@@ -199,13 +205,13 @@
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
-                            <li> <a routerLink="/carreiras-careplus" routerLinkActive="active"
+                            <li> <a routerLink="/carreiras" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Home </a></li>
 
-                            <li> <a routerLink="/carreiras-careplus/consulta-facil" routerLinkActive="active"
+                            <li> <a routerLink="/carreiras/vagas" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Consulta Fácil </a></li>
+                                    tabindex="0">Vagas</a></li>
 
                         </ul>
                     </div>
@@ -313,7 +319,7 @@
         </li>
         <li>
             <a routerLink="/fale-conosco" [queryParams]="{
-                planoMedicinal: true
+                medicinaOcupacional: true
             }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <svg *ngIf="actualRoute != '/fale-conosco?planoMedicinal=true'" width="14" height="15"
                     viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">

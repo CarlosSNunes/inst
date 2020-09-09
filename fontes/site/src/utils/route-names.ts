@@ -42,8 +42,8 @@ export const routes: RouteModel[] = [
         description: 'A Careplus'
     }),
     new RouteModel({
-        route: '/a-careplus/documentos',
-        description: 'A Careplus - Documentos'
+        route: '/a-careplus/materiais',
+        description: 'A Careplus - Materiais'
     }),
     new RouteModel({
         route: '/a-careplus/premios-e-certificacoes',
@@ -74,47 +74,47 @@ export const routes: RouteModel[] = [
         description: 'A Careplus - Rede Plus'
     }),
     new RouteModel({
-        route: '/a-careplus/carreiras',
-        description: 'A Careplus - Carreiras'
+        route: '/carreiras',
+        description: 'Carreiras'
     }),
     new RouteModel({
-        route: '/a-careplus/carreiras/vagas',
-        description: 'A Careplus - Carreiras - Vagas'
+        route: '/carreiras/vagas',
+        description: 'Carreiras - Vagas'
     }),
     new RouteModel({
-        route: (number) => `/a-careplus/carreiras/vagas/${number}`,
-        description: 'A Careplus - Carreiras - Detalhes da vaga'
+        route: (number) => `/carreiras/vagas/${number}`,
+        description: 'Carreiras - Detalhes da vaga'
     }),
     new RouteModel({
         route: '/personal-system',
         description: 'Personal System'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus',
+        route: '/planos-e-produtos',
         description: 'Produtos e planos Careplus'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/clube-careplus',
+        route: '/planos-e-produtos/clube-careplus',
         description: 'Produtos e planos - Clube Careplus'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/soho',
+        route: '/planos-e-produtos/soho',
         description: 'Produtos e planos - Soho'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/empresarial',
+        route: '/planos-e-produtos/empresarial',
         description: 'Produtos e planos - Empresarial'
     }),
     new RouteModel({
-        route: '/produtos-e-planos-careplus/medicina-ocupacional',
+        route: '/planos-e-produtos/medicina-ocupacional',
         description: 'Produtos e planos - Medicina Ocupacional'
     }),
     new RouteModel({
-        route: '/carreiras-careplus',
-        description: 'Carreiras'
+        route: '/a-careplus/diferenciais',
+        description: 'Diferenciais'
     }),
     new RouteModel({
-        route: '/carreiras-careplus/consulta-facil',
+        route: '/a-careplus/diferenciais/consulta-facil',
         description: 'Consulta fácil'
     }),
     new RouteModel({

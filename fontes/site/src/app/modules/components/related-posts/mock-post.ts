@@ -8,7 +8,7 @@ export default {
                 "tema 1",
                 "tema 2"
             ],
-            "img": "../assets/img/related-posts-image.png",
+            "img": "assets/img/related-posts-image.png",
             "linkTitle": "Ler artigo",
             "link": "/"
         },

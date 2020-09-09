@@ -3,25 +3,6 @@
 
         <div class="column is-full is-4-desktop">
             <label>
-                Qual o tamanho da sua empresa?
-            </label>
-        </div>
-
-        <div class="column is-full is-8-desktop">
-            <app-dropdown [options]="dropDownItems" [default]="defaultItem" [canUnselect]="false"
-                (setFilter)="selectPlan($event)">
-            </app-dropdown>
-            <div class="field">
-                <div *ngIf="form.plano.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.plano)" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column is-full is-4-desktop">
-            <label>
                 Qual(is) plano(s) ou produto(s) deseja cotar?
             </label>
         </div>
@@ -31,8 +12,9 @@
                 <div class="column is-full is-6 is-paddingless-vertical">
                     <div class="field">
                         <div class="control">
-                            <input formControlName="planoSaude" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }"
-                                class="checkbox" id="planoSaude" type="checkbox" name="plano">
+                            <input formControlName="planoSaude" (change)="updateFormValidation()"
+                                [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" class="checkbox" id="planoSaude"
+                                type="checkbox" name="plano">
                             <label class="checkbox-label" for="planoSaude">
                                 Plano de Saúde
                             </label>
@@ -42,7 +24,7 @@
                 <div class="column is-full is-6 is-paddingless-vertical">
                     <div class="field">
                         <div class="control">
-                            <input formControlName="planoOdontologico"
+                            <input formControlName="planoOdontologico" (change)="updateFormValidation()"
                                 [ngClass]="{ 'is-invalid' : form?.planoOdontologico?.errors }" class="checkbox"
                                 id="planoOdontologico" type="checkbox" name="plano">
                             <label class="checkbox-label" for="planoOdontologico">
@@ -54,14 +36,43 @@
                 <div class="column is-full is-6 is-paddingless-vertical">
                     <div class="field">
                         <div class="control">
-                            <input formControlName="planoMedicinal"
-                                [ngClass]="{ 'is-invalid' : form?.planoMedicinal?.errors }" class="checkbox"
-                                id="planoMedicinal" type="checkbox" name="plano">
-                            <label class="checkbox-label" for="planoMedicinal">
+                            <input formControlName="medicinaOcupacional"
+                                [ngClass]="{ 'is-invalid' : form?.medicinaOcupacional?.errors }" class="checkbox"
+                                id="medicinaOcupacional" type="checkbox" name="plano">
+                            <label class="checkbox-label" for="medicinaOcupacional">
                                 Medicina Ocupacional
                             </label>
                         </div>
                     </div>
+                </div>
+                <div class="columns is-12">
+                    <div class="field">
+                        <div *ngIf="soliciteUmaCotacaoForm.touched && soliciteUmaCotacaoForm?.errors?.requireAtLeastOne"
+                            class="errors">
+                            <p class="help is-danger">
+                                Ao menos um plano deve ser selecionado
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-full is-4-desktop" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
+            <label>
+                Qual o tamanho da sua empresa?
+            </label>
+        </div>
+
+        <div class="column is-full is-8-desktop" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
+            <app-dropdown [options]="dropDownItems" [default]="defaultItem" [canUnselect]="false"
+                (setFilter)="selectPlan($event)">
+            </app-dropdown>
+            <div class="field">
+                <div *ngIf="form.plano.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.plano)" class="help is-danger">
+                        {{error}}
+                    </p>
                 </div>
             </div>
         </div>
@@ -169,10 +180,10 @@
                 <p class="control">
                     <textarea name="mensagem" cols="30" rows="10"
                         [ngClass]="{ 'is-valid': !form.mensagem.errors, 'is-invalid' : form.mensagem.dirty && form.mensagem.errors, 'is-touched': form.mensagem.value.length > 0 }"
-                        class="textarea" formControlName="mensagem" placeholder="Menságem *"></textarea>
+                        class="textarea" formControlName="mensagem" placeholder="Mensagem *"></textarea>
                 </p>
                 <div *ngIf="form.mensagem.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.mensagem, 'Menságem')" class="help is-danger">
+                    <p *ngFor="let error of getErrors(form.mensagem, 'Mensagem')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>

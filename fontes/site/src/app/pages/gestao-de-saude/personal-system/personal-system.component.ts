@@ -4,7 +4,6 @@ import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { simpleBannerModel, consultaFacil, checkupDoViajante, monitoramentoDoCheckup, programaDePrevencao } from './data/personal-system-mocks';
-import SimpleParallax from 'simple-parallax-js';
 import { IconCardsSectionModel, ButtonModel } from 'src/app/models';
 import PersonalizedSectionCards from './data/personalized-section-cards';
 
@@ -43,16 +42,6 @@ export class PersonalSystemComponent implements OnInit {
     }
 
     ngOnInit() {
-    }
-
-    ngAfterViewInit() {
-        if (this.isBrowser) {
-            const sections: any = this.elementRef.nativeElement.querySelectorAll('app-info-section img')
-
-            new SimpleParallax(sections, {
-                orientation: 'down'
-            });
-        }
     }
 
     setSEOInfos() {

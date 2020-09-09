@@ -145,7 +145,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers {
 
             Categoria categoria = await _categoriasService.Buscar (id);
 
-            await _categoriasService.Excluir (id);
+            await _categoriasService.Excluir (categoria.Id);
 
             return Ok ();
         }

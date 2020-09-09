@@ -1,9 +1,23 @@
 @import "~src/scss/_variables";
 .image-slider {
     margin-top: 50px;
+
+    &.has-background-color-white {
+        ::ng-deep ng-image-slider {
+            .img-div {
+                .caption {
+                    background-color: getColor(_bupa, _white);
+                }
+
+                &.has-modal {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
     ::ng-deep ng-image-slider {
         .img-div {
-            cursor: pointer;
             border-radius: 2px !important;
             background: getColor(_bupa, _white);
             opacity: 0.6;

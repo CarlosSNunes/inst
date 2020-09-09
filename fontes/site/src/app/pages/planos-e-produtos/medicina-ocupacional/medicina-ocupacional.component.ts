@@ -17,13 +17,13 @@ export class MedicinaOcupacionalComponent implements OnInit {
     secondCard = secondCard;
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
         smallTitle: 'SERVIÇOS PERSONALIZADOS',
-        bigTitle: 'Soluções personalizadas em medicina ocupacional para a sua empresa',
-        subDescription: 'Conte com os melhores serviços de medicina ocupacional. Todos eles seguem à risca as Normas Regulamentadoras (NRs). Confira quais são:',
+        bigTitle: 'Soluções personalizadas em Medicina Ocupacional para a sua empresa',
+        subDescription: 'Conte com os melhores serviços de Medicina Ocupacional. Todos eles seguem à risca as Normas Regulamentadoras (NRs). Confira quais são:',
         button: new ButtonModel({
             text: 'SOLICITE UMA COTAÇÃO',
             routerLink: '/fale-conosco',
             queryParams: {
-                planoMedicinal: true
+                medicinaOcupacional: true
             }
         }),
         cards: PersonalizedServicesCards,

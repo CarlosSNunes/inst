@@ -10,11 +10,11 @@ export const simpleBannerModel: SimpleBannerModel = {
         }),
         new BreadcrumbModel({
             name: 'Planos e Produtos',
-            link: '/produtos-e-planos-careplus'
+            link: '/planos-e-produtos'
         }),
         new BreadcrumbModel({
             name: ' Medicina Ocupacional',
-            link: '/produtos-e-planos-careplus/medicina-ocupacional',
+            link: '/planos-e-produtos/medicina-ocupacional',
             active: true
         })
     ],
@@ -59,7 +59,7 @@ export const occupationalSection: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'MEDICINA OCUPACIONAL',
     bigTitle: 'Excelência médica personalizada + eficiência administrativa',
     subDescriptions: [
-        'Além de oferecer qualidade no atendimento de saúde, o serviço de medicina ocupacional também contribui com a gestão de pessoas da sua empresa.',
+        'Além de oferecer qualidade no atendimento de saúde, o serviço de Medicina Ocupacional também contribui com a gestão de pessoas da sua empresa.',
         'Todas as nossas soluções propiciam facilidades e um ambiente mais seguro e agradável.',
         'Acreditamos que pessoas sadias e felizes trabalham mais motivadas e resultam em maior produtividade.'
     ],
@@ -73,7 +73,7 @@ export const secondCard: IconCardModel = new IconCardModel({
         text: 'Clique e solicite cotação',
         routerLink: '/fale-conosco',
         queryParams: {
-            planoMedicinal: true
+            medicinaOcupacional: true
         }
     }),
     imagePath: 'assets/svg/calendar.svg'

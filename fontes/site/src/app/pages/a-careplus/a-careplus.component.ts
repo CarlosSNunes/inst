@@ -57,6 +57,7 @@ import { Title, Meta } from '@angular/platform-browser';
             height: '364px',
             space: 16
         },
+        hasBackgroundColorWhite: true,
         images: [
             {
                 image: 'assets/img/slider-video-image.jpg',
@@ -69,24 +70,6 @@ import { Title, Meta } from '@angular/platform-browser';
                 thumbImage: 'assets/img/slider-video-image-2.jpg',
                 alt: 'alt of image',
                 title: 'O cuidado está no coração de tudo o que fazemos.'
-            },
-            {
-                image: 'assets/img/slider-video-image.jpg',
-                thumbImage: 'assets/img/slider-video-image.jpg',
-                alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
-            },
-            {
-                image: 'assets/img/slider-video-image-2.jpg',
-                thumbImage: 'assets/img/slider-video-image-2.jpg',
-                alt: 'alt of image',
-                title: 'O cuidado está no coração de tudo o que fazemos.'
-            },
-            {
-                image: 'assets/img/slider-video-image.jpg',
-                thumbImage: 'assets/img/slider-video-image.jpg',
-                alt: 'alt of image',
-                title: 'Oferecendo à sua empresa escolha e flexibilidade.'
             },
         ]
     });
@@ -164,7 +147,7 @@ import { Title, Meta } from '@angular/platform-browser';
         this.title.setTitle('A Care Plus | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Referência em planos de saúde, planos odontológicos e medicina ocupacional.'
+            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
         });
     }
 
