@@ -4,7 +4,7 @@ export default [
     new IconCardModel({
         "type": "icon",
         "title": "Programas Preventivos",
-        "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento para que os beneficiários tenham uma vida saudável.",
+        "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento, uma vida saudável.",
         "imagePath": "assets/svg/shield.svg",
         "routerLink": "/gestao-de-saude/programas-preventivos"
     }),

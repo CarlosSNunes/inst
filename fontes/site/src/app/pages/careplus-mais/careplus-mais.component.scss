@@ -54,7 +54,6 @@ section {
                                             justify-content: space-between;
                                             li {
                                                 display: inline;
-                                                margin: 8px 0;
 
                                                 a {
                                                     font-weight: normal;
@@ -62,9 +61,13 @@ section {
                                                     line-height: getLineHeight("p");
                                                     color: getColor(_bupa, _grey-2);
 
+                                                    &:hover {
+                                                        color: getColor(_bupa, _digital-cian);
+                                                    }
+
                                                     &.active {
                                                         font-weight: 500;
-                                                        color: getColor(_bupa, _grey);
+                                                        color: getColor(_bupa, _digital-cian);
                                                     }
                                                 }
                                             }

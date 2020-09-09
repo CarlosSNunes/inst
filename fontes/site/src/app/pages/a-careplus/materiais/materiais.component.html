@@ -8,56 +8,6 @@
                         <form [formGroup]="filterForm">
                             <ul>
                                 <li>
-                                    Filtros:
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="all" name="document" id="radioAll" />
-                                            <label class="radio-label" for="radioAll">Todos</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="beneficiario" name="document"
-                                                id="radioBeneficiary" />
-                                            <label class="radio-label" for="radioBeneficiary">Beneficiário</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="gestor" name="document" id="radioManager" />
-                                            <label class="radio-label" for="radioManager">Gestor de RH</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="corretor" name="document" id="radioSeller" />
-                                            <label class="radio-label" for="radioSeller">Corretor</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="credenciado" name="document"
-                                                id="radioAccredited" />
-                                            <label class="radio-label" for="radioAccredited">Credenciado</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
                                     <div class="field">
                                         <p class="control has-icons-right">
                                             <input [ngClass]="{ 'is-touched': form.search.value?.length > 0 }"
@@ -81,6 +31,9 @@
                     </div>
                 </div>
             </div>
+            <p class="no-results" *ngIf="documentsFiltered.length == 0">
+                Sem resultados, tente novamente usando outros termos.
+            </p>
             <app-documents [documents]="documentsFiltered"></app-documents>
         </div>
     </article>

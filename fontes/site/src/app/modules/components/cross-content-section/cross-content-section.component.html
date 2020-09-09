@@ -16,7 +16,8 @@
                                 {{crossContentModel?.boxContent?.description}}
                             </div>
                             <a *ngIf="crossContentModel?.boxContent?.button?.routerLink"
-                                [routerLink]="[crossContentModel?.boxContent?.button?.routerLink]" class="btn btn-text small">
+                                [routerLink]="[crossContentModel?.boxContent?.button?.routerLink]"
+                                class="btn btn-text small">
                                 {{crossContentModel?.boxContent?.button?.text}}
                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -26,8 +27,9 @@
                                 </svg>
                             </a>
 
-                            <a *ngIf="crossContentModel?.boxContent?.button?.link" [attr.href]="crossContentModel?.boxContent?.button?.link"
-                                class="btn btn-text small">
+                            <a *ngIf="crossContentModel?.boxContent?.button?.link"
+                                [href]="crossContentModel?.boxContent?.button?.link"
+                                [target]="crossContentModel?.boxContent?.button?.target" class="btn btn-text small">
                                 saiba mais
                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +45,9 @@
                                 <img [src]="crossContentModel?.firstImage?.src"
                                     [alt]="crossContentModel?.firstImage?.alt">
                             </a>
-                            <a *ngIf="crossContentModel?.boxContent?.button?.link" [href]="[crossContentModel?.boxContent?.button?.link]">
+                            <a *ngIf="crossContentModel?.boxContent?.button?.link"
+                                [href]="[crossContentModel?.boxContent?.button?.link]"
+                                [target]="crossContentModel?.boxContent?.button?.target">
                                 <img [src]="crossContentModel?.firstImage?.src"
                                     [alt]="crossContentModel?.firstImage?.alt">
                             </a>
@@ -54,7 +58,9 @@
                                 <img [src]="crossContentModel?.secondImage?.src"
                                     [alt]="crossContentModel?.secondImage?.alt">
                             </a>
-                            <a *ngIf="crossContentModel?.boxContent?.button?.link" [href]="[crossContentModel?.boxContent?.button?.link]">
+                            <a *ngIf="crossContentModel?.boxContent?.button?.link"
+                                [href]="[crossContentModel?.boxContent?.button?.link]"
+                                [target]="crossContentModel?.boxContent?.button?.target">
                                 <img [src]="crossContentModel?.secondImage?.src"
                                     [alt]="crossContentModel?.secondImage?.alt">
                             </a>

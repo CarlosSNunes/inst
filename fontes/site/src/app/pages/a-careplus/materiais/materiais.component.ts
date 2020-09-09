@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreadcrumbModel, SimpleBannerModel } from 'src/app/models';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
-import Documents from '../../../modules/components/documents/data/documents';
+import Materias from './data/materials';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
@@ -49,7 +49,7 @@ export class MateriaisComponent implements OnInit {
         })
     ];
     filterForm: FormGroup;
-    documents = Documents;
+    documents = Materias;
     documentsFiltered = this.documents;
 
     constructor(

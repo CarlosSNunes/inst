@@ -25,7 +25,7 @@
                 display: block;
             }
 
-            &:first-child{
+            &:first-child {
                 padding-left: 0;
             }
 
@@ -248,6 +248,19 @@
                 padding: 8px;
                 p {
                     font-size: 12px;
+                }
+            }
+        }
+
+        .hospitals-list {
+            overflow-y: scroll;
+            table {
+                thead {
+                    tr {
+                        td {
+                            padding: 24px 8px;
+                        }
+                    }
                 }
             }
         }

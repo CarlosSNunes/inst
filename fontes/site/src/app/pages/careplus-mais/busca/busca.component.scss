@@ -135,17 +135,6 @@ section {
                     }
                 }
             }
-
-            .no-results {
-                margin-top: 55px;
-                width: 100%;
-                font-weight: normal;
-                font-size: getSize('mbt');
-                line-height: getLineHeight('mbt');
-                display: block;
-                text-align: center;
-                color: getColor(_bupa, _grey);
-            }
         }
     }
 }

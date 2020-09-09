@@ -330,7 +330,7 @@ export default {
             new IconCardModel({
                 "type": "icon",
                 "title": "Programas Preventivos",
-                "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento para que os beneficiários tenham uma vida saudável.",
+                "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento, uma vida saudável.",
                 "imagePath": "assets/svg/shield.svg",
                 "routerLink": "/gestao-de-saude/programas-preventivos"
             }),
@@ -365,7 +365,7 @@ export default {
         subDescriptions: [
             'As clínicas Care Plus Clinic foram desenvolvidas para oferecer aos nossos pacientes serviços de saúde com excelência técnica, conforto e qualidade excepcional de atendimento.',
             'Elas contam com o que há de mais moderno e eficiente, obedecendo ao mais alto grau de exigência para estabelecimentos de saúde determinado pela ANVISA, que assegura os mais rígidos padrões de qualidade e excelência.',
-            'Temos clínicas na Vila Olímpia e CENU, em São Paulo e no Barra Sul Shopping, no Rio de Janeiro.',
+            'Temos clínicas na Vila Olímpia e Brooklin, em São Paulo e no Barra Sul Shopping, no Rio de Janeiro.',
         ],
         imageSrc: 'assets/img/clinic-section.jpg',
         reverse: true,

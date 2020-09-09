@@ -3,7 +3,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-full is-6-desktop image-col" [ngClass]="[post?.tipoImagem]">
-                    <a [routerLink]="['/']">
+                    <a [routerLink]="['/careplus-mais/' + post?.slug]">
                         <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem">
                     </a>
                 </div>
