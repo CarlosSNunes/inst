@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Projects\\Neotix\\Careplus\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
+  "FilePath": "c:\\Projects\\neotix\\careplus-cms\\fontes\\api\\CarePlusAPI\\CarePlusAPI\\CarePlusAPI.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14387,7 +14387,7 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 800
+    "CSharpLanguageVersion": 900
   },
   "RootNamespace": "CarePlusAPI",
   "Documents": [],
