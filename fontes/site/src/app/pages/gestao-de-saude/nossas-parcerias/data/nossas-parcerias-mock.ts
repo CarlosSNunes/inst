@@ -9,7 +9,7 @@ export const simpleBannerModel: SimpleBannerModel = {
             link: '/home'
         }),
         new BreadcrumbModel({
-            name: 'Gestão de saúde',
+            name: 'Gestão de Saúde',
             link: '/gestao-de-saude'
         }),
         new BreadcrumbModel({

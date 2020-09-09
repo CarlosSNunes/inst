@@ -15,7 +15,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
             link: '/gestao-de-saude',
         }),
         new BreadcrumbModel({
-            name: 'Serviços online',
+            name: 'Serviços Online',
             link: '/gestao-de-saude/servicos-online',
             active: true
         })

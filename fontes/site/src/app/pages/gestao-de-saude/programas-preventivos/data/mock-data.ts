@@ -14,7 +14,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
             link: '/gestao-de-saude',
         }),
         new BreadcrumbModel({
-            name: 'Programas preventivos',
+            name: 'Programas Preventivos',
             link: '/gestao-de-saude/programas-preventivos',
             active: true
         })

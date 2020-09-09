@@ -23,7 +23,7 @@ export class GestaoDeSaudeComponent implements OnInit {
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'Gestão de saude',
+                name: 'Gestão de Saude',
                 link: '/gestao-de-saude',
                 active: true
             })

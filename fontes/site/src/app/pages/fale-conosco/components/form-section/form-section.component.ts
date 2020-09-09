@@ -15,7 +15,7 @@ export class FormSectionComponent implements OnInit {
             link: '/home',
         }),
         new BreadcrumbModel({
-            name: 'Fale conosco',
+            name: 'Fale Conosco',
             link: '/fale-conosco',
             active: true
         })
