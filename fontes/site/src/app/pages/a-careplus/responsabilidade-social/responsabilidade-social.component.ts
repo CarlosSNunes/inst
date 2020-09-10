@@ -82,7 +82,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
     cards: IconCardModel[] = [
         new IconCardModel({
             "type": "icon",
-            "title": "Perguntas frequentes",
+            "title": "Perguntas Frequentes",
             "description": "Um espaço para você esclarecer todas as suas dúvidas, serviços disponíveis, rede credenciada e muito mais.",
             "imagePath": "assets/svg/faq.svg",
             "backgroundColorClass": "white-background-color",

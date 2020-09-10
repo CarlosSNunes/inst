@@ -1,7 +1,7 @@
 import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel } from 'src/app/models';
 
 export const simpleBannerModel: SimpleBannerModel = {
-    title: 'Programa empresariais',
+    title: 'Programa Empresariais',
     description: 'Conte com as melhores soluções em saúde para a sua empresa e os seus funcionários. Conheça todos os serviços!',
     breadcrumbs: [
         new BreadcrumbModel({

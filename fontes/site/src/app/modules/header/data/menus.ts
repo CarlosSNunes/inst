@@ -191,7 +191,7 @@ export default [
                         routerLink: '/gestao-de-saude/programas-empresariais'
                     }),
                     new SubMenuItem({
-                        title: 'Nossas parcerias',
+                        title: 'Nossas Parcerias',
                         routerLink: '/gestao-de-saude/nossas-parcerias'
                     }),
                 ]
