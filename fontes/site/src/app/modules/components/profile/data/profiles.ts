@@ -1,6 +1,6 @@
 export default [
     {
-        "title": "Sou beneficiário",
+        "title": "Sou Beneficiário",
         "description": "Para você, que possui um plano de saúde e/ou um plano odontológico da Care Plus.",
         "link": "/home/beneficiario",
         "image": "assets/svg/Beneficiário.svg",
@@ -16,7 +16,7 @@ export default [
         "active": false
     },
     {
-        "title": "Sou corretor",
+        "title": "Sou Corretor",
         "description": "Para você, que possui um plano de saúde e/ou um plano odontológico da Care Plus.",
         "link": "/home/corretor",
         "image": "assets/svg/Corretor.svg",
@@ -24,7 +24,7 @@ export default [
         "active": false
     },
     {
-        "title": "Sou credenciado",
+        "title": "Sou Credenciado",
         "description": "Para você, que possui um plano de saúde e/ou um plano odontológico da Care Plus.",
         "link": "/home/credenciado",
         "image": "assets/svg/Credenciado.svg",

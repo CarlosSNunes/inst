@@ -48,7 +48,7 @@ export class PlanosEProdutosComponent implements OnInit {
         new PlanCardModel({
             title: 'Care Plus Empresarial',
             subTitle: 'Para mais de 200 vidas',
-            description: 'O Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
+            description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
             button: new ButtonModel({
                 text: 'SAIBA MAIS',
                 routerLink: '/planos-e-produtos/empresarial'

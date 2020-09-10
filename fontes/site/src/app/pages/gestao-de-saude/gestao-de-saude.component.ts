@@ -41,7 +41,7 @@ export class GestaoDeSaudeComponent implements OnInit {
             removeLine: true
         }),
         new InfoSectionModel({
-            bigTitle: 'Programas preventivos',
+            bigTitle: 'Programas Preventivos',
             subDescription: 'Tomar uma atitude somente quando há uma doença aparente é um erro que deve ser evitado. Pensando nisso, a Care Plus criou programas preventivos para você começar a cuidar da saúde o quanto antes. Assim, além de reduzir o risco de patologias, você pode levar uma vida muito mais saudável e segura.',
             imageSrc: 'assets/img/section-programas-preventivos-gestao-de-saude-home.jpg',
             alignCenter: true,
@@ -78,7 +78,7 @@ export class GestaoDeSaudeComponent implements OnInit {
             })
         }),
         new InfoSectionModel({
-            bigTitle: 'Programas empresariais',
+            bigTitle: 'Programas Empresariais',
             subDescription: 'A Care Plus oferece alguns atendimentos de médicos, nutricionistas, enfermeiras(os) e psicólogos nas empresas clientes. Conheça mais sobre esses programas e nossa equipe altamente capacitada.',
             imageSrc: 'assets/img/section-programas-empresariais-image-gestao-de-saude-home.jpg',
             alignCenter: true,
@@ -89,7 +89,7 @@ export class GestaoDeSaudeComponent implements OnInit {
             })
         }),
         new InfoSectionModel({
-            bigTitle: 'Nossas parcerias',
+            bigTitle: 'Nossas Parcerias',
             subDescription: 'Sempre buscando as melhores soluções, estabelecemos parcerias estratégicas com algumas empresas. Dessa forma, além de estendermos a nossa atuação e a de nossos parceiros, conseguimos oportunizar uma experiência ainda mais completa para todos os beneficiários.',
             imageSrc: 'assets/img/section-nossas-parcerias-image-gestao-de-saude-home.jpg',
             alignCenter: true,

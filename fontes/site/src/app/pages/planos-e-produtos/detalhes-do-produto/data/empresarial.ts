@@ -5,7 +5,7 @@ export default {
     name: 'Empresarial',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Empresarial: planos para mais de 200 vidas',
-        description: 'O Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
+        description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
         image: 'assets/img/clube-careplus-banner.jpg',
         breadcrumbs: [
             new BreadcrumbModel({
@@ -26,7 +26,7 @@ export default {
     }),
     aboutPlan: new InfoSectionModel({
         smallTitle: 'SOBRE O PLANO',
-        bigTitle: 'Saiba mais sobre o Empresarial e como contratá-lo',
+        bigTitle: 'Saiba mais sobre o Care Plus Empresarial e como contratá-lo',
         subDescriptions: [
             'Para empresas com mais de 200 colaboradores que buscam um plano de saúde com características diferenciadas e, acima de tudo, que possam contar com um parceiro na gestão para que seu benefício seja saudável, o Care Plus Empresarial é a melhor opção.',
             'Esse produto disponibiliza diversos diferenciais voltados a comodidade, praticidade, qualidade e, acima de tudo, muita segurança. Nossos beneficiários do Care Plus Empresarial contam com uma jornada de muito acolhimento e cuidado.',
@@ -292,7 +292,7 @@ export default {
         smallTitle: 'ODONTOLÓGICO',
         bigTitle: 'Saiba como funcionam os Planos Odontológicos',
         description: 'Temos planos odontológicos que se encaixam nas necessidades de sua empresa',
-        subDescription: 'Nossos planos odontológicos também fazem parte das classificações: Soho, Clube Care Plus e Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
+        subDescription: 'Nossos planos odontológicos também fazem parte das classificações: Care Plus Soho, Clube Care Plus e Care Plus Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
         imageSrc: 'assets/img/dental-plan.jpg',
         button: new ButtonModel({
             text: 'SOLICITE UMA COTAÇÃO',

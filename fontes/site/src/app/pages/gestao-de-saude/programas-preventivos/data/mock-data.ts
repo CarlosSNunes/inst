@@ -2,7 +2,7 @@ import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, ButtonModel, Icon
 import PersonalizedSectionCards from './personalized-section-cards';
 
 export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
-    title: 'Programas preventivos',
+    title: 'Programas Preventivos',
     description: 'A hora de cuidar da sua saúde é agora. Conheça os nossos programas preventivos e descubra o ideal para você.',
     breadcrumbs: [
         new BreadcrumbModel({
