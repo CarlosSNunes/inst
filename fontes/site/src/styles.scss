@@ -134,6 +134,13 @@ vg-playback-button {
     pointer-events: none;
 }
 
+.simpleParallax {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000;
+    -webkit-perspective: 1000;
+}
+
 .flex-wrap {
     flex-wrap: wrap;
 }
