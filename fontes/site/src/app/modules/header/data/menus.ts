@@ -107,7 +107,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
-                        routerLink: '/fale-conosco/fale-conosco',
+                        routerLink: '/fale-conosco/contato',
                     }),
                     new SubMenuItem({
                         title: 'Canal De Denúncias',
@@ -210,7 +210,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
-                        routerLink: '/fale-conosco/fale-conosco',
+                        routerLink: '/fale-conosco/contato',
                     }),
                     new SubMenuItem({
                         title: 'Canal De Denúncias',
@@ -334,7 +334,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
-                        routerLink: '/fale-conosco/fale-conosco',
+                        routerLink: '/fale-conosco/contato',
                     }),
                     new SubMenuItem({
                         title: 'Canal De Denúncias',

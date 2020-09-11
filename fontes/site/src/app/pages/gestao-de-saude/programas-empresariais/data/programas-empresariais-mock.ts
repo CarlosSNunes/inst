@@ -25,7 +25,7 @@ export const simpleBannerModel: SimpleBannerModel = {
 
 export const campanhaDeQuestionariosSection: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Circuito de aferições e Campanhas de questionários',
+    bigTitle: 'Circuito de Aferições e Campanhas de Questionários ',
     subDescriptions: [
         'Neste serviço, a Care Plus investiga o perfil de saúde dos funcionários por meio de um questionário.',
         'Assim, de acordo com as características identificadas, os beneficiários podem ser encaminhados para acompanhamentos e tratamentos adequados, disponíveis nos programas da Gestão de Saúde.'
@@ -54,6 +54,7 @@ export const nutriMais: InfoSectionModel = new InfoSectionModel({
         'Este programa, que funciona como uma consultoria em nutrição realizada por profissionais capacitados, tem como finalidade oferecer soluções nutricionais personalizadas para as empresas, de acordo com as necessidades e a cultura organizacional.'
     ],
     imageSrc: 'assets/img/section-nutri-mais-gestao-de-saude-image.jpg',
+    reverse: true,
     removeLine: false,
     objectFit: 'cover',
 });

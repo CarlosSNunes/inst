@@ -39,7 +39,7 @@ export const mommyCareSection = new InfoSectionModel({
 
 export const prevencaoDeDoencasCardiovascularesSection = new InfoSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Prevenção de doenças cardiovasculares',
+    bigTitle: 'Gerenciamento de Doenças Crônicas',
     subDescriptions: [
         'Prevenir as doenças cardiovasculares deve ser uma prioridade na vida de homens e mulheres. Por isso, para apoiar essa premissa, a Gestão de Saúde desenvolveu um programa completo de cuidado com os beneficiários. <br/> Além de atendimento com equipe multidisciplinar na clínica Personal System para avaliação e orientação, os integrantes do programa têm acesso a uma série de vantagens e comodidades. Entre elas:',
         '- Realização de exames (medição de taxa metabólica de repouso e bioimpedância) <br/> - Atendimento online com nutricionistas e psicólogos <br/> - Descontos exclusivos nos parceiros de alimentação saudável e assessoria esportiva <br/> - Auxílio para aquisição de medicamentos e muito mais!'
@@ -78,7 +78,7 @@ export const mentalHealth = new InfoSectionModel({
 
 export const cuidadosDaFamilia = new InfoSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Cuidados da Família',
+    bigTitle: 'Cuidado da Família',
     subDescriptions: [
         'Programa dedicado às famílias que têm crianças com necessidades especiais',
         'Os familiares de crianças portadoras de Transtorno do Espectro Autista (TEA) e outras condições genéticas, como a Síndrome de Down, podem participar deste programa de acolhimento.',
@@ -91,7 +91,7 @@ export const cuidadosDaFamilia = new InfoSectionModel({
 
 export const programaDeCuidadoOncologico = new InfoSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Programa de cuidado oncológico',
+    bigTitle: 'Programa de Cuidado Oncológico',
     subDescriptions: [
         'Enfrentar o câncer exige uma rede de apoio forte. Por isso, a Care Plus oferece o cuidado centrado no paciente, com atendimento especializado em oncologia, como médicos e nutricionistas, para prevenir ou reverter situações evitáveis e o declínio do estado nutricional.',
         'São elegíveis para o acompanhamento os beneficiários de todas as faixas etárias com diagnóstico de câncer em qualquer etapa do tratamento, além de pacientes considerados curados.',
@@ -102,10 +102,10 @@ export const programaDeCuidadoOncologico = new InfoSectionModel({
             text: 'Cirúrgicos - Pré e/ou Pós'
         },
         {
-            text: 'Não cirúrgicos - Imunoterapia, hormonoterapia, quimioterapia e radioterapia;'
+            text: 'Não cirúrgicos - Imunoterapia, hormonoterapia, quimioterapia e radioterapia'
         },
         {
-            text: 'Grupos de controle - Sobreviventes do câncer ou considerados curados.'
+            text: 'Grupos de controle - Sobreviventes do câncer ou considerados curados'
         }
     ],
     reverse: true,
