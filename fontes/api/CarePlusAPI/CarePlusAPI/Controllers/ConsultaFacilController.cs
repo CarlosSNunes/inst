@@ -56,8 +56,8 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [AllowAnonymous]
         [HttpGet]
+        [Authorize(Roles = "Editor, Visualizador, Colaborador, Administrador")]
         public async Task<IActionResult> Get()
         {
             List<Clinica> result = await _consultaFacilService.Listar();
@@ -76,6 +76,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id da Clinica</param>        
         [HttpGet("{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Colaborador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -97,6 +98,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="data">Id do Post</param>
         [HttpGet("{data}")]
+        [Authorize(Roles = "Editor, Visualizador, Colaborador, Administrador")]
         public async Task<IActionResult> GetByDate(DateTime data)
         {
             if (data.Equals(null))
@@ -118,6 +120,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um Post</param>
         [HttpPost]
+        [Authorize(Roles = "Editor, Colaborador, Administrador")]
         public async Task<IActionResult> Post([FromForm] ConsultaFacilCreateModel model)
         {
             if (model == null)
@@ -149,6 +152,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de atualização de um Post</param>
         [HttpPut]
+        [Authorize(Roles = "Editor, Colaborador, Administrador")]
         public async Task<IActionResult> Put([FromForm] ConsultaFacilUpdateModel model)
         {
             if (model == null)
@@ -181,6 +185,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id da Clinica</param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Editor, Colaborador, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
