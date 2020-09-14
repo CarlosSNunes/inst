@@ -21,6 +21,7 @@
                     <div class="accordion-wrapper">
                         <div class="accordion-item open" [class.active]="differential.active"
                             *ngFor="let differential of differentials; let i = index;">
+                            <div class="height-percentage"></div>
                             <h2 class="accordion-item-heading" [class.active]="differential.active"
                                 (click)="activate(i)">
                                 {{differential.title}}

@@ -42,10 +42,6 @@ section.is-rede-plus {
                     -webkit-animation: bottomToTop 0.6s;
                 }
 
-                .columns {
-                    height: 100%;
-                }
-
                 @keyframes bottomToTop {
                     0% {
                         top: 30%;
@@ -251,7 +247,10 @@ section.is-rede-plus {
                 line-height: 150%;
                 color: getColor(_bupa, _white);
                 svg {
-                    margin-right: 10px;
+                    min-width: 32px;
+                }
+                span {
+                    margin-left: 10px;
                 }
             }
 

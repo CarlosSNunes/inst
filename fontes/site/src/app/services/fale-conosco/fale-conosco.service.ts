@@ -7,7 +7,6 @@ import {
     GravarFaleConoscoSaida,
     GravarCanalDenunciaEntrada,
     GravarCanalDenunciaSaida,
-    CaptchaSaida,
     BuscarAssuntoOuvidoriaSaida,
     BuscarClassificacaoOuvidoriaSaida,
     GravarOuvidoriaEntrada,
@@ -21,10 +20,6 @@ export class FaleConoscoService {
     constructor(private http: HttpClient) { }
 
     private url = `${environment.API_URL}/fale-conosco/`;
-
-    getCaptcha(): Promise<CaptchaSaida> {
-        return this.http.get<CaptchaSaida>(`${this.url}captcha`).toPromise();
-    }
 
     getListaTipoAssuntoFaleConosco(): Promise<ListaTipoAssuntoFaleConosco> {
         return this.http.get<ListaTipoAssuntoFaleConosco>(`${this.url}tipo-assunto-fale-conosco`).toPromise();

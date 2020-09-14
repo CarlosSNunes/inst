@@ -84,7 +84,7 @@ export class PlusNetworkComponent implements OnInit {
 
     async getBanners() {
         try {
-            this.banners = await this.bannerService.getAll('plus-network')
+            this.banners = await this.bannerService.getByArea('plus-network')
         } catch (error) {
             console.log(error)
         }
