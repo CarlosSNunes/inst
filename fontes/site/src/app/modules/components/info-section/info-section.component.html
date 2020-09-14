@@ -38,7 +38,8 @@
                     <!-- With routerLink-->
 
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
-                        [queryParams]="sectionInfo?.button?.queryParams" class="btn btn-primary medium is-hidden-touch">
+                        [queryParams]="sectionInfo?.button?.queryParams" class="btn medium is-hidden-touch"
+                        [ngClass]="sectionInfo?.button?.class">
                         {{sectionInfo?.button?.text}}
                     </a>
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
@@ -54,7 +55,7 @@
                     <!-- With href-->
 
                     <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
-                        class="btn btn-primary medium is-hidden-touch">
+                        class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class">
                         {{sectionInfo?.button?.text}}
                     </a>
                     <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
@@ -69,7 +70,7 @@
 
                     <!-- With Action -->
                     <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"
-                        class="btn btn-primary medium is-hidden-touch">
+                        class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class">
                         {{sectionInfo?.button?.text}}
                     </a>
                     <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"

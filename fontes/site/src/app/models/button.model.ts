@@ -8,6 +8,7 @@ export class ButtonModel {
     title?: string;
     link?: string;
     routerLink?: string;
+    class: string = 'btn-primary';
     target: string;
     queryParams: { [key: string]: any }
     action?: Function;
