@@ -28,7 +28,6 @@ namespace Neotix.Neocms.CarePlusAPI.Services
         Task Criar(Post model);
         Task Atualizar(Post model);
         Task Excluir(int id);
-        //Task ExcluirBlocos(int id);
         //Task ExcluirTags(int id);
     }
 

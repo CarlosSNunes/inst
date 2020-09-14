@@ -59,8 +59,8 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [AllowAnonymous]
         [HttpGet]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             List<Banner> banners = await _bannerService.Listar();
@@ -79,6 +79,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do homeBanner</param>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -100,6 +101,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="area">Id do homeBanner</param>
         [HttpGet("getByArea/{area}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetByArea(string area, int offset, int limit)
         {
             if (string.IsNullOrEmpty(area))
@@ -121,6 +123,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um homeBanner</param>
         [HttpPost]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] BannerCreateModel model)
         {
             if (model == null)
@@ -181,6 +184,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de atualização de um homeBanner</param>
         [HttpPut]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromForm] BannerUpdateModel model)
         {
             if (model == null)
@@ -254,6 +258,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do homeBanner</param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)

@@ -21,6 +21,8 @@ namespace Neotix.Neocms.CarePlusAPI.Entities
         public int Id { get; set; }
         [Column("DESCRICAO")]
         public string Descricao { get; set; }
+        [Column("PRIORIDADE")]
+        public int Prioridade { get; set; }
         public virtual List<UsuarioPerfil> UsuarioPerfil { get; set; }
     }
 }
