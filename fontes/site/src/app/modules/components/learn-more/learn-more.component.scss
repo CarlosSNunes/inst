@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#learnMore {
+section#learn-more {
     .small-title {
         color: getColor(_bupa, _digital-cian);
     }
@@ -42,7 +42,7 @@ section#learnMore {
 }
 
 @media (max-width: 1023px) {
-    section#learnMore {
+    section#learn-more {
         .small-title {
             text-align: center;
         }

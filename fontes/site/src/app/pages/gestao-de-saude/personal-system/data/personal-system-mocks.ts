@@ -67,7 +67,7 @@ export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
     objectFit: 'cover'
 });
 
-export const programaDePrevencao: InfoSectionModel = new InfoSectionModel({
+export const gerenciamentoDeDoencasCronicas: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',
     bigTitle: 'Gerenciamento de Doenças Crônicas',
     subDescriptions: [

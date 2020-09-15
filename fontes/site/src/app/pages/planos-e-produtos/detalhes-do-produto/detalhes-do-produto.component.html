@@ -4,7 +4,7 @@
     </p>
     <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma cotação">
 </div>
-<app-simple-banner [simpleBannerModel]="findedPlan?.simpleBannerModel" (goToNextSection)="goToSection('#aboutPlan')">
+<app-simple-banner [simpleBannerModel]="findedPlan?.simpleBannerModel" (goToNextSection)="goToSection('#about-plan')">
 </app-simple-banner>
 <div class="anchor-buttons">
     <div class="container">
@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-<app-info-section id="aboutPlan" [sectionInfo]="findedPlan?.aboutPlan"></app-info-section>
+<app-info-section id="about-plan" [sectionInfo]="findedPlan?.aboutPlan"></app-info-section>
 <app-plans-infos id="products" [plan]="findedPlan" (setSelectedOptionId)="selectedOptionId = $event"
     [selectedOptionId]="selectedOptionId" [backgroundColorClass]="'blue-background-color'">
 </app-plans-infos>
@@ -27,7 +27,7 @@
 <app-icon-cards-section id="products" [iconCardsSectionModel]="findedPlan?.iconCardsSectionModel"
     [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
 <app-info-section [sectionInfo]="findedPlan?.clinicSection"></app-info-section>
-<section id="clinicServices">
+<section id="clinic-services">
     <article>
         <div class="container">
             <div class="columns">

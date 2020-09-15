@@ -37,7 +37,7 @@ export const mommyCareSection = new InfoSectionModel({
     objectFit: 'cover'
 });
 
-export const prevencaoDeDoencasCardiovascularesSection = new InfoSectionModel({
+export const gerenciamentoDeDoencasCronicas = new InfoSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',
     bigTitle: 'Gerenciamento de Doenças Crônicas',
     subDescriptions: [

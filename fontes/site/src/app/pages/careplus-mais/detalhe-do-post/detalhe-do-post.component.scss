@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#categorySection {
+    &#category-section {
         min-height: 238px;
         .container {
             .title-column {
@@ -13,7 +13,7 @@ section {
         }
     }
 
-    &#postInfo {
+    &#post-info {
         .social-icons {
             display: inline-flex;
             li {
@@ -147,7 +147,7 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#categorySection {
+        &#category-section {
             min-height: 180px;
             .container {
                 .columns {
@@ -165,7 +165,7 @@ section {
             }
         }
 
-        &#postInfo {
+        &#post-info {
             .social-icons {
                 width: 100%;
                 flex: 0 0 100%;
@@ -237,7 +237,7 @@ section {
 
 @media (max-width: 767px) {
     section {
-        &#postInfo {
+        &#post-info {
             .is-anounce {
                 width: 100%;
                 img {

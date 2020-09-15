@@ -3,7 +3,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
-import { simpleBannerModel, consultaFacil, checkupDoViajante, monitoramentoDoCheckup, programaDePrevencao } from './data/personal-system-mocks';
+import { simpleBannerModel, consultaFacil, checkupDoViajante, monitoramentoDoCheckup, gerenciamentoDeDoencasCronicas } from './data/personal-system-mocks';
 import { IconCardsSectionModel, ButtonModel } from 'src/app/models';
 import PersonalizedSectionCards from './data/personalized-section-cards';
 
@@ -18,7 +18,7 @@ export class PersonalSystemComponent implements OnInit {
     consultaFacilSection = consultaFacil;
     checkupDoViajanteSection = checkupDoViajante;
     monitoramentoDoCheckupSection = monitoramentoDoCheckup;
-    programaDePrevencaoSection = programaDePrevencao;
+    gerenciamentoDeDoencasCronicas = gerenciamentoDeDoencasCronicas;
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
         smallTitle: 'GESTÃO DE SAÚDE',
         bigTitle: 'Conheça nossos programas e serviços',

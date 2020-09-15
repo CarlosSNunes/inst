@@ -1,4 +1,4 @@
-section#allPosts {
+section#all-posts {
     .container {
         .btn-primary {
             display: block;
@@ -47,7 +47,7 @@ section#allPosts {
 }
 
 @media (max-width: 1023px) {
-    section#allPosts {
+    section#all-posts {
         .container {
             .columns {
                 display: flex;

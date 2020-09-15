@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { simpleBannerModel, mommyCareSection, prevencaoDeDoencasCardiovascularesSection, programaDeAcolhimento, mentalHealth, cuidadosDaFamilia, programaDeCuidadoOncologico, iconCardsSectionModel } from './data/mock-data';
+import { simpleBannerModel, mommyCareSection, gerenciamentoDeDoencasCronicas, programaDeAcolhimento, mentalHealth, cuidadosDaFamilia, programaDeCuidadoOncologico, iconCardsSectionModel } from './data/mock-data';
 import { Title, Meta } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 
@@ -12,7 +12,7 @@ import { WindowRef } from 'src/utils/window-ref';
 export class ProgramasPreventivosComponent implements OnInit {
     simpleBannerModel = simpleBannerModel;
     mommyCareSection = mommyCareSection;
-    prevDeDoencasCardioSection = prevencaoDeDoencasCardiovascularesSection;
+    gerenciamentoDeDoencasCronicas = gerenciamentoDeDoencasCronicas;
     programaDeAcolhimento = programaDeAcolhimento;
     mentalHealth = mentalHealth;
     cuidadosDaFamilia = cuidadosDaFamilia;

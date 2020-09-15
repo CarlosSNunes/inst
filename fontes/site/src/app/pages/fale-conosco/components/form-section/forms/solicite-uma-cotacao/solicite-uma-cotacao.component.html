@@ -13,9 +13,9 @@
                     <div class="field">
                         <div class="control">
                             <input formControlName="planoSaude" (change)="updateFormValidation()"
-                                [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" class="checkbox" id="planoSaude"
+                                [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" class="checkbox" id="plano-saude"
                                 type="checkbox" name="plano">
-                            <label class="checkbox-label" for="planoSaude">
+                            <label class="checkbox-label" for="plano-saude">
                                 Plano de Saúde
                             </label>
                         </div>
@@ -26,8 +26,8 @@
                         <div class="control">
                             <input formControlName="planoOdontologico" (change)="updateFormValidation()"
                                 [ngClass]="{ 'is-invalid' : form?.planoOdontologico?.errors }" class="checkbox"
-                                id="planoOdontologico" type="checkbox" name="plano">
-                            <label class="checkbox-label" for="planoOdontologico">
+                                id="plano-odontologico" type="checkbox" name="plano">
+                            <label class="checkbox-label" for="plano-odontologico">
                                 Plano Odontológico
                             </label>
                         </div>
@@ -38,8 +38,8 @@
                         <div class="control">
                             <input formControlName="medicinaOcupacional"
                                 [ngClass]="{ 'is-invalid' : form?.medicinaOcupacional?.errors }" class="checkbox"
-                                id="medicinaOcupacional" type="checkbox" name="plano">
-                            <label class="checkbox-label" for="medicinaOcupacional">
+                                id="medicina-ocupacional" type="checkbox" name="plano">
+                            <label class="checkbox-label" for="medicina-ocupacional">
                                 Medicina Ocupacional
                             </label>
                         </div>

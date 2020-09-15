@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#vacancyDetailsMainSection {
+    &#vacancy-details-main-section {
         .container {
             .big-title {
                 max-width: 800px;
@@ -11,7 +11,7 @@ section {
         }
     }
 
-    &#vacancyInformations {
+    &#vacancy-informations {
         .container {
             ul.pre-requisites {
                 margin-top: 32px;
@@ -59,7 +59,7 @@ section {
         }
     }
 
-    &#seeAllVacancies {
+    &#see-all-vacancies {
         .container {
             .columns {
                 .column {
@@ -113,7 +113,7 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#vacancyInformations {
+        &#vacancy-informations {
             .container {
                 form {
                     .btn {
@@ -124,7 +124,7 @@ section {
             }
         }
 
-        &#seeAllVacancies {
+        &#see-all-vacancies {
             padding-bottom: 0;
             .container {
                 padding: 0;

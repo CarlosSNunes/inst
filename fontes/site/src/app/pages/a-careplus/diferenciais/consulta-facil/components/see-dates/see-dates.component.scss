@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#seeDates {
+section#see-dates {
     .container {
         .columns {
             .column {
@@ -133,6 +133,7 @@ section#seeDates {
                             display: none;
                             padding: 16px 32px;
                             width: 100%;
+                            border-radius: 0;
                             img {
                                 width: 32px;
                                 height: 32px;
@@ -205,7 +206,7 @@ section#seeDates {
 }
 
 @media (max-width: 1023px) {
-    section#seeDates {
+    section#see-dates {
         .container {
             .columns {
                 &:first-child {

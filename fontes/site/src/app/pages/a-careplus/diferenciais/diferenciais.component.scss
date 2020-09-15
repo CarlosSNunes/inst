@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#nossosPilares {
+    &#nossos-pilares {
         .container {
             .our-pillars-box {
                 position: sticky;
@@ -33,7 +33,7 @@ section {
 
 @media (min-width: 1280px) {
     section {
-        &#nossosPilares {
+        &#nossos-pilares {
             .container {
                 .our-pillars-box {
                     .big-title {
@@ -62,7 +62,7 @@ section {
 
 @media (min-width: 1024px) and (max-width: 1399px) {
     section {
-        &#nossosPilares {
+        &#nossos-pilares {
             .container {
                 .our-pillars-box {
                     position: sticky;
@@ -76,7 +76,7 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#nossosPilares {
+        &#nossos-pilares {
             .container {
                 .our-pillars-box {
                     position: unset;

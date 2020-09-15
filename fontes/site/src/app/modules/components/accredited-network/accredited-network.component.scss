@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#accreditedNetwork {
+section#accredited-network {
     .container {
         .accredited-network-content {
             position: relative;
@@ -41,7 +41,7 @@ section#accreditedNetwork {
 }
 
 @media (max-width: 1023px) {
-    section#accreditedNetwork {
+    section#accredited-network {
         padding: 0;
         .container {
             padding: 0;

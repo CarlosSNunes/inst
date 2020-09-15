@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#plansDetails {
+section#plans-details {
     article {
         .container {
             .plan-tabs {
@@ -147,7 +147,7 @@ section#plansDetails {
 }
 
 @media (max-width: 1023px) {
-    section#plansDetails {
+    section#plans-details {
         article {
             .container {
                 .plan-tabs {

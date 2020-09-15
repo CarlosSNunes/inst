@@ -1,0 +1,90 @@
+import { BreadcrumbModel, ButtonModel, HeroBannerModel, IconCardModel, IconCardsSectionModel, InfoSectionModel, PlanCardModel, VideoModel } from 'src/app/models';
+import Cards from './cards';
+
+export const ocupationalSection = new InfoSectionModel({
+    smallTitle: 'MEDICINA OCUPACIONAL',
+    bigTitle: 'Mais saúde e qualidade no ambiente de trabalho',
+    description: 'A Care Plus tem o melhor serviço de Medicina Ocupacional para a sua empresa',
+    subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
+    imageSrc: 'assets/img/occupational.jpg',
+    button: new ButtonModel({
+        text: 'SAIBA MAIS',
+        routerLink: '/planos-e-produtos/medicina-ocupacional'
+    })
+});
+export const planCards: PlanCardModel[] = [
+    new PlanCardModel({
+        title: 'Care Plus Soho',
+        subTitle: 'Para 2 a 29 vidas',
+        description: 'O Care Plus SoHo apresenta planos para pequenas empresas, de 2 a 29 vidas e é indicado para aquelas que atuam em home office ou com operações mais enxutas.',
+        button: new ButtonModel({
+            text: 'SAIBA MAIS',
+            routerLink: '/planos-e-produtos/soho'
+        }),
+        image: 'assets/svg/plans-soho.svg',
+        id: 'soho'
+    }),
+    new PlanCardModel({
+        title: 'Clube Care Plus',
+        subTitle: 'Para 30 a 200 vidas',
+        description: 'O Clube Care Plus apresenta planos para empresas, de 30 a 200 vidas e é indicado para aquelas que estão em crescimento e expandindo seus negócios.',
+        button: new ButtonModel({
+            text: 'SAIBA MAIS',
+            routerLink: '/planos-e-produtos/clube-careplus'
+        }),
+        image: 'assets/svg/clube-careplus.svg',
+        id: 'clube-care-plus'
+    }),
+    new PlanCardModel({
+        title: 'Care Plus Empresarial',
+        subTitle: 'Para mais de 200 vidas',
+        description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
+        button: new ButtonModel({
+            text: 'SAIBA MAIS',
+            routerLink: '/planos-e-produtos/empresarial'
+        }),
+        image: 'assets/svg/empresarial.svg',
+        id: 'empresarial'
+    })
+];
+export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
+    smallTitle: 'GESTÃO DE SAÚDE',
+    bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
+    subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
+    button: new ButtonModel({
+        text: 'CONHEÇA NOSSOS PROGRAMAS',
+        routerLink: '/gestao-de-saude'
+    }),
+    cards: Cards,
+    columnClass: 'is-3-desktop'
+});
+export const secondCard: IconCardModel = new IconCardModel({
+    title: 'Solicite uma Cotação',
+    type: 'icon',
+    button: new ButtonModel({
+        routerLink: '/fale-conosco',
+        text: 'Clique e solicite cotação',
+    }),
+    imagePath: 'assets/svg/calendar.svg'
+});
+export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
+    video: new VideoModel(
+        {
+            url: 'assets/videos/video-teste.mp4',
+            type: 'video/mp4'
+        }
+    ),
+    bigTitle: 'Aqui você conhece a gama de planos e produtos de saúde Care Plus',
+    contentContainerMaxWidth: 862,
+    breadcrumbs: [
+        new BreadcrumbModel({
+            name: 'Home',
+            link: '/home'
+        }),
+        new BreadcrumbModel({
+            name: 'Planos e Produtos',
+            link: '/planos-e-produtos',
+            active: true
+        })
+    ]
+});

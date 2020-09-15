@@ -14,39 +14,39 @@ export class PoliticaDePrivacidadeComponent implements OnInit {
     elements: ElementModel[] = [
         new ElementModel({
             name: 'Política de Privacidade',
-            id: 'politicaDePrivacidade'
+            id: 'politica-de-privacidade'
         }),
         new ElementModel({
             name: 'Seus Direitos',
-            id: 'seusDireitos'
+            id: 'seus-direitos'
         }),
         new ElementModel({
             name: 'Para que usamos suas informações pessoais',
-            id: 'paraQueUsamos'
+            id: 'para-que-usamos'
         }),
         new ElementModel({
             name: 'Legítimo Interesse',
-            id: 'legitimoInteresse'
+            id: 'legitimo-interesse'
         }),
         new ElementModel({
             name: 'Compartilhando suas informações',
-            id: 'compartilhandoInformacoes'
+            id: 'compartilhando-informacoes'
         }),
         new ElementModel({
             name: 'Por quanto tempo manteremos suas informações pessoais',
-            id: 'porquantoTempoMantemos'
+            id: 'porquanto-tempo-mantemos'
         }),
         new ElementModel({
             name: 'Mudanças ou Atualizações',
-            id: 'mudancasEAtualizacoes'
+            id: 'mudancas-e-atualizacoes'
         }),
         new ElementModel({
             name: 'Sobre o Site e sobre a Care Plus',
-            id: 'sobreOSite'
+            id: 'sobre-o-site'
         }),
         new ElementModel({
             name: 'Violações e Foro',
-            id: 'violacoesEForo'
+            id: 'violacoes-e-foro'
         })
     ];
     width: number = 1400;

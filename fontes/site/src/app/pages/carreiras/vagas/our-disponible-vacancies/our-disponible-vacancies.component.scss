@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#ourDisponibleVacancies {
+    &#our-disponible-vacancies {
         .container {
             .columns {
                 .column {
@@ -31,7 +31,7 @@ section {
         }
     }
 
-    &#aCareplusVacanciesFilters {
+    &#a-careplus-vacancies-filters {
         margin-top: 80px;
         .container {
             .columns {
@@ -149,7 +149,7 @@ section {
 
 @media (min-width: 1024px) and (max-width: 1200px) {
     section {
-        &#aCareplusVacanciesFilters {
+        &#a-careplus-vacancies-filters {
             .columns {
                 .column {
                     &.filter-box {
@@ -173,7 +173,7 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#ourDisponibleVacancies {
+        &#our-disponible-vacancies {
             .container {
                 .columns {
                     .column {
@@ -193,7 +193,7 @@ section {
             }
         }
 
-        &#aCareplusVacanciesFilters {
+        &#a-careplus-vacancies-filters {
             .container {
                 .columns {
                     .column {
@@ -268,7 +268,7 @@ section {
 
 @media (max-width: 359px) {
     section {
-        &#aCareplusVacanciesFilters {
+        &#a-careplus-vacancies-filters {
             .container {
                 .columns {
                     .column {

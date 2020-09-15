@@ -1,5 +1,5 @@
 <nav class="navbar background bupa-navy" role="navigation" aria-label="main navigation">
-    <div id="navbarPerfilCareplus" class="navbar-menu">
+    <div id="navbar-perfil-careplus" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item logo" [routerLink]="['/home']" routerLinkActive="has-background-white"
                 [routerLinkActiveOptions]="{exact: true}">
@@ -110,7 +110,7 @@
             <span aria-hidden="true"></span>
         </a>
     </div>
-    <div id="navbarHome" class="navbar-menu">
+    <div id="navbar-home" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" *ngFor="let subMenuItem of subMenu.items">
                 <span class="item" [routerLink]="[subMenuItem.routerLink]" routerLinkActive="active"

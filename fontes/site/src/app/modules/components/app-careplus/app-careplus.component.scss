@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#appCareplus {
+section#app-careplus {
     position: relative;
     margin: 60px 0;
 
@@ -80,7 +80,7 @@ section#appCareplus {
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
-    section#appCareplus {
+    section#app-careplus {
         .container {
             .columns {
                 .column {
@@ -101,7 +101,7 @@ section#appCareplus {
 }
 
 @media (min-width: 576px) and (max-width: 1023px) {
-    section#appCareplus {
+    section#app-careplus {
         .container {
             .columns {
                 .column {
@@ -121,7 +121,7 @@ section#appCareplus {
 }
 
 @media (max-width: 1023px) {
-    section#appCareplus {
+    section#app-careplus {
         margin: 0;
         .container {
             .columns {
@@ -175,7 +175,7 @@ section#appCareplus {
 }
 
 @media (max-width: 575px) {
-    section#appCareplus {
+    section#app-careplus {
         .container {
             .columns {
                 .column {

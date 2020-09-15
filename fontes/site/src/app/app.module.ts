@@ -2,7 +2,6 @@ import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import { registerLocaleData } from '@angular/common';
@@ -26,7 +25,6 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
-        FontAwesomeModule,
         HeaderModule,
         HeaderMobileModule,
         FooterModule,

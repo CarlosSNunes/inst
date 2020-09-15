@@ -67,7 +67,7 @@
     }
 }
 
-section#clinicServices {
+section#clinic-services {
     .container {
         .columns {
             margin: 0;
@@ -106,7 +106,7 @@ section#clinicServices {
 }
 
 @media (max-width: 1023px) {
-    section#clinicServices {
+    section#clinic-services {
         .container {
             .columns {
                 &.cards {

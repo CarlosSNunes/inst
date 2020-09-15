@@ -2,7 +2,10 @@
     aria-label="main navigation" (click)="toggleDropDown()">
     <div class="drop-down">
         <p class="selected">
-            {{selectedPage}} <fa-icon *ngIf="pageLoaded" [icon]="faAngleDown"></fa-icon>
+            {{selectedPage}}
+            <span>
+                <img src="assets/svg/angle-down-white.svg" alt="Toggle">
+            </span>
         </p>
     </div>
 </nav>

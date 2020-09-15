@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#faleConoscoForm {
+section#fale-conosco-form {
     .container {
         .columns {
             &.infos {
@@ -96,7 +96,7 @@ section#faleConoscoForm {
 }
 
 @media (max-width: 1250px) {
-    section#faleConoscoForm {
+    section#fale-conosco-form {
         .container {
             .columns {
                 .column {
@@ -112,7 +112,7 @@ section#faleConoscoForm {
 }
 
 @media (max-width: 1023px) {
-    section#faleConoscoForm {
+    section#fale-conosco-form {
         .container {
             .columns {
                 &.infos {

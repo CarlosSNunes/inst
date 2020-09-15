@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#resultsSection {
+    &#results-section {
         min-height: 270px;
         padding-bottom: 100px;
         .container {
@@ -12,7 +12,7 @@ section {
         }
     }
 
-    &#filterBox {
+    &#filter-box {
         min-height: 60px;
         .container {
             .columns {
