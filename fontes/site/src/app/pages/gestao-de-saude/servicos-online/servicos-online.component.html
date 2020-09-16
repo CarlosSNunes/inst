@@ -1,5 +1,6 @@
-<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToSection('#medicalOrientationSection')"></app-simple-banner>
-<app-info-section id="medicalOrientationSection" [sectionInfo]="medicalOrientationSection">
+<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToSection('#orientacaoMedica24h')">
+</app-simple-banner>
+<app-info-section id="orientacaoMedica24h" [sectionInfo]="medicalOrientationSection">
     <div class="extra-content blue-background-color">
 
         <p class="extra-content-title">
@@ -8,7 +9,7 @@
             </span>
         </p>
         <p class="extra-content-small-title">
-            Até 14 anos.
+            Até 14 anos
         </p>
 
         <p class="extra-content-title">
@@ -29,29 +30,14 @@
             </span>
         </p>
         <p class="extra-content-small-title">
-            Para telefone <a class="bold" href="tel:0800162992">0800 16 2992.</a>
+            Pelo telefone <a class="bold" href="tel:0800162992">0800 16 2992</a>
         </p>
 
     </div>
 </app-info-section>
 
-<app-info-section [sectionInfo]="nutriADistancia">
+<app-info-section id="nutriADistancia" [sectionInfo]="nutriADistancia">
     <div class="extra-content blue-background-color">
-        <p class="extra-content-title">
-            <span>
-                <img src="assets/svg/phone-digital-cian.svg" alt="Contato">
-            </span>
-            <span class="text bold">
-                Contato
-            </span>
-        </p>
-        <p class="extra-content-small-title">
-            Para saber mais, envie um e-mail para <a class="bold"
-                href="mailto:gestaosaude@careplus.com.br">gestaosaude@careplus.com.br </a> ou, se preferir, entre em
-            contato por telefone: <a class="bold" href="tel:11 41979017">(11) 4197-9017 </a> ou <a class="bold"
-                href="tel:08007711234">0800 771 1234</a> (para beneficiários que não residem em São Paulo).
-        </p>
-
         <p class="extra-content-title">
             <span>
                 <img src="assets/svg/edit.svg" alt="Inscrição">
@@ -66,7 +52,7 @@
             e aguardar o nosso contato.
         </p>
 
-        <a href="" class="btn btn-text small">
+        <a href="https://careplus.healthmap.com.br/ccadcliente?locale=pt-BR" target="_blank" class="btn btn-text small">
             INSCREVA-SE
             <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -74,6 +60,19 @@
                     fill="#0079C8" />
             </svg>
         </a>
+
+        <p class="extra-content-title">
+            <span>
+                <img src="assets/svg/phone-digital-cian.svg" alt="Contato">
+            </span>
+            <span class="text bold">
+                Contato
+            </span>
+        </p>
+        <p class="extra-content-small-title">
+            Para saber mais, envie um e-mail para: <a class="bold"
+                href="mailto:governancaclinica@careplus.com.br">governancaclinica@careplus.com.br </a>
+        </p>
     </div>
 </app-info-section>
 

@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/c
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
-import { congeladosDaSoniaCard, promolightCard, emporioDaPapinhaCard, personalCookCard, personalChefsCard, fourAnyOneCard, antiloperacingteamCard } from './data/promo-cards';
+import { congeladosDaSoniaCard, promolightCard, personalCookCard, personalChefsCard, fourAnyOneCard } from './data/promo-cards';
 
 @Component({
     selector: 'app-cards-section',
@@ -14,11 +14,9 @@ export class CardsSectionComponent implements OnInit {
     isBrowser: boolean = false;
     congeladosDaSoniaCard = congeladosDaSoniaCard;
     promolightCard = promolightCard;
-    emporioDaPapinhaCard = emporioDaPapinhaCard;
     personalCookCard = personalCookCard;
     personalChefsCard = personalChefsCard;
     fourAnyOneCard = fourAnyOneCard;
-    antiloperacingteamCard = antiloperacingteamCard;
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: Platform,

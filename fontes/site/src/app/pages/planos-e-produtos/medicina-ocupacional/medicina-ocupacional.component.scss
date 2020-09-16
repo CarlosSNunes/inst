@@ -60,6 +60,21 @@
 
     .btn-text {
         padding-left: 0;
+        margin-top: 10px;
+    }
+
+    .whatsapp-btn {
+        display: inline-flex;
+        img {
+            width: 20px;
+            height: 20px;
+            align-self: center;
+        }
+
+        span {
+            margin-left: 20px;
+            align-self: center;
+        }
     }
 
     .occupational-infos {

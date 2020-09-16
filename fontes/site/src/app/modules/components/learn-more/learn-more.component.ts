@@ -12,19 +12,22 @@ export class LearnMoreComponent implements OnInit {
             type: 'icon',
             title: 'Rede Plus',
             description: 'Descubra a Rede Plus, uma seleção de médicos que possuem diferenciação curricular, estrutura de atendimento e relacionamento único com a Care Plus.',
-            imagePath: 'assets/svg/star-hand.svg'
+            imagePath: 'assets/svg/star-hand.svg',
+            routerLink: '/a-careplus/rede-plus'
         }),
         new IconCardModel({
             type: 'icon',
             title: 'Resultados Financeiros',
             description: 'Tenha acesso aos nossos registros financeiros dos últimos anos e acompanhe o nosso balanço patrimonial. Mais transparência na prestação de contas.',
-            imagePath: 'assets/svg/charts.svg'
+            imagePath: 'assets/svg/charts.svg',
+            routerLink: '/a-careplus/resultados-financeiros'
         }),
         new IconCardModel({
             type: 'icon',
             title: 'Carreiras',
             description: 'Já imaginou fazer parte de um time que transforma a vida das pessoas todos os dias? Veja a nossa proposta para a sua carreira e integre um time que está cada vez mais transformando vidas e sonhos de pessoas e empresas.',
-            imagePath: 'assets/svg/business.svg'
+            imagePath: 'assets/svg/business.svg',
+            routerLink: '/carreiras'
         })
     ];
     constructor() { }

@@ -9,7 +9,7 @@ export const simpleBannerModel: SimpleBannerModel = {
             link: '/home'
         }),
         new BreadcrumbModel({
-            name: 'Gestão de saúde',
+            name: 'Gestão de Saúde',
             link: '/gestao-de-saude'
         }),
         new BreadcrumbModel({
@@ -69,10 +69,10 @@ export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
 
 export const programaDePrevencao: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Programa de Prevenção de Doenças Cardiovasculares',
+    bigTitle: 'Gerenciamento de Doenças Crônicas',
     subDescriptions: [
         'Os beneficiários que participam do programa têm acesso a uma série de benefícios como verba academia, parcerias com empresas de alimentos saudáveis, parceria com grupos de corrida, realização de exame que mede a taxa metabólica de repouso, avaliação da composição corporal por bioimpedância, 5º mês de medicamento gratuito, auxílio para aquisição de insulina, dentre outros. Estes benefícios são indicados pela equipe multidisciplinar que faz o acompanhamento do beneficiário.',
-        'O atendimento é realizado por uma equipe multidisciplinar na clínica Personal System ou em consultórios de parceiros. Após a avaliação com médicos endocrinologistas, os beneficiários serão encaminhados para acompanhamento presencial com nutricionista e psicóloga, além de consultoras de saúde à distância para orientações e auxílio sobre dúvidas e suporte para o atingimento das metas de saúde. Além disto, para comodidade, os beneficiários contam com atendimento online de nutricionistas e psicólogos.'
+        'O atendimento é realizado por uma equipe multidisciplinar na Care Plus Clinic, na rede credenciada e diretamente nas empresas. Após a avaliação com médicos endocrinologistas, os beneficiários serão encaminhados para acompanhamento presencial com nutricionista e psicóloga, além de consultoras de saúde à distância para orientações e auxílio sobre dúvidas e suporte para o atingimento das metas de saúde. Além disto, para comodidade, os beneficiários contam com atendimento online de nutricionistas e psicólogos.'
     ],
     imageSrc: 'assets/img/persona-system-section-programa-de-prevencao.jpg',
     removeLine: false,

@@ -28,7 +28,7 @@
             <div class="columns tab-content" [class.active]="profile.active"
                 *ngFor="let profile of profiles | showActiveProfile">
                 <div class="column is-6 has-text-centered">
-                    <img class="ambient-image" src="assets/svg/ambient-image.svg" alt="Img beneficiário">
+                    <img class="ambient-image" [src]="profile.image" [alt]="profile.title">
                 </div>
                 <div class="column is-5 is-offset-1">
                     <p class="perfil-title color bupa-navy">

@@ -3,7 +3,8 @@
         <ng-content select=".card-content"></ng-content>
     </div>
 
-    <div *ngIf="card.type === 'icon' && !card.routerLink" class="card icon-card" [ngClass]="card.backgroundColorClass" (click)="collapse()">
+    <div *ngIf="card.type === 'icon' && !card.routerLink" class="card icon-card" [ngClass]="card.backgroundColorClass"
+        (click)="collapse()">
         <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image" [ngClass]="card.backgroundColorClass">
         <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
             [innerHTML]="card.title"></p>
@@ -26,13 +27,15 @@
             {{card?.button?.text}}
         </a>
         <ng-content></ng-content>
+        <ng-content select=".icon-card-extra-content"></ng-content>
         <span class="line-1"></span>
         <span class="line-2"></span>
         <span class="line-3"></span>
         <span class="line-4"></span>
     </div>
 
-    <a [routerLink]="card.routerLink" *ngIf="card.type === 'icon' && card.routerLink" class="card icon-card" [ngClass]="card.backgroundColorClass" (click)="collapse()">
+    <a [routerLink]="card.routerLink" *ngIf="card.type === 'icon' && card.routerLink" class="card icon-card"
+        [ngClass]="card.backgroundColorClass" (click)="collapse()">
         <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image" [ngClass]="card.backgroundColorClass">
         <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
             [innerHTML]="card.title"></p>
@@ -55,6 +58,7 @@
             {{card?.button?.text}}
         </a>
         <ng-content></ng-content>
+        <ng-content select=".icon-card-extra-content"></ng-content>
         <span class="line-1"></span>
         <span class="line-2"></span>
         <span class="line-3"></span>
@@ -106,6 +110,13 @@
     <div class="card promo-card" *ngIf="card.type === 'promo'">
 
         <img [src]="card.promoImage" [alt]="card?.mainTitles[0]?.bigTitle + ' ' + card?.mainTitles[0]?.smallTitle">
+
+        <div class="logo-box">
+            <div class="logo-content">
+                <img class="logo" [src]="card.logo" *ngIf="card.logo"
+                    alt="'Logo ' + card?.mainTitles[0]?.bigTitle + ' ' + card?.mainTitles[0]?.smallTitle">
+            </div>
+        </div>
 
         <div class="card-body">
             <div class="internal-content">

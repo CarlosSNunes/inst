@@ -47,6 +47,7 @@ export class PromoCardModel extends CardModel {
 
     mainTitles: MainTitle[] = [];
     promoImage: string = '';
+    logo: string;
     desciptions: string[] = [];
 }
 

@@ -131,11 +131,11 @@ export const routes: RouteModel[] = [
     }),
     new RouteModel({
         route: '/gestao-de-saude/servicos-online',
-        description: 'Serviços online - Gestão de saude'
+        description: 'Serviços Online - Gestão de saude'
     }),
     new RouteModel({
         route: '/gestao-de-saude/nossas-parcerias',
-        description: 'Nossas parcerias - Gestão de saude'
+        description: 'Nossas Parcerias - Gestão de saude'
     }),
     new RouteModel({
         route: '/careplus-mais',

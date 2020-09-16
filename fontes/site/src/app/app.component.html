@@ -1,5 +1,5 @@
-<app-header *ngIf="width >= 1400"></app-header>
-<app-header-mobile *ngIf="width < 1400"></app-header-mobile>
+<app-header *ngIf="width >= 1024"></app-header>
+<app-header-mobile *ngIf="width < 1024"></app-header-mobile>
 <section class="section no-margin" [class.principal-section]="!initiated">
     <router-outlet></router-outlet>
 </section>

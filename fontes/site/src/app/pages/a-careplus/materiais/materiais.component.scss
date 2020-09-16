@@ -23,26 +23,13 @@ section {
                                     li {
                                         align-self: center;
                                         display: inline-flex;
-                                        margin: 0 16px;
-                                        &:first-child {
-                                            margin-left: 0;
-                                            text-transform: uppercase;
-                                            font-weight: 500;
-                                            font-size: 0.75em;
-                                            line-height: 150%;
-                                            color: getColor(_bupa, _navy);
-                                        }
-
-                                        &:last-child {
-                                            margin-right: 0px;
-                                        }
+                                        width: 100%;
 
                                         .field {
-                                            max-width: 256px;
                                             width: 100%;
                                             display: block;
                                             height: 56px;
-                                            width: auto;
+                                            width: 100%;
                                             .control {
                                                 display: flex;
                                                 width: 100%;

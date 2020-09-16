@@ -1,7 +1,7 @@
 import { SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
 
 export const simpleBannerModel: SimpleBannerModel = {
-    title: 'Nossas parcerias',
+    title: 'Nossas Parcerias',
     description: 'Para você ter acesso a mais vantagens, a Care Plus estabelece parcerias com empresas de alimentação saudável e consultoria esportiva. Conheça!',
     breadcrumbs: [
         new BreadcrumbModel({
@@ -9,7 +9,7 @@ export const simpleBannerModel: SimpleBannerModel = {
             link: '/home'
         }),
         new BreadcrumbModel({
-            name: 'Gestão de saúde',
+            name: 'Gestão de Saúde',
             link: '/gestao-de-saude'
         }),
         new BreadcrumbModel({

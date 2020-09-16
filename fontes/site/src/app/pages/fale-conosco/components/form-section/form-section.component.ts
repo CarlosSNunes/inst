@@ -15,7 +15,7 @@ export class FormSectionComponent implements OnInit {
             link: '/home',
         }),
         new BreadcrumbModel({
-            name: 'Fale conosco',
+            name: 'Fale Conosco',
             link: '/fale-conosco',
             active: true
         })
@@ -28,10 +28,10 @@ export class FormSectionComponent implements OnInit {
             slug: 'solicite-uma-cotacao'
         },
         {
-            title: 'Fale Conosco',
+            title: 'Contato',
             id: 2,
             active: false,
-            slug: 'fale-conosco'
+            slug: 'contato'
         },
         {
             title: 'Canal de Denúncias',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreadcrumbModel, SimpleBannerModel } from 'src/app/models';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
-import Documents from '../../../modules/components/documents/data/documents';
+import Materias from './data/materials';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
@@ -33,23 +33,8 @@ export class MateriaisComponent implements OnInit {
         hasFilters: true,
         image: 'assets/img/a-careplus-documents-banner.jpg'
     };
-    breadcrumbs: BreadcrumbModel[] = [
-        new BreadcrumbModel({
-            name: 'Home',
-            link: '/home'
-        }),
-        new BreadcrumbModel({
-            name: 'A CarePlus',
-            link: '/a-careplus'
-        }),
-        new BreadcrumbModel({
-            name: 'Materiais',
-            link: '/a-careplus/materiais',
-            active: true
-        })
-    ];
     filterForm: FormGroup;
-    documents = Documents;
+    documents = Materias;
     documentsFiltered = this.documents;
 
     constructor(

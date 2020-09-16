@@ -26,27 +26,8 @@ export const promolightCard = new PromoCardModel({
     ]
 });
 
-export const emporioDaPapinhaCard = new PromoCardModel({
-    promoImage: 'assets/img/card-emporio-da-papinha.png',
-    mainTitles: [
-        {
-            bigTitle: '10% de desconto',
-            smallTitle: 'em todas as compras',
-        }
-    ],
-    desciptions: [
-        'A compra deverá ser realizada nas lojas exclusivas do Empório da Papinha ou pelo telefone da loja mais próxima do cliente (apresentar a carteirinha da Care Plus)'
-    ]
-});
-
 export const personalCookCard = new PromoCardModel({
     promoImage: 'assets/img/card-personal-cook.png',
-    mainTitles: [
-        {
-            bigTitle: 'Desconto',
-            smallTitle: 'com chefs de cozinha profissionais',
-        }
-    ],
     desciptions: [
         'Neste serviço, os chefs de cozinha profissionais ministram aulas de culinária para você em sua própria casa.',
         'O curso é dividido em módulos e os beneficiários contam com apostila teórica + serviço de compras dos ingredientes.'
@@ -54,7 +35,8 @@ export const personalCookCard = new PromoCardModel({
 });
 
 export const personalChefsCard = new PromoCardModel({
-    promoImage: 'assets/img/personal-chefs-card.png',
+    promoImage: 'assets/img/personal-chefs-card.jpg',
+    logo: 'assets/img/personal-chef-logo.png',
     desciptions: [
         'Neste serviço, os chefs de cozinha profissionais vão até a sua casa e preparam refeições para congelar com base em suas necessidades e preferências.',
         'Os pratos podem ser divididos em porções para quatro ou 16 pessoas.'
@@ -66,26 +48,8 @@ export const fourAnyOneCard = new PromoCardModel({
     promoImage: 'assets/img/four-any-one-card.png',
     mainTitles: [
         {
-            bigTitle: '10% de desconto',
-            smallTitle: 'na mensalidade',
-        }
-    ],
-});
-
-export const antiloperacingteamCard = new PromoCardModel({
-    promoImage: 'assets/img/card-promolight-image.png',
-    mainTitles: [
-        {
-            bigTitle: '15% de desconto',
-            smallTitle: 'no plano mensal',
-        },
-        {
             bigTitle: '30% de desconto',
-            smallTitle: 'no plano semestral',
-        },
-        {
-            bigTitle: '35% de desconto',
-            smallTitle: 'no plano anual',
+            smallTitle: 'na mensalidade',
         }
     ],
 });

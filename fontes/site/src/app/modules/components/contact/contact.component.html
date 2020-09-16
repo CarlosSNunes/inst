@@ -8,27 +8,30 @@
                 </div>
                 <div class="column is-6 phone">
                     <app-card [card]="phoneCard">
-                        <p class="phone-description">
-                            <span class="contact-info">
-                                <a href="tel:1141979017" class="first-phone"> 4197-9017</a>
-                            </span>
-                            ou
-                            <span class="contact-info">
-                                <a href="tel:08007711234" class="second-phone"> 0800 771 1234</a>
-                            </span>
-                            <span class="info">
-                                (para beneficiários que não residem em São Paulo).
-                            </span>
-                        </p>
+                        <div class="icon-card-extra-content">
+                            <p class="phone-description">
+                                <span class="contact-info">
+                                    <a href="tel:1141979017" class="first-phone"> 4197-9017</a>
+                                </span>
+                                ou
+                                <span class="contact-info">
+                                    <a href="tel:08007711234" class="second-phone"> 0800 771 1234</a>
+                                </span>
+                                <span class="info">
+                                    (para beneficiários que não residem em São Paulo).
+                                </span>
+                            </p>
+                        </div>
                     </app-card>
                 </div>
                 <div class="column is-12 button-column">
                     <a #buttonElement id="button" class="btn btn-primary medium is-hidden-touch" *ngIf="button"
-                        routerLink="/fale-conosco/fale-conosco">
+                        routerLink="/fale-conosco/contato">
                         {{button.text}}
                     </a>
 
-                    <a #buttonElement class="btn btn-text small is-hidden-desktop" *ngIf="button" routerLink="/fale-conosco/fale-conosco">
+                    <a #buttonElement class="btn btn-text small is-hidden-desktop" *ngIf="button"
+                        routerLink="/fale-conosco/contato">
                         {{button.text}}
                         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path

@@ -8,9 +8,6 @@
                         <form [formGroup]="filterForm">
                             <div class="columns flex-wrap">
                                 <div class="column is-9-desktop is-full">
-                                    <p class="filter-title">
-                                        Filtros:
-                                    </p>
                                     <ul class="category-filter">
                                         <li *ngFor="let category of categories">
                                             <a [class.active]="selectCategoryId == category.id"
@@ -49,6 +46,6 @@
 <app-highlight-post [post]="highLightPost"></app-highlight-post>
 <app-last-posts [posts]="recentPosts"></app-last-posts>
 <app-cross-content-section [crossContentModel]="crossContentModel"></app-cross-content-section>
-<app-all-posts [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
+<app-all-posts *ngIf="allPosts.length > 0" [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
 
 <app-social-posts></app-social-posts>
