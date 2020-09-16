@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
 import { WindowRef } from 'src/utils/window-ref';
 import { PlanModel } from 'src/app/models';
 

@@ -91,49 +91,49 @@ section.is-produto {
 
             &.is-plano-saude {
                 h3.product-title {
-                    color: getColor(_bupa, _digital-cian);
+                    color: getColor(_bupa, _teal);
                 }
                 a.saiba-mais {
-                    color: getColor(_bupa, _digital-cian);
+                    color: getColor(_bupa, _teal);
                     svg {
-                        fill: getColor(_bupa, _digital-cian);
+                        fill: getColor(_bupa, _teal);
                     }
                 }
                 &:hover {
-                    background: getColor(_bupa, _digital-cian);
-                    border-color: getColor(_bupa, _digital-cian);
+                    background: getColor(_bupa, _teal);
+                    border-color: getColor(_bupa, _teal);
                 }
             }
 
             &.is-plano-odontologico {
                 h3.product-title {
-                    color: getColor(_carePlus, _green);
+                    color: getColor(_bupa, _navy);
                 }
                 a.saiba-mais {
-                    color: getColor(_carePlus, _green);
+                    color: getColor(_bupa, _navy);
                     svg {
-                        fill: getColor(_carePlus, _green);
+                        fill: getColor(_bupa, _navy);
                     }
                 }
                 &:hover {
-                    background: getColor(_carePlus, _green);
-                    border-color: getColor(_carePlus, _green);
+                    background: getColor(_bupa, _navy);
+                    border-color: getColor(_bupa, _navy);
                 }
             }
 
             &.is-medicina-ocupacional {
                 h3.product-title {
-                    color: getColor(_bupa, _digital-orange);
+                    color: getColor(_bupa, _purple);
                 }
                 a.saiba-mais {
-                    color: getColor(_bupa, _digital-orange);
+                    color: getColor(_bupa, _purple);
                     svg {
-                        fill: getColor(_bupa, _digital-orange);
+                        fill: getColor(_bupa, _purple);
                     }
                 }
                 &:hover {
-                    background: getColor(_bupa, _digital-orange);
-                    border-color: getColor(_bupa, _digital-orange);
+                    background: getColor(_bupa, _purple);
+                    border-color: getColor(_bupa, _purple);
                 }
             }
 
@@ -150,13 +150,9 @@ section.is-produto {
         }
     }
 
-    .btn-primary {
+    .btn-digital-cian {
         margin-top: 48px;
-        display: inline-block;
-    }
-
-    .btn-text {
-        display: none;
+        display: inline-flex;
     }
 }
 
@@ -219,31 +215,24 @@ section.is-produto {
                 }
 
                 &.is-plano-saude {
-                    background: getColor(_bupa, _digital-cian);
-                    border-color: getColor(_bupa, _digital-cian);
+                    background: getColor(_bupa, _teal);
+                    border-color: getColor(_bupa, _teal);
                 }
 
                 &.is-plano-odontologico {
-                    background: getColor(_carePlus, _green);
-                    border-color: getColor(_carePlus, _green);
+                    background: getColor(_bupa, _navy);
+                    border-color: getColor(_bupa, _navy);
                 }
 
                 &.is-medicina-ocupacional {
-                    background: getColor(_bupa, _digital-orange);
-                    border-color: getColor(_bupa, _digital-orange);
+                    background: getColor(_bupa, _purple);
+                    border-color: getColor(_bupa, _purple);
                 }
             }
         }
 
-        .btn-primary {
-            display: none;
-        }
-
-        .btn-text {
-            display: block;
-            margin: 0 auto;
-            margin-top: 23px;
-            padding: 16px 0;
+        .btn-digital-cian {
+            margin: 23px auto 0 auto;
         }
     }
 }

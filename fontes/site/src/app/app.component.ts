@@ -83,7 +83,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     @HostListener('window:resize', ['$event']) onResize(event) {
         if (this.isBrowser) {
             this.width = event.target.innerWidth
-            if (this.width <= 1024) {
+            if (this.width < 1024) {
                 localStorage.setItem('elementOffset', '72')
             } else {
                 localStorage.setItem('elementOffset', '0')

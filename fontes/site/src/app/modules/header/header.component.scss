@@ -363,138 +363,148 @@ nav.is-home {
         cursor: pointer;
     }
 
-    .navbar-item {
-        padding-left: 16px;
-        padding-right: 16px;
-        cursor: unset;
-        position: relative;
-        z-index: 999;
+    .navbar-start {
+        justify-content: flex-end;
+        -webkit-box-pack: end;
+        margin-right: auto;
+        margin-left: auto;
+        .navbar-item {
+            padding-left: 16px;
+            padding-right: 16px;
+            cursor: unset;
+            position: relative;
+            z-index: 999;
 
-        &:hover {
-            background-color: unset;
+            &:hover {
+                background-color: unset;
+                .sub-menu,
+                + .sub-menu {
+                    display: flex;
+                }
+            }
+            &:focus {
+                background-color: unset;
+            }
+            &:focus-within {
+                background-color: unset;
+            }
+
+            .item {
+                font-style: normal;
+                font-weight: 500;
+                font-size: getSize("sbm");
+                line-height: getSize("p");
+                // letter-spacing: 0.2em;
+                color: getColor(_bupa, _grey);
+                // text-transform: uppercase;
+                display: inline-block;
+                position: relative;
+                @include underline(getColor(_carePlus, _light-green));
+                cursor: pointer;
+                &:focus {
+                    outline: unset;
+                }
+            }
+
             .sub-menu,
             + .sub-menu {
-                display: flex;
-            }
-        }
-        &:focus {
-            background-color: unset;
-        }
-        &:focus-within {
-            background-color: unset;
-        }
-
-        .item {
-            font-style: normal;
-            font-weight: 500;
-            font-size: getSize("sbm");
-            line-height: getSize("p");
-            // letter-spacing: 0.2em;
-            color: getColor(_bupa, _grey);
-            // text-transform: uppercase;
-            display: inline-block;
-            position: relative;
-            @include underline(getColor(_carePlus, _light-green));
-            cursor: pointer;
-            &:focus {
-                outline: unset;
-            }
-        }
-
-        .sub-menu,
-        + .sub-menu {
-            display: none;
-            position: absolute;
-            background-color: getColor(_bupa, _white);
-            top: 80%;
-            left: 0;
-            padding: 18px 25px;
-            .column {
-                min-width: calc(800px / 3);
-                position: relative;
-
-                .image-content {
+                display: none;
+                position: absolute;
+                background-color: getColor(_bupa, _white);
+                top: 80%;
+                left: 0;
+                padding: 18px 25px;
+                .column {
+                    min-width: calc(800px / 3);
                     position: relative;
 
-                    img {
-                        width: 169px;
-                        height: 185px;
-                        object-fit: cover;
-                        object-position: center top;
-                        display: block;
-                        max-height: unset;
-                    }
+                    .image-content {
+                        position: relative;
 
-                    .infos {
-                        position: absolute;
-                        width: 147px;
-                        left: 11px;
-                        top: 104px;
-
-                        .image-description {
-                            font-weight: 600;
-                            font-size: getSize("sbm");
-                            line-height: getLineHeight("sbm");
-                            color: getColor(_bupa, _white);
+                        img {
+                            width: 169px;
+                            height: 185px;
+                            object-fit: cover;
+                            object-position: center top;
+                            display: block;
+                            max-height: unset;
                         }
 
-                        .btn-text {
-                            color: getColor(_bupa, _white) !important;
-                            font-weight: 500;
-                            font-size: 0.625em;
-                            line-height: 120%;
-                            letter-spacing: 2px;
-                            padding-right: 0;
-                            padding-top: 20px;
-                            text-transform: unset;
-                            float: right;
-                            white-space: nowrap;
+                        .infos {
+                            position: absolute;
+                            width: 147px;
+                            left: 11px;
+                            top: 104px;
 
-                            &:hover,
-                            &:focus,
-                            &:active {
-                                color: getColor(_bupa, _white) !important;
+                            .image-description {
+                                font-weight: 600;
+                                font-size: getSize("sbm");
+                                line-height: getLineHeight("sbm");
+                                color: getColor(_bupa, _white);
                             }
 
-                            svg {
-                                fill: getColor(_bupa, _white) !important;
-                                path {
+                            .btn-text {
+                                color: getColor(_bupa, _white) !important;
+                                font-weight: 500;
+                                font-size: 0.625em;
+                                line-height: 120%;
+                                letter-spacing: 2px;
+                                padding-right: 0;
+                                padding-top: 20px;
+                                text-transform: unset;
+                                float: right;
+                                white-space: nowrap;
+
+                                &:hover,
+                                &:focus,
+                                &:active {
+                                    color: getColor(_bupa, _white) !important;
+                                }
+
+                                svg {
                                     fill: getColor(_bupa, _white) !important;
+                                    path {
+                                        fill: getColor(_bupa, _white) !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .items {
+                        display: block;
+                        width: 100%;
+                        li {
+                            display: block;
+                            margin-top: 16px;
+
+                            &:first-child {
+                                margin-top: 0;
+                            }
+
+                            a {
+                                font-size: getSize("sbm");
+                                line-height: getLineHeight("sbm");
+                                color: getColor(_bupa, _grey);
+                                white-space: nowrap;
+
+                                &:hover {
+                                    color: getColor(_bupa, _digital-cian);
                                 }
                             }
                         }
                     }
                 }
+            }
 
-                .items {
-                    display: block;
-                    width: 100%;
-                    li {
-                        display: block;
-                        margin-top: 16px;
-
-                        &:first-child {
-                            margin-top: 0;
-                        }
-
-                        a {
-                            font-size: getSize("sbm");
-                            line-height: getLineHeight("sbm");
-                            color: getColor(_bupa, _grey);
-                            white-space: nowrap;
-
-                            &:hover {
-                                color: getColor(_bupa, _digital-cian);
-                            }
-                        }
-                    }
-                }
+            .button {
+                color: getColor(_bupa, _white);
+                height: 3em;
             }
         }
+    }
 
-        .button {
-            color: getColor(_bupa, _white);
-            height: 3em;
-        }
+    .navbar-end {
+        margin-left: 0;
     }
 }
