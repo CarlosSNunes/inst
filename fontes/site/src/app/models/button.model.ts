@@ -8,7 +8,8 @@ export class ButtonModel {
     title?: string;
     link?: string;
     routerLink?: string;
-    class: string = 'btn-primary';
+    class: string = 'btn-digital-cian secondary';
+    touchClass: string = 'btn-digital-cian tertiary arrow-right'
     target: string;
     queryParams: { [key: string]: any }
     action?: Function;

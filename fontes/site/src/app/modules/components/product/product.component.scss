@@ -1,4 +1,5 @@
 @import "~src/scss/_variables";
+@import "~src/scss/_mixins";
 
 section.is-produto {
     padding-top: 60px;
@@ -63,15 +64,16 @@ section.is-produto {
 
             a.saiba-mais {
                 font-style: normal;
-                font-weight: 500;
-                font-size: 21px;
-                line-height: 120%;
-                letter-spacing: 2px;
+                font-weight: 600;
+                font-size: getSize("p");
+                line-height: getLineHeight("p");
                 position: absolute;
                 display: block;
-                text-transform: uppercase;
                 bottom: 3rem;
                 transition: color 0.3s ease-in-out, fill 0.3s ease-in-out;
+                position: absolute;
+                display: inline-flex;
+                padding: 16px 42px 16px 0;
                 svg {
                     transition: margin 0.3s ease-in-out, fill 0.3s ease-in-out;
                     margin-left: 5px;
@@ -95,8 +97,17 @@ section.is-produto {
                 }
                 a.saiba-mais {
                     color: getColor(_bupa, _teal);
-                    svg {
-                        fill: getColor(_bupa, _teal);
+                    &:before {
+                        border: solid getColor(_bupa, _teal);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            right: 15px;
+                        }
                     }
                 }
                 &:hover {
@@ -111,8 +122,17 @@ section.is-produto {
                 }
                 a.saiba-mais {
                     color: getColor(_bupa, _navy);
-                    svg {
-                        fill: getColor(_bupa, _navy);
+                    &:before {
+                        border: solid getColor(_bupa, _navy);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            right: 15px;
+                        }
                     }
                 }
                 &:hover {
@@ -127,8 +147,17 @@ section.is-produto {
                 }
                 a.saiba-mais {
                     color: getColor(_bupa, _purple);
-                    svg {
-                        fill: getColor(_bupa, _purple);
+                    &:before {
+                        border: solid getColor(_bupa, _purple);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            right: 15px;
+                        }
                     }
                 }
                 &:hover {
@@ -145,6 +174,13 @@ section.is-produto {
                 a.saiba-mais {
                     color: getColor(_bupa, _white);
                     fill: getColor(_bupa, _white);
+                }
+
+                a.saiba-mais {
+                    &:before {
+                        border: solid getColor(_bupa, _white);
+                        @include arrowElement(-45deg);
+                    }
                 }
             }
         }

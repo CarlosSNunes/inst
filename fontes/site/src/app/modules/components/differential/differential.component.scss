@@ -27,13 +27,7 @@ section.is-diferencial {
             height: 3px;
 
             &:before {
-                background: linear-gradient(
-                    to left,
-                    getColor(_bupa, _digital-cian) 60%,
-                    getColor(_bottom-line, _dark-green) 60%,
-                    getColor(_bottom-line, _dark-green) 80%,
-                    getColor(_bottom-line, _light-green) 80%
-                );
+                background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                 content: "";
                 position: absolute;
                 height: 4px;
