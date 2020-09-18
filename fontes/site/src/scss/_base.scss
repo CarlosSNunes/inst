@@ -90,27 +90,27 @@ body {
     }
 }
 
-h1 {
+h1, .h1 {
     font-size: getSize("h1");
     line-height: getLineHeight("h1");
 }
 
-h2 {
+h2, .h2 {
     font-size: getSize("h2");
     line-height: getLineHeight("h2");
 }
 
-h3 {
+h3, .h3 {
     font-size: getSize("h3");
     line-height: getLineHeight("h3");
 }
 
-h4 {
+h4, .h4 {
     font-size: getSize("h4");
     line-height: getLineHeight("h4");
 }
 
-p {
+p, .p {
     font-size: getSize("p");
     line-height: getLineHeight("p");
 }

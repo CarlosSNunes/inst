@@ -5,9 +5,6 @@
         min-height: calc(100vh - 151px);
     }
     padding: 0;
-    @media (max-width: 1023px) {
-        padding-top: 72px;
-    }
 }
 
 .breadcrumb {
@@ -40,14 +37,11 @@
     svg {
         position: absolute;
         transition: fill 0.3s ease-in-out;
+        fill: getColor(_bupa, _white);
         ::ng-deep path {
+            fill: getColor(_bupa, _white);
             transition: fill 0.3s ease-in-out;
         }
-    }
-
-    * {
-        color: getColor(_bupa, _white);
-        fill: getColor(_bupa, _white);
     }
 }
 
@@ -63,8 +57,13 @@ app-header-mobile {
 
 @media (max-width: 1023px) {
     .section {
+        padding-top: 72px;
         &.principal-section {
             min-height: calc(100vh - 72px);
         }
+    }
+
+    .go-section-back {
+        display: none;
     }
 }
