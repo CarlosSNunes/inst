@@ -41,7 +41,7 @@
             }
         }
     }
-    .post:after{
+    .post:after {
         left: 0px;
         position: absolute;
         content: "";
@@ -53,20 +53,18 @@
     .post:hover {
         .title {
             background-color: #f4f9fc;
-            p{
+            p {
                 color: getColor(_bupa, _digital-cian);
-
             }
         }
-        
     }
-    .post:hover:after{
+    .post:hover:after {
         display: block;
     }
-    .post:last-child{
+    .post:last-child {
         margin-bottom: 24px;
     }
-    .btn-text{
+    .btn.tertiary {
         justify-content: flex-end;
     }
 }

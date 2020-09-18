@@ -10,13 +10,7 @@ section#fale-conosco-form {
                 &.has-line {
                     position: relative;
                     &::before {
-                        background: linear-gradient(
-                            to left,
-                            var(--bupa_digital-cian) 60%,
-                            var(--bottom-line_dark-green) 60%,
-                            var(--bottom-line_dark-green) 80%,
-                            var(--bottom-line_light-green) 80%
-                        );
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                         content: "";
                         position: absolute;
                         height: 4px;

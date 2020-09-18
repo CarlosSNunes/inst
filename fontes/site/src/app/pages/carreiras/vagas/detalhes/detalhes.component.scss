@@ -68,13 +68,7 @@ section {
                         position: relative;
 
                         &:before {
-                            background: linear-gradient(
-                                to right,
-                                getColor(_bupa, _digital-cian) 60%,
-                                getColor(_bottom-line, _dark-green) 60%,
-                                getColor(_bottom-line, _dark-green) 80%,
-                                getColor(_bottom-line, _light-green) 80%
-                            );
+                            background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                             content: "";
                             position: absolute;
                             height: 4px;
@@ -87,11 +81,7 @@ section {
                             align-self: center;
                             float: right;
 
-                            &.btn-secondary:not(:hover):not(:focus):not(:active):not(:disabled) {
-                                background-color: transparent;
-                            }
-
-                            &.btn-text {
+                            &.btn.tertiary {
                                 padding-left: 0;
                             }
                         }
@@ -147,7 +137,7 @@ section {
                                 float: unset;
                                 margin-top: 16px;
 
-                                &.btn-text {
+                                &.btn.tertiary {
                                     padding-left: 0;
                                 }
                             }

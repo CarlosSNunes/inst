@@ -1,5 +1,6 @@
 @import "~src/scss/_animations.scss";
 @import "~src/scss/_variables.scss";
+@import "~src/scss/_mixins.scss";
 
 vg-player {
     max-height: calc(100vh - 151px);
@@ -77,8 +78,7 @@ vg-player {
 
                 .btn {
                     margin-top: 50px;
-                    transition: opacity 0.5s ease-in-out;
-                    &.btn-secondary {
+                    &.btn-digital-cian.primary {
                         span {
                             width: 20px;
                             height: 19px;
@@ -162,6 +162,11 @@ vg-player {
                         padding-left: 0;
                         margin-top: 12px;
                         color: getColor(_bupa, _white);
+
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
 
                         svg {
                             fill: getColor(_bupa, _white);

@@ -3,7 +3,6 @@ import {
     OnInit,
     ChangeDetectorRef,
     ViewChild,
-    HostListener,
     Inject,
     PLATFORM_ID
 } from '@angular/core';
@@ -21,9 +20,7 @@ import { ocupationalSection, videoModel, iconCardsSectionModel } from './data/mo
 })
 export class HomeComponent implements OnInit {
     banners = bannersMock;
-    scrollTop = 0;
     @ViewChild('sectionProduct', { static: false }) sectionProduct: ProductComponent;
-    showBtnToTop = false;
     isBrowser: boolean = false;
     ocupationalSection = ocupationalSection;
     videoModel = videoModel;
@@ -46,29 +43,11 @@ export class HomeComponent implements OnInit {
         }
     }
 
-    @HostListener('window:scroll', ['$event'])
-    onScroll(event) {
-        this.scrollTop = event.currentTarget.pageYOffset;
-        if (this.scrollTop > this.sectionProduct.offsetTop) {
-            this.showBtnToTop = true;
-        } else {
-            this.showBtnToTop = false;
-        }
-    }
-
     slideToSection() {
         const elementOffset = parseInt(localStorage.getItem('elementOffset'));
         this.windowRef.nativeWindow.scrollTo({
             left: 0,
             top: (this.sectionProduct.offsetTop - elementOffset),
-            behavior: "smooth"
-        })
-    }
-
-    goToTop() {
-        this.windowRef.nativeWindow.scrollTo({
-            left: 0,
-            top: 0,
             behavior: "smooth"
         })
     }

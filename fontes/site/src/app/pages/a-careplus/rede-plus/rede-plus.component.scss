@@ -22,13 +22,7 @@ section {
                                     content: "";
                                     width: 170px;
                                     height: 4px;
-                                    background: linear-gradient(
-                                        to left,
-                                        getColor(_bupa, _digital-cian) 60%,
-                                        getColor(_bottom-line, _dark-green) 60%,
-                                        getColor(_bottom-line, _dark-green) 80%,
-                                        getColor(_bottom-line, _light-green) 80%
-                                    );
+                                    background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                                     right: 0;
                                     top: 40px;
                                     transform: translateX(95%);

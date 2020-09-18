@@ -30,7 +30,7 @@ export default [
         id: 'consulta-facil',
         button: new ButtonModel({
             routerLink: '/a-careplus/diferenciais/consulta-facil',
-            text: 'SAIBA MAIS'
+            text: 'Saiba Mais'
         })
     }),
     new CardModel({

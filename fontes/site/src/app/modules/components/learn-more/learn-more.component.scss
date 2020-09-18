@@ -10,10 +10,6 @@ section#learn-more {
     .cards {
         margin: 0;
         margin-top: 95px;
-        .btn-text {
-            margin-top: 24px;
-            padding-left: 0;
-        }
     }
 
     .is-mobile {
@@ -26,11 +22,12 @@ section#learn-more {
     .btn-column {
         margin: 0;
         margin-top: 69px;
-        .learn-more-button {
-            margin-top: 69px;
-            margin: 0 auto;
-            display: block;
-            width: fit-content;
+        .column {
+            display: flex;
+            .learn-more-button {
+                margin: 0 auto;
+                display: inline-flex;
+            }
         }
     }
 

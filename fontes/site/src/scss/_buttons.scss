@@ -184,6 +184,11 @@
                 transform: scale(0.95);
             }
 
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
             &.arrow {
                 &-right {
                     display: inline-flex;
@@ -951,8 +956,7 @@
 
             &:disabled {
                 cursor: not-allowed;
-                border: 3px solid getColor(_bupa, _digital-cian);
-                color: getColor(_bupa, _digital-cian);
+                opacity: 0.5;
             }
 
             &.arrow {
