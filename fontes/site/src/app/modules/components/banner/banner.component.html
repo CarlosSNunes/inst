@@ -43,20 +43,32 @@
                         </p>
 
                         <!-- Button with routerLink -->
-                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota" class="btn btn-digital-cian medium">
+                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota"
+                            class="btn btn-digital-cian primary medium is-hidden-touch">
+                            Saiba mais
+                        </a>
+
+                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota"
+                            class="btn btn-digital-cian secondary medium is-hidden-desktop">
                             Saiba mais
                         </a>
 
                         <!-- Button with routerLink -->
                         <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank"
-                            class="btn btn-digital-cian medium">
+                            class="btn btn-digital-cian primary medium is-hidden-touch">
+                            Saiba mais
+                        </a>
+
+                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank"
+                            class="btn btn-digital-cian secondary medium is-hidden-desktop">
                             Saiba mais
                         </a>
                     </div>
                 </div>
             </div>
 
-            <img *ngIf="hasAnchor" class="mouse-icon" src="assets/svg/mouse.svg" (click)="slideToNextElement.emit()" alt="Mouse Down">
+            <img *ngIf="hasAnchor" class="mouse-icon" src="assets/svg/mouse.svg" (click)="slideToNextElement.emit()"
+                alt="Mouse Down">
         </div>
     </div>
 </section>

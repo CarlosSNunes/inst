@@ -10,6 +10,21 @@ section#materials {
                 .sub-description {
                     margin-top: 0;
                 }
+
+                &.buttons-column {
+                    display: flex;
+                    .btn-digital-cian {
+                        &.secondary {
+                            margin: 0 auto;
+                            margin-top: 50px;
+                        }
+
+                        &.tertiary {
+                            padding-left: 0;
+                            margin-top: 30px;
+                        }
+                    }
+                }
             }
 
             &.cards {
@@ -49,18 +64,6 @@ section#materials {
                         }
                     }
                 }
-            }
-
-            .btn-primary {
-                margin: 0 auto;
-                margin-top: 50px;
-                display: block;
-                width: fit-content;
-            }
-
-            .btn-text {
-                padding-left: 0;
-                margin-top: 30px;
             }
         }
     }

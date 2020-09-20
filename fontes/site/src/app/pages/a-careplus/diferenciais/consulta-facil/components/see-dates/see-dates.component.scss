@@ -112,11 +112,10 @@ section#see-dates {
                             }
                         }
 
-                        .btn-text.acc-heading {
+                        .btn.tertiary.acc-heading {
                             white-space: nowrap;
                             padding-left: 0;
                             float: right;
-                            padding-right: 0;
                             svg {
                                 pointer-events: none;
                             }
@@ -235,7 +234,7 @@ section#see-dates {
                                 }
                             }
 
-                            .btn-text.acc-heading {
+                            .btn.tertiary.acc-heading {
                                 font-size: 0.5em;
                                 line-height: 12px;
                                 align-self: center;

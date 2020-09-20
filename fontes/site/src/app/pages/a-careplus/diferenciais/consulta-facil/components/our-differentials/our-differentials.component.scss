@@ -26,7 +26,7 @@ section#our-differentials {
                     transition: color 0.3s ease-in-out;
                 }
 
-                .btn-text {
+                .btn.tertiary {
                     padding-left: 0;
                     margin-top: 20px;
                 }
@@ -49,7 +49,7 @@ section#our-differentials {
                                 color: getColor(_bupa, _white);
                             }
 
-                            .btn-text {
+                            .btn.tertiary {
                                 color: getColor(_bupa, _white);
 
                                 svg {
@@ -65,13 +65,17 @@ section#our-differentials {
             }
         }
 
+        .display-flex {
+            display: flex;
+        }
+
         .btn {
             &.is-centered {
                 margin: 45px auto 0 auto;
-                display: table;
+                display: inline-flex;
             }
 
-            &.btn-text {
+            &.tertiary {
                 padding-left: 0;
             }
         }

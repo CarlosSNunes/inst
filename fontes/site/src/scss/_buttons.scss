@@ -1,0 +1,1814 @@
+/*
+    pt - Botões
+    en - Buttons
+*/
+
+.btn {
+    -webkit-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
+        color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
+        color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
+        color 0.3s ease-in-out;
+    font-weight: 600;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+
+    &.small {
+        padding: 16px 16px;
+        font-size: getSize("sbm");
+        line-height: getLineHeight("p");
+        @media (max-width: 991px) {
+            font-weight: 600;
+            padding: 8px 16px;
+        }
+    }
+
+    &.medium {
+        padding: 16px 24px;
+        font-size: getSize("p");
+        line-height: getLineHeight("p");
+        @media (max-width: 991px) {
+            font-weight: 600;
+            padding: 8px 16px;
+        }
+    }
+
+    &.big {
+        padding: 20px 32px;
+        font-size: getSize("p");
+        line-height: getLineHeight("p");
+        @media (max-width: 991px) {
+            font-weight: 600;
+            padding: 12px 24px;
+        }
+    }
+
+    /*
+        pt - Botão Digital Orange
+        en - Digital Orange button
+    */
+
+    &.btn-digital-orange {
+        &.primary {
+            border: 3px solid getColor(_bupa, _digital-orange);
+            box-sizing: border-box;
+            background-color: getColor(_bupa, _digital-orange);
+            color: getColor(_bupa, _white);
+            position: relative;
+            display: flex;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid #992805;
+                    background-color: #992805;
+                }
+            }
+
+            &:focus {
+                border: 3px solid #992805;
+                background-color: #992805;
+                box-shadow: 0px 0px 10px #992805;
+            }
+
+            &:active {
+                border: 3px solid rgba(#db3907, 0.3);
+                background-color: #802104;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _white);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão digital orange primário mobile.
+                En - Mobile digital orange primary button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        border: 3px solid getColor(_bupa, _digital-orange);
+                        background-color: getColor(_bupa, _digital-orange);
+                    }
+                }
+
+                &:focus {
+                    border: 3px solid getColor(_bupa, _digital-orange);
+                    background-color: getColor(_bupa, _digital-orange);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _digital-orange);
+                    background-color: getColor(_bupa, _digital-orange);
+                }
+            }
+        }
+
+        &.secondary {
+            border: 3px solid getColor(_bupa, _digital-orange);
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _digital-orange);
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid getColor(_bupa, _digital-orange);
+                    background-color: getColor(_bupa, _digital-orange);
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid getColor(_bupa, _digital-orange);
+                background-color: getColor(_bupa, _digital-orange);
+                box-shadow: 0px 0px 10px getColor(_bupa, _digital-orange);
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid rgba(#db3907, 0.3);
+                background-color: #802104;
+                color: getColor(_bupa, _white);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _digital-orange);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _digital-orange);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão digital orange secudário mobile.
+                En - Mobile digital orange secondary button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        border: 3px solid getColor(_bupa, _digital-orange);
+                        color: getColor(_bupa, _digital-orange);
+                        background-color: transparent;
+                    }
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _digital-orange);
+                    background-color: transparent;
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _digital-orange);
+                    color: getColor(_bupa, _digital-orange);
+                    background-color: transparent;
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _digital-orange);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-orange);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-orange);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.tertiary {
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _digital-orange);
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid transparent;
+                    background-color: transparent;
+                    color: #992805;
+                }
+            }
+
+            &:focus {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #992805;
+            }
+
+            &:active {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #992805;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                color: #992805;
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _digital-orange);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid #992805;
+                                @include arrowElement(-45deg);
+                                right: 15px;
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid #992805;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid #992805;
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid #992805;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão digital orange terciário mobile.
+                En - Mobile tertiary digital orange button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        color: getColor(_bupa, _digital-orange);
+                    }
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _digital-orange);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    color: getColor(_bupa, _digital-orange);
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _digital-orange);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-orange);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-orange);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+        pt - Botão fuchsia
+        en - Fuchsia button
+    */
+
+    &.btn-fuchsia {
+        &.primary {
+            border: 3px solid getColor(_bupa, _fuchsia);
+            box-sizing: border-box;
+            background-color: getColor(_bupa, _fuchsia);
+            color: getColor(_bupa, _white);
+            position: relative;
+            display: flex;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid #9c2d6f;
+                    background-color: #9c2d6f;
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid #9c2d6f;
+                background-color: #9c2d6f;
+                box-shadow: 0px 0px 10px #9c2d6f;
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid rgba(#c6007e, 0.3);
+                background-color: #82265d;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+                color: getColor(_bupa, _white);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _white);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão fuchsia primário mobile.
+                En - Mobile fuchsia primary button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        border: 3px solid getColor(_bupa, _fuchsia);
+                        background-color: getColor(_bupa, _fuchsia);
+                    }
+                }
+
+                &:focus {
+                    border: 3px solid getColor(_bupa, _fuchsia);
+                    background-color: getColor(_bupa, _fuchsia);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _fuchsia);
+                    background-color: getColor(_bupa, _fuchsia);
+                    color: getColor(_bupa, _white);
+                    -webkit-transform: scale(0.95);
+                    transform: scale(0.95);
+                    box-shadow: unset;
+                }
+            }
+        }
+
+        &.secondary {
+            border: 3px solid getColor(_bupa, _fuchsia);
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _fuchsia);
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid getColor(_bupa, _fuchsia);
+                    background-color: getColor(_bupa, _fuchsia);
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid getColor(_bupa, _fuchsia);
+                background-color: getColor(_bupa, _fuchsia);
+                box-shadow: 0px 0px 10px getColor(_bupa, _fuchsia);
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid rgba(#c6007e, 0.3);
+                background-color: #82265d;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+                color: getColor(_bupa, _white);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _fuchsia);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _fuchsia);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão fuchsia secundário mobile.
+                En - Mobile secondary fuchsia button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        background-color: transparent;
+                        color: getColor(_bupa, _fuchsia);
+                    }
+                }
+
+                &:focus {
+                    background-color: transparent;
+                    color: getColor(_bupa, _fuchsia);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _fuchsia);
+                    background-color: transparent;
+                    color: getColor(_bupa, _fuchsia);
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _fuchsia);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _fuchsia);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _fuchsia);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.tertiary {
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _violet);
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid transparent;
+                    background-color: transparent;
+                    color: #9c2d6f;
+                }
+            }
+
+            &:focus {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #9c2d6f;
+            }
+
+            &:active {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #9c2d6f;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                color: #9c2d6f;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _violet);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid #9c2d6f;
+                                @include arrowElement(-45deg);
+                                right: 15px;
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid #9c2d6f;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid #9c2d6f;
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid #9c2d6f;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão fuchsia terciário mobile.
+                En - Mobile tertiary fuchsia button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        color: getColor(_bupa, _violet);
+                    }
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _violet);
+                }
+
+                &:active {
+                    color: getColor(_bupa, _violet);
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid solid getColor(_bupa, _violet);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _violet);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _violet);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+
+                        &:disabled {
+                            &:before {
+                                border: solid getColor(_bupa, _violet);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+        pt - Botão Digital cian
+        en - Digital cian button
+    */
+
+    &.btn-digital-cian {
+        &.primary {
+            border: 3px solid getColor(_bupa, _digital-cian);
+            color: getColor(_bupa, _white);
+            background-color: getColor(_bupa, _digital-cian);
+            outline: none;
+            text-align: center;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid #00548c;
+                    background-color: #00548c;
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid #00548c;
+                background-color: #00548c;
+                box-shadow: 0px 0px 10px #00548c;
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid #0079c8;
+                background-color: #004573;
+                color: getColor(_bupa, _white);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _white);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        border: 3px solid getColor(_bupa, _digital-cian);
+                        background-color: getColor(_bupa, _digital-cian);
+                    }
+                }
+
+                &:focus {
+                    border: 3px solid getColor(_bupa, _digital-cian);
+                    background-color: getColor(_bupa, _digital-cian);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _digital-cian);
+                    background-color: getColor(_bupa, _digital-cian);
+                }
+            }
+        }
+
+        &.secondary {
+            border: 3px solid getColor(_bupa, _digital-cian);
+            color: getColor(_bupa, _digital-cian);
+            background-color: transparent;
+            outline: none;
+            text-align: center;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid getColor(_bupa, _digital-cian);
+                    background-color: getColor(_bupa, _digital-cian);
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid getColor(_bupa, _digital-cian);
+                background-color: getColor(_bupa, _digital-cian);
+                box-shadow: 0px 0px 10px getColor(_bupa, _digital-cian);
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid rgba(#0079c8, 0.3);
+                background-color: #004573;
+                color: getColor(_bupa, _white);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _digital-cian);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _digital-cian);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        color: getColor(_bupa, _digital-cian);
+                        background-color: transparent;
+                    }
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _digital-cian);
+                    background-color: transparent;
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _digital-cian);
+                    color: getColor(_bupa, _digital-cian);
+                    background-color: transparent;
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _digital-cian);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-cian);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-cian);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.tertiary {
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _digital-cian);
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid transparent;
+                    background-color: transparent;
+                    color: #00548c;
+                }
+            }
+
+            &:focus {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #00548c;
+            }
+
+            &:active {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #00548c;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                color: #00548c;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _digital-cian);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid #00548c;
+                                @include arrowElement(-45deg);
+                                right: 15px;
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid #00548c;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid #00548c;
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid #00548c;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão fuchsia terciário mobile.
+                En - Mobile tertiary fuchsia button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        color: getColor(_bupa, _digital-cian);
+                    }
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _digital-cian);
+                }
+
+                &:active {
+                    color: getColor(_bupa, _digital-cian);
+                }
+
+                &:disabled {
+                    color: getColor(_bupa, _digital-cian);
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _digital-cian);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-cian);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-cian);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+
+                        &:disabled {
+                            &:before {
+                                border: solid #00548c;
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+        pt - Botão Navy
+        en - Navy button
+    */
+
+    &.btn-navy {
+        &.primary {
+            border: 3px solid getColor(_bupa, _navy);
+            color: getColor(_bupa, _white);
+            background-color: getColor(_bupa, _navy);
+            outline: none;
+            text-align: center;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid #00294c;
+                    background-color: #00294c;
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid #00294c;
+                background-color: #00294c;
+                box-shadow: 0px 0px 10px #00294c;
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid rgba(#00294c, 0.3);
+                background-color: #001c33;
+                color: getColor(_bupa, _white);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _white);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        border: 3px solid getColor(_bupa, _navy);
+                        background-color: getColor(_bupa, _navy);
+                    }
+                }
+
+                &:focus {
+                    border: 3px solid getColor(_bupa, _navy);
+                    background-color: getColor(_bupa, _navy);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _navy);
+                    background-color: getColor(_bupa, _navy);
+                }
+            }
+        }
+
+        &.secondary {
+            border: 3px solid getColor(_bupa, _navy);
+            color: getColor(_bupa, _navy);
+            background-color: transparent;
+            outline: none;
+            text-align: center;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid getColor(_bupa, _navy);
+                    background-color: getColor(_bupa, _navy);
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid getColor(_bupa, _navy);
+                background-color: getColor(_bupa, _navy);
+                box-shadow: 0px 0px 10px getColor(_bupa, _navy);
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid rgba(#00294c, 0.3);
+                background-color: #001c33;
+                color: getColor(_bupa, _white);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _navy);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _navy);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 991px) {
+                border: 3px solid getColor(_bupa, _navy);
+                color: getColor(_bupa, _navy);
+                background-color: transparent;
+                outline: none;
+                text-align: center;
+
+                &:not(:disabled) {
+                    &:hover {
+                        background-color: transparent;
+                        color: getColor(_bupa, _navy);
+                    }
+                }
+
+                &:focus {
+                    background-color: transparent;
+                    box-shadow: unset;
+                    color: getColor(_bupa, _navy);
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _navy);
+                    background-color: transparent;
+                    color: getColor(_bupa, _navy);
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _navy);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _navy);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _navy);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.tertiary {
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _navy);
+
+            &:hover {
+                color: #00294c;
+            }
+
+            &:focus {
+                color: #00294c;
+            }
+
+            &:active {
+                color: #00294c;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                color: #00294c;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _navy);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border: solid #00294c;
+                            @include arrowElement(-45deg);
+                            right: 15px;
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid #00294c;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid #00294c;
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid #00294c;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão fuchsia terciário mobile.
+                En - Mobile tertiary fuchsia button.
+            */
+
+            @media (max-width: 991px) {
+                &:hover {
+                    color: getColor(_bupa, _navy);
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _navy);
+                }
+
+                &:active {
+                    color: getColor(_bupa, _navy);
+                }
+
+                &:disabled {
+                    color: #00548c;
+                }
+
+                &.arrow {
+                    &-right {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _navy);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _navy);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _navy);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+
+                        &:disabled {
+                            &:before {
+                                border: solid #00548c;
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+        pt - Botão White to digital cian
+        en - White to digital cian button
+    */
+
+    &.btn-white-to-digital-cian {
+        &.primary {
+            border: 3px solid getColor(_bupa, _white);
+            color: getColor(_bupa, _digital-cian);
+            background-color: getColor(_bupa, _white);
+            outline: none;
+            text-align: center;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid #e6e6e6;
+                    background-color: #e6e6e6;
+                }
+            }
+
+            &:focus {
+                border: 3px solid #e6e6e6;
+                background-color: #e6e6e6;
+            }
+
+            &:active {
+                border: 3px solid rgba(#ffffff, 0.3);
+                background-color: #cccccc;
+                color: getColor(_bupa, _digital-cian);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _digital-cian);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-cian);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _digital-cian);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _digital-cian);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _digital-cian);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                pt - Botão White to digital cian primário mobile
+                en - Mobile primary white to digital cian button
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        background-color: getColor(_bupa, _white);
+                        color: getColor(_bupa, _digital-cian);
+                    }
+                }
+
+                &:focus {
+                    background-color: getColor(_bupa, _white);
+                    color: getColor(_bupa, _digital-cian);
+                }
+
+                &:active {
+                    background-color: getColor(_bupa, _white);
+                    color: getColor(_bupa, _digital-cian);
+                }
+            }
+        }
+
+        &.secondary {
+            border: 3px solid getColor(_bupa, _white);
+            color: getColor(_bupa, _white);
+            background-color: transparent;
+            outline: none;
+            text-align: center;
+
+            &:hover {
+                background-color: getColor(_bupa, _white);
+                color: getColor(_bupa, _digital-cian);
+            }
+
+            &:focus {
+                background-color: getColor(_bupa, _white);
+                color: getColor(_bupa, _digital-cian);
+            }
+
+            &:active {
+                border: 3px solid rgba(#ffffff, 0.3);
+                background-color: #cccccc;
+                color: getColor(_bupa, _digital-cian);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _white);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _digital-cian);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _digital-cian);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _digital-cian);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                pt - Botão White to digital cian secundário mobile
+                en - Mobile secondary white to digital cian button
+            */
+
+            @media (max-width: 991px) {
+                &:hover {
+                    background-color: transparent;
+                    color: getColor(_bupa, _white);
+                }
+
+                &:focus {
+                    background-color: transparent;
+                    color: getColor(_bupa, _white);
+                }
+
+                &:active {
+                    background-color: transparent;
+                    color: getColor(_bupa, _white);
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _white);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

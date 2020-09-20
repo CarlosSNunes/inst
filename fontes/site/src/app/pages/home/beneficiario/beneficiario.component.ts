@@ -59,8 +59,6 @@ export class BeneficiarioComponent implements OnInit {
             active: true
         }),
     ];
-    scrollTop: number = 0;
-    showBtnToTop: boolean = false;
 
     constructor(
         private windowRef: WindowRef,
@@ -71,16 +69,6 @@ export class BeneficiarioComponent implements OnInit {
     }
 
     ngOnInit() {
-    }
-
-    @HostListener('window:scroll', ['$event'])
-    onScroll(event) {
-        this.scrollTop = event.currentTarget.pageYOffset;
-        if (this.scrollTop > this.sectionAccreditedNetwork.offsetTop) {
-            this.showBtnToTop = true;
-        } else {
-            this.showBtnToTop = false;
-        }
     }
 
     slideToSection() {
@@ -98,14 +86,6 @@ export class BeneficiarioComponent implements OnInit {
             name: 'description',
             content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
         });
-    }
-
-    goToTop() {
-        this.windowRef.nativeWindow.scrollTo({
-            left: 0,
-            top: 0,
-            behavior: "smooth"
-        })
     }
 
 }

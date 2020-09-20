@@ -34,7 +34,7 @@ export default [
         }),
         button: new ButtonModel({
             routerLink: '/careplus-mais/coronavirus',
-            text: 'LER ARTIGO'
+            text: 'Ler artigo'
         })
     }),
     new PostCardModel({
@@ -70,7 +70,7 @@ export default [
         }),
         button: new ButtonModel({
             routerLink: '/careplus-mais/coronavirus',
-            text: 'LER ARTIGO'
+            text: 'Ler artigo'
         })
     }),
     new PostCardModel({
@@ -106,7 +106,7 @@ export default [
         }),
         button: new ButtonModel({
             routerLink: '/careplus-mais/coronavirus',
-            text: 'LER ARTIGO'
+            text: 'Ler artigo'
         })
     }),
     new PostCardModel({
@@ -142,7 +142,7 @@ export default [
         }),
         button: new ButtonModel({
             routerLink: '/careplus-mais/coronavirus',
-            text: 'LER ARTIGO'
+            text: 'Ler artigo'
         })
     }),
 ]

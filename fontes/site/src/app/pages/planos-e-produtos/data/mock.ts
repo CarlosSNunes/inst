@@ -9,7 +9,9 @@ export const ocupationalSection = new InfoSectionModel({
     imageSrc: 'assets/img/home-ocupacional.jpg',
     button: new ButtonModel({
         text: 'SAIBA MAIS',
-        routerLink: '/planos-e-produtos/medicina-ocupacional'
+        routerLink: '/planos-e-produtos/medicina-ocupacional',
+        class: 'btn-digital-orange secondary medium arrow-right',
+        touchClass: 'btn-digital-orange tertiary small arrow-right',
     })
 });
 export const planCards: PlanCardModel[] = [

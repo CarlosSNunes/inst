@@ -63,8 +63,6 @@ export class CredenciadoComponent implements OnInit {
             active: true,
         }),
     ];
-    scrollTop: number = 0;
-    showBtnToTop: boolean = false;
 
     constructor(
         private windowRef: WindowRef,
@@ -75,16 +73,6 @@ export class CredenciadoComponent implements OnInit {
     }
 
     ngOnInit() {}
-
-    @HostListener("window:scroll", ["$event"])
-    onScroll(event) {
-        this.scrollTop = event.currentTarget.pageYOffset;
-        if (this.scrollTop > this.videoCareplus.offsetTop) {
-            this.showBtnToTop = true;
-        } else {
-            this.showBtnToTop = false;
-        }
-    }
 
     slideToSection() {
         const elementOffset = parseInt(localStorage.getItem("elementOffset"));
@@ -104,11 +92,4 @@ export class CredenciadoComponent implements OnInit {
         });
     }
 
-    goToTop() {
-        this.windowRef.nativeWindow.scrollTo({
-            left: 0,
-            top: 0,
-            behavior: "smooth",
-        });
-    }
 }

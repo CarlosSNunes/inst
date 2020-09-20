@@ -1,9 +1,7 @@
 /* All default colors */
 $color-map: (
     _bupa: (
-        
-        // Hexadecimal background colors
-      
+        // Hexadecimal colors
         _digital-cian: var(--bupa_digital-cian),
         _navy: var(--bupa_navy),
         _purple: var(--bupa_purple),
@@ -11,6 +9,7 @@ $color-map: (
         _fuchsia: var(--bupa_fuchsia),
         _burgundy: var(--bupa_burgundy),
         _digital-orange: var(--bupa_digital-orange),
+        _teal: var(--bupa_teal),
         _green: var(--bupa_green),
         _red: var(--bupa_red),
         _dark-green: var(--bupa_dark-green),
@@ -23,9 +22,7 @@ $color-map: (
         _white: var(--bupa_white),
         _black: var(--bupa_black),
         _blue-menu: var(--bupa_blue-menu),
-
         // Rgb colors
-        
         _digital-cian-rgb: var(--bupa_digital-cian-rgb),
         _navy-rgb: var(--bupa_navy-rgb),
         _purple-rgb: var(--bupa_purple-rgb),
@@ -33,6 +30,7 @@ $color-map: (
         _fuchsia-rgb: var(--bupa_fuchsia-rgb),
         _burgundy-rgb: var(--bupa_burgundy-rgb),
         _digital-orange-rgb: var(--bupa_digital-orange-rgb),
+        _teal-rgb: var(--bupa_teal-rgb),
         _green-rgb: var(--bupa_green-rgb),
         _dark-green-rgb: var(--bupa_dark-green-rgb),
         _digital-lime-rgb: var(--bupa_digital-lime-rgb),
@@ -43,49 +41,7 @@ $color-map: (
         _grey-5-rgb: var(--bupa_grey-5-rgb),
         _white-rgb: var(--bupa_white-rgb),
         _black-rgb: var(--bupa_black-rgb),
-        _blue-menu-rgb: var(--bupa_blue-menu-rgb),
-
-        // Hexadecimal background colors
-
-        _digital-cian-background: var(--bupa_digital-cian-background),
-        _navy-background: var(--bupa_navy-background),
-        _purple-background: var(--bupa_purple-background),
-        _violet-background: var(--bupa_violet-background),
-        _fuchsia-background: var(--bupa_fuchsia-background),
-        _burgundy-background: var(--bupa_burgundy-background),
-        _digital-orange-background: var(--bupa_digital-orange-background),
-        _green-background: var(--bupa_green-background),
-        _dark-green-background: var(--bupa_dark-green-background),
-        _digital-lime-background: var(--bupa_digital-lime-background),
-        _grey-background: var(--bupa_grey-background),
-        _grey-2-background: var(--bupa_grey-2-background),
-        _grey-3-background: var(--bupa_grey-3-background),
-        _grey-4-background: var(--bupa_grey-4-background),
-        _grey-5-background: var(--bupa_grey-5-background),
-        _white-background: var(--bupa_white-background),
-        _black-background: var(--bupa_black-background),
-        _blue-menu-background: var(--bupa_blue-menu-background),
-
-        // Rgb background colors
-        
-        _digital-cian-rgb-background: var(--bupa_digital-cian-rgb-background),
-        _navy-rgb-background: var(--bupa_navy-rgb-background),
-        _purple-rgb-background: var(--bupa_purple-rgb-background),
-        _violet-rgb-background: var(--bupa_violet-rgb-background),
-        _fuchsia-rgb-background: var(--bupa_fuchsia-rgb-background),
-        _burgundy-rgb-background: var(--bupa_burgundy-rgb-background),
-        _digital-orange-rgb-background: var(--bupa_digital-orange-rgb-background),
-        _green-rgb-background: var(--bupa_green-rgb-background),
-        _dark-green-rgb-background: var(--bupa_dark-green-rgb-background),
-        _digital-lime-rgb-background: var(--bupa_digital-lime-rgb-background),
-        _grey-rgb-background: var(--bupa_grey-rgb-background),
-        _grey-2-rgb-background: var(--bupa_grey-2-rgb-background),
-        _grey-3-rgb-background: var(--bupa_grey-3-rgb-background),
-        _grey-4-rgb-background: var(--bupa_grey-4-rgb-background),
-        _grey-5-rgb-background: var(--bupa_grey-5-rgb-background),
-        _white-rgb-background: var(--bupa_white-rgb-background),
-        _black-rgb-background: var(--bupa_black-rgb-background),
-        _blue-menu-rgb-background: var(--bupa_blue-menu-rgb-background),
+        _blue-menu-rgb: var(--bupa_blue-menu-rgb)
     ),
     _carePlus: (
         // Hexadecimal colors
@@ -104,25 +60,7 @@ $color-map: (
         _grey_inactive_tab: var(--carePlus_grey_inactive_tab),
         _grey-5: var(--carePlus_grey-5),
         _blue-plan-card: var(--carePlus_blue-plan-card),
-        
-         // Hexadecimal background colors
-        _green-background: var(--carePlus_green-background),
-        _light-green-background: var(--carePlus_light-green-background),
-        _light-blue-background: var(--carePlus_light-blue-background),
-        _dark-green-background: var(--carePlus_dark-green-background),
-        _blue-btn-text-background: var(--carePlus_blue-btn-text-background),
-        _error-background: var(--carePlus_error-background),
-        _valid-background: var(--carePlus_valid-background),
-        _drop-down-option-background: var(--carePlus_drop-down-option-background),
-        _checkbox-border-background: var(--carePlus_checkbox-border-background),
-        _warning-background: var(--carePlus_warning-background),
-        _success-background: var(--carePlus_success-background),
-        _blue-section-background: var(--carePlus_blue-section-background),
-        _grey_inactive_tab-background: var(--carePlus_grey_inactive_tab-background),
-        _grey-5-background: var(--carePlus_grey-5-rgb),
-        _blue-plan-card-background: var(--carePlus_blue-plan-card-background),
         // Rgb colors
-        
         _green-rgb: var(--carePlus_green-rgb),
         _light-green-rgb: var(--carePlus_light-green-rgb),
         _light-blue-rgb: var(--carePlus_light-blue-rgb),
@@ -135,41 +73,15 @@ $color-map: (
         _warning-rgb: var(--carePlus_warning-rgb),
         _success-rgb: var(--carePlus_success-rgb),
         _grey_inactive_tab-rgb: var(--carePlus_grey_inactive_tab-rgb),
-        _blue-plan-card-rgb: var(--carePlus_blue-plan-card-rgb),
-        // Rgb background colors
-
-        _green-rgb-background: var(--carePlus_green-rgb-background),
-        _light-green-rgb-background: var(--carePlus_light-green-rgb-background),
-        _light-blue-rgb-background: var(--carePlus_light-blue-rgb-background),
-        _dark-green-rgb-background: var(--carePlus_dark-green-rgb-background),
-        _blue-btn-text-rgb-background: var(--carePlus_blue-btn-text-rgb-background),
-        _error-rgb-background: var(--carePlus_error-rgb-background),
-        _valid-rgb-background: var(--carePlus_valid-rgb-background),
-        _drop-down-option-rgb-background: var(--carePlus_drop-down-option-rgb-background),
-        _checkbox-border-rgb-background: var(--carePlus_checkbox-border-rgb-background),
-        _warning-rgb-background: var(--carePlus_warning-rgb-background),
-        _success-rgb-background: var(--carePlus_success-rgb-background),
-        _grey_inactive_tab-rgb-background: var(--carePlus_grey_inactive_tab-rgb-background),
-        _blue-plan-card-rgb-background: var(--carePlus_blue-plan-card-rgb-background)
+        _blue-plan-card-rgb: var(--carePlus_blue-plan-card-rgb)
     ),
     _bottom-line: (
         // Hexadecimal colors
         _light-green: var(--bottom-line_light-green),
         _dark-green: var(--bottom-line_dark-green),
-
-        // Hexadecimal background colors
-        _light-green-background: var(--bottom-line_light-green-background),
-        _dark-green-background: var(--bottom-line_dark-green-background),
-
         // Rgb colors
-
         _light-green-rgb: var(--bottom-line_light-green-rgb),
-        _dark-green-rgb: var(--bottom-line_dark-green-rgb),
-
-        // Rgb background colors
-
-        _light-green-rgb-background: var(--bottom-line_light-green-rgb-background),
-        _dark-green-rgb-background: var(--bottom-line_dark-green-rgb-background),
+        _dark-green-rgb: var(--bottom-line_dark-green-rgb)
     ),
 );
 

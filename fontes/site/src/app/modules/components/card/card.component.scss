@@ -54,6 +54,7 @@
                     line-height: 150%;
                     color: getColor(_bupa, _digital-cian);
                     position: relative;
+
                     &.hasCollapse {
                         &::before {
                             content: "";
@@ -168,6 +169,21 @@
                 right: -1px;
                 bottom: -1px;
                 z-index: 0;
+            }
+
+            &.navy-background-color {
+                border: 1px solid getColor(_bupa, _white);
+
+                .link {
+                    color: getColor(_bupa, _white);
+                }
+
+                .line-1,
+                .line-2,
+                .line-3,
+                .line-4 {
+                    background-color: getColor(_bupa, _white);
+                }
             }
 
             &:hover {
@@ -324,7 +340,7 @@
                     }
                 }
 
-                .btn-text {
+                .btn-digital-cian {
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;

@@ -1,4 +1,5 @@
 @import "~src/scss/_variables";
+@import "~src/scss/_mixins";
 
 section#perfis {
     .container {
@@ -101,7 +102,7 @@ section#perfis {
                         transition: color 0.3s ease-in-out;
                     }
 
-                    .btn-text {
+                    .btn.tertiary {
                         padding-left: 0;
                         margin-top: 20px;
                     }
@@ -124,13 +125,19 @@ section#perfis {
                                     color: getColor(_bupa, _white);
                                 }
 
-                                .btn-text {
+                                .btn.tertiary {
                                     color: getColor(_bupa, _white);
 
-                                    svg {
-                                        fill: getColor(_bupa, _white);
-                                        path {
-                                            fill: getColor(_bupa, _white);
+                                    &:before {
+                                        border: solid getColor(_bupa, _white);
+                                        @include arrowElement(-45deg);
+                                    }
+
+                                    &:hover {
+                                        &:before {
+                                            border: solid getColor(_bupa, _white);
+                                            @include arrowElement(-45deg);
+                                            right: 14px;
                                         }
                                     }
                                 }

@@ -20,6 +20,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     width: number = 1440;
     elementOffset: number = 0;
     initiated: boolean = false;
+    scrollTop: number = 0;
+    showBtnToTop: boolean = false;
+    invertColors: boolean = false;
 
     constructor(
         private cdRef: ChangeDetectorRef,
@@ -80,10 +83,32 @@ export class AppComponent implements OnInit, AfterViewInit {
         });
     }
 
+    @HostListener('window:scroll', ['$event'])
+    onScroll(event) {
+        this.scrollTop = event.currentTarget.pageYOffset;
+        if (this.scrollTop > this.windowRef.nativeWindow.innerHeight) {
+            this.showBtnToTop = true;
+        } else {
+            this.showBtnToTop = false;
+        }
+
+        const footer = this.document.querySelector('footer');
+
+        if (footer && footer != null) {
+            const footerTop = footer.getBoundingClientRect().top + window.pageYOffset;
+            const bottomTop = (this.windowRef.nativeWindow.innerHeight + this.scrollTop)
+            if (bottomTop > footerTop) {
+                this.invertColors = true;
+            } else {
+                this.invertColors = false;
+            }
+        }
+    }
+
     @HostListener('window:resize', ['$event']) onResize(event) {
         if (this.isBrowser) {
             this.width = event.target.innerWidth
-            if (this.width <= 1024) {
+            if (this.width < 1024) {
                 localStorage.setItem('elementOffset', '72')
             } else {
                 localStorage.setItem('elementOffset', '0')
@@ -109,5 +134,13 @@ export class AppComponent implements OnInit, AfterViewInit {
                 this.document.body.classList.remove('using-mouse');
             }
         }
+    }
+
+    goToTop() {
+        this.windowRef.nativeWindow.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: "smooth"
+        })
     }
 }

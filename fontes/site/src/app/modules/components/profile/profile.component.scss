@@ -93,10 +93,6 @@ section.is-perfil {
                     transform: translateX(0%);
                 }
             }
-
-            .btn-primary {
-                display: inline-block;
-            }
         }
     }
 }
@@ -148,7 +144,7 @@ section.is-perfil {
 
             .tab-content {
                 margin-top: 30px;
-                .btn-text {
+                .btn-navy.tertiary {
                     padding-left: 0;
                 }
             }

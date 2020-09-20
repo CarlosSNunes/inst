@@ -2,7 +2,7 @@ import { Observable, Observer } from 'rxjs';
 
 export class ImageHelper {
     public static getBase64ImageFromURL(url: string) {
-        return Observable.create((observer: Observer<string>) => {
+        return new Observable((observer: Observer<string>) => {
             // create an image object
             const img = new Image();
             img.crossOrigin = 'Anonymous';

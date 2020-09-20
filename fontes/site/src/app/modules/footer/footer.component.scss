@@ -75,7 +75,7 @@
 
 .footer {
     padding: 52px 75px 0;
-    background: getColor(_bupa, _white);
+    background: getColor(_bupa, _navy);
     position: relative;
 
     @media (max-width: 991px) {
@@ -83,13 +83,7 @@
     }
 
     &:before {
-        background: linear-gradient(
-            to right,
-            getColor(_bupa, _digital-cian) 60%,
-            getColor(_bottom-line, _dark-green) 60%,
-            getColor(_bottom-line, _dark-green) 80%,
-            getColor(_bottom-line, _light-green) 80%
-        );
+        background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
         content: "";
         position: absolute;
         height: 4px;
@@ -111,7 +105,7 @@
     }
 
     a {
-        color: getColor(_bupa, _grey);
+        color: getColor(_bupa, _white);
         &.bottom {
             margin-top: 60px;
             display: block;
@@ -121,7 +115,7 @@
 
     p,
     h5 {
-        color: getColor(_bupa, _grey);
+        color: getColor(_bupa, _white);
     }
 
     h5.subtitle {
@@ -129,7 +123,7 @@
         white-space: nowrap;
         font-size: getSize("p");
         line-height: getLineHeight("p");
-        color: getColor(_bupa, _grey);
+        color: getColor(_bupa, _white);
     }
 
     .buttons {
@@ -145,7 +139,7 @@
         margin-top: 10px;
         p {
             text-align: left;
-            color: getColor(_bupa, _grey);
+            color: getColor(_bupa, _white);
             margin-bottom: 14px;
         }
         .certifications-images {
@@ -161,6 +155,10 @@
                 &:last-child {
                     margin-right: 0px;
                 }
+
+                &.trust-sign {
+                    mix-blend-mode: screen;
+                }
             }
         }
     }
@@ -173,7 +171,7 @@
         line-height: getLineHeight("mbt");
         display: flex;
         align-items: center;
-        color: getColor(_bupa, _grey);
+        color: getColor(_bupa, _white);
     }
 
     .atendimento {
@@ -183,7 +181,7 @@
         line-height: 200%;
         display: flex;
         align-items: center;
-        color: getColor(_bupa, _grey);
+        color: getColor(_bupa, _white);
         &.presencial {
             font-size: getSize("p");
             line-height: getLineHeight("p");
@@ -197,7 +195,7 @@
         line-height: 120%;
         display: flex;
         align-items: center;
-        color: getColor(_bupa, _grey);
+        color: getColor(_bupa, _white);
     }
 
     .horario-atendimento {
@@ -250,6 +248,12 @@
 
                 &:last-child {
                     margin-right: 0;
+                }
+
+                img {
+                    &.trust-sign {
+                        mix-blend-mode: screen;
+                    }
                 }
             }
         }
@@ -347,7 +351,7 @@
             line-height: getLineHeight("sbm");
             display: flex;
             align-items: center;
-            color: getColor(_bupa, _grey);
+            color: getColor(_bupa, _white);
             background: transparent;
             border: none;
             padding-left: 0.5rem;
@@ -362,7 +366,7 @@
             line-height: getLineHeight("sbm");
             display: flex;
             align-items: center;
-            color: getColor(_bupa, _grey);
+            color: getColor(_bupa, _white);
             padding: 0;
             padding-top: 8px;
             padding-bottom: 8px;
@@ -379,7 +383,7 @@
                 font-weight: normal;
                 font-size: getSize("sbm");
                 line-height: getLineHeight("sbm");
-                color: getColor(_bupa, _grey);
+                color: getColor(_bupa, _white);
             }
         }
     }
@@ -391,7 +395,7 @@
         line-height: getLineHeight("p");
         display: flex;
         align-items: center;
-        color: getColor(_bupa, _grey);
+        color: getColor(_bupa, _white);
         svg {
             transition: transform 0.5s;
             -webkit-transition: 0.5s;

@@ -13,7 +13,13 @@
             .third-step-buttons {
                 margin-top: 50px;
                 display: flex;
-                justify-content: space-between;
+                justify-content: flex-end;
+
+                .btn {
+                    &:last-child {
+                        margin-left: 24px;
+                    }
+                }
             }
         }
     }
@@ -48,7 +54,7 @@
                         flex: 0 0 100%;
                         display: block;
 
-                        &.btn-secondary {
+                        &.primary {
                             margin-top: 20px;
                         }
                     }

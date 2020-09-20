@@ -47,9 +47,8 @@ section {
                         color: getColor(_bupa, _white);
                     }
 
-                    .btn-text {
+                    .btn-digital-cian.tertiary {
                         float: right;
-                        padding-right: 0;
                         padding-bottom: 0;
                         color: getColor(_bupa, _white);
 
@@ -58,6 +57,19 @@ section {
 
                             path {
                                 fill: getColor(_bupa, _white);
+                            }
+                        }
+
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                                right: 15px;
                             }
                         }
                     }
@@ -118,7 +130,7 @@ section {
                         top: 0%;
                         position: relative;
 
-                        .btn-text {
+                        .btn-digital-cian.tertiary {
                             float: unset;
                             padding-left: 0;
                             margin-top: 10px;

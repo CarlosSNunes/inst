@@ -16,7 +16,7 @@ section#join-the-team {
 
     .btn {
         margin-top: 32px;
-        display: inline-block;
+        display: inline-flex;
     }
 
     .columns {
@@ -48,7 +48,7 @@ section#join-the-team {
 
 @media (max-width: 1023px) {
     section#join-the-team {
-        .btn-text {
+        .btn-fuchsia.tertiary {
             padding-left: 0;
         }
 

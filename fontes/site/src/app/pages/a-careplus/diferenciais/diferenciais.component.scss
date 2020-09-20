@@ -43,13 +43,7 @@ section {
                             position: absolute;
                             left: calc((-100vw + 1216px) / 2);
                             width: calc((100vw - 1280px) / 2);
-                            background: linear-gradient(
-                                to right,
-                                getColor(_bupa, _digital-cian) 60%,
-                                getColor(_bottom-line, _dark-green) 60%,
-                                getColor(_bottom-line, _dark-green) 80%,
-                                getColor(_bottom-line, _light-green) 80%
-                            );
+                            background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                             height: 4px;
                             top: calc(50% - 2px);
                         }

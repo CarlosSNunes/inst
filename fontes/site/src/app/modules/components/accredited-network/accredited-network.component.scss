@@ -16,19 +16,14 @@ section#accredited-network {
             }
             .button-column {
                 display: flex;
+                justify-content: flex-end;
                 .btn {
                     display: flex;
                     align-self: center;
                 }
             }
             &:before {
-                background: linear-gradient(
-                    to right,
-                    getColor(_bupa, _digital-cian) 60%,
-                    getColor(_bottom-line, _dark-green) 60%,
-                    getColor(_bottom-line, _dark-green) 80%,
-                    getColor(_bottom-line, _light-green) 80%
-                );
+                background-color: getColor(_bupa, _digital-cian);
                 content: "";
                 position: absolute;
                 height: 4px;
@@ -45,8 +40,8 @@ section#accredited-network {
         padding: 0;
         .container {
             padding: 0;
-            .columns{
-                .column{
+            .columns {
+                .column {
                     padding: 0;
                 }
             }
@@ -54,6 +49,7 @@ section#accredited-network {
                 padding: 30px 16px;
                 margin: 0;
                 .button-column {
+                    justify-content: unset;
                     .btn {
                         padding-left: 0;
                     }

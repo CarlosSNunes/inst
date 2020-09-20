@@ -1,7 +1,7 @@
 <div id="dropdown" tabindex="1" (blur)="hideList()">
     <div class="dropdown-select" (click)="showList()" [class.active]="!hidden">
         <p>{{selectedOption.key}}</p>
-        <img src="assets/svg/dropdown-arrow.svg" alt="">
+        <img src="assets/svg/dropdown-arrow.svg" alt="Seta Drop Down">
     </div>
     <div class="dropdown-list" [class.hiddenList]="hidden">
         <p *ngIf="options.length == 0" [class.hidden]="hidden"> Selecione...</p>

@@ -26,9 +26,13 @@ section#fac {
             }
         }
 
-        .btn {
-            margin: 44px auto 0 auto;
-            display: block;
+        .buttons-columns {
+            .column {
+                display: flex;
+                .btn {
+                    margin: 44px auto 0 auto;
+                }
+            }
         }
     }
 }

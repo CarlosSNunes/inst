@@ -1,12 +1,15 @@
 section#all-posts {
     .container {
-        .btn-primary {
-            display: block;
-            margin: 4px auto 0 auto;
-        }
+        .buttons-column {
+            display: flex;
+            .btn.secondary {
+                display: inline-flex;
+                margin: 4px auto 0 auto;
+            }
 
-        .btn-text {
-            padding-left: 0;
+            .btn.tertiary {
+                padding-left: 0;
+            }
         }
 
         .columns {
