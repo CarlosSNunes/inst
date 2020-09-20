@@ -5,9 +5,9 @@
                 <div class="column is-paddingless-vertical">
                     <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
 
-                    <h3 class="big-title">
+                    <h1 class="h3 big-title">
                         Saiba mais sobre os nossos programas e vagas em aberto
-                    </h3>
+                    </h1>
                 </div>
             </div>
         </div>
@@ -20,9 +20,9 @@
             <div class="columns">
                 <div class="column is-6-desktop is-full">
 
-                    <h4 class="big-title">
+                    <h2 class="h4 big-title">
                         {{vacancy?.name}}
-                    </h4>
+                    </h2>
 
                     <p class="description" *ngFor="let description of vacancy?.descriptions">
                         {{description}}
@@ -44,9 +44,9 @@
                 </div>
 
                 <div class="column is-6-desktop is-full">
-                    <h4 class="big-title">
+                    <h2 class="h4 big-title">
                         Cadastre-se
-                    </h4>
+                    </h2>
                     <form [formGroup]="vacancyForm">
                         <div class="field">
                             <p class="control">
@@ -185,9 +185,9 @@
                     <div class="blue-background-color custom-padding">
                         <div class="columns">
                             <div class="column is-6 desktop is-full">
-                                <h4 class="big-title">
+                                <h2 class="h4 big-title">
                                     Veja todas as vagas disponíveis
-                                </h4>
+                                </h2>
 
                                 <p class="sub-description">
                                     Encontre a vaga ideal para seu perfil.

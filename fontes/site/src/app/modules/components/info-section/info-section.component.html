@@ -7,9 +7,9 @@
                     <p class="small-title" *ngIf="sectionInfo?.smallTitle">
                         {{sectionInfo.smallTitle}}
                     </p>
-                    <h4 class="big-title" *ngIf="sectionInfo?.bigTitle">
+                    <h1 class="h4 big-title" *ngIf="sectionInfo?.bigTitle">
                         {{sectionInfo.bigTitle}}
-                    </h4>
+                    </h1>
                     <div class="img-mobile-box is-hidden-desktop" [class.no-line]="sectionInfo?.removeLine">
                         <img class="image-mobile" [style.objectFit]="sectionInfo?.objectFit" (click)="openModal()"
                             [class.hasModal]="sectionInfo?.hasModal" [src]="sectionInfo?.imageSrc"
