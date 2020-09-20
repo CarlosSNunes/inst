@@ -6,7 +6,7 @@ export const ocupationalSection = new InfoSectionModel({
     bigTitle: 'Mais saúde e qualidade no ambiente de trabalho',
     description: 'A Care Plus tem o melhor serviço de Medicina Ocupacional para a sua empresa',
     subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
-    imageSrc: 'assets/img/occupational.jpg',
+    imageSrc: 'assets/img/home-ocupacional.jpg',
     button: new ButtonModel({
         text: 'SAIBA MAIS',
         routerLink: '/planos-e-produtos/medicina-ocupacional',

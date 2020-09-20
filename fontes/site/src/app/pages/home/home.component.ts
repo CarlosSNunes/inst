@@ -7,6 +7,7 @@ import {
     PLATFORM_ID
 } from '@angular/core';
 import { ProductComponent } from '../../modules/components/product/product.component';
+import { differentialsMock } from "./data/differentials";
 import { bannersMock } from './data/banners'
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
@@ -19,6 +20,7 @@ import { ocupationalSection, videoModel, iconCardsSectionModel } from './data/mo
     styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+    differentials = differentialsMock;
     banners = bannersMock;
     @ViewChild('sectionProduct', { static: false }) sectionProduct: ProductComponent;
     isBrowser: boolean = false;
