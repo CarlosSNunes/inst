@@ -1,34 +1,30 @@
-import { BannerModel } from 'src/app/models';
+import { BannerModel } from "src/app/models";
 
-export const bannersMock =  [
+export const bannersMock = [
     new BannerModel({
-        caminhoImagem:
-            'http://matheus.careplus.remote.neotix.com.br/images/banner.jpg',
-        titulo: 'O cuidado com a sua saúde, no conforto de sua casa',
+        caminhoImagem: "assets/img/banner-beneficiario.jpg",
+        titulo: "O cuidado com a sua saúde, no conforto de sua casa",
         descricao:
-            'Com o Saúde em Casa, a Care Plus proporciona aos seus beneficiários consultas domiciliares nas especialidades de pediatria e clínico geral. ',
+            "Com o Saúde em Casa, a Care Plus proporciona aos seus beneficiários consultas domiciliares nas especialidades de pediatria e clínico geral. ",
         slideAtual: true,
-        tempo: 10000
+        tempo: 10000,
     }),
     new BannerModel({
-        caminhoImagem:
-            'http://matheus.careplus.remote.neotix.com.br/images/banner.jpg',
-        titulo: 'Careplus',
-        descricao: 'Melhor operadora',
-        tempo: 5000
+        caminhoImagem: "assets/img/banner-beneficiario.jpg",
+        titulo: "Careplus",
+        descricao: "Melhor operadora",
+        tempo: 5000,
     }),
     new BannerModel({
-        caminhoImagem:
-            'http://matheus.careplus.remote.neotix.com.br/images/banner.jpg',
-        titulo: 'Careplus',
-        descricao: 'Melhor operadora',
-        tempo: 5000
+        caminhoImagem: "assets/img/banner-beneficiario.jpg",
+        titulo: "Careplus",
+        descricao: "Melhor operadora",
+        tempo: 5000,
     }),
     new BannerModel({
-        caminhoImagem:
-            'http://matheus.careplus.remote.neotix.com.br/images/banner.jpg',
-        titulo: 'Careplus',
-        descricao: 'Melhor operadora',
-        tempo: 5000
-    })
+        caminhoImagem: "assets/img/banner-beneficiario.jpg",
+        titulo: "Careplus",
+        descricao: "Melhor operadora",
+        tempo: 5000,
+    }),
 ];

@@ -20,8 +20,9 @@
             </div>
         </div>
         <div *ngFor="let banner of banners" class="item"
-            [ngStyle]="{ 'background-image': 'url(' + banner?.caminhoImagem + ') ' }"
-            [ngClass]="[banner?.firstInteraction ? 'firstInteraction' :  '', banner?.slideAtual ? 'active' : '']">
+            [ngStyle]="{ 'background-image': 'url(' + banner?.caminhoImagem + ') '}"
+            [ngClass]="[banner?.firstInteraction ? 'firstInteraction' :  '', banner?.slideAtual ? 'active' : '']"
+            >
 
             <div class="container breadcrumb-container" *ngIf="breadcrumbs && breadcrumbs?.length > 0">
                 <div class="columns breadcrumb">

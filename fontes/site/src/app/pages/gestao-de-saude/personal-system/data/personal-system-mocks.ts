@@ -20,7 +20,7 @@ export const simpleBannerModel: SimpleBannerModel = {
     ],
     hasAnchor: true,
     hasFilters: false,
-    image: 'assets/img/personal-system-banner.jpg'
+    image: 'assets/img/personal-system.jpg'
 };
 
 export const consultaFacil: InfoSectionModel = new InfoSectionModel({
@@ -32,7 +32,7 @@ export const consultaFacil: InfoSectionModel = new InfoSectionModel({
         'Além do atendimento das condições clínicas agudas, os médicos poderão:',
         '- Esclarecer dúvidas relacionadas à saúde. <br/> - Indicar e agendar consulta com especialistas da Rede Credenciada Care Plus (Rede Plus). <br/> - Realizar consultas de devolutiva após a realização de check-up (consulta pós check-up). <br/> - Prescrever vacinas, conforme indicação.'
     ],
-    imageSrc: 'assets/img/personal-system-section-consulta-facil.jpg',
+    imageSrc: 'assets/img/consulta-facil.jpg',
     removeLine: false,
     objectFit: 'cover',
     button: new ButtonModel({
@@ -49,7 +49,7 @@ export const checkupDoViajante: InfoSectionModel = new InfoSectionModel({
         'O objetivo da consulta é orientar sobre a prevenção de doenças através do aconselhamento para cuidados básicos que visam reduzir a exposição a situações de risco de doenças, muitas vezes adquiridas após a ingestão de água ou de alimentos contaminados ou picadas de insetos, indicação de vacinas ou necessidade de medicação para profilaxia de doenças de acordo como o itinerário, sugestão de kit de medicamentos para serem levados na viagem, além de avaliar o estado de saúde antes da viagem. Ao final da consulta, você receberá um relatório resumido com as orientações e cuidados a serem tomados.',
         '<strong>Lembre-se: o formulário deve ser preenchido com no mínimo 30 dias de antecedência da viagem.</strong>'
     ],
-    imageSrc: 'assets/img/personal-system-section-checkup-do-viajante.jpg',
+    imageSrc: 'assets/img/checkup-viajante.jpg',
     removeLine: false,
     objectFit: 'cover',
     reverse: true
@@ -62,7 +62,7 @@ export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
         'O check-up é uma avaliação clínica acompanhada de exames laboratoriais e de imagem que promove o rastreamento de doenças na ausência de sintomas e que permite soluções mais rápidas e ações preventivas para estimular o cuidado rotineiro com a saúde.',
         'A consulta de monitoramento pós check-up oferece aos beneficiários Care Plus, que possuem cobertura em seu plano, atenção contínua à saúde após a realização dos exames. Na consulta, o beneficiário poderá esclarecer as dúvidas relacionadas à saúde, receber um feedback sobre o check-up realizado e contar com a ajuda do médico e de equipe multidisciplinar para dar continuidade no cuidado com a saúde e receber orientações sobre a frequência adequada para a repetição dos exames realizados.'
     ],
-    imageSrc: 'assets/img/personal-system-section-monitoramento-do-checkup.jpg',
+    imageSrc: 'assets/img/monitoramento-checkup.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
@@ -74,7 +74,7 @@ export const gerenciamentoDeDoencasCronicas: InfoSectionModel = new InfoSectionM
         'Os beneficiários que participam do programa têm acesso a uma série de benefícios como verba academia, parcerias com empresas de alimentos saudáveis, parceria com grupos de corrida, realização de exame que mede a taxa metabólica de repouso, avaliação da composição corporal por bioimpedância, 5º mês de medicamento gratuito, auxílio para aquisição de insulina, dentre outros. Estes benefícios são indicados pela equipe multidisciplinar que faz o acompanhamento do beneficiário.',
         'O atendimento é realizado por uma equipe multidisciplinar na Care Plus Clinic, na rede credenciada e diretamente nas empresas. Após a avaliação com médicos endocrinologistas, os beneficiários serão encaminhados para acompanhamento presencial com nutricionista e psicóloga, além de consultoras de saúde à distância para orientações e auxílio sobre dúvidas e suporte para o atingimento das metas de saúde. Além disto, para comodidade, os beneficiários contam com atendimento online de nutricionistas e psicólogos.'
     ],
-    imageSrc: 'assets/img/persona-system-section-programa-de-prevencao.jpg',
+    imageSrc: 'assets/img/gerenciamento-doencas-cronicas.jpg',
     removeLine: false,
     objectFit: 'cover',
     reverse: true

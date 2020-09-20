@@ -20,5 +20,5 @@ export const simpleBannerModel: SimpleBannerModel = {
     ],
     hasAnchor: true,
     hasFilters: false,
-    image: 'assets/img/banner-nossas-parcerias-gestao-de-saude.jpg'
+    image: 'assets/img/banner-nossas-parcerias.jpg'
 };

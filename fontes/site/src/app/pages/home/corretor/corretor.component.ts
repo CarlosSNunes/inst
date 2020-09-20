@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
+import { differentialsMock } from "./data/differentials";
 import { bannersMock } from './data/banners';
 import { WindowRef } from 'src/utils/window-ref';
 import { ProductComponent } from 'src/app/modules/components/product/product.component';
@@ -13,6 +14,7 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class CorretorComponent implements OnInit {
     @ViewChild('sectionProduct', { static: false }) sectionProduct: ProductComponent
+    differentials = differentialsMock;
     banners: Array<BannerModel> = bannersMock;
     travelSection: InfoSectionModel = new InfoSectionModel({
         smallTitle: 'CARE PLUS TRAVEL',

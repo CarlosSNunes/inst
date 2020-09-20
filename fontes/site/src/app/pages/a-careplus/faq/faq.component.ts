@@ -44,7 +44,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
         ],
         hasAnchor: false,
         hasFilters: true,
-        image: 'assets/img/a-careplus-faq-banner.jpg'
+        image: 'assets/img/banner-faq.jpg'
     };
     filterForm: FormGroup;
     script: HTMLScriptElement;

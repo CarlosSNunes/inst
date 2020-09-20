@@ -1,7 +1,7 @@
 import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, IconCardsSectionModel, ButtonModel, SliderModel } from 'src/app/models';
 import PersonalizedSectionCards from './personalized-section-cards';
 import { VideoModalModel } from 'src/app/models/modal.model';
-
+import { CareplusVideoModel } from 'src/app/models'
 export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
     title: 'Serviços Online',
     description: 'Para você ter mais tempo e se dedicar ao que importa, a Care Plus investe em praticidade, oferecendo serviços a distância. Confira!',
@@ -21,7 +21,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
         })
     ],
     hasAnchor: true,
-    image: 'assets/img/banner-servicos-online-gestao-de-saude-page.jpg'
+    image: 'assets/img/servicos-online.jpg'
 });
 
 export const medicalOrientationSection = new InfoSectionModel({
@@ -32,7 +32,7 @@ export const medicalOrientationSection = new InfoSectionModel({
         'Neste canal, os médicos esclarecem dúvidas relacionadas à saúde e podem contribuir com orientações* sobre a necessidade de realização de consulta ambulatorial ou em Pronto Atendimento. ',
         '*Não é realizada consulta médica com prescrição de medicamentos por telefone.'
     ],
-    imageSrc: 'assets/img/section-orientacoes-medicas-servicos-online-image.jpg',
+    imageSrc: 'assets/img/orientacao-medica.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
@@ -46,7 +46,7 @@ export const nutriADistancia = new InfoSectionModel({
         'Para participar do programa, você deve preencher o questionário de inscrição e aguardar o nosso contato.'
     ],
     reverse: true,
-    imageSrc: 'assets/img/section-nutri-a-distancia-servicos-online-image.jpg',
+    imageSrc: 'assets/img/nutri-a-distancia.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
@@ -73,23 +73,59 @@ export const sliderModel = new SliderModel({
     },
     images: [
         {
-            image: 'assets/img/slider-video-image.jpg',
-            thumbImage: 'assets/img/slider-video-image.jpg',
-            alt: 'Outubro Rosa',
-            title: 'Outubro Rosa',
+            image: 'assets/img/thumb-dedicacao.png',
+            thumbImage: 'assets/img/thumb-dedicacao.png',
+            alt: 'Dedicação Nunca é Demais',
+            title: 'Dedicação Nunca é Demais',
             modal: new VideoModalModel({
                 layout: 'video',
                 type: 'info',
+                videoModel: new CareplusVideoModel({
+                    bigTitle: 'Dedicação Nunca é Demais',
+                    embedSrc: 'https://www.youtube.com/embed/VkJDsgCRrTk'
+                })
             })
         },
         {
-            image: 'assets/img/slider-video-image-2.jpg',
-            thumbImage: 'assets/img/slider-video-image-2.jpg',
-            alt: 'Outubro Rosa',
-            title: 'Outubro Rosa',
+            image: 'assets/img/thumb-caracteristicas-pessoais.png',
+            thumbImage: 'assets/img/thumb-caracteristicas-pessoais.png',
+            alt: 'Mito ou Verdade - Características Pessoais',
+            title: 'Mito ou Verdade - Características Pessoais',
             modal: new VideoModalModel({
                 layout: 'video',
                 type: 'info',
+                videoModel: new CareplusVideoModel({
+                    bigTitle: 'Mito ou Verdade',
+                    embedSrc: 'https://www.youtube.com/embed/wAlYQnIJga4'
+                })
+            })
+        },
+        {
+            image: 'assets/img/thumb-depressao.png',
+            thumbImage: 'assets/img/thumb-depressao.png',
+            alt: 'Mito ou Verdade - Uma pessoa deprimida pode melhorar quando quiser?',
+            title: 'Mito ou Verdade - Uma pessoa deprimida pode melhorar quando quiser?',
+            modal: new VideoModalModel({
+                layout: 'video',
+                type: 'info',
+                videoModel: new CareplusVideoModel({
+                    bigTitle: 'Mito ou Verdade',
+                    embedSrc: 'https://www.youtube.com/embed/FXsnvW28zOI'
+                })
+            })
+        },
+        {
+            image: 'assets/img/thumb-cuidados-com-a-saude.png',
+            thumbImage: 'assets/img/thumb-cuidados-com-a-saude.png',
+            alt: 'Dr. Luciano Miller, cuidados com a saúde',
+            title: 'Dr. Luciano Miller, cuidados com a saúde',
+            modal: new VideoModalModel({
+                layout: 'video',
+                type: 'info',
+                videoModel: new CareplusVideoModel({
+                    bigTitle: 'Dr. Luciano Miller, cuidados com a saúde',
+                    embedSrc: 'https://www.youtube.com/embed/ydVnaFoCuLg'
+                })
             })
         },
     ]

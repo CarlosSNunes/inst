@@ -76,7 +76,7 @@ export class CareplusMaisComponent implements OnInit {
             alt: 'Serviços Online imagem 1'
         },
         secondImage: {
-            src: 'assets/img/blog-posts-cross-content-image-2-mock.jpg',
+            src: 'assets/img/servicos-online.jpg',
             alt: 'Serviços Online imagem 2'
         },
         boxContent: {

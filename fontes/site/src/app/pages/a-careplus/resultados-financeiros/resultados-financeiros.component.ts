@@ -32,7 +32,7 @@ export class ResultadosFinanceirosComponent implements OnInit {
         ],
         hasAnchor: false,
         hasFilters: true,
-        image: 'assets/img/banner-resultados-financeiros.jpg'
+        image: 'assets/img/banner-relatorios-financeiros.jpg'
     };
     filterForm: FormGroup;
     dropDownOptions: DropDownItem[] = [

@@ -3,7 +3,7 @@ export default [
         "title": "Sou Beneficiário",
         "description": "Para você, que possui um plano de saúde e/ou um plano odontológico da Care Plus.",
         "link": "/home/beneficiario",
-        "image": "assets/svg/Beneficiário.svg",
+        "image": "assets/svg/Beneficiário.svg",
         "linkTitle": "Saiba mais",
         "active": true
     },

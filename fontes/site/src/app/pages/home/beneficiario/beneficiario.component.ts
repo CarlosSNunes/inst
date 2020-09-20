@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { differentialsMock } from "./data/differentials";
 import { bannersMock } from './data/banners';
 import { InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
 import { AccreditedNetworkComponent } from 'src/app/modules/components/accredited-network/accredited-network.component';
@@ -13,6 +14,7 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class BeneficiarioComponent implements OnInit {
     @ViewChild('sectionAccreditedNetwork', { static: false }) sectionAccreditedNetwork: AccreditedNetworkComponent;
+    differentials = differentialsMock;
     banners = bannersMock;
     travelSection: InfoSectionModel = new InfoSectionModel({
         smallTitle: 'CARE PLUS TRAVEL',

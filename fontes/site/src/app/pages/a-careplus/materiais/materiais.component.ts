@@ -31,7 +31,7 @@ export class MateriaisComponent implements OnInit {
         ],
         hasAnchor: false,
         hasFilters: true,
-        image: 'assets/img/a-careplus-documents-banner.jpg'
+        image: 'assets/img/banner-documentos.jpg'
     };
     filterForm: FormGroup;
     documents = Materias;

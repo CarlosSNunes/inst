@@ -1,5 +1,6 @@
 export * from './banner.model';
 export * from './bloco.model';
+export * from './differential.model';
 export * from './busca-noticia.model';
 export * from './login.model';
 export * from './noticia-tipo.model';

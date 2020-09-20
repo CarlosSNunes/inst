@@ -20,7 +20,7 @@ export const simpleBannerModel: SimpleBannerModel = {
     ],
     hasAnchor: true,
     hasFilters: false,
-    image: 'assets/img/banner-programas-empresariais-gestao-de-saude.jpg'
+    image: 'assets/img/banner-programas-empresariais.jpg'
 };
 
 export const campanhaDeQuestionariosSection: InfoSectionModel = new InfoSectionModel({
@@ -30,7 +30,7 @@ export const campanhaDeQuestionariosSection: InfoSectionModel = new InfoSectionM
         'Neste serviço, a Care Plus investiga o perfil de saúde dos funcionários por meio de um questionário.',
         'Assim, de acordo com as características identificadas, os beneficiários podem ser encaminhados para acompanhamentos e tratamentos adequados, disponíveis nos programas da Gestão de Saúde.'
     ],
-    imageSrc: 'assets/img/section-campanha-de-questionatios-gestao-de-saude-image.jpg',
+    imageSrc: 'assets/img/circuito-de-afericoes.jpg',
     removeLine: false,
     objectFit: 'cover',
 });
@@ -41,7 +41,7 @@ export const nutriNaEmpresa: InfoSectionModel = new InfoSectionModel({
     subDescriptions: [
         'O objetivo é estimular a reeducação alimentar por meio de recomendações nutricionais individualizadas, que seguem as preferências dos indivíduos e os estilos de vida adotados.'
     ],
-    imageSrc: 'assets/img/section-nutri-na-empresa-gestao-de-saude-image.jpg',
+    imageSrc: 'assets/img/nutri-na-empresa.jpg',
     reverse: true,
     removeLine: false,
     objectFit: 'cover',
@@ -53,8 +53,7 @@ export const nutriMais: InfoSectionModel = new InfoSectionModel({
     subDescriptions: [
         'Este programa, que funciona como uma consultoria em nutrição realizada por profissionais capacitados, tem como finalidade oferecer soluções nutricionais personalizadas para as empresas, de acordo com as necessidades e a cultura organizacional.'
     ],
-    imageSrc: 'assets/img/section-nutri-mais-gestao-de-saude-image.jpg',
-    reverse: true,
+    imageSrc: 'assets/img/nutri-mais.jpg',
     removeLine: false,
     objectFit: 'cover',
 });

@@ -31,7 +31,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             })
         ],
         hasAnchor: true,
-        image: 'assets/img/responsabilidade-social-banner.jpg'
+        image: 'assets/img/banner-responsabilidade.jpg'
     };
     isBrowser: boolean = false;
     width: number = 0;
@@ -46,35 +46,35 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             bigTitle: 'Conheça algumas de nossas iniciativas sociais e sustentáveis',
             // description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et mi, ullamcorper enim phasellus tortor.',
             // subDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo gravida quam scelerisque molestie vitae eget tempus gravida. Quis quis accumsan etiam enim. Aliquet amet in commodo lobortis et etiam neque enim, ac. Nisi, eros cursus senectus eget ullamcorper tellus etiam et id. ',
-            imageSrc: 'assets/img/programas-sociais-section.jpg',
+            imageSrc: 'assets/img/programas-sociais.png',
             reverse: false
         }),
         new InfoSectionModel({
             smallTitle: 'Multiplicadores de Sorriso',
 
             subDescription: 'Anualmente, proporcionamos serviços odontológicos a crianças carentes em nossas clínicas do Rio de Janeiro e São Paulo. Dezenas de crianças recebem no dia da ação um tratamento odontológico gratuito, kits de higienização bucal e dicas de nutrição, tudo com muita alegria e amor.',
-            imageSrc: 'assets/img/social-programs-section-second-image.jpg',
+            imageSrc: 'assets/img/multiplicadores-de-sorriso.png',
             reverse: true,
             alignCenter: true
         }),
         new InfoSectionModel({
             smallTitle: 'Instituto Devolver / Festival Miolo Mole / Hospital Pequeno Príncipe',
             subDescription: 'Ao longo dos últimos anos doamos mais de R$ 2,5 milhões para iniciativas em diversas ONGs, como o Instituto Devolver e Doutores da Alegria (Festival Miolo Mole), e entidades ligadas a área da saúde como Hospital Pequeno Príncipe, que trata crianças carentes com câncer, além de bolsas de estudos na Faculdade de Medicina do Hospital Albert Einstein.',
-            imageSrc: 'assets/img/social-program-third-image.jpg',
+            imageSrc: 'assets/img/inst-devolver.png',
             reverse: false,
             alignCenter: true
         }),
         new InfoSectionModel({
             smallTitle: 'Diversidade e Aprendiz Legal',
             subDescription: 'Promovemos um ambiente de trabalho positivo que envolve uma cultura diversificada e inclusiva que capacita os colaboradores com ferramentas, treinamentos, informações, reconhecimentos e recompensas alinhadas às necessidades. Investimos, com consistência, neste ecossistema através do nosso programa de Diversidade e do nosso programa Aprendiz Legal, que atua e trabalha com jovens de diversas classes sociais.',
-            imageSrc: 'assets/img/section-program-fourth-image.jpg',
+            imageSrc: 'assets/img/diversidade.png',
             reverse: true,
             alignCenter: true
         }),
         new InfoSectionModel({
             smallTitle: 'Green Day e Amazônia',
             subDescription: 'Nosso Green Day incentiva que não se utilize copos descartáveis plásticos durante um dia inteiro no ano dentro de nossa empresa. Para reduzirmos o consumo de papel, mais de 95% dos nossos contratos e documentos são emitidos no formato digital, com assinaturas eletrônicas. Além disto, mudamos nossa sede para o edifício Amazônia, o qual possui certificação LEED (Leadership in Energy and Environmental Design) a fim de contribuir com uma maior eficiência energética e ambiental.',
-            imageSrc: 'assets/img/section-program-fourth-image.jpg',
+            imageSrc: 'assets/img/greenday_amazonia.png',
             reverse: false,
             alignCenter: true
         })

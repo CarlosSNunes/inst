@@ -1,62 +1,77 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
-import { bannersMock } from './data/banners';
-import { InfoSectionComponent } from 'src/app/modules/components/info-section/info-section.component';
-import { WindowRef } from 'src/utils/window-ref';
-import Cards from './data/cards';
-import { Meta, Title } from '@angular/platform-browser';
-import { SimuladoresService } from 'src/app/services';
+import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
+import {
+    BannerModel,
+    InfoSectionModel,
+    ButtonModel,
+    IconCardsSectionModel,
+    BreadcrumbModel,
+} from "src/app/models";
+import { differentialsMock } from "./data/differentials";
+import { bannersMock } from "./data/banners";
+import { InfoSectionComponent } from "src/app/modules/components/info-section/info-section.component";
+import { WindowRef } from "src/utils/window-ref";
+import Cards from "./data/cards";
+import { Meta, Title } from "@angular/platform-browser";
+import { SimuladoresService } from "src/app/services";
 
 @Component({
-    selector: 'app-rh',
-    templateUrl: './rh.component.html',
-    styleUrls: ['./rh.component.scss']
+    selector: "app-rh",
+    templateUrl: "./rh.component.html",
+    styleUrls: ["./rh.component.scss"],
 })
 export class RhComponent implements OnInit {
-    @ViewChild('infoSection', { static: false }) infoSection: InfoSectionComponent;
+    @ViewChild("infoSection", { static: false })
+    infoSection: InfoSectionComponent;
+    differentials = differentialsMock;
     banners: Array<BannerModel> = bannersMock;
     ocupationalSection = new InfoSectionModel({
-        smallTitle: 'MEDICINA OCUPACIONAL',
-        bigTitle: 'Mais saúde e qualidade no ambiente de trabalho',
-        description: 'A Care Plus tem o melhor serviço de Medicina Ocupacional para a sua empresa',
-        subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
-        imageSrc: 'assets/img/occupational.jpg',
+        smallTitle: "MEDICINA OCUPACIONAL",
+        bigTitle: "Mais saúde e qualidade no ambiente de trabalho",
+        description:
+            "A Care Plus tem o melhor serviço de Medicina Ocupacional para a sua empresa",
+        subDescription:
+            "Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.",
+        imageSrc: "assets/img/home-ocupacional.jpg",
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
-            link: '/planos-e-produtos/medicina-ocupacional'
-        })
+            text: "SAIBA MAIS",
+            link: "/planos-e-produtos/medicina-ocupacional",
+        }),
     });
     simulationSection = new InfoSectionModel({
-        smallTitle: 'SIMULADOR DE PLANOS',
-        bigTitle: 'Descubra o plano certo para a sua empresa',
-        description: 'Faça o nosso simulador de planos e encontre a solução ideal para o seu negócio',
-        subDescription: 'Não perca tempo pesquisando e selecionando as opções compatíveis com a sua empresa. Siga o passo a passo do nosso simulador e receba uma proposta já adequada ao perfil da sua organização.',
-        imageSrc: 'assets/img/simulators.jpg',
+        smallTitle: "SIMULADOR DE PLANOS",
+        bigTitle: "Descubra o plano certo para a sua empresa",
+        description:
+            "Faça o nosso simulador de planos e encontre a solução ideal para o seu negócio",
+        subDescription:
+            "Não perca tempo pesquisando e selecionando as opções compatíveis com a sua empresa. Siga o passo a passo do nosso simulador e receba uma proposta já adequada ao perfil da sua organização.",
+        imageSrc: "assets/img/plano-rh.jpg",
         button: new ButtonModel({
-            text: 'SIMULAR PLANO',
-            action: () => this.simularesService.open()
-        })
+            text: "SIMULAR PLANO",
+            action: () => this.simularesService.open(),
+        }),
     });
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
-        smallTitle: 'GESTÃO DE SAÚDE',
-        bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
-        subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
+        smallTitle: "GESTÃO DE SAÚDE",
+        bigTitle:
+            "Programas e serviços exclusivos: a melhor experiência em saúde",
+        subDescription:
+            "Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.",
         button: new ButtonModel({
-            text: 'CONHEÇA NOSSOS PROGRAMAS',
-            routerLink: '/gestao-de-saude'
+            text: "CONHEÇA NOSSOS PROGRAMAS",
+            routerLink: "/gestao-de-saude",
         }),
         cards: Cards,
-        columnClass: 'is-3-desktop'
+        columnClass: "is-3-desktop",
     });
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
-            name: 'Home',
-            link: '/home'
+            name: "Home",
+            link: "/home",
         }),
         new BreadcrumbModel({
-            name: 'Sou RH',
-            link: '/home/rh',
-            active: true
+            name: "Sou RH",
+            link: "/home/rh",
+            active: true,
         }),
     ];
     scrollTop: number = 0;
@@ -71,10 +86,9 @@ export class RhComponent implements OnInit {
         this.setSEOInfos();
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
-    @HostListener('window:scroll', ['$event'])
+    @HostListener("window:scroll", ["$event"])
     onScroll(event) {
         this.scrollTop = event.currentTarget.pageYOffset;
         if (this.scrollTop > this.infoSection.offsetTop) {
@@ -85,19 +99,20 @@ export class RhComponent implements OnInit {
     }
 
     slideToSection() {
-        const elementOffset = parseInt(localStorage.getItem('elementOffset'));
+        const elementOffset = parseInt(localStorage.getItem("elementOffset"));
         this.windowRef.nativeWindow.scrollTo({
             left: 0,
-            top: (this.infoSection.offsetTop - elementOffset),
-            behavior: "smooth"
-        })
+            top: this.infoSection.offsetTop - elementOffset,
+            behavior: "smooth",
+        });
     }
 
     setSEOInfos() {
-        this.title.setTitle('RH | Care Plus');
+        this.title.setTitle("RH | Care Plus");
         this.meta.updateTag({
-            name: 'description',
-            content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
+            name: "description",
+            content:
+                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
         });
     }
 
@@ -105,8 +120,7 @@ export class RhComponent implements OnInit {
         this.windowRef.nativeWindow.scrollTo({
             left: 0,
             top: 0,
-            behavior: "smooth"
-        })
+            behavior: "smooth",
+        });
     }
-
 }

@@ -29,7 +29,7 @@ export class RedePlusComponent implements OnInit {
             })
         ],
         hasAnchor: true,
-        image: 'assets/img/responsabilidade-social-banner.jpg'
+        image: 'assets/img/banner-rede-plus.jpg'
     };
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         bigTitle: 'Assista nosso vídeo da Rede Plus e conheça este nosso diferencial de atendimento',

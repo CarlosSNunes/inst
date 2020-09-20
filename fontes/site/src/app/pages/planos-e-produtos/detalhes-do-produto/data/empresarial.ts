@@ -6,7 +6,7 @@ export default {
     simpleBannerModel: new SimpleBannerModel({
         title: 'Empresarial: planos para mais de 200 vidas',
         description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
-        image: 'assets/img/clube-careplus-banner.jpg',
+        image: 'assets/img/banner-clube-careplus.jpg',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
@@ -32,7 +32,7 @@ export default {
             'Esse produto disponibiliza diversos diferenciais voltados a comodidade, praticidade, qualidade e, acima de tudo, muita segurança. Nossos beneficiários do Care Plus Empresarial contam com uma jornada de muito acolhimento e cuidado.',
             'Alguns benefícios são semelhantes aos do Clube Care Plus, inclusive com a possibilidade de contratar coberturas adicionais como medicina reprodutiva, dermatologia estética e cirurgia plástica.'
         ],
-        imageSrc: 'assets/img/about-plan-section-careplus-club.jpg',
+        imageSrc: 'assets/img/bloco-clube-careplus.jpg',
         button: new ButtonModel({
             text: 'SOLICITE UMA COTAÇÃO',
             routerLink: '/fale-conosco',
@@ -293,7 +293,7 @@ export default {
         bigTitle: 'Saiba como funcionam os Planos Odontológicos',
         description: 'Temos planos odontológicos que se encaixam nas necessidades de sua empresa',
         subDescription: 'Nossos planos odontológicos também fazem parte das classificações: Care Plus Soho, Clube Care Plus e Care Plus Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
-        imageSrc: 'assets/img/dental-plan.jpg',
+        imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
             text: 'SOLICITE UMA COTAÇÃO',
             routerLink: '/fale-conosco',
@@ -369,7 +369,7 @@ export default {
             'Elas contam com o que há de mais moderno e eficiente, obedecendo ao mais alto grau de exigência para estabelecimentos de saúde determinado pela ANVISA, que assegura os mais rígidos padrões de qualidade e excelência.',
             'Temos clínicas na Vila Olímpia e Brooklin, em São Paulo e no Barra Sul Shopping, no Rio de Janeiro.',
         ],
-        imageSrc: 'assets/img/clinic-section.jpg',
+        imageSrc: 'assets/img/bloco-clinicas.jpg',
         reverse: true,
     }),
     clinicInfos: {

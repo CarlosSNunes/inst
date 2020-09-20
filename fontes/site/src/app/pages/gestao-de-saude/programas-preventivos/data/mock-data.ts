@@ -20,7 +20,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
         })
     ],
     hasAnchor: true,
-    image: 'assets/img/banner-gestao-de-saude-programas-preventivos.jpg'
+    image: 'assets/img/programas-preventivos.jpg'
 });
 
 export const mommyCareSection = new InfoSectionModel({
@@ -32,7 +32,7 @@ export const mommyCareSection = new InfoSectionModel({
         'Um dos destaques deste programa é a visita nutricional para introdução alimentar do bebê*.',
         '*As visitas presenciais serão realizadas apenas na Grande São Paulo, cidades do Rio de Janeiro e Belo Horizonte.'
     ],
-    imageSrc: 'assets/img/section-mommy-care-programas-preventicos-image.jpg',
+    imageSrc: 'assets/img/mommy-care.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
@@ -45,7 +45,7 @@ export const gerenciamentoDeDoencasCronicas = new InfoSectionModel({
         '- Realização de exames (medição de taxa metabólica de repouso e bioimpedância) <br/> - Atendimento online com nutricionistas e psicólogos <br/> - Descontos exclusivos nos parceiros de alimentação saudável e assessoria esportiva <br/> - Auxílio para aquisição de medicamentos e muito mais!'
     ],
     reverse: true,
-    imageSrc: 'assets/img/section-prev-doencas-cardio-image.jpg',
+    imageSrc: 'assets/img/prevencao-doencas.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
@@ -57,7 +57,7 @@ export const programaDeAcolhimento = new InfoSectionModel({
         'Neste programa, os beneficiários que necessitam de acompanhamento, seja por conta de uma hospitalização recente ou por falta de conhecimento sobre como cuidar da saúde, contam com o suporte de uma equipe de acolhimento.',
         'Os profissionais servirão de fonte de informação e orientação para que os beneficiários tenham o melhor tratamento (Care Coordinator) e encaminhamentos adequados (Care Navigation).'
     ],
-    imageSrc: 'assets/img/section-programas-de-acolhimento-image.jpg',
+    imageSrc: 'assets/img/programa-acolhimento.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
@@ -70,7 +70,7 @@ export const mentalHealth = new InfoSectionModel({
         'Este canal é exclusivo para atendimento e direcionamento em situações de crise pessoal e/ou profissional.',
         'Assim, sempre que o beneficiário precisar de apoio, poderá entrar em contato com a equipe especializada, com total garantia de sigilo e confidencialidade.'
     ],
-    imageSrc: 'assets/img/section-mental-health-image.jpg',
+    imageSrc: 'assets/img/mental-health.jpg',
     reverse: true,
     removeLine: false,
     objectFit: 'cover'
@@ -84,7 +84,7 @@ export const cuidadosDaFamilia = new InfoSectionModel({
         'Os familiares de crianças portadoras de Transtorno do Espectro Autista (TEA) e outras condições genéticas, como a Síndrome de Down, podem participar deste programa de acolhimento.',
         'Nele, a Care Plus oferece um canal de atendimento exclusivo 24 horas por dia, durante 7 dias da semana.'
     ],
-    imageSrc: 'assets/img/section-cuidados-com-a-familia-image.jpg',
+    imageSrc: 'assets/img/cuidado-familia.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
@@ -109,7 +109,7 @@ export const programaDeCuidadoOncologico = new InfoSectionModel({
         }
     ],
     reverse: true,
-    imageSrc: 'assets/img/section-programa-de-cuidado-oncologico-image.jpg',
+    imageSrc: 'assets/img/programa-cuidado-oncologico.jpg',
     removeLine: false,
     objectFit: 'cover'
 });
