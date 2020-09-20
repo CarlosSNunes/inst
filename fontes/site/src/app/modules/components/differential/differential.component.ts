@@ -75,6 +75,9 @@ export class DifferentialComponent implements OnInit, AfterViewInit {
             this.percentageStoped = 0;
             this.percentage = 0;
         }
+        if (index == this.currentDifferential) {
+           return;
+        }
         this.stopSubscription()
         this.differentials = this.differentials.map((diff, i) => {
             if (i == index) {

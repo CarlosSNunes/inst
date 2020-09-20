@@ -26,7 +26,7 @@ export const differentialsMock = [
         title: "Vantagens excepcionais",
         content: "Programas e serviços especiais oferecídos aos beneficiários Care Plus pensando sempre na saúde e conforto de nossos parceiros",
         active: true,
-        image: "assets/img/vantagens-excepcionais.png",
+        image: "assets/img/vantagens-excepcionais.jpg",
         time: 10000
     }),
 ];
