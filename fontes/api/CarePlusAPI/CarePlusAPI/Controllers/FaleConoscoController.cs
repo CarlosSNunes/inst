@@ -53,6 +53,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet("tipo-assunto-fale-conosco")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetTipoAssuntoFaleConosco()
         {
             try
@@ -79,6 +80,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet("assunto-ouvidoria")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetAssuntoOuvidoria()
         {
             try
@@ -105,6 +107,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet("classificacao-ouvidoria")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetClassificacaoOuvidoria()
         {
             try
@@ -133,6 +136,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação Fale conosco</param>
         [HttpPost("gravar-fale-conosco")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] GravarFaleConoscoEntradaModel model)
         {
             if (model == null)
@@ -163,6 +167,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação Fale conosco</param>
         [HttpPost("gravar-canal-de-denuncia")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] GravarCanalDenunciaEntradaModel model)
         {
             if (model == null)
@@ -193,6 +198,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação Fale conosco</param>
         [HttpPost("gravar-ouvidoria")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] GravarOuvidoriaEntradaModel model)
         {
             if (model == null)

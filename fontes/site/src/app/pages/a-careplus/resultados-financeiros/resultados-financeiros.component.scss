@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#aCareplusFinancialReportsFilters {
+    &#a-careplus-financial-reports-filters {
         .container {
             .columns {
                 .column {
@@ -70,11 +70,6 @@ section {
                                                     }
                                                 }
                                             }
-
-                                            .btn {
-                                                padding: 18px 32px;
-                                                line-height: 100%;
-                                            }
                                         }
                                     }
                                 }
@@ -96,7 +91,7 @@ section {
 
 @media (min-width: 1024px) and (max-width: 1200px) {
     section {
-        &#aCareplusFinancialReportsFilters {
+        &#a-careplus-financial-reports-filters {
             .columns {
                 .column {
                     &.filter-box {
@@ -133,7 +128,7 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#aCareplusFinancialReportsFilters {
+        &#a-careplus-financial-reports-filters {
             .container {
                 .columns {
                     .column {
@@ -171,9 +166,8 @@ section {
                                                     }
                                                 }
                                             }
-                                            .btn-text {
+                                            .btn.tertiary {
                                                 padding-left: 0 !important;
-                                                padding-right: 0 !important;
                                             }
                                         }
                                     }
@@ -196,7 +190,7 @@ section {
 
 @media (max-width: 359px) {
     section {
-        &#aCareplusFinancialReportsFilters {
+        &#a-careplus-financial-reports-filters {
             .container {
                 .columns {
                     .column {

@@ -1,7 +1,8 @@
 @import "_variables.scss";
+@import "_mixins.scss";
 
 /*
-    Grid
+Grid
 */
 
 .container {
@@ -85,324 +86,13 @@ section {
         margin-top: 32px;
     }
 }
-
 /*
-    pt - Botões
-    en - Buttons
+    Pt - Botões
+    En - Buttons
 */
 
-.btn {
-    -webkit-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
-        color 0.3s ease-in-out;
-    -moz-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
-        color 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
-        color 0.3s ease-in-out;
-    letter-spacing: 3.5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    outline: none;
-    border-radius: 2px;
-    cursor: pointer;
-    display: inline-block;
+@import "~src/scss/_buttons";
 
-    &.small {
-        padding: 16px 24px;
-        font-size: getSize("sbm");
-        line-height: getLineHeight("p");
-        @media (max-width: 991px) {
-            font-weight: 600;
-            padding: 8px 16px;
-            letter-spacing: 3.5px;
-        }
-    }
-
-    &.medium {
-        padding: 20px 32px;
-        font-size: getSize("p");
-        line-height: getLineHeight("p");
-        @media (max-width: 991px) {
-            font-weight: 600;
-            padding: 8px 16px;
-            letter-spacing: 3.5px;
-        }
-    }
-
-    &.big {
-        padding: 24px 32px;
-        font-size: getSize("p");
-        line-height: getLineHeight("p");
-        @media (max-width: 991px) {
-            font-weight: 600;
-            padding: 12px 24px;
-            letter-spacing: 3.5px;
-        }
-    }
-
-    /*
-        Pt - Botão primário
-        En - Primary button
-    */
-
-    &.btn-primary {
-        border: 2px solid getColor(_carePlus, _green);
-        color: getColor(_bupa, _white);
-        background-color: getColor(_carePlus, _green);
-        outline: none;
-
-        &:hover {
-            border: 2px solid getColor(_carePlus, _dark-green);
-            background-color: getColor(_carePlus, _dark-green);
-        }
-
-        &:focus {
-            border: 2px solid getColor(_carePlus, _dark-green);
-            background-color: getColor(_carePlus, _dark-green);
-            box-shadow: 0px 0px 10px getColor(_carePlus, _dark-green);
-        }
-
-        &:active {
-            border: 2px solid getColor(_carePlus, _green);
-            background-color: getColor(_carePlus, _green);
-            -webkit-transform: scale(0.95);
-            transform: scale(0.95);
-            box-shadow: unset;
-        }
-
-        &:disabled {
-            cursor: not-allowed;
-            border: 2px solid getColor(_bupa, _grey-3);
-            background-color: getColor(_bupa, _grey-3);
-        }
-
-        @media (max-width: 991px) {
-            background-color: getColor(_bupa, _white);
-            border: unset;
-            border-radius: 2px;
-            color: getColor(_carePlus, _green);
-
-            &:hover {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-            }
-
-            &:focus {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                box-shadow: unset;
-            }
-
-            &:active {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                -webkit-transform: scale(0.95);
-                transform: scale(0.95);
-                box-shadow: unset;
-            }
-        }
-    }
-
-    /*
-        Pt - Botão secundário
-        En - Secondary button
-    */
-
-    &.btn-secondary {
-        border: 2px solid getColor(_carePlus, _green);
-        box-sizing: border-box;
-        background-color: getColor(_bupa, _white);
-        color: getColor(_carePlus, _green);
-
-        &:hover {
-            border: 2px solid getColor(_carePlus, _green);
-            background-color: getColor(_carePlus, _green);
-            color: getColor(_bupa, _white);
-        }
-
-        &:focus {
-            border: 2px solid getColor(_carePlus, _green);
-            background-color: getColor(_carePlus, _green);
-            box-shadow: 0px 0px 10px getColor(_carePlus, _green);
-            color: getColor(_bupa, _white);
-        }
-
-        &:active {
-            border: 2px solid getColor(_carePlus, _dark-green);
-            background-color: getColor(_carePlus, _dark-green);
-            -webkit-transform: scale(0.95);
-            transform: scale(0.95);
-            color: getColor(_bupa, _white);
-        }
-
-        &:disabled {
-            cursor: not-allowed;
-            border: 2px solid getColor(_bupa, _grey-3);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _grey-3);
-        }
-    }
-
-    /*
-        Pt - Botão de texto
-        En - Text button
-    */
-
-    &.btn-text {
-        cursor: pointer;
-        display: flex;
-        color: getColor(_bupa, _digital-cian);
-        text-transform: uppercase;
-        line-height: 120%;
-        font-weight: 500;
-        background-color: unset;
-        border: unset;
-
-        svg {
-            margin-right: 20px;
-            margin-left: 10px;
-            transition: margin 0.4s ease-in-out;
-            align-self: center;
-        }
-        &:hover {
-            color: getColor(_carePlus, _blue-btn-text);
-            svg {
-                margin-right: 10px;
-                margin-left: 20px;
-                path {
-                    fill: getColor(_carePlus, _blue-btn-text);
-                }
-            }
-        }
-
-        &.reverse {
-            &:hover {
-                svg {
-                    margin-right: 30px;
-                    margin-left: 0px;
-                    path {
-                        fill: getColor(_carePlus, _blue-btn-text);
-                    }
-                }
-            }
-        }
-
-        &:active {
-            color: getColor(_carePlus, _blue-btn-text);
-            svg {
-                margin-right: 10px;
-                margin-left: 20px;
-                path {
-                    fill: getColor(_carePlus, _blue-btn-text);
-                }
-            }
-        }
-
-        &:disabled,
-        &.disabled {
-            cursor: not-allowed;
-            color: getColor(_bupa, _grey);
-            opacity: 0.6;
-            svg {
-                path {
-                    fill: getColor(_bupa, _grey);
-                }
-            }
-        }
-
-        &.small {
-            font-size: getSize("sbm");
-            /* or 29px */
-
-            letter-spacing: 2px;
-            svg {
-                width: 18px;
-            }
-        }
-
-        &.medium {
-            font-size: getSize("p");
-            svg {
-                width: 22px;
-            }
-        }
-
-        &.big {
-            font-size: getSize("mbt");
-            svg {
-                width: 26px;
-            }
-        }
-
-        &.no-padding {
-            padding: 0 !important;
-        }
-    }
-
-    /**
-        pt - Botão Digital cian
-        en - Digital cian button
-    */
-
-    &.btn-digital-cian {
-        border: 2px solid getColor(_bupa, _white);
-        color: getColor(_bupa, _white);
-        background-color: getColor(_bupa, _digital-cian);
-        outline: none;
-        text-align: center;
-
-        &:hover {
-            border: 2px solid getColor(_bupa, _white);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _digital-cian);
-        }
-
-        &:focus {
-            border: 2px solid getColor(_bupa, _white);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _digital-cian);
-        }
-
-        &:active {
-            border: 2px solid getColor(_bupa, _white);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _digital-cian);
-            -webkit-transform: scale(0.95);
-            transform: scale(0.95);
-        }
-
-        &:disabled {
-            cursor: not-allowed;
-            border: 2px solid getColor(_bupa, _grey-3);
-            background-color: getColor(_bupa, _grey-3);
-        }
-
-        @media (max-width: 991px) {
-            background-color: getColor(_bupa, _white);
-            border: unset;
-            border-radius: 2px;
-            color: getColor(_bupa, _digital-cian);
-
-            &:hover {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-            }
-
-            &:focus {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                box-shadow: unset;
-            }
-
-            &:active {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                -webkit-transform: scale(0.95);
-                transform: scale(0.95);
-                box-shadow: unset;
-            }
-        }
-    }
-}
 
 /*
     Tabs
@@ -1178,4 +868,22 @@ input.mat-input-element {
 .mat-accent .mat-slider-thumb,
 .mat-accent .mat-slider-thumb-label {
     background-color: getColor(_bupa, _grey-3);
+}
+
+/*
+
+    pt - Parágrafo de busca sem resultados.
+    en - No results paragraph
+
+*/
+
+.no-results {
+    margin-top: 55px;
+    width: 100%;
+    font-weight: normal;
+    font-size: getSize("mbt");
+    line-height: getLineHeight("mbt");
+    display: block;
+    text-align: center;
+    color: getColor(_bupa, _grey);
 }

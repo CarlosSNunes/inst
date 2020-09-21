@@ -30,7 +30,7 @@ export default [
         id: 'consulta-facil',
         button: new ButtonModel({
             routerLink: '/a-careplus/diferenciais/consulta-facil',
-            text: 'SAIBA MAIS'
+            text: 'Saiba Mais'
         })
     }),
     new CardModel({
@@ -90,7 +90,7 @@ export default [
     }),
     new CardModel({
         type: 'default',
-        title: 'Personal system',
+        title: 'Personal System',
         description: 'É um programa composto por equipe médica multidisciplinar especializada na promoção de saúde e prevenção de doenças com atendimento presencial e individualizado.',
         category: 'corretor',
         id: 'personal-system'

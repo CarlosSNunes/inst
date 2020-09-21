@@ -55,9 +55,9 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///mapear esse objeto para um objeto de retorno mais simples.
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
-        ///</summary>
-        [AllowAnonymous]
+        ///</summary>       
         [HttpGet]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             List<Perfil> perfil = await PerfilService.Listar();
@@ -76,6 +76,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do perfil</param>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -96,8 +97,8 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="model">Model de criação de perfis</param>
-        [AllowAnonymous]
         [HttpPost]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post(List<PerfilCreateModel> models)
         {
             if (models == null || !models.Any())
@@ -119,6 +120,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de atualização de perfis</param>
         [HttpPut]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put(List<PerfilUpdateModel> models)
         {
             if (models == null || !models.Any())
@@ -139,6 +141,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do perfil</param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)

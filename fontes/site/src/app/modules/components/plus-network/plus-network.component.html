@@ -2,7 +2,7 @@
     <article>
         <div class="container">
             <div class="columns rede-plus-description">
-                <div class="column">
+                <div class="column first-column">
                     <p class="small-title">
                         REDE PLUS
                     </p>
@@ -16,9 +16,6 @@
                         tratamento.
                     </p>
                 </div>
-                <div class="column has-divider">
-                    <hr class="bupa-divider" />
-                </div>
                 <div class="column has-background is-hidden-touch">
                     <div class="columns">
                         <div class="column">
@@ -27,10 +24,11 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M16 0C15.2788 5.88658 15.0404 9.62452 13.6312 12.0375C11.3277 15.0366 7.33501 15.3223 0 16C7.21611 16.8731 11.1177 17.0624 13.428 19.8098C15.154 22.242 15.446 26.0044 16 32C16.9409 24.224 17.0883 20.2972 20.4978 18.0626C22.922 16.8917 26.5395 16.6361 32 16C25.2292 15.1705 21.3007 14.9796 18.9619 12.9113C16.9843 10.5536 16.7734 6.63885 16 0Z"
-                                        fill="#A7D59D" />
+                                        fill="#FFF" />
                                 </svg>
-
-                                Médicos referência
+                                <span>
+                                    Médicos referência
+                                </span>
                             </p>
                         </div>
                         <div class="column">
@@ -39,10 +37,11 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M16 0C15.2788 5.88658 15.0404 9.62452 13.6312 12.0375C11.3277 15.0366 7.33501 15.3223 0 16C7.21611 16.8731 11.1177 17.0624 13.428 19.8098C15.154 22.242 15.446 26.0044 16 32C16.9409 24.224 17.0883 20.2972 20.4978 18.0626C22.922 16.8917 26.5395 16.6361 32 16C25.2292 15.1705 21.3007 14.9796 18.9619 12.9113C16.9843 10.5536 16.7734 6.63885 16 0Z"
-                                        fill="#A7D59D" />
+                                        fill="#FFF" />
                                 </svg>
-
-                                Clínicas tecnológicas
+                                <span>
+                                    Clínicas tecnológicas
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -53,10 +52,11 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M16 0C15.2788 5.88658 15.0404 9.62452 13.6312 12.0375C11.3277 15.0366 7.33501 15.3223 0 16C7.21611 16.8731 11.1177 17.0624 13.428 19.8098C15.154 22.242 15.446 26.0044 16 32C16.9409 24.224 17.0883 20.2972 20.4978 18.0626C22.922 16.8917 26.5395 16.6361 32 16C25.2292 15.1705 21.3007 14.9796 18.9619 12.9113C16.9843 10.5536 16.7734 6.63885 16 0Z"
-                                        fill="#A7D59D" />
+                                        fill="#FFF" />
                                 </svg>
-
-                                Atendimento personalizado
+                                <span>
+                                    Atendimento personalizado
+                                </span>
                             </p>
                         </div>
                         <div class="column">
@@ -65,14 +65,15 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M16 0C15.2788 5.88658 15.0404 9.62452 13.6312 12.0375C11.3277 15.0366 7.33501 15.3223 0 16C7.21611 16.8731 11.1177 17.0624 13.428 19.8098C15.154 22.242 15.446 26.0044 16 32C16.9409 24.224 17.0883 20.2972 20.4978 18.0626C22.922 16.8917 26.5395 16.6361 32 16C25.2292 15.1705 21.3007 14.9796 18.9619 12.9113C16.9843 10.5536 16.7734 6.63885 16 0Z"
-                                        fill="#A7D59D" />
+                                        fill="#FFF" />
                                 </svg>
-
-                                Cobertura total
+                                <span>
+                                    Cobertura total
+                                </span>
                             </p>
                         </div>
                     </div>
-                    <button class="btn medium btn-secondary" routerLink="/a-careplus/rede-plus">
+                    <button class="btn btn-white-to-digital-cian secondary medium arrow-right" routerLink="/a-careplus/rede-plus">
                         Conheça a rede plus
                     </button>
                 </div>
@@ -82,10 +83,12 @@
                     <div class="carousel" id="active">
                         <div *ngFor="let banner of banners" class="item"
                             [ngStyle]="{ 'background-image': 'url(' + banner?.caminhoImagem + ') ' }"
-                            [class.active]="banner?.slideAtual" [class.enter]="banner?.enter" [ngClass]="banner?.action">
+                            [class.active]="banner?.slideAtual" [class.enter]="banner?.enter"
+                            [ngClass]="banner?.action">
                             <div class="columns">
-                                <div class="column is-full-touch is-5 banner-details" [class.is-offset-7]="width > 1023">
-                                    <img class="mobile-banner-image" [src]="banner?.caminhoImagem" alt="Banenr Image">
+                                <div class="column is-full-touch is-5 banner-details"
+                                    [class.is-offset-7]="width > 1023">
+                                    <img class="mobile-banner-image" [src]="banner?.caminhoImagem" [alt]="banner.titulo">
                                     <p class="section-category color bupa-digital-cyan">
                                         Médicos referência
                                     </p>

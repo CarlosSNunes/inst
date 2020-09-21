@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#aCareplusFaqFilters {
+    &#a-careplus-faq-filters {
         .container {
             .columns {
                 .column {
@@ -23,26 +23,13 @@ section {
                                     li {
                                         align-self: center;
                                         display: inline-flex;
-                                        margin: 0 16px;
-                                        &:first-child {
-                                            margin-left: 0;
-                                            text-transform: uppercase;
-                                            font-weight: 500;
-                                            font-size: 0.75em;
-                                            line-height: 150%;
-                                            color: getColor(_bupa, _navy);
-                                        }
-
-                                        &:last-child {
-                                            margin-right: 0px;
-                                        }
+                                        width: 100%;
 
                                         .field {
-                                            max-width: 256px;
                                             width: 100%;
                                             display: block;
                                             height: 56px;
-                                            width: auto;
+                                            width: 100%;
                                             .control {
                                                 display: flex;
                                                 width: 100%;
@@ -76,7 +63,7 @@ section {
 
 @media (min-width: 1024px) and (max-width: 1150px) {
     section {
-        &#aCareplusFaqFilters {
+        &#a-careplus-faq-filters {
             .container {
                 .columns {
                     .column {
@@ -102,12 +89,12 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#aCareplusFaqFilters {
+        &#a-careplus-faq-filters {
             .container {
                 .columns {
                     .column {
                         &.filter-box {
-                            height: 430px;
+                            height: 0;
 
                             .filters {
                                 position: relative;
@@ -155,7 +142,7 @@ section {
 
 @media (max-width: 359px) {
     section {
-        &#aCareplusFaqFilters {
+        &#a-careplus-faq-filters {
             .container {
                 .columns {
                     .column {

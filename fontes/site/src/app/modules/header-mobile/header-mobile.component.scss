@@ -15,23 +15,18 @@
     z-index: 1002;
     .selected {
         cursor: pointer;
-        ::ng-deep fa-icon {
+        img {
             transform: translate3d(0, 0, 0);
-            svg {
-                transform: translate3d(0, 0, 0);
-                vertical-align: -0.4em;
-                @media (max-width: 1023px) {
-                    vertical-align: -0.225em;
-                }
+            vertical-align: -0.4em;
+            @media (max-width: 1023px) {
+                vertical-align: -0.225em;
             }
         }
     }
     &.open {
         .selected {
-            ::ng-deep fa-icon {
-                svg {
-                    transform: rotate(-180deg);
-                }
+            img {
+                transform: rotate(-180deg);
             }
         }
     }
@@ -47,14 +42,12 @@
         padding-right: 25px;
         position: relative;
 
-        ::ng-deep fa-icon {
+        img {
             position: absolute;
             right: 0px;
+            width: 10px;
             height: 100%;
-            svg {
-                transition: transform 0.5s;
-                height: 100%;
-            }
+            transition: transform 0.5s;
         }
     }
 }
@@ -135,6 +128,7 @@
     left: 0;
     z-index: 1002;
     padding: 10px 36px;
+    background-color: getColor(_bupa, _digital-cian);
 
     #menu-check {
         display: none;
@@ -175,7 +169,7 @@
         .hamburger {
             position: relative;
             display: block;
-            background: getColor(_bupa, _navy);
+            background: getColor(_bupa, _white);
             width: 18px;
             height: 2px;
             right: 0;
@@ -183,7 +177,7 @@
             transition: 0.3s ease-in-out;
             &:before,
             &:after {
-                background: getColor(_bupa, _navy);
+                background: getColor(_bupa, _white);
                 content: "";
                 display: block;
                 width: 100%;
@@ -529,8 +523,9 @@
     left: 0;
     width: 100%;
     height: 84px;
-    background-color: getColor(_bupa, _navy);
+    background-color: getColor(_bupa, _white);
     display: flex;
+    box-shadow: 0px -3px 12px -4px rgba(getColor(_bupa, _black-rgb), 0.25);
 
     ul {
         width: 100%;
@@ -553,7 +548,7 @@
                     font-size: 0.625em;
                     line-height: 120%;
                     text-align: center;
-                    color: getColor(_bupa, _white);
+                    color: getColor(_bupa, _grey-2);
                     margin-top: 16px;
                 }
 
@@ -561,22 +556,34 @@
                     display: block;
                     margin: 0 auto;
                     height: 15px;
-                    fill: getColor(_bupa, _white);
+                    fill: getColor(_bupa, _grey-2);
                     path: {
-                        fill: getColor(_bupa, _white);
+                        fill: getColor(_bupa, _grey-2);
+                    }
+
+                    ::ng-deep {
+                        path {
+                            fill: getColor(_bupa, _grey-2);
+                        }
                     }
                 }
 
                 &.active {
                     svg {
-                        fill: getColor(_carePlus, _light-green) !important;
+                        fill: getColor(_bupa, _navy) !important;
                         path: {
-                            fill: getColor(_carePlus, _light-green) !important;
+                            fill: getColor(_bupa, _navy) !important;
+                        }
+
+                        ::ng-deep {
+                            path {
+                                fill: getColor(_bupa, _navy) !important;
+                            }
                         }
                     }
 
                     p {
-                        color: getColor(_carePlus, _light-green);
+                        color: getColor(_bupa, _navy) !important;
                     }
 
                     &::before {
@@ -586,7 +593,7 @@
                         width: 100%;
                         left: 0;
                         bottom: 0;
-                        background-color: getColor(_carePlus, _light-green);
+                        background-color: getColor(_bupa, _navy);
                     }
                 }
             }

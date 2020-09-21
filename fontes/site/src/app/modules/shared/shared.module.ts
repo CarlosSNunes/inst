@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { SatDatepickerModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatNativeDateModule } from 'saturn-datepicker';
 import { MatDatepickerModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
@@ -25,7 +24,6 @@ export const ISO_FORMAT = {
     declarations: [],
     imports: [
         CommonModule,
-        FontAwesomeModule,
         RouterModule,
         MatDatepickerModule,
         SatDatepickerModule,
@@ -38,7 +36,6 @@ export const ISO_FORMAT = {
         AngularValidateBrLibModule,
     ],
     exports: [
-        FontAwesomeModule,
         RouterModule,
         MatDatepickerModule,
         SatDatepickerModule,

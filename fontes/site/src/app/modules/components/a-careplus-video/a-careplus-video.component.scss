@@ -46,13 +46,7 @@
         }
 
         &::before {
-            background: linear-gradient(
-                to right,
-                getColor(_bupa, _digital-cian) 60%,
-                getColor(_bottom-line, _dark-green) 60%,
-                getColor(_bottom-line, _dark-green) 80%,
-                getColor(_bottom-line, _light-green) 80%
-            );
+            background-color: getColor(_bupa, _digital-cian);
             content: "";
             position: absolute;
             height: 8px;
@@ -71,14 +65,15 @@
         .column {
             padding-top: 0;
             padding-bottom: 0;
+            &.buttons-column {
+                display: flex;
+                .btn {
+                    display: inline-flex;
+                    margin: 0 auto;
+                    margin-top: 50px;
+                }
+            }
         }
-    }
-
-    .btn {
-        display: block;
-        margin: 0 auto;
-        margin-top: 50px;
-        width: fit-content;
     }
 }
 
@@ -94,11 +89,6 @@
             iframe {
                 height: 303px;
             }
-        }
-
-        .btn {
-            padding-left: 0;
-            margin: 30px 0 0 0;
         }
     }
 }

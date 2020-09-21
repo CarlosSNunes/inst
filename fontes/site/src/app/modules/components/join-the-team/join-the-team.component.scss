@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#joinTheTeam {
+section#join-the-team {
     .img-mobile {
         display: block;
         margin: 16px auto 0 auto;
@@ -16,7 +16,7 @@ section#joinTheTeam {
 
     .btn {
         margin-top: 32px;
-        display: inline-block;
+        display: inline-flex;
     }
 
     .columns {
@@ -33,7 +33,7 @@ section#joinTheTeam {
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
-    section#joinTheTeam {
+    section#join-the-team {
         .columns {
             &.reverse-columns {
                 .column {
@@ -47,8 +47,8 @@ section#joinTheTeam {
 }
 
 @media (max-width: 1023px) {
-    section#joinTheTeam {
-        .btn-text {
+    section#join-the-team {
+        .btn-fuchsia.tertiary {
             padding-left: 0;
         }
 

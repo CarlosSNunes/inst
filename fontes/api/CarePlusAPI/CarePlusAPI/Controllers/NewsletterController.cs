@@ -56,8 +56,8 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [AllowAnonymous]
         [HttpGet]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             List<Newsletter> newsletter = await _newsletterService.Listar();
@@ -76,6 +76,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id da Newsletter</param>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -97,6 +98,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de uma Newsletter</param>
         [HttpPost]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromBody] NewsletterCreateModel model)
         {
             if (model == null)
@@ -128,6 +130,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de atualização de um Newsletter</param>
         [HttpPut]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromBody] NewsletterUpdateModel model)
         {
             if (model == null)
@@ -157,6 +160,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Newsletter</param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)

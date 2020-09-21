@@ -14,6 +14,9 @@ using Neotix.Neocms.CarePlusAPI.Entities;
 using Neotix.Neocms.CarePlusAPI.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using CarePlusHomolog;
+using static CarePlusHomolog.PartnerServiceClient;
+using Microsoft.Extensions.Options;
 
 namespace Neotix.Neocms.CarePlusAPI.Services
 {
@@ -27,15 +30,24 @@ namespace Neotix.Neocms.CarePlusAPI.Services
         Task Atualizar(Usuario model, string senha = null);
         Task Excluir(int id);
         Task ExcluirPerfis(int id);
+        Task EnviarEmailConfirmacao(Usuario user);
     }
 
     public class UsuarioService : IUsuarioService
     {
         private readonly DataContext Context;
+        private readonly AppSettings _appSettings;
+        private readonly EndpointConfiguration _endpointConfiguration;
+        private readonly PartnerServiceClient _partnerServiceClient;
 
-        public UsuarioService(DataContext context)
+        public UsuarioService(DataContext context, IOptions<AppSettings> appSettings)
         {
+            _endpointConfiguration = EndpointConfiguration.SOAPEndPointPartner;
+
+            _partnerServiceClient = new PartnerServiceClient(_endpointConfiguration);
+
             Context = context;
+            _appSettings = appSettings.Value;
         }
 
         ///<summary>
@@ -250,6 +262,67 @@ namespace Neotix.Neocms.CarePlusAPI.Services
 
             List<UsuarioPerfil> perfis = await Context.UsuarioPerfil.Where(b => b.UsuarioId == id).ToListAsync();
             Context.RemoveRange(perfis);
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para enviar o email de confirmação de cadastro do usuario
+        ///
+        ///</summary>
+        ///<param name="usuario">Id do usuário</param>
+        public async Task EnviarEmailConfirmacao(Usuario usuario)
+        {
+            if (usuario == null || usuario.Id == 0)
+                throw new AppException("O usuário cadastrado está como nulo ou não foi encontrado");
+            
+            string token = Logar().Result;
+
+            WSParametroEmail email = new WSParametroEmail()
+            {
+                Assunto = "",
+                Para = usuario.Email,
+                CopiaOculta = "rafael.henrique@neotix.com.br",
+                Corpo = $"Bem vindo {usuario.Nome}!!",
+                CodigoTipoEmail = 1,
+                Token = token
+            };
+
+            await _partnerServiceClient.EnviarEmailAsync(email);
+
+            return;            
+
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para consumir o método Logar do WS Partner e obter um token       
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
+        ///
+        ///</summary>
+        private async Task<string> Logar()
+        {
+            try
+            {                
+                LoginPartnerOut loginPartnerOut = new LoginPartnerOut()
+                {
+                    Origem = WebServiceOrigem.Partner,
+                    Token = _appSettings.WSPartnerToken,
+                    Login = _appSettings.WSPartnerLogin,
+                    Senha = _appSettings.WSPartnerSenha,
+                    TokenTransacao = ""
+                };
+
+                var result = await _partnerServiceClient.LogarAsync(loginPartnerOut);
+
+                var token = result.LoginPartner.TokenTransacao;
+
+                return token;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

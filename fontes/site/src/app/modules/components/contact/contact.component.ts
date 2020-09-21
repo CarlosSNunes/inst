@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     button: ButtonModel = new ButtonModel({
         link: '/fale-conosco',
-        text: 'SOLICITE UMA COTAÇÃO'
+        text: 'ENTRE EM CONTATO'
     });
     @ViewChild('buttonElement', { static: false }) buttonElement: ElementRef<HTMLButtonElement>;
     isBrowser: boolean = false;
@@ -21,8 +21,8 @@ export class ContactComponent implements OnInit {
         title: 'E-mail',
         type: 'icon',
         button: new ButtonModel({
-            text: 'gestaodesaude@careplus.com.br',
-            link: 'mailto: gestaodesaude@careplus.com.br'
+            text: 'gestaosaude@careplus.com.br',
+            link: 'mailto: gestaosaude@careplus.com.br'
         }),
         imagePath: 'assets/svg/email.svg',
         backgroundColorClass: 'white-background-color'

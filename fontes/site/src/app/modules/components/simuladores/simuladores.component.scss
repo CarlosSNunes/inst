@@ -96,8 +96,8 @@ app-home-step {
             bottom: -20px;
             display: none;
             font-weight: normal;
-            font-size: getSize('sbm');
-            line-height: getLineHeight('sbm');
+            font-size: getSize("sbm");
+            line-height: getLineHeight("sbm");
             color: getColor(_bupa, _white);
         }
 
@@ -123,8 +123,8 @@ app-home-step {
             border: 2px solid getColor(_bupa, _grey-3);
 
             &.mat-step-icon-selected {
-                background-color: getColor(_carePlus, _green);
-                border: 2px solid getColor(_carePlus, _light-green);
+                background-color: getColor(_bupa, _digital-orange);
+                border: 2px solid getColor(_bupa, _white);
 
                 + .mat-step-label {
                     display: block;
@@ -132,10 +132,10 @@ app-home-step {
             }
 
             &.mat-step-icon-state-done {
-                background-color: getColor(_carePlus, _light-green);
-                border: 2px solid getColor(_carePlus, _light-green);
+                background-color: getColor(_bupa, _digital-orange);
+                border: 2px solid getColor(_bupa, _white);
                 mat-icon {
-                    color: getColor(_bupa, _digital-cian);
+                    color: getColor(_bupa, _white);
                 }
             }
         }
@@ -146,11 +146,15 @@ app-home-step {
         }
     }
 
+    .back-button {
+        margin-right: 24px;
+    }
+
     ::ng-deep mat-horizontal-stepper.second {
         .mat-horizontal-stepper-header-container mat-step-header:first-child + div.mat-stepper-horizontal-line {
             width: 32px !important;
             flex: 0 0 32px !important;
-            border-top: 3px solid getColor(_carePlus, _light-green);
+            border-top: 3px solid getColor(_bupa, _white);
         }
     }
 
@@ -158,7 +162,7 @@ app-home-step {
         .mat-horizontal-stepper-header-container div.mat-stepper-horizontal-line {
             width: 32px;
             flex: 0 0 32px;
-            border-top: 3px solid getColor(_carePlus, _light-green);
+            border-top: 3px solid getColor(_bupa, _white);
         }
     }
 
@@ -174,7 +178,7 @@ app-home-step {
 @media (max-width: 1023px) {
     .stepper-container {
         ::ng-deep mat-horizontal-stepper {
-            .mat-horizontal-content-container{
+            .mat-horizontal-content-container {
                 padding: 0 24px 150px 24px;
             }
         }

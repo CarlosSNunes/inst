@@ -7,21 +7,20 @@
 //Web API da entidade Post para uso do NEOCMS
 //==============================================================================
 
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Neotix.Neocms.CarePlusAPI.Services;
 using AutoMapper;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Models.Post;
-using System.IO;
-using System;
 using Microsoft.AspNetCore.Http;
-using TinifyAPI;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Neotix.Neocms.CarePlusAPI.Entities;
+using Neotix.Neocms.CarePlusAPI.Helpers;
+using Neotix.Neocms.CarePlusAPI.Models.Post;
+using Neotix.Neocms.CarePlusAPI.Services;
+using System.Collections.Generic;
+using System.IO;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using TinifyAPI;
 
 namespace Neotix.Neocms.CarePlusAPI.Controllers
 {
@@ -60,9 +59,9 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///mapear esse objeto para um objeto de retorno mais simples.
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
-        ///</summary>
-        [AllowAnonymous]
+        ///</summary>        
         [HttpGet]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             List<Post> result = await _postService.Listar();
@@ -80,6 +79,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet("maisLidos")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetMostsRead()
         {
             List<Post> result = await _postService.BuscarMaisLidos();
@@ -96,9 +96,9 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        ///<param name="id">Id do Post</param>
-        [AllowAnonymous]
+        ///<param name="id">Id do Post</param>        
         [HttpGet("{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -120,6 +120,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Post</param>
         [HttpGet("hit/{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetByIdHit(int id)
         {
             if (id == 0)
@@ -141,6 +142,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Post</param>
         [HttpGet("categoria/{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetByCategory(int id)
         {
             if (id == 0)
@@ -162,6 +164,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="file">Arquivo para ser feito o upload</param>
         [HttpPost("Upload")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Upload([FromForm] IFormFile file)
         {
             if (file == null)
@@ -170,7 +173,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             string fileName = string.Empty;
             string fullPath = string.Empty;
             string directoryName = string.Empty;
-            
+
             try
             {
                 var folderName = AppSettings.PathToSave;
@@ -208,14 +211,15 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um Post</param>
         [HttpPost]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] PostCreateModel model)
         {
             if (model == null)
                 throw new AppException("O Post não pode estar nulo");
 
-            string fileName = string.Empty;           
+            string fileName = string.Empty;
             string directoryName = string.Empty;
-           
+
             try
             {
                 if (model.Arquivo != null)
@@ -263,12 +267,13 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de atualização de um Post</param>
         [HttpPut]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromForm] PostUpdateModel model)
         {
             if (model == null)
                 throw new AppException("O Post não pode estar nulo");
 
-            string fileName = string.Empty;           
+            string fileName = string.Empty;
             string directoryName = string.Empty;
 
             try
@@ -325,6 +330,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Post</param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
@@ -338,6 +344,6 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             await _postService.Excluir(post.Id);
 
             return Ok();
-        }        
+        }
     }
 }

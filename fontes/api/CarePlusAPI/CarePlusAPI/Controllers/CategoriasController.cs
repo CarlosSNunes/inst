@@ -49,10 +49,11 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers {
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> Get () {
-            List<Categoria> categorias = await _categoriasService.Listar ();
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        public async Task<IActionResult> Get()
+        {
+            List<Categoria> categorias = await _categoriasService.Listar();
 
             List<CategoriasModel> model = _mapper.Map<List<CategoriasModel>> (categorias);
 
@@ -67,8 +68,10 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers {
         ///
         ///</summary>
         ///<param name="id">Id da Categorias</param>
-        [HttpGet ("{id}")]
-        public async Task<IActionResult> GetById (int id) {
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        public async Task<IActionResult> GetById(int id)
+        {
             if (id == 0)
                 throw new AppException ("O id não pode ser igual a 0");
 
@@ -88,7 +91,9 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers {
         ///</summary>
         ///<param name="model">Model de criação de uma Categorias</param>
         [HttpPost]
-        public async Task<IActionResult> Post ([FromBody] CategoriasCreateModel model) {
+        [Authorize(Roles = "Editor, Administrador")]
+        public async Task<IActionResult> Post([FromBody] CategoriasCreateModel model)
+        {
             if (model == null)
                 throw new AppException ("A categoria não pode estar nula");
 
@@ -114,7 +119,9 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers {
         ///</summary>
         ///<param name="model">Model de atualização de um Categorias</param>
         [HttpPut]
-        public async Task<IActionResult> Put ([FromBody] CategoriasUpdateModel model) {
+        [Authorize(Roles = "Editor, Administrador")]
+        public async Task<IActionResult> Put([FromBody] CategoriasUpdateModel model)
+        {
             if (model == null)
                 throw new AppException ("A categoria não pode estar nula");
 
@@ -138,8 +145,10 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers {
         ///
         ///</summary>
         ///<param name="id">Id do Categorias</param>
-        [HttpDelete ("{id}")]
-        public async Task<IActionResult> Delete (int id) {
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Editor, Administrador")]
+        public async Task<IActionResult> Delete(int id)
+        {
             if (id == 0)
                 throw new AppException ("O id não pode ser igual a 0");
 

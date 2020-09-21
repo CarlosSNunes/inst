@@ -14,19 +14,19 @@ export class TermosECondicoesComponent implements OnInit {
     elements: ElementModel[] = [
         new ElementModel({
             name: 'Termos de Uso',
-            id: 'termosDeUsoEPoliticaDePrivacidade'
+            id: 'termos-de-uso-e-politica-de-privacidade'
         }),
         new ElementModel({
             name: 'Descrição do Serviço',
-            id: 'descricaoDoServico'
+            id: 'descricao-do-servico'
         }),
         new ElementModel({
             name: 'Obrigações e Conduta do Usuário',
-            id: 'obrigacoesECondutaDoUsuario'
+            id: 'obrigacoes-e-conduta-do-usuario'
         }),
         new ElementModel({
             name: 'Conta do Usuário, Identificação, Senha e Segurança',
-            id: 'contaDoUsuarioIdentificacaoSenhaESeguranca'
+            id: 'conta-do-usuario-identificacao-senha-e-seguranca'
         })
     ];
     width: number = 1400;

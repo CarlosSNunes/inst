@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#ourDisponibleVacancies {
+    &#our-disponible-vacancies {
         .container {
             .columns {
                 .column {
@@ -15,13 +15,7 @@ section {
                             content: "";
                             width: 176px;
                             height: 4px;
-                            background: linear-gradient(
-                                to left,
-                                getColor(_bupa, _digital-cian) 60%,
-                                getColor(_bottom-line, _dark-green) 60%,
-                                getColor(_bottom-line, _dark-green) 80%,
-                                getColor(_bottom-line, _light-green) 80%
-                            );
+                            background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                             transform: translateX(calc(-100% - 20px));
                             top: 40px;
                         }
@@ -31,7 +25,7 @@ section {
         }
     }
 
-    &#aCareplusVacanciesFilters {
+    &#a-careplus-vacancies-filters {
         margin-top: 80px;
         .container {
             .columns {
@@ -149,7 +143,7 @@ section {
 
 @media (min-width: 1024px) and (max-width: 1200px) {
     section {
-        &#aCareplusVacanciesFilters {
+        &#a-careplus-vacancies-filters {
             .columns {
                 .column {
                     &.filter-box {
@@ -173,7 +167,7 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#ourDisponibleVacancies {
+        &#our-disponible-vacancies {
             .container {
                 .columns {
                     .column {
@@ -193,7 +187,7 @@ section {
             }
         }
 
-        &#aCareplusVacanciesFilters {
+        &#a-careplus-vacancies-filters {
             .container {
                 .columns {
                     .column {
@@ -231,9 +225,8 @@ section {
                                                     }
                                                 }
                                             }
-                                            .btn-text {
+                                            .btn.tertiary {
                                                 padding-left: 0 !important;
-                                                padding-right: 0 !important;
                                             }
                                         }
                                     }
@@ -253,7 +246,7 @@ section {
                                 display: block;
                                 position: initial;
 
-                                &.btn-text {
+                                &.btn.tertiary {
                                     padding-left: 0;
                                     margin-top: 8px;
                                 }
@@ -268,7 +261,7 @@ section {
 
 @media (max-width: 359px) {
     section {
-        &#aCareplusVacanciesFilters {
+        &#a-careplus-vacancies-filters {
             .container {
                 .columns {
                     .column {

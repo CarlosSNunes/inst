@@ -107,7 +107,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
-                        routerLink: '/fale-conosco/fale-conosco',
+                        routerLink: '/fale-conosco/contato',
                     }),
                     new SubMenuItem({
                         title: 'Canal De Denúncias',
@@ -191,7 +191,7 @@ export default [
                         routerLink: '/gestao-de-saude/programas-empresariais'
                     }),
                     new SubMenuItem({
-                        title: 'Nossas parcerias',
+                        title: 'Nossas Parcerias',
                         routerLink: '/gestao-de-saude/nossas-parcerias'
                     }),
                 ]
@@ -210,7 +210,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
-                        routerLink: '/fale-conosco/fale-conosco',
+                        routerLink: '/fale-conosco/contato',
                     }),
                     new SubMenuItem({
                         title: 'Canal De Denúncias',
@@ -334,7 +334,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
-                        routerLink: '/fale-conosco/fale-conosco',
+                        routerLink: '/fale-conosco/contato',
                     }),
                     new SubMenuItem({
                         title: 'Canal De Denúncias',

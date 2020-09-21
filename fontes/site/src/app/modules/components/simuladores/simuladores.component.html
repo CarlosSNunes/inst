@@ -20,8 +20,8 @@
                         <app-second-step [secondStepForm]="secondStepForm"></app-second-step>
                     </form>
                     <div>
-                        <button class="btn btn-secondary medium align-right" [disabled]="!secondStepForm?.valid"
-                            matStepperNext>avançar</button>
+                        <button class="btn btn-white-to-digital-cian primary medium align-right"
+                            [disabled]="!secondStepForm?.valid" matStepperNext>Avançar</button>
                     </div>
                 </mat-step>
                 <mat-step [stepControl]="firstStepForm"
@@ -31,8 +31,10 @@
                         <app-first-step [firstStepForm]="firstStepForm"></app-first-step>
                     </form>
                     <div>
-                        <button class="btn btn-secondary medium align-right" [disabled]="!firstStepForm?.valid"
-                            matStepperNext>avançar</button>
+                        <button class="btn btn-white-to-digital-cian primary medium align-right"
+                            [disabled]="!firstStepForm?.valid" matStepperNext>Avançar</button>
+                        <button class="btn btn-white-to-digital-cian secondary medium align-right back-button"
+                            matStepperPrevious>Voltar</button>
                     </div>
                 </mat-step>
                 <mat-step>

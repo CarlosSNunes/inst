@@ -16,8 +16,8 @@ export class FooterComponent implements OnInit {
             text: 'Atendimento presencial',
             link: '#',
         }),
-        imagePath: 'assets/svg/maps.svg',
-        backgroundColorClass: 'white-background-color'
+        imagePath: 'assets/svg/maps-white.svg',
+        backgroundColorClass: 'navy-background-color'
     });
     centralDeAtendimentoCard: IconCardModel = new IconCardModel({
         type: 'icon',
@@ -25,8 +25,8 @@ export class FooterComponent implements OnInit {
             text: 'Central de atendimento',
             link: 'tel:11 4197-9000'
         }),
-        imagePath: 'assets/svg/phone.svg',
-        backgroundColorClass: 'white-background-color'
+        imagePath: 'assets/svg/phone-white.svg',
+        backgroundColorClass: 'navy-background-color'
     });
 
     constructor() { }

@@ -357,6 +357,10 @@ nav.navbar:not(.is-home) {
                     font-size     : getSize("p");
                     line-height   : 100%;
                     letter-spacing: 3.5px;
+
+                    @media (max-width: 1100px) {
+                        letter-spacing: 2px;
+                    }
                 }
             }
         }
@@ -417,107 +421,130 @@ nav.is-home {
             cursor: pointer;
 
             &:focus {
-                outline: unset;
+                background-color: unset;
             }
-        }
 
-        .sub-menu,
-        +.sub-menu {
-            display         : none;
-            position        : absolute;
-            background-color: getColor(_bupa, _white);
-            top             : 80%;
-            left            : 0;
-            padding         : 18px 25px;
+            &:focus-within {
+                background-color: unset;
+            }
 
-            .column {
-                min-width: calc(800px / 3);
-                position : relative;
+            .sub-menu,
+            +.sub-menu {
+                display         : none;
+                position        : absolute;
+                background-color: getColor(_bupa, _white);
+                top             : 80%;
+                left            : 0;
+                padding         : 18px 25px;
 
-                .image-content {
-                    position: relative;
+                .column {
+                    min-width: calc(800px / 3);
+                    position : relative;
 
-                    img {
-                        width          : 169px;
-                        height         : 185px;
-                        object-fit     : cover;
-                        object-position: center top;
-                        display        : block;
-                        max-height     : unset;
-                    }
+                    .sub-menu,
+                    +.sub-menu {
+                        display         : none;
+                        position        : absolute;
+                        background-color: getColor(_bupa, _white);
+                        top             : 80%;
+                        left            : 0;
+                        padding         : 18px 25px;
 
-                    .infos {
-                        position: absolute;
-                        width   : 147px;
-                        left    : 11px;
-                        top     : 104px;
+                        .column {
+                            min-width: calc(800px / 3);
+                            position : relative;
 
-                        .image-description {
-                            font-weight: 600;
-                            font-size  : getSize('sbm');
-                            line-height: getLineHeight('sbm');
-                            color      : getColor(_bupa, _white);
-                        }
-
-                        .btn-text {
-                            color         : getColor(_bupa, _white) !important;
-                            font-weight   : 500;
-                            font-size     : 0.625em;
-                            line-height   : 120%;
-                            letter-spacing: 2px;
-                            padding-right : 0;
-                            padding-top   : 20px;
-                            text-transform: unset;
-                            float         : right;
-                            white-space   : nowrap;
-
-                            &:hover,
-                            &:focus,
-                            &:active {
-                                color: getColor(_bupa, _white) !important;
+                            img {
+                                width          : 169px;
+                                height         : 185px;
+                                object-fit     : cover;
+                                object-position: center top;
+                                display        : block;
+                                max-height     : unset;
                             }
 
-                            svg {
-                                fill: getColor(_bupa, _white) !important;
+                            .infos {
+                                position: absolute;
+                                width   : 147px;
+                                left    : 11px;
+                                top     : 104px;
 
-                                path {
-                                    fill: getColor(_bupa, _white) !important;
+                                .image-description {
+                                    font-weight: 600;
+                                    font-size  : getSize('sbm');
+                                    line-height: getLineHeight('sbm');
+                                    color      : getColor(_bupa, _white);
+                                }
+
+                                .btn-text {
+                                    color         : getColor(_bupa, _white) !important;
+                                    font-weight   : 500;
+                                    font-size     : 0.625em;
+                                    line-height   : 120%;
+                                    letter-spacing: 2px;
+                                    padding-right : 0;
+                                    padding-top   : 20px;
+                                    text-transform: unset;
+                                    float         : right;
+                                    white-space   : nowrap;
+
+                                    &:hover,
+                                    &:focus,
+                                    &:active {
+                                        color: getColor(_bupa, _white) !important;
+                                    }
+
+                                    svg {
+                                        fill: getColor(_bupa, _white) !important;
+
+                                        path {
+                                            fill: getColor(_bupa, _white) !important;
+
+                                            path {
+                                                fill: getColor(_bupa, _white) !important;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .items {
+                                display: block;
+                                width  : 100%;
+
+                                li {
+                                    display   : block;
+                                    margin-top: 16px;
+
+                                    &:first-child {
+                                        margin-top: 0;
+                                    }
+
+                                    a {
+                                        font-size  : getSize("sbm");
+                                        line-height: getLineHeight("sbm");
+                                        color      : getColor(_bupa, _grey);
+                                        white-space: nowrap;
+
+                                        &:hover {
+                                            color: getColor(_bupa, _digital-cian);
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
-                }
 
-                .items {
-                    display: block;
-                    width  : 100%;
-
-                    li {
-                        display   : block;
-                        margin-top: 16px;
-
-                        &:first-child {
-                            margin-top: 0;
-                        }
-
-                        a {
-                            font-size  : getSize("sbm");
-                            line-height: getLineHeight("sbm");
-                            color      : getColor(_bupa, _grey);
-                            white-space: nowrap;
-
-                            &:hover {
-                                color: getColor(_bupa, _digital-cian);
-                            }
-                        }
+                    .button {
+                        color : getColor(_bupa, _white);
+                        height: 3em;
                     }
                 }
-            }
-        }
 
-        .button {
-            color : getColor(_bupa, _white);
-            height: 3em;
+                .navbar-end {
+                    margin-left: 0;
+                }
+            }
         }
     }
 }

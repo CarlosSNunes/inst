@@ -30,15 +30,15 @@
                         </app-dropdown>
                     </div>
                     <div class="column is-3 filter">
-                        <img src="assets/svg/list-menu-active.svg" alt="" [class.active]="menuStyle== 'list'"
+                        <img src="assets/svg/list-menu-active.svg" alt="Modo lista" [class.active]="menuStyle== 'list'"
                             (click)="changeMenuStyle('list')">
-                        <img src="assets/svg/list-menu.svg" alt="" [class.active]="menuStyle== 'grid'"
+                        <img src="assets/svg/list-menu.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'"
                             (click)="changeMenuStyle('list')">
-                        <img src="assets/svg/grid-menu-active.svg" alt="" [class.active]="menuStyle== 'grid'"
+                        <img src="assets/svg/grid-menu-active.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'"
                             (click)="changeMenuStyle('grid')">
-                        <img src="assets/svg/grid-menu.svg" alt="" [class.active]="menuStyle== 'list'"
+                        <img src="assets/svg/grid-menu.svg" alt="Modo lista" [class.active]="menuStyle== 'list'"
                             (click)="changeMenuStyle('grid')">
-                        <button class="btn btn-primary small" (click)="mountHospitalsList()">Filtrar</button>
+                        <button class="btn btn-digital-cian secondary medium" (click)="mountHospitalsList()">Filtrar</button>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                                     </p>
                                 </td>
                                 <td *ngFor="let plan of hospital.plans">
-                                    <img *ngIf="plan.included" src="assets/svg/plan-pin.svg" alt="">
+                                    <img *ngIf="plan.included" src="assets/svg/plan-pin.svg" [alt]="plan.plan">
                                 </td>
                             </tr>
                         </tbody>

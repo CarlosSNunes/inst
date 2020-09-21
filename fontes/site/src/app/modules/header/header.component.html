@@ -1,5 +1,5 @@
 <nav class="navbar background bupa-navy" role="navigation" aria-label="main navigation">
-    <div id="navbarPerfilCareplus" class="navbar-menu">
+    <div id="navbar-perfil-careplus" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item logo" [routerLink]="['/home']" routerLinkActive="has-background-white"
                 [routerLinkActiveOptions]="{exact: true}">
@@ -83,7 +83,7 @@
                             </svg>
                         </span>
                         &nbsp;
-                        <span class="item-label">
+                        <span class="item-label phone">
                             0800-13-2992
                         </span>
                     </a>
@@ -101,7 +101,7 @@
 <nav class="navbar is-home" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" [routerLink]="['/']">
-            <img class="img-careplus" src="assets/img/careplus-logo.png" alt="Careplus">
+            <img class="img-careplus" src="assets/svg/logo-careplus.svg" alt="Careplus">
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
             data-target="navbarBasicExample">
@@ -110,7 +110,7 @@
             <span aria-hidden="true"></span>
         </a>
     </div>
-    <div id="navbarHome" class="navbar-menu">
+    <div id="navbar-home" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" *ngFor="let subMenuItem of subMenu.items">
                 <span class="item" [routerLink]="[subMenuItem.routerLink]" routerLinkActive="active"
@@ -140,181 +140,12 @@
                     </div>
                 </div>
             </a>
-            <!-- <a class="navbar-item">
-                <span class="item" [routerLink]="['/a-careplus']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    A Care Plus
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-6">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/a-careplus" class="sub-menu-items">
-                                    A Empresa
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/diferenciais" class="sub-menu-items">
-                                    Diferenciais
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/responsabilidade-social" class="sub-menu-items">
-                                    Responsabilidade Social
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/rede-plus">
-                                    Rede Plus
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/faq" class="sub-menu-items">
-                                    Perguntas Frequentes
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="column is-6">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/a-careplus/resultados-financeiros" class="sub-menu-items">
-                                    Resultados Financeiros
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/materiais" class="sub-menu-items">
-                                    Materiais
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/termos-e-condicoes" class="sub-menu-items">
-                                    Termos e Condições
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/politica-de-privacidade" class="sub-menu-items">
-                                    Política de Privacidade
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/planos-e-produtos']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    Planos
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/planos-e-produtos/soho" class="sub-menu-items">
-                                    Care Plus SoHo (de 2 a 29 vidas)
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/planos-e-produtos/clube-careplus" class="sub-menu-items">
-                                    Clube Care Plus (de 30 a 200 vidas)
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/planos-e-produtos/empresarial" class="sub-menu-items">
-                                    Care Plus Empresarial (mais de 200 vidas)
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/planos-e-produtos']" fragment="produtos"
-                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Produtos
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/planos-e-produtos/medicina-ocupacional" class="sub-menu-items">
-                                    Medicina Ocupacional
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/gestao-de-saude" class="sub-menu-items">
-                                    Gestão de saúde
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/carreiras']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    Carreiras
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/carreiras" class="sub-menu-items">
-                                    Carreiras
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/carreiras/vagas" class="sub-menu-items">
-                                    Vagas
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/careplus-mais']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    Care plus+
-                </span>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/fale-conosco']" routerLinkActive="active">
-                    Fale Conosco
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/fale-conosco" class="sub-menu-items">
-                                    Solicite Uma Cotação
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/fale-conosco/fale-conosco" class="sub-menu-items">
-                                    Fale Conosco
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/fale-conosco/canal-de-denuncias" class="sub-menu-items">
-                                    Canal De Denúncias
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/fale-conosco/ouvidoria" class="sub-menu-items">
-                                    Ouvidoria
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a> -->
         </div>
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <button class="btn btn-primary small" (click)="openSimulator()">
-                        Simule Seu Plano
+                    <button class="btn btn-digital-orange primary small" (click)="openSimulator()">
+                        Simule seu plano
                     </button>
                 </div>
             </div>

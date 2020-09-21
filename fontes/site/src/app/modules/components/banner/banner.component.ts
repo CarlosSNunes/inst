@@ -87,7 +87,7 @@ export class BannerComponent implements OnInit {
 
     async getBanners() {
         try {
-            this.banners = await this.bannerService.getAll(this.area)
+            this.banners = await this.bannerService.getByArea(this.area)
         } catch (error) {
             console.log(error)
         }

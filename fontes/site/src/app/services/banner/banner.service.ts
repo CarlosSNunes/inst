@@ -13,7 +13,11 @@ export class BannerService {
         private http: HttpClient
     ) { }
 
-    async getAll(area: string): Promise<BannerModel[]> {
+    async getAll(): Promise<BannerModel[]> {
+        return this.http.get<BannerModel[]>(this.url).toPromise();
+    }
+
+    async getByArea(area: string): Promise<BannerModel[]> {
         return this.http.get<BannerModel[]>(`${this.url}/${area}`).toPromise();
     }
 }

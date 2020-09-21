@@ -1,5 +1,4 @@
 import { PostCardModel, TagModel, NoticiaTipoModel, NoticiaModel, ButtonModel } from 'src/app/models';
-import { Button } from 'protractor';
 
 export default [
     new PostCardModel({
@@ -35,7 +34,7 @@ export default [
             slug: 'coronavirus'
         }),
         button: new ButtonModel({
-            text: 'LER ARTIGO',
+            text: 'Ler artigo',
             routerLink: '/careplus-mais/coronavirus'
         })
     }),
@@ -72,7 +71,7 @@ export default [
             slug: 'coronavirus'
         }),
         button: new ButtonModel({
-            text: 'LER ARTIGO',
+            text: 'Ler artigo',
             routerLink: '/careplus-mais/coronavirus'
         })
     }),
@@ -109,7 +108,7 @@ export default [
             slug: 'coronavirus'
         }),
         button: new ButtonModel({
-            text: 'LER ARTIGO',
+            text: 'Ler artigo',
             routerLink: '/careplus-mais/coronavirus'
         })
     }),
@@ -146,7 +145,7 @@ export default [
             slug: 'coronavirus'
         }),
         button: new ButtonModel({
-            text: 'LER ARTIGO',
+            text: 'Ler artigo',
             routerLink: '/careplus-mais/coronavirus'
         })
     }),

@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#socialPosts {
+section#social-posts {
     p {
         font-size: getSize("sbm");
         color: getColor(_bupa, _digital-cian);
@@ -79,7 +79,7 @@ section#socialPosts {
 }
 
 @media (max-width: 568px) {
-    section#socialPosts {
+    section#social-posts {
         .media-box {
             height: calc(100vw - 48px);
             padding: 16px;
@@ -92,7 +92,7 @@ section#socialPosts {
 }
 
 @media (min-width: 569px) and (max-width: 768px) {
-    section#socialPosts {
+    section#social-posts {
         .media-box {
             height: calc(50vw - 48px);
         }
@@ -100,7 +100,7 @@ section#socialPosts {
 }
 
 @media (max-width: 768px) {
-    section#socialPosts {
+    section#social-posts {
         .media-box {
             .social-media-box {
                 .columns {
@@ -121,7 +121,7 @@ section#socialPosts {
 }
 
 @media (min-width: 569px) and (max-width: 1023px) {
-    section#socialPosts {
+    section#social-posts {
         .columns {
             .column {
                 &.is-half-tablet-only {
@@ -142,7 +142,7 @@ section#socialPosts {
 }
 
 @media (max-width: 1023px) {
-    section#socialPosts {
+    section#social-posts {
         .columns {
             .column {
                 &.media-box {

@@ -7,14 +7,21 @@ using Neotix.Neocms.CarePlusAPI.Entities;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using Microsoft.Extensions.Options;
 
 namespace Neotix.Neocms.CarePlusAPI.Tests.Services
 {
     public class UsuarioServiceTest : IDisposable
     {
         private readonly UsuarioService UsuarioService;
-        private readonly DbContextOptions<DataContext> Options;
+        private readonly DbContextOptions<DataContext> _options;
         private readonly SqliteConnection Connection;
+        private readonly IOptions<AppSettings> _appSettings;
+        private IConfiguration _configuration;
+
+
         private readonly Usuario Usuario = new Usuario
         {
             DataCadastro = DateTime.Now,
@@ -36,20 +43,33 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
 
-            Options = new DbContextOptionsBuilder<DataContext>()
+            _options = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(_options))
                 context.Database.EnsureCreated();
 
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(_options))
             {
                 context.Perfil.Add(new Perfil { Id = 1, Descricao = "ADM" });
                 context.SaveChanges();
             }
 
-            UsuarioService = new UsuarioService(new DataContext(Options));
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            _configuration = builder.Build();
+
+            IConfigurationSection appSettingsSection = _configuration.GetSection("AppSettings");
+
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            
+            _appSettings = Options.Create<AppSettings>(appSettings);
+
+            UsuarioService = new UsuarioService(new DataContext(_options), _appSettings);
         }
 
         [Fact]

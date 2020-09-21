@@ -3,7 +3,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column left-column is-hidden-touch">
-                    <img src="assets/img/diferencial.png" />
+                    <img src="assets/img/diferencial.png" [alt]="differentials[currentDifferential]?.title" />
                 </div>
                 <div class="column has-divider is-hidden-touch">
                     <hr class="bupa-divider" />
@@ -16,11 +16,12 @@
                         3 das 5 empresas mais valiosas do mundo escolhem a Care Plus
                     </h4>
                     <div class="is-hidden-desktop mobile-image">
-                        <img src="assets/img/diferencial.png" />
+                        <img src="assets/img/diferencial.png" [alt]="differentials[currentDifferential]?.title" />
                     </div>
                     <div class="accordion-wrapper">
                         <div class="accordion-item open" [class.active]="differential.active"
                             *ngFor="let differential of differentials; let i = index;">
+                            <div class="height-percentage"></div>
                             <h2 class="accordion-item-heading" [class.active]="differential.active"
                                 (click)="activate(i)">
                                 {{differential.title}}

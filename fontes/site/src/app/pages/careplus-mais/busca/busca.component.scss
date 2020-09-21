@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#resultsSection {
+    &#results-section {
         min-height: 270px;
         padding-bottom: 100px;
         .container {
@@ -12,7 +12,7 @@ section {
         }
     }
 
-    &#filterBox {
+    &#filter-box {
         min-height: 60px;
         .container {
             .columns {
@@ -78,7 +78,7 @@ section {
 
     &#results {
         .container {
-            .btn-text {
+            .btn.tertiary {
                 padding-left: 0;
             }
 
@@ -134,17 +134,6 @@ section {
                         }
                     }
                 }
-            }
-
-            .no-results {
-                margin-top: 55px;
-                width: 100%;
-                font-weight: normal;
-                font-size: getSize('mbt');
-                line-height: getLineHeight('mbt');
-                display: block;
-                text-align: center;
-                color: getColor(_bupa, _grey);
             }
         }
     }

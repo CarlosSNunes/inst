@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#learnMore {
+section#learn-more {
     .small-title {
         color: getColor(_bupa, _digital-cian);
     }
@@ -10,10 +10,6 @@ section#learnMore {
     .cards {
         margin: 0;
         margin-top: 95px;
-        .btn-text {
-            margin-top: 24px;
-            padding-left: 0;
-        }
     }
 
     .is-mobile {
@@ -26,11 +22,12 @@ section#learnMore {
     .btn-column {
         margin: 0;
         margin-top: 69px;
-        .learn-more-button {
-            margin-top: 69px;
-            margin: 0 auto;
-            display: block;
-            width: fit-content;
+        .column {
+            display: flex;
+            .learn-more-button {
+                margin: 0 auto;
+                display: inline-flex;
+            }
         }
     }
 
@@ -42,7 +39,7 @@ section#learnMore {
 }
 
 @media (max-width: 1023px) {
-    section#learnMore {
+    section#learn-more {
         .small-title {
             text-align: center;
         }

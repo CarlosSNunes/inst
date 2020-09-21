@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#howItWorks {
+section#how-it-works {
     .container {
         .big-title {
             max-width: 100%;
@@ -11,13 +11,7 @@ section#howItWorks {
                 padding-top: 42px;
 
                 &:before {
-                    background: linear-gradient(
-                        to right,
-                        getColor(_bupa, _digital-cian) 60%,
-                        getColor(_bottom-line, _dark-green) 60%,
-                        getColor(_bottom-line, _dark-green) 80%,
-                        getColor(_bottom-line, _light-green) 80%
-                    );
+                    background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                     content: "";
                     position: absolute;
                     height: 4px;

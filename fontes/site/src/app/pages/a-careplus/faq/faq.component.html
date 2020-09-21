@@ -1,5 +1,5 @@
 <app-simple-banner [simpleBannerModel]="simpleBannerModel"></app-simple-banner>
-<section id="aCareplusFaqFilters">
+<section id="a-careplus-faq-filters">
     <article>
         <div class="container">
             <div class="columns">
@@ -8,64 +8,15 @@
                         <form [formGroup]="filterForm">
                             <ul>
                                 <li>
-                                    Filtros:
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="all" name="document" id="radioAll" />
-                                            <label class="radio-label" for="radioAll">Todos</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="beneficiario" name="document"
-                                                id="radioBeneficiary" />
-                                            <label class="radio-label" for="radioBeneficiary">Beneficiário</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="gestor" name="document" id="radioManager" />
-                                            <label class="radio-label" for="radioManager">Gestor de RH</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="corretor" name="document" id="radioSeller" />
-                                            <label class="radio-label" for="radioSeller">Corretor</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="radio" type="radio" formControlName="document"
-                                                (change)="filter()" value="credenciado" name="document"
-                                                id="radioAccredited" />
-                                            <label class="radio-label" for="radioAccredited">Credenciado</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
                                     <div class="field">
                                         <p class="control has-icons-right">
-                                            <input #searchInput [ngClass]="{ 'is-touched': form.search.value?.length > 0 }"
+                                            <input #searchInput
+                                                [ngClass]="{ 'is-touched': form.search.value?.length > 0 }"
                                                 class="input" formControlName="search" name="search" type="text">
                                             <label class="label">Buscar</label>
                                             <span class="icon is-small is-right has-tooltip-left"
-                                                data-tooltip="Digite aqui o nome do documento que deseja pesquisar">
-                                                <img src="assets/svg/search.svg" alt="">
+                                                data-tooltip="Digite aqui o que deseja pesquisar">
+                                                <img src="assets/svg/search.svg" alt="Buscar">
                                             </span>
                                         </p>
                                         <div *ngIf="form.search.touched" class="errors">
@@ -80,6 +31,10 @@
                     </div>
                 </div>
             </div>
+            <p class="no-results"
+                *ngIf="questions.length == 0 && authorizationQuestions.length == 0 && authorizationQuestionsExtra.length == 0 && previaDeReembolso.length == 0 && reembolso.length == 0 && reembolsoExtra.length == 0 && excluded.length == 0 && tips.length == 0">
+                Sem resultados, tente novamente usando outros termos.
+            </p>
             <app-accordion class="first" *ngIf="questions?.length > 0" [questions]="questions"></app-accordion>
             <h4 class="big-title is-centered" *ngIf="authorizationQuestions?.length > 0">
                 Autorização

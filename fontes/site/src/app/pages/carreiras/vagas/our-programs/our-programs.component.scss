@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#ourPrograms {
+section#our-programs {
     position: relative;
     &:before {
         content: "";
@@ -19,7 +19,7 @@ section#ourPrograms {
 }
 
 @media (max-width: 1023px) {
-    section#ourPrograms {
+    section#our-programs {
         &:before {
             content: unset;
         }
@@ -27,7 +27,7 @@ section#ourPrograms {
         .container {
             .btn {
                 margin-top: 30px;
-                &.btn-text {
+                &.btn.tertiary {
                     padding-left: 0;
                 }
             }

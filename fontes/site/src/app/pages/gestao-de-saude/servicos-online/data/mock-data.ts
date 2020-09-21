@@ -3,7 +3,7 @@ import PersonalizedSectionCards from './personalized-section-cards';
 import { VideoModalModel } from 'src/app/models/modal.model';
 
 export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
-    title: 'Serviços online',
+    title: 'Serviços Online',
     description: 'Para você ter mais tempo e se dedicar ao que importa, a Care Plus investe em praticidade, oferecendo serviços a distância. Confira!',
     breadcrumbs: [
         new BreadcrumbModel({
@@ -15,7 +15,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
             link: '/gestao-de-saude',
         }),
         new BreadcrumbModel({
-            name: 'Serviços online',
+            name: 'Serviços Online',
             link: '/gestao-de-saude/servicos-online',
             active: true
         })

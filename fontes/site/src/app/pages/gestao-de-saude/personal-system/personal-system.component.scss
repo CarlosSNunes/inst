@@ -10,6 +10,12 @@
     .extra-content-title {
         height: 23px;
         display: flex;
+        margin-top: 32px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
         span {
             width: 23px;
             height: 23px;
@@ -78,7 +84,7 @@
         color: getColor(_bupa, _grey-2);
     }
 
-    .btn-text {
+    .btn.tertiary {
         padding-left: 0;
     }
 }

@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-section#faleConoscoForm {
+section#fale-conosco-form {
     .container {
         .columns {
             &.infos {
@@ -10,13 +10,7 @@ section#faleConoscoForm {
                 &.has-line {
                     position: relative;
                     &::before {
-                        background: linear-gradient(
-                            to left,
-                            var(--bupa_digital-cian) 60%,
-                            var(--bottom-line_dark-green) 60%,
-                            var(--bottom-line_dark-green) 80%,
-                            var(--bottom-line_light-green) 80%
-                        );
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                         content: "";
                         position: absolute;
                         height: 4px;
@@ -96,7 +90,7 @@ section#faleConoscoForm {
 }
 
 @media (max-width: 1250px) {
-    section#faleConoscoForm {
+    section#fale-conosco-form {
         .container {
             .columns {
                 .column {
@@ -112,7 +106,7 @@ section#faleConoscoForm {
 }
 
 @media (max-width: 1023px) {
-    section#faleConoscoForm {
+    section#fale-conosco-form {
         .container {
             .columns {
                 &.infos {

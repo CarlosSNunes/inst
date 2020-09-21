@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 
 section {
-    &#careplusPlusFilters {
+    &#careplus-plus-filters {
         .container {
             .columns {
                 .column {
@@ -54,7 +54,6 @@ section {
                                             justify-content: space-between;
                                             li {
                                                 display: inline;
-                                                margin: 8px 0;
 
                                                 a {
                                                     font-weight: normal;
@@ -62,9 +61,13 @@ section {
                                                     line-height: getLineHeight("p");
                                                     color: getColor(_bupa, _grey-2);
 
+                                                    &:hover {
+                                                        color: getColor(_bupa, _digital-cian);
+                                                    }
+
                                                     &.active {
                                                         font-weight: 500;
-                                                        color: getColor(_bupa, _grey);
+                                                        color: getColor(_bupa, _digital-cian);
                                                     }
                                                 }
                                             }
@@ -103,7 +106,7 @@ section {
     app-banner ::ng-deep {
         .section.home-banner {
             height: 450px;
-            #carouselBanner {
+            #carousel-banner {
                 @media (min-width: 1024px) {
                     height: 450px !important;
                 }
@@ -133,7 +136,7 @@ section {
 
 @media (min-width: 1024px) {
     ::ng-deep {
-        #lastPosts {
+        #last-posts {
             padding-bottom: 0;
 
             .column:last-child {
@@ -164,7 +167,7 @@ section {
 
 @media (min-width: 1024px) and (max-width: 1200px) {
     section {
-        &#careplusPlusFilters {
+        &#careplus-plus-filters {
             .container {
                 .columns {
                     .column {
@@ -208,7 +211,7 @@ section {
         ::ng-deep {
             .section.home-banner {
                 height: calc(100vh - 156px);
-                #carouselBanner {
+                #carousel-banner {
                     height: calc(100vh - (156px + 224px));
                     .item {
                         height: calc(100vh - (156px + 224px));
@@ -220,7 +223,7 @@ section {
         }
     }
     section {
-        &#careplusPlusFilters {
+        &#careplus-plus-filters {
             .container {
                 padding: 0;
                 .columns {

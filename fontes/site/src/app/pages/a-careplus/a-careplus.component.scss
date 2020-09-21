@@ -1,5 +1,5 @@
 @import "~src/scss/_variables";
-::ng-deep app-hero-banner#customForACareplus {
+::ng-deep app-hero-banner#custom-for-a-careplus {
     vg-player {
         .video-content {
             .container {
@@ -44,17 +44,11 @@
 }
 
 section {
-    &#aCareplusMainContent {
+    &#a-careplus-main-content {
         position: relative;
 
         &::before {
-            background: linear-gradient(
-                to right,
-                getColor(_bupa, _digital-cian) 60%,
-                getColor(_bottom-line, _dark-green) 60%,
-                getColor(_bottom-line, _dark-green) 80%,
-                getColor(_bottom-line, _light-green) 80%
-            );
+            background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
             content: "";
             position: absolute;
             height: 4px;
@@ -104,13 +98,7 @@ section {
                         &.has-line {
                             position: relative;
                             &::before {
-                                background: linear-gradient(
-                                    to left,
-                                    getColor(_bupa, _digital-cian) 60%,
-                                    getColor(_bottom-line, _dark-green) 60%,
-                                    getColor(_bottom-line, _dark-green) 80%,
-                                    getColor(_bottom-line, _light-green) 80%
-                                );
+                                background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                                 content: "";
                                 position: absolute;
                                 height: 4px;
@@ -173,7 +161,7 @@ section {
         }
     }
 
-    &#aCareplusAboutBupa {
+    &#a-careplus-about-bupa {
         .container {
             position: relative;
             .bupa-logo {
@@ -193,13 +181,7 @@ section {
                 &.has-line {
                     position: relative;
                     &::before {
-                        background: linear-gradient(
-                            to left,
-                            getColor(_bupa, _digital-cian) 60%,
-                            getColor(_bottom-line, _dark-green) 60%,
-                            getColor(_bottom-line, _dark-green) 80%,
-                            getColor(_bottom-line, _light-green) 80%
-                        );
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                         content: "";
                         position: absolute;
                         height: 4px;
@@ -243,7 +225,7 @@ section {
 }
 
 @media (max-width: 1023px) {
-    ::ng-deep app-hero-banner#customForACareplus {
+    ::ng-deep app-hero-banner#custom-for-a-careplus {
         vg-player {
             .video-content {
                 .container {
@@ -263,7 +245,7 @@ section {
     }
 
     section {
-        &#aCareplusMainContent {
+        &#a-careplus-main-content {
             &::before {
                 content: unset;
             }
@@ -274,13 +256,7 @@ section {
                     font-size: 1.125em;
                     margin-bottom: 40px;
                     &::before {
-                        background: linear-gradient(
-                            to right,
-                            getColor(_bupa, _digital-cian) 60%,
-                            getColor(_bottom-line, _dark-green) 60%,
-                            getColor(_bottom-line, _dark-green) 80%,
-                            getColor(_bottom-line, _light-green) 80%
-                        );
+                        background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                         content: "";
                         position: absolute;
                         height: 4px;
@@ -342,7 +318,7 @@ section {
 
 @media (max-width: 1150px) {
     section {
-        &#aCareplusAboutBupa {
+        &#a-careplus-about-bupa {
             .container {
                 .description {
                     &.has-line {
