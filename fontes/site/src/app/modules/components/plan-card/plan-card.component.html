@@ -20,13 +20,15 @@
 
                     <a [routerLink]="planCardModel?.button?.routerLink"
                         class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                        *ngIf="planCardModel?.button && planCardModel?.button?.routerLink">
+                        *ngIf="planCardModel?.button && planCardModel?.button?.routerLink"
+                        [attr.title]="planCardModel?.button?.text">
                         {{planCardModel?.button?.text}}
                     </a>
 
                     <a [routerLink]="planCardModel?.button?.routerLink"
                         class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        *ngIf="planCardModel?.button && planCardModel?.button?.routerLink">
+                        *ngIf="planCardModel?.button && planCardModel?.button?.routerLink"
+                        [attr.title]="planCardModel?.button?.text">
                         {{planCardModel?.button?.text}}
                     </a>
 
@@ -36,13 +38,15 @@
 
                     <a target="_blank" [href]="planCardModel?.button?.link"
                         class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                        *ngIf="planCardModel?.button && planCardModel?.button?.link">
+                        *ngIf="planCardModel?.button && planCardModel?.button?.link"
+                        [attr.title]="planCardModel?.button?.text">
                         {{planCardModel?.button?.text}}
                     </a>
 
                     <a target="_blank" [href]="planCardModel?.button?.link"
                         class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        *ngIf="planCardModel?.button && planCardModel?.button?.link">
+                        *ngIf="planCardModel?.button && planCardModel?.button?.link"
+                        [attr.title]="planCardModel?.button?.text">
                         {{planCardModel?.button?.text}}
                     </a>
                 </div>

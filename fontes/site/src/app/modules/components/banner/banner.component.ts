@@ -42,7 +42,9 @@ export class BannerComponent implements OnInit {
             this.banners[0].firstInteraction = true;
             this.cdRef.detectChanges();
             this.time = this.banners[0].tempo
-            this.startBannerPercentage(this.time / 100, this.time)
+            if (this.banners.length > 1) {
+                this.startBannerPercentage(this.time / 100, this.time)
+            }
         }
     }
 
@@ -130,7 +132,7 @@ export class BannerComponent implements OnInit {
     }
 
     ngOnDestroy() {
-        if (this.isBrowser) {
+        if (this.isBrowser && this.banners.length > 1) {
             this.stopBannerPercentage()
         }
     }

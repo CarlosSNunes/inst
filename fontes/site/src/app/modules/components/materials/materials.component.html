@@ -27,7 +27,7 @@
                             <p class="card-title">
                                 {{card.title}}
                             </p>
-                            <a [attr.href]="card?.button?.link" class="download-link" download>
+                            <a [attr.href]="card?.button?.link" title="Download" class="download-link" download>
                                 DOWNLOAD
                                 <span>
                                     <img src="assets/svg/download.svg" alt="Download">
@@ -41,12 +41,12 @@
             <div class="columns">
                 <div class="column buttons-column">
                     <a class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                        routerLink="/a-careplus/materiais">
+                        routerLink="/a-careplus/materiais" title="Ver Todos os Materiais">
                         Ver Todos os Materiais
                     </a>
 
                     <a class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        routerLink="/a-careplus/materiais">
+                        routerLink="/a-careplus/materiais" title="Ver Todos os Materiais">
                         Ver Todos os Materiais
                     </a>
                 </div>

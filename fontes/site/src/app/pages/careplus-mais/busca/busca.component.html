@@ -56,7 +56,7 @@
                         {{count}} resultados encontrados para “{{form.search.value}}”
                     </p>
 
-                    <a routerLink="/careplus-mais" class="btn btn-digital-cian tertiary arrow-right small reverse">
+                    <a routerLink="/careplus-mais" class="btn btn-digital-cian tertiary arrow-right small reverse" title="Voltar à navegação">
                         VOLTAR À NAVEGAÇÃO
                     </a>
 
@@ -69,7 +69,7 @@
                                 {{post.descricaoPrevia}}
                             </p>
 
-                            <a class="next" [routerLink]="['/careplus-mais', post.slug]">
+                            <a class="next" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
                                 <img src="assets/svg/arrow-left.svg" alt="Próximo">
                             </a>
                         </li>

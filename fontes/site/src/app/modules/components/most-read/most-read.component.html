@@ -1,7 +1,7 @@
 <div id="most-read">
     <p class="title">Mais lidas</p>
     <p class="description">Veja as matérias preferidas dos leitores</p>
-    <a href="{{post.link}}" target="_blank" *ngFor="let post of posts">
+    <a href="{{post.link}}" [attr.title]="post.title" target="_blank" *ngFor="let post of posts">
         <div class="post">
             <img src="{{post.img}}" [alt]="post.title">
             <div class="title">

@@ -16,25 +16,25 @@
         </li>
         <li>
             <a routerLink="/home/beneficiario" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                (click)="toggleDropDown(false)">
+                (click)="toggleDropDown(false)" title="Sou Beneficiario">
                 Sou Beneficiario
             </a>
         </li>
         <li>
             <a routerLink="/home/rh" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                (click)="toggleDropDown(false)">
+                (click)="toggleDropDown(false)" title="Sou RH">
                 Sou RH
             </a>
         </li>
         <li>
             <a routerLink="/home/corretor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                (click)="toggleDropDown(false)">
+                (click)="toggleDropDown(false)" title="Sou Corretor">
                 Sou Corretor
             </a>
         </li>
         <li>
             <a routerLink="/home/credenciado" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                (click)="toggleDropDown(false)">
+                (click)="toggleDropDown(false)" title="Sou Credenciado">
                 Sou Credenciado
             </a>
         </li>
@@ -80,19 +80,19 @@
             </p>
             <div class="buttons">
                 <a routerLink="/home/beneficiario" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button">Beneficiário</a>
+                    (click)="initTransition()" class="button" title="Beneficiário">Beneficiário</a>
                 <a routerLink="/home/rh" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button">Gestor de RH</a>
+                    (click)="initTransition()" class="button" title="Gestor de RH">Gestor de RH</a>
                 <a routerLink="/home/corretor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button">Corretor</a>
+                    (click)="initTransition()" class="button" title="Corretor">Corretor</a>
                 <a routerLink="/home/credenciado" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button">Credenciado</a>
+                    (click)="initTransition()" class="button" title="Credenciado">Credenciado</a>
             </div>
             <div class="line"></div>
 
             <ul class="vantagens">
                 <li class="acc1">
-                    <a tabindex="0" (click)="expandAccordion('acc1')">
+                    <a tabindex="0" (click)="expandAccordion('acc1')" title="A Care Plus">
                         A Care Plus
                     </a>
                     <input tabindex="-1" type="checkbox" id="acc1" name="acc1" [checked]="expandedAccordion === 'acc1'">
@@ -101,37 +101,37 @@
                         <ul>
                             <li> <a routerLink="/a-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Home </a></li>
+                                    tabindex="0" title="A Empresa">A Empresa </a></li>
                             <li> <a routerLink="/a-careplus/materiais" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Materiais</a></li>
+                                    tabindex="0" title="Materiais">Materiais</a></li>
                             <!-- <li><a routerLink="/a-careplus/premios-e-certificacoes" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Premios e certificações</a></li> -->
                             <li><a routerLink="/a-careplus/responsabilidade-social" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Responsabilidade social</a></li>
+                                    tabindex="0" title="Responsabilidade social">Responsabilidade social</a></li>
                             <li><a routerLink="/a-careplus/faq" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Faq</a></li>
+                                    tabindex="0" title="Faq">Faq</a></li>
                             <li><a routerLink="/a-careplus/resultados-financeiros" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Resultados financeiros</a></li>
+                                    tabindex="0" title="Resultados financeiros">Resultados financeiros</a></li>
                             <li><a routerLink="/a-careplus/termos-e-condicoes" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Termos e condições</a></li>
+                                    tabindex="0" title="Termos e condições">Termos e condições</a></li>
                             <li><a routerLink="/a-careplus/politica-de-privacidade" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Politica de privacidade</a></li>
+                                    tabindex="0" title="Politica de privacidade">Politica de privacidade</a></li>
                             <li><a routerLink="/a-careplus/rede-plus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Rede plus</a></li>
+                                    tabindex="0" title="Rede Plus">Rede Plus</a></li>
                             <li><a routerLink="/a-careplus/diferenciais" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Diferenciais</a></li>
+                                    tabindex="0" title="Diferenciais">Diferenciais</a></li>
                             <li><a routerLink="/a-careplus/diferenciais/consulta-facil" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Consulta Fácil</a></li>
+                                    tabindex="0" title="Consulta Fácil">Consulta Fácil</a></li>
                             <!-- <li><a routerLink="/carreiras" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0">Carreiras</a></li> -->
@@ -139,7 +139,7 @@
                     </div>
                 </li>
                 <li class="acc2">
-                    <a tabindex="0" (click)="expandAccordion('acc2')">
+                    <a tabindex="0" (click)="expandAccordion('acc2')" title="Produtos">
                         Produtos
                     </a>
                     <input tabindex="-1" type="checkbox" id="acc2" name="acc2" [checked]="expandedAccordion === 'acc2'">
@@ -148,24 +148,24 @@
                         <ul>
                             <li> <a routerLink="/planos-e-produtos" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Home </a></li>
+                                    tabindex="0" title="Home">Home </a></li>
                             <li> <a routerLink="/planos-e-produtos/soho" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Soho </a></li>
+                                    tabindex="0" title="Care Plus Soho">Care Plus Soho </a></li>
                             <li> <a routerLink="/planos-e-produtos/clube-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Clube Care Plus </a></li>
+                                    tabindex="0" title="Clube Care Plus">Clube Care Plus </a></li>
                             <li> <a routerLink="/planos-e-produtos/empresarial" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Empresarial </a></li>
+                                    tabindex="0" title="Care Plus Empresarial">Care Plus Empresarial </a></li>
                             <li> <a routerLink="/planos-e-produtos/medicina-ocupacional" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Medicina Ocupacional </a></li>
+                                    tabindex="0" title="Medicina Ocupacional">Medicina Ocupacional </a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a tabindex="0" (click)="expandAccordion('acc3')">
+                    <a tabindex="0" (click)="expandAccordion('acc3')" title="Gestão de saúde">
                         Gestão de saúde
                     </a>
 
@@ -175,32 +175,32 @@
                         <ul>
                             <li> <a routerLink="/gestao-de-saude" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Home </a></li>
+                                    tabindex="0" title="Home">Home </a></li>
 
                             <li> <a routerLink="/gestao-de-saude/programas-preventivos" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Programas Preventivos </a></li>
+                                    tabindex="0" title="Programas Preventivos">Programas Preventivos </a></li>
 
                             <li> <a routerLink="/gestao-de-saude/servicos-online" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Serviços Online </a></li>
+                                    tabindex="0" title="Serviços Online">Serviços Online </a></li>
 
                             <li> <a routerLink="/gestao-de-saude/personal-system" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Personal System </a></li>
+                                    tabindex="0" title="Personal System">Personal System </a></li>
 
                             <li> <a routerLink="/gestao-de-saude/programas-empresariais" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Programas Empresariais </a></li>
+                                    tabindex="0" title="Programas Empresariais">Programas Empresariais </a></li>
 
                             <li> <a routerLink="/gestao-de-saude/nossas-parcerias" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Nossas Parcerias </a></li>
+                                    tabindex="0" title="Nossas Parcerias">Nossas Parcerias </a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a tabindex="0" (click)="expandAccordion('acc4')">
+                    <a tabindex="0" (click)="expandAccordion('acc4')" title="Carreiras">
                         Carreiras
                     </a>
 
@@ -210,23 +210,23 @@
                         <ul>
                             <li> <a routerLink="/carreiras" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Home </a></li>
+                                    tabindex="0" title="Home">Home </a></li>
 
                             <li> <a routerLink="/carreiras/vagas" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Vagas</a></li>
+                                    tabindex="0" title="Vagas">Vagas</a></li>
 
                         </ul>
                     </div>
                 </li>
                 <li>
                     <a routerLink="/careplus-mais" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                        (click)="initTransition()" tabindex="0">
-                        Care plus +
+                        (click)="initTransition()" tabindex="0" title="Care Plus +">
+                        Care Plus +
                     </a>
                 </li>
                 <li class="ac6">
-                    <a tabindex="0" (click)="expandAccordion('acc6')">
+                    <a tabindex="0" (click)="expandAccordion('acc6')" title="Fale Conosco">
                         Fale conosco
                     </a>
                     <input tabindex="-1" type="checkbox" id="acc6" [checked]="expandedAccordion === 'acc6'" name="acc6">
@@ -235,16 +235,16 @@
                         <ul>
                             <li> <a routerLink="/fale-conosco" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Solicite uma cotação </a></li>
+                                    tabindex="0" title="Solicite uma cotação">Solicite uma cotação </a></li>
                             <li> <a routerLink="/fale-conosco/contato" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Fale Conosco </a></li>
+                                    tabindex="0" title="Contato">Contato </a></li>
                             <li> <a routerLink="/fale-conosco/canal-de-denuncias" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Canal De Denuncias </a></li>
+                                    tabindex="0" title="Canal De Denuncias">Canal De Denuncias </a></li>
                             <li> <a routerLink="/fale-conosco/ouvidoria" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0">Ouvidoria </a></li>
+                                    tabindex="0" title="Ouvidoria">Ouvidoria </a></li>
                         </ul>
                     </div>
                 </li>
@@ -265,17 +265,17 @@
         <li>
             <a routerLink="/fale-conosco" [queryParams]="{
                 planoSaude: true
-            }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <svg *ngIf="actualRoute != '/fale-conosco?planoSaude=true'" width="15" height="14" viewBox="0 0 15 14" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+            }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" title="Saúde">
+                <svg *ngIf="actualRoute != '/fale-conosco?planoSaude=true'" width="15" height="14" viewBox="0 0 15 14"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M13.8357 1.1764C13.8337 1.17433 13.8316 1.17224 13.8295 1.17017C12.2748 -0.392435 9.75686 -0.389646 8.20553 1.1764L7.50051 1.88655L6.79574 1.17665C6.05196 0.420732 5.03823 -0.0031161 3.98163 1.725e-05C2.92637 0.000393252 1.91441 0.422518 1.1679 1.17377C-0.388287 2.73982 -0.389438 5.28003 1.16528 6.84752L7.32456 13.0516C7.37122 13.0986 7.4345 13.125 7.50051 13.125C7.56652 13.125 7.62979 13.0986 7.67645 13.0516L13.8357 6.84752C15.3881 5.2805 15.3881 2.74342 13.8357 1.1764ZM13.4838 6.49307L7.50051 12.5199L1.51792 6.49232C0.866184 5.83479 0.499832 4.94385 0.499085 4.01472C0.497592 2.07586 2.05676 0.502889 3.98163 0.501354C4.90639 0.498659 5.79358 0.869804 6.44435 1.5316L7.32531 2.41896C7.42249 2.51682 7.58002 2.51682 7.6772 2.41896L8.55866 1.53135C9.20921 0.870086 10.0959 0.499348 11.0201 0.502105C11.9426 0.502826 12.8271 0.871872 13.4799 1.52834C14.8421 2.89818 14.8438 5.12098 13.4838 6.49307Z"
                         fill="#fff" />
                 </svg>
 
 
-                <svg *ngIf="actualRoute == '/fale-conosco?planoSaude=true'" width="15" height="14" viewBox="0 0 15 14" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+                <svg *ngIf="actualRoute == '/fale-conosco?planoSaude=true'" width="15" height="14" viewBox="0 0 15 14"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M13.8357 1.1764C13.8337 1.17433 13.8316 1.17224 13.8295 1.17017C12.2748 -0.392435 9.75686 -0.389646 8.20553 1.1764L7.50051 1.88655L6.79574 1.17665C6.05196 0.420732 5.03823 -0.0031161 3.98163 1.725e-05C2.92637 0.000393252 1.91441 0.422518 1.1679 1.17377C-0.388287 2.73982 -0.389438 5.28003 1.16528 6.84752L7.32456 13.0516C7.37122 13.0986 7.4345 13.125 7.50051 13.125C7.56652 13.125 7.62979 13.0986 7.67645 13.0516L13.8357 6.84752C15.3881 5.2805 15.3881 2.74342 13.8357 1.1764ZM13.4838 6.49307L7.50051 12.5199L1.51792 6.49232C0.866184 5.83479 0.499832 4.94385 0.499085 4.01472C0.497592 2.07586 2.05676 0.502889 3.98163 0.501354C4.90639 0.498659 5.79358 0.869804 6.44435 1.5316L7.32531 2.41896C7.42249 2.51682 7.58002 2.51682 7.6772 2.41896L8.55866 1.53135C9.20921 0.870086 10.0959 0.499348 11.0201 0.502105C11.9426 0.502826 12.8271 0.871872 13.4799 1.52834C14.8421 2.89818 14.8438 5.12098 13.4838 6.49307Z"
                         fill="#fff" />
@@ -289,7 +289,7 @@
         <li>
             <a routerLink="/fale-conosco" [queryParams]="{
                 planoOdontologico: true
-            }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" title="Odontológico">
                 <svg *ngIf="actualRoute != '/fale-conosco?planoOdontologico=true'" width="14" height="15"
                     viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -325,7 +325,7 @@
         <li>
             <a routerLink="/fale-conosco" [queryParams]="{
                 medicinaOcupacional: true
-            }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" title="Ocupacional">
                 <svg *ngIf="actualRoute != '/fale-conosco?planoMedicinal=true'" width="14" height="15"
                     viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -352,7 +352,7 @@
             </a>
         </li>
         <li>
-            <a (click)="openSimulator()">
+            <a (click)="openSimulator()" title="Simulador">
                 <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M9.75191 5.50525L12.6472 6.34639C12.6928 7.1841 13.3885 7.85179 14.2375 7.85179C15.1157 7.85179 15.8301 7.13727 15.8301 6.25905C15.8301 5.38083 15.1157 4.66644 14.2375 4.66644C13.7042 4.66644 13.2317 4.93011 12.9425 5.33372L9.99457 4.47734C9.99484 4.46086 9.99539 4.44438 9.99539 4.42776C9.99539 4.09296 9.92892 3.77353 9.80904 3.48129L12.1342 2.61241C12.4265 2.96233 12.8658 3.18535 13.3564 3.18535C14.2346 3.18535 14.9491 2.47083 14.9491 1.59261C14.9491 0.714386 14.2346 0 13.3564 0C12.4782 0 11.7636 0.714386 11.7636 1.59261C11.7636 1.60332 11.7643 1.61389 11.7645 1.62447L9.18735 2.58755C8.74089 2.17584 8.14502 1.92371 7.49133 1.92371C6.78436 1.92371 6.14537 2.21869 5.68971 2.69138L4.41214 1.9189C4.43411 1.81357 4.44592 1.70439 4.44592 1.59261C4.44592 0.714386 3.7314 0 2.85332 0C1.9751 0 1.26057 0.714386 1.26057 1.59261C1.26057 2.47083 1.9751 3.18535 2.85332 3.18535C3.23756 3.18535 3.59036 3.04857 3.86584 2.82115L5.13284 3.58717C5.03891 3.85016 4.98727 4.13306 4.98727 4.42776C4.98727 4.65175 5.01721 4.8712 5.07393 5.08159L2.77353 6.54071C2.50217 6.3262 2.15994 6.19766 1.78806 6.19766C0.909836 6.19766 0.195312 6.91219 0.195312 7.79041C0.195312 8.66849 0.909836 9.38301 1.78806 9.38301C2.66614 9.38301 3.38066 8.66849 3.38066 7.79041C3.38066 7.66667 3.3661 7.54651 3.33932 7.43102L5.5598 6.02243C5.68806 6.17802 5.83556 6.31879 6.00021 6.44046V12.3205L5.07709 11.4453C4.67197 11.0612 4.14146 10.8497 3.58295 10.8497C3.09296 10.8497 2.61217 11.0181 2.22888 11.3239L1.4483 11.9469L6.2735 18H14.7648V10.2908C14.7648 9.46843 14.0959 8.79964 13.2737 8.79964C13.0599 8.79964 12.8565 8.84482 12.6725 8.92625C12.4246 8.44574 11.9231 8.11642 11.3463 8.11642C11.1181 8.11642 10.9016 8.16792 10.7081 8.26007C10.4495 7.81636 9.96834 7.5174 9.41875 7.5174C9.267 7.5174 9.12047 7.54019 8.98245 7.58249V6.44032C9.31465 6.1945 9.57736 5.87206 9.75191 5.50525ZM14.2375 5.72113C14.5341 5.72113 14.7754 5.96242 14.7754 6.25905C14.7754 6.55568 14.5341 6.79697 14.2375 6.79697C13.9409 6.79697 13.6996 6.55568 13.6996 6.25905C13.6996 5.96242 13.9409 5.72113 14.2375 5.72113ZM13.3564 1.05482C13.653 1.05482 13.8943 1.29597 13.8943 1.59261C13.8943 1.88924 13.653 2.13052 13.3564 2.13052C13.0598 2.13052 12.8185 1.88924 12.8185 1.59261C12.8185 1.29597 13.0598 1.05482 13.3564 1.05482ZM2.85332 2.13052C2.55669 2.13052 2.3154 1.88924 2.3154 1.59261C2.3154 1.29597 2.55669 1.05482 2.85332 1.05482C3.14995 1.05482 3.3911 1.29597 3.3911 1.59261C3.3911 1.88924 3.14981 2.13052 2.85332 2.13052ZM1.78806 8.32819C1.49142 8.32819 1.25014 8.0869 1.25014 7.79027C1.25014 7.49364 1.49142 7.25235 1.78806 7.25235C2.08455 7.25235 2.32584 7.49364 2.32584 7.79027C2.32584 8.0869 2.08455 8.32819 1.78806 8.32819ZM7.49133 2.97853C8.29045 2.97853 8.9407 3.62865 8.9407 4.42776C8.9407 4.76189 8.82603 5.0787 8.6254 5.33098C8.35156 5.01031 7.94493 4.80652 7.49133 4.80652C7.0376 4.80652 6.63097 5.01045 6.35727 5.33112C6.15663 5.07898 6.0421 4.76202 6.0421 4.4279C6.04196 3.62865 6.69221 2.97853 7.49133 2.97853ZM9.41875 8.57222C9.65935 8.57222 9.85518 8.76791 9.85518 9.00851V11.1437H10.9099V9.60754C10.9099 9.36694 11.1057 9.17125 11.3463 9.17125C11.5869 9.17125 11.7826 9.36694 11.7826 9.60754V11.1437H12.8374V10.2908C12.8374 10.0502 13.0331 9.85432 13.2737 9.85432C13.5143 9.85432 13.71 10.0502 13.71 10.2908V16.9452H10.8916V16.003H11.8245V15.0885H12.9208V14.0337H11.8245V13.1192H10.9099V12.0229H9.85518V13.1192H8.9407V14.0337H7.84427V15.0885H8.9407V16.003H9.83691V16.9452H6.78162L2.93105 12.1148C3.1218 11.9769 3.34605 11.9044 3.58295 11.9044C3.87024 11.9044 4.14311 12.0131 4.3513 12.2106L6.16295 13.9283L6.49268 14.2379L7.05504 13.8031V6.29764C7.05504 6.05704 7.25073 5.86121 7.49133 5.86121C7.73193 5.86121 7.92763 6.05704 7.92763 6.29764V11.1437H8.98245V9.00851C8.98245 8.76791 9.17815 8.57222 9.41875 8.57222ZM10.7697 14.174V14.9483H9.99539V14.174H10.7697Z"

@@ -58,6 +58,7 @@ section {
                                             justify-content: space-between;
                                             .images {
                                                 display: flex;
+                                                margin: 0 auto 0 calc(15% - 15px);
                                                 img {
                                                     display: none;
                                                     &.active {

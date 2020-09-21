@@ -33,7 +33,7 @@
                         <ul>
                             <li [class.is-active]="chanel.active" *ngFor="let chanel of chanelForms; let i = index;"
                                 (click)="setActiveChanel(i)">
-                                <a>
+                                <a [attr.title]="chanel.title">
                                     <span>{{chanel.title}}</span>
                                 </a>
                             </li>
@@ -59,7 +59,7 @@
                                     Atendimento 24h ao beneficiário
                                 </span>
                             </p>
-                            <a href="tel:0800-13-2992" class="contact-link">
+                            <a href="tel:0800-13-2992" title="Atendimento 24h ao beneficiário" class="contact-link">
                                 0800-13-2992
                             </a>
 
@@ -71,7 +71,7 @@
                                     Atendimento no Exterior
                                 </span>
                             </p>
-                            <a href="tel:114197-9000" class="contact-link">
+                            <a href="tel:114197-9000" title="Atendimento no Exterior" class="contact-link">
                                 (11) 4197-9000
                             </a>
 
@@ -83,7 +83,7 @@
                                     Atendimento 24h ao prestador
                                 </span>
                             </p>
-                            <a href="tel:1141979000" class="contact-link">
+                            <a href="tel:1141979000" title="Atendimento 24h ao prestador" class="contact-link">
                                 (11) 4197-9000
                             </a>
                             <hr class="separator" />
@@ -98,7 +98,7 @@
                                     Comunicação Care Plus
                                 </span>
                             </p>
-                            <a href="tel:1141979104" class="contact-link">
+                            <a href="tel:1141979104" title="Comunicação Care Plus Telefone" class="contact-link">
                                 (11) 4197-9104
                             </a>
 
@@ -110,7 +110,7 @@
                                     Comunicação Care Plus
                                 </span>
                             </p>
-                            <a href="mailto:imprensa@careplus.com.br" class="contact-link">
+                            <a href="mailto:imprensa@careplus.com.br" title="Comunicação Care Plus Email" class="contact-link">
                                 imprensa@careplus.com.br
                             </a>
                         </div>

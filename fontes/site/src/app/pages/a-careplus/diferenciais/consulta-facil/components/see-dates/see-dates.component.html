@@ -45,11 +45,13 @@
                             </div>
                             <div class="column is-5 heading-buttons" [class.display-flex]="unity?.fechada">
                                 <a *ngIf="!unity.fechada" [href]="'#'+ unity?.id"
-                                    class="btn btn-digital-cian tertiary arrow-right small acc-heading">
+                                    class="btn btn-digital-cian tertiary arrow-right small acc-heading"
+                                    title="Ver horários">
                                     VER HORÁRIOS
                                 </a>
                                 <a *ngIf="!unity.fechada" [href]="'tel:'+ unity?.telefoneSemFormatacao"
-                                    class="btn btn-phone blue-background-color">
+                                    class="btn btn-phone blue-background-color"
+                                    [attr.title]="'Telefone ' + unity?.nome">
                                     <span>
                                         <img src="assets/svg/phone-digital-cian.svg" alt="Telefone Unidade Cenu">
                                     </span>

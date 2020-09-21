@@ -9,25 +9,25 @@ export const bannersMock = [
         slideAtual: true,
         tempo: 10000
     }),
-    new BannerModel({
-        caminhoImagem:
-            'assets/img/banner-diferenciais.jpg',
-        titulo: 'Careplus',
-        descricao: 'Melhor operadora',
-        tempo: 5000
-    }),
-    new BannerModel({
-        caminhoImagem:
-            'assets/img/banner-diferenciais.jpg',
-        titulo: 'Careplus',
-        descricao: 'Melhor operadora',
-        tempo: 5000
-    }),
-    new BannerModel({
-        caminhoImagem:
-            'assets/img/banner-diferenciais.jpg',
-        titulo: 'Careplus',
-        descricao: 'Melhor operadora',
-        tempo: 5000
-    })
+    // new BannerModel({
+    //     caminhoImagem:
+    //         'assets/img/banner-diferenciais.jpg',
+    //     titulo: 'Careplus',
+    //     descricao: 'Melhor operadora',
+    //     tempo: 5000
+    // }),
+    // new BannerModel({
+    //     caminhoImagem:
+    //         'assets/img/banner-diferenciais.jpg',
+    //     titulo: 'Careplus',
+    //     descricao: 'Melhor operadora',
+    //     tempo: 5000
+    // }),
+    // new BannerModel({
+    //     caminhoImagem:
+    //         'assets/img/banner-diferenciais.jpg',
+    //     titulo: 'Careplus',
+    //     descricao: 'Melhor operadora',
+    //     tempo: 5000
+    // })
 ];

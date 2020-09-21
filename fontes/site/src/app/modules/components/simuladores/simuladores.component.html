@@ -1,6 +1,6 @@
 <section id="simulador" [@finish]="finishAnimationState" (@finish.done)="captureDoneEvent($event)">
     <a tabindex="0" class="times-icon" (keyup.enter)="finishAnimationState = 'close'"
-        (click)="finishAnimationState = 'close'">
+        (click)="finishAnimationState = 'close'" title="Fechar">
         <div class="lines">
             <span class="first-line"></span>
             <span class="second-line"></span>

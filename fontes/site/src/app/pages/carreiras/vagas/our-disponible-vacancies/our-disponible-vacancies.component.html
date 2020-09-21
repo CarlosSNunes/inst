@@ -97,12 +97,14 @@
                                 </p>
 
                                 <a [routerLink]="[vacancy.button.link]"
-                                    class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
+                                    class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
+                                    [attr.title]="vacancy.button.title">
                                     {{vacancy.button.title}}
                                 </a>
 
                                 <a [routerLink]="[vacancy.button.link]"
-                                    class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop">
+                                    class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop"
+                                    [attr.title]="vacancy.button.title">
                                     {{vacancy.button.title}}
                                 </a>
                             </li>

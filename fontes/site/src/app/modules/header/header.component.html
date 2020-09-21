@@ -2,7 +2,7 @@
     <div id="navbar-perfil-careplus" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item logo" [routerLink]="['/home']" routerLinkActive="has-background-white"
-                [routerLinkActiveOptions]="{exact: true}">
+                [routerLinkActiveOptions]="{exact: true}" title="Home">
                 <span class="item-label">
                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -11,33 +11,33 @@
                     </svg>
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/beneficiario']"
+            <a class="navbar-item is-home-link" [routerLink]="['/home/beneficiario']" title="Sou Beneficiário"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
-                    Sou beneficiário
+                    Sou Beneficiário
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/rh']" routerLinkActive="has-background-white"
-                [routerLinkActiveOptions]="{exact: true}">
+            <a class="navbar-item is-home-link" title="Sou RH" [routerLink]="['/home/rh']"
+                routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
                     Sou RH
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/corretor']"
+            <a class="navbar-item is-home-link" title="Sou Corretor" [routerLink]="['/home/corretor']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
-                    Sou corretor
+                    Sou Corretor
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/credenciado']"
+            <a class="navbar-item is-home-link" title="Sou Credenciado" [routerLink]="['/home/credenciado']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
-                    Sou credenciado
+                    Sou Credenciado
                 </span>
             </a>
         </div>
         <div class="navbar-middle">
-            <a class="button is-navbar-button is-accessible init-is-acessible">
+            <a class="button is-navbar-button is-accessible init-is-acessible" title="Acessibilidade">
                 <span class="item-label">
                     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -46,7 +46,7 @@
                     </svg>
                 </span>
             </a>
-            <a class="button is-navbar-button is-accessible">
+            <a class="button is-navbar-button is-accessible" title="Tamanho da fonte">
                 <span class="item-label">
                     <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -73,7 +73,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-navbar-button is-telefone" href="tel:0800-13-2992">
+                    <a class="button is-navbar-button is-telefone" href="tel:0800-13-2992" title="Contato">
                         <span class="item-label">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +88,8 @@
                         </span>
                     </a>
                     <a class="button is-navbar-button login bupa-digital-cyan"
-                        href="https://www8.careplus.com.br/portal/LoginBeneficiario.aspx" target="_blank">
+                        href="https://www8.careplus.com.br/portal/LoginBeneficiario.aspx" title="Entrar"
+                        target="_blank">
                         <span class="item-label">
                             Entrar
                         </span>
@@ -100,14 +101,8 @@
 </nav>
 <nav class="navbar is-home" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" [routerLink]="['/']">
+        <a class="navbar-item" [routerLink]="['/']" title="Home">
             <img class="img-careplus" src="assets/svg/logo-careplus.svg" alt="Careplus">
-        </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
         </a>
     </div>
     <div id="navbar-home" class="navbar-menu">
@@ -121,7 +116,7 @@
                     <div class="column is-6">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:0:5">
-                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
+                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title" [fragment]="subItem.fragment"
                                     class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>
@@ -131,7 +126,7 @@
                     <div class="column is-6" *ngIf="subMenuItem.subItems.length > 5">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:5:10">
-                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
+                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title" [fragment]="subItem.fragment"
                                     class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>

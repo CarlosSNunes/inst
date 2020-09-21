@@ -11,7 +11,8 @@
                                     <ul class="category-filter">
                                         <li *ngFor="let category of categories">
                                             <a [class.active]="selectCategoryId == category.id"
-                                                (click)="activeCategory(category.id)">
+                                                (click)="activeCategory(category.id)"
+                                                [attr.title]="category.name">
                                                 {{category.name}}
                                             </a>
                                         </li>

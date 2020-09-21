@@ -36,7 +36,8 @@
                     <a *ngIf="iconCardsSectionModel?.button?.routerLink"
                         [routerLink]="iconCardsSectionModel?.button?.routerLink"
                         [queryParams]="iconCardsSectionModel?.button?.queryParams"
-                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
+                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
+                        [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
@@ -45,7 +46,8 @@
                     <a *ngIf="iconCardsSectionModel?.button?.routerLink"
                         [routerLink]="iconCardsSectionModel?.button?.routerLink"
                         [queryParams]="iconCardsSectionModel?.button?.queryParams"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop">
+                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
+                        [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
@@ -55,14 +57,16 @@
                         Botões com href
                     -->
                     <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link"
-                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
+                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
+                        [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
                     </a>
 
                     <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop">
+                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
+                        [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
