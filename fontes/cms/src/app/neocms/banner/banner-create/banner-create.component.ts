@@ -81,8 +81,8 @@ export class BannerCreateComponent implements OnInit {
     this.arquivo = null;
 
     if (arquivos.length > 0) {
-      this.arquivoNome = arquivos[0].name;
       this.arquivo = arquivos[0];
+      this.arquivoNome = this.arquivo.name;
     }
 
     this.bannerForm.controls.arquivo.setValue(this.arquivo);

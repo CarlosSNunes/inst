@@ -32,7 +32,7 @@
                     </tr>
                     <tr *ngFor="let banner of banners" class="table-cell text-center">
                         <td class="hidden">{{banner.id}}</td>                        
-                        <td class="py-3 align-middle text-center"><img src="{{banner.caminhoDesktop + banner.nomeImagem }}" [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem"></td>
+                        <td class="py-3 align-middle text-center"><img src="{{banner.caminhoDesktop + pathDivision + banner.nomeImagemDesktop}}" [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem"></td>
                         <td class="py-3 align-middle text-lefth">{{banner.titulo}}</td>
                         <td class="py-3 align-middle text-center" *ngIf="banner.ativo != false">
                             <button type="button" class="button is-info is-small w-25 shadow rounded">

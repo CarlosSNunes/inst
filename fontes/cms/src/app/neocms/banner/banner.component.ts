@@ -23,6 +23,7 @@ export class BannerComponent implements OnInit {
   banner: BannerModel;
   imagemLargura = 50;
   imagemMargem = 2;
+  pathDivision: string = "/";
 
   constructor(
     private bannerService: BannerService,
@@ -46,6 +47,8 @@ export class BannerComponent implements OnInit {
       .subscribe(banners => {
         this.loaded = true;
         this.banners = banners;
+
+        
       },
         error => {
           this.loaded = true;
