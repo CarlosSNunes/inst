@@ -225,6 +225,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
         if (this.formValueChangesSubscription) {
             this.formValueChangesSubscription.unsubscribe();
+            this.formValueChangesSubscription.remove(this.formValueChangesSubscription);
         }
     }
 

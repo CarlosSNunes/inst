@@ -68,6 +68,7 @@ export class DifferentialComponent implements OnInit, AfterViewInit {
 
     stopSubscription() {
         this.differentialSubscription.unsubscribe();
+        this.differentialSubscription.remove(this.differentialSubscription);
     }
 
     activate(index: number) {

@@ -107,7 +107,8 @@ export class PlusNetworkComponent implements OnInit {
             this.mobileElement.style.background = '';
             this.mobileElement = undefined
         }
-        this.bannerPercentageSubscription.unsubscribe()
+        this.bannerPercentageSubscription.unsubscribe();
+        this.bannerPercentageSubscription.remove(this.bannerPercentageSubscription);
     }
 
     toggleBannerPercentage() {
@@ -117,6 +118,7 @@ export class PlusNetworkComponent implements OnInit {
         } else {
             this.stopped = true;
             this.bannerPercentageSubscription.unsubscribe();
+            this.bannerPercentageSubscription.remove(this.bannerPercentageSubscription);
         }
     }
 

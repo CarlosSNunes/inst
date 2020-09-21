@@ -77,7 +77,10 @@ export class HeroBannerComponent implements OnInit, AfterViewInit {
 
 
     ngOnDestroy() {
-        this.subscriptions.map(sub => sub.unsubscribe())
+        this.subscriptions.map(sub => {
+            sub.unsubscribe();
+            sub.remove(sub);
+        })
     }
 
 }

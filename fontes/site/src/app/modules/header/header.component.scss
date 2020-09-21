@@ -398,7 +398,7 @@ nav.is-home {
                 // text-transform: uppercase;
                 display: inline-block;
                 position: relative;
-                @include underline(getColor(_carePlus, _light-green));
+                @include underline(getColor(_bupa, _digital-cian));
                 cursor: pointer;
                 &:focus {
                     outline: unset;

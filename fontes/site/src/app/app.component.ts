@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     scrollTop: number = 0;
     showBtnToTop: boolean = false;
     invertColors: boolean = false;
+    footer: HTMLElement;
 
     constructor(
         private cdRef: ChangeDetectorRef,
@@ -59,6 +60,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.initiated = true;
+        if (this.isBrowser) {
+            this.footer = this.document.querySelector('footer');
+        }
     }
 
     addAnchorListener() {
@@ -92,10 +96,8 @@ export class AppComponent implements OnInit, AfterViewInit {
             this.showBtnToTop = false;
         }
 
-        const footer = this.document.querySelector('footer');
-
-        if (footer && footer != null) {
-            const footerTop = footer.getBoundingClientRect().top + window.pageYOffset;
+        if (this.footer && this.footer != null) {
+            const footerTop = this.footer.getBoundingClientRect().top + window.pageYOffset;
             const bottomTop = (this.windowRef.nativeWindow.innerHeight + this.scrollTop)
             if (bottomTop > footerTop) {
                 this.invertColors = true;

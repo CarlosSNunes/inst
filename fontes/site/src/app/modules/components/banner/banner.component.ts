@@ -60,7 +60,8 @@ export class BannerComponent implements OnInit {
     }
 
     stopBannerPercentage() {
-        this.bannerPercentageSubscription.unsubscribe()
+        this.bannerPercentageSubscription.unsubscribe();
+        this.bannerPercentageSubscription.remove(this.bannerPercentageSubscription);
     }
 
     toggleBannerPercentage() {
