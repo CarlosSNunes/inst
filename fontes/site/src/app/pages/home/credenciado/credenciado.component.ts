@@ -34,8 +34,8 @@ export class CredenciadoComponent implements OnInit {
         bigTitle: "A maior operadora de saúde premium com 27 anos de mercado",
         embedSrc: "https://www.youtube.com/embed/VkJDsgCRrTk",
         button: new ButtonModel({
-            text: "CONHEÇA A CARE PLUS",
-            title: "CONHEÇA A CARE PLUS",
+            text: "Conheça a Care Plus",
+            title: "Conheça a Care Plus",
             routerLink: "/a-careplus",
         }),
     });
@@ -46,7 +46,7 @@ export class CredenciadoComponent implements OnInit {
         subDescription:
             "Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.",
         button: new ButtonModel({
-            text: "CONHEÇA NOSSOS PROGRAMAS",
+            text: "Conheça Nossos Programas",
             routerLink: "/gestao-de-saude",
         }),
         cards: Cards,

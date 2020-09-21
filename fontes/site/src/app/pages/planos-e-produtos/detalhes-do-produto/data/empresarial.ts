@@ -34,7 +34,7 @@ export default {
         ],
         imageSrc: 'assets/img/bloco-clube-careplus.jpg',
         button: new ButtonModel({
-            text: 'SOLICITE UMA COTAÇÃO',
+            text: 'Solicite Uma Cotação',
             routerLink: '/fale-conosco',
             queryParams: {
                 plano: 'empresarial'
@@ -295,7 +295,7 @@ export default {
         subDescription: 'Nossos planos odontológicos também fazem parte das classificações: Care Plus Soho, Clube Care Plus e Care Plus Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
         imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
-            text: 'SOLICITE UMA COTAÇÃO',
+            text: 'Solicite Uma Cotação',
             routerLink: '/fale-conosco',
             queryParams: {
                 plano: 'empresarial',
@@ -314,7 +314,7 @@ export default {
         subDescription: 'Temos planos para empresas de 2 a 29 vidas, de 30 a 200 vidas ou de mais de 200 vidas. Acesse nossa página de Planos e Produtos e conheça todos.',
         imageSrc: 'assets/svg/plans-section-illustation.svg',
         button: new ButtonModel({
-            text: 'VER TODOS OS PLANOS',
+            text: 'Ver Todos os Planos',
             routerLink: '/planos-e-produtos'
         }),
         reverse: true,
@@ -325,7 +325,7 @@ export default {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em Gestão de Saúde',
         subDescription: 'Mais do que cuidado, proporcionamos facilidade e comodidade para todos os nossos beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'CONHEÇA NOSSOS PROGRAMAS',
+            text: 'Conheça Nossos Programas',
             routerLink: '/gestao-de-saude'
         }),
         cards: [

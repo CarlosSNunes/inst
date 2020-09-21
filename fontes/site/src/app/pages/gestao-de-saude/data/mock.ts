@@ -41,7 +41,7 @@ export const infoSections: InfoSectionModel[] = [
         reverse: true,
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/gestao-de-saude/programas-preventivos'
         })
     }),
@@ -52,7 +52,7 @@ export const infoSections: InfoSectionModel[] = [
         alignCenter: true,
         removeLine: true,
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/gestao-de-saude/servicos-online'
         })
     }),
@@ -65,7 +65,7 @@ export const infoSections: InfoSectionModel[] = [
         reverse: true,
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/gestao-de-saude/personal-system'
         })
     }),
@@ -76,7 +76,7 @@ export const infoSections: InfoSectionModel[] = [
         alignCenter: true,
         removeLine: true,
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/gestao-de-saude/programas-empresariais'
         })
     }),
@@ -89,7 +89,7 @@ export const infoSections: InfoSectionModel[] = [
         reverse: true,
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/gestao-de-saude/nossas-parcerias'
         })
     })

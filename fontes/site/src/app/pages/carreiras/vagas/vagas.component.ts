@@ -46,7 +46,7 @@ export class VagasComponent implements OnInit {
             title: 'Cadastre-se para integrar nosso banco de talentos',
             description: 'Estamos compondo um time repleto de talentos, envie para nós os seus dados pessoais e profissionais e entraremos em contato para futuras oportunidades.',
             button: new ButtonModel({
-                text: 'saiba mais',
+                text: 'Saiba mais',
                 link: 'https://careplus.gupy.io/'
             })
         }

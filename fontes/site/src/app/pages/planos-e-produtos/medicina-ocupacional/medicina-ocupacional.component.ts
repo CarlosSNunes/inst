@@ -20,7 +20,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
         bigTitle: 'Soluções personalizadas em Medicina Ocupacional para a sua empresa',
         subDescription: 'Conte com os melhores serviços de Medicina Ocupacional. Todos eles seguem à risca as Normas Regulamentadoras (NRs). Confira quais são:',
         button: new ButtonModel({
-            text: 'SOLICITE UMA COTAÇÃO',
+            text: 'Solicite Uma Cotação',
             routerLink: '/fale-conosco',
             queryParams: {
                 medicinaOcupacional: true

@@ -1,6 +1,6 @@
 import { Component, OnInit, PLATFORM_ID, Inject, HostListener, ElementRef } from '@angular/core';
 import { simpleBannerModel, medicalOrientationSection, nutriADistancia, sliderModel } from './data/mock-data';
-import { iconCardsSectionModel } from '../programas-preventivos/data/mock-data';
+import { iconCardsSectionModel } from './data/mock-data';
 import { Platform } from '@angular/cdk/platform';
 import { WindowRef } from 'src/utils/window-ref';
 import { isPlatformBrowser } from '@angular/common';

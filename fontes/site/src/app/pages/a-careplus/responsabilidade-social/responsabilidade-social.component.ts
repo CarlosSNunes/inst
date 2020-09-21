@@ -96,7 +96,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             "backgroundColorClass": "white-background-color",
             "hasCollapse": false,
             button: new ButtonModel({
-                text: 'SAIBA MAIS',
+                text: 'Saiba mais',
                 routerLink: '/a-careplus/rede-plus'
             })
         }),

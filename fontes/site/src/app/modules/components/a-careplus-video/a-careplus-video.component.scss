@@ -10,14 +10,13 @@
         margin-bottom: 8px;
         text-align: center;
     }
-    h4 {
-        font-weight: 600;
+
+    .big-title {
+        margin: 8px auto 0 auto;
         text-align: center;
-        color: getColor(_bupa, _navy);
-        margin-bottom: 48px;
-        width: 50%;
-        margin: auto;
+        max-width: 736px;
     }
+
     .video-bg {
         position: relative;
     }
@@ -79,12 +78,6 @@
 
 @media (max-width: 991px) {
     #a-care-plus {
-        h4 {
-            font-size: 1.25em;
-            line-height: 120%;
-            width: 100%;
-        }
-
         .videoBox {
             iframe {
                 height: 303px;

@@ -8,7 +8,7 @@ export const ocupationalSection = new InfoSectionModel({
     subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
     imageSrc: 'assets/img/home-ocupacional.jpg',
     button: new ButtonModel({
-        text: 'SAIBA MAIS',
+        text: 'Saiba mais',
         routerLink: '/planos-e-produtos/medicina-ocupacional',
         class: 'btn-digital-orange secondary medium arrow-right',
         touchClass: 'btn-digital-orange tertiary small arrow-right',
@@ -20,7 +20,7 @@ export const planCards: PlanCardModel[] = [
         subTitle: 'Para 2 a 29 vidas',
         description: 'O Care Plus SoHo apresenta planos para pequenas empresas, de 2 a 29 vidas e é indicado para aquelas que atuam em home office ou com operações mais enxutas.',
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/planos-e-produtos/soho'
         }),
         image: 'assets/svg/plans-soho.svg',
@@ -31,7 +31,7 @@ export const planCards: PlanCardModel[] = [
         subTitle: 'Para 30 a 200 vidas',
         description: 'O Clube Care Plus apresenta planos para empresas, de 30 a 200 vidas e é indicado para aquelas que estão em crescimento e expandindo seus negócios.',
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/planos-e-produtos/clube-careplus'
         }),
         image: 'assets/svg/clube-careplus.svg',
@@ -42,7 +42,7 @@ export const planCards: PlanCardModel[] = [
         subTitle: 'Para mais de 200 vidas',
         description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
         button: new ButtonModel({
-            text: 'SAIBA MAIS',
+            text: 'Saiba mais',
             routerLink: '/planos-e-produtos/empresarial'
         }),
         image: 'assets/svg/empresarial.svg',
@@ -54,7 +54,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
     subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
     button: new ButtonModel({
-        text: 'CONHEÇA NOSSOS PROGRAMAS',
+        text: 'Conheça Nossos Programas',
         routerLink: '/gestao-de-saude'
     }),
     cards: Cards,

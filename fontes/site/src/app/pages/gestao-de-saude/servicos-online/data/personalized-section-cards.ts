@@ -17,10 +17,9 @@ export default [
     }),
     new IconCardModel({
         "type": "icon",
-        "title": "Serviços <br/> Online",
-        "description": "Os beneficiários podem aproveitar alguns serviços a distância com a qualidade, o carinho e o cuidado que só a Care Plus tem.",
+        "title": "Personal <br/> System",
+        "description": "Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.",
         "imagePath": "assets/svg/monitor-screen.svg",
-        "backgroundColorClass": "white-background-color",
-        "routerLink": "/gestao-de-saude/servicos-online"
+        "routerLink": "/gestao-de-saude/personal-system"
     }),
 ];

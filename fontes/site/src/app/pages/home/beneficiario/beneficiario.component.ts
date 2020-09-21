@@ -30,7 +30,7 @@ export class BeneficiarioComponent implements OnInit {
         subDescription: 'O Consulta Fácil é um serviço exclusivo aos beneficiários da Care Plus, no qual médicos clínicos e pediatras estão disponíveis para fazer consultas em diversos horários e dias da semana, sem a necessidade de agendamento prévio.',
         imageSrc: 'assets/svg/art-image-one.svg',
         button: new ButtonModel({
-            text: 'CONSULTE DIAS E HORÁRIOS',
+            text: 'Consulte Dias e Horários',
             routerLink: '/a-careplus/diferenciais/consulta-facil'
         }),
         removeLine: true,
@@ -42,7 +42,7 @@ export class BeneficiarioComponent implements OnInit {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
         subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'CONHEÇA NOSSOS PROGRAMAS',
+            text: 'Conheça Nossos Programas',
             routerLink: '/gestao-de-saude'
         }),
         cards: Cards,

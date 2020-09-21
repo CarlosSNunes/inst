@@ -3,10 +3,10 @@ import { IconCardModel } from 'src/app/models'
 export default [
     new IconCardModel({
         "type": "icon",
-        "title": "Programas <br/> Preventivos",
-        "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento, uma vida saudável.",
+        "title": "Personal <br/> System",
+        "description": "Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.",
         "imagePath": "assets/svg/shield.svg",
-        "routerLink": "/gestao-de-saude/programas-preventivos"
+        "routerLink": "/gestao-de-saude/personal-system"
     }),
     new IconCardModel({
         "type": "icon",

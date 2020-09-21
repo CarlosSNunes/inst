@@ -5,6 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { FormControlError } from 'src/utils/form-control-error';
 import Documents from './data/documents';
 import TableItems from './data/table-mock';
+import Cards from './data/cards';
 
 @Component({
     selector: 'app-resultados-financeiros',
@@ -66,7 +67,8 @@ export class ResultadosFinanceirosComponent implements OnInit {
             }
         ],
         bodyItems: this.tableItemsMockFiltered,
-    })
+    });
+    cards = Cards;
 
     constructor(
         private fb: FormBuilder,

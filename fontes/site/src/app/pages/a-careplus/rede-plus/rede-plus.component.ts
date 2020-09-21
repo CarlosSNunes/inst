@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CareplusVideoModel, InfoSectionModel, BreadcrumbModel, SimpleBannerModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 import { Title, Meta } from '@angular/platform-browser';
+import Cards from './data/cards';
 
 @Component({
     selector: 'app-rede-plus',
@@ -45,6 +46,7 @@ export class RedePlusComponent implements OnInit {
         ],
         imageSrc: 'assets/img/section-credenciadores-rede-plus-a-carepus.jpg',
     });
+    cards = Cards;
     constructor(
         private windowRef: WindowRef,
         private title: Title,

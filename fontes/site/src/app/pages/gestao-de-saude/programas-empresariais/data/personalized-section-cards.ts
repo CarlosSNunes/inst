@@ -10,10 +10,10 @@ export default [
     }),
     new IconCardModel({
         "type": "icon",
-        "title": "Programas <br/> Empresariais",
-        "description": "A Care Plus disponibiliza  médicos, nutricionistas, enfermeiras e psicólogos para realizar atendimento no ambiente das empresas.",
+        "title": "Personal <br/> System",
+        "description": "Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.",
         "imagePath": "assets/svg/doctorphone.svg",
-        "routerLink": "/gestao-de-saude/programas-empresariais"
+        "routerLink": "/gestao-de-saude/personal-system"
     }),
     new IconCardModel({
         "type": "icon",

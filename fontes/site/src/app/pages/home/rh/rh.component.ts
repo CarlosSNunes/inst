@@ -33,7 +33,7 @@ export class RhComponent implements OnInit {
             "Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.",
         imageSrc: "assets/img/home-ocupacional.jpg",
         button: new ButtonModel({
-            text: "SAIBA MAIS",
+            text: "Saiba mais",
             link: "/planos-e-produtos/medicina-ocupacional",
         }),
     });
@@ -46,7 +46,7 @@ export class RhComponent implements OnInit {
             "Não perca tempo pesquisando e selecionando as opções compatíveis com a sua empresa. Siga o passo a passo do nosso simulador e receba uma proposta já adequada ao perfil da sua organização.",
         imageSrc: "assets/img/plano-rh.jpg",
         button: new ButtonModel({
-            text: "SIMULAR PLANO",
+            text: "Simular Plano",
             action: () => this.simularesService.open(),
         }),
     });
@@ -57,7 +57,7 @@ export class RhComponent implements OnInit {
         subDescription:
             "Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.",
         button: new ButtonModel({
-            text: "CONHEÇA NOSSOS PROGRAMAS",
+            text: "Conheça Nossos Programas",
             routerLink: "/gestao-de-saude",
         }),
         cards: Cards,
