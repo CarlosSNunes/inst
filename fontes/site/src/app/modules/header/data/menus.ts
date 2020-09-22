@@ -74,7 +74,7 @@ export default [
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Gestão de saúde',
+                        title: 'Gestão de Saúde',
                         routerLink: '/gestao-de-saude'
                     }),
                 ]
@@ -94,7 +94,7 @@ export default [
                 ]
             }),
             new SubMenuItem({
-                title: 'Care plus+',
+                title: 'Care Plus +',
                 routerLink: '/careplus-mais',
             }),
             new SubMenuItem({
@@ -297,7 +297,7 @@ export default [
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Gestão de saúde',
+                        title: 'Gestão de Saúde',
                         routerLink: '/gestao-de-saude'
                     }),
                 ]
