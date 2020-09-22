@@ -34,9 +34,6 @@ import { Title, Meta } from '@angular/platform-browser';
         bigTitle: '',
         subTitle: '',
         isFullScreen: true,
-        button: new ButtonModel({
-            text: 'Assista e saiba mais',
-        }),
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',

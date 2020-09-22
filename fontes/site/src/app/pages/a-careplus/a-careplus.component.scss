@@ -65,6 +65,13 @@ section {
                 color: getColor(_bupa, _navy);
                 max-width: 696px;
             }
+            .main-text {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 150%;
+                color: getColor(_bupa, _navy);
+                max-width: 696px;
+            }
             .section-text {
                 color: getColor(_bupa, _black);
             }
