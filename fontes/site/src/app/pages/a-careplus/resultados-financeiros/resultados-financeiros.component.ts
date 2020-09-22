@@ -15,7 +15,7 @@ import Cards from './data/cards';
 export class ResultadosFinanceirosComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
         title: 'Transparência e responsabilidade na prestação de contas',
-        description: 'Nesta área, você encontra os últimos relatórios de resultados financeiros da Care Plus.',
+        description: 'Nesta área, você encontra os últimos relatórios de resultados financeiros da Care Plus',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
