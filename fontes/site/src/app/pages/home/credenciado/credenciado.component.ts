@@ -46,7 +46,7 @@ export class CredenciadoComponent implements OnInit {
         subDescription:
             "Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.",
         button: new ButtonModel({
-            text: "Conheça Nossos Programas",
+            text: "Conheça o Gestão de Saúde",
             routerLink: "/gestao-de-saude",
         }),
         cards: Cards,
