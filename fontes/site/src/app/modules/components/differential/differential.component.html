@@ -4,6 +4,10 @@
             <div class="columns">
                 <div class="column left-column is-hidden-touch" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
                     <img src="{{differential.image}}" [alt]="differentials[currentDifferential]?.title"/>
+                    <a class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
+                        routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais">
+                        Conheça nossos Diferenciais
+                    </a>
                 </div>
                 <div class="column has-divider is-hidden-touch">
                     <hr class="bupa-divider" />
@@ -17,6 +21,10 @@
                     </h2>
                     <div class="is-hidden-desktop mobile-image" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
                         <img src="{{differential.image}}" [alt]="differentials[currentDifferential]?.title"/>
+                         <a class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
+                            routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais">
+                            Conheça nossos Diferenciais
+                        </a>
                     </div>
                     <div class="accordion-wrapper">
                         <div class="accordion-item open" [class.active]="differential.active"

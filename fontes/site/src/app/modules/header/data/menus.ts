@@ -167,8 +167,8 @@ export default [
                 ]
             }),
             new SubMenuItem({
-                title: 'Consulta Fácil',
-                routerLink: '/a-careplus/diferenciais/consulta-facil',
+                title: 'Rede Plus',
+                routerLink: '/a-careplus/rede-plus'
             }),
             new SubMenuItem({
                 title: 'Gestão De Saúde',
