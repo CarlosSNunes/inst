@@ -25,7 +25,7 @@ export class CarreirasComponent implements OnInit {
             })
         ],
         hasAnchor: true,
-        image: 'assets/img/banner-carreiras.jpg'
+        image: 'assets/img/new-banner-carreiras.png'
     };
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         bigTitle: 'Por que somos apaixonados pela Care Plus?',
