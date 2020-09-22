@@ -13,8 +13,8 @@ import { Title, Meta } from '@angular/platform-browser';
 export class ResponsabilidadeSocialComponent implements OnInit {
     @ViewChild('iniciativaSection', { static: false }) iniciativaSection: ElementRef<HTMLElement>;
     simpleBannerModel: SimpleBannerModel = {
-        title: 'Saiba mais sobre nossos projetos sociais e ações sustentáveis.',
-        description: 'Aqui você pode ver nossas ações para contribuir por um mundo melhor.',
+        title: 'Saiba mais sobre nossos projetos sociais e ações sustentáveis',
+        description: 'Aqui você pode ver nossas ações para contribuir por um mundo melhor',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
@@ -84,6 +84,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             "type": "icon",
             "title": "Perguntas Frequentes",
             "description": "Um espaço para você esclarecer todas as suas dúvidas, serviços disponíveis, rede credenciada e muito mais.",
+            "routerLink": '/a-careplus/faq',
             "imagePath": "assets/svg/faq.svg",
             "backgroundColorClass": "white-background-color",
             "hasCollapse": false
@@ -92,6 +93,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             "type": "icon",
             "title": "Rede Plus",
             "description": "Saiba mais sobre a Rede Plus, uma rede de profissionais diferente de tudo que você já viu no mercado. Além de sua seleção ter critérios rigorosos que envolvem a formação acadêmica e estrutura de atendimento, esta rede proporciona uma experiência de atendimento excepcional.",
+            "routerLink": '/a-careplus/rede-plus',
             "imagePath": "assets/svg/star-hand.svg",
             "backgroundColorClass": "white-background-color",
             "hasCollapse": false,
@@ -104,6 +106,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             "type": "icon",
             "title": "Materiais",
             "description": "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
+            "routerLink": '/a-careplus/materiais',
             "imagePath": "assets/svg/document.svg",
             "backgroundColorClass": "white-background-color",
             "hasCollapse": false
