@@ -21,15 +21,15 @@ import { Subscription } from 'rxjs';
 export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     dropDownItems: DropDownItem[] = [
         new DropDownItem({
-            key: '2 a 29 vidas - Soho',
+            key: 'Care Plus Soho',
             value: 'soho'
         }),
         new DropDownItem({
-            key: '30 a 200 vidas - Clube Care Plus',
+            key: 'Clube Care Plus',
             value: 'clube-careplus'
         }),
         new DropDownItem({
-            key: 'Mais de 200 vidas - Empresarial',
+            key: 'Care Plus Empresarial',
             value: 'empresarial'
         })
     ];
