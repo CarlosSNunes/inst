@@ -1,6 +1,12 @@
 import { BannerModel } from "src/app/models";
 
 export const bannersMock = [
+     new BannerModel({
+        caminhoImagem: "assets/videos/CP-nova-identidade.gif",
+        titulo: "Uma nova marca!",
+        descricao: "A mesma paixão e dedicação em cuidar de pessoas! #todosnamesmabatida",
+        tempo: 11000,
+    }),
     new BannerModel({
         caminhoImagem: "assets/img/banner-home.jpg",
         titulo: "O cuidado com a sua saúde, no conforto de sua casa",
@@ -9,23 +15,5 @@ export const bannersMock = [
         slideAtual: true,
         tempo: 10000,
         linkExterno: "#",
-    }),
-    new BannerModel({
-        caminhoImagem: "assets/img/banner-home.jpg",
-        titulo: "Careplus",
-        descricao: "Melhor operadora",
-        tempo: 5000,
-    }),
-    new BannerModel({
-        caminhoImagem: "assets/img/banner-home.jpg",
-        titulo: "Careplus",
-        descricao: "Melhor operadora",
-        tempo: 5000,
-    }),
-    new BannerModel({
-        caminhoImagem: "assets/img/banner-home.jpg",
-        titulo: "Careplus",
-        descricao: "Melhor operadora",
-        tempo: 5000,
-    }),
+    })
 ];
