@@ -2,6 +2,13 @@
 
 @media (max-width: 1770px) {
     .footer {
+        .site-map-ancor {
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
         .site-map {
             .social-media {
                 display: flex;
@@ -26,7 +33,6 @@
 @media (max-width: 1399px) {
     .footer {
         padding-bottom: 100px !important;
-
         .site-map {
             .certificacoes {
                 a {
