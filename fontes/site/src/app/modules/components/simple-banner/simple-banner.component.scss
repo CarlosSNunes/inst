@@ -38,6 +38,7 @@ section {
         padding: 0 0 10px 0;
         background-image: unset !important;
         background-color: getColor(_bupa, _digital-cian);
+        box-shadow: unset;
         &.hasFilters {
             padding: 0 0 80px 0;
         }

@@ -169,7 +169,7 @@ section.home-banner {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1023px) {
     section.home-banner {
         height: calc(100vh - 156px);
         #carousel-banner {
@@ -222,6 +222,7 @@ section.home-banner {
         .item {
             height: calc(100vh - (156px + 224px));
             position: absolute;
+            box-shadow: unset;
             .container:not(.breadcrumb-container) {
                 position: absolute;
                 width: 100%;
