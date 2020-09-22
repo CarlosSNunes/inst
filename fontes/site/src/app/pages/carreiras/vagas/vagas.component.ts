@@ -35,11 +35,11 @@ export class VagasComponent implements OnInit {
     crossContentModel: CrossContentModel = new CrossContentModel({
         bigTitle: 'Mais do que trabalhar com líderes inspiradores, nós queremos que você seja um',
         firstImage: {
-            src: 'assets/img/subscribe-in-vacancy-first-image.jpg',
+            src: 'assets/img/Carreira_Vagas_1.png',
             alt: 'Banco de dados imagem 1'
         },
         secondImage: {
-            src: 'assets/img/subscribe-in-vacancy-second-image.jpg',
+            src: 'assets/img/Carreira_Vagas_2.png',
             alt: 'Banco de dados imagem 2'
         },
         boxContent: {
