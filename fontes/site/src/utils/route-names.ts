@@ -113,10 +113,10 @@ export const routes: RouteModel[] = [
         route: '/a-careplus/diferenciais',
         description: 'Diferenciais'
     }),
-    new RouteModel({
-        route: '/a-careplus/diferenciais/consulta-facil',
-        description: 'Consulta fácil'
-    }),
+    // new RouteModel({
+    //     route: '/a-careplus/diferenciais/consulta-facil',
+    //     description: 'Consulta fácil'
+    // }),
     new RouteModel({
         route: '/planos-e-produtos/gestao-de-saude',
         description: 'Gestão de saude'
