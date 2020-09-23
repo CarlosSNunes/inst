@@ -28,6 +28,10 @@ const routes: Routes = [
         path: 'carreiras',
         loadChildren: () => import('./pages/carreiras/carreiras.module').then(m => m.CarreirasModule),
     },
+    {
+        path: 'obrigado',
+        loadChildren: () => import('./pages/obrigado/obrigado.module').then(m => m.ObrigadoModule),
+    },
     // {
     //     path: 'careplus-mais',
     //     loadChildren: () => import('./pages/careplus-mais/careplus-mais.module').then(m => m.CareplusMaisModule),
