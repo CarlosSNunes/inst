@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VagasComponent } from './vagas.component';
+import { ObrigadoComponent } from './obrigado.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: VagasComponent
+        component: ObrigadoComponent
     },
     {
         path: '**',
-        loadChildren: () => import('../../erro/erro.module').then(m => m.ErroModule)
+        loadChildren: () => import('../erro/erro.module').then(m => m.ErroModule)
     }
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class VagasRoutingModule { }
+export class ObrigadoRoutingModule { }

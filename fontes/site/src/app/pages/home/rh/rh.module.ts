@@ -8,7 +8,6 @@ import { DifferentialModule } from 'src/app/modules/components/differential/diff
 import { MaterialsModule } from 'src/app/modules/components/materials/materials.module';
 import { SocialPostsModule } from 'src/app/modules/components/social-posts/social-posts.module';
 import { ContactScheduleAVisitModule } from 'src/app/modules/components/contact-schedule-a-visit/contact-schedule-a-visit.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
 import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
 
@@ -26,7 +25,7 @@ import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-se
         InfoSectionModule,
         ContactScheduleAVisitModule,
         MaterialsModule,
-        CareplusPlusModule,
+        
         SocialPostsModule
     ]
 })

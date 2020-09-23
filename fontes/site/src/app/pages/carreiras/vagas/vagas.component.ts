@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { BreadcrumbModel, SimpleBannerModel, CrossContentModel, ButtonModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
-import { OurProgramsComponent } from './our-programs/our-programs.component';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
@@ -10,7 +9,6 @@ import { Meta, Title } from '@angular/platform-browser';
     styleUrls: ['./vagas.component.scss']
 })
 export class VagasComponent implements OnInit {
-    @ViewChild('ourPrograms', { static: false }) ourPrograms: OurProgramsComponent;
     simpleBannerModel: SimpleBannerModel = {
         title: 'Saiba mais sobre os nossos programas e vagas em aberto',
         description: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você',
@@ -54,7 +52,8 @@ export class VagasComponent implements OnInit {
     constructor(
         private windowRef: WindowRef,
         private meta: Meta,
-        private title: Title
+        private title: Title,
+        private elementRef: ElementRef<HTMLElement>
     ) {
         this.setSEOInfos();
     }
@@ -63,11 +62,15 @@ export class VagasComponent implements OnInit {
     }
 
     goToNextSection() {
-        this.windowRef.nativeWindow.scrollTo({
-            left: 0,
-            top: this.ourPrograms.offsetTop - parseInt(localStorage.getItem('elementOffset')),
-            behavior: 'smooth'
-        })
+        const crossCrontent = this.elementRef.nativeElement.querySelector('.cross-content-section') as HTMLElement;
+
+        if (crossCrontent && crossCrontent != null) {
+            this.windowRef.nativeWindow.scrollTo({
+                left: 0,
+                top: crossCrontent.offsetTop - parseInt(localStorage.getItem('elementOffset')),
+                behavior: 'smooth'
+            });
+        }
     }
 
     setSEOInfos() {

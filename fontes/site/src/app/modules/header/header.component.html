@@ -87,7 +87,7 @@
                             0800-13-2992
                         </span>
                     </a>
-                    <a class="button is-navbar-button login bupa-digital-cyan"
+                    <a class="button is-navbar-button login bupa-digital-cyan" rel="noopener noreferrer"
                         href="https://www8.careplus.com.br/portal/LoginBeneficiario.aspx" title="Entrar"
                         target="_blank">
                         <span class="item-label">
@@ -116,8 +116,8 @@
                     <div class="column is-6">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:0:5">
-                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title" [fragment]="subItem.fragment"
-                                    class="sub-menu-items">
+                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title"
+                                    [fragment]="subItem.fragment" class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>
                             </li>
@@ -126,8 +126,8 @@
                     <div class="column is-6" *ngIf="subMenuItem.subItems.length > 5">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:5:10">
-                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title" [fragment]="subItem.fragment"
-                                    class="sub-menu-items">
+                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title"
+                                    [fragment]="subItem.fragment" class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>
                             </li>
@@ -139,23 +139,34 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a *ngIf="subMenu.id == 'default'" class="btn btn-digital-orange primary small" (click)="openSimulator()">
+                    <a *ngIf="subMenu.id == 'default'" class="btn btn-digital-orange primary small"
+                        (click)="openSimulator()">
                         Simule Planos e Produtos
                     </a>
 
-                    <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-digital-orange primary small" href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx" target="_blank">
+                    <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-digital-orange primary small"
+                        rel="noopener noreferrer"
+                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
+                        target="_blank">
                         Entre em Contato
                     </a>
 
-                    <a *ngIf="subMenu.id == 'rh'" class="btn btn-digital-orange primary small" routerLink="/fale-conosco/solicite-uma-cotacao">
+                    <a *ngIf="subMenu.id == 'rh'" class="btn btn-digital-orange primary small"
+                        routerLink="/fale-conosco/solicite-uma-cotacao">
                         Solicite uma Cotação
                     </a>
 
-                    <a *ngIf="subMenu.id == 'corretor'" class="btn btn-digital-orange primary small" href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx" target="_blank">
+                    <a *ngIf="subMenu.id == 'corretor'" class="btn btn-digital-orange primary small"
+                        rel="noopener noreferrer"
+                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
+                        target="_blank">
                         Seja um Corretor
                     </a>
 
-                    <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-digital-orange primary small" href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx" target="_blankz">
+                    <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-digital-orange primary small"
+                        rel="noopener noreferrer"
+                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
+                        target="_blank">
                         Seja um Credenciado
                     </a>
                 </div>
