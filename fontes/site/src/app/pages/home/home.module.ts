@@ -14,7 +14,6 @@ import { PlusNetworkModule } from 'src/app/modules/components/plus-network/plus-
 import { DifferentialModule } from 'src/app/modules/components/differential/differential.module';
 import { ProfileModule } from 'src/app/modules/components/profile/profile.module';
 import { JoinTheTeamModule } from 'src/app/modules/components/join-the-team/join-the-team.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
 
 @NgModule({
@@ -35,7 +34,7 @@ import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-se
         DifferentialModule,
         ProfileModule,
         JoinTheTeamModule,
-        CareplusPlusModule,
+        
         IconCardsSectionModule
     ],
     providers: [

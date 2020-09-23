@@ -6,7 +6,6 @@ import { BreadcrumbModule } from 'src/app/modules/components/breadcrumb/breadcru
 import { ACareplusVideoModule } from 'src/app/modules/components/a-careplus-video/a-careplus-video.module';
 import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
 import { LearnMoreModule } from 'src/app/modules/components/learn-more/learn-more.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { SimpleBannerModule } from 'src/app/modules/components/simple-banner/simple-banner.module';
 
 
@@ -20,7 +19,6 @@ import { SimpleBannerModule } from 'src/app/modules/components/simple-banner/sim
     ACareplusVideoModule,
     InfoSectionModule,
     LearnMoreModule,
-    CareplusPlusModule,
     SimpleBannerModule
   ]
 })

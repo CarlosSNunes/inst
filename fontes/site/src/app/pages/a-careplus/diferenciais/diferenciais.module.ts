@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { DiferenciaisComponent } from './diferenciais.component';
 import { BannerModule } from 'src/app/modules/components/banner/banner.module';
 import { DiferenciaisRoutingModule } from './diferenciais-routing.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { ACareplusVideoModule } from 'src/app/modules/components/a-careplus-video/a-careplus-video.module';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { CardModule } from 'src/app/modules/components/card/card.module';
@@ -21,7 +20,6 @@ import { OurDifferentialsComponent } from './consulta-facil/components/our-diffe
         CommonModule,
         BannerModule,
         DiferenciaisRoutingModule,
-        CareplusPlusModule,
         ACareplusVideoModule,
         CardModule,
         SimpleBannerModule,

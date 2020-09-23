@@ -5,7 +5,6 @@ import { PlanosEProdutosRoutingModule } from './planos-e-produtos-routing.module
 import { ContactScheduleAVisitModule } from 'src/app/modules/components/contact-schedule-a-visit/contact-schedule-a-visit.module';
 import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
 import { PlanCardModule } from 'src/app/modules/components/plan-card/plan-card.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { CommomQuestionsModule } from 'src/app/modules/components/commom-questions/commom-questions.module';
 import { DetalhesDoProdutoComponent } from './detalhes-do-produto/detalhes-do-produto.component';
 import { SimpleBannerModule } from 'src/app/modules/components/simple-banner/simple-banner.module';
@@ -26,7 +25,7 @@ import { HeroBannerModule } from 'src/app/modules/components/hero-banner/hero-ba
         ContactScheduleAVisitModule,
         InfoSectionModule,
         PlanCardModule,
-        CareplusPlusModule,
+        
         CommomQuestionsModule,
         SimpleBannerModule,
         AccreditedNetworkModule,

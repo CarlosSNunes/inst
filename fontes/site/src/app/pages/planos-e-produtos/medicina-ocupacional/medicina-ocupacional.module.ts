@@ -5,7 +5,6 @@ import { MedicinaOcupacionalRoutingModule } from './medicina-ocupacional-routing
 import { SimpleBannerModule } from 'src/app/modules/components/simple-banner/simple-banner.module';
 import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
 import { ContactScheduleAVisitModule } from 'src/app/modules/components/contact-schedule-a-visit/contact-schedule-a-visit.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
 
 
@@ -18,7 +17,7 @@ import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-se
         SimpleBannerModule,
         InfoSectionModule,
         ContactScheduleAVisitModule,
-        CareplusPlusModule,
+        
         IconCardsSectionModule
     ]
 })
