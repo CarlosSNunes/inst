@@ -8,7 +8,7 @@ const routes: Routes = [
         component: ACareplusComponent
     },
     {
-        path: 'materiais',
+        path: 'materiais-de-saude',
         loadChildren: () => import('./materiais/materiais.module').then(m => m.MateriaisModule)
     },
     // {
@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('./responsabilidade-social/responsabilidade-social.module').then(m => m.ResponsabilidadeSocialModule)
     },
     {
-        path: 'faq',
+        path: 'perguntas-frequentes',
         loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
     },
     {

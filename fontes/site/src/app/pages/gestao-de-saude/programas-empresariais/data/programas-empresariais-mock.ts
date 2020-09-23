@@ -10,11 +10,11 @@ export const simpleBannerModel: SimpleBannerModel = {
         }),
         new BreadcrumbModel({
             name: 'Gestão de Saúde',
-            link: '/gestao-de-saude'
+            link: '/planos-e-produtos/gestao-de-saude'
         }),
         new BreadcrumbModel({
             name: 'Programas Empresariais',
-            link: '/gestao-de-saude/programas-empresariais',
+            link: '/planos-e-produtos/gestao-de-saude/programas-empresariais',
             active: true
         })
     ],

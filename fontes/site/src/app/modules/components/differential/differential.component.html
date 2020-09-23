@@ -4,7 +4,7 @@
             <div class="columns">
                 <div class="column left-column is-hidden-touch" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
                     <img src="{{differential.image}}" [alt]="differentials[currentDifferential]?.title"/>
-                    <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian secondary arrow-right is-centered medium">
+                    <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
                         Conheça nossos Diferenciais
                     </a>
                 </div>
@@ -20,7 +20,7 @@
                     </h2>
                     <div class="is-hidden-desktop mobile-image" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
                         <img src="{{differential.image}}" [alt]="differentials[currentDifferential]?.title"/>
-                        <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian tertiary arrow-right is-centered medium">
+                        <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop">
                             Conheça nossos Diferenciais
                         </a>
                     </div>

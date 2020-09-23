@@ -102,7 +102,7 @@
                             <li> <a routerLink="/a-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="A Empresa">A Empresa </a></li>
-                            <li> <a routerLink="/a-careplus/materiais" routerLinkActive="active"
+                            <li> <a routerLink="/a-careplus/materiais-de-saude" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Materiais">Materiais</a></li>
                             <!-- <li><a routerLink="/a-careplus/premios-e-certificacoes" routerLinkActive="active"
@@ -111,9 +111,9 @@
                             <li><a routerLink="/a-careplus/responsabilidade-social" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Responsabilidade social">Responsabilidade social</a></li>
-                            <li><a routerLink="/a-careplus/faq" routerLinkActive="active"
+                            <li><a routerLink="/a-careplus/perguntas-frequentes" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
-                                    tabindex="0" title="Faq">Faq</a></li>
+                                    tabindex="0" title="Perguntas Frequentes">Perguntas Frequentes</a></li>
                             <li><a routerLink="/a-careplus/resultados-financeiros" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Resultados financeiros">Resultados financeiros</a></li>
@@ -155,7 +155,7 @@
                             <li> <a routerLink="/planos-e-produtos/clube-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Clube Care Plus">Clube Care Plus </a></li>
-                            <li> <a routerLink="/planos-e-produtos/empresarial" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/careplus-empresarial" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Care Plus Empresarial">Care Plus Empresarial </a></li>
                             <li> <a routerLink="/planos-e-produtos/medicina-ocupacional" routerLinkActive="active"
@@ -173,27 +173,27 @@
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
-                            <li> <a routerLink="/gestao-de-saude" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Home">Home </a></li>
 
-                            <li> <a routerLink="/gestao-de-saude/programas-preventivos" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/programas-preventivos" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Programas Preventivos">Programas Preventivos </a></li>
 
-                            <li> <a routerLink="/gestao-de-saude/servicos-online" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/servicos-online" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Serviços On-line">Serviços On-line </a></li>
 
-                            <li> <a routerLink="/gestao-de-saude/personal-system" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/personal-system" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Personal System">Personal System </a></li>
 
-                            <li> <a routerLink="/gestao-de-saude/programas-empresariais" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/programas-empresariais" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Programas Empresariais">Programas Empresariais </a></li>
 
-                            <li> <a routerLink="/gestao-de-saude/nossas-parcerias" routerLinkActive="active"
+                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/nossas-parcerias" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Nossas Parcerias">Nossas Parcerias </a></li>
                         </ul>
@@ -233,7 +233,7 @@
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
-                            <li> <a routerLink="/fale-conosco" routerLinkActive="active"
+                            <li> <a routerLink="/fale-conosco/solicite-uma-cotacao" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
                                     tabindex="0" title="Solicite uma Cotação">Solicite uma Cotação </a></li>
                             <li> <a routerLink="/fale-conosco/contato" routerLinkActive="active"
@@ -263,7 +263,7 @@
 <div class="bottom-options">
     <ul>
         <li>
-            <a routerLink="/fale-conosco" [queryParams]="{
+            <a routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="{
                 planoSaude: true
             }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" title="Saúde">
                 <svg *ngIf="actualRoute != '/fale-conosco?planoSaude=true'" width="15" height="14" viewBox="0 0 15 14"
@@ -287,7 +287,7 @@
             </a>
         </li>
         <li>
-            <a routerLink="/fale-conosco" [queryParams]="{
+            <a routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="{
                 planoOdontologico: true
             }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" title="Odontológico">
                 <svg *ngIf="actualRoute != '/fale-conosco?planoOdontologico=true'" width="14" height="15"
@@ -323,7 +323,7 @@
             </a>
         </li>
         <li>
-            <a routerLink="/fale-conosco" [queryParams]="{
+            <a routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="{
                 medicinaOcupacional: true
             }" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" title="Ocupacional">
                 <svg *ngIf="actualRoute != '/fale-conosco?planoMedicinal=true'" width="14" height="15"

@@ -26,7 +26,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
         type: 'icon',
         imagePath: 'assets/svg/calendar.svg',
         button: new ButtonModel({
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite uma cotação',
             target: '_blank',
         }),

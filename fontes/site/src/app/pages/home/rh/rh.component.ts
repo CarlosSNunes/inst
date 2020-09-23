@@ -33,20 +33,20 @@ export class RhComponent implements OnInit {
             "Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.",
         imageSrc: "assets/img/home-ocupacional.jpg",
         button: new ButtonModel({
-            text: "Saiba mais",
+            text: "Conheça o Medicina Ocupacional",
             link: "/planos-e-produtos/medicina-ocupacional",
         }),
     });
     simulationSection = new InfoSectionModel({
-        smallTitle: "SIMULADOR DE PLANOS",
+        smallTitle: "SIMULADOR DE PLANOS E PRODUTOS",
         bigTitle: "Descubra o plano certo para a sua empresa",
         description:
-            "Faça o nosso simulador de planos e encontre a solução ideal para o seu negócio",
+            "Use nosso simulador de Planos e Produtos e encontre a solução ideal para o seu negócio",
         subDescription:
             "Não perca tempo pesquisando e selecionando as opções compatíveis com a sua empresa. Siga o passo a passo do nosso simulador e receba uma proposta já adequada ao perfil da sua organização.",
         imageSrc: "assets/img/plano-rh.jpg",
         button: new ButtonModel({
-            text: "Simular Plano",
+            text: "Simular Planos e Produtos",
             action: () => this.simularesService.open(),
         }),
     });
@@ -58,7 +58,7 @@ export class RhComponent implements OnInit {
             "Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.",
         button: new ButtonModel({
             text: "Conheça Nossos Programas",
-            routerLink: "/gestao-de-saude",
+            routerLink: "/planos-e-produtos/gestao-de-saude",
         }),
         cards: Cards,
         columnClass: "is-3-desktop",

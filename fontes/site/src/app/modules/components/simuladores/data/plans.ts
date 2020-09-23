@@ -20,6 +20,6 @@ export default [
         id: 'empresarial',
         subTitle: 'Para mais de 200 vidas',
         description: 'O Care Plus Empresarial é o plano totalmente customizável da Care Plus, indicado para grandes empresas com mais de 200 vidas.',
-        linkId: 'empresarial'
+        linkId: 'careplus-empresarial'
     })
 ]

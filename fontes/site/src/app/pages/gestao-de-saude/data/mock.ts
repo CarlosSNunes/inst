@@ -14,7 +14,7 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
         }),
         new BreadcrumbModel({
             name: 'Gestão de Saude',
-            link: '/gestao-de-saude',
+            link: '/planos-e-produtos/gestao-de-saude',
             active: true
         })
     ],
@@ -41,7 +41,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Conheça os Programas Preventivos',
-            routerLink: '/gestao-de-saude/programas-preventivos'
+            routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos'
         })
     }),
     new InfoSectionModel({
@@ -52,7 +52,7 @@ export const infoSections: InfoSectionModel[] = [
         removeLine: true,
         button: new ButtonModel({
             text: 'Conheça os Serviços On-line',
-            routerLink: '/gestao-de-saude/servicos-online'
+            routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
         })
     }),
     new InfoSectionModel({
@@ -65,7 +65,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Conheça o Personal System',
-            routerLink: '/gestao-de-saude/personal-system'
+            routerLink: '/planos-e-produtos/gestao-de-saude/personal-system'
         })
     }),
     new InfoSectionModel({
@@ -76,7 +76,7 @@ export const infoSections: InfoSectionModel[] = [
         removeLine: true,
         button: new ButtonModel({
             text: 'Conheça as Nossas Parcerias',
-            routerLink: '/gestao-de-saude/programas-empresariais'
+            routerLink: '/planos-e-produtos/gestao-de-saude/programas-empresariais'
         })
     }),
     new InfoSectionModel({
@@ -89,7 +89,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Conheça os Programas Preventivos',
-            routerLink: '/gestao-de-saude/nossas-parcerias'
+            routerLink: '/planos-e-produtos/gestao-de-saude/nossas-parcerias'
         })
     })
 ];

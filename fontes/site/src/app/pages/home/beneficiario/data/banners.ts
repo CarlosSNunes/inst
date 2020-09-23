@@ -14,7 +14,7 @@ export const bannersMock = [
         titulo: "Cuidado da Família",
         descricao: "Oferecemos um canal de acolhimento para crianças portadoras de Transtorno do Espectro Autista, Síndrome de Down e/ou outras condições específicas",
         tempo: 5000,
-        rota: '/gestao-de-saude/programas-preventivos',
+        rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
         nomeLink: 'Conheça o Cuidado da Família',
         ancora: 'cuidado-da-familia'
     }),
@@ -23,7 +23,7 @@ export const bannersMock = [
         titulo: "Mental Health",
         descricao: "Possuímos um canal exclusivo 24 por 7, inclusive aos finais de semana e feriados para acompanhamento e direcionamento em situações de crise psicológica, tanto pessoais e/ou profissionais",
         nomeLink: 'Conheça o Mental Health',
-        rota: '/gestao-de-saude/programas-preventivos',
+        rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
         ancora: 'mental-health',
         tempo: 5000,
     }),

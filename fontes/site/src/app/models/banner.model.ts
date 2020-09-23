@@ -6,6 +6,7 @@ export class BannerModel {
     }
 
     id: number;
+    tag: string;
     titulo: string;
     subtitulo: string;
     descricao: string;
