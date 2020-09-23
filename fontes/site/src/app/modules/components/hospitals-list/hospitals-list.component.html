@@ -58,7 +58,7 @@
 
         <div class="columns">
             <div class="column is-12 hospitals-grid-list" [class.hidden]="hiddenGrid">
-                <div *ngFor="let hospital of gridList" title="{{hospital}}">
+                <div *ngFor="let hospital of gridList" [title]="hospital.name">
                     <p>
                         {{hospital.name}}
                     </p>
