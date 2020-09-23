@@ -75,7 +75,7 @@ export const infoSections: InfoSectionModel[] = [
         alignCenter: true,
         removeLine: true,
         button: new ButtonModel({
-            text: 'Conheça as Nossas Parcerias',
+            text: 'Conheça os Programas Empresariais',
             routerLink: '/planos-e-produtos/gestao-de-saude/programas-empresariais'
         })
     }),
@@ -88,7 +88,7 @@ export const infoSections: InfoSectionModel[] = [
         reverse: true,
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
-            text: 'Conheça os Programas Preventivos',
+            text: 'Conheça as Nossas Parcerias',
             routerLink: '/planos-e-produtos/gestao-de-saude/nossas-parcerias'
         })
     })
