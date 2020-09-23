@@ -19,9 +19,13 @@
                 </ul>
             </div>
         </div>
-        <div *ngFor="let banner of banners" class="item"
+        <div *ngFor="let banner of banners; let i = index;" class="item"
             [ngStyle]="{ 'background-image': 'url(' + banner?.caminhoImagem + ') '}"
-            [ngClass]="[banner?.firstInteraction ? 'firstInteraction' :  '', banner?.slideAtual ? 'active' : '']">
+            [ngClass]="[banner?.firstInteraction ? 'firstInteraction' :  '', banner?.slideAtual ? 'active' : '']"
+            [@slider]="banner.bannerState"
+            (@slider.done)="captureDoneEvent($event)"
+            [attr.index]="i"
+            >
 
             <div class="container breadcrumb-container" *ngIf="breadcrumbs && breadcrumbs?.length > 0">
                 <div class="columns breadcrumb">
@@ -48,11 +52,11 @@
                         </a>
 
                         <a *ngIf="banner?.rota" [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
-                            class="btn btn-digital-cian secondary medium is-hidden-desktop">
+                            class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
                             {{banner?.nomeLink}}
                         </a>
 
-                        <!-- Button with routerLink -->
+                        <!-- Button with  -->
                         <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank" [attr.title]="banner?.nomeLink"
                             class="btn btn-digital-cian primary medium is-hidden-touch">
                             {{banner?.nomeLink}}

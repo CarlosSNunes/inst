@@ -22,4 +22,5 @@ export class BannerModel {
     slideAtual: boolean = false;
     action: string = '';
     firstInteraction: boolean = false;
+    bannerState: string;
 }
