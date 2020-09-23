@@ -17,14 +17,14 @@ export const differentialsMock = [
     }),
     new DifferentialModel({
         title: "Humanização",
-        content: "O atendimento faz parte de toda a experiência em saúde que a gente oferece com os nossos programas exclusivos, ampla rede credenciada e facilidades digitais.",
+        content: "O lado humano é nossa maior marca. Para a Care Plus os laços verdadeiros contam muito e, por isso, procuramos manter relacionamentos próximos com beneficiários, empresas, corretores e credenciados.",
         active: false,
         image: "assets/img/humanizacao.jpg",
         time: 10000
     }),
     new DifferentialModel({
         title: "Atendimento",
-        content: "O lado humano é nossa maior marca. Para a Care Plus os laços verdadeiros contam muito e, por isso, procuramos manter relacionamentos próximos com beneficiários, empresas, corretores e credenciados.",
+        content: "O atendimento faz parte de toda a experiência em saúde que a gente oferece com os nossos programas exclusivos, ampla rede credenciada e facilidades digitais.",
         active: false,
         image: "assets/img/atendimento.jpg",
         time: 10000

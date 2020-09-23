@@ -8,7 +8,7 @@ export const ocupationalSection = new InfoSectionModel({
     subDescription: 'Conte com todo o suporte na realização de exames admissionais, demissionais, periódicos e muito mais.',
     imageSrc: 'assets/img/home-ocupacional.jpg',
     button: new ButtonModel({
-        text: 'Saiba mais',
+        text: 'Conheça o Medicina Ocupacional',
         routerLink: '/planos-e-produtos/medicina-ocupacional',
         class: 'btn-digital-orange secondary medium arrow-right',
         touchClass: 'btn-digital-orange tertiary small arrow-right',

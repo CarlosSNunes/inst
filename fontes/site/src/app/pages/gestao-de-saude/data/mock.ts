@@ -13,7 +13,7 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
             link: '/home'
         }),
         new BreadcrumbModel({
-            name: 'Gestão de Saude',
+            name: 'Gestão de Saúde',
             link: '/planos-e-produtos/gestao-de-saude',
             active: true
         })

@@ -6,7 +6,7 @@ export const bannersMock =  [
             'assets/img/banner-credenciado.jpg',
         titulo: 'O cuidado com a sua saúde, no conforto de sua casa',
         descricao:
-            'Com o Saúde em Casa, a Care Plus proporciona aos seus beneficiários consultas domiciliares nas especialidades de pediatria e clínico geral. ',
+            'Com o Saúde em Casa, a Care Plus proporciona aos seus beneficiários consultas domiciliares nas especialidades de pediatria e clínico geral',
         slideAtual: true,
         tempo: 5000
     }),
