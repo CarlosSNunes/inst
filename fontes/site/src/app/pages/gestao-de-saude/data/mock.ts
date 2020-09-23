@@ -7,7 +7,7 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
             type: 'video/mp4'
         }
     ),
-    bigTitle: 'Gestão de Saúde: o nosso jeito único de cuidar da sua saúde e bem estar',
+    bigTitle: '',
     breadcrumbs: [
         new BreadcrumbModel({
             name: 'Home',
@@ -15,7 +15,7 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
         }),
         new BreadcrumbModel({
             name: 'Gestão de Saude',
-            link: '/gestao-de-saude',
+            link: '/planos-e-produtos/gestao-de-saude',
             active: true
         })
     ],
@@ -42,7 +42,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Saiba mais',
-            routerLink: '/gestao-de-saude/programas-preventivos'
+            routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos'
         })
     }),
     new InfoSectionModel({
@@ -53,7 +53,7 @@ export const infoSections: InfoSectionModel[] = [
         removeLine: true,
         button: new ButtonModel({
             text: 'Saiba mais',
-            routerLink: '/gestao-de-saude/servicos-online'
+            routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
         })
     }),
     new InfoSectionModel({
@@ -66,7 +66,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Saiba mais',
-            routerLink: '/gestao-de-saude/personal-system'
+            routerLink: '/planos-e-produtos/gestao-de-saude/personal-system'
         })
     }),
     new InfoSectionModel({
@@ -77,7 +77,7 @@ export const infoSections: InfoSectionModel[] = [
         removeLine: true,
         button: new ButtonModel({
             text: 'Saiba mais',
-            routerLink: '/gestao-de-saude/programas-empresariais'
+            routerLink: '/planos-e-produtos/gestao-de-saude/programas-empresariais'
         })
     }),
     new InfoSectionModel({
@@ -90,7 +90,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Saiba mais',
-            routerLink: '/gestao-de-saude/nossas-parcerias'
+            routerLink: '/planos-e-produtos/gestao-de-saude/nossas-parcerias'
         })
     })
 ];

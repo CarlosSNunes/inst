@@ -12,11 +12,11 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
         }),
         new BreadcrumbModel({
             name: 'Gestão de Saúde',
-            link: '/gestao-de-saude',
+            link: '/planos-e-produtos/gestao-de-saude',
         }),
         new BreadcrumbModel({
             name: 'Serviços Online',
-            link: '/gestao-de-saude/servicos-online',
+            link: '/planos-e-produtos/gestao-de-saude/servicos-online',
             active: true
         })
     ],
@@ -58,7 +58,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
     button: new ButtonModel({
         text: 'Veja Todos Os Programas',
-        routerLink: '/gestao-de-saude'
+        routerLink: '/planos-e-produtos/gestao-de-saude'
     }),
     cards: PersonalizedSectionCards,
     columnClass: 'is-4-desktop'

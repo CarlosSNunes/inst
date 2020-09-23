@@ -26,7 +26,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/faq'
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -34,7 +34,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Materiais',
-                        routerLink: '/a-careplus/materiais'
+                        routerLink: '/a-careplus/materiais-de-saude'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',
@@ -60,7 +60,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Empresarial (mais de 200 vidas)',
-                        routerLink: '/planos-e-produtos/empresarial'
+                        routerLink: '/planos-e-produtos/careplus-empresarial'
                     }),
                 ]
             }),
@@ -75,7 +75,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Gestão de Saúde',
-                        routerLink: '/gestao-de-saude'
+                        routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
                 ]
             }),
@@ -99,11 +99,11 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco',
+                routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
                         title: 'Solicite Uma Cotação',
-                        routerLink: '/fale-conosco',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
@@ -146,7 +146,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/faq'
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -154,7 +154,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Materiais',
-                        routerLink: '/a-careplus/materiais'
+                        routerLink: '/a-careplus/materiais-de-saude'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',
@@ -172,27 +172,27 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Gestão De Saúde',
-                routerLink: '/gestao-de-saude',
+                routerLink: '/planos-e-produtos/gestao-de-saude',
                 subItems: [
                     new SubMenuItem({
                         title: 'Programas Preventivos',
-                        routerLink: '/gestao-de-saude/programas-preventivos'
+                        routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos'
                     }),
                     new SubMenuItem({
                         title: 'Serviços Online',
-                        routerLink: '/gestao-de-saude/servicos-online'
+                        routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
                     }),
                     new SubMenuItem({
                         title: 'Personal System',
-                        routerLink: '/gestao-de-saude/personal-system'
+                        routerLink: '/planos-e-produtos/gestao-de-saude/personal-system'
                     }),
                     new SubMenuItem({
                         title: 'Programas Empresariais',
-                        routerLink: '/gestao-de-saude/programas-empresariais'
+                        routerLink: '/planos-e-produtos/gestao-de-saude/programas-empresariais'
                     }),
                     new SubMenuItem({
                         title: 'Nossas Parcerias',
-                        routerLink: '/gestao-de-saude/nossas-parcerias'
+                        routerLink: '/planos-e-produtos/gestao-de-saude/nossas-parcerias'
                     }),
                 ]
             }),
@@ -202,11 +202,11 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco',
+                routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
                         title: 'Solicite Uma Cotação',
-                        routerLink: '/fale-conosco',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',
@@ -249,7 +249,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/faq'
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -257,7 +257,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Materiais',
-                        routerLink: '/a-careplus/materiais'
+                        routerLink: '/a-careplus/materiais-de-saude'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',
@@ -283,7 +283,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Empresarial (mais de 200 vidas)',
-                        routerLink: '/planos-e-produtos/empresarial'
+                        routerLink: '/planos-e-produtos/careplus-empresarial'
                     }),
                 ]
             }),
@@ -298,7 +298,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Gestão de Saúde',
-                        routerLink: '/gestao-de-saude'
+                        routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
                 ]
             }),
@@ -326,11 +326,11 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco',
+                routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
                         title: 'Solicite Uma Cotação',
-                        routerLink: '/fale-conosco',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
                         title: 'Fale Conosco',

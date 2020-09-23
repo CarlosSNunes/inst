@@ -84,7 +84,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             "type": "icon",
             "title": "Perguntas Frequentes",
             "description": "Um espaço para você esclarecer todas as suas dúvidas, serviços disponíveis, rede credenciada e muito mais.",
-            "routerLink": '/a-careplus/faq',
+            "routerLink": '/a-careplus/perguntas-frequentes',
             "imagePath": "assets/svg/faq.svg",
             "backgroundColorClass": "white-background-color",
             "hasCollapse": false
@@ -106,7 +106,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             "type": "icon",
             "title": "Materiais",
             "description": "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
-            "routerLink": '/a-careplus/materiais',
+            "routerLink": '/a-careplus/materiais-de-saude',
             "imagePath": "assets/svg/document.svg",
             "backgroundColorClass": "white-background-color",
             "hasCollapse": false

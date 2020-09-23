@@ -43,7 +43,7 @@ export const planCards: PlanCardModel[] = [
         description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
         button: new ButtonModel({
             text: 'Saiba mais',
-            routerLink: '/planos-e-produtos/empresarial'
+            routerLink: '/planos-e-produtos/careplus-empresarial'
         }),
         image: 'assets/svg/empresarial.svg',
         id: 'empresarial'
@@ -55,7 +55,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
     button: new ButtonModel({
         text: 'Conheça Nossos Programas',
-        routerLink: '/gestao-de-saude'
+        routerLink: '/planos-e-produtos/gestao-de-saude'
     }),
     cards: Cards,
     columnClass: 'is-3-desktop'
@@ -64,7 +64,7 @@ export const secondCard: IconCardModel = new IconCardModel({
     title: 'Solicite uma Cotação',
     type: 'icon',
     button: new ButtonModel({
-        routerLink: '/fale-conosco',
+        routerLink: '/fale-conosco/solicite-uma-cotacao',
         text: 'Clique e solicite cotação',
     }),
     imagePath: 'assets/svg/calendar.svg'

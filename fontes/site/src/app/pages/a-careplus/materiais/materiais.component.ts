@@ -25,7 +25,7 @@ export class MateriaisComponent implements OnInit {
             }),
             new BreadcrumbModel({
                 name: 'Materiais',
-                link: '/a-careplus/materiais',
+                link: '/a-careplus/materiais-de-saude',
                 active: true
             })
         ],

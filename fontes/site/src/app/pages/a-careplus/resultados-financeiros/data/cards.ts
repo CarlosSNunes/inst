@@ -14,7 +14,7 @@ export default [
         description: "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
         imagePath: "assets/svg/document.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/materiais',
+        routerLink: '/a-careplus/materiais-de-saude',
         hasCollapse: true
     }),
     new IconCardModel({

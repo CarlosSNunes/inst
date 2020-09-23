@@ -37,8 +37,8 @@ export class FaqComponent implements OnInit, AfterViewInit {
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({
-                name: 'Faq',
-                link: '/a-careplus/faq',
+                name: 'Perguntas Frequentes',
+                link: '/a-careplus/perguntas-frequentes',
                 active: true
             })
         ],

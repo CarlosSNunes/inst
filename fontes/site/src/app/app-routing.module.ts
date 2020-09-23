@@ -17,11 +17,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/a-careplus/a-careplus.module').then(m => m.ACareplusModule),
     },
     {
-        path: 'fale-conosco',
+        path: 'fale-conosco/solicite-uma-cotacao',
         loadChildren: () => import('./pages/fale-conosco/fale-conosco.module').then(m => m.FaleConoscoModule)
     },
     {
-        path: 'gestao-de-saude',
+        path: 'planos-e-produtos/gestao-de-saude',
         loadChildren: () => import('./pages/gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
     },
     {

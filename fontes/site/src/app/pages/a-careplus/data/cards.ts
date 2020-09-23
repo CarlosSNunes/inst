@@ -16,7 +16,7 @@ export default [
         description: "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
         imagePath: "assets/svg/document.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/materiais',
+        routerLink: '/a-careplus/materiais-de-saude',
         hasCollapse: true
     }),
     new IconCardModel({
@@ -52,7 +52,7 @@ export default [
         description: "A Gestão de Saúde conta com programas e serviços especiais para nossos beneficiários. Desde ações preventivas até parcerias em empresas de alimentação e consultoria esportiva.",
         imagePath: "assets/svg/medal.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/gestao-de-saude',
+        routerLink: '/planos-e-produtos/gestao-de-saude',
         hasCollapse: true
     }),
     new IconCardModel({
@@ -61,7 +61,7 @@ export default [
         description: "Um espaço para você esclarecer todas as suas dúvidas, serviços disponíveis, rede credenciada e muito mais.",
         imagePath: "assets/svg/faq.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/faq',
+        routerLink: '/a-careplus/perguntas-frequentes',
         hasCollapse: true
     }),
     new IconCardModel({

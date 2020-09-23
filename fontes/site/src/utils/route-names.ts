@@ -22,7 +22,7 @@ export const routes: RouteModel[] = [
         description: 'Credenciado'
     }),
     new RouteModel({
-        route: '/fale-conosco',
+        route: '/fale-conosco/solicite-uma-cotacao',
         description: 'Fale conosco'
     }),
     new RouteModel({
@@ -42,7 +42,7 @@ export const routes: RouteModel[] = [
         description: 'A Careplus'
     }),
     new RouteModel({
-        route: '/a-careplus/materiais',
+        route: '/a-careplus/materiais-de-saude',
         description: 'A Careplus - Materiais'
     }),
     new RouteModel({
@@ -54,8 +54,8 @@ export const routes: RouteModel[] = [
         description: 'A Careplus - Responsabilidade social'
     }),
     new RouteModel({
-        route: '/a-careplus/faq',
-        description: 'A Careplus - Faq'
+        route: '/a-careplus/perguntas-frequentes',
+        description: 'A Careplus - Perguntas Frequentes'
     }),
     new RouteModel({
         route: '/a-careplus/resultados-financeiros',
@@ -102,7 +102,7 @@ export const routes: RouteModel[] = [
         description: 'Produtos e planos - Soho'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/empresarial',
+        route: '/planos-e-produtos/careplus-empresarial',
         description: 'Produtos e planos - Empresarial'
     }),
     new RouteModel({
@@ -118,23 +118,23 @@ export const routes: RouteModel[] = [
         description: 'Consulta fácil'
     }),
     new RouteModel({
-        route: '/gestao-de-saude',
+        route: '/planos-e-produtos/gestao-de-saude',
         description: 'Gestão de saude'
     }),
     new RouteModel({
-        route: '/gestao-de-saude/personal-system',
+        route: '/planos-e-produtos/gestao-de-saude/personal-system',
         description: 'Personal System - Gestão de saude'
     }),
     new RouteModel({
-        route: '/gestao-de-saude/programas-preventivos',
+        route: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
         description: 'Programas Preventivos - Gestão de saude'
     }),
     new RouteModel({
-        route: '/gestao-de-saude/servicos-online',
+        route: '/planos-e-produtos/gestao-de-saude/servicos-online',
         description: 'Serviços Online - Gestão de saude'
     }),
     new RouteModel({
-        route: '/gestao-de-saude/nossas-parcerias',
+        route: '/planos-e-produtos/gestao-de-saude/nossas-parcerias',
         description: 'Nossas Parcerias - Gestão de saude'
     }),
     new RouteModel({

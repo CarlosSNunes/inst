@@ -1,7 +1,7 @@
 import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
 
 export default {
-    id: 'empresarial',
+    id: 'careplus-empresarial',
     name: 'Empresarial',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Empresarial: planos para mais de 200 vidas',
@@ -18,7 +18,7 @@ export default {
             }),
             new BreadcrumbModel({
                 name: 'Care Plus Empresarial',
-                link: '/planos-e-produtos/empresarial',
+                link: '/planos-e-produtos/careplus-empresarial',
                 active: true
             })
         ],
@@ -35,7 +35,7 @@ export default {
         imageSrc: 'assets/img/bloco-clube-careplus.jpg',
         button: new ButtonModel({
             text: 'Solicite Uma Cotação',
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'empresarial'
             }
@@ -296,7 +296,7 @@ export default {
         imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
             text: 'Solicite Uma Cotação',
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'empresarial',
                 planoOdontologico: true
@@ -326,7 +326,7 @@ export default {
         subDescription: 'Mais do que cuidado, proporcionamos facilidade e comodidade para todos os nossos beneficiários e empresas.',
         button: new ButtonModel({
             text: 'Conheça Nossos Programas',
-            routerLink: '/gestao-de-saude'
+            routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: [
             new IconCardModel({
@@ -400,7 +400,7 @@ export default {
         title: 'Solicite uma Cotação',
         type: 'icon',
         button: new ButtonModel({
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite cotação',
             queryParams: {
                 plano: 'empresarial'

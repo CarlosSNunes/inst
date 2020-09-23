@@ -147,7 +147,7 @@ export class SimuladoresComponent implements OnInit, OnDestroy {
     }
 
     scheduleAVisit() {
-        this.router.navigate(['/fale-conosco'], {
+        this.router.navigate(['/fale-conosco/solicite-uma-cotacao'], {
             queryParams: this.formsInfos
         });
         this.finishAnimationState = 'finished';

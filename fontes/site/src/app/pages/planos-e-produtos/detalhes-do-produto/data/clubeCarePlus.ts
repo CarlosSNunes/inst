@@ -34,7 +34,7 @@ export default {
         imageSrc: 'assets/img/bloco-clube-careplus.jpg',
         button: new ButtonModel({
             text: 'Solicite Uma Cotação',
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'clube-careplus'
             }
@@ -295,7 +295,7 @@ export default {
         imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
             text: 'Solicite Uma Cotação',
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'clube-careplus',
                 planoOdontologico: true
@@ -399,7 +399,7 @@ export default {
         title: 'Solicite uma Cotação',
         type: 'icon',
         button: new ButtonModel({
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite cotação',
             queryParams: {
                 plano: 'clube-careplus'

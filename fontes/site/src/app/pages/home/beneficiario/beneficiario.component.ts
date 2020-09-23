@@ -29,7 +29,7 @@ export class BeneficiarioComponent implements OnInit {
         subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
         button: new ButtonModel({
             text: 'Conheça Nossos Programas',
-            routerLink: '/gestao-de-saude'
+            routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: Cards,
         columnClass: 'is-3-desktop'

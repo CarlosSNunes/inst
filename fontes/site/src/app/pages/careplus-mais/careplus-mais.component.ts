@@ -84,7 +84,7 @@ export class CareplusMaisComponent implements OnInit {
             description: 'Serviços à distância com qualidade, carinho e cuidado. Conheça os serviços que a Care Plus disponibilizar a distância para seus beneciários.',
             button: new ButtonModel({
                 text: 'Saiba mais',
-                routerLink: '/gestao-de-saude/servicos-online'
+                routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
             })
         }
     });
