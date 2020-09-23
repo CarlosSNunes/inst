@@ -1,4 +1,4 @@
-import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, ButtonModel } from 'src/app/models';
+import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel } from 'src/app/models';
 
 export const simpleBannerModel: SimpleBannerModel = {
     title: 'Personal System',

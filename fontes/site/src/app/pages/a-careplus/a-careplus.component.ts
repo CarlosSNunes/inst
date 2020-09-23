@@ -9,7 +9,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
-import { IconCardModel, SliderModel, HeroBannerModel, VideoModel, BreadcrumbModel, ButtonModel } from 'src/app/models';
+import { IconCardModel, SliderModel, HeroBannerModel, VideoModel, BreadcrumbModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({

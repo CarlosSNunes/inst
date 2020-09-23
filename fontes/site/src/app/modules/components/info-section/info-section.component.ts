@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { InfoSectionModel } from 'src/app/models';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ContentModalModel } from 'src/app/models/modal.model';

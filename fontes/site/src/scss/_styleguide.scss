@@ -274,9 +274,6 @@ select,
             &.is-invalid:not(:disabled) {
                 border-bottom: 2px solid getColor(_carePlus, _error);
             }
-        }
-        input,
-        select {
             &:focus:not(:disabled) {
                 border-bottom: 2px solid getColor(_bupa, _digital-cian);
             }

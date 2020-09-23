@@ -6,7 +6,7 @@ import { Meta, Title } from '@angular/platform-browser';
 @Component({
     selector: 'app-vagas',
     templateUrl: './vagas.component.html',
-    styleUrls: ['./vagas.component.scss']
+    styleUrls: ['']
 })
 export class VagasComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {

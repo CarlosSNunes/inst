@@ -104,7 +104,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     }
 
     initAcordions() {
-        this.questions = [...this.questionsDefault];;
+        this.questions = [...this.questionsDefault];
         this.authorizationQuestions = [...this.authorizationQuestionsDefault];
         this.authorizationQuestionsExtra = [...this.authorizationQuestionsExtraDefault];
         this.previaDeReembolso = [...this.previaDeReembolsoDefault];

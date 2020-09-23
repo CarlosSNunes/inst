@@ -6,7 +6,7 @@ import { Meta, Title } from '@angular/platform-browser';
 @Component({
     selector: 'app-carreiras',
     templateUrl: './carreiras.component.html',
-    styleUrls: ['./carreiras.component.scss']
+    styleUrls: ['']
 })
 export class CarreirasComponent implements OnInit {
     @ViewChild('aboutPlusNetwork', { static: false }) aboutPlusNetwork: ElementRef<HTMLElement>;

@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID, Input } 
 import { ButtonModel, IconCardModel } from 'src/app/models';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { Button } from 'protractor';
 
 @Component({
     selector: 'app-contact',

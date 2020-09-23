@@ -1,9 +1,7 @@
 import {
     Component,
     OnInit,
-    ViewChild,
-    ElementRef,
-    HostListener,
+    ViewChild
 } from "@angular/core";
 import { bannersMock } from "./data/banners";
 import { differentialsMock } from "./data/differentials";

@@ -7,7 +7,7 @@ import { heroBannerModel, infoSections } from './data/mock';
 @Component({
     selector: 'app-gestao-de-saude',
     templateUrl: './gestao-de-saude.component.html',
-    styleUrls: ['./gestao-de-saude.component.scss']
+    styleUrls: ['']
 })
 export class GestaoDeSaudeComponent implements OnInit {
     heroBannerModel: HeroBannerModel = heroBannerModel;

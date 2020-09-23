@@ -102,7 +102,6 @@ export class HospitalsListComponent implements OnInit {
         else if (filter == 'type') {
             if (this.selectedType.value == selected.value && button) {
                 this.selectedType = new DropDownItem({ title: '', value: '' });
-                selected = new DropDownItem({ title: '', value: '' });
                 return
             }
             this.selectedType = selected

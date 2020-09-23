@@ -1,5 +1,3 @@
-import { BreadcrumbModel } from './breadcrumb.model';
-
 export class BannerModel {
     public constructor(init?: Partial<BannerModel>) {
         Object.assign(this, init);

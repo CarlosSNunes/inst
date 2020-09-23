@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BreadcrumbModel } from 'src/app/models';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { WindowRef } from 'src/utils/window-ref';
 
@@ -77,7 +77,7 @@ export class FormSectionComponent implements OnInit {
             }
             this.setActiveChanel(chanel.id - 1);
             this.cdr.detectChanges();
-        }); 
+        });
     }
 
     ngOnInit() {

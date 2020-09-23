@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IconCardModel, ButtonModel } from 'src/app/models';
-import { Icon } from '@fortawesome/fontawesome-svg-core';
 import { SimuladoresService } from 'src/app/services';
 
 @Component({
@@ -40,5 +39,5 @@ export class FooterComponent implements OnInit {
     openSimulator() {
         this.simuladoresService.open();
     }
-   
+
 }

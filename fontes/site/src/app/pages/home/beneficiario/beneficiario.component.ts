@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { differentialsMock } from "./data/differentials";
 import { bannersMock } from './data/banners';
 import { InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';

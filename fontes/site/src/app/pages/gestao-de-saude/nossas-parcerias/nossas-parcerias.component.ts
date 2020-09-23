@@ -8,7 +8,7 @@ import { Meta, Title } from '@angular/platform-browser';
 @Component({
     selector: 'app-nossas-parcerias',
     templateUrl: './nossas-parcerias.component.html',
-    styleUrls: ['./nossas-parcerias.component.scss']
+    styleUrls: ['']
 })
 export class NossasParceriasComponent implements OnInit {
     simpleBannerModel = simpleBannerModel;
