@@ -12,8 +12,7 @@
                 </div>
                 <div class="column is-7-desktop is-full">
                     <ul class="plan-tabs">
-                        <li tabindex="0" *ngFor="let option of options"
-                            [class.active]="selectedOptionId === option.id" (click)="activeOption(option.id)">
+                        <li tabindex="0" *ngFor="let option of options" [class.active]="selectedOptionId === option.id" (click)="activeOption(option.id)">
                             {{option.name}}
                         </li>
                     </ul>
@@ -21,7 +20,7 @@
             </div>
             <div class="columns flex-wrap cards">
                 <div class="column is-4-desktop is-full" *ngFor="let card of cards">
-                    <app-card [card]="card">
+                    <app-card class="app-card" [card]="card">
                         <div class="card-content">
                             <p class="card-title">
                                 {{card?.title}}
@@ -42,7 +41,7 @@
 
             <div class="columns plan-card" *ngIf="cardPlan">
                 <div class="column is-full">
-                    <app-plan-card [backgroundColorClass]="'white-background-color'" [planCardModel]="cardPlan">
+                    <app-plan-card class="app-plan-card" [backgroundColorClass]="'white-background-color'" [planCardModel]="cardPlan">
                     </app-plan-card>
                 </div>
             </div>

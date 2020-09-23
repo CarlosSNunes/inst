@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 section#fale-conosco-form {
     .container {
         .columns {
@@ -21,7 +20,6 @@ section#fale-conosco-form {
                         width: 126px;
                     }
                 }
-
                 .contact-info {
                     padding: 32px;
                     display: flex;
@@ -34,40 +32,32 @@ section#fale-conosco-form {
                             line-height: getLineHeight("mbt");
                             color: getColor(_bupa, _navy);
                         }
-
                         .contact-subdescription {
                             display: flex;
                             margin-top: 26px;
-
                             &:first-child {
                                 margin-top: 48px;
                             }
-
                             span {
                                 color: getColor(_bupa, _digital-cian);
-
                                 &.text {
                                     align-self: flex-start;
                                     margin-left: 16px;
                                 }
-
                                 &.image {
                                     height: 34px;
                                     display: inline-block;
                                 }
-
                                 img {
                                     width: 34px;
                                     height: 34px;
                                 }
                             }
                         }
-
                         .contact-link {
                             font-size: 1.5em;
                             line-height: 150%;
                             color: var(--bupa_grey);
-                            text-align: center;
                             margin-left: 50px;
                             word-break: break-all;
                             display: block;
@@ -76,7 +66,6 @@ section#fale-conosco-form {
                                 text-decoration: underline;
                             }
                         }
-
                         .separator {
                             background-color: getColor(_bupa, _navy);
                             height: 1px;
@@ -112,20 +101,17 @@ section#fale-conosco-form {
                 &.infos {
                     margin-top: 0px;
                 }
-
                 .column {
                     .tabs {
                         ul {
                             width: 100%;
                             display: flex;
                             flex-wrap: wrap;
-
                             li {
                                 width: calc(50% - 11.5px);
                                 flex: 0 0 calc(50% - 11.5px);
                                 margin: 8px 11.5px;
                                 padding: 8px auto;
-
                                 &:first-child {
                                     margin-left: 0;
                                 }
@@ -138,11 +124,9 @@ section#fale-conosco-form {
                                 &:nth-child(4) {
                                     margin-right: 0;
                                 }
-
                                 a {
                                     border-radius: 2px;
                                     border-spacing: 2px;
-
                                     span {
                                         font-size: 0.75em;
                                     }
@@ -150,14 +134,12 @@ section#fale-conosco-form {
                             }
                         }
                     }
-
                     .contact-info {
                         .contact-content {
                             .description {
                                 font-size: getSize("p");
                                 line-height: getLineHeight("p");
                             }
-
                             .contact-link {
                                 font-size: 1em;
                             }

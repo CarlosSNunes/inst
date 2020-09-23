@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 .go-section-back {
     position: fixed;
     bottom: 0;
@@ -10,32 +9,29 @@
     padding: 0 !important;
     margin: 0 !important;
     transition: background 0.3s ease-in-out;
-
     &.invert-colors {
         background: getColor(_bupa, _white);
         border: 1px solid getColor(_bupa, _white);
         svg {
             position: absolute;
-            ::ng-deep path {
+             ::ng-deep path {
                 color: getColor(_bupa, _navy);
                 fill: getColor(_bupa, _navy);
             }
         }
     }
-
     svg {
         position: absolute;
         transition: fill 0.3s ease-in-out;
         fill: getColor(_bupa, _white);
-        ::ng-deep path {
+         ::ng-deep path {
             fill: getColor(_bupa, _white);
             transition: fill 0.3s ease-in-out;
         }
     }
 }
 
-
-app-cookie-notice {
+.app-cookie-notice {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -44,7 +40,7 @@ app-cookie-notice {
     z-index: 1001;
 }
 
-app-header-mobile {
+.app-header-mobile {
     position: fixed;
     z-index: 1000;
     top: 0;

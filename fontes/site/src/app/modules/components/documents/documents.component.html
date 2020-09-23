@@ -1,6 +1,6 @@
 <div class="columns flex-wrap cards" [ngClass]="backgoundColorClass">
     <div class="column is-3-desktop is-full" *ngFor="let document of documents">
-        <app-card [card]="document">
+        <app-card class="app-card" [card]="document">
             <div class="card-content">
                 <p class="card-title">
                     {{document.title}}

@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
-::ng-deep app-hero-banner#custom-for-a-careplus {
-    vg-player {
+::ng-deep .app-hero-banner#custom-for-a-careplus {
+    .vg-player {
         .video-content {
             .container {
                 &.centered {
@@ -9,19 +9,16 @@
                         max-width: 488px;
                         text-align: left;
                     }
-
                     .sub-description {
                         max-width: 382px;
                     }
                 }
-
                 &.is-breadcrumb {
-                    app-breadcrumb {
+                    .app-breadcrumb {
                         margin-bottom: 0;
                         display: block;
                         position: absolute;
-
-                        ::ng-deep {
+                         ::ng-deep {
                             ul {
                                 li {
                                     &:before {
@@ -46,7 +43,6 @@
 section {
     &#a-careplus-main-content {
         position: relative;
-
         &::before {
             background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
             content: "";
@@ -56,7 +52,6 @@ section {
             top: 340px;
             width: 33.33%;
         }
-
         .container {
             .main-title {
                 font-weight: 500;
@@ -75,7 +70,6 @@ section {
             .section-text {
                 color: getColor(_bupa, _black);
             }
-
             .main-section-image {
                 margin-top: 90px;
                 width: 100%;
@@ -86,21 +80,17 @@ section {
                 &:not(:last-child) {
                     margin-bottom: 0;
                 }
-
                 .column {
                     padding-top: 0;
                     padding-bottom: 0;
                 }
-
                 &.our-numbers {
                     margin-top: 90px;
                     transition: transform 0.8s ease-in-out;
                     transform: translateY(20%);
-
                     &.animate {
                         transform: translateY(0%);
                     }
-
                     .column {
                         &.has-line {
                             position: relative;
@@ -115,22 +105,18 @@ section {
                                 width: 126px;
                             }
                         }
-
                         .description {
                             margin-top: 0;
                         }
                     }
                 }
-
                 &.infos-cols {
                     margin-top: 120px;
                     transition: transform 0.8s ease-in-out;
                     transform: translateY(20%);
-
                     &.animate {
                         transform: translateY(0%);
                     }
-
                     .first-title {
                         font-size: getSize("mbt");
                         line-height: getLineHeight("mbt");
@@ -145,7 +131,6 @@ section {
                             font-size: 0.6666em;
                         }
                     }
-
                     .subtitle {
                         margin-top: 4px;
                         font-weight: normal;
@@ -154,7 +139,6 @@ section {
                         text-align: center;
                         color: getColor(_bupa, _grey);
                     }
-
                     .content {
                         margin-top: 40px;
                         font-weight: normal;
@@ -167,7 +151,6 @@ section {
             }
         }
     }
-
     &#a-careplus-about-bupa {
         .container {
             position: relative;
@@ -176,15 +159,12 @@ section {
                 height: 72px;
                 transition: transform 0.8s ease-in-out;
                 transform: translateY(100px);
-
                 &.animate {
                     transform: translateY(0%);
                 }
             }
-
             .description {
                 font-weight: normal;
-
                 &.has-line {
                     position: relative;
                     &::before {
@@ -199,20 +179,16 @@ section {
                     }
                 }
             }
-
             .about-bupa {
                 transition: transform 0.8s ease-in-out;
                 transform: translateY(20%);
-
                 &.animate {
                     transform: translateY(0%);
                 }
             }
-
             .about-bupa-description {
                 transition: transform 0.8s ease-in-out;
                 transform: translateY(20%);
-
                 &.animate {
                     transform: translateY(0%);
                 }
@@ -222,7 +198,7 @@ section {
 }
 
 @media (min-width: 1024px) {
-    ::ng-deep app-card {
+     ::ng-deep .app-card {
         .content {
             .card.icon-card {
                 padding: 39px 35px !important;
@@ -232,8 +208,8 @@ section {
 }
 
 @media (max-width: 1023px) {
-    ::ng-deep app-hero-banner#custom-for-a-careplus {
-        vg-player {
+     ::ng-deep .app-hero-banner#custom-for-a-careplus {
+        .vg-player {
             .video-content {
                 .container {
                     &.centered {
@@ -241,7 +217,6 @@ section {
                             color: getColor(_bupa, _white);
                             max-width: 100%;
                         }
-
                         .sub-description {
                             max-width: 100%;
                         }
@@ -250,7 +225,6 @@ section {
             }
         }
     }
-
     section {
         &#a-careplus-main-content {
             &::before {
@@ -272,11 +246,9 @@ section {
                         width: 33.33%;
                     }
                 }
-
                 .main-section-image {
                     margin-top: 30px;
                 }
-
                 .columns {
                     &.our-numbers {
                         margin-top: 30px;
@@ -286,32 +258,26 @@ section {
                             }
                         }
                     }
-
                     &.infos-cols {
                         margin-top: 30px;
-
                         .column {
                             margin-top: 20px;
                             &:first-child {
                                 margin-top: 0;
                             }
                         }
-
                         .first-title {
                             font-size: 1.125em;
                         }
-
                         .col-title {
                             font-size: 3em;
                             .small {
                                 font-size: 0.6666em;
                             }
                         }
-
                         .subtitle {
                             font-size: 1.125em;
                         }
-
                         .content {
                             font-size: 0.875em;
                             margin-top: 24px;

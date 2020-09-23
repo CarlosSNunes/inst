@@ -9,10 +9,8 @@
 
         <div class="feedback-content" *ngIf="modalModel.layout === 'feedback'">
 
-            <img src="assets/svg/feedback-icon-success.svg" *ngIf="modalModel.type === 'info'" alt="Sucesso"
-                class="feedback-image">
-            <img src="assets/svg/feedback-icon-error.svg" *ngIf="modalModel.type === 'error'" alt="Erro"
-                class="feedback-image">
+            <img src="assets/svg/feedback-icon-success.svg" *ngIf="modalModel.type === 'info'" alt="Sucesso" class="feedback-image">
+            <img src="assets/svg/feedback-icon-error.svg" *ngIf="modalModel.type === 'error'" alt="Erro" class="feedback-image">
 
             <p class="title">{{modalModel.title}}</p>
             <p class="description">{{modalModel.description}}</p>
@@ -26,14 +24,15 @@
             </p>
 
             <table>
+                <caption class="is-hidden">Produtos atendidos</caption>
                 <thead>
                     <tr>
-                        <td>Rede</td>
-                        <td>Registro ANS</td>
-                        <td>Nome comercial</td>
-                        <td>Tipo de Contratação</td>
-                        <td>Segmentação</td>
-                        <td>Situação do Plano</td>
+                        <th>Rede</th>
+                        <th>Registro ANS</th>
+                        <th>Nome comercial</th>
+                        <th>Tipo de Contratação</th>
+                        <th>Segmentação</th>
+                        <th>Situação do Plano</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,9 +80,7 @@
         <div class="video" *ngIf="modalModel?.layout === 'video'">
             <div class="videoBox">
 
-                <iframe width="560" height="315" [src]="modalModel?.videoModel?.embedSrc | safe"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen=""></iframe>
+                <iframe width="560" height="315" [src]="modalModel?.videoModel?.embedSrc | safe" [title]="{{p.title}}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>

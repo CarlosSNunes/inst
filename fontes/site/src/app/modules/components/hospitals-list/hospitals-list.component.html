@@ -14,16 +14,15 @@
             <div class="column is-12">
                 <div class="columns filter-box mobile-hidden">
                     <div class="column is-3 filter">
-                        <app-dropdown [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); ">
+                        <app-dropdown class="app-dropdown" [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); ">
                         </app-dropdown>
                     </div>
                     <div class="column is-3 filter ">
-                        <app-dropdown [options]="allHospitals" [default]="{ title: 'Hospitais', value: '' }" (setFilter)=" setFilter('type', $event)">
+                        <app-dropdown class="app-dropdown" [options]="allHospitals" [default]="{ title: 'Hospitais', value: '' }" (setFilter)=" setFilter('type', $event)">
                         </app-dropdown>
-
                     </div>
                     <div class="column is-3 filter">
-                        <app-dropdown [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event)">
+                        <app-dropdown class="app-dropdown" [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event)">
                         </app-dropdown>
                     </div>
                     <div class="column is-3 filter">
@@ -46,12 +45,12 @@
         </div>
         <div class="columns filter-box dropdown desktop-hidden">
             <div class=" filter">
-                <app-dropdown [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); mountHospitalsList() ">
+                <app-dropdown class="app-dropdown" [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); mountHospitalsList() ">
                 </app-dropdown>
             </div>
 
             <div class=" filter">
-                <app-dropdown [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event);  mountHospitalsList()">
+                <app-dropdown class="app-dropdown" [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event);  mountHospitalsList()">
                 </app-dropdown>
             </div>
 
@@ -70,29 +69,30 @@
             <div class="column is-12" [class.hidden]="hiddenList">
                 <div class="hospitals-list">
                     <table>
+                        <caption class="is-hidden">Lista de Hospitais</caption>
                         <thead>
                             <tr>
-                                <td>
+                                <th>
                                     <p>Hospitais</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     <p>Básico</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     <p>Especial II</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     <p>Especial III</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     <p>Executivo I</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     <p>Executivo II</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     <p>Master I</p>
-                                </td>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

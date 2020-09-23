@@ -1,4 +1,4 @@
-<vg-player (onPlayerReady)="onPlayerReady($event)">
+<vg-player class="vg-player" (onPlayerReady)="onPlayerReady($event)">
     <vg-overlay-play></vg-overlay-play>
     <vg-buffering></vg-buffering>
 
@@ -7,8 +7,7 @@
         <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
     </vg-scrub-bar>
 
-    <vg-controls *ngIf="isBrowser" [class.is-hidden]="!fullScreen" vgFor="single-video" [vgAutohide]="true"
-        [vgAutohideTime]="2">
+    <vg-controls *ngIf="isBrowser" [class.is-hidden]="!fullScreen" vgFor="single-video" [vgAutohide]="true" [vgAutohideTime]="2">
         <vg-play-pause></vg-play-pause>
         <vg-playback-button></vg-playback-button>
 
@@ -26,8 +25,7 @@
         <vg-fullscreen></vg-fullscreen>
     </vg-controls>
 
-    <video [vgMedia]="media" #media id="single-video" preload="auto" crossorigin allowfullscreen playsinline muted
-        poster="assets/img/video-teste-background.png">
+    <video [vgMedia]="media" #media id="single-video" preload="auto" crossorigin allowfullscreen playsinline muted poster="assets/img/video-teste-background.png">
         <source [attr.src]="heroBannerModel?.video?.url" [attr.type]="heroBannerModel?.video?.type">
 
         <track *ngFor="let subtitle of heroBannerModel?.video?.subtitles" kind="subtitles" [attr.label]="subtitle.label"
@@ -38,12 +36,11 @@
         <div class="container is-breadcrumb">
             <div class="columns">
                 <div class="column is-paddingless-vertical">
-                    <app-breadcrumb [breadcrumbs]="heroBannerModel?.breadcrumbs"></app-breadcrumb>
+                    <app-breadcrumb class="app-breadcrumb" [breadcrumbs]="heroBannerModel?.breadcrumbs"></app-breadcrumb>
                 </div>
             </div>
         </div>
-        <div class="container centered" [style.maxWidth.px]="heroBannerModel?.contentContainerMaxWidth"
-            *ngIf="heroBannerModel?.bigTitle || heroBannerModel?.subTitle || heroBannerModel?.button">
+        <div class="container centered" [style.maxWidth.px]="heroBannerModel?.contentContainerMaxWidth" *ngIf="heroBannerModel?.bigTitle || heroBannerModel?.subTitle || heroBannerModel?.button">
             <div class="columns">
                 <div class="column">
                     <h1 class="h3 big-title" *ngIf="heroBannerModel?.bigTitle">
@@ -58,9 +55,7 @@
                         Full screen buttons
                     -->
 
-                    <a (click)="openFullScreen()" *ngIf="heroBannerModel?.isFullScreen && heroBannerModel?.button"
-                        class="btn btn-digital-cian primary medium is-hidden-touch"
-                        [attr.title]="heroBannerModel?.button?.text">
+                    <a (click)="openFullScreen()" *ngIf="heroBannerModel?.isFullScreen && heroBannerModel?.button" class="btn btn-digital-cian primary medium is-hidden-touch" [attr.title]="heroBannerModel?.button?.text">
                         {{heroBannerModel?.button?.text}}
                         <span>
                             <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
@@ -72,9 +67,7 @@
                         </span>
                     </a>
 
-                    <a (click)="openFullScreen()" *ngIf="heroBannerModel?.isFullScreen && heroBannerModel?.button"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        [attr.title]="heroBannerModel?.button?.text">
+                    <a (click)="openFullScreen()" *ngIf="heroBannerModel?.isFullScreen && heroBannerModel?.button" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [attr.title]="heroBannerModel?.button?.text">
                         {{heroBannerModel?.button?.text}}
                     </a>
 
@@ -82,17 +75,11 @@
                         Link buttons
                     -->
 
-                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link"
-                        [href]="heroBannerModel?.button?.link" target="_blank"
-                        class="btn btn-digital-cian primary medium is-hidden-touch"
-                        [attr.title]="heroBannerModel?.button?.text">
+                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link" [href]="heroBannerModel?.button?.link" target="_blank" class="btn btn-digital-cian primary medium is-hidden-touch" [attr.title]="heroBannerModel?.button?.text">
                         {{heroBannerModel?.button?.text}}
                     </a>
 
-                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link"
-                        [href]="heroBannerModel?.button?.link" target="_blank"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        [attr.title]="heroBannerModel?.button?.text">
+                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link" [href]="heroBannerModel?.button?.link" target="_blank" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [attr.title]="heroBannerModel?.button?.text">
                         {{heroBannerModel?.button?.text}}
                     </a>
 
@@ -101,17 +88,11 @@
                         RouterLink buttons
                     -->
 
-                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.routerLink"
-                        [routerLink]="heroBannerModel?.button?.routerLink"
-                        class="btn btn-digital-cian primary medium is-hidden-touch"
-                        [attr.title]="heroBannerModel?.button?.text">
+                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.routerLink" [routerLink]="heroBannerModel?.button?.routerLink" class="btn btn-digital-cian primary medium is-hidden-touch" [attr.title]="heroBannerModel?.button?.text">
                         {{heroBannerModel?.button?.text}}
                     </a>
 
-                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.routerLink"
-                        [routerLink]="heroBannerModel?.button?.routerLink"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        [attr.title]="heroBannerModel?.button?.text">
+                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.routerLink" [routerLink]="heroBannerModel?.button?.routerLink" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [attr.title]="heroBannerModel?.button?.text">
                         {{heroBannerModel?.button?.text}}
                     </a>
                 </div>
@@ -119,6 +100,5 @@
         </div>
     </div>
 
-    <img *ngIf="heroBannerModel?.hasAnchor" class="mouse-icon" src="assets/svg/mouse.svg"
-        (click)="slideToNextElement.emit()" alt="Mouse Down">
+    <img *ngIf="heroBannerModel?.hasAnchor" class="mouse-icon" src="assets/svg/mouse.svg" (click)="slideToNextElement.emit()" alt="Mouse Down">
 </vg-player>

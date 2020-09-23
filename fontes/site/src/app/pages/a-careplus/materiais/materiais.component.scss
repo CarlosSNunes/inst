@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 section {
     &#a-careplus-documents-filters {
         .container {
@@ -24,16 +23,13 @@ section {
                                         align-self: center;
                                         display: inline-flex;
                                         width: 100%;
-
                                         .field {
-                                            width: 100%;
                                             display: block;
                                             height: 56px;
                                             width: 100%;
                                             .control {
                                                 display: flex;
                                                 width: 100%;
-
                                                 input:not([type="radio"]) {
                                                     min-width: 100px;
                                                 }
@@ -46,7 +42,7 @@ section {
                     }
                 }
             }
-            ::ng-deep app-documents {
+             ::ng-deep .app-documents {
                 .columns {
                     &.cards {
                         margin-top: 42px;
@@ -68,7 +64,7 @@ section {
                                 form {
                                     ul {
                                         li {
-                                            input[type="radio"] ~ label {
+                                            input[type="radio"]~label {
                                                 font-size: 0.75em;
                                             }
                                         }
@@ -102,10 +98,8 @@ section {
                                         justify-content: unset;
                                         li {
                                             display: flex;
-                                            margin: 0;
                                             align-self: unset;
                                             margin: 20px 0;
-
                                             .field {
                                                 max-width: 100%;
                                                 width: 100%;
@@ -122,7 +116,7 @@ section {
                         }
                     }
                 }
-                ::ng-deep app-documents {
+                 ::ng-deep .app-documents {
                     .columns {
                         &.cards {
                             margin-top: 0;

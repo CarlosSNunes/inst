@@ -4,10 +4,10 @@
             <h1 class="h4 big-title">{{bigTitle}}</h1>
             <div class="columns cards flex-wrap">
                 <div class="column is-6">
-                    <app-card [card]="firstCard" (click)="open(firstCard)"></app-card>
+                    <app-card class="app-card" [card]="firstCard" (click)="open(firstCard)"></app-card>
                 </div>
                 <div class="column is-6">
-                    <app-card [card]="secondCard" (click)="open(secondCard)"></app-card>
+                    <app-card class="app-card" [card]="secondCard" (click)="open(secondCard)"></app-card>
                 </div>
             </div>
         </div>

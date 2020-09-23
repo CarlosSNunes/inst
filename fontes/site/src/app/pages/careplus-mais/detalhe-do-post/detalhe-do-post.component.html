@@ -22,9 +22,7 @@
                     <div class="post-header">
                         <ul class="social-icons">
                             <li>
-                                <a title="Compartilhe no linkedin"
-                                    href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
-                                    target="_blank">
+                                <a title="Compartilhe no linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}" target="_blank">
                                     <img src="assets/svg/linkedin.svg" alt="Linkedin">
                                 </a>
                             </li>
@@ -35,8 +33,7 @@
                             </li> -->
                             <li>
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank">
-                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook"
-                                        title="Compartilhe no facebook">
+                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook" title="Compartilhe no facebook">
                                 </a>
                             </li>
                             <li>
@@ -71,13 +68,11 @@
                             Como combater o COVID-19 com resiliência
                         </h3>
                         <p class="description">
-                            As autoridades públicas estão tomando medidas decisivas para responder à ameaça emergente à
-                            saúde, o Corona Vírus, levando a comunidade e empresas a reconsiderar a adequação de suas
-                            medidas de preparação. Esta página reúne informações para ajudar as pessoas e empresas a
-                            gerenciar e mitigar o risco.
+                            As autoridades públicas estão tomando medidas decisivas para responder à ameaça emergente à saúde, o Corona Vírus, levando a comunidade e empresas a reconsiderar a adequação de suas medidas de preparação. Esta página reúne informações para ajudar as pessoas
+                            e empresas a gerenciar e mitigar o risco.
                         </p>
 
-                        <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem" class="post-image">
+                        <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem" [alt]="post?.nomeImagem" class="post-image">
                         <p class="observation">
                             Lorem ipsum dolor sit amet, consect adi elit. Scelerisque eu sit egestas am dorime
                         </p>
@@ -87,9 +82,7 @@
                     <div class="post-footer">
                         <ul class="social-icons">
                             <li>
-                                <a title="Compartilhe no linkedin"
-                                    href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
-                                    target="_blank">
+                                <a title="Compartilhe no linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}" target="_blank">
                                     <img src="assets/svg/linkedin.svg" alt="Linkedin">
                                 </a>
                             </li>
@@ -160,6 +153,5 @@
         </div>
     </article>
 </section>
-<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
-    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
 <app-social-posts></app-social-posts>

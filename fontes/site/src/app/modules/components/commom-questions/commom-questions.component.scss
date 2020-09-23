@@ -1,36 +1,29 @@
 @import "~src/scss/_variables.scss";
-
 section#fac {
     .container {
         max-width: 800px;
-
         .small-title {
             text-align: center;
         }
-
         .big-title {
             text-align: center;
             max-width: 100%;
         }
-
         .sub-description {
             max-width: 592px;
             text-align: center;
             margin: 32px auto 0 auto;
         }
-
         .columns:first-child {
             margin-bottom: 0;
             .column {
                 padding: 0;
             }
         }
-
-        app-accordion {
+        .app-accordion {
             margin-top: 20px;
             display: block;
         }
-
         .buttons-columns {
             .column {
                 display: flex;

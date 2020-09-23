@@ -6,13 +6,11 @@ section {
                 &:first-child {
                     margin-top: 0;
                 }
-
                 .big-title {
                     max-width: 100%;
                 }
             }
-
-            app-sidebar {
+            .app-sidebar {
                 height: 100%;
                 display: block;
             }

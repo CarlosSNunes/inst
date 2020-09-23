@@ -4,29 +4,24 @@
     </p>
     <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
 </div>
-<app-simple-banner [simpleBannerModel]="findedPlan?.simpleBannerModel" (goToNextSection)="goToSection('#about-plan')">
+<app-simple-banner class="app-simple-banner" [simpleBannerModel]="findedPlan?.simpleBannerModel" (goToNextSection)="goToSection('#about-plan')">
 </app-simple-banner>
 <div class="anchor-buttons">
     <div class="container">
         <div class="buttons-box">
-            <a (click)="goToSection('#products', 1)" tabindex="0" (keyup.enter)="goToSection('#products', 1)"
-                class="anchor-button" title="Planos de Saúde">Planos de Saúde</a>
-            <a (click)="goToSection('#products', 2)" tabindex="0" (keyup.enter)="goToSection('#products', 2)"
-                class="anchor-button" title="Planos Odontológicos">Planos Odontológicos</a>
+            <a (click)="goToSection('#products', 1)" tabindex="0" (keyup.enter)="goToSection('#products', 1)" class="anchor-button" title="Planos de Saúde">Planos de Saúde</a>
+            <a (click)="goToSection('#products', 2)" tabindex="0" (keyup.enter)="goToSection('#products', 2)" class="anchor-button" title="Planos Odontológicos">Planos Odontológicos</a>
         </div>
     </div>
 </div>
-<app-info-section id="about-plan" [sectionInfo]="findedPlan?.aboutPlan"></app-info-section>
-<app-plans-infos id="products" [plan]="findedPlan" (setSelectedOptionId)="selectedOptionId = $event"
-    [selectedOptionId]="selectedOptionId" [backgroundColorClass]="'blue-background-color'">
+<app-info-section class="app-info-section" id="about-plan" [sectionInfo]="findedPlan?.aboutPlan"></app-info-section>
+<app-plans-infos class="app-plans-infos" id="products" [plan]="findedPlan" (setSelectedOptionId)="selectedOptionId = $event" [selectedOptionId]="selectedOptionId" [backgroundColorClass]="'blue-background-color'">
 </app-plans-infos>
-<app-info-section [sectionInfo]="findedPlan?.dentalSection"></app-info-section>
-<app-hospitals-list [smallTitle]="findedPlan?.hospitalListSection?.smallTitle"
-    [bigTitle]="findedPlan?.hospitalListSection?.bigTitle"></app-hospitals-list>
-<app-info-section [sectionInfo]="findedPlan?.plansSection"></app-info-section>
-<app-icon-cards-section id="products" [iconCardsSectionModel]="findedPlan?.iconCardsSectionModel"
-    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
-<app-info-section [sectionInfo]="findedPlan?.clinicSection"></app-info-section>
+<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.dentalSection"></app-info-section>
+<app-hospitals-list class="app-hospitals-list" [smallTitle]="findedPlan?.hospitalListSection?.smallTitle" [bigTitle]="findedPlan?.hospitalListSection?.bigTitle"></app-hospitals-list>
+<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.plansSection"></app-info-section>
+<app-icon-cards-section class="app-icon-cards-section" id="products" [iconCardsSectionModel]="findedPlan?.iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
+<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.clinicSection"></app-info-section>
 <section id="clinic-services" *ngIf="findedPlan?.clinicInfos">
     <article>
         <div class="container">
@@ -52,8 +47,7 @@
         </div>
     </article>
 </section>
-<app-accredited-network [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
-<app-info-section [sectionInfo]="findedPlan?.travelSection"></app-info-section>
-<app-contact-schedule-a-visit [secondCard]="findedPlan?.secondCard"
-    [bigTitle]="'Entre em contato ou solicite uma cotação'" [backgroundColorClass]="'blue-background-color'">
+<app-accredited-network class="app-accredited-network" [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
+<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.travelSection"></app-info-section>
+<app-contact-schedule-a-visit class="app-contact-schedule-a-visit" [secondCard]="findedPlan?.secondCard" [bigTitle]="'Entre em contato ou solicite uma cotação'" [backgroundColorClass]="'blue-background-color'">
 </app-contact-schedule-a-visit>

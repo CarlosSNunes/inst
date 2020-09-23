@@ -3,27 +3,20 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-full">
-                    <p class="small-title" [class.centered]="iconCardsSectionModel?.cendered"
-                        *ngIf="iconCardsSectionModel?.smallTitle">
+                    <p class="small-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.smallTitle">
                         {{iconCardsSectionModel?.smallTitle}}
                     </p>
-                    <h2 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered"
-                        *ngIf="iconCardsSectionModel?.bigTitle"
-                        [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
+                    <h2 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
                         {{iconCardsSectionModel?.bigTitle}}
                     </h2>
-                    <p class="sub-description" [class.centered]="iconCardsSectionModel?.cendered"
-                        *ngIf="iconCardsSectionModel?.subDescription">
+                    <p class="sub-description" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.subDescription">
                         {{iconCardsSectionModel?.subDescription}}
                     </p>
                 </div>
             </div>
             <div class="columns cards is-mobile">
-                <div class="column" [ngClass]="[iconCardsSectionModel?.columnClass]"
-                    *ngFor="let card of iconCardsSectionModel?.cards">
-                    <app-card [card]="card">
-
-                    </app-card>
+                <div class="column" [ngClass]="[iconCardsSectionModel?.columnClass]" *ngFor="let card of iconCardsSectionModel?.cards">
+                    <app-card class="app-card" [card]="card"></app-card>
                 </div>
             </div>
 
@@ -33,21 +26,13 @@
                     <!--
                         Botões com routerLink
                     -->
-                    <a *ngIf="iconCardsSectionModel?.button?.routerLink"
-                        [routerLink]="iconCardsSectionModel?.button?.routerLink"
-                        [queryParams]="iconCardsSectionModel?.button?.queryParams"
-                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                        [attr.title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.routerLink" [routerLink]="iconCardsSectionModel?.button?.routerLink" [queryParams]="iconCardsSectionModel?.button?.queryParams" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
                     </a>
 
-                    <a *ngIf="iconCardsSectionModel?.button?.routerLink"
-                        [routerLink]="iconCardsSectionModel?.button?.routerLink"
-                        [queryParams]="iconCardsSectionModel?.button?.queryParams"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        [attr.title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.routerLink" [routerLink]="iconCardsSectionModel?.button?.routerLink" [queryParams]="iconCardsSectionModel?.button?.queryParams" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
@@ -56,17 +41,13 @@
                     <!--
                         Botões com href
                     -->
-                    <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link"
-                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                        [attr.title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
                     </a>
 
-                    <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        [attr.title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [attr.title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}

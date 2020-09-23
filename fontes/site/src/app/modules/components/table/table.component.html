@@ -1,25 +1,24 @@
 <div class="table-box">
     <table>
+        <caption class="is-hidden">{{headItem.text}}</caption>
         <thead>
             <tr>
-                <td *ngFor="let headItem of table?.headItems">
+                <th *ngFor="let headItem of table?.headItems">
                     <p>{{headItem.text}}</p>
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let bodyItem of table?.bodyItems; let i = index">
                 <td *ngFor="let headItem of table?.headItems">
                     <p *ngIf="headItem.key != 'button'">{{bodyItem[headItem.key]}}</p>
-                    <a *ngIf="headItem.key == 'button' && !bodyItem?.button?.download" class="download-link"
-                        [href]="bodyItem?.button?.href" [attr.title]="bodyItem.button?.title">
+                    <a *ngIf="headItem.key == 'button' && !bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [attr.title]="bodyItem.button?.title">
                         {{bodyItem.button?.title}}
                         <span class="icon" *ngIf="bodyItem.button?.icon" [innerHtml]="bodyItem.button?.icon | safe">
                         </span>
                     </a>
 
-                    <a *ngIf="headItem.key == 'button' && bodyItem?.button?.download" class="download-link"
-                        [href]="bodyItem?.button?.href" [attr.title]="bodyItem.button?.title" download>
+                    <a *ngIf="headItem.key == 'button' && bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [attr.title]="bodyItem.button?.title" download>
                         {{bodyItem.button?.title}}
                         <span class="icon" *ngIf="bodyItem.button?.icon" [innerHtml]="bodyItem.button?.icon | safe">
                         </span>

@@ -88,11 +88,8 @@ import { Title, Meta } from '@angular/platform-browser';
         this.isBrowser = isPlatformBrowser(this.plataformId)
         if (this.isBrowser) {
             this.width = this.windowRef.nativeWindow.innerWidth;
-            if (this.width < 1024) {
-                this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-            } else {
-                this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-            }
+            this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
+
         }
     }
 
@@ -106,11 +103,7 @@ import { Title, Meta } from '@angular/platform-browser';
 
     @HostListener('window: resize', ['$event']) onResize(event) {
         this.width = event.target.innerWidth;
-        if (this.width < 1024) {
-            this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-        } else {
-            this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-        }
+        this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
         this.populateElements()
     }
 

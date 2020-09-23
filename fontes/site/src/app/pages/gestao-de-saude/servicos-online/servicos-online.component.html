@@ -1,6 +1,6 @@
-<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToSection('#orientacao-medica-24h')">
+<app-simple-banner class="app-simple-banner" [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToSection('#orientacao-medica-24h')">
 </app-simple-banner>
-<app-info-section id="orientacao-medica-24h" [sectionInfo]="medicalOrientationSection">
+<app-info-section class="app-info-section" id="orientacao-medica-24h" [sectionInfo]="medicalOrientationSection">
     <div class="extra-content blue-background-color">
 
         <p class="extra-content-title">
@@ -36,7 +36,7 @@
     </div>
 </app-info-section>
 
-<app-info-section id="nutri-a-distancia" [sectionInfo]="nutriADistancia">
+<app-info-section class="app-info-section" id="nutri-a-distancia" [sectionInfo]="nutriADistancia">
     <div class="extra-content blue-background-color">
         <p class="extra-content-title">
             <span>
@@ -48,12 +48,10 @@
         </p>
 
         <p class="extra-content-small-title">
-            Para participar do programa, você deve preencher o questionário de inscrição
-            e aguardar o nosso contato.
+            Para participar do programa, você deve preencher o questionário de inscrição e aguardar o nosso contato.
         </p>
 
-        <a href="https://careplus.healthmap.com.br/ccadcliente?locale=pt-BR" target="_blank"
-            class="btn btn-digital-cian tertiary arrow-right medium" title="Inscreva-se">
+        <a href="https://careplus.healthmap.com.br/ccadcliente?locale=pt-BR" target="_blank" class="btn btn-digital-cian tertiary arrow-right medium" title="Inscreva-se">
             Inscreva-se
         </a>
 
@@ -66,8 +64,7 @@
             </span>
         </p>
         <p class="extra-content-small-title">
-            Para saber mais, envie um e-mail para: <a class="bold"
-                href="mailto:governancaclinica@careplus.com.br" title="governancaclinica@careplus.com.br">governancaclinica@careplus.com.br </a>
+            Para saber mais, envie um e-mail para: <a class="bold" href="mailto:governancaclinica@careplus.com.br" title="governancaclinica@careplus.com.br">governancaclinica@careplus.com.br </a>
         </p>
     </div>
 </app-info-section>
@@ -84,21 +81,17 @@
                         iCare
                     </h2>
                     <p class="sub-description">
-                        O iCare é um canal de comunicação da Care Plus com objetivo de divulgar vídeos realizados por
-                        nutricionistas, psicólogos e profissionais de saúde renomados sobre diferentes temas atuais e de
-                        interesse.
+                        O iCare é um canal de comunicação da Care Plus com objetivo de divulgar vídeos realizados por nutricionistas, psicólogos e profissionais de saúde renomados sobre diferentes temas atuais e de interesse.
                     </p>
                 </div>
 
                 <div class="column is-7-desktop is-full">
-                    <app-slider *ngIf="width > 767" [sliderModel]="sliderModel"></app-slider>
-                    <app-slider *ngIf="width < 768" [sliderModel]="sliderModel"></app-slider>
+                    <app-slider class="app-slider" *ngIf="width > 767" [sliderModel]="sliderModel"></app-slider>
+                    <app-slider class="app-slider" *ngIf="width < 768" [sliderModel]="sliderModel"></app-slider>
                 </div>
             </div>
         </div>
     </article>
 </section>
 
-<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
-    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
-
+<app-icon-cards-section class="app-icon-cards-section" [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>

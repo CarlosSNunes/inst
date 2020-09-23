@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 .get-price-box {
     position: fixed;
     width: 280px;
@@ -11,7 +10,6 @@
     bottom: 0;
     cursor: pointer;
     z-index: 204;
-
     .text {
         align-self: center;
         margin: 0;
@@ -19,7 +17,6 @@
         font-size: getSize("sbm");
         line-height: getLineHeight("sbm");
     }
-
     img {
         position: absolute;
         right: 16px;
@@ -45,7 +42,6 @@
             border-radius: 2px;
             box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black-rgb), 0.25);
             display: flex;
-
             a {
                 flex: 0 0 calc(50% - 0.5px);
                 width: calc(50% - 0.5px);
@@ -54,11 +50,9 @@
                 font-size: getSize("p");
                 line-height: 82px;
                 color: getColor(_bupa, _black);
-
                 &:first-child {
                     border-right: 0.5px solid getColor(_bupa, _grey-3);
                 }
-
                 &:last-child {
                     border-left: 0.5px solid getColor(_bupa, _grey-3);
                 }
@@ -73,14 +67,12 @@ section {
             .small-title {
                 text-align: center;
             }
-
             .big-title {
                 margin: 0 auto;
                 text-align: center;
                 max-width: 800px;
             }
         }
-
         .background {
             background-image: getImage("bloco-simulador-de-planos.jpg");
             background-size: cover;
@@ -96,18 +88,15 @@ section {
                     background-color: getColor(_bupa, _white);
                     padding: 36px 28px;
                     float: right;
-
                     .info-card-title {
                         font-weight: normal;
                         font-size: getSize("mbt");
                         line-height: getLineHeight("mbt");
                         color: getColor(_bupa, _digital-cian);
                     }
-
                     .sub-description {
                         margin-top: 16px;
                     }
-
                     .btn {
                         margin-top: 32px;
                     }
@@ -115,7 +104,6 @@ section {
             }
         }
     }
-
     &#planos {
         .container {
             .columns {
@@ -123,36 +111,30 @@ section {
                     .small-title {
                         text-align: center;
                     }
-
                     .big-title {
                         max-width: 592px;
                         margin: 8px auto 0 auto;
                         text-align: center;
                     }
-
                     .sub-description {
                         max-width: 592px;
                         margin: 32px auto 0 auto;
                         text-align: center;
                     }
                 }
-
                 &:not(.plans-columns) {
                     margin-bottom: 0;
                     .column {
                         padding-bottom: 0;
                     }
                 }
-
                 &.plans-columns {
                     .column {
                         padding-top: 60px;
                         padding-bottom: 60px;
-
                         &:first-child {
                             padding-top: 100px;
                         }
-
                         &:last-child {
                             padding-bottom: 0;
                         }
@@ -177,7 +159,6 @@ section {
             }
         }
     }
-
     .get-price-box {
         top: unset;
         bottom: 84px;
@@ -205,7 +186,7 @@ section {
 }
 
 @media (min-width: 505px) and (max-width: 1023px) {
-    ::ng-deep app-hero-banner {
+     ::ng-deep .app-hero-banner {
         .container {
             padding-bottom: 30px;
         }

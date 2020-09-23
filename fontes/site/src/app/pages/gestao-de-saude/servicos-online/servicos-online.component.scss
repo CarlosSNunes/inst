@@ -1,22 +1,17 @@
 @import "~src/scss/_variables";
-
 .extra-content {
     margin-top: 50px;
     padding: 28px 22px;
-
     &.occupational {
         padding: 0;
     }
-
     .extra-content-title {
         height: 23px;
         display: flex;
         margin-top: 32px;
-
         &:first-child {
             margin-top: 0;
         }
-
         span {
             width: 23px;
             height: 23px;
@@ -30,7 +25,6 @@
                 top: 0;
                 display: inline-block;
             }
-
             svg {
                 width: 23px;
                 height: 23px;
@@ -43,30 +37,25 @@
                     fill: getColor(_bupa, _digital-cian);
                 }
             }
-
             &.text {
                 margin-left: 10px;
                 width: auto;
                 height: auto;
                 align-self: center;
                 color: getColor(_bupa, _digital-cian);
-
                 &.bold {
                     font-weight: bold;
                 }
             }
         }
-
         font-size: 1.125em;
         line-height: 127.77777778%;
     }
-
     .extra-content-small-title {
         margin-top: 10px;
         font-size: getSize("sbm");
         line-height: getLineHeight("sbm");
         color: getColor(_bupa, _grey-2);
-
         &.bottom {
             margin-bottom: 16px;
         }
@@ -74,21 +63,18 @@
             &.bold {
                 font-weight: 600;
                 color: getColor(_bupa, _grey-2);
-
                 &:hover {
                     text-decoration: underline;
                 }
             }
         }
     }
-
     .extra-content-description {
         font-weight: 500;
         font-size: getSize("mbt");
         line-height: getLineHeight("mbt");
         color: getColor(_bupa, _grey-2);
     }
-
     .btn-text {
         margin-top: 10px;
         padding-left: 0;
@@ -113,8 +99,8 @@ section {
         article {
             align-self: center;
             .container {
-                ::ng-deep {
-                    app-slider {
+                 ::ng-deep {
+                    .app-slider {
                         .video-slider {
                             margin-top: 0;
                         }
@@ -135,11 +121,9 @@ section {
                 max-width: 100%;
                 padding: 0;
                 margin-top: 20px;
-
                 &:first-child {
                     margin-top: 0;
                 }
-
                 img {
                     margin: 0 auto;
                 }

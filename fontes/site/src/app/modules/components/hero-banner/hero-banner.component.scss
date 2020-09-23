@@ -1,28 +1,23 @@
 @import "~src/scss/_animations.scss";
 @import "~src/scss/_variables.scss";
 @import "~src/scss/_mixins.scss";
-
-vg-player {
+.vg-player {
     max-height: calc(100vh - 151px);
     position: relative;
     pointer-events: none;
-    ::ng-deep .vg-icon-play_arrow:before {
+     ::ng-deep .vg-icon-play_arrow:before {
         content: "";
     }
-
     &.native-fullscreen {
         pointer-events: visible !important;
-
-        ::ng-deep .vg-icon-play_arrow:before {
+         ::ng-deep .vg-icon-play_arrow:before {
             content: "\e01b" !important;
         }
     }
-
     video {
         margin-top: -75.5px;
         z-index: 0;
     }
-
     .video-content {
         pointer-events: visible;
         z-index: 201;
@@ -31,10 +26,8 @@ vg-player {
         flex-wrap: wrap;
         width: 100%;
         height: 100%;
-
         .container {
             display: block;
-
             &.is-breadcrumb {
                 flex: 0 0 100%;
                 width: 100%;
@@ -42,13 +35,11 @@ vg-player {
                 left: 0;
                 right: 0;
                 top: 60px;
-
-                app-breadcrumb {
+                .app-breadcrumb {
                     margin-bottom: 0;
                     display: block;
                     position: absolute;
-
-                    ::ng-deep {
+                     ::ng-deep {
                         ul {
                             li {
                                 &:before {
@@ -65,17 +56,14 @@ vg-player {
                     }
                 }
             }
-
             &.centered {
                 align-self: center;
-
                 .big-title {
                     max-width: 100%;
                     margin-top: 0;
                     color: getColor(_bupa, _white);
                     text-align: center;
                 }
-
                 .btn {
                     margin-top: 50px;
                     &.btn-digital-cian.primary {
@@ -95,7 +83,6 @@ vg-player {
                                 }
                             }
                         }
-
                         &:hover {
                             span {
                                 svg {
@@ -107,7 +94,6 @@ vg-player {
                             }
                         }
                     }
-
                     &.hide {
                         pointer-events: none;
                         opacity: 0;
@@ -116,7 +102,6 @@ vg-player {
             }
         }
     }
-
     .mouse-icon {
         position: absolute;
         bottom: 25px;
@@ -131,14 +116,12 @@ vg-player {
 }
 
 @media (max-width: 1023px) {
-    vg-player {
+    .vg-player {
         max-height: calc(100vh - 72px);
         flex-wrap: wrap;
-
         video {
             margin-top: 0;
         }
-
         .video-content {
             position: inherit;
             background-color: getColor(_bupa, _digital-cian);
@@ -147,30 +130,24 @@ vg-player {
                 &.is-breadcrumb {
                     display: none;
                 }
-
                 .big-title {
                     color: getColor(_bupa, _white);
                 }
-
                 .sub-description {
                     margin-top: 12px;
                     color: getColor(_bupa, _white);
                 }
-
                 &.centered {
                     .btn {
                         padding-left: 0;
                         margin-top: 12px;
                         color: getColor(_bupa, _white);
-
                         &:before {
                             border: solid getColor(_bupa, _white);
                             @include arrowElement(-45deg);
                         }
-
                         svg {
                             fill: getColor(_bupa, _white);
-
                             path {
                                 fill: getColor(_bupa, _white);
                             }
@@ -179,7 +156,6 @@ vg-player {
                 }
             }
         }
-
         .mouse-icon {
             display: none;
         }
