@@ -17,7 +17,7 @@ export class NossasParceriasComponent implements OnInit {
         bigTitle: 'Conheça nossos programas e serviços',
         subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
         button: new ButtonModel({
-            text: 'Veja Todos Os Programas',
+            text: 'Veja Todos os Programas',
             routerLink: '/planos-e-produtos'
         }),
         cards: PersonalizedSectionCards,

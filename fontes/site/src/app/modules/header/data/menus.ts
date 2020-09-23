@@ -282,7 +282,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/faq'
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -530,7 +530,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/faq'
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
