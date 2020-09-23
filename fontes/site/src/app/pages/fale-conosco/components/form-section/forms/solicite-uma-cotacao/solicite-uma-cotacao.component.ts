@@ -1,17 +1,16 @@
 import { Component, OnInit, ChangeDetectorRef, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { DropDownItem, FaleConoscoAutoFields } from 'src/app/models';
-import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
-import { FeedbackModalModel } from 'src/app/models/modal.model';
-import { ModalService } from 'src/app/services/modal/modal.service';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 declare var grecaptcha: any;
 import { requireAtLeastOne } from '../utils/validators';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-solicite-uma-cotacao',
@@ -42,6 +41,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     isBrowser: boolean = false;
     formValueChangesSubscription: Subscription;
     changed: boolean = false;
+    retURL: string = `${environment.SELF_URL}obrigado`;
 
     constructor(
         private fb: FormBuilder,
