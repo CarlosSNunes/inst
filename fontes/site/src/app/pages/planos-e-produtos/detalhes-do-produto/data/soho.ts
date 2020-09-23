@@ -1,7 +1,7 @@
 import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
 
 export default {
-    id: 'soho',
+    id: 'careplus-soho',
     name: 'Soho',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Care Plus SoHo: planos de 2 a 29 vidas',
@@ -18,7 +18,7 @@ export default {
             }),
             new BreadcrumbModel({
                 name: 'Care Plus Soho',
-                link: '/planos-e-produtos/soho',
+                link: '/planos-e-produtos/careplus-soho',
                 active: true
             })
         ],

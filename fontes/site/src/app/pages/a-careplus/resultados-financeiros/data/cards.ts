@@ -10,7 +10,7 @@ export default [
     }),
     new IconCardModel({
         type: "icon",
-        title: "Materiais",
+        title: "Materiais de Saúde",
         description: "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
         imagePath: "assets/svg/document.svg",
         backgroundColorClass: "white-background-color",

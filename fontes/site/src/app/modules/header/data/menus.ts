@@ -52,7 +52,7 @@ export default [
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/soho'
+                        routerLink: '/planos-e-produtos/careplus-soho'
                     }),
                     new SubMenuItem({
                         title: 'Clube Care Plus (de 30 a 200 vidas)',
@@ -102,7 +102,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite Uma Cotação',
+                        title: 'Solicite uma Cotação',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -167,11 +167,44 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Planos',
+                routerLink: '/planos-e-produtos',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus SoHo (de 2 a 29 vidas)',
+                        routerLink: '/planos-e-produtos/careplus-soho'
+                    }),
+                    new SubMenuItem({
+                        title: 'Clube Care Plus (de 30 a 200 vidas)',
+                        routerLink: '/planos-e-produtos/clube-careplus'
+                    }),
+                    new SubMenuItem({
+                        title: 'Care Plus Empresarial (mais de 200 vidas)',
+                        routerLink: '/planos-e-produtos/careplus-empresarial'
+                    }),
+                ]
+            }),
+            new SubMenuItem({
+                title: 'Produtos',
+                routerLink: '/planos-e-produtos',
+                fragment: 'produtos',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Medicina Ocupacional',
+                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                    }),
+                    new SubMenuItem({
+                        title: 'Gestão de Saúde',
+                        routerLink: '/planos-e-produtos/gestao-de-saude'
+                    }),
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Rede Plus',
                 routerLink: '/a-careplus/rede-plus'
             }),
             new SubMenuItem({
-                title: 'Gestão De Saúde',
+                title: 'Gestão de Saúde',
                 routerLink: '/planos-e-produtos/gestao-de-saude',
                 subItems: [
                     new SubMenuItem({
@@ -202,11 +235,11 @@ export default [
             // }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco',
+                routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Cotação',
-                        routerLink: '/fale-conosco',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
                         title: 'Contato',
@@ -275,7 +308,7 @@ export default [
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/soho'
+                        routerLink: '/planos-e-produtos/careplus-soho'
                     }),
                     new SubMenuItem({
                         title: 'Clube Care Plus (de 30 a 200 vidas)',
@@ -399,7 +432,7 @@ export default [
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/soho'
+                        routerLink: '/planos-e-produtos/careplus-soho'
                     }),
                     new SubMenuItem({
                         title: 'Clube Care Plus (de 30 a 200 vidas)',
@@ -450,11 +483,11 @@ export default [
             // }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco',
+                routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Cotação',
-                        routerLink: '/fale-conosco',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
                         title: 'Contato',
@@ -523,7 +556,7 @@ export default [
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/soho'
+                        routerLink: '/planos-e-produtos/careplus-soho'
                     }),
                     new SubMenuItem({
                         title: 'Clube Care Plus (de 30 a 200 vidas)',

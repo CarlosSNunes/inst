@@ -21,10 +21,10 @@ export const planCards: PlanCardModel[] = [
         description: 'O Care Plus SoHo apresenta planos para pequenas empresas, de 2 a 29 vidas e é indicado para aquelas que atuam em home office ou com operações mais enxutas.',
         button: new ButtonModel({
             text: 'Conheça o Care Plus Soho',
-            routerLink: '/planos-e-produtos/soho'
+            routerLink: '/planos-e-produtos/careplus-soho'
         }),
         image: 'assets/svg/plans-soho.svg',
-        id: 'soho'
+        id: 'careplus-soho'
     }),
     new PlanCardModel({
         title: 'Clube Care Plus',

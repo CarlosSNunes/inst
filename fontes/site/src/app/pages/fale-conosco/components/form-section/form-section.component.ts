@@ -23,7 +23,7 @@ export class FormSectionComponent implements OnInit {
     ];
     chanelForms = [
         {
-            title: 'Solicite uma cotação',
+            title: 'Solicite uma Cotação',
             id: 1,
             active: true,
             slug: 'solicite-uma-cotacao'
@@ -48,7 +48,7 @@ export class FormSectionComponent implements OnInit {
         }
     ];
     activeChanel = {
-        title: 'Solicite uma cotação',
+        title: 'Solicite uma Cotação',
         id: 1,
         active: true,
         slug: 'solicite-uma-cotacao'

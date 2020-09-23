@@ -1,6 +1,6 @@
 export default [
     {
-        "title": "Gestão de saúde",
+        "title": "Gestão de Saúde",
         "content": "Programas e serviços especiais oferecídos aos beneficiários Care Plus pensando sempre na saúde e conforto de nossos parceiros",
         "active": true,
         "image": "assets/img/gestao-de-saude.jpg",

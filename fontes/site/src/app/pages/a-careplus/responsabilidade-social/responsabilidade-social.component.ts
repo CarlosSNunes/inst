@@ -104,7 +104,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         }),
         new IconCardModel({
             "type": "icon",
-            "title": "Materiais",
+            "title": "Materiais de Saúde",
             "description": "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
             "routerLink": '/a-careplus/materiais-de-saude',
             "imagePath": "assets/svg/document.svg",

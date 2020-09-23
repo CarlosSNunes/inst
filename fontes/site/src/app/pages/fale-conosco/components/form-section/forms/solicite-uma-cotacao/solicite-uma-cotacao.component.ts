@@ -22,7 +22,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     dropDownItems: DropDownItem[] = [
         new DropDownItem({
             key: '2 a 29 vidas - Soho',
-            value: 'soho'
+            value: 'careplus-soho'
         }),
         new DropDownItem({
             key: '30 a 200 vidas - Clube Care Plus',
@@ -30,7 +30,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         }),
         new DropDownItem({
             key: '+ 200 vidas - Empresarial',
-            value: 'empresarial'
+            value: 'careplus-empresarial'
         })
     ];
     defaultItem = new DropDownItem({

@@ -83,7 +83,7 @@ export class MateriaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Materiais - A Care Plus');
+        this.title.setTitle('Materiais de Saúde - A Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.'

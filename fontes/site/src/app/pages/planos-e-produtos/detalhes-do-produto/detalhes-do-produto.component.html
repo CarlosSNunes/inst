@@ -1,8 +1,8 @@
-<div class="get-price-box" routerLink="/fale-conosco" [queryParams]="queryParams">
+<div class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="queryParams">
     <p class="text">
         SOLICITE UMA COTAÇÃO
     </p>
-    <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma cotação">
+    <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
 </div>
 <app-simple-banner [simpleBannerModel]="findedPlan?.simpleBannerModel" (goToNextSection)="goToSection('#about-plan')">
 </app-simple-banner>
@@ -10,7 +10,7 @@
     <div class="container">
         <div class="buttons-box">
             <a (click)="goToSection('#products', 1)" tabindex="0" (keyup.enter)="goToSection('#products', 1)"
-                class="anchor-button" title="Planos de saúde">Planos de saúde</a>
+                class="anchor-button" title="Planos de Saúde">Planos de Saúde</a>
             <a (click)="goToSection('#products', 2)" tabindex="0" (keyup.enter)="goToSection('#products', 2)"
                 class="anchor-button" title="Planos Odontológicos">Planos Odontológicos</a>
         </div>

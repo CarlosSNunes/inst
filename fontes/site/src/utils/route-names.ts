@@ -43,7 +43,7 @@ export const routes: RouteModel[] = [
     }),
     new RouteModel({
         route: '/a-careplus/materiais-de-saude',
-        description: 'A Careplus - Materiais'
+        description: 'A Careplus - Materiais de Saúde'
     }),
     new RouteModel({
         route: '/a-careplus/premios-e-certificacoes',
@@ -98,7 +98,7 @@ export const routes: RouteModel[] = [
         description: 'Produtos e planos - Clube Careplus'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/soho',
+        route: '/planos-e-produtos/careplus-soho',
         description: 'Produtos e planos - Soho'
     }),
     new RouteModel({
