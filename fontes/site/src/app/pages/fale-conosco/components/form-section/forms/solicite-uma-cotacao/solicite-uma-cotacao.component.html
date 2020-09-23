@@ -6,7 +6,7 @@
         <input type=hidden name="recordType" value="012f2000000YOI6" id="recordType">
         <div style="display:none;">
             <label for="lead_source">Fale Conosco</label>
-            <select id="lead_source" name="lead_source">
+            <select formControlName="plano" id="lead_source" name="lead_source">
                 <option value="Fale Conosco">Fale Conosco</option>
             </select>
             <br>
@@ -181,7 +181,7 @@
         <div class="column is-full is-6-desktop">
             <div class="field">
                 <div class="control">
-                    <input formControlName="aceiteDeTermos" (change)="updateFormValidation()" [ngClass]="{ 'is-invalid' : form?.aceiteDeTermos?.errors && form.aceiteDeTermos?.touched }" class="checkbox" id="aceiteDeTermos" name="aceiteDeTermos" type="checkbox">
+                    <input formControlName="aceiteDeTermos" [ngClass]="{ 'is-invalid' : form?.aceiteDeTermos?.errors && form.aceiteDeTermos?.touched }" class="checkbox" id="aceiteDeTermos" name="aceiteDeTermos" type="checkbox">
                     <label class="checkbox-label" for="aceiteDeTermos">
                         <span>
                             Eu aceito os
