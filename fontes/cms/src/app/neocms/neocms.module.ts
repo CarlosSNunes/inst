@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpHandlerService } from '../http-handler/http-handler.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,
       multi: true,
-    }
+    },
   ]
 })
 export class NeocmsModule { }

@@ -1,0 +1,75 @@
+<div>
+    <span class="title">
+        <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
+         Configuração
+    </span>
+</div>
+<section class="hero is-dark is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h5 class="title">
+                Editar permissões de usuário
+            </h5>
+        </div>
+    </div>
+</section>
+<form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="card-content">
+            <div class="field">
+                <label class="label">Nome</label>
+                <div class="control">
+                    <input formControlName="nome" class="input" type="text" placeholder=""
+                        [ngClass]="{ 'is-success': submitted && !f.nome.errors, 'is-danger' : submitted && f.nome.errors }">
+                </div>
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Status</label>
+                <div class="control">
+                    <input formControlName="status" class="input" type="text" placeholder=""
+                        [ngClass]="{ 'is-success': submitted && !f.status.errors, 'is-danger' : submitted && f.status.errors }">
+                </div>
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.status)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Perfil</label>
+                <div class="control">
+                    <input formControlName="perfil" class="input" type="text" placeholder=""
+                        [ngClass]="{ 'is-success': submitted && !f.perfil.errors, 'is-danger' : submitted && f.perfil.errors }">
+                </div>
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.perfil)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <button routerLink="/neocms/usuarios" routerLinkActive="active" class="button is-light" type="button">
+                    Fechar &nbsp;
+                    <fa-icon [icon]="faTimes"></fa-icon>
+                </button>
+            </p>
+            <p class="card-footer-item">
+                <button class="button is-primary" type="submit" [ngClass]="{'is-loading': btnSubmitDisable}">
+                    Salvar &nbsp;
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </button>
+            </p>
+        </footer>
+    </div>
+</form>

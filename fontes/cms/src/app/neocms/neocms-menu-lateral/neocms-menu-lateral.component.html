@@ -7,14 +7,14 @@
         <ul class="menu-list">
 
             <div class="title-list">
-                <span class="menu-label">Dashboard</span>
+                <span class="menu-label">Home</span>
                 <span class="horizontal-line"></span>
             </div>
             <li class="menu-item">
                 <a routerLink="/neocms" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
                     <span class="">
                         <fa-icon [icon]="faDesktop"></fa-icon>
-                    </span> Painel
+                    </span> Dashboard
                 </a>
             </li>
             <div class="title-list">
@@ -159,10 +159,13 @@
                     </span> Pergunta
                 </a>
             </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/usuarios" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
+                    </span> Usuarios
+                </a>
+            </li>
         </ul>
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> develop
     </div>
 </div>

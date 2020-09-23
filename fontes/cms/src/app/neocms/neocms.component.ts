@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import {  DashboardComponent } from "../neocms/dashboard";
+
 @Component({
   selector: 'app-neocms',
   templateUrl: './neocms.component.html',
@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NeocmsComponent implements OnInit {
 
-  constructor(
-  ) { }
+  constructor() { }
 
   ngOnInit() {
 

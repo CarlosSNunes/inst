@@ -8,7 +8,7 @@ import { NeocmsFooterModule } from './neocms/neocms-footer/neocms-footer.module'
 import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-menu-lateral.module';
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     NeocmsHeaderModule,
     NeocmsFooterModule,
     NeocmsMenuLateralModule,
-    ErrorHandlerModule
+    ErrorHandlerModule,
+    HttpClientModule
   ],
   providers: [
     {
