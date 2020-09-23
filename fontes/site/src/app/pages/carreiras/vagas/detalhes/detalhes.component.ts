@@ -31,11 +31,11 @@ export class DetalhesComponent implements OnInit {
     breadcrumb: BreadcrumbModel;
     dropDownOptions: DropDownItem[] = [
         {
-            key: 'Enfermagem',
+            title: 'Enfermagem',
             value: 'enfermagem'
         },
         {
-            key: 'Farmaceutica',
+            title: 'Farmaceutica',
             value: 'farmaceutica'
         }
     ];

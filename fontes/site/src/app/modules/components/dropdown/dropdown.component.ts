@@ -8,7 +8,7 @@ import { DropDownItem } from 'src/app/models';
 })
 export class DropdownComponent implements OnInit, OnChanges {
     hidden: boolean = true;
-    selectedOption: DropDownItem = new DropDownItem({ value: '', key: '' });
+    selectedOption: DropDownItem = new DropDownItem({ value: '', title: '' });
     @Input() options: DropDownItem[];
     @Input() default: DropDownItem;
     @Input() canUnselect: boolean = true;
@@ -27,9 +27,9 @@ export class DropdownComponent implements OnInit, OnChanges {
     }
 
     public selectOption(opt: DropDownItem) {
-        if (this.canUnselect && (this.selectedOption == opt || this.selectedOption == { key: '', value: '' })) {
-            this.selectedOption = new DropDownItem({ key: 'Selecione...', value: '' })
-            this.setFilter.next(new DropDownItem({ key: '', value: '' }));
+        if (this.canUnselect && (this.selectedOption == opt || this.selectedOption == { title: '', value: '' })) {
+            this.selectedOption = new DropDownItem({ title: 'Selecione...', value: '' })
+            this.setFilter.next(new DropDownItem({ title: '', value: '' }));
         } else if (opt.value != this.selectedOption.value) {
             this.selectedOption = opt
             this.setFilter.next(opt);

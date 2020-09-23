@@ -38,15 +38,15 @@ export class ResultadosFinanceirosComponent implements OnInit {
     filterForm: FormGroup;
     dropDownOptions: DropDownItem[] = [
         {
-            key: 'Todos',
+            title: 'Todos',
             value: 'all'
         },
         {
-            key: 'Resultados financeiros de 2019',
+            title: 'Resultados financeiros de 2019',
             value: '2019'
         },
         {
-            key: 'Resultados financeiros de 2018',
+            title: 'Resultados financeiros de 2018',
             value: '2018'
         },
     ];
@@ -58,11 +58,11 @@ export class ResultadosFinanceirosComponent implements OnInit {
     table: TableModel = new TableModel({
         headItems: [
             {
-                key: 'title',
+                title: 'title',
                 text: 'Título'
             },
             {
-                key: 'button',
+                title: 'button',
                 text: 'Download'
             }
         ],
