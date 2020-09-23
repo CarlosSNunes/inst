@@ -36,9 +36,9 @@
                 Sem resultados, tente novamente usando outros termos.
             </p>
             <app-accordion class="first" *ngIf="questions?.length > 0" [questions]="questions"></app-accordion>
-            <h4 class="big-title is-centered" *ngIf="authorizationQuestions?.length > 0">
+            <h2 class="big-title is-centered" *ngIf="authorizationQuestions?.length > 0">
                 Autorização
-            </h4>
+            </h2>
             <app-accordion *ngIf="authorizationQuestions?.length > 0" [questions]="authorizationQuestions">
             </app-accordion>
             <p class="sub-description is-centered" *ngIf="authorizationQuestionsExtra.length > 0">

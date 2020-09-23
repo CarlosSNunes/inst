@@ -38,9 +38,12 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-6 banner-home-description">
-                        <h1 *ngIf="banner?.titulo" class="h3 banner-title">
+                        <h1 *ngIf="banner?.titulo && banner.slideAtual" class="h3 banner-title">
                             {{ banner.titulo }}
                         </h1>
+                        <h2 *ngIf="banner?.titulo && !banner.slideAtual" class="h3 banner-title">
+                            {{ banner.titulo }}
+                        </h2>
                         <p *ngIf="banner?.descricao" class="banner-content">
                             {{ banner.descricao }}
                         </p>
