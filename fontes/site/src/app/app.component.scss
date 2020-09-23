@@ -1,25 +1,8 @@
 @import "~src/scss/_variables";
 
-.section {
-    &.principal-section {
-        min-height: calc(100vh - 151px);
-    }
-
-    &.cookie-not-agree {
-        ::ng-deep .get-price-box {
-            bottom: var(--price-box-bottom);
-        }
-    }
-    padding: 0;
-}
-
-.breadcrumb {
-    margin: 0 !important;
-}
-
 .go-section-back {
     position: fixed;
-    bottom: var(--price-box-bottom);
+    bottom: 0;
     right: 0;
     width: 48px !important;
     height: 48px !important;
@@ -72,13 +55,6 @@ app-header-mobile {
 }
 
 @media (max-width: 1023px) {
-    .section {
-        padding-top: 72px;
-        &.principal-section {
-            min-height: calc(100vh - 72px);
-        }
-    }
-
     .go-section-back {
         display: none;
     }

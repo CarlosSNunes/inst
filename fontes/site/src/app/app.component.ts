@@ -71,7 +71,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
             if (agreed == 'true') {
                 this.cookieAgree = 'agree';
-                this.document.documentElement.style.removeProperty('--price-box-bottom');
             }
         }
 
@@ -89,13 +88,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.initiated = true;
         if (this.isBrowser) {
             this.footer = this.document.querySelector('footer');
-
-            const cookieElement = this.document.querySelector('app-cookie-notice');
-
-            if (cookieElement && cookieElement != null && this.cookieAgree == 'not-agree') {
-                this.document.documentElement.style.setProperty('--price-box-bottom', `${cookieElement.clientHeight}px`);
-            }
-
         }
     }
 
@@ -144,11 +136,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     @HostListener('window:resize', ['$event']) onResize(event) {
         if (this.isBrowser) {
             this.width = event.target.innerWidth;
-            const cookieElement = this.document.querySelector('app-cookie-notice');
-
-            if (cookieElement && cookieElement != null && this.cookieAgree == 'not-agree') {
-                this.document.documentElement.style.setProperty('--price-box-bottom', `${cookieElement.clientHeight}px`);
-            }
 
             if (this.width < 1024) {
                 localStorage.setItem('elementOffset', '72');
@@ -191,6 +178,5 @@ export class AppComponent implements OnInit, AfterViewInit {
     agreeCookieComponent() {
         this.cookieAgree = 'agree';
         localStorage.setItem('cookies-accepted', 'true');
-        this.document.documentElement.style.removeProperty('--price-box-bottom');
     }
 }

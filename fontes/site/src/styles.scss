@@ -31,13 +31,17 @@ $Care-plus-theme: mat-light-theme($Care-plus-primary, $Care-plus-accent, $Care-p
 @import "../node_modules/bulma/css/bulma.min.css";
 @import "~saturn-datepicker/bundle.css";
 
-html,
 body {
-    height: 100%;
-}
-body {
+    min-height: calc(100vh - 151px);
     margin: 0;
     font-family: $mainFont, Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media (max-width: 1023px) {
+    body {
+        min-height: calc(100vh - 72px);
+        padding-top: 72px;
+    }
 }
 
 .mat-icon {

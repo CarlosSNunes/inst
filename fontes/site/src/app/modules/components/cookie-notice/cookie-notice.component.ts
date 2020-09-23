@@ -1,13 +1,13 @@
 import { Platform } from '@angular/cdk/platform';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, Inject, OnInit, Output, PLATFORM_ID, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Inject, OnInit, Output, PLATFORM_ID, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-cookie-notice',
     templateUrl: './cookie-notice.component.html',
     styleUrls: ['./cookie-notice.component.scss']
 })
-export class CookieNoticeComponent implements OnInit, AfterViewInit {
+export class CookieNoticeComponent implements OnInit {
     @Output() agree: EventEmitter<void> = new EventEmitter<void>();
     @ViewChild('cookieNotice', { static: false }) cookieNotice: ElementRef<HTMLElement>;
     language: string = 'pt';
@@ -44,18 +44,8 @@ export class CookieNoticeComponent implements OnInit, AfterViewInit {
     ngOnInit() {
     }
 
-    ngAfterViewInit() {
-        if (this.isBrowser) {
-            setTimeout(() => {
-                this.document.documentElement.style.setProperty('--price-box-bottom', `${this.cookieNotice.nativeElement.clientHeight}px`);
-            }, 300)
-        }
-    }
-
     changeLanguage(language: string) {
         this.selectedLanguageTexts = this.texts.find(t => t.language === language);
-        this.cdr.detectChanges();
-        this.document.documentElement.style.setProperty('--price-box-bottom', `${this.cookieNotice.nativeElement.clientHeight}px`);
     }
 
 }
