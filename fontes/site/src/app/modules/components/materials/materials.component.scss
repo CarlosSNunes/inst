@@ -4,6 +4,9 @@ section#materials {
     .container {
         .columns {
             .column {
+                .small-title {
+                    text-transform: uppercase;
+                }
                 .big-title {
                     margin-top: 0;
                 }
@@ -13,10 +16,6 @@ section#materials {
 
                 &.buttons-column {
                     display: flex;
-                    span {
-                        text-transform: uppercase;
-                        margin: 0 5px;
-                    }
                     .btn-digital-cian {
                         &.secondary {
                             margin: 0 auto;
