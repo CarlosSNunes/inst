@@ -14,6 +14,6 @@ class HeadItem {
         Object.assign(this, init)
     }
 
-    key: string;
+    title: string;
     text: string;
 }

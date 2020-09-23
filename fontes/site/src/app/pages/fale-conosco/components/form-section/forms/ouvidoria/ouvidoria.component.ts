@@ -51,14 +51,14 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         AssuntoOuvidoria.Dados.map(assunto => {
             this.subjects.push(new DropDownItem<number>({
-                key: assunto.TextoAssunto,
+                title: assunto.TextoAssunto,
                 value: assunto.Id
             }))
         })
 
         ClassificacaoOuvidoria.Dados.map(classificacao => {
             this.classifications.push(new DropDownItem<number>({
-                key: classificacao.TextoClassificacao,
+                title: classificacao.TextoClassificacao,
                 value: classificacao.Id
             }))
         })
