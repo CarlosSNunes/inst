@@ -28,10 +28,10 @@ const routes: Routes = [
         path: 'carreiras',
         loadChildren: () => import('./pages/carreiras/carreiras.module').then(m => m.CarreirasModule),
     },
-    {
-        path: 'careplus-mais',
-        loadChildren: () => import('./pages/careplus-mais/careplus-mais.module').then(m => m.CareplusMaisModule),
-    },
+    // {
+    //     path: 'careplus-mais',
+    //     loadChildren: () => import('./pages/careplus-mais/careplus-mais.module').then(m => m.CareplusMaisModule),
+    // },
     {
         path: '**',
         loadChildren: () => import('./pages/erro/erro.module').then(m => m.ErroModule)
