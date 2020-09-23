@@ -21,20 +21,20 @@ import { Subscription } from 'rxjs';
 export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     dropDownItems: DropDownItem[] = [
         new DropDownItem({
-            key: '2 a 29 vidas - Soho',
+            title: '2 a 29 vidas - Soho',
             value: 'careplus-soho'
         }),
         new DropDownItem({
-            key: '30 a 200 vidas - Clube Care Plus',
+            title: '30 a 200 vidas - Clube Care Plus',
             value: 'clube-careplus'
         }),
         new DropDownItem({
-            key: '+ 200 vidas - Empresarial',
+            title: '+ 200 vidas - Empresarial',
             value: 'careplus-empresarial'
         })
     ];
     defaultItem = new DropDownItem({
-        key: 'Selecione...',
+        title: 'Selecione...',
         value: ''
     });
     soliciteUmaCotacaoForm: FormGroup;
@@ -150,7 +150,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
     private fillForm(params) {
         this.defaultItem = new DropDownItem({
-            key: 'Selecione...',
+            title: 'Selecione...',
             value: ''
         });
         let fields = { ...params }
@@ -161,7 +161,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         const item = this.dropDownItems.find(item => item.value === params.plano)
         if (item) {
             this.defaultItem = item;
-            this.soliciteUmaCotacaoForm.controls.plano.setValue(item.key);
+            this.soliciteUmaCotacaoForm.controls.plano.setValue(item.title);
             this.cdr.detectChanges();
         }
         this.soliciteUmaCotacaoForm.controls.planoSaude.setValue(this.faleConoscoAutoFiels.planoSaude);
@@ -209,7 +209,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
     /*
      * Recaptcha functions
-     * 
+     *
      */
     getCaptchaErrorCallback(error) {
         console.error(error)

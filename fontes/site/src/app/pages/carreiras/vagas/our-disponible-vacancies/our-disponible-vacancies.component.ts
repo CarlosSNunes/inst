@@ -13,16 +13,16 @@ export class OurDisponibleVacanciesComponent implements OnInit {
     filterForm: FormGroup;
     dropDownOptions: DropDownItem[] = [
         {
-            key: 'Todas',
+            title: 'Todas',
             value: 'all'
         },
         {
-            key: 'Comercial',
+            title: 'Comercial',
             value: 'comercial'
         },
     ];
     selectedCategory: DropDownItem = new DropDownItem({
-        key: 'Todas',
+        title: 'Todas',
         value: 'all'
     });
     vacancies = Vacancies;
@@ -52,7 +52,7 @@ export class OurDisponibleVacanciesComponent implements OnInit {
     }
 
     filter() {
-        
+
     }
 
 }

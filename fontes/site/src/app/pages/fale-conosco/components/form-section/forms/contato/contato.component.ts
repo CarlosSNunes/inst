@@ -22,12 +22,12 @@ export class ContatoComponent implements OnInit {
     contatoForm: FormGroup;
     types: DropDownItem<number>[] = [];
     defaultType = new DropDownItem<number>({
-        key: 'Selecione...',
+        title: 'Selecione...',
         value: undefined
     });
     subjects: DropDownItem<number>[] = [];
     defaultSubject = new DropDownItem<number>({
-        key: 'Selecione...',
+        title: 'Selecione...',
         value: undefined
     });
     files: File[] = [];
@@ -55,7 +55,7 @@ export class ContatoComponent implements OnInit {
     ngOnInit() {
         Types.TipoAssunto.map(tipoAssunto => {
             this.types.push(new DropDownItem({
-                key: tipoAssunto.Descricao,
+                title: tipoAssunto.Descricao,
                 value: tipoAssunto.Id
             }));
         })
@@ -88,14 +88,14 @@ export class ContatoComponent implements OnInit {
         this.formFields = filterFormFields(type.value);
         this.subjects = [];
         this.defaultSubject = new DropDownItem<number>({
-            key: 'Selecione...',
+            title: 'Selecione...',
             value: undefined
         });
         const tipoAssunto = Types.TipoAssunto.find(tipo => tipo.Id == type.value);
         tipoAssunto.Assunto.map(assunto => {
             this.subjects.push(
                 new DropDownItem({
-                    key: assunto.Titulo,
+                    title: assunto.Titulo,
                     value: assunto.Id
                 })
             )
@@ -251,7 +251,7 @@ export class ContatoComponent implements OnInit {
 
     /*
     * Recaptcha functions
-    * 
+    *
     */
     getCaptchaErrorCallback(error) {
         console.error(error)

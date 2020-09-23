@@ -22,12 +22,12 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     ouvidoriaForm: FormGroup;
     subjects: DropDownItem<number>[] = [];
     defaultSubject: DropDownItem<number> = new DropDownItem<number>({
-        key: 'Selecione...',
+        title: 'Selecione...',
         value: undefined
     });
     classifications: DropDownItem<number>[] = [];
     defaultClassification: DropDownItem<number> = new DropDownItem<number>({
-        key: 'Selecione...',
+        title: 'Selecione...',
         value: undefined
     });
     files: File[] = [];
@@ -200,7 +200,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
 
     /*
     * Recaptcha functions
-    * 
+    *
     */
     getCaptchaErrorCallback(error) {
         console.error(error)

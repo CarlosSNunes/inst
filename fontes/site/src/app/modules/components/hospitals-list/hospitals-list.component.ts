@@ -18,9 +18,9 @@ export class HospitalsListComponent implements OnInit {
     gridList: {}[] = [];
     hiddenGrid: boolean = true;
     hiddenList: boolean = true;
-    selectedState: DropDownItem = new DropDownItem({ key: '', value: '' });
-    selectedType: DropDownItem = new DropDownItem({ key: '', value: '' });
-    selectedPlan: DropDownItem = new DropDownItem({ key: '', value: '' });
+    selectedState: DropDownItem = new DropDownItem({ title: '', value: '' });
+    selectedType: DropDownItem = new DropDownItem({ title: '', value: '' });
+    selectedPlan: DropDownItem = new DropDownItem({ title: '', value: '' });
 
     constructor() {
         this.mountStateDropdown(Hospitals)
@@ -55,10 +55,10 @@ export class HospitalsListComponent implements OnInit {
         for (let state of _states.states) {
             if (this.allStates.length > 0) {
                 if (!this.allStates.find(s => s.value === state.state)) {
-                    this.allStates.push({ key: state.state, value: state.state })
+                    this.allStates.push({ title: state.state, value: state.state })
                 }
             } else {
-                this.allStates.push({ key: state.state, value: state.state })
+                this.allStates.push({ title: state.state, value: state.state })
             }
         }
     }
@@ -69,10 +69,10 @@ export class HospitalsListComponent implements OnInit {
             for (let hospital of state.unities) {
                 if (this.allHospitals.length > 0) {
                     if (!this.allHospitals.find(h => h.value === hospital.type)) {
-                        this.allHospitals.push({ key: hospital.type, value: hospital.type })
+                        this.allHospitals.push({ title: hospital.type, value: hospital.type })
                     }
                 } else {
-                    this.allHospitals.push({ key: hospital.type, value: hospital.type })
+                    this.allHospitals.push({ title: hospital.type, value: hospital.type })
                 }
             }
         }
@@ -85,10 +85,10 @@ export class HospitalsListComponent implements OnInit {
                 for (let plan of hospital.plans) {
                     if (this.allPlans.length > 0) {
                         if (!this.allPlans.find(p => p.value === plan.plan)) {
-                            this.allPlans.push({ key: plan.plan, value: plan.plan })
+                            this.allPlans.push({ title: plan.plan, value: plan.plan })
                         }
                     } else {
-                        this.allPlans.push({ key: plan.plan, value: plan.plan })
+                        this.allPlans.push({ title: plan.plan, value: plan.plan })
                     }
                 }
             }
@@ -101,8 +101,8 @@ export class HospitalsListComponent implements OnInit {
         }
         else if (filter == 'type') {
             if (this.selectedType.value == selected.value && button) {
-                this.selectedType = new DropDownItem({ key: '', value: '' });
-                selected = new DropDownItem({ key: '', value: '' });
+                this.selectedType = new DropDownItem({ title: '', value: '' });
+                selected = new DropDownItem({ title: '', value: '' });
                 return
             }
             this.selectedType = selected

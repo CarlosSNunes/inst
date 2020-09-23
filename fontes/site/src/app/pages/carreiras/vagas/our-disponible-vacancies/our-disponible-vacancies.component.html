@@ -15,8 +15,7 @@
                         Aqui você consegue visualizar todas as vagas que nós temos e aberto.
                     </p>
                     <p class="sub-description">
-                        Você pode filtrar pela sua área de interesse ou realizar uma buscar pelo nome da vaga ou área de
-                        atuação.
+                        Você pode filtrar pela sua área de interesse ou realizar uma buscar pelo nome da vaga ou área de atuação.
                     </p>
                 </div>
             </div>
@@ -38,23 +37,18 @@
                                     </p>
                                 </div>
                                 <div class="column is-4 -desktop is-full">
-                                    <app-dropdown [options]="dropDownOptions" [default]="{ key: 'Todas', value: 'all' }"
-                                        (setFilter)="changeCategory($event);"></app-dropdown>
+                                    <app-dropdown [options]="dropDownOptions" [default]="{ title: 'Todas', value: 'all' }" (setFilter)="changeCategory($event);"></app-dropdown>
                                 </div>
                                 <div class="column is-3-desktop is-full">
                                     <div class="field">
                                         <p class="control has-icons-right">
-                                            <input [ngClass]="{ 'is-touched': form.search.value?.length > 0 }"
-                                                class="input" formControlName="search" name="search" type="text"
-                                                (keyup)="filter()">
+                                            <input [ngClass]="{ 'is-touched': form.search.value?.length > 0 }" class="input" formControlName="search" name="search" type="text" (keyup)="filter()">
                                             <label class="label">Buscar</label>
-                                            <span class="icon is-small is-right has-tooltip-left"
-                                                data-tooltip="Digite aqui o nome do documento que deseja pesquisar">
+                                            <span class="icon is-small is-right has-tooltip-left" data-tooltip="Digite aqui o nome do documento que deseja pesquisar">
                                                 <img src="assets/svg/search.svg" alt="Buscar">
                                             </span>
                                         </p>
-                                        <div *ngIf="form.search.touched && getErrors(form.search).length > 0"
-                                            class="errors">
+                                        <div *ngIf="form.search.touched && getErrors(form.search).length > 0" class="errors">
                                             <p *ngFor="let error of getErrors(form.search)" class="help is-danger">
                                                 {{error}}
                                             </p>
@@ -62,12 +56,10 @@
                                     </div>
                                 </div>
                                 <div class="column is-2-desktop is-full buttons-form">
-                                    <button class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                                        (click)="filter()">
+                                    <button class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" (click)="filter()">
                                         Filtrar
                                     </button>
-                                    <button class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                                        (click)="filter()">
+                                    <button class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" (click)="filter()">
                                         Filtrar
                                     </button>
                                 </div>
@@ -96,15 +88,11 @@
                                     {{vacancy.location}}
                                 </p>
 
-                                <a [routerLink]="[vacancy.button.link]"
-                                    class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                                    [attr.title]="vacancy.button.title">
+                                <a [routerLink]="[vacancy.button.link]" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [attr.title]="vacancy.button.title">
                                     {{vacancy.button.title}}
                                 </a>
 
-                                <a [routerLink]="[vacancy.button.link]"
-                                    class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop"
-                                    [attr.title]="vacancy.button.title">
+                                <a [routerLink]="[vacancy.button.link]" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" [attr.title]="vacancy.button.title">
                                     {{vacancy.button.title}}
                                 </a>
                             </li>
