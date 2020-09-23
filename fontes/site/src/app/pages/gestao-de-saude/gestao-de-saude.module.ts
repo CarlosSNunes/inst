@@ -5,7 +5,6 @@ import { GestaoDeSaudeRoutingModule } from './gestao-de-saude-routing.module';
 import { HeroBannerModule } from 'src/app/modules/components/hero-banner/hero-banner.module';
 import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
 import { CommomQuestionsModule } from 'src/app/modules/components/commom-questions/commom-questions.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 
 
 
@@ -17,7 +16,6 @@ import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/car
     HeroBannerModule,
     InfoSectionModule,
     CommomQuestionsModule,
-    CareplusPlusModule
   ]
 })
 export class GestaoDeSaudeModule { }

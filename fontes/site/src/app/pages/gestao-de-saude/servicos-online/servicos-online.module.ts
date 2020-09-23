@@ -5,7 +5,6 @@ import { ServicosOnlineRoutingModule } from './servicos-online-routing.module';
 import { SimpleBannerModule } from 'src/app/modules/components/simple-banner/simple-banner.module';
 import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
 import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { SliderModule } from 'src/app/modules/components/slider/slider.module';
 
 
@@ -18,7 +17,7 @@ import { SliderModule } from 'src/app/modules/components/slider/slider.module';
     SimpleBannerModule,
     InfoSectionModule,
     IconCardsSectionModule,
-    CareplusPlusModule,
+    
     SliderModule
   ]
 })
