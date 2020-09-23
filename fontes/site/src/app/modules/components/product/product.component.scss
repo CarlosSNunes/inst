@@ -192,6 +192,18 @@ section.is-produto {
     }
 }
 
+@media (min-width: 1024px) and (max-width: 1200px) {
+    section.is-produto {
+        .products {
+            .product-padding {
+                a.saiba-mais {
+                    bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 1023px) {
     section.is-produto {
         .title {

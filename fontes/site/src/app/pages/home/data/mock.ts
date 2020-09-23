@@ -16,7 +16,7 @@ export const ocupationalSection = new InfoSectionModel({
 })
 export const videoModel: CareplusVideoModel = new CareplusVideoModel({
     smallTitle: 'A CARE PLUS',
-    bigTitle: 'A maior operadora de saúde premium com 27 anos de mercado',
+    bigTitle: 'A maior operadora de saúde premium com quase 30 anos de mercado',
     embedSrc: 'https://www.youtube.com/embed/VkJDsgCRrTk',
     button: new ButtonModel({
         text: 'Conheça a Care Plus',
@@ -29,7 +29,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
     subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
     button: new ButtonModel({
-        text: 'Conheça Nossos Programas',
+        text: 'Conheça nossos Programas',
         routerLink: '/gestao-de-saude',
         class: 'btn-digital-cian secondary arrow-right'
     }),

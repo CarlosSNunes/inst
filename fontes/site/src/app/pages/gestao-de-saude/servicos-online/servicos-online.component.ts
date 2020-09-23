@@ -61,7 +61,7 @@ export class ServicosOnlineComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Serviços Online | Gestão de Saúde | Care Plus');
+        this.title.setTitle('Serviços On-line | Gestão de Saúde | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Para você ter mais tempo e se dedicar ao que importa, a Care Plus investe em praticidade, oferecendo serviços a distância. Confira!'

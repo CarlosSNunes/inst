@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     button: ButtonModel = new ButtonModel({
         link: '/fale-conosco',
-        text: 'ENTRE EM CONTATO'
+        text: 'Entre em contato'
     });
     @ViewChild('buttonElement', { static: false }) buttonElement: ElementRef<HTMLButtonElement>;
     isBrowser: boolean = false;

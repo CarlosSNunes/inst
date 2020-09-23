@@ -109,7 +109,11 @@ section.home-banner {
         height: 683px;
         position: absolute;
         transition: transform 0.4s ease-in-out;
+        -webkit-transition: transform 0.4s ease-in-out;
+        -moz-transition: transform 0.4s ease-in-out;
         transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
 
         .banner-home-description {
             text-align: left;
@@ -121,6 +125,9 @@ section.home-banner {
         &.active {
             transform: translateX(0%);
             animation: fromRightToLeft 0.4s;
+            -webkit-animation: fromRightToLeft 0.4s;
+            -moz-animation: fromRightToLeft 0.4s;
+            -o-animation: fromRightToLeft 0.4s;
 
             &.firstInteraction {
                 animation: unset;
@@ -133,6 +140,42 @@ section.home-banner {
             }
             100% {
                 transform: translateX(0%);
+            }
+        }
+
+        @-webkit-keyframes fromRightToLeftWebkit {
+            0% {
+                -webkit-transform: translateX(100%);
+            }
+            100% {
+                -webkit-transform: translateX(0%);
+            }
+        }
+
+        @-moz-keyframes fromRightToLeft {
+            0% {
+                -moz-transform: translateX(100%);
+            }
+            100% {
+                -moz-transform: translateX(0%);
+            }
+        }
+
+        @-ms-keyframes fromRightToLeft {
+            0% {
+                -ms-transform: translateX(100%);
+            }
+            100% {
+                -ms-transform: translateX(0%);
+            }
+        }
+
+        @-o-keyframes fromRightToLeft {
+            0% {
+                -o-transform: translateX(100%);
+            }
+            100% {
+                -o-transform: translateX(0%);
             }
         }
 

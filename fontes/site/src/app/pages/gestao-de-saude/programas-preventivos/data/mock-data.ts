@@ -24,7 +24,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
 });
 
 export const mommyCareSection = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
+    smallTitle: 'Programas Preventivos',
     bigTitle: 'Mommy Care',
     subDescriptions: [
         'O Mommy Care é um programa de acompanhamento, acolhimento e orientação às gestantes realizado por meio de visitas em domicílio*, contatos telefônicos, troca de mensagens e teleconferência.',
@@ -38,8 +38,8 @@ export const mommyCareSection = new InfoSectionModel({
 });
 
 export const gerenciamentoDeDoencasCronicas = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Gerenciamento de Doenças Crônicas',
+    smallTitle: 'Programas Preventivos',
+    bigTitle: 'Prevenção de Doenças Cardiovasculares',
     subDescriptions: [
         'Prevenir as doenças cardiovasculares deve ser uma prioridade na vida de homens e mulheres. Por isso, para apoiar essa premissa, a Gestão de Saúde desenvolveu um programa completo de cuidado com os beneficiários. <br/> Além de atendimento com equipe multidisciplinar na clínica Personal System para avaliação e orientação, os integrantes do programa têm acesso a uma série de vantagens e comodidades. Entre elas:',
         '- Realização de exames (medição de taxa metabólica de repouso e bioimpedância) <br/> - Atendimento online com nutricionistas e psicólogos <br/> - Descontos exclusivos nos parceiros de alimentação saudável e assessoria esportiva <br/> - Auxílio para aquisição de medicamentos e muito mais!'
@@ -51,8 +51,8 @@ export const gerenciamentoDeDoencasCronicas = new InfoSectionModel({
 });
 
 export const programaDeAcolhimento = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Programa de acolhimento',
+    smallTitle: 'Programas Preventivos',
+    bigTitle: 'Programa de Acolhimento',
     subDescriptions: [
         'Neste programa, os beneficiários que necessitam de acompanhamento, seja por conta de uma hospitalização recente ou por falta de conhecimento sobre como cuidar da saúde, contam com o suporte de uma equipe de acolhimento.',
         'Os profissionais servirão de fonte de informação e orientação para que os beneficiários tenham o melhor tratamento (Care Coordinator) e encaminhamentos adequados (Care Navigation).'
@@ -63,7 +63,7 @@ export const programaDeAcolhimento = new InfoSectionModel({
 });
 
 export const mentalHealth = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
+    smallTitle: 'Programas Preventivos',
     bigTitle: 'Mental Health',
     subDescriptions: [
         'O cuidado com corpo é fundamental, mas a saúde mental também deve sempre receber atenção. Pensando nisso, a Care Plus oferece um programa de orientação e acompanhamento psicológico 24 horas, durante 7 dias da semana, inclusive aos finais de semana e feriados.',
@@ -77,7 +77,7 @@ export const mentalHealth = new InfoSectionModel({
 });
 
 export const cuidadosDaFamilia = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
+    smallTitle: 'Programas Preventivos',
     bigTitle: 'Cuidado da Família',
     subDescriptions: [
         'Programa dedicado às famílias que têm crianças com necessidades especiais',
@@ -90,7 +90,7 @@ export const cuidadosDaFamilia = new InfoSectionModel({
 });
 
 export const programaDeCuidadoOncologico = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
+    smallTitle: 'Programas Preventivos',
     bigTitle: 'Programa de Cuidado Oncológico',
     subDescriptions: [
         'Enfrentar o câncer exige uma rede de apoio forte. Por isso, a Care Plus oferece o cuidado centrado no paciente, com atendimento especializado em oncologia, como médicos e nutricionistas, para prevenir ou reverter situações evitáveis e o declínio do estado nutricional.',

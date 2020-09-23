@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { simpleBannerModel, eSocialSection, unidadesSection, occupationalSection, secondCard } from './data/medicina-ocupacional-mock';
+import { simpleBannerModel, eSocialSection, unidadesSection, occupationalSection, secondCard, firstCard } from './data/medicina-ocupacional-mock';
 import { Title, Meta } from '@angular/platform-browser';
 import { IconCardsSectionModel, ButtonModel } from 'src/app/models';
 import PersonalizedServicesCards from './data/personalized-services';
@@ -14,6 +14,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
     eSocialSection = eSocialSection;
     unidadesSection = unidadesSection;
     occupationalSection = occupationalSection;
+    firstCard = firstCard;
     secondCard = secondCard;
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
         smallTitle: 'SERVIÇOS PERSONALIZADOS',

@@ -131,7 +131,7 @@ export const routes: RouteModel[] = [
     }),
     new RouteModel({
         route: '/gestao-de-saude/servicos-online',
-        description: 'Serviços Online - Gestão de saude'
+        description: 'Serviços On-line - Gestão de saude'
     }),
     new RouteModel({
         route: '/gestao-de-saude/nossas-parcerias',

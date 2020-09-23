@@ -4,6 +4,9 @@
             <div class="columns">
                 <div class="column left-column is-hidden-touch" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
                     <img src="{{differential.image}}" [alt]="differentials[currentDifferential]?.title"/>
+                    <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian secondary arrow-right is-centered medium">
+                        Conheça nossos Diferenciais
+                    </a>
                 </div>
                 <div class="column has-divider is-hidden-touch">
                     <hr class="bupa-divider" />
@@ -17,6 +20,9 @@
                     </h2>
                     <div class="is-hidden-desktop mobile-image" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
                         <img src="{{differential.image}}" [alt]="differentials[currentDifferential]?.title"/>
+                        <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian tertiary arrow-right is-centered medium">
+                            Conheça nossos Diferenciais
+                        </a>
                     </div>
                     <div class="accordion-wrapper">
                         <div class="accordion-item open" [class.active]="differential.active"
@@ -26,7 +32,7 @@
                                 (click)="activate(i)">
                                 {{differential.title}}
                             </h2>
-                            <div class="accordion-item-content" [class.active]="differential.active">
+                            <div class="accordion-item-content" #accordionContent [style.height.px]="differential.active ? accordionContent.scrollHeight : 0" [class.active]="differential.active">
                                 <p>
                                     {{differential.content}}
                                 </p>

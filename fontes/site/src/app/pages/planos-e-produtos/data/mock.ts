@@ -20,7 +20,7 @@ export const planCards: PlanCardModel[] = [
         subTitle: 'Para 2 a 29 vidas',
         description: 'O Care Plus SoHo apresenta planos para pequenas empresas, de 2 a 29 vidas e é indicado para aquelas que atuam em home office ou com operações mais enxutas.',
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça o Care Plus Soho',
             routerLink: '/planos-e-produtos/soho'
         }),
         image: 'assets/svg/plans-soho.svg',
@@ -31,7 +31,7 @@ export const planCards: PlanCardModel[] = [
         subTitle: 'Para 30 a 200 vidas',
         description: 'O Clube Care Plus apresenta planos para empresas, de 30 a 200 vidas e é indicado para aquelas que estão em crescimento e expandindo seus negócios.',
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça o Clube Care Plus',
             routerLink: '/planos-e-produtos/clube-careplus'
         }),
         image: 'assets/svg/clube-careplus.svg',
@@ -42,7 +42,7 @@ export const planCards: PlanCardModel[] = [
         subTitle: 'Para mais de 200 vidas',
         description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça o Care Plus Empresarial',
             routerLink: '/planos-e-produtos/empresarial'
         }),
         image: 'assets/svg/empresarial.svg',
@@ -54,7 +54,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
     subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
     button: new ButtonModel({
-        text: 'Conheça Nossos Programas',
+        text: 'Conheça nossos Programas',
         routerLink: '/gestao-de-saude'
     }),
     cards: Cards,
@@ -76,7 +76,6 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
             type: 'video/mp4'
         }
     ),
-    bigTitle: 'Aqui você conhece a gama de planos e produtos de saúde Care Plus',
     contentContainerMaxWidth: 862,
     breadcrumbs: [
         new BreadcrumbModel({

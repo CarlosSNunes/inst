@@ -3,7 +3,7 @@ import PersonalizedSectionCards from './personalized-section-cards';
 import { VideoModalModel } from 'src/app/models/modal.model';
 import { CareplusVideoModel } from 'src/app/models'
 export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
-    title: 'Serviços Online',
+    title: 'Serviços On-line',
     description: 'Para você ter mais tempo e se dedicar ao que importa, a Care Plus investe em praticidade, oferecendo serviços a distância. Confira!',
     breadcrumbs: [
         new BreadcrumbModel({
@@ -15,7 +15,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
             link: '/gestao-de-saude',
         }),
         new BreadcrumbModel({
-            name: 'Serviços Online',
+            name: 'Serviços On-line',
             link: '/gestao-de-saude/servicos-online',
             active: true
         })
@@ -25,8 +25,8 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
 });
 
 export const medicalOrientationSection = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Orientação médica 24 horas',
+    smallTitle: 'SERVIÇOS ON-LINE',
+    bigTitle: 'Orientação Médica 24 horas',
     subDescriptions: [
         'A Care Plus possui uma equipe médica composta por clínicos gerais e pediatras disponíveis para atendimento telefônico 24 horas, durante 7 dias por semana, inclusive aos finais de semana e feriados.',
         'Neste canal, os médicos esclarecem dúvidas relacionadas à saúde e podem contribuir com orientações* sobre a necessidade de realização de consulta ambulatorial ou em Pronto Atendimento. ',
@@ -38,8 +38,8 @@ export const medicalOrientationSection = new InfoSectionModel({
 });
 
 export const nutriADistancia = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
-    bigTitle: 'Nutri à distância',
+    smallTitle: 'SERVIÇOS ON-LINE',
+    bigTitle: 'Nutri à Distância',
     subDescriptions: [
         'Uma boa alimentação é essencial para levar uma vida saudável e ativa. Entretanto, muitas pessoas, em quase todas as partes do mundo, não comem adequadamente, principalmente por falta de conhecimento e motivação.',
         'Com base nisso, o Programa Nutricionista a distância oferece informações gerais sobre alimentação e nutrição, além da possibilidade de tirar dúvidas com uma nutricionista remotamente. O programa tem duração de, aproximadamente, três meses, com acompanhamentos semanais.',

@@ -16,6 +16,7 @@ import { NotificationModule } from './modules/components/notification/notificati
 import { GestureConfig } from '@angular/material';
 import { ModalModule } from './modules/components/modal/modal.module';
 import { SimuladoresModule } from './modules/components/simuladores/simuladores.module';
+import { CookieNoticeModule } from './modules/components/cookie-notice/cookie-notice.module';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 @NgModule({
@@ -33,6 +34,7 @@ registerLocaleData(localePt, 'pt', localePtExtra);
         NotificationModule,
         ModalModule,
         SimuladoresModule,
+        CookieNoticeModule
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },

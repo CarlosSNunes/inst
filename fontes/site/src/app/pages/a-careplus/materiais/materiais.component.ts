@@ -13,18 +13,18 @@ import { Meta, Title } from '@angular/platform-browser';
 export class MateriaisComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
         title: 'Biblioteca de documentos: encontre todos os nossos arquivos disponíveis',
-        description: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.',
+        description: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'A CarePlus',
+                name: 'A Care Plus',
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({
-                name: 'Materiais',
+                name: 'Materiais de Saúde',
                 link: '/a-careplus/materiais',
                 active: true
             })

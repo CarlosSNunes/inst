@@ -93,7 +93,6 @@ section {
 
 @import "~src/scss/_buttons";
 
-
 /*
     Tabs
 */
@@ -294,16 +293,25 @@ select,
             margin-bottom: 0;
         }
 
-        input.is-valid:not(:disabled) {
-            border-bottom: 2px solid getColor(_carePlus, _valid);
+        input,
+        select {
+            &.is-valid:not(:disabled) {
+                border-bottom: 2px solid getColor(_carePlus, _valid);
+            }
         }
 
-        input.is-invalid:not(:disabled) {
-            border-bottom: 2px solid getColor(_carePlus, _error);
+        input,
+        select {
+            &.is-invalid:not(:disabled) {
+                border-bottom: 2px solid getColor(_carePlus, _error);
+            }
         }
 
-        input:focus:not(:disabled) {
-            border-bottom: 2px solid getColor(_bupa, _digital-cian);
+        input,
+        select {
+            &:focus:not(:disabled) {
+                border-bottom: 2px solid getColor(_bupa, _digital-cian);
+            }
         }
 
         input:not([type="checkbox"]):not([type="radio"]).is-touched + label,
@@ -318,12 +326,18 @@ select,
         }
 
         .select {
+            height: 56px;
+            width: 100%;
             select {
+                height: 56px;
+                width: 100%;
                 background: getColor(_bupa, _white);
                 border: 1px solid getColor(_bupa, _grey-2);
                 box-sizing: border-box;
                 border-radius: 2px;
                 color: getColor(_bupa, _grey-2);
+                display: flex;
+                position: relative;
 
                 option {
                     color: getColor(_carePlus, _drop-down-option);
@@ -333,10 +347,17 @@ select,
                         background: rgba(getColor(_carePlus, _drop-down-option-rgb), 0.05);
                     }
                 }
+
+                &:focus {
+                    outline: none;
+                    // border: none;
+                    box-shadow: unset;
+                }
             }
 
             &:not(.is-multiple):not(.is-loading)::after {
                 border-color: rgba(getColor(_bupa, _grey-2-rgb), 0.5);
+                align-self: center;
             }
         }
 

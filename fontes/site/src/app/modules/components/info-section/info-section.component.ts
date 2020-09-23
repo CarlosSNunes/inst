@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
 import { InfoSectionModel } from 'src/app/models';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ContentModalModel } from 'src/app/models/modal.model';
@@ -10,7 +10,7 @@ import { WindowRef } from 'src/utils/window-ref';
 @Component({
     selector: 'app-info-section',
     templateUrl: './info-section.component.html',
-    styleUrls: ['./info-section.component.scss']
+    styleUrls: ['./info-section.component.scss'],
 })
 export class InfoSectionComponent implements OnInit {
     @Input() sectionInfo: InfoSectionModel = new InfoSectionModel({})

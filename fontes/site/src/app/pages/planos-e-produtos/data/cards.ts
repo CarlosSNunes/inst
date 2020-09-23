@@ -10,7 +10,7 @@ export default [
     }),
     new IconCardModel({
         "type": "icon",
-        "title": "Serviços Online",
+        "title": "Serviços On-line",
         "description": "Os beneficiários podem aproveitar alguns serviços a distância com a qualidade, o carinho e o cuidado que só a Care Plus tem.",
         "imagePath": "assets/svg/monitor-screen.svg",
         "backgroundColorClass": "white-background-color",

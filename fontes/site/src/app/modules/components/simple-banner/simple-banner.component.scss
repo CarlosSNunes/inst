@@ -16,6 +16,11 @@ section {
     .container {
         height: 390px;
         .banner-content {
+
+            .big-title {
+                max-width: 590px;
+            }
+            
             .sub-description {
                 max-width: 382px;
                 font-weight: 500;

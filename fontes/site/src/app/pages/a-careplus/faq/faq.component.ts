@@ -33,7 +33,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'A CarePlus',
+                name: 'A Care Plus',
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({

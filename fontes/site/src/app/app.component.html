@@ -1,6 +1,6 @@
 <app-header *ngIf="width >= 1024"></app-header>
 <app-header-mobile *ngIf="width < 1024"></app-header-mobile>
-<section class="section no-margin" [class.principal-section]="!initiated">
+<section class="section no-margin" [class.principal-section]="!initiated" [class.cookie-not-agree]="cookieAgree == 'not-agree'">
     <router-outlet></router-outlet>
 </section>
 <app-footer></app-footer>
@@ -12,3 +12,5 @@
             fill="#FFF" />
     </svg>
 </button>
+
+<app-cookie-notice (agree)="agreeCookieComponent()" [@cookieAgreeAnimation]="cookieAgree"></app-cookie-notice>

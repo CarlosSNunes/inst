@@ -27,7 +27,7 @@
 <app-icon-cards-section id="products" [iconCardsSectionModel]="findedPlan?.iconCardsSectionModel"
     [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
 <app-info-section [sectionInfo]="findedPlan?.clinicSection"></app-info-section>
-<section id="clinic-services">
+<section id="clinic-services" *ngIf="findedPlan?.clinicInfos">
     <article>
         <div class="container">
             <div class="columns">

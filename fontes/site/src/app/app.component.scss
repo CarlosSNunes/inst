@@ -4,6 +4,12 @@
     &.principal-section {
         min-height: calc(100vh - 151px);
     }
+
+    &.cookie-not-agree {
+        ::ng-deep .get-price-box {
+            bottom: var(--price-box-bottom);
+        }
+    }
     padding: 0;
 }
 
@@ -13,7 +19,7 @@
 
 .go-section-back {
     position: fixed;
-    bottom: 0;
+    bottom: var(--price-box-bottom);
     right: 0;
     width: 48px !important;
     height: 48px !important;
@@ -43,6 +49,16 @@
             transition: fill 0.3s ease-in-out;
         }
     }
+}
+
+
+app-cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    z-index: 1001;
 }
 
 app-header-mobile {

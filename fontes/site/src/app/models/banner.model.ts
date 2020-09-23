@@ -12,7 +12,9 @@ export class BannerModel {
     dataCadastro: Date;
     usuarioId: number;
     rota: string;
+    ancora: string;
     linkExterno: string;
+    nomeLink: string;
     caminhoImagem: string;
     nomeImagem: string;
     tempo: number;

@@ -52,19 +52,21 @@
     }
 
     .extra-content-description {
+        margin-top: 20px;
         font-weight: 500;
         font-size: getSize("mbt");
         line-height: getLineHeight("mbt");
         color: getColor(_bupa, _grey-2);
+        display: block;
     }
 
     .btn.tertiary {
         padding-left: 0;
-        margin-top: 10px;
     }
 
     .whatsapp-btn {
         display: inline-flex;
+        margin-top: 20px;
         img {
             width: 20px;
             height: 20px;

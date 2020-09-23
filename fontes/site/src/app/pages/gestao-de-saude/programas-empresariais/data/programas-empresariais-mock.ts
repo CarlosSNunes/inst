@@ -24,7 +24,7 @@ export const simpleBannerModel: SimpleBannerModel = {
 };
 
 export const campanhaDeQuestionariosSection: InfoSectionModel = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
+    smallTitle: 'PROGRAMAS EMPRESARIAIS',
     bigTitle: 'Circuito de Aferições e Campanhas de Questionários ',
     subDescriptions: [
         'Neste serviço, a Care Plus investiga o perfil de saúde dos funcionários por meio de um questionário.',
@@ -36,7 +36,7 @@ export const campanhaDeQuestionariosSection: InfoSectionModel = new InfoSectionM
 });
 
 export const nutriNaEmpresa: InfoSectionModel = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
+    smallTitle: 'PROGRAMAS EMPRESARIAIS',
     bigTitle: 'Nutri na empresa',
     subDescriptions: [
         'O objetivo é estimular a reeducação alimentar por meio de recomendações nutricionais individualizadas, que seguem as preferências dos indivíduos e os estilos de vida adotados.'
@@ -48,7 +48,7 @@ export const nutriNaEmpresa: InfoSectionModel = new InfoSectionModel({
 });
 
 export const nutriMais: InfoSectionModel = new InfoSectionModel({
-    smallTitle: 'GESTÃO DE SAÚDE',
+    smallTitle: 'PROGRAMAS EMPRESARIAIS',
     bigTitle: 'Nutri Mais',
     subDescriptions: [
         'Este programa, que funciona como uma consultoria em nutrição realizada por profissionais capacitados, tem como finalidade oferecer soluções nutricionais personalizadas para as empresas, de acordo com as necessidades e a cultura organizacional.'

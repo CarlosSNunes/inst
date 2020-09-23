@@ -7,7 +7,6 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
             type: 'video/mp4'
         }
     ),
-    bigTitle: 'Gestão de Saúde: o nosso jeito único de cuidar da sua saúde e bem estar',
     breadcrumbs: [
         new BreadcrumbModel({
             name: 'Home',
@@ -27,7 +26,7 @@ export const infoSections: InfoSectionModel[] = [
     new InfoSectionModel({
         smallTitle: 'GESTÃO DE SAÚDE',
         bigTitle: 'Conheça a Gestão de Saúde, uma iniciativa exclusiva da Care Plus',
-        subDescription: 'A Gestão de Saúde conta com programas e serviços especiais feitos na medida para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva. Confira a seguir!',
+        subDescription: 'A Gestão de Saúde conta com programas e serviços especiais feitos na medida para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva.',
         imageSrc: 'assets/img/conheca-gestao-saude.png',
         alignCenter: true,
         removeLine: true
@@ -41,18 +40,18 @@ export const infoSections: InfoSectionModel[] = [
         reverse: true,
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça os Programas Preventivos',
             routerLink: '/gestao-de-saude/programas-preventivos'
         })
     }),
     new InfoSectionModel({
-        bigTitle: 'Serviços Online',
+        bigTitle: 'Serviços On-line',
         subDescription: 'O mundo é digital. E a Care Plus também. Desde o início, investimos em tecnologia para que os nossos beneficiários, empresas e parceiros tenham toda a facilidade e comodidade que merecem. Assim, disponibilizamos diversos serviços online, mantendo a mesma qualidade de sempre. ',
         imageSrc: 'assets/img/servicos-online.jpg',
         alignCenter: true,
         removeLine: true,
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça os Serviços On-line',
             routerLink: '/gestao-de-saude/servicos-online'
         })
     }),
@@ -65,7 +64,7 @@ export const infoSections: InfoSectionModel[] = [
         reverse: true,
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça o Personal System',
             routerLink: '/gestao-de-saude/personal-system'
         })
     }),
@@ -76,7 +75,7 @@ export const infoSections: InfoSectionModel[] = [
         alignCenter: true,
         removeLine: true,
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça as Nossas Parcerias',
             routerLink: '/gestao-de-saude/programas-empresariais'
         })
     }),
@@ -89,7 +88,7 @@ export const infoSections: InfoSectionModel[] = [
         reverse: true,
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça os Programas Preventivos',
             routerLink: '/gestao-de-saude/nossas-parcerias'
         })
     })

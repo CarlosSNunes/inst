@@ -115,12 +115,4 @@ export class RhComponent implements OnInit {
                 "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
         });
     }
-
-    goToTop() {
-        this.windowRef.nativeWindow.scrollTo({
-            left: 0,
-            top: 0,
-            behavior: "smooth",
-        });
-    }
 }

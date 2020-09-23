@@ -42,25 +42,25 @@
                         </p>
 
                         <!-- Button with routerLink -->
-                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota" title="Saiba mais"
+                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
                             class="btn btn-digital-cian primary medium is-hidden-touch">
-                            Saiba mais
+                            {{banner?.nomeLink}}
                         </a>
 
-                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota" title="Saiba mais"
+                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
                             class="btn btn-digital-cian secondary medium is-hidden-desktop">
-                            Saiba mais
+                            {{banner?.nomeLink}}
                         </a>
 
                         <!-- Button with routerLink -->
-                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank" title="Saiba mais"
+                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank" [attr.title]="banner?.nomeLink"
                             class="btn btn-digital-cian primary medium is-hidden-touch">
-                            Saiba mais
+                            {{banner?.nomeLink}}
                         </a>
 
-                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank" title="Saiba mais"
+                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank" [attr.title]="banner?.nomeLink"
                             class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
-                            Saiba mais
+                            {{banner?.nomeLink}}
                         </a>
                     </div>
                 </div>

@@ -35,3 +35,4 @@ export * from './ouvidoria.model';
 export * from './canal-de-denuncia.model';
 export * from './anexo.model';
 export * from './menu.model';
+export * from './profile.model';

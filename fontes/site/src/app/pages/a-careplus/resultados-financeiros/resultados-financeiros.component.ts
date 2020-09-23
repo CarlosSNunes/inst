@@ -22,7 +22,7 @@ export class ResultadosFinanceirosComponent implements OnInit {
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'A CarePlus',
+                name: 'A Care Plus',
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({

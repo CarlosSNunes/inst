@@ -316,13 +316,13 @@ nav.navbar:not(.is-home) {
                 align-items: stretch;
             }
 
-            .buttons {
-                margin-bottom: 0;
-            }
-
             .navbar-item {
                 margin: 0;
                 padding: 0;
+
+                .buttons {
+                    margin-bottom: 0;
+                }
             }
 
             .login {
@@ -391,7 +391,7 @@ nav.is-home {
             .item {
                 font-style: normal;
                 font-weight: 500;
-                font-size: getSize("sbm");
+                font-size: getSize("p");
                 line-height: getSize("p");
                 // letter-spacing: 0.2em;
                 color: getColor(_bupa, _grey);
@@ -402,6 +402,10 @@ nav.is-home {
                 cursor: pointer;
                 &:focus {
                     outline: unset;
+                }
+
+                @media (min-width: 1200px) {
+                    font-size: 1.25em;
                 }
             }
 
@@ -505,5 +509,11 @@ nav.is-home {
 
     .navbar-end {
         margin-left: 0;
+
+        .navbar-item {
+            .buttons {
+                margin-bottom: 0;
+            }
+        }
     }
 }

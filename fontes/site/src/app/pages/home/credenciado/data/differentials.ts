@@ -2,7 +2,7 @@ import { DifferentialModel } from "src/app/models";
 
 export const differentialsMock = [
     new DifferentialModel({
-        title: "Gestão de teste",
+        title: "Gestão de Saúde",
         content: "A Gestão de Saúde conta com programas e serviços de saúde especiais feitos na medida para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva.",
         active: true,
         image: "assets/img/gestao-de-saude.jpg",

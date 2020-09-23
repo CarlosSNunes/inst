@@ -17,31 +17,34 @@
             </span>
         </p>
         <p class="extra-content-small-title">
-            Entre em contato para saber a unidade mais perto de você.
+            Entre em contato para saber a unidade mais próxima a você
         </p>
+
+        <a href="https://api.whatsapp.com/send?phone=5511971381187&text=Care%20Plus" target="_blank"
+            class="btn btn-digital-cian primary small whatsapp-btn is-hidden-touch" title="Cotação por Whatsapp">
+            <img src="assets/svg/whatsapp-branco.svg" alt="Whats App">
+            <span>
+                Cotação por Whatsapp
+            </span>
+        </a>
+
+
+        <a href="https://api.whatsapp.com/send?phone=5511971381187&text=Care%20Plus" target="_blank"
+            class="btn btn-digital-cian tertiary arrow-right medium whatsapp-btn is-hidden-desktop"
+            title="Cotação por Whatsapp">
+            <img src="assets/svg/whatsapp-digital-cian.svg" alt="Whats App">
+            <span>
+                Cotação por Whatsapp
+            </span>
+        </a>
+
         <a href="tel:11 4063-0083" title="11 4063-0083" class="extra-content-description">
             11 4063-0083
         </a>
+        
         <p class="extra-content-small-title bottom">
-            Ou fale conosco pela <span class="bold">Central de Atendimento.</span>
+            Ou contate nossa <span class="bold">Central de Atendimento.</span>
         </p>
-
-        <a href="https://api.whatsapp.com/send?phone=5511971381187&text=Care%20Plus" target="_blank"
-            class="btn btn-digital-cian primary small whatsapp-btn is-hidden-touch" title="Cotação por whatsapp">
-            <img src="assets/svg/whatsapp-branco.svg" alt="Whats App">
-            <span>
-                Cotação por whatsapp
-            </span>
-        </a>
-
-
-        <a href="https://api.whatsapp.com/send?phone=5511971381187&text=Care%20Plus" target="_blank"
-            class="btn btn-digital-cian tertiary arrow-right medium whatsapp-btn is-hidden-desktop" title="Cotação por whatsapp">
-            <img src="assets/svg/whatsapp-digital-cian.svg" alt="Whats App">
-            <span>
-                Cotação por whatsapp
-            </span>
-        </a>
 
         <a routerLink="/fale-conosco" [queryParams]="{
             medicinaOcupacional: true
@@ -79,6 +82,6 @@
         </ul>
     </div>
 </app-info-section>
-<app-contact-schedule-a-visit [secondCard]="secondCard" [bigTitle]="'Entre em contato ou solicite uma cotação'"
+<app-contact-schedule-a-visit [firstCard]="firstCard" [secondCard]="secondCard" [bigTitle]="'Entre em contato ou solicite uma cotação'"
     [backgroundColorClass]="'blue-background-color'"></app-contact-schedule-a-visit>
 <app-careplus-plus></app-careplus-plus>

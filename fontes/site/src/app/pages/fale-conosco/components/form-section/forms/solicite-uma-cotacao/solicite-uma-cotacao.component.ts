@@ -29,7 +29,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             value: 'clube-careplus'
         }),
         new DropDownItem({
-            key: 'Mais de 200 vidas - Empresarial',
+            key: '+ 200 vidas - Empresarial',
             value: 'empresarial'
         })
     ];
@@ -48,7 +48,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         private activatedRoute: ActivatedRoute,
         private cdr: ChangeDetectorRef,
         private validateBrService: ValidateBrService,
-        private modalService: ModalService,
         @Inject(PLATFORM_ID) private platformId: Platform,
         private scriptLoaderService: ScriptLoaderService,
         @Inject(DOCUMENT) private document: Document
@@ -56,17 +55,18 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.soliciteUmaCotacaoForm = this.fb.group({
             plano: ['',],
-            planoSaude: [false,],
-            planoOdontologico: [false,],
-            medicinaOcupacional: [false,],
+            planoSaude: [0,],
+            planoOdontologico: [0,],
+            medicinaOcupacional: [0,],
             nome: ['', Validators.compose([Validators.required])],
             razaoSocial: ['', Validators.compose([Validators.required])],
-            cpf: ['', Validators.compose([Validators.required, this.validateBrService.cpf])],
+            // cpf: ['', Validators.compose([Validators.required, this.validateBrService.cpf])],
             cnpj: ['', Validators.compose([Validators.required, this.validateBrService.cnpj])],
             email: ['', Validators.compose([Validators.required, Validators.email])],
             telefone: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
             mensagem: ['', Validators.compose([Validators.required])],
             validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
+            aceiteDeTermos: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
         }, {
             validators: [
                 requireAtLeastOne()
@@ -91,6 +91,16 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
                 }
             }
             this.initRecaptchaScript();
+        }
+    }
+
+    checkboxChange(event, controlName) {
+        if (event.target.checked) {
+            this.soliciteUmaCotacaoForm.controls[controlName].setValue(1);
+            event.target.value = 1;
+        } else {
+            this.soliciteUmaCotacaoForm.controls[controlName].setValue(0);
+            event.target.value = 0;
         }
     }
 
@@ -144,14 +154,14 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             value: ''
         });
         let fields = { ...params }
-        fields.planoOdontologico = (fields.planoOdontologico == 'true');
-        fields.medicinaOcupacional = (fields.medicinaOcupacional == 'true');
-        fields.planoSaude = (fields.planoSaude == 'true');
+        fields.planoOdontologico = (fields.planoOdontologico == 'true') ? 1 : 0;
+        fields.medicinaOcupacional = (fields.medicinaOcupacional == 'true') ? 1 : 0;
+        fields.planoSaude = (fields.planoSaude == 'true') ? 1 : 0;
         this.faleConoscoAutoFiels = new FaleConoscoAutoFields(fields);
         const item = this.dropDownItems.find(item => item.value === params.plano)
         if (item) {
             this.defaultItem = item;
-            this.soliciteUmaCotacaoForm.controls.plano.setValue(item.value);
+            this.soliciteUmaCotacaoForm.controls.plano.setValue(item.key);
             this.cdr.detectChanges();
         }
         this.soliciteUmaCotacaoForm.controls.planoSaude.setValue(this.faleConoscoAutoFiels.planoSaude);
@@ -159,17 +169,21 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         this.soliciteUmaCotacaoForm.controls.medicinaOcupacional.setValue(this.faleConoscoAutoFiels.medicinaOcupacional);
     }
 
-    sendForm() {
+    sendForm(event) {
         if (this.soliciteUmaCotacaoForm.valid) {
-            console.log('valid', this.soliciteUmaCotacaoForm.value)
 
-            const modal: FeedbackModalModel = new FeedbackModalModel();
+            event.target.submit();
 
-            this.modalService.openModal(modal)
+            // const modal: FeedbackModalModel = new FeedbackModalModel();
+
+            // this.modalService.openModal(modal)
         } else {
+            event.preventDefault();
+            console.log(this.soliciteUmaCotacaoForm.value)
             Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
             });
+            return false;
         }
     }
 

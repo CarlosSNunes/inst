@@ -73,14 +73,14 @@ export class CareplusMaisComponent implements OnInit {
     crossContentModel: CrossContentModel = new CrossContentModel({
         firstImage: {
             src: 'assets/img/blog-posts-cross-content-image-1-mock.jpg',
-            alt: 'Serviços Online imagem 1'
+            alt: 'Serviços On-line imagem 1'
         },
         secondImage: {
             src: 'assets/img/servicos-online.jpg',
-            alt: 'Serviços Online imagem 2'
+            alt: 'Serviços On-line imagem 2'
         },
         boxContent: {
-            title: 'Voce conheçe os nossos serviços online?',
+            title: 'Voce conheçe os nossos Serviços On-line?',
             description: 'Serviços à distância com qualidade, carinho e cuidado. Conheça os serviços que a Care Plus disponibilizar a distância para seus beneciários.',
             button: new ButtonModel({
                 text: 'Saiba mais',

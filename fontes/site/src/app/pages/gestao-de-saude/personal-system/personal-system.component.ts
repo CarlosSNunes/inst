@@ -3,7 +3,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
-import { simpleBannerModel, consultaFacil, checkupDoViajante, monitoramentoDoCheckup, gerenciamentoDeDoencasCronicas } from './data/personal-system-mocks';
+import { simpleBannerModel, checkupDoViajante, monitoramentoDoCheckup, gerenciamentoDeDoencasCronicas } from './data/personal-system-mocks';
 import { IconCardsSectionModel, ButtonModel } from 'src/app/models';
 import PersonalizedSectionCards from './data/personalized-section-cards';
 
@@ -15,7 +15,7 @@ import PersonalizedSectionCards from './data/personalized-section-cards';
 export class PersonalSystemComponent implements OnInit {
     isBrowser: boolean = false;
     simpleBannerModel = simpleBannerModel;
-    consultaFacilSection = consultaFacil;
+    // consultaFacilSection = consultaFacil;
     checkupDoViajanteSection = checkupDoViajante;
     monitoramentoDoCheckupSection = monitoramentoDoCheckup;
     gerenciamentoDeDoencasCronicas = gerenciamentoDeDoencasCronicas;

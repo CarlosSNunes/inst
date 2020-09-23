@@ -63,10 +63,6 @@ export class AccordionComponent implements OnInit, OnChanges {
                 accTitle[j].classList.remove("active");
                 accContent[j].style.height = '0px';
             }
-
-            const offset: number = 30;
-            let realHeight = (accContent[j].scrollHeight) + offset;
-            accContent[j].setAttribute("data-height", realHeight + "px");
         }
     }
 
@@ -77,8 +73,6 @@ export class AccordionComponent implements OnInit, OnChanges {
         let singleMode = true;
 
         for (let j = 0; j < accContent.length; j++) {
-            let realHeight = accContent[j].offsetHeight;
-            accContent[j].setAttribute("data-height", realHeight + "px");
             accContent[j].style.height = 0;
         }
 
@@ -107,8 +101,7 @@ export class AccordionComponent implements OnInit, OnChanges {
                 evt.target.classList.add("active");
 
                 const element = that.element.nativeElement.querySelector(`${openedAcc}`)
-
-                element.style.height = element.getAttribute("data-height");
+                element.style.height = `${element.scrollHeight + 22}px`;
 
                 return false;
             }

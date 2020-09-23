@@ -31,62 +31,6 @@ export default [
     }),
     new CardModel({
         type: 'default',
-        title: 'Gestão de Saúde - Home',
-        button: new ButtonModel({
-            link: 'assets/documents/gestao-de-saude-Home.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Gestão de Saúde - Nossas Parcerias',
-        button: new ButtonModel({
-            link: 'assets/documents/gestao-de-saude-Nossas-Parcerias.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Gestão de Saúde - Programas Empresariais',
-        button: new ButtonModel({
-            link: 'assets/documents/gestao-de-saude-Programas-Empresariais.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Gestão de Saúde - Programas Preventivos',
-        button: new ButtonModel({
-            link: 'assets/documents/gestao-de-saude-Programas-Preventivos.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Gestão de Saúde - Serviços Online',
-        button: new ButtonModel({
-            link: 'assets/documents/gestao-de-saude-Servicos-Online.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Master International - Características',
-        button: new ButtonModel({
-            link: 'assets/documents/master-international-Caracteristicas.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Master International - Home',
-        button: new ButtonModel({
-            link: 'assets/documents/master-international-Home.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Master International - Quem Somos',
-        button: new ButtonModel({
-            link: 'assets/documents/master-international-Quem-Somos.png',
-        })
-    }),
-    new CardModel({
-        type: 'default',
         title: 'Mental Health',
         button: new ButtonModel({
             link: 'assets/documents/mental-health.pdf',

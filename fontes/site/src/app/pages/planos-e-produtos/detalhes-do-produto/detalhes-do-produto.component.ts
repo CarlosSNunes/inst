@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WindowRef } from 'src/utils/window-ref';
 import { Meta, Title } from '@angular/platform-browser';
@@ -9,7 +9,7 @@ import { plansMock } from './data/plans-mock';
     templateUrl: './detalhes-do-produto.component.html',
     styleUrls: ['./detalhes-do-produto.component.scss']
 })
-export class DetalhesDoProdutoComponent implements OnInit {
+export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     id: string = '';
     ids = plansMock;
     selectedOptionId: number = 1;
@@ -40,6 +40,25 @@ export class DetalhesDoProdutoComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    ngAfterViewInit() {
+        this.activatedRoute.fragment.subscribe(fragment => {
+            switch (fragment) {
+                case 'planos-de-saude':
+                    setTimeout(() => {
+                        this.goToSection('#products', 1)
+                    }, 300);
+                    break;
+                case 'planos-odontologicos':
+                    setTimeout(() => {
+                        this.goToSection('#products', 2)
+                    }, 300);
+                    break
+                default:
+                    break;
+            }
+        })
     }
 
     goToSection(anchor: string, selectedOptionId?: number) {

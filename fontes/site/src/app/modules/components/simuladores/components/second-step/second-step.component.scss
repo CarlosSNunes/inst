@@ -31,7 +31,7 @@
                     position: absolute;
                     width: 100px;
                     height: 100px;
-                    background-color: getColor(_carePlus, _light-green);
+                    background-color: getColor(_bupa, _teal);
                     right: 0;
                     top: 0;
                     z-index: 0;
@@ -42,7 +42,7 @@
                     position: absolute;
                     width: 100px;
                     height: 100px;
-                    background-color: getColor(_carePlus, _green);
+                    background-color: getColor(_bupa, _grey-5);
                     left: 30%;
                     bottom: 0;
                     z-index: 0;
@@ -79,6 +79,7 @@
             .field .control {
                 margin-top: 20px;
                 label.checkbox-label {
+                    text-transform: unset !important;
                     color: getColor(_bupa, _white);
                     text-transform: uppercase;
                     &:before {
