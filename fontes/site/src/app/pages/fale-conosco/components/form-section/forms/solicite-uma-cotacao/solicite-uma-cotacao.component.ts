@@ -32,10 +32,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             value: 'careplus-empresarial'
         })
     ];
-    defaultItem = new DropDownItem({
-        title: 'Selecione...',
-        value: ''
-    });
+    selectedPlan: string = '';
     soliciteUmaCotacaoForm: FormGroup;
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
@@ -149,10 +146,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     }
 
     private fillForm(params) {
-        this.defaultItem = new DropDownItem({
-            title: 'Selecione...',
-            value: ''
-        });
         let fields = { ...params }
         fields.planoOdontologico = (fields.planoOdontologico == 'true') ? 1 : 0;
         fields.medicinaOcupacional = (fields.medicinaOcupacional == 'true') ? 1 : 0;
@@ -160,7 +153,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         this.faleConoscoAutoFiels = new FaleConoscoAutoFields(fields);
         const item = this.dropDownItems.find(item => item.value === params.plano)
         if (item) {
-            this.defaultItem = item;
+            this.selectedPlan = item.title;
             this.soliciteUmaCotacaoForm.controls.plano.setValue(item.title);
             this.cdr.detectChanges();
         }
@@ -189,8 +182,9 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
     updateFormValidation() {
         if (this.soliciteUmaCotacaoForm.value.planoSaude || this.soliciteUmaCotacaoForm.value.planoOdontologico && !this.changed) {
-            if (this.defaultItem.value != '') {
-                this.soliciteUmaCotacaoForm.controls.plano.setValue(this.defaultItem.value)
+            if (this.selectedPlan != '') {
+                console.log(this.selectedPlan)
+                this.soliciteUmaCotacaoForm.controls.plano.setValue(this.selectedPlan)
             } else {
                 this.soliciteUmaCotacaoForm.controls.plano.setValue('')
             }
