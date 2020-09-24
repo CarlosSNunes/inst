@@ -191,6 +191,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             this.soliciteUmaCotacaoForm.controls.plano.updateValueAndValidity();
 
         } else {
+            this.selectedPlan = '';
             this.soliciteUmaCotacaoForm.controls.plano.setValue('');
             this.soliciteUmaCotacaoForm.controls.plano.setValidators(null);
             this.soliciteUmaCotacaoForm.controls.plano.updateValueAndValidity();

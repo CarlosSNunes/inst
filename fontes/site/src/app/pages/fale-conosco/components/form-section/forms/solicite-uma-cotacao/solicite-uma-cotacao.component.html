@@ -75,7 +75,7 @@
             <div class="field">
                 <div class="control">
                     <div class="select">
-                        <select id="00N5x00000Ef2Ev" name="00N5x00000Ef2Ev" title="Porte" formControlName="plano" [ngClass]="{ 'is-valid': !form.plano.errors, 'is-invalid' : form.plano.dirty && form.plano.errors, 'is-touched': form.plano.value.length > 0 }">
+                        <select id="00N5x00000Ef2Ev" name="00N5x00000Ef2Ev" title="Porte" formControlName="plano" [ngClass]="{ 'is-valid': !form.plano.errors, 'is-invalid' : form.plano.dirty && form.plano.errors, 'is-touched': form.plano.value.length > 0 }" (change)="selectedPlan = $event.target.value">
                             <option [value]="''">Selecione...</option>
                             <option value="2 a 29 vidas - Soho">2 a 29 vidas - Care Plus Soho</option>
                             <option value="30 a 200 vidas - Clube Care Plus">30 a 200 vidas - Clube Care Plus</option>
