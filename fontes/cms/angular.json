@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss",
               "node_modules/@ckeditor/ckeditor5-theme-lark/theme/ckeditor5-editor-classic/classiceditor.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -106,6 +108,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss",
               "node_modules/@ckeditor/ckeditor5-theme-lark/theme/ckeditor5-editor-classic/classiceditor.css"
             ],
@@ -145,5 +149,8 @@
       }
     }
   },
-  "defaultProject": "Care-plus"
+  "defaultProject": "Care-plus",
+  "cli": {
+    "analytics": "18a31c5b-7edd-4df6-beac-d1ac8f699fe7"
+  }
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BannerModel } from 'src/models/banner/banner.model';
 import { BannerService } from './banner.service';
-import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone} from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent implements OnInit {
+  @Input() bannerAtivo: boolean;
   banners: BannerModel[] = [];
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
@@ -28,27 +29,30 @@ export class BannerComponent implements OnInit {
   constructor(
     private bannerService: BannerService,
     private router: Router
-   
+
   ) { }
 
   ngOnInit() {
+
+
     this.getBanners();
+    console.log(this.banner.ativo)
+
   }
 
   openBannerDelete(banner: BannerModel) {
     this.banner = banner;
     this.showBannerDelete = true;
-  } 
+  }
 
   getBanners() {
+
     this.showBannerDelete = false;
     this.bannerService
       .getAll()
       .subscribe(banners => {
         this.loaded = true;
         this.banners = banners;
-
-        
       },
         error => {
           this.loaded = true;

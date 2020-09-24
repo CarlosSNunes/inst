@@ -9,7 +9,13 @@ import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-men
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
+const ngWizardConfig: NgWizardConfig = {
+  theme: THEME.circles,
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +27,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     NeocmsHeaderModule,
     NeocmsFooterModule,
     NeocmsMenuLateralModule,
-    ErrorHandlerModule
+    ErrorHandlerModule,
+    NgWizardModule.forRoot(ngWizardConfig),
+    BrowserAnimationsModule,
+    PaginationModule.forRoot()
   ],
   providers: [
     {

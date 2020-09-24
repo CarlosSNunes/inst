@@ -1,0 +1,97 @@
+img.arrow-return {
+  width   : 35px;
+  position: absolute;
+  left    : 15px;
+  top     : 0px;
+}
+
+h4.card-title {
+  padding    : 2px 0px 0px 40px;
+  font-weight: 600;
+}
+
+div.card.card-bg {
+  background-color: #f9f9f9;
+}
+
+
+.media-upload-box {
+  width          : 500px;
+  height         : 200px;
+  background     : #ffffff;
+  align-items    : center;
+  display        : flex;
+  flex-direction : row;
+  flex-wrap      : wrap;
+  justify-content: center;
+}
+
+img.icon-upload {
+  width: 30px;
+}
+
+span.label-dimension {
+  position   : relative;
+  font-weight: 700;
+  display    : flex;
+  width      : 100%;
+}
+
+ngx-dropzone {
+  border         : 0px !important;
+  width          : 100% !important;
+  height         : auto !important;
+  justify-content: center !important;
+}
+
+ngx-dropzone-label {
+  color      : #6b6b6b !important;
+  position   : relative;
+  bottom     : auto;
+  font-size  : 10px;
+  font-family: math;
+  font-weight: bold;
+}
+
+ngx-dropzone-label#labelDrop {
+  position: absolute;
+  bottom  : -27px;
+  width   : max-content;
+}
+
+div.box-upload {
+  margin: 30px 0px;
+}
+
+.custom-file-input {
+  position: relative;
+  z-index : 2;
+  width   : 100%;
+  height  : calc(1.5em + .75rem + 2px);
+  margin  : 0;
+  opacity : 0;
+  cursor  : pointer;
+  border  : 1px solid #343a40;
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after {
+  content         : "Procurar";
+  cursor          : pointer !important;
+  color           : #fff;
+  background-color: #343a40;
+  border          : 1px solid #343a40;
+  outline         : #343a40;
+}
+
+::ng-deep {
+  img-cropper{
+    content         : "" !important;
+
+  }
+  canvas.canvas-style {
+    background-color: white !important;
+  }
+
+
+}
+

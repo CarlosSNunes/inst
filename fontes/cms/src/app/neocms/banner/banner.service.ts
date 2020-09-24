@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ClassHelper } from 'src/utils/class-helper';
 import { BannerModel } from 'src/models/banner/banner.model';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';

@@ -1,74 +1,64 @@
 <div class="card">
-    <A href="#TABELA"></A>
-    <div class="card-content">
-        <div class="content">
-            <section class="hero is-dark is-small">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Banners
-                        </h1>
-                    </div>
-                </div>
-            </section>
-            <table id="bannerTable" class="table">
-                <thead>
-                    <tr>
-                        <th class="text-center"  id="">Imagem</th>
-                        <th class="text-center" id="">Título</th>
-                        <th class="text-center" id="">Status</th>
-                        <th class="text-center" id="">Tempo de Exibição</th>
-                        <th class="text-center" id="">Ação</th>
-                    </tr>
-                </thead>
-                <tbody class="tbody-custom pt-5">
-                    <tr>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title">Banners</h1>
+                <a routerLink="/neocms/banner/create" routerLinkActive="active" class="badge badge-dark shadow p-3">
+                    Adicionar Banner
+                </a>
+                <table id="bannerTable" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Imagem</th>
+                            <th scope="col" class="text-center">Título</th>
+                            <th scope="col" class="text-center">Ativo</th>
+                            <th scope="col" class="text-center">Tempo de Exibição</th>
+                            <th scope="col" class="text-center">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <td *ngIf="banners.length == 0 && !loaded" colspan="6">
                             <progress class="progress is-large is-info" max="100">60%</progress>
                         </td>
                         <td class="has-text-centered" *ngIf="banners.length == 0 && loaded" colspan="6">
                             Não há banners cadastrados
                         </td>
-                    </tr>
-                    <tr *ngFor="let banner of banners" class="table-cell text-center">
-                        <td class="hidden">{{banner.id}}</td>                        
-                        <td class="py-3 align-middle text-center"><img src="{{banner.caminhoDesktop + pathDivision + banner.nomeImagemDesktop}}" [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem"></td>
-                        <td class="py-3 align-middle text-lefth">{{banner.titulo}}</td>
-                        <td class="py-3 align-middle text-center" *ngIf="banner.ativo != false">
-                            <button type="button" class="button is-info is-small w-25 shadow rounded">
-                                Ativado
-                            </button>
-                        </td>
-                        <td class="py-3 align-middle text-center" *ngIf="banner.ativo != true">
-                            <button type="button" class="button is-info is-small w-25 shadow rounded">
-                                Desativado
-                            </button>
-                        </td>
-                        <td class="py-3 align-middle text-center">
-                            <button type="button" class="button is-info is-small w-25 shadow rounded"> 
-                                {{banner.tempoExibicao}} segundos
-                            </button>
-                        </td>
-                        <td class="py-3 align-middle text-center">
-                            <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active ">
-                                <fa-icon [icon]="faPencilAlt"></fa-icon>
-                            </a>
-                            &nbsp;
-                            <a (click)="openBannerDelete(banner) ">
-                                <fa-icon [icon]="faTrash"></fa-icon>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        <tr *ngFor="let banner of banners" class="table-cell text-center">
+                            <td class="hidden">{{banner.id}}</td>
+                            <td class="">
+                                <img class="thumbnail-banner"
+                                    src="{{banner.caminhoDesktop + pathDivision + banner.nomeImagemDesktop}}">
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                {{banner.titulo}}
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                <div class="custom-control custom-switch">
+
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1"
+                                        [ngModel]="banner.ativo">
+                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                </div>
+                            </td>
+
+                            <td class="py-3 align-middle text-center">
+                                <span class="badge badge-dark shadow p-2">{{banner.tempoExibicao}} segundos</span>
+                            </td>
+
+                            <td class="py-3 align-middle text-center">
+                                <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active ">
+                                    <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
+                                </a>
+                                &nbsp;
+                                <a (click)="openBannerDelete(banner) ">
+                                    <fa-icon class="icon-action" [icon]="faTrash"></fa-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <footer class="card-footer">
-        <a routerLink="/neocms/banner/create" routerLinkActive="active" class="card-footer-item">
-            Criar novo banner &nbsp;
-            <fa-icon [icon]="faPlus"></fa-icon>
-        </a>
-    </footer>
 </div>
-
 <app-banner-delete *ngIf="showBannerDelete" [banner]="banner" (onClose)="getBanners()"></app-banner-delete>
