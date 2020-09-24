@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-@import "~src/scss/_animations";
 
 section {
     background-size: cover;
@@ -29,10 +28,9 @@ section {
 
         .mouse-image {
             position: absolute;
-            bottom: 0;
+            bottom: 10px;
             left: 32px;
             cursor: pointer;
-            @include animatedBounce();
         }
     }
 }

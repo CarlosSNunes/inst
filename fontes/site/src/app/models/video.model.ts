@@ -5,6 +5,7 @@ export class VideoModel {
 
     url: string;
     type: string;
+    poster: string;
     subtitles?: SubtitleModel[];
 }
 

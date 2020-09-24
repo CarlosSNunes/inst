@@ -12,19 +12,19 @@ import { animate, AnimationEvent, state, style, transition, trigger } from '@ang
     animations: [
         trigger('slider', [
             state('enterAnimation', style({
-                transform: 'translateX(0%)',
+                left: '0',
             })),
             transition('* => enterAnimation', [
                 animate('0.3s')
             ]),
             state('initialState', style({
-                transform: 'translateX(100%)',
+                left: '100vw',
             })),
             state('default', style({
-                transform: 'translateX(0%)',
+                left: '0',
             })),
             state('leaveAnimation', style({
-                transform: 'translateX(-100%)',
+                left: '-100vw',
             })),
             transition('* => leaveAnimation', [
                 animate('0.3s')

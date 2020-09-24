@@ -25,7 +25,7 @@
         <vg-fullscreen></vg-fullscreen>
     </vg-controls>
 
-    <video [vgMedia]="media" #media id="single-video" preload="auto" crossorigin allowfullscreen playsinline muted poster="assets/img/video-teste-background.png">
+    <video [vgMedia]="media" #media id="single-video" preload="auto" crossorigin allowfullscreen playsinline muted [poster]="heroBannerModel?.video?.poster">
         <source [attr.src]="heroBannerModel?.video?.url" [attr.type]="heroBannerModel?.video?.type">
 
         <track *ngFor="let subtitle of heroBannerModel?.video?.subtitles" kind="subtitles" [attr.label]="subtitle.label"
