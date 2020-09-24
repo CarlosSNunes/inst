@@ -4,7 +4,8 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
     video: new VideoModel(
         {
             url: 'assets/videos/video-teste.mp4',
-            type: 'video/mp4'
+            type: 'video/mp4',
+            poster: 'assets/img/video-teste-background.jpg'
         }
     ),
     breadcrumbs: [

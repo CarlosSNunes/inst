@@ -1,4 +1,3 @@
-@import "~src/scss/_animations.scss";
 @import "~src/scss/_variables.scss";
 @import "~src/scss/_mixins.scss";
 .vg-player {
@@ -111,7 +110,6 @@
         z-index: 202;
         pointer-events: visible;
         cursor: pointer;
-        @include animatedBounce();
     }
 }
 
