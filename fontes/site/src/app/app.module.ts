@@ -17,6 +17,8 @@ import { GestureConfig } from '@angular/material';
 import { ModalModule } from './modules/components/modal/modal.module';
 import { SimuladoresModule } from './modules/components/simuladores/simuladores.module';
 import { CookieNoticeModule } from './modules/components/cookie-notice/cookie-notice.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 @NgModule({
@@ -34,7 +36,8 @@ registerLocaleData(localePt, 'pt', localePtExtra);
         NotificationModule,
         ModalModule,
         SimuladoresModule,
-        CookieNoticeModule
+        CookieNoticeModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },

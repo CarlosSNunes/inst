@@ -18,7 +18,7 @@ export const bannersMock = [
     }),
     new BannerModel({
         caminhoImagem:
-            'assets/img/Benner_Diferenciais_Humanização.png',
+            'assets/img/Benner_Diferenciais_Humanizacao.png',
         titulo: 'Cuidado, carinho e tratamento humanizado são a nossa marca',
         descricao: 'O lado humano é nossa maior marca. Dedicamos os nossos esforços para que todos tenham uma vida mais saudável e feliz',
         tempo: 5000
