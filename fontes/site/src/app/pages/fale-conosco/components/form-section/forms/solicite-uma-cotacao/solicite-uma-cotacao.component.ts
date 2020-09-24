@@ -37,7 +37,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
     formValueChangesSubscription: Subscription;
-    changed: boolean = false;
     retURL: string = `${environment.SELF_URL}obrigado`;
 
     constructor(
@@ -172,7 +171,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             // this.modalService.openModal(modal)
         } else {
             event.preventDefault();
-            console.log(this.soliciteUmaCotacaoForm.value)
             Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
             });
@@ -181,9 +179,8 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     }
 
     updateFormValidation() {
-        if (this.soliciteUmaCotacaoForm.value.planoSaude || this.soliciteUmaCotacaoForm.value.planoOdontologico && !this.changed) {
+        if (this.soliciteUmaCotacaoForm.value.planoSaude || this.soliciteUmaCotacaoForm.value.planoOdontologico) {
             if (this.selectedPlan != '') {
-                console.log(this.selectedPlan)
                 this.soliciteUmaCotacaoForm.controls.plano.setValue(this.selectedPlan)
             } else {
                 this.soliciteUmaCotacaoForm.controls.plano.setValue('')
