@@ -25,7 +25,8 @@
                         "aot": false,
                         "assets": [
                             "src/careplus-bupa.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/web.config"
                         ],
                         "styles": [
                             "src/styles.scss",
