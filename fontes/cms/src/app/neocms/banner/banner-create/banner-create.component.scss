@@ -91,7 +91,27 @@ div.box-upload {
   canvas.canvas-style {
     background-color: white !important;
   }
+  input[type="file"] {
+    content         : "" !important;
+    position: relative !important;
+    width: 500px !important;
+    background: silver !important;
+    color: #343a40 !important;
+    margin: 12px 0px !important;
+  }
+  
+  input[type="file"]::after  {
+    content         : "" !important;
+    color: #343a40 !important;
+  }
 
+  input[type="file"]::placeholder{
+    display: none;
+  }
+ 
+  input[type="file"]::content  {
+    color: #343a40 !important
+  }
 
 }
 

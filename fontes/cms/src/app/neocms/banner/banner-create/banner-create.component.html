@@ -21,44 +21,19 @@
                                     <img-cropper (change)="fileChangeListenerDesktop($event)" [image]="data"
                                         [settings]="cropperSettings">
                                     </img-cropper>
-
-
-
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span></span> 
-                                        </div>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                                aria-describedby="inputGroupFileAddon01" formControlName="arquivo">
-                                            <label class="custom-file-label" for="inputGroupFile01">Escolher
-                                                Banner</label>
-                                        </div>
+                                    <div *ngIf="submitted" class="errors">
+                                        <p *ngFor="let error of
+                                            getErrors(f.image)" class="help
+                                            is-danger">
+                                            {{error}}
+                                        </p>
                                     </div>
 
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-12 w-100 my-3">
-                            <div class="card shadow">
-                                <div class="card-body text-left">
-                                    <h6>Informações</h6>
-                                    <div *ngIf="bannerDesktopFile">
-
-                                        <p class="bold">Nome do Arquivo:</p>
-                                        <p class="text-truncate">{{ bannerDesktopFile.name }}</p>
-
-                                        <p>Tamanho do Arquivo:</p>
-                                        <p>{{ bannerDesktopFile.name }}</p>
-
-                                        <p>Nome do Arquivo</p>
-                                        <p>{{ bannerDesktopFile.name }}</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="shadow text-center my-5 p-3">
                         <img-cropper (change)="fileChangeListenerMobile($event)" [image]="data"
                             [settings]="cropperSettings">

@@ -80,7 +80,7 @@ export class BannerCreateComponent implements OnInit {
     this.cropperSettings.croppedWidth = 1920;
     this.cropperSettings.croppedHeight = 720;
 
-    this.cropperSettings.noFileInput = true;
+    this.cropperSettings.noFileInput = false;
 
     this.cropperSettings.cropperClass = 'canvas-style'
 
@@ -88,6 +88,7 @@ export class BannerCreateComponent implements OnInit {
   
     this.data = {};
   }
+  
   createForm() {
     this.bannerForm = this.fb.group({
       nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
