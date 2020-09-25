@@ -30,6 +30,7 @@
     "ckeditor5-simple-upload": "^1.0.7",
     "component": "^1.1.0",
     "file-server": "^2.1.0",
+    "ngx-bootstrap": "^5.6.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "xlsx": "^0.16.3",

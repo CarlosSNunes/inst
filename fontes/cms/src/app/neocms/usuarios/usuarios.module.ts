@@ -7,17 +7,14 @@ import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
 import { UsuariosComponent } from './usuarios.component';
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { UsuarioService } from './usuario.service';
-import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
-import { UsuarioDeleteComponent } from './usuario-delete/usuario-delete.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
-
+import { ButtonsModule } from "ngx-bootstrap/buttons";
+import { PopoverModule } from "ngx-bootstrap/popover";
 
 
 @NgModule({
   declarations: [
    UsuariosComponent,
-   UsuarioCreateComponent,
-   UsuarioDeleteComponent,
    UsuarioEditComponent
   ],
   imports: [
@@ -25,7 +22,9 @@ import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
+    ButtonsModule.forRoot(),
+    PopoverModule.forRoot()
   ],
   providers: [
     UsuarioService,

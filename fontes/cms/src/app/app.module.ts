@@ -9,6 +9,9 @@ import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-men
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { ButtonsModule } from "ngx-bootstrap/buttons";
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     NeocmsFooterModule,
     NeocmsMenuLateralModule,
     ErrorHandlerModule,
-    HttpClientModule
+    HttpClientModule,
+    TooltipModule.forRoot(),
+    PopoverModule.forRoot(),
+    ButtonsModule.forRoot()
   ],
   providers: [
     {

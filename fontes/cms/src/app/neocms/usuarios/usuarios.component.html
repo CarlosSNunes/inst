@@ -1,30 +1,26 @@
 <div class="content">
     <div class="row">
         <div class="col-md-12">
-            <div>
+            <!-- <div>
                 <span class="title">
                     <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
                      Configuração
                 </span>
-            </div>
-            <div class="">
+            </div> -->
+            <div class="marging-box">
                 
                 <div class="header">
-                    <h4 class="title">Administrar usuários do site</h4>
+                    <h5 class="title">Administrar usuários do site</h5>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
-                        <!-- <thead class="bg-light">
-                            <tr>
-                                <th>Id</th>
-                                <th class="w-25">Nome</th>
-                                <th class="w-25">E-mail</th>
-                                <th>Perfil</th>
-                                <th>Ação</th>
-                            </tr>
-                        </thead> -->
                         <tbody>
-                            <tr *ngFor="let user of usuarios">
+                            <tr>
+                                <td class="has-text-centered" *ngIf="usuariosAtivos.length == 0" colspan="4">
+                                    Não há usuarios ativos cadastrados
+                                </td>
+                            </tr>
+                            <tr *ngFor="let user of usuariosAtivos">
                                 <td>
                                     {{user.id}}
                                 </td>
@@ -33,86 +29,62 @@
                                     {{user.email}}
                                 </td>
                                 <td>
-                                    <span *ngFor="let perfil of user.usuarioPerfil" class="badge badge-primary mx-1">
-                                        {{perfil.descricao}}
+                                    <span class="badge badge-success mx-2">
+                                        Ativo
+                                        <!-- {{user.status}} -->
                                     </span>
                                 </td>
                                 <td>
-                                    <a [routerLink]="['./', user.id]" routerLinkActive="active">
+                                    <span class="badge badge-primary mx-1" *ngIf="user.usuarioPerfil.length > 0">
+                                        {{user.usuarioPerfil[0].descricao}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a [routerLink]="['./', user.id]" routerLinkActive="active" >
                                         <fa-icon [icon]="faPencilAlt"></fa-icon>
-                                    </a>
-                                    &nbsp;
-                                    <a (click)="openUsuarioDelete(user)">
-                                        <fa-icon [icon]="faTrash"></fa-icon>
                                     </a>
                                 </td>
                             </tr>
-
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="marging-box">
+                <div class="header">
+                    <h5 class="title">Usuários pendentes de aprovação</h5>
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <tbody>
+                            <tr>
+                                <td class="has-text-centered" *ngIf="usuariosPendentes.length == 0" colspan="4">
+                                    Não há usuarios pendentes cadastrados
+                                </td>
+                            </tr>
+                            <tr *ngFor="let user of usuariosPendentes" style="margin-bottom: 1px;">
+                                <td>
+                                    {{user.id}}
+                                </td>
+                                <td>{{user.nome}}</td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm"> Ativar </button>
+                                </td>
+                                <td>
+                                    <span class="badge badge-primary mx-1">
+                                        último pedido solicitado: 23/09/2020
+                                    </span>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- <section class="hero is-dark is-small">
-                <div class="hero-body">
-                    <div class="container">
-                        <h5 class="title">
-                            Administrar usuários
-                        </h5>
-                    </div>
-                </div>
-            </section>
-            <table id="usuarioTable" class="table">
-                <caption></caption>
-                <thead>
-                    <tr>
-                        <th id="">Id</th>
-                        <th id="">Nome</th>
-                        <th id="">E-mail</th>
-                        <th id="">Perfil</th>
-                        <th id="">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td *ngIf="usuarios.length == 0 && !loaded" colspan="4">
-                            <progress class="progress is-large is-info" max="100">60%</progress>
-                        </td>
-                        <td class="has-text-centered" *ngIf="usuarios.length == 0 && loaded" colspan="4">
-                            Não há usuários cadastrados
-                        </td>
-                    </tr>
-                    <tr *ngFor="let user of usuarios">
-                        <td>{{user.id}}</td>
-                        <td>{{user.nome}}</td>
-                        <td>{{user.email}}</td>
-                        <td><span *ngFor="let perfil of user.usuarioPerfil" style="margin-left: 2px;">{{perfil.descricao}}</span></td>
-                        <td>
-                            <a [routerLink]="['./', user.id]" routerLinkActive="active">
-                                <fa-icon [icon]="faPencilAlt"></fa-icon>
-                            </a>
-                            &nbsp;
-                            <a (click)="openUsuarioDelete(user)">
-                                <fa-icon [icon]="faTrash"></fa-icon>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table> -->
-</div>
-
-<div >
-    <a routerLink="/neocms/usuarios/create" routerLinkActive="active" class="btn btn-primary">
-        <fa-icon [icon]="faPlus"></fa-icon>
-        Adicionar usuário
-    </a>
-    <!-- <a routerLink="/neocms/usuarios/create" routerLinkActive="active" class="card-footer-item">
-            Criar novo usuário &nbsp;
-            <fa-icon [icon]="faPlus"></fa-icon>
-        </a> -->
 </div>
 
 
-<!-- <app-cliente-delete *ngIf="showUsuaarioDelete" [cliente]="cliente" (onClose)="getUsuarios()"></app-cliente-delete> -->
+

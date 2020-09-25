@@ -9,7 +9,8 @@ import { UsuarioService } from './usuario.service';
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit {
-  usuarios: UsuarioModel[] = [];
+  usuariosAtivos: UsuarioModel[] = [];
+  usuariosPendentes: UsuarioModel[] = [];
   faArrowAltCircleLeft = faArrowAltCircleLeft;
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
@@ -33,15 +34,11 @@ export class UsuariosComponent implements OnInit {
       .getAll()
       .subscribe(result => {
         this.loaded = true;
-        this.usuarios = result;
+        this.usuariosAtivos = result;
+        this.usuariosPendentes = result.filter(x => x.usuarioPerfil.length == 0);
       },
         error => {
           this.loaded = true;
         });
-  }
-
-  openUsuarioDelete(usuario: UsuarioModel) {
-    this.usuario = usuario;
-    this.showUsuarioDelete = true;
   }
 }

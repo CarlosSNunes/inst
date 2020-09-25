@@ -6,6 +6,6 @@ export class UsuarioModel {
     id: number;
     nome: string;
     email: string;
-    usuarioPerfil: string[];
+    usuarioPerfil: any[];
     ultimoLogin: Date;
 }

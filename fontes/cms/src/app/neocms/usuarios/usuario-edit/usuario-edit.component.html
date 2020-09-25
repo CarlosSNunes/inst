@@ -1,75 +1,79 @@
 <div>
     <span class="title">
-        <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
-         Configuração
+        <fa-icon [icon]="faArrowCircleLeft" routerLink="/neocms/usuarios" routerLinkActive="active"></fa-icon>
+        Configuração
     </span>
+    <div style="display: inline-block; float:right;" >
+        <button type="button" class="btn btn-primary" style="margin-left: 10px;">
+            Desativar
+          </button>
+          <button type="button" class="btn btn-primary" style="margin-left: 15px;" (click)="salvarAlteracoes()">
+            Salvar alterações
+          </button>
+         
+    </div>
+    
+    
 </div>
-<section class="hero is-dark is-small">
-    <div class="hero-body">
-        <div class="container">
-            <h5 class="title">
-                Editar permissões de usuário
-            </h5>
-        </div>
+<section class="margin-title">
+    <div class="container">
+        <h5 class="title">
+            Editar permissões de usuário
+        </h5>
     </div>
 </section>
-<form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
-    <div class="card">
-        <div class="card-content">
-            <div class="field">
-                <label class="label">Nome</label>
-                <div class="control">
-                    <input formControlName="nome" class="input" type="text" placeholder=""
-                        [ngClass]="{ 'is-success': submitted && !f.nome.errors, 'is-danger' : submitted && f.nome.errors }">
-                </div>
-                <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Status</label>
-                <div class="control">
-                    <input formControlName="status" class="input" type="text" placeholder=""
-                        [ngClass]="{ 'is-success': submitted && !f.status.errors, 'is-danger' : submitted && f.status.errors }">
-                </div>
-                <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.status)" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Perfil</label>
-                <div class="control">
-                    <input formControlName="perfil" class="input" type="text" placeholder=""
-                        [ngClass]="{ 'is-success': submitted && !f.perfil.errors, 'is-danger' : submitted && f.perfil.errors }">
-                </div>
-                <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.perfil)" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
-
+    <div class="content">
+        <div class="marging-box">
+            <label class="switch" >
+                <input type="checkbox" id="checkVisualizador" (change)="eventCheck($event.target)">
+                <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Visualizador</span>
+            <span class="info-icon">
+                <fa-icon [icon]="faInfoCircle" 
+                popover="Perfil de Visualizador tem acesso apenas a visualizar dados da aplicação."
+                popoverTitle="Perfil de Visualizador"
+                placement="right" ></fa-icon>
+            </span>
         </div>
-
-        <footer class="card-footer">
-            <p class="card-footer-item">
-                <button routerLink="/neocms/usuarios" routerLinkActive="active" class="button is-light" type="button">
-                    Fechar &nbsp;
-                    <fa-icon [icon]="faTimes"></fa-icon>
-                </button>
-            </p>
-            <p class="card-footer-item">
-                <button class="button is-primary" type="submit" [ngClass]="{'is-loading': btnSubmitDisable}">
-                    Salvar &nbsp;
-                    <fa-icon [icon]="faCheck"></fa-icon>
-                </button>
-            </p>
-        </footer>
+        <div class="marging-box">
+            <label class="switch">
+                <input type="checkbox" id="checkEditor" (change)="eventCheck($event.target)">
+                <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Editor</span>
+            <span class="info-icon">
+                <fa-icon [icon]="faInfoCircle" 
+                popover="Perfil de Editor tem acesso a visualizar e editar dados da aplicação."
+                popoverTitle="Perfil de Editor"
+                placement="right" ></fa-icon>
+            </span>
+        </div>
+        <div class="marging-box">
+            <label class="switch">
+                <input type="checkbox" id="checkColaborador" (change)="eventCheck($event.target)">
+                <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Colaborador</span>
+            <span class="info-icon">
+                <fa-icon [icon]="faInfoCircle" 
+                popover="Perfil de Colaborador tem acesso a funcionalidades especificas da aplicação."
+                popoverTitle="Perfil de Colaborador"
+                placement="right" ></fa-icon>
+            </span>
+        </div>
+       
+        <div class="marging-box">
+            <label class="switch">
+                <input type="checkbox" id="checkAdministrador" (change)="eventCheck($event.target)" value="Administrador">
+                <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Administrador</span>
+            <span class="info-icon">
+                <fa-icon [icon]="faInfoCircle" 
+                popover="Perfil de Administrador tem acesso completo a aplicação."
+                popoverTitle="Perfil de Administrador"
+                placement="right" ></fa-icon>
+            </span>
+        </div>
     </div>
-</form>

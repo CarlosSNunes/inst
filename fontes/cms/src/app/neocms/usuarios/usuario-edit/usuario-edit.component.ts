@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faCheck, faPlus, faTimes,faArrowAltCircleLeft, faArrowCircleLeft, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faTimes, faArrowCircleLeft,faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 import { UsuarioModel } from 'src/models/usuario/usuario.model';
 import { FormControlError } from 'src/utils/form-control-error';
 import { UsuarioService } from '../usuario.service';
+
 
 @Component({
   selector: 'app-usuario-edit',
@@ -17,16 +18,17 @@ export class UsuarioEditComponent implements OnInit {
   usuarioForm;
   faTimes = faTimes;
   faCheck = faCheck;
-  faArrowAltCircleLeft = faArrowAltCircleLeft;
   faArrowCircleLeft = faArrowCircleLeft;
-  faArrowLeft = faArrowLeft;
-  faPlus = faPlus;
-  arquivoNome = 'Selecione um arquivo';
-  arquivo: File;
+  faInfoCircle = faInfoCircle;
   submitted: boolean;
   usuarioAuth: UserAuthenticateModel;
   btnSubmitDisable = false;
   usuarioModel: UsuarioModel;
+
+  checkAdministrador;
+  checkVisualizador;
+  checkColaborador;
+  checkEditor;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -38,18 +40,49 @@ export class UsuarioEditComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioAuth = this.authenticateService.state;
-    this.createForm();
-    this.getCliente();
+
+    this.checkAdministrador = document.getElementById('checkAdministrador');
+
+    this.getUsuario();
   }
 
-  getCliente() {
+  getUsuario() {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.usuarioService.getById(id)
       .subscribe(usuario => {
         this.usuarioModel = usuario;
-        this.updateForm();
+        this.usuarioModel.usuarioPerfil.forEach(perfil => {
+          
+          if(perfil.descricao == 'Administrador'){
+            document.getElementById('checkAdministrador').setAttribute('checked', '');
+          }
+          if(perfil.descricao == 'Editor'){
+            document.getElementById('checkEditor').setAttribute('checked', '');
+          }
+          if(perfil.descricao == 'Visualizador'){
+            document.getElementById('checkVisualizador').setAttribute('checked', '');
+          }
+          if(perfil.descricao == 'Colaborador'){
+            document.getElementById('checkColaborador').setAttribute('checked', '');
+          }
+        });
       });
+  }
+
+  eventCheck(event){
+
+    if(event.value == 'Administrador')
+    {
+      if(event.checked == true)
+      {
+        this.usuarioModel.usuarioPerfil.push({id:'1', descricao:'Administrador'})
+      }
+      else{
+        this.usuarioModel.usuarioPerfil.pop();
+      }
+    }
+      console.log(event.checked);
   }
 
   updateForm() {
@@ -57,16 +90,7 @@ export class UsuarioEditComponent implements OnInit {
       id: [this.usuarioModel.id, [Validators.required]],
       nome: [this.usuarioModel.nome, [Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       email: [this.usuarioModel.email, [Validators.required, Validators.email, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
-      usuarioperfil: [this.usuarioModel.usuarioPerfil, [Validators.required, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
-
-    });
-  }
-
-  createForm() {
-    this.usuarioForm = this.fb.group({
-      nome: ['', [Validators.maxLength(255), Validators.required, FormControlError.noWhitespaceValidator]],
-      email: ['', [Validators.required,Validators.email, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
-      usuarioPerfil: ['', [Validators.required, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
+      usuarioPerfil: [this.usuarioModel.usuarioPerfil, [Validators.required, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
 
     });
   }
@@ -75,18 +99,13 @@ export class UsuarioEditComponent implements OnInit {
     return this.usuarioForm.controls;
   }
 
-  onSubmit() {
+  salvarAlteracoes() {
     this.submitted = true;
-    if (this.usuarioForm.valid) {
-      this.btnSubmitDisable = true;
-
-      const model = new UsuarioModel(this.usuarioForm.value);
-      this.usuarioService.put(model)
+      this.usuarioService.put(this.usuarioModel)
         .subscribe(() => {
           this.router.navigate(['/neocms/usuarios']);
         })
         .add(() => this.btnSubmitDisable = false);
-    }
   }
 
   getErrors(control: AbstractControl) {

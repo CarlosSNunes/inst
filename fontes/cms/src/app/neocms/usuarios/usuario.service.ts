@@ -27,7 +27,7 @@ export class UsuarioService {
   }
 
   put(usuario: UsuarioModel) {
-    return this.http.put(this.url, this.classHelper.jsonToFormData(usuario));
+    return this.http.put(this.url + '/' + usuario.id, JSON.stringify(usuario));
   }
 
   delete(id: number) {
