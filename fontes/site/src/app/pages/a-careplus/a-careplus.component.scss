@@ -250,7 +250,12 @@ section {
                 }
                 .columns {
                     &.our-numbers {
-                        margin-top: 30px;
+                        margin-top: 80px;
+
+                        &.animate {
+                            margin-top: 30px;
+                        }
+
                         .column {
                             .description {
                                 margin-top: 16px;
@@ -258,7 +263,12 @@ section {
                         }
                     }
                     &.infos-cols {
-                        margin-top: 30px;
+                        margin-top: 80px;
+
+                        &.animate {
+                            margin-top: 30px;
+                        }
+                        
                         .column {
                             margin-top: 20px;
                             &:first-child {

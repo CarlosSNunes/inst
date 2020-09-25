@@ -32,7 +32,7 @@
             [attr.src]="subtitle.src" [attr.srclang]="subtitle.srclang" default>
     </video>
 
-    <div class="video-content" *ngIf="!fullScreen">
+    <div class="video-content" [class.is-hidden-touch]="!heroBannerModel?.bigTitle && !heroBannerModel?.subTitle && !heroBannerModel?.button" *ngIf="!fullScreen">
         <div class="container is-breadcrumb">
             <div class="columns">
                 <div class="column is-paddingless-vertical">
