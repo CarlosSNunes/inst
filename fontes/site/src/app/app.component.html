@@ -12,4 +12,4 @@
     </svg>
 </button>
 
-<app-cookie-notice class="app-cookie-notice" (agree)="agreeCookieComponent()" [@cookieAgreeAnimation]="cookieAgree"></app-cookie-notice>
+<app-cookie-notice  class="app-cookie-notice" [class.show]="cookieAgree == 'not-agree'" (agree)="agreeCookieComponent()" [@cookieAgreeAnimation]="cookieAgree"></app-cookie-notice>
