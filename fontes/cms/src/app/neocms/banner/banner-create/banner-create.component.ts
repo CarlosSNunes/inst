@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 import { FormControlError } from 'src/utils/form-control-error';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';
 import { NgWizardConfig, THEME, StepChangedArgs, NgWizardService } from 'ng-wizard';
-import { CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
+import { Bounds, CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
 
 @Component({
   selector: 'app-banner-create',
@@ -17,8 +17,11 @@ import { CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
 
 })
 
+
 export class BannerCreateComponent implements OnInit {
 
+  canvasDesktopAtivo = false;
+  canvasMobileAtivo = false;
   bannerForm;
   faTimes = faTimes;
   faCheck = faCheck;
@@ -44,51 +47,66 @@ export class BannerCreateComponent implements OnInit {
     }
   };
 
-
   // Variáveis Cropper
-  data: any;
-  cropperSettings: CropperSettings;
-  @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
-  cropperSample: any;
+
+
+
+  @ViewChild('cropperDesktop', undefined) cropperDesktop: ImageCropperComponent;
+  @ViewChild('cropperMobile', undefined) cropperMobile: ImageCropperComponent;
+  dataDesktop: any;
+  dataMobile: any;
+  cropperSettings1: CropperSettings;
+  cropperSettings2: CropperSettings;
+
   bannerDesktopFile: File;
-  bannerDesktopJson: object = {
-    'lastModified': '',
-    'name': '',
-    'size': '',
-    'type': '',
-  };
+  bannerMobileFile: File;
 
+  nomeDaImagem: string;
 
+  
   constructor(
     private bannerService: BannerService,
     private fb: FormBuilder,
     private router: Router,
     private authenticateService: AuthenticationService,
-    private ngWizardService: NgWizardService,
+
   ) {
-    this.cropperSettings = new CropperSettings();
+    this.cropperSettings1 = new CropperSettings();
+    this.canvasMobileAtivo = true;
+    this.cropperSettings1.keepAspect = false;
+    this.cropperSettings1.canvasWidth = 500;
+    this.cropperSettings1.canvasHeight = 250;
+    this.cropperSettings1.croppedWidth = 1920;
+    this.cropperSettings1.croppedHeight = 720;
+    this.cropperSettings1.minWidth = 1920;
+    this.cropperSettings1.minHeight = 720;
+    this.cropperSettings1.width = 1920;
+    this.cropperSettings1.height = 720;
+    this.cropperSettings1.cropperDrawSettings.strokeColor = 'rgba(255,255,255,1)';
+    this.cropperSettings1.cropperDrawSettings.strokeWidth = 2;
+    this.cropperSettings1.noFileInput = true;
 
-    this.cropperSettings.canvasWidth  = 500;
-    this.cropperSettings.canvasHeight  = 200;
 
-    this.cropperSettings.width = 1920;
-    this.cropperSettings.height = 720;
+    this.cropperSettings2 = new CropperSettings();
+    this.canvasDesktopAtivo = true;
+    this.cropperSettings2.canvasWidth = 500;
+    this.cropperSettings2.canvasHeight = 250;
+    this.cropperSettings2.croppedWidth = 200;
+    this.cropperSettings2.croppedHeight = 150;
+    this.cropperSettings2.minWidth = 200;
+    this.cropperSettings2.minHeight = 150;
+    this.cropperSettings2.cropperDrawSettings.strokeColor = 'rgba(255,255,255,1)';
+    this.cropperSettings2.cropperDrawSettings.strokeWidth = 2;
+    this.cropperSettings2.width = 200;
+    this.cropperSettings2.height = 150;
+    this.cropperSettings2.noFileInput = true;
 
-    this.cropperSettings.minWidth = 1920,
-    this.cropperSettings.minHeight = 720
 
-    this.cropperSettings.croppedWidth = 1920;
-    this.cropperSettings.croppedHeight = 720;
 
-    this.cropperSettings.noFileInput = false;
-
-    this.cropperSettings.cropperClass = 'canvas-style'
-
-    this.cropperSettings.dynamicSizing = false;
-  
-    this.data = {};
+    this.dataDesktop = {};
+    this.dataMobile = {};
   }
-  
+
   createForm() {
     this.bannerForm = this.fb.group({
       nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
@@ -100,86 +118,61 @@ export class BannerCreateComponent implements OnInit {
       rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
       linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
       ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      arquivo: ['', [Validators.required]],
-      arquivoMobile: ['', [Validators.required]]
+      arquivo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+      arquivoMobile: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
     });
   }
 
 
   fileChangeListenerDesktop($event) {
-    var image: any = new Image();
-    const file: File = $event.target.files[0];
-    var myReader: FileReader = new FileReader();
-    var that = this;
-    myReader.onloadend = function (loadEvent: any) {
-      image.src = loadEvent.target.result;
-      that.cropper.setImage(image);
+    let imageDesktop: any = new Image();
+    const fileDesktop = $event.target.files[0];
+    let myReaderDesktop: FileReader = new FileReader();
+    let that = this;
+    myReaderDesktop.onloadend = function (loadEvent) {
+      imageDesktop.src = loadEvent.target.result;
+      that.cropperDesktop.setImage(imageDesktop);
     };
-    myReader.readAsDataURL(file);
-    if (file != null || file) {
-      this.bannerDesktopFile = file;
-      this.bannerDesktopJson = {
-        'lastModified': file.lastModified,
-        'name': file.name,
-        'size': file.size,
-        'type': file.type,
-      }
-      this.bannerForm['arquivo'].setValue(file);
-      this.bannerForm['nomeImagem'].setValue(file.name);
-    }
+    myReaderDesktop.readAsDataURL(fileDesktop);
+    this.bannerForm.get('arquivo').setValue(fileDesktop);
   }
 
   fileChangeListenerMobile($event) {
-    var image: any = new Image();
-    var file: File = $event.target.files[0];
-    var myReader: FileReader = new FileReader();
-    var that = this;
-    myReader.onloadend = function (loadEvent: any) {
-      image.src = loadEvent.target.result;
-      that.cropper.setImage(image);
+    let imageMobile: any = new Image();
+    const fileMobile: File = $event.target.files[0];
+    let myReaderMobile: FileReader = new FileReader();
+    let that = this;
+    myReaderMobile.onloadend = function (loadEvent) {
+      imageMobile.src = loadEvent.target.result;
+      that.cropperMobile.setImage(imageMobile);
     };
-    myReader.readAsDataURL(file);
+    myReaderMobile.readAsDataURL(fileMobile);
+    this.bannerForm.get('arquivoMobile').setValue(fileMobile);
   }
 
-  showPreviousStep(event?: Event) {
-    this.ngWizardService.previous();
+  cropped(bounds: Bounds) {
   }
-
-  showNextStep(event?: Event) {
-    this.ngWizardService.next();
-  }
-
-  resetWizard(event?: Event) {
-    this.ngWizardService.reset();
-  }
-
-  setTheme(theme: THEME) {
-    this.ngWizardService.theme(theme);
-  }
-
-  stepChanged(args: StepChangedArgs) {
-    console.log(args.step);
-  }
-
 
   ngOnInit() {
     this.usuario = this.authenticateService.state;
     this.createForm();
   }
 
-
   get f() {
     return this.bannerForm.controls;
   }
 
-
-
-
   onSubmit() {
+
+
+
     this.submitted = true;
+
+    const formData = new FormData();
+    formData.append('fileDesktop', this.bannerForm.get('arquivo').value);
+    formData.append('fileMobile', this.bannerForm.get('arquivoMobile').value);
     if (this.bannerForm.valid) {
       this.btnSubmitDisable = true;
-
       const model = new BannerCreateModel(this.bannerForm.value);
       this.bannerService.post(model)
         .subscribe(() => {
@@ -188,7 +181,6 @@ export class BannerCreateComponent implements OnInit {
         .add(() => this.btnSubmitDisable = false);
     }
   }
-
 
   changeLinkExterno(value: string, selected: boolean) {
     this.f.linkExterno.setValue(value);

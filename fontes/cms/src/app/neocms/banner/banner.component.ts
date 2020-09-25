@@ -25,7 +25,7 @@ export class BannerComponent implements OnInit {
   imagemLargura = 50;
   imagemMargem = 2;
   pathDivision: string = "/";
-
+  nomeImagemDesktop;
   constructor(
     private bannerService: BannerService,
     private router: Router
@@ -33,7 +33,6 @@ export class BannerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
 
     this.getBanners();
     console.log(this.banner.ativo)
@@ -53,6 +52,7 @@ export class BannerComponent implements OnInit {
       .subscribe(banners => {
         this.loaded = true;
         this.banners = banners;
+        
       },
         error => {
           this.loaded = true;

@@ -5,39 +5,58 @@
                 <a [routerLink]="['/neocms/banner']">
                     <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
                 </a>
+                <span class="title-banner">Upload de Banner</span>
             </div>
         </div>
-
-
-
         <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
             <div class="row">
-
                 <div class="col-md-6">
-                    <div class="row ">
+                    <div class="row">
                         <div class="col-md-12 col-lg-12 w-100 my-5">
                             <div class="card shadow">
+                                {{nomeDaImagem}}
                                 <div class="card-body text-center">
-                                    <img-cropper (change)="fileChangeListenerDesktop($event)" [image]="data"
-                                        [settings]="cropperSettings">
-                                    </img-cropper>
-                                    <div *ngIf="submitted" class="errors">
-                                        <p *ngFor="let error of
-                                            getErrors(f.image)" class="help
-                                            is-danger">
-                                            {{error}}
-                                        </p>
+                                    <h3>Imagem Grande</h3>
+                                    <small>Dimensões: 1920 x 720 px</small>
+                                    <div class="file-upload">
+                                        <input formControlName="arquivo" class="shadow" id="custom-input" type="file"
+                                            (change)="fileChangeListenerDesktop($event)"
+                                            [ngClass]="{ 'is-success': submitted && !f.arquivo.errors, 'is-danger' : submitted && f.arquivo.errors }">
+                                        <div *ngIf="submitted" class="errors">
+                                            <p *ngFor="let error of getErrors(f.arquivo)" class="help
+                                                        is-danger">
+                                                {{error}}
+                                            </p>
+                                        </div>
                                     </div>
-
+                                    <img-cropper *ngIf="canvasDesktopAtivo" #cropperDesktop [image]="dataDesktop"
+                                        [settings]="cropperSettings1"></img-cropper>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="shadow text-center my-5 p-3">
-                        <img-cropper (change)="fileChangeListenerMobile($event)" [image]="data"
-                            [settings]="cropperSettings">
-                        </img-cropper>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 w-100 my-5">
+                            <div class="card shadow">
+                                <div class="card-body text-center">
+                                    <h3>Imagem Pequena</h3>
+                                    <small>Dimensões: 200 x 150 px</small>
+                                    <div class="file-upload">
+                                        <input formControlName="arquivoMobile" class="shadow" type="file"
+                                            (change)="fileChangeListenerMobile($event)"
+                                            [ngClass]="{ 'is-success': submitted && !f.arquivoMobile.errors, 'is-danger' : submitted && f.arquivoMobile.errors }">
+                                        <div *ngIf="submitted" class="errors">
+                                            <p *ngFor="let error of getErrors(f.arquivoMobile)" class="help
+                                                    is-danger">
+                                                {{error}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <img-cropper *ngIf="canvasMobileAtivo" #cropperMobile [image]="dataMobile"
+                                        [settings]="cropperSettings2"></img-cropper>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -45,19 +64,20 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="my-input">Nome do Banner*</label>
-                                <input id="my-input" formControlName="nomeImagem" class="form-control" type="text"
-                                    placeholder="Nome do Banner" [ngClass]="{ 'is-success': submitted &&
-                                    !f.nomeImagem.errors, 'is-danger' :
-                                    submitted && f.nomeImagem.errors }">
+
+                                <input formControlName="nomeImagem" class="form-control" type="text"
+                                    placeholder="Nome do Banner"
+                                    [ngClass]="{ 'is-success': submitted && !f.nomeImagem.errors, 'is-danger' : submitted && f.nomeImagem.errors }">
+
                                 <div *ngIf="submitted" class="errors">
-                                    <p *ngFor="let error of
-                                        getErrors(f.nomeImagem)" class="help
+                                    <p *ngFor="let error of getErrors(f.nomeImagem)" class="help
                                         is-danger">
                                         {{error}}
                                     </p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-lg-6">
@@ -78,7 +98,7 @@
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="my-input">Subtítulo*</label>
+                                <label for="my-input">Subtítulo</label>
                                 <input formControlName="subtitulo" class="form-control" type="text"
                                     placeholder="Subtítulo do Banner" [ngClass]="{ 'is-success': submitted &&
                                     !f.subtitulo.errors, 'is-danger' :
@@ -219,9 +239,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </form>
     </div>
