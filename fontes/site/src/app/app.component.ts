@@ -75,6 +75,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             if (agreed == 'true') {
                 this.cookieAgree = 'agree';
             }
+
         }
 
         iconRegistry.addSvgIconLiteral(
@@ -98,6 +99,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.router.events.pipe(filter((e: Event): e is Scroll => e instanceof Scroll)).subscribe(async () => {
             const fragment = this.activatedRoute.snapshot.fragment;
             const offset = parseInt(localStorage.getItem('elementOffset'))
+            this.caninicalService.createCanonicalURL();
             if (fragment) {
                 this.cdRef.detectChanges();
                 this.windowRef.nativeWindow.scroll(0, 0)
