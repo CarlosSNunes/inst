@@ -78,7 +78,7 @@ Segue um link da documentação onde é explicado como se configura ambientes cu
 
 Para rodar o build apontando para produção com server side rendering execute o comando:
 
-Obs: O comando de build com server side rendering sempre apontará para produção, caso quera apontar para outro ambiente, um comando customizado deve ser criado no arquivo package.json em scripts.
+Obs: O comando de build com server side rendering sempre apontará para produção, caso quera apontar para outro ambiente, um comando customizado deve ser criado no arquivo package.json em scripts, como o comando `npm run build:ssr-hml` que aponta para homolog.
     
 ```
     npm run build:ssr
@@ -97,6 +97,20 @@ Outra alternativa é utilizar o pacote Pm2, com ele é possivel servir o build c
 Para rodar o build com o pm2 basta após a instalação e geração do build com server side rendering, entrar no diretório raiz do projeto do site institucional, atualmente é `/fontes/site`, e rodar o comando `pm2 start dist/server.js --name careplus-institucional`;
 
 A opção --name do pm2 é opcional, ela server para dar um nome ao processo que está sendo executado.
+
+### Variáveis de ambiente
+
+As variáveis de ambiente estão localizadas nos arquivos localizados dentro do diretório: `src/environments`, o arquivo [environment](src/environments/environment.ts) possui as configurações de desenvolvimento do projeto, o [environment.homolog](src/environments/environment.homolog.ts) possuí as configurações de homologação, e o [environment.prod](src/environments/environment.prod.ts) possui as configurações de produção.
+
+Para altera alguma variavel de ambiente do projeto basta alterar nestes arquivos.
+
+Também é possível criar novas variáveis de ambiente no arquivo [angular.json](angular.json) a estrutura de configuração é a seguir:
+
+[!Alt text](/fontes/site/docs/readme/images/application-environments.png)
+
+Na imagem acima vemos o exemplo de configuração da variavel de ambiente de homologação, para criar uma de staging por exemplo, basta adicionar uma chave chamada staging contendo um objeto a esta estrutura json ex: `staging: {objeto}`
+
+A chave fileReplacements contém array de objetos aonde você aponta qual será o arquivo a ser substituido na hora do build, no caso do homolog ele substitui o environment.ts pelo environment.homolog.ts, assim as configurações de homolog estarão presentes no novo build.
 
 ### Estilos
 

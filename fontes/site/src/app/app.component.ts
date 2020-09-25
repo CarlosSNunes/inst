@@ -7,6 +7,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CanonicalService } from './services/caninical/canonical.service';
 
 @Component({
     selector: 'app-root',
@@ -54,7 +55,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         private windowRef: WindowRef,
         iconRegistry: MatIconRegistry,
         sanitizer: DomSanitizer,
+        private caninicalService: CanonicalService
     ) {
+        this.caninicalService.createCanonicalURL();
         if (isPlatformBrowser(this.platformId)) {
             this.isBrowser = true;
             this.width = this.windowRef.nativeWindow.innerWidth;

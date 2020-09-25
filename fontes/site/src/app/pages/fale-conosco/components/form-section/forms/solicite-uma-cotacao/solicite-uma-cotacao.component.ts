@@ -37,7 +37,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
     formValueChangesSubscription: Subscription;
-    retURL: string = `${environment.SELF_URL}obrigado`;
+    retURL: string = `${environment.SELF_URL}/obrigado`;
 
     constructor(
         private fb: FormBuilder,

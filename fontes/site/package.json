@@ -10,9 +10,11 @@
     "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:ssr-hml": "npm run build:client-and-server-bundles-hml && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run Care-plus:server:production --bundleDependencies all",
-    "bs": "npm run build:ssr && npm run serve:ssr"
+    "build:client-and-server-bundles-hml": "ng build --configuration=homolog && ng run Care-plus:server:production --bundleDependencies all",
+    "bs": "npm run build:ssr && npm run serve:ssr",
+    "bs-hml": "npm run build:ssr-hml && npm run serve:ssr"
   },
   "private": true,
   "dependencies": {

@@ -28,7 +28,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        loadChildren: () => import('../erro/erro.module').then(m => m.ErroModule)
+        loadChildren: () => import('../../erro/erro.module').then(m => m.ErroModule)
     }
 ];
 
