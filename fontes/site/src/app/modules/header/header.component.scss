@@ -59,24 +59,6 @@ nav.navbar:not(.is-home) {
                 vertical-align: middle;
             }
             .item-label {
-<<<<<<< HEAD
-                display: inline-block;
-                position: relative;
-                -webkit-transform: translateX(0);
-                -ms-transform: translateX(0);
-                transform: translateX(0);
-                z-index: 2;
-                font-style: normal;
-                font-weight: 500;
-                font-size: getSize("sbm");
-                line-height: 133%;
-                align-items: center;
-                color: getColor(_bupa, _white);
-                transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
-                &.phone {
-                    letter-spacing: 1px;
-                }
-=======
                 display   : inline-block;
                 position  : relative;
                 transition: -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
@@ -95,23 +77,8 @@ nav.navbar:not(.is-home) {
                 color            : getColor(_bupa, _white);
                 text-transform   : uppercase;
                 transition       : color 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
->>>>>>> origin/feature/Dashboard
             }
             &:after {
-<<<<<<< HEAD
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                -webkit-transform: scaleY(0);
-                -ms-transform: scaleY(0);
-                transform: scaleY(0);
-                transition: -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
-                transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
-                transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s, -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
-=======
                 content                 : "";
                 position                : absolute;
                 top                     : 0;
@@ -128,7 +95,6 @@ nav.navbar:not(.is-home) {
                 transition              : transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
                 transition              : transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s,
                     -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
->>>>>>> origin/feature/Dashboard
                 -webkit-transform-origin: center bottom;
                 -ms-transform-origin    : center bottom;
                 transform-origin        : center bottom;
@@ -178,12 +144,8 @@ nav.navbar:not(.is-home) {
         }
         .navbar-start {
             place-content: flex-end;
-<<<<<<< HEAD
-            margin: 0;
-=======
             margin       : 0;
 
->>>>>>> origin/feature/Dashboard
             .button {
                 min-height: auto;
                 height    : auto;
@@ -199,15 +161,6 @@ nav.navbar:not(.is-home) {
             }
         }
         .navbar-middle {
-<<<<<<< HEAD
-            display: flex;
-            margin: 0 auto;
-            position: relative;
-            left: 0;
-            right: 0;
-            width: 100px;
-            height: 100%;
-=======
             display : flex;
             margin  : 0 auto;
             margin  : 0 auto;
@@ -217,7 +170,6 @@ nav.navbar:not(.is-home) {
             width   : 100px;
             height  : 100%;
 
->>>>>>> origin/feature/Dashboard
             .is-accessible {
                 display  : flex;
                 padding  : 0.5rem;
@@ -227,18 +179,11 @@ nav.navbar:not(.is-home) {
                 cursor   : unset;
 
                 .slider {
-<<<<<<< HEAD
-                    position: absolute;
-                    bottom: -44px;
-                    height: 44px;
-                    width: 188px;
-=======
                     display         : none;
                     position        : absolute;
                     bottom          : -44px;
                     height          : 44px;
                     width           : 188px;
->>>>>>> origin/feature/Dashboard
                     background-color: getColor(_bupa, _navy);
                     display         : none;
                     cursor          : unset;
@@ -260,12 +205,8 @@ nav.navbar:not(.is-home) {
                         height  : 100%;
                         width   : 45px;
                         position: relative;
-<<<<<<< HEAD
-                        cursor: pointer;
-=======
                         cursor  : pointer;
 
->>>>>>> origin/feature/Dashboard
                         &.disabled {
                             cursor : not-allowed;
                             opacity: 0.6;
@@ -288,18 +229,11 @@ nav.navbar:not(.is-home) {
                 }
 
                 .brightness {
-<<<<<<< HEAD
-                    position: absolute;
-                    bottom: -64px;
-                    height: 64px;
-                    width: 188px;
-=======
                     display         : none;
                     position        : absolute;
                     bottom          : -64px;
                     height          : 64px;
                     width           : 188px;
->>>>>>> origin/feature/Dashboard
                     background-color: getColor(_bupa, _navy);
                     display         : none;
                     cursor          : unset;
@@ -310,12 +244,8 @@ nav.navbar:not(.is-home) {
                         height  : 100%;
                         width   : 50%;
                         position: relative;
-<<<<<<< HEAD
-                        cursor: pointer;
-=======
                         cursor  : pointer;
 
->>>>>>> origin/feature/Dashboard
                         &.disabled {
                             cursor : not-allowed;
                             opacity: 0.6;
@@ -390,37 +320,19 @@ nav.navbar:not(.is-home) {
                 }
             }
             .login {
-<<<<<<< HEAD
-                margin: 0;
-                border: none;
-                padding: 8px 49px;
-                display: flex;
-=======
                 margin     : 0;
                 border     : none;
                 padding    : 0.5rem 5rem;
                 display    : flex;
->>>>>>> origin/feature/Dashboard
                 align-items: center;
                 height     : 100%;
 
                 .item-label {
-<<<<<<< HEAD
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: getSize("p");
-                    line-height: 100%;
-                    // letter-spacing: 3.5px;
-                    @media (max-width: 1100px) {
-                        // letter-spacing: 2px;
-                    }
-=======
                     font-style    : normal;
                     font-weight   : 600;
                     font-size     : getSize("p");
                     line-height   : 100%;
                     letter-spacing: 3.5px;
->>>>>>> origin/feature/Dashboard
                 }
             }
         }
@@ -428,15 +340,6 @@ nav.navbar:not(.is-home) {
 }
 
 nav.is-home {
-<<<<<<< HEAD
-    padding: 15px 16px;
-    background: getColor(_bupa, _white);
-    border-bottom: 1px solid getColor(_bupa, _grey-2);
-    z-index: unset;
-    .img-careplus {
-        width: 57px;
-        height: 72px;
-=======
     padding-left  : 3%;
     padding-top   : 15px;
     padding-bottom: 15px;
@@ -447,31 +350,10 @@ nav.is-home {
     .img-careplus {
         width     : 142px;
         height    : 54px;
->>>>>>> origin/feature/Dashboard
         max-height: unset;
         box-shadow: none;
         cursor    : pointer;
     }
-<<<<<<< HEAD
-    .navbar-start {
-        justify-content: flex-end;
-        -webkit-box-pack: end;
-        margin-right: 0;
-        margin-left: auto;
-        .navbar-item {
-            padding-left: 16px;
-            padding-right: 16px;
-            cursor: unset;
-            position: relative;
-            z-index: 999;
-            &:hover {
-                background-color: unset;
-                .sub-menu,
-                +.sub-menu {
-                    display: flex;
-                }
-            }
-=======
 
     .navbar-item {
         padding-left : 20px;
@@ -510,83 +392,9 @@ nav.is-home {
             @include underline(getColor(_carePlus, _light-green));
             cursor: pointer;
 
->>>>>>> origin/feature/Dashboard
             &:focus {
                 background-color: unset;
             }
-<<<<<<< HEAD
-            &:focus-within {
-                background-color: unset;
-            }
-            .item {
-                font-style: normal;
-                font-weight: 500;
-                font-size: 0.875em;
-                line-height: getSize("p");
-                // letter-spacing: 0.2em;
-                color: getColor(_bupa, _grey);
-                // text-transform: uppercase;
-                display: inline-block;
-                position: relative;
-                @include underline(getColor(_bupa, _digital-cian));
-                cursor: pointer;
-                &:focus {
-                    outline: unset;
-                }
-                @media (min-width: 1200px) {
-                    font-size: 1.25em;
-                }
-            }
-            .sub-menu,
-            +.sub-menu {
-                display: none;
-                position: absolute;
-                background-color: getColor(_bupa, _white);
-                top: 80%;
-                left: 0;
-                padding: 18px 25px;
-                .column {
-                    min-width: calc(800px / 3);
-                    position: relative;
-                    .image-content {
-                        position: relative;
-                        img {
-                            width: 169px;
-                            height: 185px;
-                            object-fit: cover;
-                            object-position: center top;
-                            display: block;
-                            max-height: unset;
-                        }
-                        .infos {
-                            position: absolute;
-                            width: 147px;
-                            left: 11px;
-                            top: 104px;
-                            .image-description {
-                                font-weight: 600;
-                                font-size: getSize("sbm");
-                                line-height: getLineHeight("sbm");
-                                color: getColor(_bupa, _white);
-                            }
-                            .btn-text {
-                                color: getColor(_bupa, _white) !important;
-                                font-weight: 500;
-                                font-size: 0.625em;
-                                line-height: 120%;
-                                letter-spacing: 2px;
-                                padding-right: 0;
-                                padding-top: 20px;
-                                text-transform: unset;
-                                float: right;
-                                white-space: nowrap;
-                                &:hover,
-                                &:focus,
-                                &:active {
-                                    color: getColor(_bupa, _white) !important;
-                                }
-                                svg {
-=======
         }
 
         .sub-menu,
@@ -649,7 +457,6 @@ nav.is-home {
                                 fill: getColor(_bupa, _white) !important;
 
                                 path {
->>>>>>> origin/feature/Dashboard
                                     fill: getColor(_bupa, _white) !important;
                                     path {
                                         fill: getColor(_bupa, _white) !important;
@@ -658,25 +465,6 @@ nav.is-home {
                             }
                         }
                     }
-<<<<<<< HEAD
-                    .items {
-                        display: block;
-                        width: 100%;
-                        li {
-                            display: block;
-                            margin-top: 16px;
-                            &:first-child {
-                                margin-top: 0;
-                            }
-                            a {
-                                font-size: getSize("sbm");
-                                line-height: getLineHeight("sbm");
-                                color: getColor(_bupa, _grey);
-                                white-space: nowrap;
-                                &:hover {
-                                    color: getColor(_bupa, _digital-cian);
-                                }
-=======
                 }
 
                 .items {
@@ -699,7 +487,6 @@ nav.is-home {
 
                             &:hover {
                                 color: getColor(_bupa, _digital-cian);
->>>>>>> origin/feature/Dashboard
                             }
                         }
                     }
@@ -710,20 +497,10 @@ nav.is-home {
                 height: 3em;
             }
         }
-<<<<<<< HEAD
-    }
-    .navbar-end {
-        margin-left: 0;
-        .navbar-item {
-            .buttons {
-                margin-bottom: 0;
-            }
-=======
 
         .button {
             color : getColor(_bupa, _white);
             height: 3em;
->>>>>>> origin/feature/Dashboard
         }
     }
 }
