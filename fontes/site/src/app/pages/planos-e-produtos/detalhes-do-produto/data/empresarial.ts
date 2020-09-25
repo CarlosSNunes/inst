@@ -327,7 +327,7 @@ export default {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em Gestão de Saúde',
         subDescription: 'Mais do que cuidado, proporcionamos facilidade e comodidade para todos os nossos beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'Conheça nossos Programas',
+            text: 'Conheça o Gestão de Saúde',
             routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: [

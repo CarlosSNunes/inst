@@ -28,10 +28,10 @@
                         <div class="accordion-item open" [class.active]="differential.active"
                             *ngFor="let differential of differentials; let i = index;">
                             <div class="height-percentage"></div>
-                            <h2 class="accordion-item-heading" [class.active]="differential.active"
+                            <h4 class="accordion-item-heading" [class.active]="differential.active"
                                 (click)="activate(i)">
                                 {{differential.title}}
-                            </h2>
+                            </h4>
                             <div class="accordion-item-content" #accordionContent [style.height.px]="differential.active ? accordionContent.scrollHeight : 0" [class.active]="differential.active">
                                 <p>
                                     {{differential.content}}

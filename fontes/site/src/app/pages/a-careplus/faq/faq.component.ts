@@ -26,7 +26,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     @ViewChild('searchInput', { static: true }) searchInput: ElementRef<HTMLInputElement>;
     simpleBannerModel: SimpleBannerModel = {
         title: 'Perguntas Frequentes',
-        description: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.',
+        description: 'Confira as principais dúvidas de Beneficiários, RHs, Corretores e Credenciados',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',

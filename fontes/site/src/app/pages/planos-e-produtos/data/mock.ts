@@ -54,7 +54,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
     subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
     button: new ButtonModel({
-        text: 'Conheça nossos Programas',
+        text: 'Conheça o Gestão de Saúde',
         routerLink: '/planos-e-produtos/gestao-de-saude'
     }),
     cards: Cards,

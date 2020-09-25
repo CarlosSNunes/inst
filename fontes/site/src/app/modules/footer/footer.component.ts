@@ -22,7 +22,7 @@ export class FooterComponent implements OnInit {
     centralDeAtendimentoCard: IconCardModel = new IconCardModel({
         type: 'icon',
         button: new ButtonModel({
-            text: 'Central de atendimento',
+            text: 'Central de Atendimento',
             link: 'tel:11 4197-9000'
         }),
         imagePath: 'assets/svg/phone-white.svg',
