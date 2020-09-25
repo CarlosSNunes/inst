@@ -106,7 +106,7 @@ Para altera alguma variavel de ambiente do projeto basta alterar nestes arquivos
 
 Também é possível criar novas variáveis de ambiente no arquivo [angular.json](angular.json) a estrutura de configuração é a seguir:
 
-![Alt text](/fontes/site/docs/readme/images/application-environments.png)
+![Variáveis de ambiente da aplicação](/fontes/site/docs/readme/images/application-environments.png)
 
 Na imagem acima vemos o exemplo de configuração da variavel de ambiente de homologação, para criar uma de staging por exemplo, basta adicionar uma chave chamada staging contendo um objeto a esta estrutura json ex: `staging: {objeto}`
 
