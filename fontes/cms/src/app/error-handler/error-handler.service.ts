@@ -33,7 +33,7 @@ export class ErrorHandlerService {
         }
       }
     } else {
-      console.error('some thing else happened');
+      console.error('some thing else happened:' + error);
     }
     return throwError(error);
   }

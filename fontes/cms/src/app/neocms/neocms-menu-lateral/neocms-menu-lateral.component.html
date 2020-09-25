@@ -1,168 +1,171 @@
-<section class="section neocms-section">
-    <div class="wrapper">
-        <div class="columns">
-            <aside class="column aside">
-                <nav class="menu">
-                    <p class="menu-label">
-                        Home
-                    </p>
-                    <ul class="menu-list">
-                        <li>
-                            <a routerLink="/neocms" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
-                                true}">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faDesktop"></fa-icon>
-                                </span> Painel
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="menu-label">
-                        Blog
-                    </p>
-                    <ul class="menu-list">
-                        <li>
-                            <a routerLink="/neocms/newsletter/index" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faNewspaper"></fa-icon>
-                                </span> Newsletter
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/posts-blog/categorias/index" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faNewspaper"></fa-icon>
-                                </span> Categorias
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/posts-blog/index" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faNewspaper"></fa-icon>
-                                </span> Posts
-                            </a>
-                            <a routerLink="/neocms/posts-blog/mais-lidos" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faNewspaper"></fa-icon>
-                                </span> Posts Mais Lidos
-                            </a>
-                            
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/noticia/index" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faNewspaper"></fa-icon>
-                                </span> Notícia
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/noticia/tag" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faTag"></fa-icon>
-                                </span> Tag
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/noticia/tipo" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faEdit"></fa-icon>
-                                </span> Tipo de Notícia
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="menu-label">
-                        Home Page
-                    </p>
-                    <ul class="menu-list">
-                        <li>
-                            <a routerLink="/neocms/banner" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faImages"></fa-icon>
-                                </span> Banner
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="menu-label">
-                        A Care Plus
-                    </p>
-                    <ul class="menu-list">
-                        <li>
-                            <a routerLink="/neocms/careplus-diferencial" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faImages"></fa-icon>
-                                </span> Diferencial
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/careplus-depoimento" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faImages"></fa-icon>
-                                </span> Depoimento
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/cliente" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faImages"></fa-icon>
-                                </span> Cliente
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/careplus-perfil" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faImages"></fa-icon>
-                                </span> Perfil
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="menu-label">
-                        Administração
-                    </p>
-                    <ul class="menu-list">
-                        <li>
-                            <a routerLink="/neocms/plano" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faDiagnoses"></fa-icon>
-                                </span> Planos de Saúde
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/resultado-financeiro" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
-                                </span> Resultados Financeiro
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/documento" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
-                                </span> Documento
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/documento-tipo" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
-                                </span> Documento Tipo
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/pergunta-tipo" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
-                                </span> Tipo de pergunta
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="/neocms/pergunta" routerLinkActive="is-active">
-                                <span class="icon is-small">
-                                    <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
-                                </span> Pergunta
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
+<div class="menu-lateral shadow p-3 mr-5">
+    <div class="menu-group">
+        <div class="menu-logo w-100 mb-5">
         </div>
+
+
+        <ul class="menu-list">
+
+            <div class="title-list">
+                <span class="menu-label">Home</span>
+                <span class="horizontal-line"></span>
+            </div>
+            <li class="menu-item">
+                <a routerLink="/neocms" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+                    <span class="">
+                        <fa-icon [icon]="faDesktop"></fa-icon>
+                    </span> Dashboard
+                </a>
+            </li>
+            <div class="title-list">
+                <span class="menu-label">Blog</span>
+                <span class="horizontal-line"></span>
+            </div>
+            <li class="menu-item">
+                <a routerLink="/neocms/newsletter/index" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faNewspaper"></fa-icon>
+                    </span> Newsletter
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/posts-blog/categorias/index" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faNewspaper"></fa-icon>
+                    </span> Categorias
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/posts-blog/index" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faNewspaper"></fa-icon>
+                    </span> Posts
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/posts-blog/mais-lidos" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faNewspaper"></fa-icon>
+                    </span> Posts Mais Lidos
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/noticia/index" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faNewspaper"></fa-icon>
+                    </span> Notícia
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/noticia/tag" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faTag"></fa-icon>
+                    </span> Tag
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/noticia/tipo" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faEdit"></fa-icon>
+                    </span> Tipo de Notícia
+                </a>
+            </li>
+            <div class="title-list">
+                <span class="menu-label">Home Page</span>
+                <span class="horizontal-line"></span>
+            </div>
+            <li class="menu-item">
+                <a routerLink="/neocms/banner" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faImages"></fa-icon>
+                    </span> Banner
+                </a>
+            </li>
+            <div class="title-list">
+                <span class="menu-label">A Care Plus</span>
+                <span class="horizontal-line"></span>
+            </div>
+            <li class="menu-item">
+                <a routerLink="/neocms/careplus-diferencial" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faImages"></fa-icon>
+                    </span> Diferencial
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/careplus-depoimento" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faImages"></fa-icon>
+                    </span> Depoimento
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/cliente" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faImages"></fa-icon>
+                    </span> Cliente
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/careplus-perfil" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faImages"></fa-icon>
+                    </span> Perfil
+                </a>
+            </li>
+            <div class="title-list">
+                <span class="menu-label">Administração</span>
+                <span class="horizontal-line"></span>
+            </div>
+            <li class="menu-item">
+                <a routerLink="/neocms/plano" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faDiagnoses"></fa-icon>
+                    </span> Planos de Saúde
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/resultado-financeiro" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
+                    </span> Resultados Financeiro
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/documento" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
+                    </span> Documento
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/documento-tipo" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
+                    </span> Documento Tipo
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/pergunta-tipo" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
+                    </span> Tipo de pergunta
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/pergunta" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
+                    </span> Pergunta
+                </a>
+            </li>
+            <li class="menu-item">
+                <a routerLink="/neocms/usuarios" routerLinkActive="is-active">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faMoneyCheckAlt"></fa-icon>
+                    </span> Usuarios
+                </a>
+            </li>
+        </ul>
     </div>
-</section>
+</div>

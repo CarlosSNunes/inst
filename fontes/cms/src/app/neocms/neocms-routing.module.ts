@@ -80,6 +80,11 @@ const routes: Routes = [
     loadChildren: () => import('./pergunta-tipo/pergunta-tipo.module').then(m => m.PerguntaTipoModule)
   },
   {
+    path: 'usuarios',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule)
+  },
+  {
     path: '**',
     canActivate: [AuthGuard],
     component: NeocmsComponent

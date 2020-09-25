@@ -63,9 +63,7 @@
                             "src/assets/css/bulma-tooltip.min.css"
                         ],
                         "stylePreprocessorOptions": {
-                            "includePaths": [
-                                "src/sass"
-                            ]
+                            "includePaths": ["src/sass"]
                         },
                         "scripts": []
                     },
@@ -157,6 +155,7 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
+<<<<<<< HEAD
                         "assets": [
                             "src/assets",
                             "src/android-icon-36x36.png",
@@ -193,6 +192,10 @@
                         "styles": [
                             "src/styles.scss"
                         ],
+=======
+                        "assets": ["src/careplus-bupa.ico", "src/assets"],
+                        "styles": ["src/styles.scss"],
+>>>>>>> origin/feature/Dashboard
                         "scripts": []
                     }
                 },
@@ -204,9 +207,7 @@
                             "tsconfig.spec.json",
                             "e2e/tsconfig.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 },
                 "e2e": {

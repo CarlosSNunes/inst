@@ -7,7 +7,7 @@ import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
 })
 export class MaisLidosService {
 
-  private url = 'https://localhost:4000/Post';
+  private url = 'http://52.3.44.106:8081/Post';
   
   
   constructor(

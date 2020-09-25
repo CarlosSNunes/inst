@@ -1,0 +1,90 @@
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <div>
+                <span class="title">
+                    <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>
+                     Configuração
+                </span>
+            </div> -->
+            <div class="marging-box">
+                
+                <div class="header">
+                    <h5 class="title">Administrar usuários do site</h5>
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <tbody>
+                            <tr>
+                                <td class="has-text-centered" *ngIf="usuariosAtivos.length == 0" colspan="4">
+                                    Não há usuarios ativos cadastrados
+                                </td>
+                            </tr>
+                            <tr *ngFor="let user of usuariosAtivos">
+                                <td>
+                                    {{user.id}}
+                                </td>
+                                <td>{{user.nome}}</td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    <span class="badge badge-success mx-2">
+                                        Ativo
+                                        <!-- {{user.status}} -->
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-primary mx-1" *ngIf="user.usuarioPerfil.length > 0">
+                                        {{user.usuarioPerfil[0].descricao}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a [routerLink]="['./', user.id]" routerLinkActive="active" >
+                                        <fa-icon [icon]="faPencilAlt"></fa-icon>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="marging-box">
+                <div class="header">
+                    <h5 class="title">Usuários pendentes de aprovação</h5>
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <tbody>
+                            <tr>
+                                <td class="has-text-centered" *ngIf="usuariosPendentes.length == 0" colspan="4">
+                                    Não há usuarios pendentes cadastrados
+                                </td>
+                            </tr>
+                            <tr *ngFor="let user of usuariosPendentes" style="margin-bottom: 1px;">
+                                <td>
+                                    {{user.id}}
+                                </td>
+                                <td>{{user.nome}}</td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm"> Ativar </button>
+                                </td>
+                                <td>
+                                    <span class="badge badge-primary mx-1">
+                                        último pedido solicitado: 23/09/2020
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

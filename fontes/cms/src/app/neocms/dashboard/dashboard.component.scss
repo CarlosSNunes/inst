@@ -1,0 +1,42 @@
+
+.title-color{
+    color: #00335B !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.card-body {
+  padding: 1.0rem;
+}
+
+.card-title{
+    font-size: 111px; top: 82px; font-style: normal; font-weight: normal; line-height: 130px;
+}
+
+.card-subtitle{
+    font-size: 24px; font-style: normal; font-weight: normal; line-height: 28px; position: absolute;
+}
+
+.card-title-post{
+    
+    line-height: 1.2ch; width:150px; top:32px; font-size: 24px; font-style: normal; font-weight: bolder; line-height: 28px; position: absolute;
+}
+.post{
+
+    width: 710px;
+    left: 200px;
+    height: 310px;
+    display: flex;
+    align-self: flex-end;
+    margin-left: 20px;
+    top: 27px;
+    position: absolute;
+}
+
+.post-title{
+    margin-top: 30px;
+}
+
+.posts-ul{
+    line-height: 1.0ch;
+}

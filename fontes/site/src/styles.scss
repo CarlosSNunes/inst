@@ -10,7 +10,12 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $Care-plus-primary: mat-palette($mat-indigo);
+<<<<<<< HEAD
 $Care-plus-accent: mat-palette($mat-pink, A200, A100, A400);
+=======
+$Care-plus-accent : mat-palette($mat-pink, A200, A100, A400);
+
+>>>>>>> origin/feature/Dashboard
 // The warn palette is optional (defaults to red).
 $Care-plus-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
@@ -22,11 +27,21 @@ $Care-plus-theme: mat-light-theme($Care-plus-primary, $Care-plus-accent, $Care-p
 @import "typeface-montserrat/index.css";
 @import "scss/_styleguide.scss";
 @import "scss/_base.scss";
-@import "../node_modules/bulma/css/bulma.min.css";
 @import "~saturn-datepicker/bundle.css";
+<<<<<<< HEAD
 body {
     min-height: calc(100vh - 151px);
     margin: 0;
+=======
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin     : 0;
+>>>>>>> origin/feature/Dashboard
     font-family: $mainFont, Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -44,8 +59,8 @@ body {
 .no-scroll {
     overflow: hidden;
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width   : 100%;
+    height  : 100%;
 }
 
 * {
@@ -75,14 +90,14 @@ vg-playback-button {
     &.button {
         &:hover {
             -webkit-transition: background 0.3s ease-in-out;
-            -moz-transition: background 0.3s ease-in-out;
-            transition: background-color 0.3s ease-in-out;
+            -moz-transition   : background 0.3s ease-in-out;
+            transition        : background-color 0.3s ease-in-out;
         }
         &.outline:not(:disabled) {
-            border: 2px solid getColor(_bupa, _navy) !important;
+            border    : 2px solid getColor(_bupa, _navy) !important;
             box-sizing: border-box;
             background: #ffffff !important;
-            color: getColor(_bupa, _navy) !important;
+            color     : getColor(_bupa, _navy) !important;
         }
     }
 }
@@ -103,14 +118,14 @@ vg-playback-button {
     &.button {
         &:hover {
             -webkit-transition: background 0.3s ease-in-out;
-            -moz-transition: background 0.3s ease-in-out;
-            transition: background-color 0.3s ease-in-out;
+            -moz-transition   : background 0.3s ease-in-out;
+            transition        : background-color 0.3s ease-in-out;
         }
         &.outline:not(:disabled) {
-            border: 2px solid getColor(_bupa, _digital-cian) !important;
+            border    : 2px solid getColor(_bupa, _digital-cian) !important;
             box-sizing: border-box;
             background: #ffffff !important;
-            color: getColor(_bupa, _digital-cian) !important;
+            color     : getColor(_bupa, _digital-cian) !important;
         }
     }
 }

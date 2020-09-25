@@ -7,6 +7,8 @@
 //Web API da entidade Categorias para uso do NEOCMS
 //==============================================================================
 
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,36 +17,29 @@ using Neotix.Neocms.CarePlusAPI.Entities;
 using Neotix.Neocms.CarePlusAPI.Helpers;
 using Neotix.Neocms.CarePlusAPI.Models.Categorias;
 using Neotix.Neocms.CarePlusAPI.Services;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace Neotix.Neocms.CarePlusAPI.Controllers
-{
+namespace Neotix.Neocms.CarePlusAPI.Controllers {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
-    public class CategoriasController : ControllerBase
-    {
+    [Route ("[controller]")]
+    public class CategoriasController : ControllerBase {
         private readonly ICategoriasService _categoriasService;
-        private readonly IMapper _mapper;        
+        private readonly IMapper _mapper;
 
         ///<summary>
-        ///
         ///Esse método construtor é utilizado para pegar os objetos de injeção de dependência
         ///e atribuir aos objetos da classe.
-        ///
         ///</summary>
         ///<param name="categoriasService">Serviço de Categorias para consumo do banco de dados</param>
         ///<param name="mapper">Mapeador de objetos</param>
         ///<param name="appSettings">Configurações da aplicação</param>
-        public CategoriasController(
+        public CategoriasController (
             ICategoriasService categoriasService,
             IMapper mapper,
             IOptions<AppSettings> appSettings
-        )
-        {
+        ) {
             _categoriasService = categoriasService;
-            _mapper = mapper;           
+            _mapper = mapper;
         }
 
         ///<summary>
@@ -55,14 +50,19 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet]
+<<<<<<< HEAD
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             List<Categoria> categorias = await _categoriasService.Listar();
+=======
+        public async Task<IActionResult> Get () {
+            List<Categoria> categorias = await _categoriasService.Listar ();
+>>>>>>> origin/feature/Dashboard
 
-            List<CategoriasModel> model = _mapper.Map<List<CategoriasModel>>(categorias);
+            List<CategoriasModel> model = _mapper.Map<List<CategoriasModel>> (categorias);
 
-            return Ok(model);
+            return Ok (model);
         }
 
         ///<summary>
@@ -73,18 +73,23 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id da Categorias</param>
+<<<<<<< HEAD
         [HttpGet("{id}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
+=======
+        [HttpGet ("{id}")]
+        public async Task<IActionResult> GetById (int id) {
+>>>>>>> origin/feature/Dashboard
             if (id == 0)
-                throw new AppException("O id não pode ser igual a 0");
+                throw new AppException ("O id não pode ser igual a 0");
 
-            Categoria categoria = await _categoriasService.Buscar(id);
+            Categoria categoria = await _categoriasService.Buscar (id);
 
-            CategoriasModel model = _mapper.Map<CategoriasModel>(categoria);
+            CategoriasModel model = _mapper.Map<CategoriasModel> (categoria);
 
-            return Ok(model);
+            return Ok (model);
         }
 
         ///<summary>
@@ -96,24 +101,24 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de uma Categorias</param>
         [HttpPost]
+<<<<<<< HEAD
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromBody] CategoriasCreateModel model)
         {
+=======
+        public async Task<IActionResult> Post ([FromBody] CategoriasCreateModel model) {
+>>>>>>> origin/feature/Dashboard
             if (model == null)
-                throw new AppException("A categoria não pode estar nula");
+                throw new AppException ("A categoria não pode estar nula");
 
-            try
-            {
-                Categoria categoria = _mapper.Map<Categoria>(model);
+            try {
+                Categoria categoria = _mapper.Map<Categoria> (model);
 
-                await _categoriasService.Criar(categoria);
+                await _categoriasService.Criar (categoria);
 
-                return Ok();
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(new
-                {
+                return Ok ();
+            } catch (System.Exception ex) {
+                return BadRequest (new {
                     message = ex.Message
                 });
             }
@@ -128,25 +133,26 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de atualização de um Categorias</param>
         [HttpPut]
+<<<<<<< HEAD
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromBody] CategoriasUpdateModel model)
         {
+=======
+        public async Task<IActionResult> Put ([FromBody] CategoriasUpdateModel model) {
+>>>>>>> origin/feature/Dashboard
             if (model == null)
-                throw new AppException("A categoria não pode estar nula");
+                throw new AppException ("A categoria não pode estar nula");
 
-            try
-            {
-                Categoria categoria = await _categoriasService.Buscar(model.Id);
+            try {
+                Categoria categoria = await _categoriasService.Buscar (model.Id);
 
-                categoria = _mapper.Map<Categoria>(model);
+                categoria = _mapper.Map<Categoria> (model);
 
-                await _categoriasService.Atualizar(categoria);
+                await _categoriasService.Atualizar (categoria);
 
-                return Ok();
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(new { message = ex.Message });
+                return Ok ();
+            } catch (System.Exception ex) {
+                return BadRequest (new { message = ex.Message });
             }
         }
 
@@ -157,18 +163,23 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Categorias</param>
+<<<<<<< HEAD
         [HttpDelete("{id}")]
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
+=======
+        [HttpDelete ("{id}")]
+        public async Task<IActionResult> Delete (int id) {
+>>>>>>> origin/feature/Dashboard
             if (id == 0)
-                throw new AppException("O id não pode ser igual a 0");
+                throw new AppException ("O id não pode ser igual a 0");
 
-            Categoria categoria = await _categoriasService.Buscar(id);
+            Categoria categoria = await _categoriasService.Buscar (id);
 
-            await _categoriasService.Excluir(categoria.Id);
+            await _categoriasService.Excluir (categoria.Id);
 
-            return Ok();
+            return Ok ();
         }
     }
 }

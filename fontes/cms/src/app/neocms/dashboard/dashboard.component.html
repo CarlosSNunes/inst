@@ -1,0 +1,67 @@
+<div class="row" style="margin-bottom: 25px;">
+    <div class="col-sm-5" style="margin: 0px;">
+        <div class="card shadow-sm  bg-white rounded" style="height: 218px; ">
+            <div class="card-body">
+                <h1 class="card-title title-color">
+                    {{postsAtivos}}</h1>
+                <h5 class="card-subtitle title-color">
+                    Posts no Blog Care Plus+</h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card shadow-sm bg-white rounded" style="height: 218px;">
+            <div class="card-body">
+                <h1 class="card-title title-color">
+                    {{bannersAtivos}}</h1>
+                <h5 class="card-subtitle title-color">
+                    Banners ativos</h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-3">
+        <div class="card shadow-sm bg-white rounded" style="height: 218px;">
+            <div class="card-body" >
+                <h1 class="card-title title-color">
+                    {{usuariosAtivos}}</h1>
+                <h5 class="card-subtitle title-color">
+                    Usuários</h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row" style="margin-bottom: 25px;">
+
+    <div class="col-sm-12">
+        <div class="card shadow-sm bg-white rounded" style="height: 472px; ">
+            <div class="card-body">
+                <h5 class="card-title-post title-color">
+                    Posts mais lidos no Blog</h5>
+                <div class="d-flex justify-content-start" style="margin-top: 80px;">
+                    <ul class="list-group list-group-flush" style="line-height: 1.0ch;">
+                        <li class="list-group-item title-color list-group-item-action"
+                            *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
+                            {{post.id}}- {{post.titulo}}</li>
+                    </ul>
+                    <div class="d-flex justify-content-end" class="post" >
+                        <div class="card" style="width:inherit">
+                            <img class="card-img-top" src="{{postSelecionado? postSelecionado.imagem : ''}}" alt="">
+                            <div class="card-body post-title" >
+                                <h5 class="card-color ">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
+                                <p class="card-text">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
+                                <!-- <a *ngIf="postSelecionado !== null" href="#" class="btn btn-primary">Ir para o Post</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
