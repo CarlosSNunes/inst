@@ -30,6 +30,9 @@ namespace Neotix.Neocms.CarePlusAPI.Entities
         public byte[] SenhaHash { get; set; }
         [Column("SENHA_SALT")]
         public byte[] SenhaSalt { get; set; }
+        [Column("ATIVO")]
+        public char Ativo { get; set; }
         public List<UsuarioPerfil> UsuarioPerfil { get; set; }
+
     }
 }

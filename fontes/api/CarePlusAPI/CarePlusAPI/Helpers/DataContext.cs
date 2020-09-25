@@ -100,6 +100,7 @@ namespace Neotix.Neocms.CarePlusAPI.Helpers
         public DbSet<Clinica> Clinica { get; set; }
         public DbSet<EnderecoClinica> EnderecoClinica { get; set; }
         public DbSet<HorarioClinica> HorarioClinica { get; set; }
+        public DbSet<RequisicaoUsuario> RequisicaoUsuario { get; set; }
 
         public override int SaveChanges()
         {

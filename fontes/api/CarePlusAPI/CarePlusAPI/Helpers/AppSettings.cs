@@ -23,5 +23,6 @@ namespace Neotix.Neocms.CarePlusAPI.Helpers
         public string WSPartnerToken { get; set; }
         public string WSPartnerLogin { get; set; }
         public string WSPartnerSenha { get; set; }
+        public string AdministratorEmail { get; set; }
     }
 }

@@ -9,20 +9,20 @@
 
 using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using AutoMapper;
 using System.IdentityModel.Tokens.Jwt;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Microsoft.Extensions.Options;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
-using Neotix.Neocms.CarePlusAPI.Services;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Models.Usuario;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using Neotix.Neocms.CarePlusAPI.Entities;
+using Neotix.Neocms.CarePlusAPI.Helpers;
+using Neotix.Neocms.CarePlusAPI.Models.Usuario;
+using Neotix.Neocms.CarePlusAPI.Services;
 
 namespace Neotix.Neocms.CarePlusAPI.Controllers
 {
@@ -68,16 +68,29 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             if (model == null)
                 throw new AppException("O usuário não pode estar nulo");
 
+            if (!UserService.ValidaUsuario(model.Email, model.Senha).Result)
+            {
+                throw new AppException("O usuário não foi encontrado");
+            }
+
             Usuario usuario = await UserService.Autenticar(model.Email, model.Senha);
+
+            if (usuario == null)
+            {
+                throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
+                    Dados = model
+                }));
+            }
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             byte[] key = Encoding.ASCII.GetBytes(AppSettings.Secret);
             SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                        new Claim(ClaimTypes.Name, usuario.Id.ToString()),
-                        new Claim(ClaimTypes.Role, usuario.UsuarioPerfil.OrderBy(x=>x.Perfil.Prioridade).FirstOrDefault().Perfil.Descricao) 
+                Subject = new ClaimsIdentity(new Claim[] {
+                new Claim (ClaimTypes.Name, usuario.Id.ToString ()),
+                new Claim (ClaimTypes.Role, usuario.UsuarioPerfil.OrderBy (x => x.Perfil.Prioridade).FirstOrDefault ().Perfil.Descricao)
                 }),
 
                 Expires = DateTime.UtcNow.AddDays(7),
@@ -102,7 +115,31 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
+        [HttpPost("gera-requisicao")]
+       
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> GenerateUserRequisition(UsuarioCreateModel model)
+        {
+            if (model == null)
+                throw new AppException("O usuário não pode estar nulo");
+
+            var token = UserService.SalvarRequisicao(model).Result;
+
+            await UserService.EnviarEmail(model, token);
+
+            return Ok();
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para inserir um usuário na base, primeiro mapeando
+        ///o objeto recebido para o objeto esperado na base.
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão POST.
+        ///
+        ///</summary>
+        ///<param name="model">Model de criação de um usuário</param>
         [HttpPost]
+      
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Post(UsuarioCreateModel model)
         {
@@ -154,7 +191,6 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             return Ok(model);
         }
 
-
         ///<summary>
         ///
         ///Esse método serve para atualizar um usuário na base, primeiro mapeando
@@ -166,7 +202,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///<param name="model">Model de atualização de um usuário</param>
         [HttpPut("{id}")]
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> Put(int id, [FromBody]UsuarioUpdateModel model)
+        public async Task<IActionResult> Put(int id, [FromBody] UsuarioUpdateModel model)
         {
             if (id == 0)
                 throw new AppException("O id do usuário não pode ser igual a 0");
@@ -198,5 +234,82 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             await UserService.Excluir(id);
             return Ok();
         }
+
+        ///<summary>
+        ///
+        ///Esse método serve para excluir um usuário na base.
+        ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão DELETE.
+        ///
+        ///</summary>
+        ///<param name="id">Id do usuário</param>
+        [HttpGet("valida-requisicao/{token}")]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> ValidateRequisition(string token)
+        {
+
+            try
+            {
+                var requisicaoValidada = UserService.ValidateTokenRequisition(token).Result;
+
+                Usuario novoUsuario = new Usuario()
+                {
+                    Nome = requisicaoValidada.UsuarioNome,
+                    Email = requisicaoValidada.UsuarioEmail
+                };
+
+                await UserService.Criar(novoUsuario, requisicaoValidada.UsuarioSenha);
+
+                return Ok("Cadastro com sucesso!");
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
+        /// <summary>
+        /// Esse método serve para listar requisições de cadastro.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("listar-requisicoes")]
+        
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> ListarRequisicoes()
+        {
+
+            try
+            {
+                var listaRequisicoes = await UserService.BuscarRequisicoesCadastro();
+                return Ok(listaRequisicoes);
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
+        /// <summary>
+        /// Esse método serve para listar requisições de cadastro pend.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("requisicoes-pendentes")]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> ListarRequisicoesPendentes()
+        {
+
+            try
+            {
+                var listaRequisicoes = await UserService.BuscarRequisicoesCadastroPendente();
+                return Ok(listaRequisicoes);
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
     }
 }
