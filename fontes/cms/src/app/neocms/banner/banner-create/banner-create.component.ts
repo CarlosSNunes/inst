@@ -1,6 +1,20 @@
+/*
+ *   Copyright (c) 2020 
+ *   All rights reserved.
+ */
+import { Bounds } from 'ng2-img-cropper';
+/**
+ * * Copyright (c) 2020 - NEOTIX INTERNET AGENCY – LTDA.
+ * * All rights reserved.
+ * @ Author: Bruno Sábio
+ * @ Create Time: 2020-09-20 16:54:14
+ * @ Modified by: Your name
+ * @ Modified time: 2020-09-26 02:45:34
+ * @ Description:
+ */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faCheck, faUpload, faPlus, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { BannerService } from '../banner.service';
 import { FormBuilder, AbstractControl, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,20 +22,25 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 import { FormControlError } from 'src/utils/form-control-error';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';
 import { NgWizardConfig, THEME, StepChangedArgs, NgWizardService } from 'ng-wizard';
-import { Bounds, CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
+import { CropperPosition, ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-banner-create',
   templateUrl: './banner-create.component.html',
   styleUrls: ['./banner-create.component.scss'],
-
 })
 
 
 export class BannerCreateComponent implements OnInit {
+  faSearch = faSearch;
+  imageChangedEvent: any;
+  imageChangedEventMobile: any;
+  croppedImage: any;
+  croppedImageMobile:any;
+  bannerGrande: File;
+  bannerMobile: File;
+  thumbnailImage: File;
 
-  canvasDesktopAtivo = false;
-  canvasMobileAtivo = false;
   bannerForm;
   faTimes = faTimes;
   faCheck = faCheck;
@@ -34,36 +53,23 @@ export class BannerCreateComponent implements OnInit {
   isLinkExternoSelected = false;
   btnSubmitDisable = false;
   isBannerAtivo = false;
-
-  bannerMobile: any;
-
   config: NgWizardConfig = {
     selected: 0,
     theme: THEME.dots,
-    toolbarSettings: {
-      toolbarExtraButtons: [
-        { text: 'Finish', class: 'btn btn-info', event: () => { alert("Finished!!!"); } }
-      ]
-    }
+    lang: { next: 'Próximo', previous: 'Voltar' }
   };
-
-  // Variáveis Cropper
-
-
-
-  @ViewChild('cropperDesktop', undefined) cropperDesktop: ImageCropperComponent;
-  @ViewChild('cropperMobile', undefined) cropperMobile: ImageCropperComponent;
-  dataDesktop: any;
-  dataMobile: any;
-  cropperSettings1: CropperSettings;
-  cropperSettings2: CropperSettings;
-
-  bannerDesktopFile: File;
-  bannerMobileFile: File;
-
+  areas: any = [
+    { id: '01', nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
+    { id: '02', nome: 'Home RH', descricao: 'Banner da home do RH' },
+    { id: '02', nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
+    { id: '02', nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
+    { id: '02', nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
+  ];
+  areaSelected: any[] = this.areas[0];
   nomeDaImagem: string;
+  ngWizardService: any;
 
-  
+
   constructor(
     private bannerService: BannerService,
     private fb: FormBuilder,
@@ -71,40 +77,14 @@ export class BannerCreateComponent implements OnInit {
     private authenticateService: AuthenticationService,
 
   ) {
-    this.cropperSettings1 = new CropperSettings();
-    this.canvasMobileAtivo = true;
-    this.cropperSettings1.keepAspect = false;
-    this.cropperSettings1.canvasWidth = 500;
-    this.cropperSettings1.canvasHeight = 250;
-    this.cropperSettings1.croppedWidth = 1920;
-    this.cropperSettings1.croppedHeight = 720;
-    this.cropperSettings1.minWidth = 1920;
-    this.cropperSettings1.minHeight = 720;
-    this.cropperSettings1.width = 1920;
-    this.cropperSettings1.height = 720;
-    this.cropperSettings1.cropperDrawSettings.strokeColor = 'rgba(255,255,255,1)';
-    this.cropperSettings1.cropperDrawSettings.strokeWidth = 2;
-    this.cropperSettings1.noFileInput = true;
-
-
-    this.cropperSettings2 = new CropperSettings();
-    this.canvasDesktopAtivo = true;
-    this.cropperSettings2.canvasWidth = 500;
-    this.cropperSettings2.canvasHeight = 250;
-    this.cropperSettings2.croppedWidth = 200;
-    this.cropperSettings2.croppedHeight = 150;
-    this.cropperSettings2.minWidth = 200;
-    this.cropperSettings2.minHeight = 150;
-    this.cropperSettings2.cropperDrawSettings.strokeColor = 'rgba(255,255,255,1)';
-    this.cropperSettings2.cropperDrawSettings.strokeWidth = 2;
-    this.cropperSettings2.width = 200;
-    this.cropperSettings2.height = 150;
-    this.cropperSettings2.noFileInput = true;
+  }
 
 
 
-    this.dataDesktop = {};
-    this.dataMobile = {};
+  ngOnInit() {
+    this.usuario = this.authenticateService.state;
+    this.createForm();
+
   }
 
   createForm() {
@@ -123,51 +103,14 @@ export class BannerCreateComponent implements OnInit {
     });
   }
 
-
-  fileChangeListenerDesktop($event) {
-    let imageDesktop: any = new Image();
-    const fileDesktop = $event.target.files[0];
-    let myReaderDesktop: FileReader = new FileReader();
-    let that = this;
-    myReaderDesktop.onloadend = function (loadEvent) {
-      imageDesktop.src = loadEvent.target.result;
-      that.cropperDesktop.setImage(imageDesktop);
-    };
-    myReaderDesktop.readAsDataURL(fileDesktop);
-    this.bannerForm.get('arquivo').setValue(fileDesktop);
-  }
-
-  fileChangeListenerMobile($event) {
-    let imageMobile: any = new Image();
-    const fileMobile: File = $event.target.files[0];
-    let myReaderMobile: FileReader = new FileReader();
-    let that = this;
-    myReaderMobile.onloadend = function (loadEvent) {
-      imageMobile.src = loadEvent.target.result;
-      that.cropperMobile.setImage(imageMobile);
-    };
-    myReaderMobile.readAsDataURL(fileMobile);
-    this.bannerForm.get('arquivoMobile').setValue(fileMobile);
-  }
-
-  cropped(bounds: Bounds) {
-  }
-
-  ngOnInit() {
-    this.usuario = this.authenticateService.state;
-    this.createForm();
-  }
-
   get f() {
     return this.bannerForm.controls;
   }
 
+
+
   onSubmit() {
-
-
-
     this.submitted = true;
-
     const formData = new FormData();
     formData.append('fileDesktop', this.bannerForm.get('arquivo').value);
     formData.append('fileMobile', this.bannerForm.get('arquivoMobile').value);
@@ -188,6 +131,7 @@ export class BannerCreateComponent implements OnInit {
   }
 
   changeStatusBanner(value: string, selected: boolean) {
+
     this.f.ativo.setValue(value);
     this.isBannerAtivo = selected;
   }
@@ -195,5 +139,63 @@ export class BannerCreateComponent implements OnInit {
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }
+
+
+  showPreviousStep(event?: Event) {
+    this.ngWizardService.previous();
+  }
+
+  showNextStep(event?: Event) {
+    this.ngWizardService.next();
+  }
+
+  resetWizard(event?: Event) {
+    this.ngWizardService.reset();
+  }
+
+  setTheme(theme: THEME) {
+    this.ngWizardService.theme(theme);
+  }
+
+  stepChanged(args: StepChangedArgs) {
+    console.log(args.step);
+  }
+
+
+
+  /**
+   ** Usando o 'ngx-image-cropper'
+   *  Quando você escolhe um arquivo da entrada do arquivo, ele será acionado @fileChangeEvent 
+   *  Esse evento é então passado para o cortador de imagens, por meio do @imageChangedEvent qual 
+   *  carregará a imagem no cortador. Sempre que você soltar o mouse, o @imageCropped evento será 
+   *  disparado com a imagem cortada como uma string Base64 em sua carga útil.
+   */
+
+
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+ 
+  fileChangeEventMobile(event: any): void {
+    this.imageChangedEventMobile = event;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+  imageCroppedMobile(event: ImageCroppedEvent) {
+    this.croppedImageMobile = event.base64;
+  }
+
+  imageLoaded() {
+    // show cropper
+  }
+  cropperReady() {
+  }
+  loadImageFailed() {
+    // show message
+  }
+
 
 }

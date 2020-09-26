@@ -1,5 +1,12 @@
-
-
+/**
+ * * Copyright (c) 2020 - NEOTIX INTERNET AGENCY – LTDA.
+ * * All rights reserved.
+ * @ Author: Bruno Sábio
+ * @ Create Time: 2020-09-20 16:54:14
+ * @ Modified by: Your name
+ * @ Modified time: 2020-09-26 00:43:56
+ * @ Description:
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BannerComponent } from './banner.component';
@@ -13,8 +20,7 @@ import { BannerDeleteComponent } from './banner-delete/banner-delete.component';
 import { BannerRoutingModule } from './banner-routing.module';
 import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
-import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.default
@@ -25,7 +31,6 @@ const ngWizardConfig: NgWizardConfig = {
     BannerCreateComponent,
     BannerEditComponent,
     BannerDeleteComponent,
-    ImageCropperComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +40,7 @@ const ngWizardConfig: NgWizardConfig = {
     HttpClientModule,
     BannerRoutingModule,
     NgWizardModule,
-    PaginationModule
+    ImageCropperModule
   ],
   providers: [
     BannerService,

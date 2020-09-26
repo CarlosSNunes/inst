@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2020 
+ *   All rights reserved.
+ */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +15,6 @@ import { HttpHandlerService } from './http-handler/http-handler.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.circles,
@@ -30,7 +33,6 @@ const ngWizardConfig: NgWizardConfig = {
     ErrorHandlerModule,
     NgWizardModule.forRoot(ngWizardConfig),
     BrowserAnimationsModule,
-    PaginationModule.forRoot()
   ],
   providers: [
     {
