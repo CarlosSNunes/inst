@@ -9,7 +9,6 @@ import { CorretorRoutingModule } from './corretor-routing.module';
 import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
 import { MaterialsModule } from 'src/app/modules/components/materials/materials.module';
 import { SocialPostsModule } from 'src/app/modules/components/social-posts/social-posts.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
 
 
@@ -26,7 +25,7 @@ import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-se
         InfoSectionModule,
         MaterialsModule,
         SocialPostsModule,
-        CareplusPlusModule
+        
     ]
 })
 export class CorretorModule { }

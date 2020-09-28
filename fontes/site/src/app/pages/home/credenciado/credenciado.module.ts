@@ -7,7 +7,6 @@ import { ACareplusVideoModule } from 'src/app/modules/components/a-careplus-vide
 import { DifferentialModule } from 'src/app/modules/components/differential/differential.module';
 import { ContactScheduleAVisitModule } from 'src/app/modules/components/contact-schedule-a-visit/contact-schedule-a-visit.module';
 import { MaterialsModule } from 'src/app/modules/components/materials/materials.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { SocialPostsModule } from 'src/app/modules/components/social-posts/social-posts.module';
 import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
 
@@ -24,7 +23,7 @@ import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-se
     IconCardsSectionModule,
     ContactScheduleAVisitModule,
     MaterialsModule,
-    CareplusPlusModule,
+    
     SocialPostsModule
   ]
 })

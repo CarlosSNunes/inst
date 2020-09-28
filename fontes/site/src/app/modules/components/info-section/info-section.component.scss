@@ -91,6 +91,10 @@ section.sectionInfo {
                         }
                     }
                 }
+
+                ::ng-deep .extra-content {
+                    margin-top: 20px;
+                }
             }
 
             &.col-image {

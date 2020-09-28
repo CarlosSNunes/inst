@@ -1,0 +1,115 @@
+@import "~src/scss/_variables";
+
+.cookie-notice {
+    background-color: getColor(_bupa, _digital-cian);
+    width: 100%;
+    padding: 30px 112px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .images {
+        width: 40px;
+        height: 80px;
+        flex: 0 0 40px;
+        display: flex;
+        align-self: center;
+        padding-right: 13px;
+        border-right: 1px solid getColor(_bupa, _white);
+        ul {
+            align-self: center;
+            margin: 0;
+
+            li {
+                height: 25px;
+                margin-top: 12px;
+
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                img {
+                    cursor: pointer;
+                    opacity: 0.5;
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .text {
+        width: calc(80% - 40px);
+        flex: 0 0 calc(80% - 40px);
+        padding: 0 13px;
+        align-self: center;
+
+        .title {
+            color: getColor(_bupa, _white);
+            font-size: getSize('p');
+            line-height: getLineHeight('p');
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .sub-title {
+            margin-top: 8px;
+            color: getColor(_bupa, _white);
+            font-size: getSize('sbm');
+            line-height: getLineHeight('sbm');
+            font-weight: 400;
+        }
+    }
+
+    .agree-button {
+        display: flex;
+        width: 20%;
+        flex: 0 0 20%;
+        justify-content: flex-end;
+
+        .btn {
+            align-self: center;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .cookie-notice {
+        background-color: getColor(_bupa, _digital-cian);
+        width: 100%;
+        padding: 30px 32px;
+        display: flex;
+        flex-wrap: wrap;
+    
+        .images {
+            width: 40px;
+            height: 80px;
+            flex: 0 0 40px;
+            display: flex;
+            align-self: center;
+            padding-right: 13px;
+            border-right: 1px solid getColor(_bupa, _white);
+        }
+    
+        .text {
+            width: calc(100% - 40px);
+            flex: 0 0 calc(100% - 40px);
+            padding: 0 13px;
+            align-self: center;
+        }
+    
+        .agree-button {
+            margin-top: 20px;
+            display: flex;
+            width: 100%;
+            flex: 0 0 100%;
+            justify-content: flex-start;
+
+            .btn {
+                margin: auto;
+            }
+        }
+    }
+    
+}

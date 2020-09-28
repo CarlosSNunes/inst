@@ -1,6 +1,6 @@
 import { Component, OnInit, PLATFORM_ID, Inject, HostListener, ElementRef } from '@angular/core';
 import { simpleBannerModel, medicalOrientationSection, nutriADistancia, sliderModel } from './data/mock-data';
-import { iconCardsSectionModel } from '../programas-preventivos/data/mock-data';
+import { iconCardsSectionModel } from './data/mock-data';
 import { Platform } from '@angular/cdk/platform';
 import { WindowRef } from 'src/utils/window-ref';
 import { isPlatformBrowser } from '@angular/common';
@@ -61,7 +61,7 @@ export class ServicosOnlineComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Serviços Online | Gestão de Saúde | Care Plus');
+        this.title.setTitle('Serviços On-line | Gestão de Saúde | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Para você ter mais tempo e se dedicar ao que importa, a Care Plus investe em praticidade, oferecendo serviços a distância. Confira!'

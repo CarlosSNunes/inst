@@ -9,9 +9,43 @@ section.is-diferencial {
         .column {
             &.left-column {
                 padding-right: 70px;
+                display: none;
+                opacity: 0;
+
+                img {
+                    width: 100%;
+                    height: 360px;
+                    object-fit: cover;
+                    object-position: center top;
+                }
+
+                &.active {
+                    opacity: 1;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                .btn {
+                    margin: 20px auto 0 auto;
+                    height: 63px;
+                }
             }
             &.right-column {
                 padding-left: 70px;
+            }
+            &.buttons-column {
+                display: flex;
+                .btn-digital-cian {
+                    &.secondary {
+                        margin: 0 auto;
+                        margin-top: 50px;
+                    }
+
+                    &.tertiary {
+                        padding-left: 0;
+                        margin-top: 30px;
+                    }
+                }
             }
         }
     }
@@ -43,7 +77,6 @@ section.is-diferencial {
         margin-top: 40px;
         min-height: 280px;
         .accordion-item {
-            transition: max-height 0.4s ease-in-out;
             max-height: 500px;
             margin-top: 20px;
             margin-bottom: 20px;
@@ -89,13 +122,12 @@ section.is-diferencial {
                 padding-left: 36px;
                 height: 0;
                 opacity: 0;
-                max-height: 0;
-                transition: max-height 0.4s ease-in-out;
+                transition: height 0.2s ease-in-out;
+                -moz-transition: height 0.2s ease-in-out;
+                -webkit-transition: height 0.2s ease-in-out;
                 overflow: hidden;
                 &.active {
-                    height: auto;
                     opacity: 1;
-                    max-height: 500px;
                     p {
                         height: auto;
                     }
@@ -114,10 +146,25 @@ section.is-diferencial {
         .mobile-image {
             margin-top: 40px;
             position: relative;
+            opacity: 0;
+            display:none;
+
+            &.active {
+                opacity: 1;
+                display: inline-block;
+            }
             img {
                 width: 100%;
+                height: 340px;
                 object-fit: cover;
+                object-position: center top;
             }
+
+            .btn {
+                margin-top: 20px;
+                padding-left: 0;
+            }
+
             &::before {
                 width: 143px;
                 left: 0;

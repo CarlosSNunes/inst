@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 .columns {
     &.cards {
         .column {
@@ -16,7 +15,6 @@
                     color: getColor(_bupa, _navy);
                     transition: color 0.3s ease-in-out;
                 }
-
                 .download-link {
                     position: absolute;
                     left: 0;
@@ -40,8 +38,7 @@
                     }
                 }
             }
-
-            ::ng-deep app-card {
+             ::ng-deep .app-card {
                 .content {
                     .card.default {
                         padding: 25px 16px;
@@ -49,11 +46,9 @@
                         &:hover {
                             background-color: getColor(_bupa, _digital-cian);
                             border: 1px solid getColor(_bupa, _digital-cian);
-
                             .card-title {
                                 color: getColor(_bupa, _white);
                             }
-
                             .download-link {
                                 color: getColor(_bupa, _white);
                                 span {

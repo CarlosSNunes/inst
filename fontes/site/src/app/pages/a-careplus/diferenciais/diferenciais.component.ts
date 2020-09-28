@@ -30,7 +30,7 @@ export class DiferenciaisComponent implements OnInit {
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         smallTitle: 'A CARE PLUS',
         bigTitle: 'Por que escolher a Care Plus?',
-        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8',
+        embedSrc: 'https://www.youtube.com/embed/VkJDsgCRrTk',
         button: new ButtonModel({
             text: 'Conheça a Care Plus',
             routerLink: '/a-careplus'

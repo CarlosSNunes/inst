@@ -1,21 +1,21 @@
 <section id="contact" [ngClass]="backgroundColorClass">
     <article>
         <div class="container">
-            <h4 class="big-title">Para saber mais, entre em contato</h4>
+            <h1 class="h4 big-title">Para saber mais, entre em contato</h1>
             <div class="columns cards flex-wrap">
                 <div class="column is-6">
-                    <app-card [card]="contactCard"></app-card>
+                    <app-card class="app-card" [card]="contactCard"></app-card>
                 </div>
                 <div class="column is-6 phone">
-                    <app-card [card]="phoneCard">
+                    <app-card class="app-card" [card]="phoneCard">
                         <div class="icon-card-extra-content">
                             <p class="phone-description">
                                 <span class="contact-info">
-                                    <a href="tel:1141979017" class="first-phone"> 4197-9017</a>
-                                </span>
-                                ou
+                                    <a href="tel:1141979017" class="first-phone" title="4197-9017"> 4197-9017</a>
+                                </span> ou
                                 <span class="contact-info">
-                                    <a href="tel:08007711234" class="second-phone"> 0800 771 1234</a>
+                                    <a href="tel:08007711234" class="second-phone" title="0800 771 1234"> 0800 771
+                                        1234</a>
                                 </span>
                                 <span class="info">
                                     (para beneficiários que não residem em São Paulo).
@@ -25,13 +25,11 @@
                     </app-card>
                 </div>
                 <div class="column is-12 button-column">
-                    <a #buttonElement id="button" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="button"
-                        routerLink="/fale-conosco/contato">
+                    <a #buttonElement id="button" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="button" routerLink="/fale-conosco/contato" [attr.title]="button.text">
                         {{button.text}}
                     </a>
 
-                    <a #buttonElement class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="button"
-                        routerLink="/fale-conosco/contato">
+                    <a #buttonElement class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="button" routerLink="/fale-conosco/contato" [attr.title]="button.text">
                         {{button.text}}
                     </a>
                 </div>

@@ -3,7 +3,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
-import { simpleBannerModel, consultaFacil, checkupDoViajante, monitoramentoDoCheckup, gerenciamentoDeDoencasCronicas } from './data/personal-system-mocks';
+import { simpleBannerModel, checkupDoViajante, monitoramentoDoCheckup, gerenciamentoDeDoencasCronicas } from './data/personal-system-mocks';
 import { IconCardsSectionModel, ButtonModel } from 'src/app/models';
 import PersonalizedSectionCards from './data/personalized-section-cards';
 
@@ -15,7 +15,7 @@ import PersonalizedSectionCards from './data/personalized-section-cards';
 export class PersonalSystemComponent implements OnInit {
     isBrowser: boolean = false;
     simpleBannerModel = simpleBannerModel;
-    consultaFacilSection = consultaFacil;
+    // consultaFacilSection = consultaFacil;
     checkupDoViajanteSection = checkupDoViajante;
     monitoramentoDoCheckupSection = monitoramentoDoCheckup;
     gerenciamentoDeDoencasCronicas = gerenciamentoDeDoencasCronicas;
@@ -24,8 +24,8 @@ export class PersonalSystemComponent implements OnInit {
         bigTitle: 'Conheça nossos programas e serviços',
         subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
         button: new ButtonModel({
-            text: 'VEJA TODO OS PROGRAMAS',
-            routerLink: '/gestao-de-saude'
+            text: 'Veja Todos os Programas',
+            routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: PersonalizedSectionCards,
         columnClass: 'is-4-desktop'

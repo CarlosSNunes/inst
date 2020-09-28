@@ -13,25 +13,25 @@ import { Meta, Title } from '@angular/platform-browser';
 export class MateriaisComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
         title: 'Biblioteca de documentos: encontre todos os nossos arquivos disponíveis',
-        description: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.',
+        description: 'Todos os Materiais de Saúde divulgados pela Care Plus estão aqui, reunidos em um só lugar',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'A CarePlus',
+                name: 'A Care Plus',
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({
-                name: 'Materiais',
-                link: '/a-careplus/materiais',
+                name: 'Materiais de Saúde',
+                link: '/a-careplus/materiais-de-saude',
                 active: true
             })
         ],
         hasAnchor: false,
         hasFilters: true,
-        image: 'assets/img/a-careplus-documents-banner.jpg'
+        image: 'assets/img/banner-documentos.jpg'
     };
     filterForm: FormGroup;
     documents = Materias;
@@ -83,7 +83,7 @@ export class MateriaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Materiais - A Care Plus');
+        this.title.setTitle('Materiais de Saúde - A Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.'

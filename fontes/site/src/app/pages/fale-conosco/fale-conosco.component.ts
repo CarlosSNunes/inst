@@ -6,7 +6,7 @@ import { RouteModel } from 'src/app/models';
 @Component({
     selector: 'app-fale-conosco',
     templateUrl: './fale-conosco.component.html',
-    styleUrls: ['./fale-conosco.component.scss']
+    
 })
 export class FaleConoscoComponent implements OnInit {
     constructor(

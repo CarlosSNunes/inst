@@ -9,7 +9,6 @@
         background-color: getColor(_bupa, _white);
         border: 1px solid getColor(_bupa, _grey-3);
         border-radius: 4px;
-
         th,
         td {
             text-align: left;
@@ -20,7 +19,7 @@
             width: 100%;
             tr {
                 background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
-                td {
+                th {
                     padding: 22px 15px;
                     font-weight: 500;
                     font-size: getSize("p");
@@ -29,21 +28,18 @@
                 }
             }
         }
-
         tbody {
             width: 100%;
             tr {
                 &:nth-child(even) {
                     background-color: #f2f2f2;
                 }
-
                 td {
                     padding: 22px 15px;
                     font-weight: 500;
                     font-size: getSize("p");
                     line-height: 100%;
                     color: getColor(_bupa, _grey-2);
-
                     .download-link {
                         align-self: center;
                         font-weight: 600;

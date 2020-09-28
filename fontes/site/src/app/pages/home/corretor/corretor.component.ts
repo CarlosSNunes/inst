@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BannerModel, InfoSectionModel, ButtonModel, IconCardsSectionModel, BreadcrumbModel } from 'src/app/models';
+import { differentialsMock } from "./data/differentials";
 import { bannersMock } from './data/banners';
 import { WindowRef } from 'src/utils/window-ref';
 import { ProductComponent } from 'src/app/modules/components/product/product.component';
@@ -13,6 +14,7 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class CorretorComponent implements OnInit {
     @ViewChild('sectionProduct', { static: false }) sectionProduct: ProductComponent
+    differentials = differentialsMock;
     banners: Array<BannerModel> = bannersMock;
     travelSection: InfoSectionModel = new InfoSectionModel({
         smallTitle: 'CARE PLUS TRAVEL',
@@ -26,8 +28,8 @@ export class CorretorComponent implements OnInit {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
         subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'CONHEÇA NOSSOS PROGRAMAS',
-            routerLink: '/gestao-de-saude'
+            text: 'Conheça nossos Programas',
+            routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: Cards,
         columnClass: 'is-3-desktop'

@@ -1,16 +1,17 @@
 @import "~src/scss/_variables";
-
 section#materials {
     .container {
         .columns {
             .column {
+                .small-title {
+                    text-transform: uppercase;
+                }
                 .big-title {
                     margin-top: 0;
                 }
                 .sub-description {
                     margin-top: 0;
                 }
-
                 &.buttons-column {
                     display: flex;
                     .btn-digital-cian {
@@ -18,7 +19,6 @@ section#materials {
                             margin: 0 auto;
                             margin-top: 50px;
                         }
-
                         &.tertiary {
                             padding-left: 0;
                             margin-top: 30px;
@@ -26,7 +26,6 @@ section#materials {
                     }
                 }
             }
-
             &.cards {
                 .card-content {
                     width: 100%;
@@ -39,7 +38,6 @@ section#materials {
                         line-height: getLineHeight("mbt");
                         color: getColor(_bupa, _navy);
                     }
-
                     .download-link {
                         position: absolute;
                         left: 0;
@@ -56,8 +54,7 @@ section#materials {
                         }
                     }
                 }
-
-                ::ng-deep app-card {
+                 ::ng-deep .app-card {
                     .content {
                         .card.default {
                             padding: 25px 16px;

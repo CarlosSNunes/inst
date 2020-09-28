@@ -9,34 +9,31 @@
                 </div>
 
                 <div class="column is-6-desktop is-full is-paddingless-vertical">
-                    <h4 class="big-title">
+                    <h2 class="h4 big-title">
                         Vantagens que só a Care Plus tem
-                    </h4>
+                    </h2>
                 </div>
 
                 <div class="column is-6-desktop is-full is-paddingless-vertical">
                     <p class="sub-description no-margin">
-                        Somos a maior operadora de saúde premium do mercado e oferecemos diversos benefícios exclusivos
-                        para nossos beneficiários, empresas, corretores e credenciados.
+                        Somos a maior operadora de saúde premium do mercado e oferecemos diversos benefícios exclusivos para nossos beneficiários, empresas, corretores e credenciados.
                     </p>
                 </div>
             </div>
             <div class="columns cards flex-wrap">
                 <div class="column is-full is-4-desktop" *ngFor="let card of cards">
-                    <app-card>
+                    <app-card class="app-card">
                         <div class="card-content">
                             <p class="card-title">
                                 {{card?.title}}
-                                <a class="next is-hidden-desktop" *ngIf="card?.button"
-                                    [routerLink]="[card?.button?.routerLink]">
-                                    <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title">
+                                <a class="next is-hidden-desktop" *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.title">
+                                    <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title" [alt]="card?.title">
                                 </a>
                             </p>
                             <p class="sub-description">
                                 {{card?.description }}
                             </p>
-                            <a class="btn btn-digital-cian tertiary arrow-right medium is-hidden-touch"
-                                *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]">
+                            <a class="btn btn-digital-cian tertiary arrow-right medium is-hidden-touch" *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.button?.text">
                                 {{
                                     card?.button?.text
                                 }}
@@ -47,14 +44,12 @@
 
 
                 <div class="column is-full display-flex">
-                    <a routerLink="/a-careplus/diferenciais" fragment="perfis"
-                        class="btn btn-digital-cian secondary arrow-right medium is-centered is-hidden-touch">
+                    <a routerLink="/a-careplus/diferenciais" fragment="perfis" class="btn btn-digital-cian secondary arrow-right medium is-centered is-hidden-touch" title="Veja todos">
                         Veja todos
                     </a>
 
 
-                    <a routerLink="/a-careplus/diferenciais" fragment="perfis"
-                        class="btn btn-digital-cian tertiary arrow-right medium is-centered is-hidden-desktop">
+                    <a routerLink="/a-careplus/diferenciais" fragment="perfis" class="btn btn-digital-cian tertiary arrow-right medium is-centered is-hidden-desktop" title="Veja todos">
                         Veja todos
                     </a>
                 </div>

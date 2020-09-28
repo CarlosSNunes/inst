@@ -1,5 +1,4 @@
 @import "~src/scss/_variables.scss";
-
 #hospitals-list {
     .filter-box {
         background-color: getColor(_bupa, _white);
@@ -13,8 +12,7 @@
             align-self: center;
             display: flex;
             justify-content: space-between;
-
-            app-dropdown {
+            .app-dropdown {
                 width: 100%;
             }
             img {
@@ -24,11 +22,9 @@
             .active {
                 display: block;
             }
-
             &:first-child {
                 padding-left: 0;
             }
-
             &:last-child {
                 padding-right: 0;
             }
@@ -61,7 +57,7 @@
             thead {
                 width: 100%;
                 tr {
-                    td {
+                    th {
                         width: 11.6%;
                         text-align: center;
                         background: #e6f2f9;
@@ -69,14 +65,14 @@
                         font-weight: 500;
                         padding: 24px 0;
                     }
-                    td:first-child {
+                    th:first-child {
                         width: 30%;
                         text-align: left;
                         padding-left: 32px;
                         background: #dbebf7;
                         border-top-left-radius: 4px;
                     }
-                    td:last-child {
+                    th:last-child {
                         border-top-right-radius: 4px;
                     }
                 }
@@ -136,7 +132,6 @@
                 button {
                     margin: auto unset;
                     padding: 16px 10px;
-
                     &:first-child {
                         margin-right: 16px;
                     }
@@ -168,13 +163,13 @@
         }
     }
 }
+
 @media (max-width: 1024px) {
     #hospitals-list {
         padding: 0;
         .mobile-title {
             padding: 0 16px;
         }
-
         .filter-box {
             margin-top: 0;
             margin-bottom: 0;
@@ -198,7 +193,6 @@
                     border-radius: 0 2px 2px 0;
                     padding: 5px 30px;
                     height: 40px;
-
                     &:first-child {
                         border-right: 1px solid getColor(_bupa, _grey-3);
                         border-radius: 2px 0px 0px 2px;
@@ -223,8 +217,7 @@
                     width: 100%;
                 }
                 margin-bottom: 16px;
-
-                ::ng-deep app-dropdown {
+                 ::ng-deep .app-dropdown {
                     .dropdown-select {
                         padding: 5px 14px;
                         height: 40px;
@@ -251,7 +244,6 @@
                 }
             }
         }
-
         .hospitals-list {
             overflow-y: scroll;
             table {
@@ -266,6 +258,7 @@
         }
     }
 }
+
 @media (max-width: 375px) {
     #hospitals-list {
         .filter-box {

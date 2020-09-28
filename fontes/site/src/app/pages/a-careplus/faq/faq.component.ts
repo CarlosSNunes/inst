@@ -33,18 +33,18 @@ export class FaqComponent implements OnInit, AfterViewInit {
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'A CarePlus',
+                name: 'A Care Plus',
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({
-                name: 'Faq',
-                link: '/a-careplus/faq',
+                name: 'Perguntas Frequentes',
+                link: '/a-careplus/perguntas-frequentes',
                 active: true
             })
         ],
         hasAnchor: false,
         hasFilters: true,
-        image: 'assets/img/a-careplus-faq-banner.jpg'
+        image: 'assets/img/banner-faq.jpg'
     };
     filterForm: FormGroup;
     script: HTMLScriptElement;
@@ -104,7 +104,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     }
 
     initAcordions() {
-        this.questions = [...this.questionsDefault];;
+        this.questions = [...this.questionsDefault];
         this.authorizationQuestions = [...this.authorizationQuestionsDefault];
         this.authorizationQuestionsExtra = [...this.authorizationQuestionsExtraDefault];
         this.previaDeReembolso = [...this.previaDeReembolsoDefault];

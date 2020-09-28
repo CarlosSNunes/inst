@@ -1,6 +1,6 @@
 <section class="section home-banner no-margin">
     <div class="carousel" id="carousel-banner">
-        <div class="stepper" *ngIf="banners.length > 0">
+        <div class="stepper" *ngIf="banners.length > 1">
             <div class="play-carrousel">
                 <div class="play" (click)="toggleBannerPercentage()" [class.stopped]="stopped">
                     <svg id="svg" width="34" height="34" viewPort="0 0 17 17" version="1.1"
@@ -19,9 +19,13 @@
                 </ul>
             </div>
         </div>
-        <div *ngFor="let banner of banners" class="item"
-            [ngStyle]="{ 'background-image': 'url(' + banner?.caminhoImagem + ') ' }"
-            [ngClass]="[banner?.firstInteraction ? 'firstInteraction' :  '', banner?.slideAtual ? 'active' : '']">
+        <div *ngFor="let banner of banners; let i = index;" class="item"
+            [ngStyle]="{ 'background-image': 'url(' + banner?.caminhoImagem + ') '}"
+            [ngClass]="[banner?.firstInteraction ? 'firstInteraction' :  '', banner?.slideAtual ? 'active' : '']"
+            [@slider]="banner.bannerState"
+            (@slider.done)="captureDoneEvent($event)"
+            [attr.index]="i"
+            >
 
             <div class="container breadcrumb-container" *ngIf="breadcrumbs && breadcrumbs?.length > 0">
                 <div class="columns breadcrumb">
@@ -34,33 +38,36 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-6 banner-home-description">
-                        <h3 *ngIf="banner?.titulo" class="banner-title">
+                        <h1 *ngIf="banner?.titulo && banner.slideAtual" class="h3 banner-title">
                             {{ banner.titulo }}
-                        </h3>
+                        </h1>
+                        <h2 *ngIf="banner?.titulo && !banner.slideAtual" class="h3 banner-title">
+                            {{ banner.titulo }}
+                        </h2>
                         <p *ngIf="banner?.descricao" class="banner-content">
                             {{ banner.descricao }}
                         </p>
 
                         <!-- Button with routerLink -->
-                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota"
+                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
                             class="btn btn-digital-cian primary medium is-hidden-touch">
-                            Saiba mais
+                            {{banner?.nomeLink}}
                         </a>
 
-                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota"
-                            class="btn btn-digital-cian secondary medium is-hidden-desktop">
-                            Saiba mais
+                        <a *ngIf="banner?.rota" [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
+                            class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
+                            {{banner?.nomeLink}}
                         </a>
 
-                        <!-- Button with routerLink -->
-                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank"
+                        <!-- Button with  -->
+                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank" [attr.title]="banner?.nomeLink"
                             class="btn btn-digital-cian primary medium is-hidden-touch">
-                            Saiba mais
+                            {{banner?.nomeLink}}
                         </a>
 
-                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank"
-                            class="btn btn-digital-cian secondary medium is-hidden-desktop">
-                            Saiba mais
+                        <a *ngIf="banner?.linkExterno" [href]="banner?.linkExterno" target="_blank" [attr.title]="banner?.nomeLink"
+                            class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
+                            {{banner?.nomeLink}}
                         </a>
                     </div>
                 </div>

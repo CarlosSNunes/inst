@@ -8,7 +8,6 @@ import { VgOverlayPlayModule } from 'videogular2/compiled/src/overlay-play/overl
 import { VgBufferingModule } from 'videogular2/compiled/src/buffering/buffering';
 import { SliderModule } from 'src/app/modules/components/slider/slider.module';
 import { CardModule } from 'src/app/modules/components/card/card.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { SocialPostsModule } from 'src/app/modules/components/social-posts/social-posts.module';
 import { BreadcrumbModule } from 'src/app/modules/components/breadcrumb/breadcrumb.module';
 import { HeroBannerModule } from 'src/app/modules/components/hero-banner/hero-banner.module';
@@ -26,7 +25,6 @@ import { HeroBannerModule } from 'src/app/modules/components/hero-banner/hero-ba
         VgBufferingModule,
         SliderModule,
         CardModule,
-        CareplusPlusModule,
         SocialPostsModule,
         BreadcrumbModule,
         HeroBannerModule

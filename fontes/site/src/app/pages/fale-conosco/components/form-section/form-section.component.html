@@ -14,9 +14,9 @@
                     <p class="small-title">
                         FALE CONOSCO
                     </p>
-                    <h4 class="big-title">
+                    <h1 class="h4 big-title">
                         Entre em contato pelo formulário ou por um dos canais de atendimento
-                    </h4>
+                    </h1>
                 </div>
 
                 <div class="column is-full is-6-desktop has-line">
@@ -33,7 +33,7 @@
                         <ul>
                             <li [class.is-active]="chanel.active" *ngFor="let chanel of chanelForms; let i = index;"
                                 (click)="setActiveChanel(i)">
-                                <a>
+                                <a [attr.title]="chanel.title">
                                     <span>{{chanel.title}}</span>
                                 </a>
                             </li>
@@ -41,9 +41,6 @@
                     </div>
 
                     <app-solicite-uma-cotacao *ngIf="activeChanel.id == 1"></app-solicite-uma-cotacao>
-                    <app-contato *ngIf="activeChanel.id == 2"></app-contato>
-                    <app-canal-de-denuncias *ngIf="activeChanel.id == 3"></app-canal-de-denuncias>
-                    <app-ouvidoria *ngIf="activeChanel.id == 4"></app-ouvidoria>
                 </div>
                 <div class="column is-full is-4-desktop">
                     <div class="contact-info blue-background-color">
@@ -53,37 +50,37 @@
                             </p>
                             <p class="contact-subdescription">
                                 <span class="image">
-                                    <img src="assets/svg/phone.svg" alt="Atendimento 24h ao beneficiário Telefone">
+                                    <img src="assets/svg/phone.svg" alt="Atendimento 24h ao Beneficiário Telefone">
                                 </span>
                                 <span class="text">
-                                    Atendimento 24h ao beneficiário
+                                    Atendimento 24h ao Beneficiário
                                 </span>
                             </p>
-                            <a href="tel:0800-13-2992" class="contact-link">
+                            <a href="tel:0800-13-2992" title="Atendimento 24h ao Beneficiário" class="contact-link">
                                 0800-13-2992
                             </a>
 
                             <p class="contact-subdescription">
                                 <span class="image">
-                                    <img src="assets/svg/phone.svg" alt="Atendimento 24h ao prestador Telefone">
+                                    <img src="assets/svg/phone.svg" alt="Icone Telefone">
                                 </span>
                                 <span class="text">
                                     Atendimento no Exterior
                                 </span>
                             </p>
-                            <a href="tel:114197-9000" class="contact-link">
-                                (11) 4197-9000
+                            <a href="tel:114197-9000" title="Atendimento no Exterior" class="contact-link">
+                               +55 (11) 4197-9000
                             </a>
 
                             <p class="contact-subdescription">
                                 <span class="image">
-                                    <img src="assets/svg/phone.svg" alt="Atendimento 24h ao prestador Telefone">
+                                    <img src="assets/svg/phone.svg" alt="Icone Telefone">
                                 </span>
                                 <span class="text">
-                                    Atendimento 24h ao prestador
+                                    Atendimento 24h ao Credenciado
                                 </span>
                             </p>
-                            <a href="tel:1141979000" class="contact-link">
+                            <a href="tel:1141979000" title="Atendimento 24h ao Credenciado Telefone" class="contact-link">
                                 (11) 4197-9000
                             </a>
                             <hr class="separator" />
@@ -98,7 +95,7 @@
                                     Comunicação Care Plus
                                 </span>
                             </p>
-                            <a href="tel:1141979104" class="contact-link">
+                            <a href="tel:1141979104" title="Comunicação Care Plus Telefone" class="contact-link">
                                 (11) 4197-9104
                             </a>
 
@@ -110,7 +107,7 @@
                                     Comunicação Care Plus
                                 </span>
                             </p>
-                            <a href="mailto:imprensa@careplus.com.br" class="contact-link">
+                            <a href="mailto:imprensa@careplus.com.br" title="Comunicação Care Plus Email" class="contact-link">
                                 imprensa@careplus.com.br
                             </a>
                         </div>

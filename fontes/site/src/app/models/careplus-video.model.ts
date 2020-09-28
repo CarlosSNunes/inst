@@ -1,4 +1,3 @@
-import { SubtitleModel } from './video.model';
 import { ButtonModel } from './button.model';
 
 export class CareplusVideoModel {

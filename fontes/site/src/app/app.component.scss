@@ -1,16 +1,4 @@
 @import "~src/scss/_variables";
-
-.section {
-    &.principal-section {
-        min-height: calc(100vh - 151px);
-    }
-    padding: 0;
-}
-
-.breadcrumb {
-    margin: 0 !important;
-}
-
 .go-section-back {
     position: fixed;
     bottom: 0;
@@ -21,31 +9,38 @@
     padding: 0 !important;
     margin: 0 !important;
     transition: background 0.3s ease-in-out;
-
     &.invert-colors {
         background: getColor(_bupa, _white);
         border: 1px solid getColor(_bupa, _white);
         svg {
             position: absolute;
-            ::ng-deep path {
+             ::ng-deep path {
                 color: getColor(_bupa, _navy);
                 fill: getColor(_bupa, _navy);
             }
         }
     }
-
     svg {
         position: absolute;
         transition: fill 0.3s ease-in-out;
         fill: getColor(_bupa, _white);
-        ::ng-deep path {
+         ::ng-deep path {
             fill: getColor(_bupa, _white);
             transition: fill 0.3s ease-in-out;
         }
     }
 }
 
-app-header-mobile {
+.app-cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    z-index: 1001;
+}
+
+.app-header-mobile {
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -56,13 +51,6 @@ app-header-mobile {
 }
 
 @media (max-width: 1023px) {
-    .section {
-        padding-top: 72px;
-        &.principal-section {
-            min-height: calc(100vh - 72px);
-        }
-    }
-
     .go-section-back {
         display: none;
     }

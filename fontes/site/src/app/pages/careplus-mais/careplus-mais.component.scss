@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 section {
     &#careplus-plus-filters {
         .container {
@@ -27,16 +26,13 @@ section {
                                         padding: 0;
                                         padding-left: 16px;
                                         padding-right: 16px;
-
                                         &:first-child {
                                             padding-left: 0;
                                         }
-
                                         &:last-child {
                                             margin-right: 0px;
                                             padding-right: 0;
                                         }
-
                                         .filter-title {
                                             font-weight: 600;
                                             font-size: getSize("p");
@@ -46,7 +42,6 @@ section {
                                             letter-spacing: 3.5px;
                                             color: getColor(_bupa, _navy);
                                         }
-
                                         .category-filter {
                                             width: 100%;
                                             flex: 0 0 100%;
@@ -54,17 +49,14 @@ section {
                                             justify-content: space-between;
                                             li {
                                                 display: inline;
-
                                                 a {
                                                     font-weight: normal;
                                                     font-size: getSize("p");
                                                     line-height: getLineHeight("p");
                                                     color: getColor(_bupa, _grey-2);
-
                                                     &:hover {
                                                         color: getColor(_bupa, _digital-cian);
                                                     }
-
                                                     &.active {
                                                         font-weight: 500;
                                                         color: getColor(_bupa, _digital-cian);
@@ -72,7 +64,6 @@ section {
                                                 }
                                             }
                                         }
-
                                         .field {
                                             max-width: 100%;
                                             width: 100%;
@@ -81,12 +72,10 @@ section {
                                             .control {
                                                 display: flex;
                                                 width: 100%;
-
                                                 input:not([type="radio"]) {
                                                     min-width: 100px;
                                                 }
                                             }
-
                                             .is-search {
                                                 cursor: pointer;
                                             }
@@ -103,7 +92,7 @@ section {
 }
 
 @media (min-width: 1440px) {
-    app-banner ::ng-deep {
+    .app-banner ::ng-deep {
         .section.home-banner {
             height: 450px;
             #carousel-banner {
@@ -114,7 +103,6 @@ section {
                     height: 450px;
                     display: flex;
                     flex-wrap: wrap;
-
                     .container.breadcrumb-container {
                         width: 100%;
                         flex: 0 0 100%;
@@ -123,7 +111,6 @@ section {
                         // align-self: center;
                         width: 100%;
                         flex: 0 0 100%;
-
                         .banner-home-description {
                             padding-top: 15px;
                         }
@@ -135,15 +122,13 @@ section {
 }
 
 @media (min-width: 1024px) {
-    ::ng-deep {
+     ::ng-deep {
         #last-posts {
             padding-bottom: 0;
-
             .column:last-child {
                 padding-bottom: 0;
             }
-
-            ::ng-deep app-newsletter {
+             ::ng-deep .app-newsletter {
                 #newsletter {
                     margin-bottom: 0;
                 }
@@ -179,13 +164,11 @@ section {
                                             .category-filter {
                                                 li {
                                                     min-width: 70px;
-
                                                     a {
                                                         display: block;
                                                         margin: 0 auto;
                                                         text-align: center;
                                                     }
-
                                                     &:first-child {
                                                         a {
                                                             text-align: left;
@@ -207,8 +190,8 @@ section {
 }
 
 @media (max-width: 1023px) {
-    app-banner {
-        ::ng-deep {
+    .app-banner {
+         ::ng-deep {
             .section.home-banner {
                 height: calc(100vh - 156px);
                 #carousel-banner {
@@ -238,7 +221,6 @@ section {
                                 width: 100%;
                                 box-shadow: unset;
                                 padding: 30px 16px;
-
                                 form {
                                     .columns {
                                         flex-wrap: wrap;
@@ -246,15 +228,12 @@ section {
                                             padding: 0 16px;
                                             width: 100%;
                                             flex: 0 0 100%;
-
                                             &:first-child {
                                                 padding-left: 16px;
                                             }
-
                                             &:last-child {
                                                 padding-right: 16px;
                                             }
-
                                             .category-filter {
                                                 margin-top: 20px;
                                                 justify-content: unset;
@@ -264,7 +243,6 @@ section {
                                                     flex: 0 0 100%;
                                                 }
                                             }
-
                                             .field {
                                                 margin-top: 20px;
                                             }

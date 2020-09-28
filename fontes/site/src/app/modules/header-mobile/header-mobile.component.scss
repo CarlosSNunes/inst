@@ -3,6 +3,7 @@
 /*
     First header
 */
+
 .info-header {
     top: 0;
     left: 0;
@@ -14,24 +15,6 @@
     background-attachment: fixed;
     z-index: 1002;
     .selected {
-        cursor: pointer;
-        img {
-            transform: translate3d(0, 0, 0);
-            vertical-align: -0.4em;
-            @media (max-width: 1023px) {
-                vertical-align: -0.225em;
-            }
-        }
-    }
-    &.open {
-        .selected {
-            img {
-                transform: rotate(-180deg);
-            }
-        }
-    }
-
-    .selected {
         height: 100%;
         line-height: 24px;
         color: getColor(_bupa, _white);
@@ -41,8 +24,13 @@
         text-overflow: ellipsis;
         padding-right: 25px;
         position: relative;
-
+        cursor: pointer;
         img {
+            transform: translate3d(0, 0, 0);
+            vertical-align: -0.4em;
+            @media (max-width: 1023px) {
+                vertical-align: -0.225em;
+            }
             position: absolute;
             right: 0px;
             width: 10px;
@@ -50,11 +38,20 @@
             transition: transform 0.5s;
         }
     }
+    &.open {
+        .selected {
+            img {
+                transform: rotate(-180deg);
+            }
+        }
+    }
 }
+
 
 /*
     Drop Down options list
 */
+
 .dropdown-options {
     position: fixed;
     width: 218px;
@@ -80,7 +77,6 @@
                 line-height: 150%;
                 font-weight: 500;
                 color: getColor(_bupa, _grey-5);
-
                 &:before {
                     position: absolute;
                     width: 20.46px;
@@ -91,7 +87,6 @@
                     content: "";
                     border: 1.5px solid getColor(_bupa, _grey-3);
                 }
-
                 &.active {
                     color: getColor(_bupa, _grey);
                     &:before {
@@ -103,9 +98,11 @@
     }
 }
 
+
 /*
     Drop Down backdrop
 */
+
 .close-drop-down {
     position: fixed;
     left: 0;
@@ -114,6 +111,7 @@
     height: 100%;
     z-index: 1031;
 }
+
 
 /*
     Second header
@@ -129,30 +127,25 @@
     z-index: 1002;
     padding: 10px 36px;
     background-color: getColor(_bupa, _digital-cian);
-
     #menu-check {
         display: none;
     }
-
-    #menu-check:checked ~ #menu-hamburger {
+    #menu-check:checked~#menu-hamburger {
         width: 45%;
         opacity: 1;
         pointer-events: all;
     }
-    #menu-check:checked ~ label .hamburger {
+    #menu-check:checked~label .hamburger {
         transform: rotate(45deg);
     }
-
-    #menu-check:checked ~ label .hamburger:before {
+    #menu-check:checked~label .hamburger:before {
         transform: rotate(90deg);
         top: 0;
     }
-
-    #menu-check:checked ~ label .hamburger:after {
+    #menu-check:checked~label .hamburger:after {
         transform: rotate(90deg);
         bottom: 0;
     }
-
     .label-menu {
         margin: 0 0 0 0;
         height: 32px;
@@ -194,7 +187,6 @@
             }
         }
     }
-
     .columns {
         margin: 0;
         height: 100%;
@@ -219,9 +211,11 @@
     }
 }
 
+
 /*
    Menu Content
 */
+
 .menu {
     position: fixed;
     width: 100%;
@@ -261,7 +255,6 @@
         &.open {
             right: 0%;
         }
-
         .times-icon {
             position: absolute;
             top: 30px;
@@ -269,30 +262,25 @@
             cursor: pointer;
             width: 18px;
             height: 32px;
-
             #menu-check-container {
                 display: none;
             }
-
-            #menu-check-container:checked ~ #menu-hamburger {
+            #menu-check-container:checked~#menu-hamburger {
                 width: 45%;
                 opacity: 1;
                 pointer-events: all;
             }
-            #menu-check-container:checked ~ label .hamburger {
+            #menu-check-container:checked~label .hamburger {
                 transform: rotate(45deg);
             }
-
-            #menu-check-container:checked ~ label .hamburger:before {
+            #menu-check-container:checked~label .hamburger:before {
                 transform: rotate(90deg);
                 top: 0;
             }
-
-            #menu-check-container:checked ~ label .hamburger:after {
+            #menu-check-container:checked~label .hamburger:after {
                 transform: rotate(90deg);
                 bottom: 0;
             }
-
             .label-menu {
                 display: block !important;
                 margin: 0 0 0 10px;
@@ -337,18 +325,15 @@
                 }
             }
         }
-
         .page-title {
             margin-top: 72px;
             font-weight: 5000;
             font-size: getSize("sbm");
             line-height: getLineHeight("sbm");
         }
-
         .buttons {
             margin-top: 8px;
             .button {
-                width: 145px;
                 height: 34px;
                 background: getColor(_bupa, _digital-cian);
                 color: getColor(_bupa, _white);
@@ -364,21 +349,17 @@
                 &:nth-child(1) {
                     margin-left: 0;
                 }
-
                 &:nth-child(2) {
                     margin-right: 0;
                 }
-
                 &:nth-child(3) {
                     margin-left: 0;
                     margin-top: 15px;
                 }
-
                 &:nth-child(4) {
                     margin-right: 0;
                     margin-top: 15px;
                 }
-
                 &:hover {
                     border: 1px solid getColor(_bupa, _digital-cian);
                     color: getColor(_bupa, _digital-cian);
@@ -386,7 +367,6 @@
                 }
             }
         }
-
         ul {
             margin-top: 16px;
             li {
@@ -403,7 +383,6 @@
                     left: 13px;
                     top: 5px;
                 }
-
                 a {
                     width: 100%;
                     font-weight: 600;
@@ -414,7 +393,6 @@
                     outline: none;
                     display: block;
                 }
-
                 .extra {
                     margin: 0;
                     opacity: 0;
@@ -448,8 +426,7 @@
                         }
                     }
                 }
-
-                input[type="checkbox"]:checked ~ .extra {
+                input[type="checkbox"]:checked~.extra {
                     margin-top: 15px;
                     opacity: 1;
                     height: auto;
@@ -458,18 +435,15 @@
                         display: block;
                     }
                 }
-
-                input[type="checkbox"]:checked ~ label {
+                input[type="checkbox"]:checked~label {
                     transform: rotate(360deg);
                 }
-
                 input[type="checkbox"] {
                     opacity: 0;
                     width: 0;
                     height: 0;
                     position: absolute;
                 }
-
                 label {
                     position: absolute;
                     right: 0;
@@ -496,7 +470,6 @@
                 }
             }
         }
-
         .bottom {
             width: 100%;
             .line {
@@ -505,7 +478,6 @@
                 height: 1px;
                 background: getColor(_bupa, _white);
             }
-
             .bottom-description {
                 margin-top: 15px;
                 font-weight: normal;
@@ -526,23 +498,19 @@
     background-color: getColor(_bupa, _white);
     display: flex;
     box-shadow: 0px -3px 12px -4px rgba(getColor(_bupa, _black-rgb), 0.25);
-
     ul {
         width: 100%;
         height: 100%;
         display: flex;
-
         li {
             width: 25%;
             flex: 0 0 25%;
             height: 100%;
             display: flex;
             position: relative;
-
             a {
                 align-self: center;
                 margin: 0 auto;
-
                 p {
                     font-weight: 500;
                     font-size: 0.625em;
@@ -551,7 +519,6 @@
                     color: getColor(_bupa, _grey-2);
                     margin-top: 16px;
                 }
-
                 svg {
                     display: block;
                     margin: 0 auto;
@@ -560,32 +527,27 @@
                     path: {
                         fill: getColor(_bupa, _grey-2);
                     }
-
-                    ::ng-deep {
+                     ::ng-deep {
                         path {
                             fill: getColor(_bupa, _grey-2);
                         }
                     }
                 }
-
                 &.active {
                     svg {
                         fill: getColor(_bupa, _navy) !important;
                         path: {
                             fill: getColor(_bupa, _navy) !important;
                         }
-
-                        ::ng-deep {
+                         ::ng-deep {
                             path {
                                 fill: getColor(_bupa, _navy) !important;
                             }
                         }
                     }
-
                     p {
                         color: getColor(_bupa, _navy) !important;
                     }
-
                     &::before {
                         content: "";
                         position: absolute;

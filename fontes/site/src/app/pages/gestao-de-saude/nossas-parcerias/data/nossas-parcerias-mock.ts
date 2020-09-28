@@ -10,15 +10,15 @@ export const simpleBannerModel: SimpleBannerModel = {
         }),
         new BreadcrumbModel({
             name: 'Gestão de Saúde',
-            link: '/gestao-de-saude'
+            link: '/planos-e-produtos/gestao-de-saude'
         }),
         new BreadcrumbModel({
             name: 'Nossas Parcerias',
-            link: '/gestao-de-saude/nossas-parcerias',
+            link: '/planos-e-produtos/gestao-de-saude/nossas-parcerias',
             active: true
         })
     ],
     hasAnchor: true,
     hasFilters: false,
-    image: 'assets/img/banner-nossas-parcerias-gestao-de-saude.jpg'
+    image: 'assets/img/banner-nossas-parcerias.jpg'
 };

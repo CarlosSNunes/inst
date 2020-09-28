@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: () => import('./medicina-ocupacional/medicina-ocupacional.module').then(m => m.MedicinaOcupacionalModule)
     },
     {
+        path: 'gestao-de-saude',
+        loadChildren: () => import('../gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
+    },
+    {
         path: ':id',
         component: DetalhesDoProdutoComponent,
     },

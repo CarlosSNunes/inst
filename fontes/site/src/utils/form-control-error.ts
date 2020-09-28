@@ -24,10 +24,7 @@ export class FormControlError {
             } else if (key === 'email') {
                 error += fieldName + ' deve conter um E-mail válido.';
                 errors.push(error);
-            } else if (key === 'cpfvalidator') {
-                error += fieldName + ' deve ser válido';
-                errors.push(error);
-            } else if (key === 'cnpjvalidator') {
+            } else if (key === 'cpfvalidator' || key === 'cnpjvalidator') {
                 error += fieldName + ' deve ser válido';
                 errors.push(error);
             }

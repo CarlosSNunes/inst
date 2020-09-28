@@ -1,5 +1,3 @@
-import { ButtonModel } from './button.model';
-
 export class TableModel {
     constructor(init?: Partial<TableModel>) {
         Object.assign(this, init)
@@ -14,6 +12,6 @@ class HeadItem {
         Object.assign(this, init)
     }
 
-    key: string;
+    title: string;
     text: string;
 }

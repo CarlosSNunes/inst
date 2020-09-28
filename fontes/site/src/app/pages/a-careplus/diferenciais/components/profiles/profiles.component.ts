@@ -83,7 +83,7 @@ export class ProfilesComponent implements OnInit {
     filterCards(segment) {
         this.filteredCards = this.cards;
         if (segment) {
-            this.filteredCards = this.filteredCards.filter(card => card.category === segment);
+            this.filteredCards = this.filteredCards.filter(card => card.category.split(", ").includes(segment));
         }
     }
 

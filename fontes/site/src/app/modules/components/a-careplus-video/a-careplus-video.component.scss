@@ -1,29 +1,23 @@
 @import "~src/scss/_variables.scss";
-
 #a-care-plus {
     p {
         font-size: getSize("sbm");
         font-weight: 500;
         line-height: getLineHeight("sbm");
-        text-align: center;
         color: getColor(_bupa, _digital-cian);
         margin-bottom: 8px;
         text-align: center;
     }
-    h4 {
-        font-weight: 600;
+    .big-title {
+        margin: 8px auto 0 auto;
         text-align: center;
-        color: getColor(_bupa, _navy);
-        margin-bottom: 48px;
-        width: 50%;
-        margin: auto;
+        max-width: 736px;
     }
     .video-bg {
         position: relative;
     }
     .video-bg:after {
         position: absolute;
-        left: 0;
         content: "";
         z-index: -1;
         top: 12.5%;
@@ -37,14 +31,12 @@
         max-height: 511px;
         max-width: 90%;
         position: relative;
-
         iframe {
             width: 100%;
             height: 503px;
             position: relative;
             border: none;
         }
-
         &::before {
             background-color: getColor(_bupa, _digital-cian);
             content: "";
@@ -55,10 +47,8 @@
             width: 100%;
         }
     }
-
     .columns {
         margin-bottom: 0;
-
         &.video-columns {
             margin-top: 55px;
         }
@@ -79,12 +69,6 @@
 
 @media (max-width: 991px) {
     #a-care-plus {
-        h4 {
-            font-size: 1.25em;
-            line-height: 120%;
-            width: 100%;
-        }
-
         .videoBox {
             iframe {
                 height: 303px;

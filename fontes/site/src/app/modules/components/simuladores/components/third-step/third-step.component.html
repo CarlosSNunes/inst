@@ -4,9 +4,9 @@
             <img src="assets/svg/final-step-image.svg" alt="Imagem Ultimo Passo Simulador">
         </div>
         <div class="column is-6-desktop is-full align-self-center">
-            <h4 class="big-title white no-margin">
+            <h2 class="h4 big-title white no-margin">
                 {{message}}
-            </h4>
+            </h2>
 
             <h3 class="big-title white no-margin">
                 {{selectedPlan?.name}}
@@ -18,12 +18,12 @@
 
             <div class="third-step-buttons">
 
-                <a (click)="goToPlan()" class="btn btn-white-to-digital-cian secondary small">
-                    Saiba Mais
+                <a (click)="goToPlan()" class="btn btn-white-to-digital-cian secondary medium" title="Saiba mais">
+                    Conheça o {{selectedPlan.name}}
                 </a>
 
-                <button (click)="finish.emit()" class="btn btn-white-to-digital-cian primary small">
-                    Solicite Uma Cotação
+                <button (click)="finish.emit()" class="btn btn-white-to-digital-cian primary medium" title="Solicite uma Cotação">
+                    Solicite uma Cotação
                 </button>
             </div>
         </div>

@@ -1,16 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { BreadcrumbModel, SimpleBannerModel, CrossContentModel, ButtonModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
-import { OurProgramsComponent } from './our-programs/our-programs.component';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-vagas',
     templateUrl: './vagas.component.html',
-    styleUrls: ['./vagas.component.scss']
+    
 })
 export class VagasComponent implements OnInit {
-    @ViewChild('ourPrograms', { static: false }) ourPrograms: OurProgramsComponent;
     simpleBannerModel: SimpleBannerModel = {
         title: 'Saiba mais sobre os nossos programas e vagas em aberto',
         description: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você',
@@ -35,18 +33,18 @@ export class VagasComponent implements OnInit {
     crossContentModel: CrossContentModel = new CrossContentModel({
         bigTitle: 'Mais do que trabalhar com líderes inspiradores, nós queremos que você seja um',
         firstImage: {
-            src: 'assets/img/subscribe-in-vacancy-first-image.jpg',
+            src: 'assets/img/Carreira_Vagas_1.png',
             alt: 'Banco de dados imagem 1'
         },
         secondImage: {
-            src: 'assets/img/subscribe-in-vacancy-second-image.jpg',
+            src: 'assets/img/Carreira_Vagas_2.png',
             alt: 'Banco de dados imagem 2'
         },
         boxContent: {
             title: 'Cadastre-se para integrar nosso banco de talentos',
             description: 'Estamos compondo um time repleto de talentos, envie para nós os seus dados pessoais e profissionais e entraremos em contato para futuras oportunidades.',
             button: new ButtonModel({
-                text: 'saiba mais',
+                text: 'Saiba mais',
                 link: 'https://careplus.gupy.io/'
             })
         }
@@ -54,7 +52,8 @@ export class VagasComponent implements OnInit {
     constructor(
         private windowRef: WindowRef,
         private meta: Meta,
-        private title: Title
+        private title: Title,
+        private elementRef: ElementRef<HTMLElement>
     ) {
         this.setSEOInfos();
     }
@@ -63,11 +62,15 @@ export class VagasComponent implements OnInit {
     }
 
     goToNextSection() {
-        this.windowRef.nativeWindow.scrollTo({
-            left: 0,
-            top: this.ourPrograms.offsetTop - parseInt(localStorage.getItem('elementOffset')),
-            behavior: 'smooth'
-        })
+        const crossCrontent = this.elementRef.nativeElement.querySelector('.cross-content-section') as HTMLElement;
+
+        if (crossCrontent && crossCrontent != null) {
+            this.windowRef.nativeWindow.scrollTo({
+                left: 0,
+                top: crossCrontent.offsetTop - parseInt(localStorage.getItem('elementOffset')),
+                behavior: 'smooth'
+            });
+        }
     }
 
     setSEOInfos() {

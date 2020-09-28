@@ -20,8 +20,8 @@ export class ProgramasEmpresariaisComponent implements OnInit {
         bigTitle: 'Conheça nossos programas e serviços',
         subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
         button: new ButtonModel({
-            text: 'VEJA TODO OS PROGRAMAS',
-            routerLink: '/gestao-de-saude'
+            text: 'Veja Todos os Programas',
+            routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: PersonalizedSectionCards,
         columnClass: 'is-4-desktop'

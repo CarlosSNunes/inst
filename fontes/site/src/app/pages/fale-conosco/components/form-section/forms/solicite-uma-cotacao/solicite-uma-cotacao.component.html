@@ -1,9 +1,21 @@
-<form [formGroup]="soliciteUmaCotacaoForm">
+<form [formGroup]="soliciteUmaCotacaoForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" (submit)="sendForm($event)">
     <div class="columns flex-wrap has-negative-margin">
+
+        <input type=hidden name="oid" value="00D300000001VCx">
+        <input type=hidden name="retURL" [value]="retURL">
+        <input type=hidden name="recordType" value="012f2000000YOI6" id="recordType">
+        <div style="display:none;">
+            <label for="lead_source">Fale Conosco</label>
+            <select formControlName="plano" id="lead_source" name="lead_source">
+                <option value="Fale Conosco">Fale Conosco</option>
+            </select>
+            <br>
+        </div>
+
 
         <div class="column is-full is-4-desktop display-flex">
             <label class="align-self-center">
-                Qual(is) plano(s) ou produto(s) deseja cotar?
+                Qual plano ou produto deseja cotar?
             </label>
         </div>
 
@@ -12,9 +24,7 @@
                 <div class="column is-full is-6 is-paddingless-vertical">
                     <div class="field">
                         <div class="control">
-                            <input formControlName="planoSaude" (change)="updateFormValidation()"
-                                [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" class="checkbox"
-                                id="plano-saude" type="checkbox" name="plano">
+                            <input formControlName="planoSaude" (change)="updateFormValidation()" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" class="checkbox" id="00N5x00000Ef5wZ" name="00N5x00000Ef5wZ" type="checkbox" (change)="checkboxChange($event, 'planoSaude')">
                             <label class="checkbox-label" for="plano-saude">
                                 Plano de Saúde
                             </label>
@@ -24,9 +34,7 @@
                 <div class="column is-full is-6 is-paddingless-vertical">
                     <div class="field">
                         <div class="control">
-                            <input formControlName="planoOdontologico" (change)="updateFormValidation()"
-                                [ngClass]="{ 'is-invalid' : form?.planoOdontologico?.errors }" class="checkbox"
-                                id="plano-odontologico" type="checkbox" name="plano">
+                            <input formControlName="planoOdontologico" (change)="updateFormValidation()" [ngClass]="{ 'is-invalid' : form?.planoOdontologico?.errors }" class="checkbox" id="00N5x00000Ef5x8" name="00N5x00000Ef5x8" type="checkbox" (change)="checkboxChange($event, 'planoOdontologico')">
                             <label class="checkbox-label" for="plano-odontologico">
                                 Plano Odontológico
                             </label>
@@ -36,9 +44,7 @@
                 <div class="column is-full is-6 is-paddingless-vertical">
                     <div class="field">
                         <div class="control">
-                            <input formControlName="medicinaOcupacional"
-                                [ngClass]="{ 'is-invalid' : form?.medicinaOcupacional?.errors }" class="checkbox"
-                                id="medicina-ocupacional" type="checkbox" name="plano">
+                            <input formControlName="medicinaOcupacional" [ngClass]="{ 'is-invalid' : form?.medicinaOcupacional?.errors }" class="checkbox" id="00N5x00000Ef5xD" name="00N5x00000Ef5xD" type="checkbox" (change)="checkboxChange($event, 'medicinaOcupacional')">
                             <label class="checkbox-label" for="medicina-ocupacional">
                                 Medicina Ocupacional
                             </label>
@@ -47,8 +53,7 @@
                 </div>
                 <div class="columns is-12">
                     <div class="field">
-                        <div *ngIf="soliciteUmaCotacaoForm.touched && soliciteUmaCotacaoForm?.errors?.requireAtLeastOne"
-                            class="errors">
+                        <div *ngIf="soliciteUmaCotacaoForm.touched && soliciteUmaCotacaoForm?.errors?.requireAtLeastOne" class="errors">
                             <p class="help is-danger">
                                 Ao menos um plano deve ser selecionado
                             </p>
@@ -58,19 +63,28 @@
             </div>
         </div>
 
-        <div class="column is-full is-4-desktop" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
+        <div class="column is-full is-4-desktop" style="margin: auto" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
             <label>
                 Qual o tamanho da sua empresa?
             </label>
         </div>
 
         <div class="column is-full is-8-desktop" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
-            <app-dropdown [options]="dropDownItems" [default]="defaultItem" [canUnselect]="false"
-                (setFilter)="selectPlan($event)">
-            </app-dropdown>
+
+
             <div class="field">
-                <div *ngIf="form.plano.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.plano)" class="help is-danger">
+                <div class="control">
+                    <div class="select">
+                        <select id="00N5x00000Ef2Ev" name="00N5x00000Ef2Ev" title="Porte" formControlName="plano" [ngClass]="{ 'is-valid': !form.plano.errors, 'is-invalid' : form.plano.dirty && form.plano.errors, 'is-touched': form.plano.value.length > 0 }" (change)="selectedPlan = $event.target.value">
+                            <option [value]="''">Selecione...</option>
+                            <option value="2 a 29 vidas - Soho">2 a 29 vidas - Care Plus Soho</option>
+                            <option value="30 a 200 vidas - Clube Care Plus">30 a 200 vidas - Clube Care Plus</option>
+                            <option value="+ 200 vidas - Empresarial">+ 200 vidas - Care Plus Empresarial</option>
+                            </select>
+                    </div>
+                </div>
+                <div *ngIf="form.plano.touched && form.plano?.errors" class="errors">
+                    <p *ngFor="let error of getErrors(form.plano, 'Tamanho da empresa')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>
@@ -80,10 +94,8 @@
         <div class="column is-full is-6-desktop">
             <div class="field">
                 <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form.nome.errors, 'is-invalid' : form.nome.dirty && form.nome.errors, 'is-touched': form.nome.value.length > 0 }"
-                        class="input" formControlName="nome" type="text">
-                    <label class="label">Nome completo *</label>
+                    <input [ngClass]="{ 'is-valid': !form.nome.errors, 'is-invalid' : form.nome.dirty && form.nome.errors, 'is-touched': form.nome.value.length > 0 }" class="input" formControlName="nome" id="first_name" maxlength="40" name="first_name" size="20" type="text">
+                    <label class="label">Nome Completo *</label>
                 </p>
                 <div *ngIf="form.nome.touched" class="errors">
                     <p *ngFor="let error of getErrors(form.nome)" class="help is-danger">
@@ -96,9 +108,7 @@
         <div class="column is-full is-6-desktop">
             <div class="field">
                 <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form.email.errors, 'is-invalid' : form.email.dirty && form.email.errors, 'is-touched': form.email.value.length > 0 }"
-                        class="input" formControlName="email" type="text">
+                    <input [ngClass]="{ 'is-valid': !form.email.errors, 'is-invalid' : form.email.dirty && form.email.errors, 'is-touched': form.email.value.length > 0 }" class="input" formControlName="email" id="email" maxlength="80" name="email" size="20" type="text">
                     <label class="label">E-mail *</label>
                 </p>
                 <div *ngIf="form.email.touched" class="errors">
@@ -112,11 +122,8 @@
         <div class="column is-full is-6-desktop">
             <div class="field">
                 <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form.telefone.errors, 'is-invalid' : form.telefone.dirty && form.telefone.errors, 'is-touched': form.telefone.value.length > 0 }"
-                        class="input" formControlName="telefone" type="tel"
-                        [mask]="form.telefone?.value?.length > 10 ? '(00) 00000-0000' : '(00) 0000-00000'"
-                        [validation]="false">
+                    <input [ngClass]="{ 'is-valid': !form.telefone.errors, 'is-invalid' : form.telefone.dirty && form.telefone.errors, 'is-touched': form.telefone.value.length > 0 }" class="input" formControlName="telefone" id="phone" maxlength="40" name="phone" size="20"
+                        type="text" [mask]="form.telefone?.value?.length > 10 ? '(00) 00000-0000' : '(00) 0000-00000'" [validation]="false">
                     <label class="label">Telefone *</label>
                 </p>
                 <div *ngIf="form.telefone.touched" class="errors">
@@ -127,28 +134,12 @@
             </div>
         </div>
 
-        <div class="column is-full is-6-desktop">
-            <div class="field">
-                <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form.cpf.errors, 'is-invalid' : form.cpf.dirty && form.cpf.errors, 'is-touched': form.cpf.value.length > 0 }"
-                        mask="000.000.000-00" [validation]="false" class="input" formControlName="cpf" type="tel">
-                    <label class="label">CPF *</label>
-                </p>
-                <div *ngIf="form.cpf.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.cpf, 'CPF')" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
-        </div>
 
         <div class="column is-full is-6-desktop">
             <div class="field">
                 <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form.cnpj.errors, 'is-invalid' : form.cnpj.dirty && form.cnpj.errors, 'is-touched': form.cnpj.value.length > 0 }"
-                        mask="00.000.000/0000-00" [validation]="false" class="input" formControlName="cnpj" type="tel">
+                    <input [ngClass]="{ 'is-valid': !form.cnpj.errors, 'is-invalid' : form.cnpj.dirty && form.cnpj.errors, 'is-touched': form.cnpj.value.length > 0 }" mask="00.000.000/0000-00" [validation]="false" class="input" formControlName="cnpj" id="00N60000002zp33"
+                        maxlength="18" name="00N60000002zp33" size="20" type="text">
                     <label class="label">CNPJ *</label>
                 </p>
                 <div *ngIf="form.cnpj.touched" class="errors">
@@ -159,13 +150,12 @@
             </div>
         </div>
 
-        <div class="column is-full is-6-desktop">
+        <div class="column is-full is-12-desktop">
             <div class="field">
                 <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form.razaoSocial.errors, 'is-invalid' : form.razaoSocial.dirty && form.razaoSocial.errors, 'is-touched': form.razaoSocial.value.length > 0 }"
-                        class="input" formControlName="razaoSocial" type="text">
-                    <label class="label">Razão social *</label>
+                    <input [ngClass]="{ 'is-valid': !form.razaoSocial.errors, 'is-invalid' : form.razaoSocial.dirty && form.razaoSocial.errors, 'is-touched': form.razaoSocial.value.length > 0 }" class="input" formControlName="razaoSocial" id="company" maxlength="40" name="company"
+                        size="20" type="text">
+                    <label class="label">Razão Social *</label>
                 </p>
                 <div *ngIf="form.razaoSocial.touched" class="errors">
                     <p *ngFor="let error of getErrors(form.razaoSocial)" class="help is-danger">
@@ -178,9 +168,7 @@
         <div class="column is-full">
             <div class="field">
                 <p class="control">
-                    <textarea name="mensagem" cols="30" rows="10"
-                        [ngClass]="{ 'is-valid': !form.mensagem.errors, 'is-invalid' : form.mensagem.dirty && form.mensagem.errors, 'is-touched': form.mensagem.value.length > 0 }"
-                        class="textarea" formControlName="mensagem" placeholder="Mensagem *"></textarea>
+                    <textarea name="description" cols="30" rows="10" [ngClass]="{ 'is-valid': !form.mensagem.errors, 'is-invalid' : form.mensagem.dirty && form.mensagem.errors, 'is-touched': form.mensagem.value.length > 0 }" class="textarea" formControlName="mensagem" placeholder="Mensagem *"></textarea>
                 </p>
                 <div *ngIf="form.mensagem.touched" class="errors">
                     <p *ngFor="let error of getErrors(form.mensagem, 'Mensagem')" class="help is-danger">
@@ -190,7 +178,31 @@
             </div>
         </div>
 
-        <div class="column is-6-desktop is-full-touch is-offset-6-desktop">
+        <div class="column is-full is-6-desktop">
+            <div class="field">
+                <div class="control">
+                    <input formControlName="aceiteDeTermos" [ngClass]="{ 'is-invalid' : form?.aceiteDeTermos?.errors && form.aceiteDeTermos?.touched }" class="checkbox" id="aceiteDeTermos" name="aceiteDeTermos" type="checkbox">
+                    <label class="checkbox-label" for="aceiteDeTermos">
+                        <span>
+                            Eu aceito os
+                            <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos </a> de Política de
+                            Privacidade.
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="columns is-12">
+                <div class="field">
+                    <div *ngIf="form.aceiteDeTermos?.touched && form?.aceiteDeTermos?.errors" class="errors">
+                        <p class="help is-danger">
+                            Você deve aceitar os Termos para continuar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-6-desktop is-full-touch">
             <div id="captcha_element_solicite_uma_cotacao"></div>
             <div class="field">
                 <div *ngIf="form.validCaptcha.touched" class="errors">
@@ -202,12 +214,12 @@
         </div>
 
         <div class="column is-full">
-            <button class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">
-                ENVIAR
+            <button class="btn btn-digital-cian secondary medium is-hidden-touch right" type="submit">
+                Enviar
             </button>
 
-            <button class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" (click)="sendForm()">
-                ENVIAR
+            <button class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" type="submit">
+                Enviar
             </button>
         </div>
     </div>

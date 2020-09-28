@@ -1,4 +1,4 @@
-<app-banner [banners]="banners" [hasAnchor]="false" [breadcrumbs]="breadcrumbs"></app-banner>
+<app-banner class="app-banner" [banners]="banners" [hasAnchor]="false" [breadcrumbs]="breadcrumbs"></app-banner>
 <section id="careplus-plus-filters" class="is-paddingless">
     <article>
         <div class="container">
@@ -10,8 +10,7 @@
                                 <div class="column is-9-desktop is-full">
                                     <ul class="category-filter">
                                         <li *ngFor="let category of categories">
-                                            <a [class.active]="selectCategoryId == category.id"
-                                                (click)="activeCategory(category.id)">
+                                            <a [class.active]="selectCategoryId == category.id" (click)="activeCategory(category.id)" [attr.title]="category.name">
                                                 {{category.name}}
                                             </a>
                                         </li>
@@ -20,19 +19,12 @@
                                 <div class="column is-3-desktop is-full">
                                     <div class="field">
                                         <p class="control has-icons-right">
-                                            <input
-                                                class="input" formControlName="search" name="search" type="text"
-                                                (keyup.enter)="filter()">
+                                            <input class="input" formControlName="search" name="search" type="text" (keyup.enter)="filter()">
                                             <label class="label">Buscar</label>
                                             <span (click)="filter()" class="icon is-small is-right is-search">
                                                 <img src="assets/svg/search.svg" alt="Buscar">
                                             </span>
                                         </p>
-                                        <!-- <div *ngIf="form.search.touched" class="errors">
-                                            <p *ngFor="let error of getErrors(form.search)" class="help is-danger">
-                                                {{error}}
-                                            </p>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -43,9 +35,9 @@
         </div>
     </article>
 </section>
-<app-highlight-post [post]="highLightPost"></app-highlight-post>
-<app-last-posts [posts]="recentPosts"></app-last-posts>
-<app-cross-content-section [crossContentModel]="crossContentModel"></app-cross-content-section>
-<app-all-posts *ngIf="allPosts.length > 0" [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
+<app-highlight-post class="app-highlight-post" [post]="highLightPost"></app-highlight-post>
+<app-last-posts class="app-last-posts" [posts]="recentPosts"></app-last-posts>
+<app-cross-content-section class="app-cross-content-section" [crossContentModel]="crossContentModel"></app-cross-content-section>
+<app-all-posts class="app-all-posts" *ngIf="allPosts.length > 0" [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
 
-<app-social-posts></app-social-posts>
+<app-social-posts class="app-social-posts"></app-social-posts>

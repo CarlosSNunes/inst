@@ -3,11 +3,34 @@ import { BannerModel, BreadcrumbModel } from 'src/app/models';
 import { BannerService } from 'src/app/services';
 import { interval, Subscription } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'app-banner',
     templateUrl: './banner.component.html',
-    styleUrls: ['./banner.component.scss']
+    styleUrls: ['./banner.component.scss'],
+    animations: [
+        trigger('slider', [
+            state('enterAnimation', style({
+                left: '0',
+            })),
+            transition('* => enterAnimation', [
+                animate('0.3s')
+            ]),
+            state('initialState', style({
+                left: '100vw',
+            })),
+            state('default', style({
+                left: '0',
+            })),
+            state('leaveAnimation', style({
+                left: '-100vw',
+            })),
+            transition('* => leaveAnimation', [
+                animate('0.3s')
+            ]),
+        ])
+    ]
 })
 export class BannerComponent implements OnInit {
     @ViewChild('circlePercentage', { static: false }) circlePercentage: ElementRef<HTMLElement>;
@@ -36,13 +59,20 @@ export class BannerComponent implements OnInit {
         if (this.isBrowser) {
             this.banners.forEach((banner, i) => {
                 banner.slideAtual = true
-                if (i != 0) banner.slideAtual = false
+                if (i != 0) {
+                    banner.slideAtual = false;
+                    banner.bannerState = 'initialState'
+                } else {
+                    banner.bannerState = 'default';
+                }
                 return banner
             });
             this.banners[0].firstInteraction = true;
             this.cdRef.detectChanges();
             this.time = this.banners[0].tempo
-            this.startBannerPercentage(this.time / 100, this.time)
+            if (this.banners.length > 1) {
+                this.startBannerPercentage(this.time / 100, this.time)
+            }
         }
     }
 
@@ -58,7 +88,8 @@ export class BannerComponent implements OnInit {
     }
 
     stopBannerPercentage() {
-        this.bannerPercentageSubscription.unsubscribe()
+        this.bannerPercentageSubscription.unsubscribe();
+        this.bannerPercentageSubscription.remove(this.bannerPercentageSubscription);
     }
 
     toggleBannerPercentage() {
@@ -99,7 +130,9 @@ export class BannerComponent implements OnInit {
                 this.banners[0].firstInteraction = false
             }
             this.stopped = false
+            this.banners[this.selectedBanner].bannerState = 'leaveAnimation';
             this.selectedBanner = i
+            this.banners[this.selectedBanner].bannerState = 'enterAnimation'
             this.percentageStoped = 0
             this.percentage = 0
             this.stopBannerPercentage()
@@ -129,8 +162,16 @@ export class BannerComponent implements OnInit {
         this.circlePercentage.nativeElement.setAttribute('stroke-dashoffset', pct.toString());
     }
 
+    captureDoneEvent(event: AnimationEvent) {
+        if (event.fromState == 'enterAnimation' && event.toState == 'leaveAnimation' || event.fromState == 'default' && event.toState == 'leaveAnimation') {
+            const index = parseInt(event.element.getAttribute('index'));
+
+            this.banners[index].bannerState = 'initialState';
+        }
+    }
+
     ngOnDestroy() {
-        if (this.isBrowser) {
+        if (this.isBrowser && this.banners.length > 1) {
             this.stopBannerPercentage()
         }
     }

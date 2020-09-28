@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 .anchor-buttons {
     height: 62px;
     z-index: 202;
@@ -18,7 +17,6 @@
             border-radius: 2px;
             box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black-rgb), 0.25);
             display: flex;
-
             a {
                 flex: 0 0 calc(50% - 0.5px);
                 width: calc(50% - 0.5px);
@@ -27,11 +25,9 @@
                 font-size: getSize("p");
                 line-height: 82px;
                 color: getColor(_bupa, _black);
-
                 &:first-child {
                     border-right: 0.5px solid getColor(_bupa, _grey-3);
                 }
-
                 &:last-child {
                     border-left: 0.5px solid getColor(_bupa, _grey-3);
                 }
@@ -51,7 +47,6 @@
     bottom: 0;
     cursor: pointer;
     z-index: 204;
-
     .text {
         align-self: center;
         margin: 0;
@@ -59,7 +54,6 @@
         font-size: getSize("sbm");
         line-height: getLineHeight("sbm");
     }
-
     img {
         position: absolute;
         right: 16px;
@@ -74,18 +68,16 @@ section#clinic-services {
             .column {
                 padding-top: 0;
                 padding-bottom: 0;
-
                 .big-title {
                     max-width: 592px;
                     margin: 0 auto;
                     text-align: center;
                 }
             }
-
             &.cards {
                 margin-top: 48px;
                 .column {
-                    ::ng-deep app-card {
+                     ::ng-deep .app-card {
                         .card.default {
                             padding: 34px 20px;
                             .card-content {
@@ -114,7 +106,7 @@ section#clinic-services {
                     .column {
                         padding-top: 15px;
                         padding-bottom: 15px;
-                        ::ng-deep app-card {
+                         ::ng-deep .app-card {
                             .card.default {
                                 .card-content {
                                     .card-description {
@@ -129,7 +121,6 @@ section#clinic-services {
             }
         }
     }
-
     .get-price-box {
         top: unset;
         bottom: 84px;
@@ -141,7 +132,7 @@ section#clinic-services {
 }
 
 @media (min-width: 505px) and (max-width: 1023px) {
-    ::ng-deep app-simple-banner {
+     ::ng-deep .app-simple-banner {
         .container {
             padding-bottom: 30px;
         }

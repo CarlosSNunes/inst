@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 section {
     &#our-disponible-vacancies {
         .container {
@@ -24,7 +23,6 @@ section {
             }
         }
     }
-
     &#a-careplus-vacancies-filters {
         margin-top: 80px;
         .container {
@@ -50,27 +48,22 @@ section {
                                         padding: 0;
                                         padding-left: 16px;
                                         padding-right: 16px;
-
                                         &:first-child {
                                             padding-left: 0;
                                         }
-
                                         &:last-child {
                                             margin-right: 0px;
                                             padding-right: 0;
                                         }
-
-                                        app-dropdown {
+                                        .app-dropdown {
                                             width: 100%;
                                         }
-
                                         .filter-label {
                                             font-weight: 600;
                                             line-height: 100%;
                                             letter-spacing: 3.5px;
                                             color: getColor(_bupa, _navy);
                                         }
-
                                         .field {
                                             max-width: 100%;
                                             width: 100%;
@@ -79,16 +72,13 @@ section {
                                             .control {
                                                 display: flex;
                                                 width: 100%;
-
                                                 input:not([type="radio"]) {
                                                     min-width: 100px;
                                                 }
                                             }
                                         }
-
                                         &.buttons-form {
                                             justify-content: space-between;
-
                                             .btn {
                                                 width: 100%;
                                                 padding: 18px 32px;
@@ -114,21 +104,17 @@ section {
                         flex-wrap: wrap;
                         padding: 32px 0 32px 5px;
                         border-top: 1px solid getColor(_bupa, _grey-3);
-
                         &:last-child {
                             border-bottom: 1px solid getColor(_bupa, _grey-3);
                         }
-
                         .description {
                             width: 100%;
                             flex: 0 0 100%;
                         }
-
                         .sub-description {
                             width: 100%;
                             flex: 0 0 100%;
                         }
-
                         .btn {
                             align-self: center;
                             position: absolute;
@@ -186,7 +172,6 @@ section {
                 }
             }
         }
-
         &#a-careplus-vacancies-filters {
             .container {
                 .columns {
@@ -203,7 +188,6 @@ section {
                                         justify-content: unset;
                                         .column {
                                             display: flex;
-                                            margin: 0;
                                             align-self: unset;
                                             padding-left: 0;
                                             padding-right: 0;
@@ -211,11 +195,9 @@ section {
                                             &:first-child {
                                                 margin-top: 0;
                                             }
-
                                             &:last-child {
                                                 margin-bottom: 0;
                                             }
-
                                             .field {
                                                 max-width: 100%;
                                                 width: 100%;
@@ -241,11 +223,9 @@ section {
                             .sub-description {
                                 margin-top: 16px;
                             }
-
                             .btn {
                                 display: block;
                                 position: initial;
-
                                 &.btn.tertiary {
                                     padding-left: 0;
                                     margin-top: 8px;

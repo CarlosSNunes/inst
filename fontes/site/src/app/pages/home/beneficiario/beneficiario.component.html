@@ -2,11 +2,17 @@
 <app-accredited-network #sectionAccreditedNetwork [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
 <app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'">
 </app-icon-cards-section>
-<app-info-section [sectionInfo]="easyConsultingSection"></app-info-section>
 <app-plus-network></app-plus-network>
-<app-differential></app-differential>
+<app-differential [differentials]="differentials"></app-differential>
 <app-info-section [sectionInfo]="travelSection"></app-info-section>
 <app-app-careplus [backgroundColorClass]="'blue-background-color'"></app-app-careplus>
 <app-materials></app-materials>
-<app-careplus-plus></app-careplus-plus>
+
 <app-social-posts></app-social-posts>
+
+<div class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao">
+    <p class="text">
+        Solicite uma Cotação
+    </p>
+    <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
+</div>

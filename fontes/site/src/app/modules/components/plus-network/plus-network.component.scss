@@ -35,6 +35,7 @@ section.is-rede-plus {
                 transition: bottom 1s ease-in-out;
                 -webkit-transition: bottom 1s ease-in-out;
                 z-index: 1;
+                background-size: cover;
                 &.active {
                     bottom: 0;
                     top: 0;
@@ -212,7 +213,7 @@ section.is-rede-plus {
         }
 
         .has-background {
-            padding: 6rem;
+            padding: 4rem 3rem;
             height: 562px;
 
             p {

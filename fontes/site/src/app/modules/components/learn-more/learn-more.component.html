@@ -4,26 +4,23 @@
             <div class="columns">
                 <div class="column">
                     <p class="small-title">CONHEÇA MAIS SOBRE A CARE PLUS</p>
-                    <h4 class="big-title">Visite outras áreas do site e saiba mais sobre a Care Plus</h4>
+                    <h2 class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa empresa</h2>
                 </div>
             </div>
             <div class="columns cards is-paddingless is-mobile">
                 <div class="column is-4" *ngFor="let card of cards; let i = index;">
-                    <app-card [card]="card">
-                    </app-card>
+                    <app-card class="app-card" [card]="card"></app-card>
                 </div>
             </div>
             <div class="columns btn-column">
                 <div class="column is-12 is-hidden-touch">
-                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'"
-                        class="btn btn-digital-cian secondary arrow-right medium learn-more-button" title="SAIBA MAIS sobre a Care Plus">
+                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'" class="btn btn-digital-cian secondary arrow-right medium learn-more-button" title="Saiba mais sobre a Care Plus">
                         Saiba mais sobre a Care Plus
                     </a>
                 </div>
                 <div class="column is-12 is-hidden-desktop">
-                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'"
-                        class="btn btn-digital-cian tertiary arrow-right medium learn-more-button" title="SAIBA MAIS sobre a Care Plus">
-                        Saiba Mais
+                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'" class="btn btn-digital-cian tertiary arrow-right medium learn-more-button" title="Saiba mais sobre a Care Plus">
+                        Saiba mais
                     </a>
                 </div>
             </div>

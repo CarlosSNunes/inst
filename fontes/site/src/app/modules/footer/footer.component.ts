@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IconCardModel, ButtonModel } from 'src/app/models';
-import { Icon } from '@fortawesome/fontawesome-svg-core';
+import { SimuladoresService } from 'src/app/services';
 
 @Component({
     selector: 'app-footer',
@@ -29,8 +29,15 @@ export class FooterComponent implements OnInit {
         backgroundColorClass: 'navy-background-color'
     });
 
-    constructor() { }
+    constructor(
+        private simuladoresService: SimuladoresService,
+
+    ) { }
 
     ngOnInit() {
     }
+    openSimulator() {
+        this.simuladoresService.open();
+    }
+
 }

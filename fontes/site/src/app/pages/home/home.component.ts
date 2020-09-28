@@ -7,6 +7,7 @@ import {
     PLATFORM_ID
 } from '@angular/core';
 import { ProductComponent } from '../../modules/components/product/product.component';
+import { differentialsMock } from "./data/differentials";
 import { bannersMock } from './data/banners'
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
@@ -14,11 +15,12 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ocupationalSection, videoModel, iconCardsSectionModel } from './data/mock';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    selector: "app-home",
+    templateUrl: "./home.component.html",
+    styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+    differentials = differentialsMock;
     banners = bannersMock;
     @ViewChild('sectionProduct', { static: false }) sectionProduct: ProductComponent;
     isBrowser: boolean = false;
@@ -44,19 +46,20 @@ export class HomeComponent implements OnInit {
     }
 
     slideToSection() {
-        const elementOffset = parseInt(localStorage.getItem('elementOffset'));
+        const elementOffset = parseInt(localStorage.getItem("elementOffset"));
         this.windowRef.nativeWindow.scrollTo({
             left: 0,
-            top: (this.sectionProduct.offsetTop - elementOffset),
-            behavior: "smooth"
-        })
+            top: this.sectionProduct.offsetTop - elementOffset,
+            behavior: "smooth",
+        });
     }
 
     setSEOInfos() {
-        this.title.setTitle('Home | Care Plus');
+        this.title.setTitle("Home | Care Plus");
         this.meta.updateTag({
-            name: 'description',
-            content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
+            name: "description",
+            content:
+                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
         });
     }
 }

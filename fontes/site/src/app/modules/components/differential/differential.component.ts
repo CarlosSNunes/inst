@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, PLATFORM_ID, Input, ChangeDetectorRef, ElementRef, AfterViewInit } from '@angular/core';
-import DifferentialsArray from './data/differentials';
+import { DifferentialModel } from 'src/app/models';
 import { Subscription, interval } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
     styleUrls: ['./differential.component.scss']
 })
 export class DifferentialComponent implements OnInit, AfterViewInit {
-    differentials = DifferentialsArray;
+    @Input() differentials: DifferentialModel[] = [];
     differentialSubscription: Subscription;
     isBrowser: boolean = false;
     currentDifferential = 0;
@@ -68,12 +68,16 @@ export class DifferentialComponent implements OnInit, AfterViewInit {
 
     stopSubscription() {
         this.differentialSubscription.unsubscribe();
+        this.differentialSubscription.remove(this.differentialSubscription);
     }
 
     activate(index: number) {
         if (index != this.currentDifferential) {
             this.percentageStoped = 0;
             this.percentage = 0;
+        }
+        if (index == this.currentDifferential) {
+           return;
         }
         this.stopSubscription()
         this.differentials = this.differentials.map((diff, i) => {

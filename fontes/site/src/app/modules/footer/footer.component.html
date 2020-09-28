@@ -2,13 +2,13 @@
     <div class="content has-text-centered">
         <div class="columns buttons display-flex is-mobile is-hidden-up-tablet">
             <div class="column is-6">
-                <a href="tel:11 4197-9000">
-                    <app-card [card]="centralDeAtendimentoCard"></app-card>
+                <a href="tel:11 4197-9000" title="Central de atendimento">
+                    <app-card class="app-card" [card]="centralDeAtendimentoCard"></app-card>
                 </a>
             </div>
             <div class="column is-6">
-                <a href="#">
-                    <app-card [card]="atendimentoPresencialCard"></app-card>
+                <a href="#" title="Atendimento presencial">
+                    <app-card class="app-card" [card]="atendimentoPresencialCard"></app-card>
                 </a>
             </div>
 
@@ -33,10 +33,9 @@
                         <path
                             d="M28.1225 11.8424C28.0581 8.67967 26.7523 5.66814 24.4854 3.45411C22.2186 1.24008 19.1713 0 15.9975 0C12.8237 0 9.77643 1.24008 7.50957 3.45411C5.2427 5.66814 3.93694 8.67967 3.8725 11.8424C2.80987 11.9561 1.82681 12.4569 1.11207 13.2489C0.397334 14.0409 0.00129622 15.0681 0 16.1333V20.3869C0.00132332 21.5311 0.457943 22.6281 1.26969 23.4372C2.08144 24.2463 3.18202 24.7014 4.33 24.7027H6.435C6.56761 24.7027 6.69479 24.6502 6.78855 24.5567C6.88232 24.4633 6.935 24.3365 6.935 24.2043V12.3158C6.935 12.1837 6.88232 12.0569 6.78855 11.9635C6.69479 11.87 6.56761 11.8175 6.435 11.8175H4.88C4.94169 8.91731 6.14088 6.15664 8.22051 4.1273C10.3001 2.09796 13.0947 0.961473 16.005 0.961473C18.9153 0.961473 21.7099 2.09796 23.7895 4.1273C25.8691 6.15664 27.0683 8.91731 27.13 11.8175H25.5725C25.4399 11.8175 25.3127 11.87 25.2189 11.9635C25.1252 12.0569 25.0725 12.1837 25.0725 12.3158V24.2018C25.0725 24.334 25.1252 24.4608 25.2189 24.5542C25.3127 24.6477 25.4399 24.7002 25.5725 24.7002H27.14V25.3705C27.1387 26.5385 26.6726 27.6583 25.844 28.4842C25.0153 29.3102 23.8918 29.7747 22.72 29.776H20.295C20.3499 29.4098 20.3245 29.0361 20.2207 28.6806C20.1169 28.3251 19.937 27.9962 19.6935 27.7166C19.45 27.4369 19.1487 27.2132 18.8101 27.0607C18.4716 26.9082 18.104 26.8306 17.7325 26.8332H14.2775C13.9304 26.8225 13.5848 26.8813 13.2609 27.0063C12.9371 27.1312 12.6418 27.3198 12.3925 27.5607C12.1432 27.8015 11.945 28.0899 11.8096 28.4086C11.6743 28.7273 11.6045 29.0699 11.6045 29.416C11.6045 29.7621 11.6743 30.1046 11.8096 30.4233C11.945 30.7421 12.1432 31.0304 12.3925 31.2713C12.6418 31.5122 12.9371 31.7007 13.2609 31.8257C13.5848 31.9506 13.9304 32.0095 14.2775 31.9988H17.7225C18.1636 31.998 18.5972 31.8851 18.9822 31.6705C19.3672 31.456 19.6909 31.1469 19.9225 30.7728H22.71C24.1469 30.7708 25.5243 30.201 26.5403 29.1883C27.5563 28.1756 28.128 26.8027 28.13 25.3705V24.6778C29.1922 24.5636 30.1746 24.0624 30.8889 23.2705C31.6031 22.4786 31.9988 21.4517 32 20.3869V16.1333C31.9986 15.0673 31.6018 14.0395 30.8861 13.2474C30.1703 12.4553 29.186 11.9549 28.1225 11.8424ZM5.935 23.706H4.33C3.44703 23.7053 2.60042 23.3554 1.97607 22.7331C1.35171 22.1108 1.00066 21.2669 1 20.3869V16.1333C1.00066 15.2532 1.35171 14.4094 1.97607 13.7871C2.60042 13.1648 3.44703 12.8149 4.33 12.8142H5.935V23.706ZM17.7225 31.0045H14.2775C14.0632 31.013 13.8494 30.9782 13.649 30.9023C13.4485 30.8264 13.2655 30.711 13.1109 30.5629C12.9563 30.4148 12.8333 30.237 12.7492 30.0404C12.6652 29.8438 12.6219 29.6322 12.6219 29.4185C12.6219 29.2047 12.6652 28.9932 12.7492 28.7965C12.8333 28.5999 12.9563 28.4222 13.1109 28.2741C13.2655 28.126 13.4485 28.0105 13.649 27.9346C13.8494 27.8587 14.0632 27.824 14.2775 27.8324H17.7225C17.9368 27.824 18.1506 27.8587 18.351 27.9346C18.5515 28.0105 18.7345 28.126 18.8891 28.2741C19.0437 28.4222 19.1667 28.5999 19.2508 28.7965C19.3348 28.9932 19.3781 29.2047 19.3781 29.4185C19.3781 29.6322 19.3348 29.8438 19.2508 30.0404C19.1667 30.237 19.0437 30.4148 18.8891 30.5629C18.7345 30.711 18.5515 30.8264 18.351 30.9023C18.1506 30.9782 17.9368 31.013 17.7225 31.0045ZM31 20.3869C30.9993 21.2669 30.6483 22.1108 30.0239 22.7331C29.3996 23.3554 28.553 23.7053 27.67 23.706H26.065V12.8142H27.67C28.553 12.8149 29.3996 13.1648 30.0239 13.7871C30.6483 14.4094 30.9993 15.2532 31 16.1333V20.3869Z"
                             fill="#FFF" />
-                    </svg>
-                    &nbsp; Atendimento 24h ao beneficiário
+                    </svg> &nbsp; Atendimento 24h ao Beneficiário
                 </p>
-                <a href="tel:0800132992" class="telefone">
+                <a href="tel:0800132992" title="Atendimento 24h ao Beneficiário" class="telefone">
                     0800-13-2992
                 </a>
             </div>
@@ -46,10 +45,9 @@
                         <path
                             d="M28.1225 11.8424C28.0581 8.67967 26.7523 5.66814 24.4854 3.45411C22.2186 1.24008 19.1713 0 15.9975 0C12.8237 0 9.77643 1.24008 7.50957 3.45411C5.2427 5.66814 3.93694 8.67967 3.8725 11.8424C2.80987 11.9561 1.82681 12.4569 1.11207 13.2489C0.397334 14.0409 0.00129622 15.0681 0 16.1333V20.3869C0.00132332 21.5311 0.457943 22.6281 1.26969 23.4372C2.08144 24.2463 3.18202 24.7014 4.33 24.7027H6.435C6.56761 24.7027 6.69479 24.6502 6.78855 24.5567C6.88232 24.4633 6.935 24.3365 6.935 24.2043V12.3158C6.935 12.1837 6.88232 12.0569 6.78855 11.9635C6.69479 11.87 6.56761 11.8175 6.435 11.8175H4.88C4.94169 8.91731 6.14088 6.15664 8.22051 4.1273C10.3001 2.09796 13.0947 0.961473 16.005 0.961473C18.9153 0.961473 21.7099 2.09796 23.7895 4.1273C25.8691 6.15664 27.0683 8.91731 27.13 11.8175H25.5725C25.4399 11.8175 25.3127 11.87 25.2189 11.9635C25.1252 12.0569 25.0725 12.1837 25.0725 12.3158V24.2018C25.0725 24.334 25.1252 24.4608 25.2189 24.5542C25.3127 24.6477 25.4399 24.7002 25.5725 24.7002H27.14V25.3705C27.1387 26.5385 26.6726 27.6583 25.844 28.4842C25.0153 29.3102 23.8918 29.7747 22.72 29.776H20.295C20.3499 29.4098 20.3245 29.0361 20.2207 28.6806C20.1169 28.3251 19.937 27.9962 19.6935 27.7166C19.45 27.4369 19.1487 27.2132 18.8101 27.0607C18.4716 26.9082 18.104 26.8306 17.7325 26.8332H14.2775C13.9304 26.8225 13.5848 26.8813 13.2609 27.0063C12.9371 27.1312 12.6418 27.3198 12.3925 27.5607C12.1432 27.8015 11.945 28.0899 11.8096 28.4086C11.6743 28.7273 11.6045 29.0699 11.6045 29.416C11.6045 29.7621 11.6743 30.1046 11.8096 30.4233C11.945 30.7421 12.1432 31.0304 12.3925 31.2713C12.6418 31.5122 12.9371 31.7007 13.2609 31.8257C13.5848 31.9506 13.9304 32.0095 14.2775 31.9988H17.7225C18.1636 31.998 18.5972 31.8851 18.9822 31.6705C19.3672 31.456 19.6909 31.1469 19.9225 30.7728H22.71C24.1469 30.7708 25.5243 30.201 26.5403 29.1883C27.5563 28.1756 28.128 26.8027 28.13 25.3705V24.6778C29.1922 24.5636 30.1746 24.0624 30.8889 23.2705C31.6031 22.4786 31.9988 21.4517 32 20.3869V16.1333C31.9986 15.0673 31.6018 14.0395 30.8861 13.2474C30.1703 12.4553 29.186 11.9549 28.1225 11.8424ZM5.935 23.706H4.33C3.44703 23.7053 2.60042 23.3554 1.97607 22.7331C1.35171 22.1108 1.00066 21.2669 1 20.3869V16.1333C1.00066 15.2532 1.35171 14.4094 1.97607 13.7871C2.60042 13.1648 3.44703 12.8149 4.33 12.8142H5.935V23.706ZM17.7225 31.0045H14.2775C14.0632 31.013 13.8494 30.9782 13.649 30.9023C13.4485 30.8264 13.2655 30.711 13.1109 30.5629C12.9563 30.4148 12.8333 30.237 12.7492 30.0404C12.6652 29.8438 12.6219 29.6322 12.6219 29.4185C12.6219 29.2047 12.6652 28.9932 12.7492 28.7965C12.8333 28.5999 12.9563 28.4222 13.1109 28.2741C13.2655 28.126 13.4485 28.0105 13.649 27.9346C13.8494 27.8587 14.0632 27.824 14.2775 27.8324H17.7225C17.9368 27.824 18.1506 27.8587 18.351 27.9346C18.5515 28.0105 18.7345 28.126 18.8891 28.2741C19.0437 28.4222 19.1667 28.5999 19.2508 28.7965C19.3348 28.9932 19.3781 29.2047 19.3781 29.4185C19.3781 29.6322 19.3348 29.8438 19.2508 30.0404C19.1667 30.237 19.0437 30.4148 18.8891 30.5629C18.7345 30.711 18.5515 30.8264 18.351 30.9023C18.1506 30.9782 17.9368 31.013 17.7225 31.0045ZM31 20.3869C30.9993 21.2669 30.6483 22.1108 30.0239 22.7331C29.3996 23.3554 28.553 23.7053 27.67 23.706H26.065V12.8142H27.67C28.553 12.8149 29.3996 13.1648 30.0239 13.7871C30.6483 14.4094 30.9993 15.2532 31 16.1333V20.3869Z"
                             fill="#FFF" />
-                    </svg>
-                    &nbsp; Atendimento 24h ao Prestador
+                    </svg> &nbsp; Atendimento 24h ao Credenciado
                 </p>
-                <a href="tel:1141979000" class="telefone">
+                <a href="tel:1141979000" title="Atendimento 24h ao Credenciado" class="telefone">
                     (11) 4197-9000
                 </a>
             </div>
@@ -62,19 +60,15 @@
                         <path
                             d="M11.9999 6C8.69094 6 6 8.69094 6 11.9999C6 15.3088 8.69094 17.9997 11.9999 17.9997C15.3088 17.9997 17.9997 15.3088 17.9997 11.9999C17.9997 8.69094 15.3088 6 11.9999 6ZM11.9999 16.9997C9.24292 16.9997 6.99998 14.7568 6.99998 11.9999C6.99998 9.24292 9.24292 6.99998 11.9999 6.99998C14.7568 6.99998 16.9997 9.24292 16.9997 11.9999C16.9997 14.7568 14.7568 16.9997 11.9999 16.9997Z"
                             fill="#FFF" />
-                    </svg>
-                    &nbsp; Atendimento Presencial
+                    </svg> &nbsp; Atendimento Presencial
                 </p>
                 <p class="horario-atendimento">
                     De segunda a sexta-feira, das 8h às 17h
                 </p>
-                <a class="consulte-endereco" routerLink="/a-careplus/diferenciais/consulta-facil">
-                    Consulte aqui o endereço
-                </a>
             </div>
         </div>
         <hr>
-        <div class="columns site-map-closed is-hidden-down-tablet">
+        <div class="columns site-map-closed is-hidden-down-tablet site-map-ancor">
             <div class="column has-text-centered">
                 <a (click)="siteMapOpened = !siteMapOpened">
                     {{!siteMapOpened ? 'Veja o mapa do site' : 'Fechar mapa do site'}} &nbsp;
@@ -91,175 +85,161 @@
         <div *ngIf="siteMapOpened" class="columns site-map flex-wrap is-hidden-down-tablet">
             <div class="column">
                 <h5 class="subtitle">
+                    Nossos Parceiros
+                </h5>
+                <a routerLink="/home/beneficiario" title="Para o Beneficiário">
+                    Para o Beneficiário
+                </a>
+                <br>
+                <a routerLink="/home/rh" title="Para o RHs">
+                    Para o RH
+                </a>
+                <br>
+                <a routerLink="/home/corretor" title="Para o Corretor">
+                    Para o Corretor
+                </a>
+                <br>
+                <a routerLink="/home/credenciado" title="Para o Credenciado">
+                    Para o Credenciado
+                </a>
+            </div>
+            <div class="column">
+                <h5 class="subtitle">
                     A Care Plus
                 </h5>
-                <a routerLink="/a-careplus">
-                    A Care Plus
+                <a routerLink="/a-careplus" title="A Empresa">
+                    A Empresa
                 </a>
                 <br>
-                <a routerLink="/gestao-de-saude">
-                    Programas e Serviços
-                </a>
-                <br>
-                <a routerLink="/a-careplus/diferenciais">
+                <a routerLink="/a-careplus/diferenciais" title="Diferenciais">
                     Diferenciais
                 </a>
                 <br>
-                <a routerLink="/carreiras">
-                    Carreiras
-                </a>
-                <br>
-                <a routerLink="/a-careplus/responsabilidade-social">
-                    Sustentabilidade /
-                </a>
-                <br>
-                <a routerLink="/a-careplus/responsabilidade-social">
+                <a routerLink="/a-careplus/responsabilidade-social" title="Sustentabilidade / Responsabilidade Social">
                     Responsabilidade Social
                 </a>
                 <br>
-                <a routerLink="/a-careplus/politica-de-privacidade">
-                    Política de Privacidade
+                <a routerLink="/a-careplus/rede-plus" title="Rede Plus">
+                    Rede Plus
                 </a>
                 <br>
-                <a routerLink="/a-careplus/termos-e-condicoes">
-                    Termos e Condições
+                <a routerLink="/a-careplus/perguntas-frequentes" title="Perguntas Frequentes">
+                    Perguntas Frequentes
                 </a>
                 <br>
-                <a routerLink="/a-careplus/resultados-financeiros">
+                <a routerLink="/a-careplus/resultados-financeiros" title="Resultados Financeiros">
                     Resultados Financeiros
                 </a>
                 <br>
-                <a routerLink="/a-careplus/materiais">
-                    Materiais
+                <a routerLink="/a-careplus/materiais-de-saude" title="Materiais de Saúde">
+                    Materiais de Saúde
+                </a>
+                <br>
+                <a routerLink="/a-careplus/termos-e-condicoes" title="Termos e Condições">
+                    Termos e Condições
+                </a>
+                <br>
+                <a routerLink="/a-careplus/politica-de-privacidade" title="Política de Privacidade">
+                    Política de Privacidade
                 </a>
             </div>
             <div class="column">
                 <h5 class="subtitle">
                     Planos
                 </h5>
-                <a routerLink="/planos-e-produtos" fragment="soho">
-                    Soho
+                <a routerLink="/planos-e-produtos" fragment="soho" title="Care Plus Soho">
+                    Care Plus SoHo (de 2 a 29 vidas)
                 </a>
                 <br>
-                <a routerLink="/planos-e-produtos" fragment="clube-care-plus">
-                    Care Plus 200
+                <a routerLink="/planos-e-produtos" title="Clube Care Plus" fragment="clube-care-plus">
+                   Clube Care Plus (de 30 a 200 vidas)
                 </a>
                 <br>
-                <a routerLink="/planos-e-produtos" fragment="empresarial">
-                    Care Plus Empresarial
+                <a routerLink="/planos-e-produtos" title="Care Plus Empresarial" fragment="empresarial">
+                    Care Plus Empresarial (mais de 200 vidas)
                 </a>
                 <br>
-                <a>
-                    Care Plus Dental Prime
+            </div>
+            <div class="column">
+                <h5 class="subtitle">
+                    Produtos
+                </h5>
+                <a routerLink="/planos-e-produtos/medicina-ocupacional" title="Medicina Ocupacional">
+                    Medicina Ocupacional
                 </a>
                 <br>
-                <a href="https://www8.careplus.com.br/portal/portal/modulos/rede/pesquisaRedeCP.aspx" target="_blank">
-                    Rede Credenciada
+                <a routerLink="/planos-e-produtos/gestao-de-saude" title="Gestão de Saúde">
+                    Gestão de Saúde
+                </a>
+                <br>
+                <a routerLink="/planos-e-produtos/gestao-de-saude/programas-preventivos" title="Programas Preventivos">
+                    Programas Preventivos
+                </a>
+                <br>
+                <a routerLink="/planos-e-produtos/gestao-de-saude/servicos-online" title="Serviços On-line">
+                    Serviços On-line
+                </a>
+                <br>
+                <a routerLink="/planos-e-produtos/gestao-de-saude/personal-system" title="Personal System">
+                    Personal System
+                </a>
+                <br>
+                <a routerLink="/planos-e-produtos/gestao-de-saude/programas-empresariais" title="Programas Empresariais">
+                    Programas Empresariais
+                </a>
+                <br>
+                <a routerLink="/planos-e-produtos/gestao-de-saude/nossas-parcerias" title="Nossas Parcerias">
+                    Nossas Parcerias
                 </a>
             </div>
             <div class="column">
                 <h5 class="subtitle">
-                    Nossos Diferenciais
+                    Carreiras
                 </h5>
-                <a routerLink="/home/beneficiario">
-                    Para o Beneficiário
+                <a routerLink="/carreiras" title="Carreiras">
+                    Carreiras
                 </a>
                 <br>
-                <a routerLink="/home/rh">
-                    Para o Gestor de RH
-                </a>
-                <br>
-                <a routerLink="/home/corretor">
-                    Para o Corretor
-                </a>
-                <br>
-                <a routerLink="/home/credenciado">
-                    Para o Credenciado
-                </a>
-            </div>
-            <div class="column">
-                <h5 class="subtitle">
-                    Comunicação
-                </h5>
-                <a>
-                    Artigos
-                </a>
-                <br>
-                <a>
-                    Notícias
-                </a>
-                <br>
-                <a>
-                    Comunicados
-                </a>
-                <br>
-                <a routerLink="/careplus-mais">
-                    A Care Plus na Mídia
-                </a>
-            </div>
-            <div class="column">
-                <h5 class="subtitle">
-                    Programas e Serviços
-                </h5>
-                <a>
-                    Para o Beneficiário
-                </a>
-                <br>
-                <a>
-                    Para o Gestor de RH
-                </a>
-                <br>
-                <a>
-                    Para o Corretor
-                </a>
-                <br>
-                <a>
-                    Para o Credenciado
+                <a routerLink="/carreiras/vagas" title="Vagas">
+                    Vagas
                 </a>
             </div>
             <div class="column">
                 <h5 class="subtitle">
                     Fale Conosco
                 </h5>
-                <a href="tel:1141979104">
-                    Atendimento
+                <a routerLink="/fale-conosco/solicite-uma-cotacao" title="Solicite uma Cotação">
+                    Solicite uma Cotação
                 </a>
                 <br>
-                <a routerLink="/fale-conosco">
-                    Carreira
+                <a routerLink="/fale-conosco/contato" title="Contato">
+                    Contato
                 </a>
                 <br>
-                <a routerLink="/fale-conosco/canal-de-denuncias">
-                    Canal de Denúncia
+                <a routerLink="/fale-conosco/canal-de-denuncias" title="Canal De Denúncias">
+                    Canal De Denúncias
                 </a>
                 <br>
-                <a routerLink="/fale-conosco/ouvidoria">
+                <a routerLink="/fale-conosco/ouvidoria" title="Ouvidoria">
                     Ouvidoria
                 </a>
                 <br>
-                <a routerLink="/fale-conosco/contato">
-                    SAC
+                <a title="Simule Planos e Produtos" (click)="openSimulator()">
+                    Simule Planos e Produtos
                 </a>
                 <br />
-                <a class="bottom">
-                    Cartilha de exclusão de
-                    beneficiário / RN 412
-                    Artigo 15 / RN 412
-                    IDSS 2018
-                    IDSS 2019
-                </a>
             </div>
         </div>
         <hr class="is-hidden-down-tablet">
         <div class="columns site-map is-hidden-down-tablet">
             <div class="column is-5 certificacoes">
                 <p>
-                    Baixe o app Care Plus
+                    Certificações
                 </p>
-                <a>
+                <a title="Site Blindado">
                     <img src="assets/img/site-blindado.png" alt="Site Blindado" />
                 </a>
-                <a>
+                <a title="dun & brandstreet">
                     <svg width="192" height="27" viewBox="0 0 192 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M46.6472 4.34863L65.8146 23.4332L63.7935 25.3104L60.762 22.3069L57.763 25.0914C56.3613 26.3741 54.5358 27.0937 52.58 27.0624C50.6567 27.0311 48.8312 26.2803 47.4947 24.935C46.1582 23.5897 45.4411 21.8376 45.4737 19.9917C45.5063 18.1459 46.2886 16.3938 47.6903 15.1111L49.6788 13.2652L51.6346 15.2049L49.6462 17.0508C48.7986 17.833 48.3097 18.928 48.2771 20.0543C48.2445 21.1806 48.7008 22.2756 49.5158 23.0891C50.3307 23.9025 51.439 24.3718 52.6452 24.4031C53.8513 24.4344 54.9596 23.9964 55.8071 23.2142L58.8061 20.4298L46.6472 8.32198V4.34863ZM11.4418 4.81793V22.9639H10.2683H9.5837V21.0242C8.80136 22.4321 7.30187 23.1516 5.37861 23.1516C2.34703 23.1516 0 20.8052 0 17.614C0 14.4541 2.34703 12.1076 5.34601 12.1076C7.46486 12.1076 8.80136 13.1088 9.5837 14.5167V4.81793H11.4418ZM9.68149 17.614C9.68149 15.3301 8.11681 13.7032 5.76978 13.7032C3.45535 13.7032 1.95586 15.3301 1.95586 17.614C1.95586 19.9292 3.45535 21.5873 5.76978 21.5873C8.08421 21.5873 9.68149 19.9292 9.68149 17.614ZM23.5029 18.1771C23.5029 20.242 22.1338 21.5248 20.0475 21.5248C18.2221 21.5248 17.3093 20.4923 17.3093 18.6464V12.3579H15.4513V18.8654C15.4513 21.5873 17.1463 23.1829 19.5912 23.1829C21.3514 23.1829 22.7531 22.5572 23.5029 21.1493V22.9326H23.9593H25.361V12.3579H23.5029V18.1771ZM35.564 12.1076C33.8037 12.1076 32.3694 12.7333 31.6523 14.1725V12.3579H30.9351H29.7942V22.9639H31.6523V17.1134C31.6523 15.0172 33.054 13.7658 35.1076 13.7658C36.9657 13.7658 37.8458 14.8295 37.8458 16.7067V22.9639H39.7039V16.4877C39.7039 13.7345 38.0088 12.1076 35.564 12.1076Z"
@@ -269,31 +249,31 @@
                             fill="#3095B4" />
                     </svg>
                 </a>
-                <a>
+                <a title="Trust Sign">
                     <img class="trust-sign" src="assets/svg/trustSign.svg" alt="Trust Sign" />
                 </a>
             </div>
-            <div class="column is-3 stores">
+            <div class="column is-4 stores">
                 <p>
                     Baixe o app Care Plus
                 </p>
-                <a href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR" target="_blank">
+                <a rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR" target="_blank" title="Play store">
                     <img src="assets/svg/playstore.svg" alt="Play store">
                 </a>
-                <a href="https://apps.apple.com/br/app/care-plus/id899562421" target="_blank">
+                <a rel="noopener noreferrer" href="https://apps.apple.com/br/app/care-plus/id899562421" title="App store" target="_blank">
                     <img src="assets/svg/appstore.svg" alt="App store">
                 </a>
             </div>
-            <div class="column is-3 ans">
-                <a>
+            <div class="column is-2 ans">
+                <a title="ANS">
                     <img src="assets/svg/ans.svg" alt="ANS" />
                 </a>
-                <a>
+                <a title="ANS Nº 37995-6">
                     <img src="assets/svg/ansNumber.svg" alt="ANS Nº 37995-6" />
                 </a>
             </div>
             <div class="column is-1 social-media">
-                <a href="https://br.linkedin.com/company/care-plus" target="_blank">
+                <a rel="noopener noreferrer" href="https://br.linkedin.com/company/care-plus" title="Linkedin" target="_blank">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M16.2978 15.3029V15.3022H16.3016V9.69004C16.3016 6.94452 15.7106 4.82959 12.5009 4.82959C10.9579 4.82959 9.92239 5.67633 9.49966 6.47907H9.45502V5.08591H6.41174V15.3022H9.58063V10.2435C9.58063 8.91153 9.83312 7.62357 11.4826 7.62357C13.1079 7.62357 13.1321 9.14362 13.1321 10.3289V15.3029H16.2978Z"
@@ -304,7 +284,7 @@
                             fill="#FFF" />
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/careplusoficial/" target="_blank">
+                <a rel="noopener noreferrer" href="https://www.instagram.com/careplusoficial/" title="Instagram" target="_blank">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.91538 3.72314C5.74561 3.72314 3.98901 5.48166 3.98901 7.64951C3.98901 9.81927 5.74752 11.5759 7.91538 11.5759C10.0851 11.5759 11.8417 9.81736 11.8417 7.64951C11.8417 5.47974 10.0832 3.72314 7.91538 3.72314ZM7.91538 10.198C6.50691 10.198 5.36687 9.05734 5.36687 7.64951C5.36687 6.24168 6.50755 5.10101 7.91538 5.10101C9.3232 5.10101 10.4639 6.24168 10.4639 7.64951C10.4645 9.05734 9.32384 10.198 7.91538 10.198Z"
@@ -317,7 +297,7 @@
                             fill="#FFF" />
                     </svg>
                 </a>
-                <a href="https://www.facebook.com/careplusnarede/" target="_blank">
+                <a rel="noopener noreferrer" href="https://www.facebook.com/careplusnarede/" title="Facebook" target="_blank">
                     <svg width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M5.12962 5.26121V3.3484C5.12962 2.82046 5.55809 2.39199 6.08603 2.39199H7.04243V0.000976562H5.12962C3.54486 0.000976562 2.26041 1.28543 2.26041 2.87019V5.26121H0.347595V7.65222H2.26041V15.3035H5.12962V7.65222H7.04243L7.99884 5.26121H5.12962Z"
@@ -330,19 +310,18 @@
         <div class="columns careplus-dados-rodape">
             <div class="column is-nowrap careplus is-6 is-hidden-down-tablet">
                 <p>
-                    © Care Plus Medicina Assistencial LTDA | Todos os direitos reservados - CNPJ: 02.725.347/0001-27
+                    © Care Plus Medicina Assistencial LTDA | Todos os direitos reservados - CNPJ: 02.725.347/0001-27<br/> Endereço: Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040
                 </p>
+
             </div>
-            <div class="column is-nowrap is-hidden-down-tablet">
-                <a routerLink="/a-careplus/politica-de-privacidade">
+            <div class="column is-5 is-hidden-down-tablet">
+                <a routerLink="/a-careplus/politica-de-privacidade" title="Política de Privacidade">
                     Política de Privacidade
-                </a>
-                |
-                <a routerLink="/a-careplus/termos-e-condicoes">
+                </a> |
+                <a routerLink="/a-careplus/termos-e-condicoes" title="Termos & Condições">
                     Termos & Condições
-                </a>
-                |
-                <a>
+                </a> |
+                <a title="Acessibilidade">
                     Acessibilidade
                 </a>
             </div>

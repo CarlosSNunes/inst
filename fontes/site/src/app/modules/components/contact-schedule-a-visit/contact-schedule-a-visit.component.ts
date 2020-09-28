@@ -22,11 +22,11 @@ export class ContactScheduleAVisitComponent implements OnInit {
         backgroundColorClass: this.backgroundColorClass
     });
     @Input() secondCard: IconCardModel = new IconCardModel({
-        title: 'Solicite Uma Cotação',
+        title: 'Solicite uma Cotação',
         type: 'icon',
         imagePath: 'assets/svg/calendar.svg',
         button: new ButtonModel({
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite uma cotação',
             target: '_blank',
         }),

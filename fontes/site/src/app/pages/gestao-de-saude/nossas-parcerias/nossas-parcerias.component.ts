@@ -8,7 +8,7 @@ import { Meta, Title } from '@angular/platform-browser';
 @Component({
     selector: 'app-nossas-parcerias',
     templateUrl: './nossas-parcerias.component.html',
-    styleUrls: ['./nossas-parcerias.component.scss']
+    
 })
 export class NossasParceriasComponent implements OnInit {
     simpleBannerModel = simpleBannerModel;
@@ -17,8 +17,8 @@ export class NossasParceriasComponent implements OnInit {
         bigTitle: 'Conheça nossos programas e serviços',
         subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
         button: new ButtonModel({
-            text: 'VEJA TODO OS PROGRAMAS',
-            routerLink: '/gestao-de-saude'
+            text: 'Veja Todos os Programas',
+            routerLink: '/planos-e-produtos'
         }),
         cards: PersonalizedSectionCards,
         columnClass: 'is-4-desktop'

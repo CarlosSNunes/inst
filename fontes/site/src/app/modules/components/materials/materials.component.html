@@ -4,31 +4,30 @@
             <div class="columns flex-wrap">
                 <div class="column is-full">
                     <p class="small-title">
-                        MATERIAIS
+                        Materiais de Saúde
                     </p>
                 </div>
                 <div class="column is-6">
-                    <h4 class="big-title">
-                        Todos os materiais necessários para nossos corretores.
-                    </h4>
+                    <h2 class="h4 big-title">
+                        Todos os materiais necessários para nossos corretores
+                    </h2>
                 </div>
                 <div class="column is-6">
                     <p class="sub-description">
-                        Nessa área você encontra todos os documentos da Care Plus necessários, sobre nossos produtos e
-                        planos, sobre as normas da ANS, segurança da informação e muito mais.
+                        Nessa área você encontra todos os documentos da Care Plus necessários, sobre nossos produtos e planos, sobre as normas da ANS, segurança da informação e muito mais.
                     </p>
                 </div>
             </div>
 
             <div class="columns cards flex-wrap">
                 <div class="column is-full is-one-quarter-desktop" *ngFor="let card of cards">
-                    <app-card [card]="card" *ngIf="card">
+                    <app-card class="app-card" [card]="card" *ngIf="card">
                         <div class="card-content">
                             <p class="card-title">
                                 {{card.title}}
                             </p>
-                            <a [attr.href]="card?.button?.link" class="download-link" download>
-                                DOWNLOAD
+                            <a [attr.href]="card?.button?.link" title="Download" class="download-link" download>
+                                Download
                                 <span>
                                     <img src="assets/svg/download.svg" alt="Download">
                                 </span>
@@ -40,14 +39,12 @@
 
             <div class="columns">
                 <div class="column buttons-column">
-                    <a class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
-                        routerLink="/a-careplus/materiais">
-                        VER TODOS OS MATERIAIS
+                    <a class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" routerLink="/a-careplus/materiais-de-saude" title="Ver Todos os Materiais">
+                        Ver Todos os Materiais
                     </a>
 
-                    <a class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                        routerLink="/a-careplus/materiais">
-                        VER TODOS OS MATERIAIS
+                    <a class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" routerLink="/a-careplus/materiais-de-saude" title="Ver Todos os Materiais">
+                        Ver Todos os Materiais
                     </a>
                 </div>
             </div>

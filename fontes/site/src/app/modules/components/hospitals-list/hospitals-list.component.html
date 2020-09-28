@@ -5,39 +5,31 @@
                 <p class="small-title">
                     {{smallTitle}}
                 </p>
-                <h4 class="big-title">
+                <h2 class="h4 big-title">
                     {{bigTitle}}
-                </h4>
+                </h2>
             </div>
         </div>
         <div class="columns">
             <div class="column is-12">
                 <div class="columns filter-box mobile-hidden">
                     <div class="column is-3 filter">
-                        <app-dropdown [options]="allStates" [default]="{ key: 'Estados', value: '' }"
-                            (setFilter)=" setFilter('state', $event); ">
+                        <app-dropdown class="app-dropdown" [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); ">
                         </app-dropdown>
                     </div>
                     <div class="column is-3 filter ">
-                        <app-dropdown [options]="allHospitals" [default]="{ key: 'Hospitais', value: '' }"
-                            (setFilter)=" setFilter('type', $event)">
-                        </app-dropdown>
-
-                    </div>
-                    <div class="column is-3 filter">
-                        <app-dropdown [options]="allPlans" [default]="{ key: 'Planos', value: '' }"
-                            (setFilter)="setFilter('plan', $event)">
+                        <app-dropdown class="app-dropdown" [options]="allHospitals" [default]="{ title: 'Hospitais', value: '' }" (setFilter)=" setFilter('type', $event)">
                         </app-dropdown>
                     </div>
                     <div class="column is-3 filter">
-                        <img src="assets/svg/list-menu-active.svg" alt="Modo lista" [class.active]="menuStyle== 'list'"
-                            (click)="changeMenuStyle('list')">
-                        <img src="assets/svg/list-menu.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'"
-                            (click)="changeMenuStyle('list')">
-                        <img src="assets/svg/grid-menu-active.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'"
-                            (click)="changeMenuStyle('grid')">
-                        <img src="assets/svg/grid-menu.svg" alt="Modo lista" [class.active]="menuStyle== 'list'"
-                            (click)="changeMenuStyle('grid')">
+                        <app-dropdown class="app-dropdown" [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event)">
+                        </app-dropdown>
+                    </div>
+                    <div class="column is-3 filter">
+                        <img src="assets/svg/list-menu-active.svg" alt="Modo lista" [class.active]="menuStyle== 'list'" (click)="changeMenuStyle('list')">
+                        <img src="assets/svg/list-menu.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'" (click)="changeMenuStyle('list')">
+                        <img src="assets/svg/grid-menu-active.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'" (click)="changeMenuStyle('grid')">
+                        <img src="assets/svg/grid-menu.svg" alt="Modo lista" [class.active]="menuStyle== 'list'" (click)="changeMenuStyle('grid')">
                         <button class="btn btn-digital-cian secondary medium" (click)="mountHospitalsList()">Filtrar</button>
                     </div>
                 </div>
@@ -46,23 +38,19 @@
 
         <div class="columns filter-box desktop-hidden">
             <div class="column is-12 mobile-filter is-paddingless">
-                <button class="btn small" [class.active]="selectedType?.value == 'Hospital'"
-                    (click)="setFilter('type', { key: 'Hospital', value: 'Hospital' }, true); mountHospitalsList()">Hospitais</button>
-                <button class="btn small" [class.active]="selectedType?.value == 'Laboratório'"
-                    (click)="setFilter('type', { key: 'Laboratório', value: 'Laboratório' }, true); mountHospitalsList()">Laboratórios</button>
+                <button class="btn small" [class.active]="selectedType?.value == 'Hospital'" (click)="setFilter('type', { title: 'Hospital', value: 'Hospital' }, true); mountHospitalsList()">Hospitais</button>
+                <button class="btn small" [class.active]="selectedType?.value == 'Laboratório'" (click)="setFilter('type', { title: 'Laboratório', value: 'Laboratório' }, true); mountHospitalsList()">Laboratórios</button>
 
             </div>
         </div>
         <div class="columns filter-box dropdown desktop-hidden">
             <div class=" filter">
-                <app-dropdown [options]="allStates" [default]="{ key: 'Estados', value: '' }"
-                    (setFilter)=" setFilter('state', $event); mountHospitalsList() ">
+                <app-dropdown class="app-dropdown" [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); mountHospitalsList() ">
                 </app-dropdown>
             </div>
 
             <div class=" filter">
-                <app-dropdown [options]="allPlans" [default]="{ key: 'Planos', value: '' }"
-                    (setFilter)="setFilter('plan', $event);  mountHospitalsList()">
+                <app-dropdown class="app-dropdown" [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event);  mountHospitalsList()">
                 </app-dropdown>
             </div>
 
@@ -70,7 +58,7 @@
 
         <div class="columns">
             <div class="column is-12 hospitals-grid-list" [class.hidden]="hiddenGrid">
-                <div *ngFor="let hospital of gridList" title="{{hospital}}">
+                <div *ngFor="let hospital of gridList" [title]="hospital.name">
                     <p>
                         {{hospital.name}}
                     </p>
@@ -81,35 +69,34 @@
             <div class="column is-12" [class.hidden]="hiddenList">
                 <div class="hospitals-list">
                     <table>
+                        <caption class="is-hidden">Lista de Hospitais</caption>
                         <thead>
                             <tr>
-                                <td>
+                                <th id="hospitais">
                                     <p>Hospitais</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th id="basico">
                                     <p>Básico</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th id="especialII">
                                     <p>Especial II</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th id="especialIII">
                                     <p>Especial III</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th id="executivoI">
                                     <p>Executivo I</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th id="executivoII">
                                     <p>Executivo II</p>
-                                </td>
-                                <td>
+                                </th>
+                                <th id="masterI">
                                     <p>Master I</p>
-                                </td>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let hospital of gridList; let i = index"
-                                [class.table-color1]="i%2 == 0 ? true : false"
-                                [class.table-color2]="i%2 == 0 ? false : true">
+                            <tr *ngFor="let hospital of gridList; let i = index" [class.table-color1]="i%2 == 0 ? true : false" [class.table-color2]="i%2 == 0 ? false : true">
                                 <td>
                                     <p>
                                         {{hospital.name}}

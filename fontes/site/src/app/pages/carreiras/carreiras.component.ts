@@ -6,7 +6,7 @@ import { Meta, Title } from '@angular/platform-browser';
 @Component({
     selector: 'app-carreiras',
     templateUrl: './carreiras.component.html',
-    styleUrls: ['./carreiras.component.scss']
+    
 })
 export class CarreirasComponent implements OnInit {
     @ViewChild('aboutPlusNetwork', { static: false }) aboutPlusNetwork: ElementRef<HTMLElement>;
@@ -25,7 +25,7 @@ export class CarreirasComponent implements OnInit {
             })
         ],
         hasAnchor: true,
-        image: 'assets/img/a-careplus-carreiras-banner.jpg'
+        image: 'assets/img/new-banner-carreiras.png'
     };
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         bigTitle: 'Por que somos apaixonados pela Care Plus?',

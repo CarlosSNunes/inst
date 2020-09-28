@@ -1,6 +1,6 @@
 <div class="custom-modal">
     <div class="modal-body" [ngClass]="[modalModel.type, modalModel.layout]">
-        <a tabindex="0" class="times-icon" (keyup.enter)="close()" (click)="close()">
+        <a tabindex="0" class="times-icon" title="Fechar" (keyup.enter)="close()" (click)="close()">
             <div class="lines">
                 <span class="first-line"></span>
                 <span class="second-line"></span>
@@ -9,10 +9,8 @@
 
         <div class="feedback-content" *ngIf="modalModel.layout === 'feedback'">
 
-            <img src="assets/svg/feedback-icon-success.svg" *ngIf="modalModel.type === 'info'" alt="Sucesso"
-                class="feedback-image">
-            <img src="assets/svg/feedback-icon-error.svg" *ngIf="modalModel.type === 'error'" alt="Erro"
-                class="feedback-image">
+            <img src="assets/svg/feedback-icon-success.svg" *ngIf="modalModel.type === 'info'" alt="Sucesso" class="feedback-image">
+            <img src="assets/svg/feedback-icon-error.svg" *ngIf="modalModel.type === 'error'" alt="Erro" class="feedback-image">
 
             <p class="title">{{modalModel.title}}</p>
             <p class="description">{{modalModel.description}}</p>
@@ -26,14 +24,15 @@
             </p>
 
             <table>
+                <caption class="is-hidden">Produtos atendidos</caption>
                 <thead>
                     <tr>
-                        <td>Rede</td>
-                        <td>Registro ANS</td>
-                        <td>Nome comercial</td>
-                        <td>Tipo de Contratação</td>
-                        <td>Segmentação</td>
-                        <td>Situação do Plano</td>
+                        <th id="rede">Rede</th>
+                        <th id="registroANS">Registro ANS</th>
+                        <th id="nomeComercial">Nome comercial</th>
+                        <th id="tipoContratacao">Tipo de Contratação</th>
+                        <th id="segmentacao">Segmentação</th>
+                        <th id="situacaoPlano">Situação do Plano</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,9 +80,7 @@
         <div class="video" *ngIf="modalModel?.layout === 'video'">
             <div class="videoBox">
 
-                <iframe width="560" height="315" [src]="modalModel?.videoModel?.embedSrc | safe"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen=""></iframe>
+                <iframe width="560" height="315" [src]="modalModel?.videoModel?.embedSrc | safe" [title]="modalModel?.videoModel?.bigTitle" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>

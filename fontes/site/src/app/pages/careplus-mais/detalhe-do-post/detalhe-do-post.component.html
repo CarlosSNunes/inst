@@ -6,9 +6,9 @@
                     <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
                 </div>
                 <div class="column is-full align-self-center title-column">
-                    <h3 class="big-title">
+                    <h2 class="h3 big-title">
                         Comunicados e avisos
-                    </h3>
+                    </h2>
                 </div>
             </div>
         </div>
@@ -22,21 +22,13 @@
                     <div class="post-header">
                         <ul class="social-icons">
                             <li>
-                                <a title="Compartilhe no linkedin"
-                                    href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
-                                    target="_blank">
+                                <a title="Compartilhe no linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}" target="_blank">
                                     <img src="assets/svg/linkedin.svg" alt="Linkedin">
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="">
-                                    <img src="assets/svg/instagram.svg" alt="Instagram">
-                                </a>
-                            </li> -->
                             <li>
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank">
-                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook"
-                                        title="Compartilhe no facebook">
+                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook" title="Compartilhe no facebook">
                                 </a>
                             </li>
                             <li>
@@ -71,13 +63,11 @@
                             Como combater o COVID-19 com resiliência
                         </h3>
                         <p class="description">
-                            As autoridades públicas estão tomando medidas decisivas para responder à ameaça emergente à
-                            saúde, o Corona Vírus, levando a comunidade e empresas a reconsiderar a adequação de suas
-                            medidas de preparação. Esta página reúne informações para ajudar as pessoas e empresas a
-                            gerenciar e mitigar o risco.
+                            As autoridades públicas estão tomando medidas decisivas para responder à ameaça emergente à saúde, o Corona Vírus, levando a comunidade e empresas a reconsiderar a adequação de suas medidas de preparação. Esta página reúne informações para ajudar as pessoas
+                            e empresas a gerenciar e mitigar o risco.
                         </p>
 
-                        <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem" class="post-image">
+                        <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem" [alt]="post?.nomeImagem" class="post-image">
                         <p class="observation">
                             Lorem ipsum dolor sit amet, consect adi elit. Scelerisque eu sit egestas am dorime
                         </p>
@@ -87,21 +77,13 @@
                     <div class="post-footer">
                         <ul class="social-icons">
                             <li>
-                                <a title="Compartilhe no linkedin"
-                                    href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
-                                    target="_blank">
+                                <a title="Compartilhe no linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}" target="_blank">
                                     <img src="assets/svg/linkedin.svg" alt="Linkedin">
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="">
-                                    <img src="assets/svg/instagram.svg" alt="Instagram">
-                                </a>
-                            </li> -->
                             <li>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank">
-                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook"
-                                        title="Compartilhe no facebook">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank" title="Compartilhe no facebook">
+                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook">
                                 </a>
                             </li>
                             <li>
@@ -113,31 +95,31 @@
 
                         <ul class="post-tags">
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                             <li class="post-tag">
-                                <a href="#">#Tema 1</a>
+                                <a href="#" title="Tema 1">#Tema 1</a>
                             </li>
                         </ul>
                     </div>
@@ -147,13 +129,13 @@
 
                     <app-newsletter></app-newsletter>
 
-                    <a href="#" class="is-anounce">
+                    <a href="#" title="Banner publicitario 1" class="is-anounce">
                         <img src="assets/img/banner-publicitario-1.jpg" alt="Banner publicitario 1">
                     </a>
-                    <a href="#" class="is-anounce">
+                    <a href="#" title="Banner publicitario 2" class="is-anounce">
                         <img src="assets/img/banner-publicitario-2.jpg" alt="Banner publicitario 2">
                     </a>
-                    <a href="#" class="is-anounce">
+                    <a href="#" title="Banner publicitario 3" class="is-anounce">
                         <img src="assets/img/banner-publicitario-3.jpg" alt="Banner publicitario 3">
                     </a>
                 </div>
@@ -161,6 +143,5 @@
         </div>
     </article>
 </section>
-<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
-    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
 <app-social-posts></app-social-posts>

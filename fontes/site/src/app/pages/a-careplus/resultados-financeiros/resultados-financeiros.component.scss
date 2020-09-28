@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 section {
     &#a-careplus-financial-reports-filters {
         .container {
@@ -25,20 +24,17 @@ section {
                                         padding: 0;
                                         padding-left: 16px;
                                         padding-right: 16px;
-
                                         &:first-child {
                                             padding-left: 0;
+                                            margin-top: 7px;
                                         }
-
                                         &:last-child {
                                             margin-right: 0px;
                                             padding-right: 0;
                                         }
-
-                                        app-dropdown {
+                                        .app-dropdown {
                                             width: 100%;
                                         }
-
                                         .field {
                                             max-width: 100%;
                                             width: 100%;
@@ -47,17 +43,16 @@ section {
                                             .control {
                                                 display: flex;
                                                 width: 100%;
-
                                                 input:not([type="radio"]) {
                                                     min-width: 100px;
                                                 }
                                             }
                                         }
-
                                         &.buttons {
                                             justify-content: space-between;
                                             .images {
                                                 display: flex;
+                                                margin: 0 auto 0 calc(15% - 15px);
                                                 img {
                                                     display: none;
                                                     &.active {
@@ -78,7 +73,7 @@ section {
                     }
                 }
             }
-            ::ng-deep app-documents {
+             ::ng-deep .app-documents {
                 .columns {
                     &.cards {
                         margin-top: 42px;
@@ -144,7 +139,6 @@ section {
                                         justify-content: unset;
                                         .column {
                                             display: flex;
-                                            margin: 0;
                                             align-self: unset;
                                             padding-left: 0;
                                             padding-right: 0;
@@ -152,11 +146,9 @@ section {
                                             &:first-child {
                                                 margin-top: 0;
                                             }
-
                                             &:last-child {
                                                 margin-bottom: 0;
                                             }
-
                                             .field {
                                                 max-width: 100%;
                                                 width: 100%;
@@ -176,7 +168,7 @@ section {
                         }
                     }
                 }
-                ::ng-deep app-documents {
+                 ::ng-deep .app-documents {
                     .columns {
                         &.cards {
                             margin-top: 0;
