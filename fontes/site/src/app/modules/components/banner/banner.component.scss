@@ -253,3 +253,17 @@ section.home-banner {
         }
     }
 }
+
+@media (max-width: 359px) {
+    section.home-banner {
+        .item {
+            .container:not(.breadcrumb-container) {
+                .banner-home-description {
+                    .banner-title {
+                        font-size: 1.25em;
+                    }
+                }
+            }
+        }
+    }
+}
