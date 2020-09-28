@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { FormControlError } from 'src/utils/form-control-error';
 import { CategoriasCreateModel } from 'src/models/categorias/categorias-create.model';
+import { NgWizardConfig, THEME } from 'ng-wizard';
 
 @Component({
   selector: 'app-categorias-create',
@@ -22,6 +23,18 @@ export class CategoriasCreateComponent implements OnInit {
   submitted: boolean;
   usuario: UserAuthenticateModel;
   btnSubmitDisable = false;
+
+//*Configuração 'ng-wizard'
+config: NgWizardConfig = {
+  selected: 0,
+  theme: THEME.dots,
+  toolbarSettings:{
+    showNextButton:false,
+    showPreviousButton: false
+  }
+};
+
+ngWizardService: any;
 
   constructor(
     private authenticateService: AuthenticationService,
@@ -68,7 +81,7 @@ export class CategoriasCreateComponent implements OnInit {
       const model = new CategoriasCreateModel(this.categoriasForm.value);
       this.categoriasService.post(model)
         .subscribe(() => {
-          this.router.navigate(['/neocms/categorias']);
+          this.router.navigate(['/neocms/posts-blog/categorias/index']);
         })
         .add(() => this.btnSubmitDisable = false);
     }

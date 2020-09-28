@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControlError } from 'src/utils/form-control-error';
 import { CategoriasModel } from 'src/models/categorias/categorias.model';
 import { CategoriasUpdateModel } from 'src/models/categorias/categorias-update.model';
+import { NgWizardConfig, THEME } from 'ng-wizard';
 
 @Component({
   selector: 'app-categorias-edit',
@@ -24,7 +25,15 @@ export class CategoriasEditComponent implements OnInit {
   btnSubmitDisable = false;
   usuario: UserAuthenticateModel;
   categoria: CategoriasModel;
- 
+  //*Configuração 'ng-wizard'
+  config: NgWizardConfig = {
+    selected: 0,
+    theme: THEME.dots,
+    toolbarSettings: {
+      showNextButton: false,
+      showPreviousButton: false
+    }
+  };
 
   constructor(
     private authenticateService: AuthenticationService,
@@ -46,7 +55,7 @@ export class CategoriasEditComponent implements OnInit {
     this.categoriasService.getById(id)
       .subscribe(categoria => {
         this.categoria = categoria;
-        this.categoriasForm.patchValue(this.categoria);        
+        this.categoriasForm.patchValue(this.categoria);
         this.updateForm();
       });
   }
@@ -60,7 +69,7 @@ export class CategoriasEditComponent implements OnInit {
           Validators.maxLength(100),
           FormControlError.noWhitespaceValidator
         ]
-      ],     
+      ],
       descricao: [
         '',
         [
@@ -82,7 +91,7 @@ export class CategoriasEditComponent implements OnInit {
           Validators.maxLength(100),
           FormControlError.noWhitespaceValidator
         ]
-      ],      
+      ],
       descricao: [
         this.categoria.descricao,
         [
@@ -90,7 +99,7 @@ export class CategoriasEditComponent implements OnInit {
           Validators.maxLength(1000),
           FormControlError.noWhitespaceValidator
         ]
-      ],      
+      ],
     });
   }
 
@@ -106,12 +115,12 @@ export class CategoriasEditComponent implements OnInit {
       const model = new CategoriasUpdateModel(this.categoriasForm.value);
       this.categoriasService.put(model)
         .subscribe(() => {
-          this.router.navigate(['/neocms/categorias']);
+          this.router.navigate(['/neocms/posts-blog/categorias/index']);
         })
         .add(() => this.btnSubmitDisable = false);
     }
   }
- 
+
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }

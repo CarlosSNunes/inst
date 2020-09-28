@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.circles,
 };
@@ -33,12 +34,15 @@ const ngWizardConfig: NgWizardConfig = {
     ErrorHandlerModule,
     NgWizardModule.forRoot(ngWizardConfig),
     BrowserAnimationsModule,
+    
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,
       multi: true,
+      
+
     }
   ],
   bootstrap: [AppComponent]

@@ -1,60 +1,53 @@
 <div class="card">
-  <div class="card-content">
-      <div class="content">
-          <section class="hero is-dark is-small">
-              <div class="hero-body">
-                  <div class="container">
-                      <h1 class="title">
-                        Categorias
-                      </h1>
-                  </div>
-              </div>
-          </section>
-          <table id="categoriasTable" class="table">
-              <caption></caption>
-              <thead>
-                  <tr>
-                      <th id="">ID</th>
-                      <th id="">Categoria</th>
-                      <th id="">Descrição</th>
-                      <th id="">Data</th> 
-                      <th id=""colspan="2"></th>                    
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td *ngIf="categorias.length == 0 && !loaded" colspan="6">
-                          <progress class="progress is-large is-info" max="100">60%</progress>
-                      </td>
-                      <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
-                          Não há Categorias cadastradas
-                      </td>
-                  </tr>
-                  <tr *ngFor="let categoria of categorias">
-                      <td>{{categoria.id}}</td>
-                      <td>{{categoria.titulo}}</td>
-                      <td>{{categoria.descricao}}</td>
-                      <td colspan="2">
-                        <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', categoria.id]" routerLinkActive="active ">
-                          <fa-icon [icon]="faPencilAlt"></fa-icon>
-                      </a>
-                      &nbsp;
-                      <a (click)="openCategoriaDelete(categoria)">
-                          <fa-icon [icon]="faTrash"></fa-icon>
-                      </a>
-                      </td>
-                      
-                  </tr>
-              </tbody>
-          </table>
-      </div>
-  </div>
-  <footer class="card-footer">
-    <a routerLink="/neocms/posts-blog/categorias/create" routerLinkActive="active" class="card-footer-item">
-        Criar nova Categoria &nbsp;
-        <fa-icon [icon]="faPlus"></fa-icon>
-    </a>
-  </footer>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title">Categorias</h1>
+                <a routerLink="/neocms/posts-blog/categorias/create" routerLinkActive="active"
+                    class="badge badge-dark shadow p-3">
+                    Nova Categoria
+                </a>
+                <table id="bannerTable" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Categoria</th>
+                            <th scope="col" class="text-center">Descrição</th>
+                            <th scope="col" class="text-center">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td *ngIf="categorias.length == 0 && !loaded" colspan="6">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
+                            Não há banners cadastrados
+                        </td>
+                        <tr *ngFor="let categoria of categorias" class="table-cell text-center">
+                                                       
+                            <td class="py-3 align-middle text-center">
+                                <span class="p-2">{{categoria.titulo}}</span>
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                <span class="p-2">{{categoria.descricao}}</span>
+                            </td>
+                           
+
+                            <td class="py-3 align-middle text-center">
+                                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', categoria.id]" routerLinkActive="active">
+                                    <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
+                                </a>
+                                &nbsp;
+                                <a (click)="openCategoriaDelete(categoria)">
+                                    <fa-icon class="icon-action" [icon]="faTrash"></fa-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
-<app-categorias-delete *ngIf="showCategoriaDelete " [categoria]="categoria" (onClose)="getCategorias()"></app-categorias-delete>
+<app-categorias-delete *ngIf="showCategoriaDelete " [categoria]="categoria" (onClose)="getCategorias()">
+</app-categorias-delete>

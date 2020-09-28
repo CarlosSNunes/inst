@@ -4,7 +4,7 @@
  * @ Author: Bruno Sábio
  * @ Create Time: 2020-09-20 16:54:14
  * @ Modified by: Your name
- * @ Modified time: 2020-09-26 00:43:56
+ * @ Modified time: 2020-09-28 04:29:45
  * @ Description:
  */
 import { NgModule } from '@angular/core';
@@ -21,6 +21,7 @@ import { BannerRoutingModule } from './banner-routing.module';
 import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.default
@@ -40,7 +41,9 @@ const ngWizardConfig: NgWizardConfig = {
     HttpClientModule,
     BannerRoutingModule,
     NgWizardModule,
-    ImageCropperModule
+    ImageCropperModule,
+    SelectDropDownModule,
+    
   ],
   providers: [
     BannerService,

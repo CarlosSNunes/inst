@@ -10,6 +10,7 @@ import { CategoriasEditComponent } from './categorias-edit/categorias-edit.compo
 import { CategoriasRoutingModule } from './categorias-routing.module';
 import { CategoriasService } from './categorias.service';
 import { CategoriasDeleteComponent } from './categorias-delete/categorias-delete.component';
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CategoriasDeleteComponent } from './categorias-delete/categorias-delete
     CategoriasRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgWizardModule,
   ],
   providers: [
     CategoriasService,

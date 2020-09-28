@@ -1,46 +1,37 @@
-/*
- *   Copyright (c) 2020 
- *   All rights reserved.
- */
-import { Bounds } from 'ng2-img-cropper';
 /**
- * * Copyright (c) 2020 - NEOTIX INTERNET AGENCY – LTDA.
- * * All rights reserved.
- * @ Author: Bruno Sábio
- * @ Create Time: 2020-09-20 16:54:14
- * @ Modified by: Your name
- * @ Modified time: 2020-09-26 02:45:34
- * @ Description:
- */
+ * Copyright (c) 2020 - NEOTIX INTERNET AGENCY – LTDA.
+ * @Author       : Bruno Sábio
+ * @CreateTime   : 2020-09-20 16:54:14
+ * @Modifiedby   : Bruno Sábio
+ * @ModifiedTime : 2020-09-26 02:45:34
+ **/
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { faTimes, faCheck, faUpload, faPlus, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faCheck, faUpload, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { BannerService } from '../banner.service';
-import { FormBuilder, AbstractControl, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { FormControlError } from 'src/utils/form-control-error';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';
-import { NgWizardConfig, THEME, StepChangedArgs, NgWizardService } from 'ng-wizard';
-import { CropperPosition, ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
+import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-banner-create',
   templateUrl: './banner-create.component.html',
   styleUrls: ['./banner-create.component.scss'],
 })
-
-
 export class BannerCreateComponent implements OnInit {
   faSearch = faSearch;
   imageChangedEvent: any;
   imageChangedEventMobile: any;
   croppedImage: any;
-  croppedImageMobile:any;
+  croppedImageMobile: any;
   bannerGrande: File;
   bannerMobile: File;
   thumbnailImage: File;
-
+  imageURL: string;
   bannerForm;
   faTimes = faTimes;
   faCheck = faCheck;
@@ -53,22 +44,37 @@ export class BannerCreateComponent implements OnInit {
   isLinkExternoSelected = false;
   btnSubmitDisable = false;
   isBannerAtivo = false;
-  config: NgWizardConfig = {
+
+  //*Configuração 'ng-wizard'
+  configBanner: NgWizardConfig = {
     selected: 0,
     theme: THEME.dots,
     lang: { next: 'Próximo', previous: 'Voltar' }
   };
-  areas: any = [
-    { id: '01', nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
-    { id: '02', nome: 'Home RH', descricao: 'Banner da home do RH' },
-    { id: '02', nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
-    { id: '02', nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
-    { id: '02', nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
-  ];
-  areaSelected: any[] = this.areas[0];
-  nomeDaImagem: string;
   ngWizardService: any;
 
+  //*Configuração 'ngx-select-dropdown'
+  configSelect = {
+    displayKey: "nome",      /** se a matriz de objetos passou a chave a ser exibida, o padrão é: @description */
+    search: false,           /** true/false para a funcionalidade de pesquisa padronizada para: @false */
+    height: 'auto',          /** altura da lista, para ela mostrar uma rolagem, o padrão é: @auto */
+    placeholder: 'Selecione',/** texto a ser exibido quando nenhum item é selecionado, o padrão é @Select */
+    moreText: 'mais',        /** texto a ser exibido quando mais de um item for selecionado, o padrão é @More */
+  }
+
+  areaOptions = [
+    { nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
+    { nome: 'Home RH', descricao: 'Banner da home do RH' },
+    { nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
+    { nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
+    { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
+  ];
+  areaSelectedObject: [{ nome: string, descricao: string }];
+  areaNome: any;
+  areaDescricao: any;
+  blob: File;
+  nomeDaImagem: any;
+  areaSelecImagem: string;
 
   constructor(
     private bannerService: BannerService,
@@ -111,9 +117,6 @@ export class BannerCreateComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    const formData = new FormData();
-    formData.append('fileDesktop', this.bannerForm.get('arquivo').value);
-    formData.append('fileMobile', this.bannerForm.get('arquivoMobile').value);
     if (this.bannerForm.valid) {
       this.btnSubmitDisable = true;
       const model = new BannerCreateModel(this.bannerForm.value);
@@ -136,10 +139,20 @@ export class BannerCreateComponent implements OnInit {
     this.isBannerAtivo = selected;
   }
 
+  async changeAreaBanner(e) {
+    this.areaNome = JSON.stringify(e.value.nome).replace(/['"]+/g, '');
+    this.areaDescricao = JSON.stringify(e.value.descricao).replace(/['"]+/g, '');
+    this.areaSelectedObject = [
+      { nome: this.areaNome, descricao: this.areaDescricao }
+    ];
+    this.bannerForm.controls['area'].setValue(this.areaNome);
+    console.log(this.bannerForm.get('area').value)
+  }
+
+
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }
-
 
   showPreviousStep(event?: Event) {
     this.ngWizardService.previous();
@@ -161,8 +174,6 @@ export class BannerCreateComponent implements OnInit {
     console.log(args.step);
   }
 
-
-
   /**
    ** Usando o 'ngx-image-cropper'
    *  Quando você escolhe um arquivo da entrada do arquivo, ele será acionado @fileChangeEvent 
@@ -170,20 +181,42 @@ export class BannerCreateComponent implements OnInit {
    *  carregará a imagem no cortador. Sempre que você soltar o mouse, o @imageCropped evento será 
    *  disparado com a imagem cortada como uma string Base64 em sua carga útil.
    */
-
-
-
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
   }
- 
+
   fileChangeEventMobile(event: any): void {
     this.imageChangedEventMobile = event;
   }
 
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
+  // const base64String = event.base64;
+  //   // Remove header
+  //   let base64Image = base64String.split(';base64,').pop();
+    
+
+  //   fs.writeFileSync('image.png', base64Image, {encoding: 'base64'});
+  //   console.log(fs)
+
+    // const formData = new FormData();
+    // formData.append('bannerGrande', this.bannerForm.get('arquivo'));
+    // this.bannerForm.controls['arquivo'].setValue(this.blob.name);
+   
   }
+
+  createBlobImageFileAndShow(): void {
+    // this.dataURItoBlob(this.base64String).subscribe((blob: Blob) => {
+    //   const imageBlob: Blob = blob;
+    //   const imageName: string = this.generateName();
+    //   const imageFile: File = new File([imageBlob], imageName, {
+    //     type: "image/jpeg"
+    //   });
+    //   this.generatedImage = window.URL.createObjectURL(imageFile);
+    //   window.open(this.generatedImage);
+    // });
+  }
+
   imageCroppedMobile(event: ImageCroppedEvent) {
     this.croppedImageMobile = event.base64;
   }
@@ -199,3 +232,5 @@ export class BannerCreateComponent implements OnInit {
 
 
 }
+
+
