@@ -10,6 +10,10 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
             link: '/home',
         }),
         new BreadcrumbModel({
+            name: 'Planos e Produtos',
+            link: '/planos-e-produtos'
+        }),
+        new BreadcrumbModel({
             name: 'Gestão de Saúde',
             link: '/planos-e-produtos/gestao-de-saude',
         }),

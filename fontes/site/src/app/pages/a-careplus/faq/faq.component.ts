@@ -168,7 +168,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Perguntas Frequentes | Care Plus | Care Plus');
+        this.title.setTitle('Perguntas Frequentes | A Care Plus | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.'

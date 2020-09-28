@@ -31,7 +31,7 @@ export class ProgramasPreventivosComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Programas Preventivos | Gestão de Saúde | Care Plus');
+        this.title.setTitle('Programas Preventivos | Gestão de Saúde | Produtos e Planos | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'A hora de cuidar da sua saúde é agora. Conheça os programas preventivos Care Plus e descubra o ideal para você.'

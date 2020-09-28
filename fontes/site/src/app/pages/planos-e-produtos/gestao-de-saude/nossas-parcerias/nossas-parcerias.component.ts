@@ -47,7 +47,7 @@ export class NossasParceriasComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Nossas Parcerias | Gestão de Saúde | Care Plus');
+        this.title.setTitle('Nossas Parcerias | Gestão de Saúde | Produtos e Planos | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Para você ter acesso a mais vantagens, a Care Plus estabelece parcerias com empresas de alimentação saudável e consultoria esportiva. Conheça!'

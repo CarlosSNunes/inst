@@ -6,6 +6,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { ProductComponent } from 'src/app/modules/components/product/product.component';
 import Cards from './data/cards';
 import { Meta, Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-corretor',
@@ -71,6 +72,77 @@ export class CorretorComponent implements OnInit {
         this.meta.updateTag({
             name: 'description',
             content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
+        });
+
+        /* 
+           Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                "Corretor | Care Plus",
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/${this.banners[0].caminhoImagem}`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content:
+                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/home/corretor`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                "Corretor | Care Plus",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/${this.banners[0].caminhoImagem}`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content:
+                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/home/corretor`,
         });
     }
 

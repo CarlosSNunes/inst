@@ -4,7 +4,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
 
 export default {
     id: 'careplus-empresarial',
-    name: 'Empresarial',
+    name: 'Care Plus Empresarial',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Empresarial: planos para mais de 200 vidas',
         description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',

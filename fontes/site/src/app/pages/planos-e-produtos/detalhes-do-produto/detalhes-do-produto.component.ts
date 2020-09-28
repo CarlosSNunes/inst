@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { WindowRef } from 'src/utils/window-ref';
 import { Meta, Title } from '@angular/platform-browser';
 import { plansMock } from './data/plans-mock';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-detalhes-do-produto',
@@ -83,6 +84,75 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
             name: 'description',
             content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
         })
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                `${infos.name} | Produtos e Planos | Care Plus`
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/${this.findedPlan.simpleBannerModel.image}`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/planos-e-produtos/${this.findedPlan.id}`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                `${infos.name} | Produtos e Planos | Care Plus`
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/${this.findedPlan.simpleBannerModel.image}`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/planos-e-produtos/${this.findedPlan.id}`,
+        });
     }
 
 }

@@ -2,11 +2,12 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { BreadcrumbModel, SimpleBannerModel, CrossContentModel, ButtonModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 import { Meta, Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-vagas',
     templateUrl: './vagas.component.html',
-    
+
 })
 export class VagasComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
@@ -74,10 +75,79 @@ export class VagasComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Vagas | Carreiras | A Care Plus | Care Plus');
+        this.title.setTitle('Vagas | Carreiras | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'Vagas | Carreiras | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/carreiras/vagas`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'Vagas | Carreiras | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/carreiras/vagas`,
         });
     }
 

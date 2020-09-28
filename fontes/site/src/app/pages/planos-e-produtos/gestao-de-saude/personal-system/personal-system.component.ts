@@ -45,7 +45,7 @@ export class PersonalSystemComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Personal System | Care Plus');
+        this.title.setTitle('Personal System | Gestão de Saúde | Produtos e Planos | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Saiba mais sobre o Personal System Care Plus.'

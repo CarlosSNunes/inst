@@ -51,7 +51,7 @@ export class ProgramasEmpresariaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Programas Empresariais | Gestão de Saúde | Care Plus');
+        this.title.setTitle('Programas Empresariais | Gestão de Saúde | Produtos e Planos | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Conte com as melhores soluções em saúde para a sua empresa e os seus funcionários. Conheça todos os serviços!'

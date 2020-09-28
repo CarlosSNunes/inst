@@ -2,11 +2,12 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { WindowRef } from 'src/utils/window-ref';
 import { BreadcrumbModel, CareplusVideoModel, InfoSectionModel, SimpleBannerModel } from 'src/app/models';
 import { Meta, Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-carreiras',
     templateUrl: './carreiras.component.html',
-    
+
 })
 export class CarreirasComponent implements OnInit {
     @ViewChild('aboutPlusNetwork', { static: false }) aboutPlusNetwork: ElementRef<HTMLElement>;
@@ -61,10 +62,79 @@ export class CarreirasComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Carreiras | A Care Plus | Care Plus');
+        this.title.setTitle('Carreiras | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+            'Carreiras | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/carreiras`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+            'Carreiras | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/carreiras`,
         });
     }
 
