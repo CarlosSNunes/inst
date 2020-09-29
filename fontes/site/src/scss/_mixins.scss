@@ -46,6 +46,7 @@
     padding: 3px;
     position: absolute;
     align-self: center;
+    top: calc(50% - 4px);
     right: 24px;
     transform: rotate($transform);
     -webkit-transform: rotate($transform);

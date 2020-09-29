@@ -13,6 +13,7 @@
             height: 9px;
             left: -13px;
             align-self: center;
+            top: calc(50% - 4.5px);
             background-image: getSvg("arrow-right-grey.svg");
         }
         &:first-child {

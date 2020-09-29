@@ -149,6 +149,7 @@
                         align-self: center;
                         background-image: getSvg("blue-arrow-left.svg");
                         transition: left 0.3s ease-in-out;
+                        top: calc(50% - 7.5px);
                     }
                     &:hover {
                         &::before {

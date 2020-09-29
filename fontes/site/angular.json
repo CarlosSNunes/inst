@@ -123,6 +123,9 @@
                                     "maximumError": "10kb"
                                 }
                             ]
+                        },
+                        "es5": {
+                            "tsConfig": "./tsconfig.es5.json"
                         }
                     }
                 },
@@ -138,6 +141,9 @@
                         },
                         "homolog": {
                             "browserTarget": "Care-plus:build:homolog"
+                        },
+                        "es5": {
+                            "browserTarget": "Care-plus:build:es5"
                         }
                     }
                 },
