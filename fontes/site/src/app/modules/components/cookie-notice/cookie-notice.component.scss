@@ -40,8 +40,10 @@
     }
 
     .text {
-        width: calc(80% - 40px);
-        flex: 0 0 calc(80% - 40px);
+        width: calc(80% - 41px);
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: calc(80% - 41px);
         padding: 0 13px;
         align-self: center;
 
@@ -93,7 +95,7 @@
         }
     
         .text {
-            width: calc(100% - 40px);
+            width: calc(100% - 41px);
             flex-grow: 1;
             flex-shrink: 0;
             flex-basis: calc(100% - 41px);
