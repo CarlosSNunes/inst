@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 1000;
-    background-color: rgba(getColor(_bupa, _black-rgb), 0.6);
+    background-color: rgba(getColor(_bupa, _black), 0.6);
     display: flex;
     .modal-body {
         z-index: 1002;
@@ -18,7 +18,7 @@
         max-height: 80%;
         overflow: auto;
         background-color: getColor(_bupa, _white);
-        box-shadow: 0px 0.608796px 1.38363px rgba(getColor(_bupa, _black-rgb), 0.0196802), 0px 1.46302px 3.32505px rgba(getColor(_bupa, _black-rgb), 0.0282725), 0px 2.75474px 6.26078px rgba(getColor(_bupa, _black-rgb), 0.035), 0px 4.91399px 11.1682px rgba(getColor(_bupa, _black-rgb), 0.0417275), 0px 9.19107px 20.8888px rgba(getColor(_bupa, _black-rgb), 0.0503198), 0px 22px 50px rgba(getColor(_bupa, _black), 0.07);
+        box-shadow: 0px 0.608796px 1.38363px rgba(getColor(_bupa, _black), 0.0196802), 0px 1.46302px 3.32505px rgba(getColor(_bupa, _black), 0.0282725), 0px 2.75474px 6.26078px rgba(getColor(_bupa, _black), 0.035), 0px 4.91399px 11.1682px rgba(getColor(_bupa, _black), 0.0417275), 0px 9.19107px 20.8888px rgba(getColor(_bupa, _black), 0.0503198), 0px 22px 50px rgba(getColor(_bupa, _black), 0.07);
         border-radius: 4px;
         padding: 40px 80px;
         @media (max-width: 991px) {
@@ -182,7 +182,7 @@
                 thead {
                     width: 100%;
                     tr {
-                        background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+                        background-color: rgba(getColor(_bupa, _digital-cian), 0.1);
                         th {
                             padding: 22px 15px;
                             font-weight: 500;

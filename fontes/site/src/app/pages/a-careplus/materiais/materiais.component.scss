@@ -7,7 +7,7 @@ section {
                     &.filter-box {
                         position: relative;
                         .filters {
-                            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black-rgb), 0.25);
+                            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black), 0.25);
                             background-color: getColor(_bupa, _white);
                             border-radius: 2px;
                             position: absolute;

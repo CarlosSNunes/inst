@@ -57,7 +57,7 @@ section#fale-conosco-form {
                         .contact-link {
                             font-size: 1.5em;
                             line-height: 150%;
-                            color: var(--bupa_grey);
+                            color: getColor(_bupa, _grey);
                             margin-left: 50px;
                             word-break: break-all;
                             display: block;

@@ -1,5 +1,5 @@
 import { Component, OnInit, PLATFORM_ID, Inject, Input, ViewChild, ElementRef } from '@angular/core';
-import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { CareplusVideoModel } from 'src/app/models';
 
 @Component({
@@ -8,7 +8,7 @@ import { CareplusVideoModel } from 'src/app/models';
     styleUrls: ['./a-careplus-video.component.scss']
 })
 export class ACareplusVideoComponent implements OnInit {
-    @Input() backgroundColor: string = '#fff';
+    @Input() backgroundColor: string = 'white';
     @Input() videoModel: CareplusVideoModel = new CareplusVideoModel({
         embedSrc: 'https://www.youtube.com/embed/WVcRo6iWffM'
     })
@@ -17,15 +17,11 @@ export class ACareplusVideoComponent implements OnInit {
 
     constructor(
         @Inject(PLATFORM_ID) private plataformId,
-        @Inject(DOCUMENT) private document: Document
     ) {
         this.isBrowser = isPlatformBrowser(this.plataformId)
     }
 
     ngOnInit() {
-        if (this.isBrowser) {
-            this.document.documentElement.style.setProperty('--banner-background', this.backgroundColor);
-        }
     }
 
     onPlayerReady(event) {
