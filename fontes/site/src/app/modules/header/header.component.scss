@@ -326,6 +326,15 @@ nav.is-home {
             cursor: unset;
             position: relative;
             z-index: 999;
+
+            &.logo {
+                width: 57px;
+                height: 72px;
+                max-width: 57px;
+                padding: .5rem 0;
+                margin-left: 16px;
+            }
+            
             &:hover {
                 background-color: unset;
                 .sub-menu,
