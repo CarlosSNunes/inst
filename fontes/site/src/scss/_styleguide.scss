@@ -21,28 +21,9 @@ Grid
         margin-right: -16px;
     }
     .column {
-        // padding-top: 0;
-        // padding-bottom: 0;
         padding-left: 16px;
         padding-right: 16px;
-        // @media (min-width: 769px) {
-        //     &:first-child {
-        //         padding-left: 0;
-        //     }
-        //     &:last-child {
-        //         padding-right: 0;
-        //     }
-        // }
-        // &:first-child {
-        //     padding-left: 0;
-        // }
-        // &:last-child {
-        //     padding-right: 0;
-        // }
-        // @media (max-width: 768px) {
-        //     padding-right: 32px;
-        //     padding-left: 32px;
-        // }
+
         &.is-paddingless-vertical {
             padding-top: 0;
             padding-bottom: 0;
@@ -310,7 +291,6 @@ select,
                 }
                 &:focus {
                     outline: none;
-                    // border: none;
                     box-shadow: unset;
                 }
             }
@@ -418,16 +398,6 @@ select,
                     position: absolute;
                     display: inline-block;
                     min-width: 26px;
-                    // animation: animateUncheck 0.2s ease-in-out;
-                    // @keyframes animateUncheck {
-                    //     0% {
-                    //         background: getColor(_bupa, _digital-cian);
-                    //         box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                    //     }
-                    //     100% {
-                    //         box-shadow: inset 0px 0px 0px 10px getColor(_bupa, _white);
-                    //     }
-                    // }
                 }
             }
             &:checked+label.radio-label:before {
@@ -437,15 +407,6 @@ select,
                 content: "";
                 border-radius: 50px;
                 box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                // animation: animateCheck 0.2s ease-in-out;
-                // @keyframes animateCheck {
-                //     0% {
-                //         box-shadow: inset 0px 0px 0px 10px getColor(_bupa, _white);
-                //     }
-                //     100% {
-                //         box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                //     }
-                // }
             }
             &:focus+label.radio-label {
                 outline: none;

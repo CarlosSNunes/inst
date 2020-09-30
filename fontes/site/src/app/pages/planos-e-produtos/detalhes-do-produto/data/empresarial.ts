@@ -1,7 +1,5 @@
 import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
 
-
-
 export default {
     id: 'careplus-empresarial',
     name: 'Care Plus Empresarial',
@@ -412,6 +410,7 @@ export default {
                 plano: 'empresarial'
             }
         }),
+        backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
     })
 };

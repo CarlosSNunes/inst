@@ -50,6 +50,8 @@ section {
                     .btn-digital-cian.tertiary {
                         float: right;
                         padding-bottom: 0;
+                        padding-top: 0;
+                        margin-top: 8px;
                         color: getColor(_bupa, _white);
 
                         svg {

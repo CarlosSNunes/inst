@@ -148,8 +148,8 @@ import { environment } from 'src/environments/environment';
         });
 
         /* 
-    Open graph meta tags
-*/
+            Open graph meta tags
+        */
         this.meta.updateTag({
             name: "og:title",
             content:

@@ -408,6 +408,7 @@ export default {
                 plano: 'soho'
             }
         }),
+        backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
     })
 };

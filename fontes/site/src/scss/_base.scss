@@ -1,83 +1,5 @@
 @import "./variables";
 
-:root {
-    // Hexadecimal colors
-    --bupa_digital-cian: #0079c8;
-    --bupa_navy: #00335b;
-    --bupa_purple: #6a2ca1;
-    --bupa_violet: #a4219b;
-    --bupa_fuchsia: #c6007e;
-    --bupa_burgundy: #942151;
-    --bupa_digital-orange: #db3907;
-    --bupa_teal: #008385;
-    --bupa_green: #007a3d;
-    --bupa_dark-green: #18542c;
-    --bupa_digital-lime: #678004;
-    --bupa_grey: #333333;
-    --bupa_grey-2: #808080;
-    --bupa_red: #e8505b;
-    --bupa_grey-3: #c9c9c9;
-    --bupa_grey-4: #f1efeb;
-    --bupa_grey-5: #7f7f7f;
-    --bupa_white: #ffffff;
-    --bupa_black: #000;
-    --bupa_blue-menu: #50a1ff;
-    --carePlus_green: #00837b;
-    --carePlus_light-green: #a7d59d;
-    --carePlus_light-blue: #f2f8fc;
-    --carePlus_dark-green: #006660;
-    --carePlus_blue-btn-text: #0064a5;
-    --carePlus_error: #ff3e1d;
-    --carePlus_valid: #00d200;
-    --carePlus_drop-down-option: #2c2c2c;
-    --carePlus_checkbox-border: #a8a7a4;
-    --carePlus_warning: #a4904b;
-    --carePlus_success: #49b869;
-    --carePlus_blue-section: #e5f2fa;
-    --carePlus_grey_inactive_tab: #c9c9c9;
-    --carePlus_grey-5: #f5f6f8;
-    --carePlus_blue-plan-card: #bce4ff;
-    --bottom-line_light-green: #b3d59c;
-    --bottom-line_dark-green: #007777;
-    --banner-background: #fff;
-    // Rgb colors
-    --bupa_digital-cian-rgb: 0, 121, 200;
-    --bupa_navy-rgb: 0, 51, 91;
-    --bupa_purple-rgb: 106, 44, 161;
-    --bupa_violet-rgb: 164, 33, 155;
-    --bupa_fuchsia-rgb: 198, 0, 126;
-    --bupa_burgundy-rgb: 148, 33, 81;
-    --bupa_digital-orange-rgb: 219, 57, 7;
-    --bupa_teal-rgb: 0, 131, 133;
-    --bupa_green-rgb: 0, 122, 61;
-    --bupa_dark-green-rgb: 24, 84, 44;
-    --bupa_digital-lime-rgb: 103, 128, 4;
-    --bupa_grey-rgb: 51, 51, 51;
-    --bupa_grey-2-rgb: 128, 128, 128;
-    --bupa_grey-3-rgb: 201, 201, 201;
-    --bupa_grey-4-rgb: 241, 239, 235;
-    --bupa_grey-5-rgb: 127, 127, 127;
-    --bupa_white-rgb: 255, 255, 255;
-    --bupa_black-rgb: 0, 0, 0;
-    --bupa_blue-menu-rgb: 80, 161, 255;
-    --carePlus_green-rgb: 0, 131, 123;
-    --carePlus_light-green-rgb: 167, 213, 157;
-    --carePlus_light-blue-rgb: 242, 248, 252;
-    --carePlus_dark-green-rgb: 0, 102, 96;
-    --carePlus_blue-btn-text-rgb: 0, 100, 165;
-    --carePlus_error-rgb: 255, 62, 29;
-    --carePlus_valid-rgb: 0, 210, 0;
-    --carePlus_drop-down-option-rgb: 44, 44, 44;
-    --carePlus_checkbox-border-rgb: 168, 167, 164;
-    --carePlus_warning-rgb: 164, 144, 75;
-    --carePlus_success-rgb: 73, 184, 105;
-    --carePlus_grey_inactive_tab-rgb: 201, 201, 201;
-    --carePlus_grey-5-rgb: 245, 246, 248;
-    --bottom-line_light-green-rgb: 179, 213, 156;
-    --bottom-line_dark-green-rgb: 0, 119, 119;
-    --carePlus_blue-plan-card-rgb: 188, 228, 255;
-}
-
 html,
 body {
     font-size: 16px;
@@ -184,10 +106,6 @@ p, .p {
     }
 }
 
-/*
-  Fade animation
-*/
-
 .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
@@ -204,7 +122,6 @@ p, .p {
     }
 }
 
-/* Firefox < 16 */
 @-moz-keyframes fade {
     from {
         opacity: 0.4;
@@ -214,7 +131,6 @@ p, .p {
     }
 }
 
-/* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fade {
     from {
         opacity: 0.4;
@@ -224,7 +140,6 @@ p, .p {
     }
 }
 
-/* Internet Explorer */
 @-ms-keyframes fade {
     from {
         opacity: 0.4;
@@ -234,7 +149,6 @@ p, .p {
     }
 }
 
-/* Opera < 12.1 */
 @-o-keyframes fade {
     from {
         opacity: 0.4;

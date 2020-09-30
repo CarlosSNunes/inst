@@ -3,7 +3,7 @@
 ul {
     list-style: none;
     padding: 0;
-    width: auto; // 285px anteriormente
+    width: auto;
     max-width: 285px;
     max-height: calc(100vh - 30px);
     overflow-y: auto;
@@ -15,12 +15,10 @@ ul {
         width: 4px;
     }
 
-    /* Track */
     &::-webkit-scrollbar-track {
         background: getColor(_bupa, _grey-4);
     }
 
-    /* Handle */
     &::-webkit-scrollbar-thumb {
         background: getColor(_bupa, _grey-2);
 
@@ -31,7 +29,7 @@ ul {
 
     li {
         width: 100%;
-        height: auto; // 56px anteriormente
+        height: auto;
         padding: 18px 50px;
         font-weight: 500;
         font-size: getSize("p");

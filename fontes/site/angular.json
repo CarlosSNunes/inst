@@ -84,6 +84,7 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
+                            "baseHref": "/institucional/",
                             "budgets": [{
                                     "type": "initial",
                                     "maximumWarning": "2mb",

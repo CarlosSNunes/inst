@@ -17,8 +17,6 @@
             font-weight: 500;
             font-size: 16px;
             line-height: 20px;
-            /* identical to box height */
-            /* Bupa Grey */
             color: getColor(_bupa, _grey);
             position: relative;
             padding-right: 50px;
@@ -56,11 +54,8 @@
             overflow: hidden;
             transition: all 0.3s;
             -moz-transition: all 0.3s;
-            /* Firefox 4 */
             -webkit-transition: all 0.3s;
-            /* Safari and Chrome */
             -o-transition: all 0.3s;
-            /* Opera */
             .inner {
                 height: 100%;
                 padding: 0 22px 22px;

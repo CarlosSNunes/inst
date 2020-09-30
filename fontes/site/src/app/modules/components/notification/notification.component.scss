@@ -10,8 +10,8 @@
     width: calc(100% - 64px);
     left: 32px;
     z-index: 2000;
-    transition: top .3s ease-in-out;
-    @include fade(.3s);
+    transition: top 0.3s ease-in-out;
+    @include fade(0.3s);
 
     &.bottom {
         top: unset;
@@ -19,8 +19,8 @@
     }
 
     &.is-success {
-        background: #edf8f0; // rgba(getColor(_carePlus, _success), 0.1);
-        border: 1px solid #bfe6cb; // rgba(getColor(_carePlus, _success), 0.5);
+        background: #edf8f0;
+        border: 1px solid #bfe6cb;
         border-left: 4px solid getColor(_carePlus, _success);
 
         span {
@@ -39,8 +39,8 @@
     }
 
     &.is-info {
-        background: #e6f2fa; // rgba(getColor(_bupa, _digital-cian), 0.1);
-        border: 1px solid #7abae3; // rgba(getColor(_bupa, _digital-cian), 0.5);
+        background: #e6f2fa;
+        border: 1px solid #7abae3;
         border-left: 4px solid getColor(_bupa, _digital-cian);
 
         span {
@@ -59,8 +59,8 @@
     }
 
     &.is-warning {
-        background: #fef7e6; // rgba(getColor(_carePlus, _warning), 0.1);
-        border: 1px solid #e6cb85; // rgba(getColor(_carePlus, _warning), 0.5);
+        background: #fef7e6;
+        border: 1px solid #e6cb85;
         border-left: 4px solid getColor(_carePlus, _warning);
 
         span {
@@ -79,8 +79,8 @@
     }
 
     &.is-danger {
-        background: #ffece8; // rgba(getColor(_carePlus, _error), 0.1);
-        border: 1px solid #ff9b8a; // rgba(getColor(_carePlus, _error), 0.5);
+        background: #ffece8;
+        border: 1px solid #ff9b8a;
         border-left: 4px solid getColor(_carePlus, _error);
 
         span {

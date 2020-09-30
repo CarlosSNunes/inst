@@ -409,6 +409,7 @@ export default {
                 plano: 'clube-careplus'
             }
         }),
+        backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
     })
 };
