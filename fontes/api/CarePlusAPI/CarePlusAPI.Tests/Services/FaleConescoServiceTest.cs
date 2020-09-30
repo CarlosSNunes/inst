@@ -1,13 +1,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Services;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Neotix.Neocms.CarePlusAPI.Tests.Services
+namespace CarePlusAPI.Tests.Services
 {
     public class FaleConescoServiceTest : IDisposable
     {

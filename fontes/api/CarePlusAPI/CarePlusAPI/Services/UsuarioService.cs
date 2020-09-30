@@ -1,24 +1,16 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
-
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.Usuario;
+using CarePlusHomolog;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using CarePlusHomolog;
+using System.Threading.Tasks;
 using static CarePlusHomolog.PartnerServiceClient;
-using Microsoft.Extensions.Options;
 
-namespace Neotix.Neocms.CarePlusAPI.Services
+namespace CarePlusAPI.Services
 {
     public interface IUsuarioService
     {
@@ -31,6 +23,12 @@ namespace Neotix.Neocms.CarePlusAPI.Services
         Task Excluir(int id);
         Task ExcluirPerfis(int id);
         Task EnviarEmailConfirmacao(Usuario user);
+        Task<bool> ValidaUsuario(string email, string senha);
+        Task EnviarEmail(UsuarioCreateModel usuarioAutenticadoModel, string token);
+        Task<string> SalvarRequisicao(UsuarioCreateModel usuarioAutenticadoModel);
+        Task<RequisicaoUsuario> ValidateTokenRequisition(string token);
+        Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastro();
+        Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastroPendente();
     }
 
     public class UsuarioService : IUsuarioService
@@ -67,7 +65,12 @@ namespace Neotix.Neocms.CarePlusAPI.Services
 
             Usuario usuario = await Context.Usuario.Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(x => x.Email == email);
 
-            if (usuario == null || !VerificarSenha(senha, usuario.SenhaHash, usuario.SenhaSalt))
+            if (usuario == null)
+            {
+                return usuario;
+            }
+
+            if (!VerificarSenha(senha, usuario.SenhaHash, usuario.SenhaSalt))
                 throw new AppException("Usuário e/ou senha incorretos");
 
             return usuario;
@@ -75,12 +78,12 @@ namespace Neotix.Neocms.CarePlusAPI.Services
 
         ///<summary>
         ///
-        ///Esse método serve para listar todos os usuários da base.
+        /// ///Esse método serve para listar todos os usuários da base.
         ///
         ///</summary>
         public async Task<List<Usuario>> Listar()
         {
-            return await Context.Usuario.Include("UsuarioPerfil.Perfil").ToListAsync();
+            return await Context.Usuario.Include("UsuarioPerfil.Perfil").Where(x => x.Ativo == '1').AsNoTracking().ToListAsync();
         }
 
         ///<summary>
@@ -100,6 +103,36 @@ namespace Neotix.Neocms.CarePlusAPI.Services
                 throw new AppException("Usuario não encontrado");
 
             return usuario;
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para buscar uma lista de usuários que pediram requisição ao sistema. 
+        ///
+        ///</summary>        
+        public async Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastro()
+        {
+            IList<RequisicaoUsuario> req = await Context.RequisicaoUsuario.ToListAsync();
+
+            if (req == null)
+                throw new AppException("Usuarios não encontrados");
+
+            return req;
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para buscar uma lista de usuários que pediram requisição ao sistema e ainda está pendente. 
+        ///
+        /// ///</summary>        
+        public async Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastroPendente()
+        {
+            IList<RequisicaoUsuario> req = await Context.RequisicaoUsuario.Where(x => x.Sucesso == '0' && x.Expirado == '0').AsNoTracking().ToListAsync();
+
+            if (req == null)
+                throw new AppException("Usuarios não encontrados");
+
+            return req;
         }
 
         ///<summary>
@@ -222,7 +255,7 @@ namespace Neotix.Neocms.CarePlusAPI.Services
         ///<param name="senhaSalt">Array de byte do salt da senha criada</param>
         private static void CriarSenha(string senha, out byte[] senhaHash, out byte[] senhaSalt)
         {
-            using System.Security.Cryptography.HMACSHA512 hmac = new System.Security.Cryptography.HMACSHA512();
+            System.Security.Cryptography.HMACSHA512 hmac = new System.Security.Cryptography.HMACSHA512();
             senhaSalt = hmac.Key;
             senhaHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(senha));
         }
@@ -274,7 +307,7 @@ namespace Neotix.Neocms.CarePlusAPI.Services
         {
             if (usuario == null || usuario.Id == 0)
                 throw new AppException("O usuário cadastrado está como nulo ou não foi encontrado");
-            
+
             string token = Logar().Result;
 
             WSParametroEmail email = new WSParametroEmail()
@@ -289,7 +322,7 @@ namespace Neotix.Neocms.CarePlusAPI.Services
 
             await _partnerServiceClient.EnviarEmailAsync(email);
 
-            return;            
+            return;
 
         }
 
@@ -302,7 +335,7 @@ namespace Neotix.Neocms.CarePlusAPI.Services
         private async Task<string> Logar()
         {
             try
-            {                
+            {
                 LoginPartnerOut loginPartnerOut = new LoginPartnerOut()
                 {
                     Origem = WebServiceOrigem.Partner,
@@ -324,5 +357,131 @@ namespace Neotix.Neocms.CarePlusAPI.Services
                 throw ex;
             }
         }
+
+        ///<summary>
+        ///
+        ///Esse método serve para consumir o método Logar do WS Partner e obter um token       
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
+        ///
+        ///</summary>
+        public async Task<bool> ValidaUsuario(string email, string senha)
+        {
+            try
+            {
+                LoginADOut loginADOut = new LoginADOut()
+                {
+                    Email = email,
+                    Senha = senha
+                };
+
+                var result = await _partnerServiceClient.ValidarLoginADAsync(loginADOut, 0);
+
+                //TODO validar o retorno para finalizar o metodo
+                if (result.CodigoMensagem == 0)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task EnviarEmail(UsuarioCreateModel usuarioAutenticadoModel, string token)
+        {
+            try
+            {
+                string auth = Logar().Result;
+
+                WSParametroEmail parametroEmail = new WSParametroEmail()
+                {
+                    Token = auth,
+                    Para = _appSettings.AdministratorEmail,
+                    Copia = "",
+                    CopiaOculta = "",
+                    Assunto = $"Requisição de Cadastro de Usuario - {usuarioAutenticadoModel.Email}",
+                    Corpo = $"A URL para o novo cadastro é:  http://localhost:9090/Usuario/valida-requisicao/{token}",
+                    CodigoTipoEmail = 0,
+                    ListaAnexosPorByte = new AnexoByte[0]
+
+                };
+
+                await _partnerServiceClient.EnviarEmailAsync(parametroEmail);
+
+                return;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<string> SalvarRequisicao(UsuarioCreateModel usuario)
+        {
+            if (usuario == null)
+                throw new AppException("O usuário não pode estar nulo");
+
+            try
+            {
+                RequisicaoUsuario rq = new RequisicaoUsuario()
+                {
+                    UsuarioNome = usuario.Nome,
+                    UsuarioEmail = usuario.Email,
+                    UsuarioSenha = usuario.Senha,
+                    Token = Guid.NewGuid().ToString(),
+                    Sucesso = '0'
+                };
+
+                await Context.RequisicaoUsuario.AddAsync(rq);
+                await Context.SaveChangesAsync();
+
+                return rq.Token;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<RequisicaoUsuario> ValidateTokenRequisition(string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+                throw new AppException("O token não pode estar nulo ou vazio");
+
+            try
+            {
+                var requisicao = await Context.RequisicaoUsuario.Where(x => x.Token == token && x.Expirado == '0' && x.Sucesso == '0').FirstOrDefaultAsync();
+
+                if (requisicao != null)
+                {
+
+                    requisicao.Expirado = '1';
+                    Context.RequisicaoUsuario.Update(requisicao);
+                    await Context.SaveChangesAsync();
+
+
+                    await Criar(new Usuario() { Nome = requisicao.UsuarioNome, Email = requisicao.UsuarioEmail }, requisicao.UsuarioSenha);
+
+                    return requisicao;
+                }
+                else
+                {
+                    throw new AppException("Requisição não encontrada no banco de dados ou token ja utilizado");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

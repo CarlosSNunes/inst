@@ -1,17 +1,9 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
 
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json;
 
-namespace Neotix.Neocms.CarePlusAPI.Helpers
+namespace CarePlusAPI.Helpers
 {
     [ExcludeFromCodeCoverage]
     public static class ErrorHandler

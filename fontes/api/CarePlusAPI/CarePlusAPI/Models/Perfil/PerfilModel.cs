@@ -1,15 +1,7 @@
-//===============================================================================
-//Web API Perfil
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Perfil para uso do NEOCMS
-//==============================================================================
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace Neotix.Neocms.CarePlusAPI.Models.Perfil
+namespace CarePlusAPI.Models.Perfil
 {
     [ExcludeFromCodeCoverage]
     public class PerfilModel

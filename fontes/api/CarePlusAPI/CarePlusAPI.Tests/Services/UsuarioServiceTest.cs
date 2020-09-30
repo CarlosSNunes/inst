@@ -1,9 +1,9 @@
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Services;
 using System.Threading.Tasks;
 using Xunit;
 using Microsoft.Data.Sqlite;
-using Neotix.Neocms.CarePlusAPI.Entities;
+using CarePlusAPI.Entities;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Options;
 
-namespace Neotix.Neocms.CarePlusAPI.Tests.Services
+namespace CarePlusAPI.Tests.Services
 {
     public class UsuarioServiceTest : IDisposable
     {

@@ -1,18 +1,9 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Neotix.Neocms.CarePlusAPI.Entities
+namespace CarePlusAPI.Entities
 {
     [ExcludeFromCodeCoverage]
     [Table("TB_USUARIO")]
@@ -30,6 +21,9 @@ namespace Neotix.Neocms.CarePlusAPI.Entities
         public byte[] SenhaHash { get; set; }
         [Column("SENHA_SALT")]
         public byte[] SenhaSalt { get; set; }
+        [Column("ATIVO")]
+        public char Ativo { get; set; }
         public List<UsuarioPerfil> UsuarioPerfil { get; set; }
+
     }
 }

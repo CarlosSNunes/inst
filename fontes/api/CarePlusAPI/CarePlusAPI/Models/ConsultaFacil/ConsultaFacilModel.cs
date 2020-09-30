@@ -7,10 +7,10 @@
 //Web API para uso do NEOCMS
 //==============================================================================
 
-using Neotix.Neocms.CarePlusAPI.Entities;
+using CarePlusAPI.Entities;
 using System.Collections.Generic;
 
-namespace Neotix.Neocms.CarePlusAPI.Models.ConsultaFacil
+namespace CarePlusAPI.Models.ConsultaFacil
 {
     public class ConsultaFacilModel
     {

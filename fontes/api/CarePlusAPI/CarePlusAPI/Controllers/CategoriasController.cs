@@ -1,24 +1,17 @@
-//===============================================================================
-//Web API Categorias
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Categorias para uso do NEOCMS
-//==============================================================================
+
 
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Models.Categorias;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.Categorias;
+using CarePlusAPI.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Neotix.Neocms.CarePlusAPI.Controllers
+namespace CarePlusAPI.Controllers
 {
     [Authorize]
     [ApiController]

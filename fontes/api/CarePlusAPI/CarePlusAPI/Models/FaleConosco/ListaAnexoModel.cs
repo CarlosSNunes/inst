@@ -1,16 +1,7 @@
-﻿//===============================================================================
-//Web API 
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API para uso do NEOCMS
-//==============================================================================
-
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 
-namespace Neotix.Neocms.CarePlusAPI.Models.FaleConosco
+namespace CarePlusAPI.Models.FaleConosco
 {
     public class ListaAnexoModel
     {

@@ -1,18 +1,9 @@
-//===============================================================================
-//Web API Post
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Post para uso do NEOCMS
-//==============================================================================
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Neotix.Neocms.CarePlusAPI.Entities
+namespace CarePlusAPI.Entities
 {
     [ExcludeFromCodeCoverage]
     [Table("TB_POST")]
