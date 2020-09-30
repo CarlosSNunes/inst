@@ -42,7 +42,7 @@
                         ul {
                             li {
                                 &:before {
-                                    background-image: url('data:image/svg+xml;utf8,<svg width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 7.9425L3.09042 4.5L0 1.0575L0.951417 0L5 4.5L0.951417 9L0 7.9425Z" fill="%23C9C9C9"/> </svg>');
+                                    background-image: getSvg('hero-banner-play-button.svg');
                                 }
                                 a {
                                     color: getColor(_bupa, _grey-3);

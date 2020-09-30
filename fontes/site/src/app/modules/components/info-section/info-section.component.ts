@@ -39,7 +39,7 @@ export class InfoSectionComponent implements OnInit {
             const ua = this.windowRef.nativeWindow.navigator.userAgent;
             const msie = ua.indexOf("MSIE ");
 
-            if (msie > 0) // If Internet Explorer, return version number
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer, return version number
             {
                 this.changeToBackground = true;
             }
