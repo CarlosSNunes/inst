@@ -308,13 +308,23 @@ nav.is-home {
     background: getColor(_bupa, _white);
     border-bottom: 1px solid getColor(_bupa, _grey-2);
     z-index: unset;
-    .img-careplus {
+
+    .logo {
         width: 57px;
         height: 72px;
-        max-height: unset;
-        box-shadow: none;
-        cursor: pointer;
+        max-width: 57px;
+        padding: .5rem 0;
+        margin-left: 16px;
+
+        .img-careplus {
+            width: 57px;
+            height: 72px;
+            max-height: unset;
+            box-shadow: none;
+            cursor: pointer;
+        }
     }
+
     .navbar-start {
         justify-content: flex-end;
         -webkit-box-pack: end;
@@ -326,14 +336,6 @@ nav.is-home {
             cursor: unset;
             position: relative;
             z-index: 999;
-
-            &.logo {
-                width: 57px;
-                height: 72px;
-                max-width: 57px;
-                padding: .5rem 0;
-                margin-left: 16px;
-            }
             
             &:hover {
                 background-color: unset;
