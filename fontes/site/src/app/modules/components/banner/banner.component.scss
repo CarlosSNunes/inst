@@ -23,6 +23,7 @@ section.home-banner {
                 .play {
                     width: 34px;
                     height: 34px;
+                    position: relative;
                     &::before {
                         content: "";
                         background-image: getSvg('desktop-banner-play-button.svg');
