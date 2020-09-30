@@ -17,8 +17,6 @@ import { FormControlError } from 'src/utils/form-control-error';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';
 import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { join } from 'path';
-
 @Component({
   selector: 'app-banner-create',
   templateUrl: './banner-create.component.html',
@@ -125,8 +123,8 @@ export class BannerCreateComponent implements OnInit {
     var formDataArquivo = new FormData();
     var formDataArquivoMobile = new FormData();
 
-    formDataArquivo.append('arquivo', this.file);
-    formDataArquivoMobile.append('arquivoMobile', this.fileMobile);
+    // formDataArquivo.append('arquivo', this.file);
+    // formDataArquivoMobile.append('arquivoMobile', this.fileMobile);
 
     var teste1 = {};
     var teste2 = {};

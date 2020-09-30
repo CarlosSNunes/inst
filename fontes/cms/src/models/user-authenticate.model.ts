@@ -1,4 +1,4 @@
-import { PerfilModel } from './perfil.model';
+import { PerfilModel } from './perfil/perfil.model';
 
 export class UserAuthenticateModel {
     public constructor(init?: Partial<UserAuthenticateModel>) {
