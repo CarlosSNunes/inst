@@ -116,6 +116,17 @@ section.sectionInfo {
                     }
                 }
 
+                .ie-image {
+                    width: 100%;
+                    background-size: cover;
+                    height: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center top;
+                    &.hasModal {
+                        cursor: pointer;
+                    }
+                }
+
                 img {
                     width: 100%;
                     object-fit: cover;

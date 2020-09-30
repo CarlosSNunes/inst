@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { InfoSectionModel } from 'src/app/models';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ContentModalModel } from 'src/app/models/modal.model';
@@ -17,6 +17,7 @@ export class InfoSectionComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @ViewChild('sectionInfoElement', { static: false }) sectionInfoElement: ElementRef<HTMLElement>;
     isBrowser: boolean = false;
+    changeToBackground: boolean = false;
     constructor(
         private modalService: ModalService,
         @Inject(PLATFORM_ID) private platformId: Platform,
@@ -33,6 +34,14 @@ export class InfoSectionComponent implements OnInit {
         if (this.isBrowser) {
             if (this.sectionInfo.parallax && this.windowRef.nativeWindow.innerWidth > 1023) {
                 this.activateParallax();
+            }
+
+            const ua = this.windowRef.nativeWindow.navigator.userAgent;
+            const msie = ua.indexOf("MSIE ");
+
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer, return version number
+            {
+                this.changeToBackground = true;
             }
         }
     }

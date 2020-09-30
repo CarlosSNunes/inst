@@ -192,7 +192,7 @@ export class PlusNetworkComponent implements OnInit {
                 mobilePercentage = (18 / 5) * val - 270
             }
             if (this.mobileElement) {
-                this.mobileElement.style.background = `linear-gradient(var(--bupa_white), var(--bupa_white)) padding-box, linear-gradient(${mobilePercentage}deg, var(--bupa_white) 50%, transparent 0) center/calc(${s} * 100%) border-box,linear-gradient(${mobilePercentage}deg, var(--bupa_grey-3) 50%, transparent 0) center/calc(100% - ${s} * 100%) border-box, linear-gradient( to right, var(--bupa_white) 50%, var(--bupa_grey-3) 0 ) border-box`;
+                this.mobileElement.style.background = `linear-gradient(#FFF, #fff) padding-box, linear-gradient(${mobilePercentage}deg, #fff 50%, transparent 0) center/calc(${s} * 100%) border-box,linear-gradient(${mobilePercentage}deg,  #c9c9c9 50%, transparent 0) center/calc(100% - ${s} * 100%) border-box, linear-gradient( to right, #fff 50%,  #c9c9c9 0 ) border-box`;
             }
         }
     }

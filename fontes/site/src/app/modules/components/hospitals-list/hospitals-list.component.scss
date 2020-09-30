@@ -18,6 +18,9 @@
             img {
                 display: none;
                 cursor: pointer;
+                height: 30px;
+                width: 40px;
+                align-self: center;
             }
             .active {
                 display: block;
