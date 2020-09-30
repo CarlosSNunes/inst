@@ -56,11 +56,6 @@
                                     Não há posts cadastrados
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="has-text-centered" *ngIf="postsBlog.length == 0" colspan="4">
-                                    Não há posts cadastrados
-                                </td>
-                            </tr>
                             <tr *ngFor="let post of postsBlog">
                                 <td style="vertical-align:inherit">
                                     <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == 'true'}">
@@ -114,16 +109,12 @@
     </div>
 </div>
 
-
-
-
-
-<!-- <footer class="card-footer">
-    <a routerLink="/neocms/posts-blog/create" routerLinkActive="active" class="card-footer-item">
-        Criar novo post &nbsp;
+<footer class="card-footer">
+    <button type="button" class="btn btn-primary" routerLink="/neocms/posts-blog/create" routerLinkActive="active" >
+        Novo post &nbsp;
         <fa-icon [icon]="faPlus"></fa-icon>
-    </a>
-</footer> -->
+    </button>
+</footer>
 
 
 <!-- <app-posts-blog-delete *ngIf="showPostsDelete" [post]="postBlog" (onClose)="getPosts()"></app-posts-blog-delete> -->

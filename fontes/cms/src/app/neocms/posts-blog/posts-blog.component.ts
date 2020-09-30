@@ -7,6 +7,7 @@ import { TagModel } from 'src/models/tag/tag.model';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 import { CategoriasService } from './categorias/categorias.service';
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-posts-blog',
@@ -22,6 +23,7 @@ export class PostsBlogComponent implements OnInit {
   faEye = faEye;
   faClone = faClone;
   faStar = faStar;
+  faPlus = faPlus;
   faArrowAltCircleLeft = faArrowAltCircleLeft;
   categorias: CategoriasModel[] = [];
   loaded: boolean;
