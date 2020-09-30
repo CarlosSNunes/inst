@@ -1,0 +1,61 @@
+<div class="card">
+    <div class="card-content">
+        <div class="content">
+            <section class="hero is-dark is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            Resultados Financeiro
+                        </h1>
+                    </div>
+                </div>
+            </section>
+            <table id="resultadoFinanceiroTable" class="table">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th id="">Título</th>
+                        <th id="">PDF</th>
+                        <th id="">Ano</th>
+                        <th id="">Data de Corte</th>
+                        <th id="">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td *ngIf="resultadosFinanceiro.length == 0 && !loaded" colspan="5">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="resultadosFinanceiro.length == 0 && loaded" colspan="5">
+                            Não há resultados financeiros cadastrados
+                        </td>
+                    </tr>
+                    <tr *ngFor="let resultadoFinanceiro of resultadosFinanceiro">
+                        <td>{{resultadoFinanceiro.titulo}}</td>
+                        <td>{{resultadoFinanceiro.nomePdf}}</td>
+                        <td>{{resultadoFinanceiro.ano}}</td>
+                        <td>{{resultadoFinanceiro.dataCorte | date:'dd/MM/yyyy'}}</td>
+                        <td>
+                            <a [routerLink]="['./', resultadoFinanceiro.id]" routerLinkActive="active">
+                                <fa-icon [icon]="faPencilAlt"></fa-icon>
+                            </a>
+                            &nbsp;
+                            <a (click)="openResultadoFinanceiroDelete(resultadoFinanceiro)">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <a routerLink="/neocms/resultado-financeiro/create" routerLinkActive="active" class="card-footer-item">
+            Criar novo resultado financeiro &nbsp;
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </a>
+    </footer>
+</div>
+
+<app-resultado-financeiro-delete *ngIf="showResultadoFinanceiroDelete" [resultadoFinanceiro]="resultadoFinanceiro"
+    (onClose)="getResultadosFinanceiro()"></app-resultado-financeiro-delete>

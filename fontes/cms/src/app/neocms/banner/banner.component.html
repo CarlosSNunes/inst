@@ -1,0 +1,74 @@
+<div class="card">
+    <A href="#TABELA"></A>
+    <div class="card-content">
+        <div class="content">
+            <section class="hero is-dark is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            Banners
+                        </h1>
+                    </div>
+                </div>
+            </section>
+            <table id="bannerTable" class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center"  id="">Imagem</th>
+                        <th class="text-center" id="">Título</th>
+                        <th class="text-center" id="">Status</th>
+                        <th class="text-center" id="">Tempo de Exibição</th>
+                        <th class="text-center" id="">Ação</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody-custom pt-5">
+                    <tr>
+                        <td *ngIf="banners.length == 0 && !loaded" colspan="6">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="banners.length == 0 && loaded" colspan="6">
+                            Não há banners cadastrados
+                        </td>
+                    </tr>
+                    <tr *ngFor="let banner of banners" class="table-cell text-center">
+                        <td class="hidden">{{banner.id}}</td>                        
+                        <td class="py-3 align-middle text-center"><img src="{{banner.caminhoDesktop + banner.nomeImagem }}" [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem"></td>
+                        <td class="py-3 align-middle text-lefth">{{banner.titulo}}</td>
+                        <td class="py-3 align-middle text-center" *ngIf="banner.ativo != false">
+                            <button type="button" class="button is-info is-small w-25 shadow rounded">
+                                Ativado
+                            </button>
+                        </td>
+                        <td class="py-3 align-middle text-center" *ngIf="banner.ativo != true">
+                            <button type="button" class="button is-info is-small w-25 shadow rounded">
+                                Desativado
+                            </button>
+                        </td>
+                        <td class="py-3 align-middle text-center">
+                            <button type="button" class="button is-info is-small w-25 shadow rounded"> 
+                                {{banner.tempoExibicao}} segundos
+                            </button>
+                        </td>
+                        <td class="py-3 align-middle text-center">
+                            <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active ">
+                                <fa-icon [icon]="faPencilAlt"></fa-icon>
+                            </a>
+                            &nbsp;
+                            <a (click)="openBannerDelete(banner) ">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <a routerLink="/neocms/banner/create" routerLinkActive="active" class="card-footer-item">
+            Criar novo banner &nbsp;
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </a>
+    </footer>
+</div>
+
+<app-banner-delete *ngIf="showBannerDelete" [banner]="banner" (onClose)="getBanners()"></app-banner-delete>

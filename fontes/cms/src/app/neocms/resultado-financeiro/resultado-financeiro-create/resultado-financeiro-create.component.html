@@ -1,0 +1,106 @@
+<section class="hero is-dark is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Cadastrar novo resultado financeiro
+            </h1>
+        </div>
+    </div>
+</section>
+<form [formGroup]="resultadoFinanceiroForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="card-content">
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Título</label>
+                        <div class="control">
+                            <input formControlName="titulo" class="input" type="text" placeholder=""
+                                [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
+                        </div>
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-fifth">
+                    <div class="field">
+                        <label class="label">Ano</label>
+                        <div class="control">
+                            <input
+                                [ngClass]="{ 'is-success': submitted && !f.ano.errors, 'is-danger' : submitted && f.ano.errors }"
+                                formControlName="ano" class="input" type="text" placeholder="">
+                        </div>
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.ano)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Qual foi a data de corte?</label>
+                        <div class="control">
+                            <input id="dataCorte" formControlName="dataCorte"
+                                [ngClass]="{ 'is-success': submitted && !f.dataCorte.errors, 'is-danger' : submitted && f.dataCorte.errors }"
+                                class="input" type="date" placeholder="Selecione uma data">
+                        </div>
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.dataCorte)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">PDF</label>
+                        <div class="file has-name">
+                            <label class="file-label">
+                                <input class="file-input" type="file"
+                                    (change)="updateFileName($event.srcElement.files)">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <fa-icon [icon]="faUpload"></fa-icon>
+                                    </span>
+                                    <span class="file-label">
+                                        Escolha um arquivo…
+                                    </span>
+                                </span>
+                                <span class="file-name">
+                                    {{arquivoNome}}
+                                </span>
+                            </label>
+                        </div>
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.arquivo)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <button routerLink="/neocms/resultado-financeiro" routerLinkActive="active" class="button is-light"
+                    type="button">
+                    Fechar &nbsp;
+                    <fa-icon [icon]="faTimes"></fa-icon>
+                </button>
+            </p>
+            <p class="card-footer-item">
+                <button class="button is-primary" type="submit" [ngClass]="{'is-loading': btnSubmitDisable}">
+                    Gravar &nbsp;
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </button>
+            </p>
+        </footer>
+    </div>
+</form>

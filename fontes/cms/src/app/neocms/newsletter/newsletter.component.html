@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-content">
+      <div class="content">
+          <section class="hero is-dark is-small">
+              <div class="hero-body">
+                  <div class="container">
+                      <h1 class="title">
+                        Newsletter
+                      </h1>
+                  </div>
+              </div>
+          </section>
+          <table id="newsletterTable" class="table">
+              <caption></caption>
+              <thead>
+                  <tr>
+                      <th id="">ID</th>
+                      <th id="">Nome</th>
+                      <th id="">E-mail</th>
+                      <th id="">Data</th>                     
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td *ngIf="newsletters.length == 0 && !loaded" colspan="6">
+                          <progress class="progress is-large is-info" max="100">60%</progress>
+                      </td>
+                      <td class="has-text-centered" *ngIf="newsletters.length == 0 && loaded" colspan="6">
+                          Não há Newsletter cadastradas
+                      </td>
+                  </tr>
+                  <tr *ngFor="let newsletter of newsletters">
+                      <td>{{newsletter.id}}</td>
+                      <td>{{newsletter.nomeCompleto}}</td>
+                      <td>{{newsletter.email}}</td>
+                      <td>{{newsletter.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <footer class="card-footer">
+    <a class="column export" (click)="exportExcel()">
+      <fa-icon [icon]="faFileExcel"></fa-icon>
+    </a>
+  </footer>
+</div>
+

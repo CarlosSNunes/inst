@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-content">
+        <div class="content">
+            <section class="hero is-dark is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            Tipos de documento
+                        </h1>
+                    </div>
+                </div>
+            </section>
+            <table id="DocumentoTipoTable" class="table">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th id="">Id</th>
+                        <th id="">Descrição</th>
+                        <th id="">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td *ngIf="documentoTipos.length == 0 && !loaded" colspan="3">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="documentoTipos.length == 0 && loaded" colspan="3">
+                            Não há tipos de documento cadastrados
+                        </td>
+                    </tr>
+                    <tr *ngFor="let documentoTipo of documentoTipos">
+                        <td>{{documentoTipo.id}}</td>
+                        <td>{{documentoTipo.descricao}}</td>
+                        <td>
+                            <a [routerLink]="['./', documentoTipo.id]" routerLinkActive="active">
+                                <fa-icon [icon]="faPencilAlt"></fa-icon>
+                            </a>
+                            &nbsp;
+                            <a (click)="openDocumentoTipoDelete(documentoTipo)">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <a routerLink="/neocms/documento-tipo/create" routerLinkActive="active" class="card-footer-item">
+            Criar novo tipo de documento &nbsp;
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </a>
+    </footer>
+</div>
+
+<app-documento-tipo-delete *ngIf="showDocumentoTipoDelete" [documentoTipo]="documentoTipo"
+    (onClose)="getDocumentoTipos()"></app-documento-tipo-delete>

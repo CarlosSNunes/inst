@@ -1,0 +1,27 @@
+<div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Tem certeza que deseja excluir esse resultado financeiro?</p>
+            <button class="delete" aria-label="close" (click)="closeModal()"></button>
+        </header>
+        <section class="modal-card-body">
+            <p>
+                <strong>Título:</strong> {{resultadoFinanceiro?.titulo}}
+            </p>
+            <p>
+                <strong>Rota:</strong> {{resultadoFinanceiro?.ano}}
+            </p>
+            <p>
+                <strong>Data de Corte:</strong> {{resultadoFinanceiro?.dataCorte | date:'dd/MM/yyyy' }}
+            </p>
+            <p>
+                <strong>PDF:</strong> {{resultadoFinanceiro?.nomePdf }}
+            </p>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-primary" (click)="closeModal()">Não</button>
+            <button class="button is-danger" (click)="deleteResultadoFinanceiro()">Sim</button>
+        </footer>
+    </div>
+</div>
