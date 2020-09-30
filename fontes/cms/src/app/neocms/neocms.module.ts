@@ -9,10 +9,12 @@ import { NeocmsRoutingModule } from './neocms-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpHandlerService } from '../http-handler/http-handler.service';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 @NgModule({
   declarations: [
     NeocmsComponent,
+    UsuarioComponent,
   ],
   imports: [
     NeocmsRoutingModule,
