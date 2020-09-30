@@ -17,7 +17,7 @@ export class InfoSectionComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @ViewChild('sectionInfoElement', { static: false }) sectionInfoElement: ElementRef<HTMLElement>;
     isBrowser: boolean = false;
-    width: number = 1400;
+    changeToBackground: boolean = false;
     constructor(
         private modalService: ModalService,
         @Inject(PLATFORM_ID) private platformId: Platform,
@@ -32,9 +32,16 @@ export class InfoSectionComponent implements OnInit {
 
     ngAfterViewInit() {
         if (this.isBrowser) {
-            this.width = this.windowRef.nativeWindow.innerWidth;
             if (this.sectionInfo.parallax && this.windowRef.nativeWindow.innerWidth > 1023) {
                 this.activateParallax();
+            }
+
+            const ua = this.windowRef.nativeWindow.navigator.userAgent;
+            const msie = ua.indexOf("MSIE ");
+
+            if (msie > 0) // If Internet Explorer, return version number
+            {
+                this.changeToBackground = true;
             }
         }
     }
@@ -44,12 +51,6 @@ export class InfoSectionComponent implements OnInit {
         new SimpleParallax(nodeElements, {
             orientation: 'down'
         });
-    }
-
-    @HostListener('window:resize', ['$event']) onResize(event) {
-        if (this.isBrowser) {
-            this.width = event.target.innerWidth;
-        }
     }
 
     get offsetTop(): number {
