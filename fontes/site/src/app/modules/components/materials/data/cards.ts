@@ -1,33 +1,32 @@
-import { Button } from 'protractor';
-import { ButtonModel } from 'src/app/models';
+import { ButtonModel, CardModel } from 'src/app/models';
 
 export default [
-    {
-        type: "default",
-        title: "Cartilha da ANS por Care Plus",
+    new CardModel({
+        type: 'default',
+        title: 'ANS – Norma Técnica Nº 45',
         button: new ButtonModel({
-            link: '#'
+            link: 'assets/documents/nota-tecnica-45.pdf'
         })
-    },
-    {
-        "type": "default",
-        "title": "Tabela comparativa de produtos e planos Care Plus",
+    }),
+    new CardModel({
+        type: 'default',
+        title: 'ANS – Cartilha de Exclusão de Beneficiário – RN 412',
         button: new ButtonModel({
-            link: '#'
+            link: 'assets/documents/cartilha_cancelamento_ou_exclusao_de_contrato.pdf'
         })
-    },
-    {
-        type: "default",
-        title: "Detalhes dos planos odontológicos",
+    }),
+    new CardModel({
+        type: 'default',
+        title: 'ANS – Artigo 15 – RN 412',
         button: new ButtonModel({
-            link: '#'
+            link: 'assets/documents/artigo15_rn412.pdf'
         })
-    },
-    {
-        type: "default",
-        title: "Certificado da ANS para rede credenciada",
+    }),
+    new CardModel({
+        type: 'default',
+        title: 'IDSS 2018',
         button: new ButtonModel({
-            link: '#'
+            link: 'assets/documents/idsscareplus-2018.pdf'
         })
-    }
+    }),
 ]

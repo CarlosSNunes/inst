@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 section.iconCardsSection {
     .container {
         .small-title {
@@ -7,7 +6,6 @@ section.iconCardsSection {
                 text-align: center;
             }
         }
-
         .big-title {
             max-width: 100%;
             &.centered {
@@ -16,7 +14,6 @@ section.iconCardsSection {
                 max-width: 632px;
             }
         }
-
         .sub-description {
             color: getColor(_bupa, _navy);
             max-width: 100%;
@@ -26,23 +23,19 @@ section.iconCardsSection {
                 max-width: 592px;
             }
         }
-
         .button-column {
             display: flex;
-
-            .btn-primary {
+            .btn-digital-cian.secondary {
                 margin: 0 auto;
                 margin-top: 18px;
             }
-
-            .btn-text {
+            .btn-digital-cian.tertiary {
                 padding-left: 0;
             }
         }
-
         .cards {
             overflow-x: auto;
-            ::ng-deep app-card {
+             ::ng-deep .app-card {
                 .content .card {
                     min-width: 225px;
                     .card-title {

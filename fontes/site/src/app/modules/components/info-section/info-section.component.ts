@@ -10,7 +10,7 @@ import { WindowRef } from 'src/utils/window-ref';
 @Component({
     selector: 'app-info-section',
     templateUrl: './info-section.component.html',
-    styleUrls: ['./info-section.component.scss']
+    styleUrls: ['./info-section.component.scss'],
 })
 export class InfoSectionComponent implements OnInit {
     @Input() sectionInfo: InfoSectionModel = new InfoSectionModel({})

@@ -1,12 +1,12 @@
 <div class="columns flex-wrap cards" [ngClass]="backgoundColorClass">
     <div class="column is-3-desktop is-full" *ngFor="let document of documents">
-        <app-card [card]="document">
+        <app-card class="app-card" [card]="document">
             <div class="card-content">
                 <p class="card-title">
                     {{document.title}}
                 </p>
-                <a [attr.href]="document?.button?.link" class="download-link" download>
-                    DOWNLOAD
+                <a [attr.href]="document?.button?.link" title="Download" class="download-link" download>
+                    Download
                     <span>
                         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path

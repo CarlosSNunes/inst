@@ -1,4 +1,4 @@
-import { Injectable, ViewContainerRef, ComponentFactoryResolver, ApplicationRef, Injector, EmbeddedViewRef, Inject } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, ApplicationRef, Injector, EmbeddedViewRef, Inject } from '@angular/core';
 import { NotificationComponent } from 'src/app/modules/components/notification/notification.component';
 import { DOCUMENT } from '@angular/common';
 
@@ -22,7 +22,7 @@ export class NotificationService {
         positionOffset: string = '32px',
         time: number = 3000
     ): void {
-        // 1. Create a component reference from the component 
+        // 1. Create a component reference from the component
         const componentRef = this.componentFactoryResolver
             .resolveComponentFactory(NotificationComponent)
             .create(this.injector);

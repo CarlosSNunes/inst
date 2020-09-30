@@ -27,13 +27,7 @@ section.sectionInfo {
                         right: 0;
                         top: 40px;
                         left: unset;
-                        background: linear-gradient(
-                            to right,
-                            getColor(_bupa, _digital-cian) 60%,
-                            getColor(_bottom-line, _dark-green) 60%,
-                            getColor(_bottom-line, _dark-green) 80%,
-                            getColor(_bottom-line, _light-green) 80%
-                        );
+                        background: linear-gradient(to left, #CDECFD 0%, getColor(_bupa, _digital-cian) 100%);
                     }
                 }
             }
@@ -97,6 +91,10 @@ section.sectionInfo {
                         }
                     }
                 }
+
+                ::ng-deep .extra-content {
+                    margin-top: 20px;
+                }
             }
 
             &.col-image {
@@ -106,13 +104,7 @@ section.sectionInfo {
                     content: "";
                     width: 211px;
                     height: 4px;
-                    background: linear-gradient(
-                        to left,
-                        getColor(_bupa, _digital-cian) 60%,
-                        getColor(_bottom-line, _dark-green) 60%,
-                        getColor(_bottom-line, _dark-green) 80%,
-                        getColor(_bottom-line, _light-green) 80%
-                    );
+                    background: linear-gradient(to right, #CDECFD 0%, getColor(_bupa, _digital-cian) 100%);
                     transform: translateX(-50%);
                     top: 40px;
                     z-index: 1;
@@ -192,13 +184,7 @@ section.sectionInfo {
                             content: "";
                             width: 211px;
                             height: 4px;
-                            background: linear-gradient(
-                                to left,
-                                getColor(_bupa, _digital-cian) 60%,
-                                getColor(_bottom-line, _dark-green) 60%,
-                                getColor(_bottom-line, _dark-green) 80%,
-                                getColor(_bottom-line, _light-green) 80%
-                            );
+                            background: linear-gradient(to left, #CDECFD 0%, getColor(_bupa, _digital-cian) 100%);
                             transform: translateX(0%);
                             top: -15px;
                         }

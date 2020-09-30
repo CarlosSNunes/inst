@@ -8,16 +8,16 @@ export default [
         imagePath: "assets/svg/star-hand.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/rede-plus',
-        hasCollapse: true
+        hasCollapse: false
     }),
     new IconCardModel({
         type: "icon",
-        title: "Materiais",
+        title: "Materiais de Saúde",
         description: "Encontre todos os materiais e arquivos para download: documentos da ANS, tabela de Produtos e Planos, comunicados e muito mais.",
         imagePath: "assets/svg/document.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/materiais',
-        hasCollapse: true
+        routerLink: '/a-careplus/materiais-de-saude',
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -26,7 +26,7 @@ export default [
         imagePath: "assets/svg/people.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/carreiras',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -35,7 +35,7 @@ export default [
         imagePath: "assets/svg/charts.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/resultados-financeiros',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -44,7 +44,7 @@ export default [
         imagePath: "assets/svg/earth.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/responsabilidade-social',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -52,8 +52,8 @@ export default [
         description: "A Gestão de Saúde conta com programas e serviços especiais para nossos beneficiários. Desde ações preventivas até parcerias em empresas de alimentação e consultoria esportiva.",
         imagePath: "assets/svg/medal.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/gestao-de-saude',
-        hasCollapse: true
+        routerLink: '/planos-e-produtos/gestao-de-saude',
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -61,8 +61,8 @@ export default [
         description: "Um espaço para você esclarecer todas as suas dúvidas, serviços disponíveis, rede credenciada e muito mais.",
         imagePath: "assets/svg/faq.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/faq',
-        hasCollapse: true
+        routerLink: '/a-careplus/perguntas-frequentes',
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -71,7 +71,7 @@ export default [
         imagePath: "assets/svg/lock.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/politica-de-privacidade',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -80,6 +80,6 @@ export default [
         imagePath: "assets/svg/paper.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/termos-e-condicoes',
-        hasCollapse: true
+        hasCollapse:false
     })
 ]

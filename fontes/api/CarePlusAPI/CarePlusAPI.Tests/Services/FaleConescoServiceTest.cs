@@ -66,7 +66,7 @@ namespace Neotix.Neocms.CarePlusAPI.Tests.Services
 
         [Fact]
         public async Task BuscarAssuntoOuvidoriaSucesso()
-        {
+         {
             var result = await _faleConoscoService.BuscarAssuntoOuvidoria();
             Assert.NotNull(result);
         }

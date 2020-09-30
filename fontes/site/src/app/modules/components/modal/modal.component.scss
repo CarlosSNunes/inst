@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 .custom-modal {
     position: fixed;
     top: 0;
@@ -7,7 +6,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 1000;
-    background-color: rgba(getColor(_bupa, _black-rgb), 0.6);
+    background-color: rgba(getColor(_bupa, _black), 0.6);
     display: flex;
     .modal-body {
         z-index: 1002;
@@ -19,12 +18,7 @@
         max-height: 80%;
         overflow: auto;
         background-color: getColor(_bupa, _white);
-        box-shadow: 0px 0.608796px 1.38363px rgba(getColor(_bupa, _black-rgb), 0.0196802),
-            0px 1.46302px 3.32505px rgba(getColor(_bupa, _black-rgb), 0.0282725),
-            0px 2.75474px 6.26078px rgba(getColor(_bupa, _black-rgb), 0.035),
-            0px 4.91399px 11.1682px rgba(getColor(_bupa, _black-rgb), 0.0417275),
-            0px 9.19107px 20.8888px rgba(getColor(_bupa, _black-rgb), 0.0503198),
-            0px 22px 50px rgba(getColor(_bupa, _black), 0.07);
+        box-shadow: 0px 0.608796px 1.38363px rgba(getColor(_bupa, _black), 0.0196802), 0px 1.46302px 3.32505px rgba(getColor(_bupa, _black), 0.0282725), 0px 2.75474px 6.26078px rgba(getColor(_bupa, _black), 0.035), 0px 4.91399px 11.1682px rgba(getColor(_bupa, _black), 0.0417275), 0px 9.19107px 20.8888px rgba(getColor(_bupa, _black), 0.0503198), 0px 22px 50px rgba(getColor(_bupa, _black), 0.07);
         border-radius: 4px;
         padding: 40px 80px;
         @media (max-width: 991px) {
@@ -33,7 +27,6 @@
             max-height: 80%;
             padding: 15px;
         }
-
         .times-icon {
             position: absolute;
             right: 18px;
@@ -42,13 +35,11 @@
             height: 20px;
             cursor: pointer;
             z-index: 3;
-
             .lines {
                 position: relative;
                 width: 20px;
                 height: 20px;
                 display: flex;
-
                 .first-line {
                     position: absolute;
                     left: 0;
@@ -58,7 +49,6 @@
                     background-color: getColor(_bupa, _grey-2);
                     transform: rotate(-45deg);
                 }
-
                 .second-line {
                     position: absolute;
                     left: 0;
@@ -70,15 +60,12 @@
                 }
             }
         }
-
         &.info {
             border-bottom: 6.29px solid getColor(_bupa, _digital-cian);
         }
-
         &.error {
             border-bottom: 6.29px solid getColor(_carePlus, _error);
         }
-
         &.base,
         &.feedback {
             max-width: 628px;
@@ -88,7 +75,6 @@
                 margin-left: 10%;
             }
         }
-
         &.table,
         &.content {
             width: 1280px;
@@ -98,7 +84,6 @@
                 margin-left: 10%;
             }
         }
-
         &.video {
             max-width: 800px;
             margin-left: calc(50% - (800px / 2));
@@ -108,20 +93,17 @@
                 width: 80%;
                 margin-left: 10%;
             }
-
             .times-icon {
                 .lines {
                     .first-line {
                         background-color: getColor(_bupa, _white);
                     }
-
                     .second-line {
                         background-color: getColor(_bupa, _white);
                     }
                 }
             }
         }
-
         .feedback-content {
             width: 100%;
             .feedback-image {
@@ -136,7 +118,6 @@
                 color: getColor(_bupa, _navy);
                 margin-top: 30px;
             }
-
             .description {
                 margin-top: 13px;
                 font-weight: normal;
@@ -145,7 +126,6 @@
                 text-align: center;
                 color: getColor(_bupa, _grey-2);
             }
-
             .modal-button {
                 position: relative;
                 border: 2px solid getColor(_bupa, _digital-cian);
@@ -169,8 +149,8 @@
                         align-self: center;
                         background-image: getSvg("blue-arrow-left.svg");
                         transition: left 0.3s ease-in-out;
+                        top: calc(50% - 7.5px);
                     }
-
                     &:hover {
                         &::before {
                             left: 14px;
@@ -179,7 +159,6 @@
                 }
             }
         }
-
         .table-content {
             .title {
                 font-weight: 500;
@@ -188,7 +167,6 @@
                 color: getColor(_bupa, _grey);
                 margin-bottom: 38px;
             }
-
             table {
                 border-collapse: collapse;
                 border-spacing: 0;
@@ -196,7 +174,6 @@
                 background-color: getColor(_bupa, _white);
                 border: 1px solid getColor(_bupa, _grey-3);
                 border-radius: 4px;
-
                 th,
                 td {
                     text-align: left;
@@ -206,8 +183,8 @@
                 thead {
                     width: 100%;
                     tr {
-                        background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
-                        td {
+                        background-color: rgba(getColor(_bupa, _digital-cian), 0.1);
+                        th {
                             padding: 22px 15px;
                             font-weight: 500;
                             font-size: getSize("p");
@@ -216,14 +193,12 @@
                         }
                     }
                 }
-
                 tbody {
                     width: 100%;
                     tr {
                         &:nth-child(even) {
                             background-color: #f2f2f2;
                         }
-
                         td {
                             padding: 22px 15px;
                             font-weight: 500;
@@ -235,7 +210,6 @@
                 }
             }
         }
-
         .content {
             .small-title {
                 font-weight: normal;
@@ -244,7 +218,6 @@
                 color: getColor(_bupa, _digital-cian);
                 margin: 0;
             }
-
             .title {
                 font-weight: 600;
                 font-size: getSize("h4");
@@ -253,7 +226,6 @@
                 margin: 0;
                 margin-top: 6px;
             }
-
             .paragraphs {
                 .paragraph-title {
                     margin-top: 30px;
@@ -272,21 +244,18 @@
             }
         }
     }
-
     .video {
         .videoBox {
             margin: auto;
             max-height: 511px;
             max-width: 100%;
             position: relative;
-
             iframe {
                 width: 100%;
                 height: 511px;
                 position: relative;
                 border: none;
             }
-
             @media (max-width: 991px) {
                 max-height: 300px;
                 iframe {
@@ -295,7 +264,6 @@
             }
         }
     }
-
     .modal-close-div {
         z-index: 1001;
         position: absolute;

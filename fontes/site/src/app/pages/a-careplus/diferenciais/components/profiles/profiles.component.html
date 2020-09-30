@@ -6,45 +6,39 @@
                     <p class="small-title">
                         NOSSOS DIFERENCIAIS
                     </p>
-                    <h4 class="big-title">
+                    <h2 class="h4 big-title">
                         A Care Plus tem um diferencial para cada perfil
-                    </h4>
+                    </h2>
                     <p class="sub-description">
-                        Conheça cada um dos nossos diferenciais e entenda porque você merece ter Care Plus. Selecione
-                        abaixo qual o seu perfil.
+                        Conheça cada um dos nossos diferenciais e entenda porque você merece ter Care Plus. Selecione abaixo qual o seu perfil.
                     </p>
                 </div>
             </div>
             <div class="columns tabs-columns">
                 <div class="column">
                     <ul class="tabs">
-                        <li class="tab-title" #firstTab [class.active]="selectedTab === 1" tabindex="0"
-                            (click)="activeTab(1, $event.target)" (keyup.enter)="activeTab(1, $event.target)">
-                            <a>
+                        <li class="tab-title" #firstTab [class.active]="selectedTab === 1" tabindex="0" (click)="activeTab(1, $event.target)" (keyup.enter)="activeTab(1, $event.target)">
+                            <a title="Todos">
                                 Todos
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 2" tabindex="0"
-                            (click)="activeTab(2, $event.target)" (keyup.enter)="activeTab(2, $event.target)">
-                            <a>
+                        <li class="tab-title" [class.active]="selectedTab === 2" tabindex="0" (click)="activeTab(2, $event.target)" (keyup.enter)="activeTab(2, $event.target)">
+                            <a title="Beneficiário">
                                 Beneficiário
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 3" tabindex="0"
-                            (click)="activeTab(3, $event.target)" (keyup.enter)="activeTab(3, $event.target)">
+                        <li class="tab-title" [class.active]="selectedTab === 3" tabindex="0" (click)="activeTab(3, $event.target)" (keyup.enter)="activeTab(3, $event.target)">
                             <a>
-                                Gestor de RH
+                                RH
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 4" tabindex="0"
-                            (click)="activeTab(4, $event.target)" (keyup.enter)="activeTab(4, $event.target)">
+                        <li class="tab-title" [class.active]="selectedTab === 4" tabindex="0" (click)="activeTab(4, $event.target)" (keyup.enter)="activeTab(4, $event.target)">
                             <a>
                                 Corretor
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 5" tabindex="0"
-                            (click)="activeTab(5, $event.target)" (keyup.enter)="activeTab(5, $event.target)">
-                            <a>
+                        <li class="tab-title" [class.active]="selectedTab === 5" tabindex="0" (click)="activeTab(5, $event.target)" (keyup.enter)="activeTab(5, $event.target)">
+                            <a title="Credenciado">
                                 Credenciado
                             </a>
                         </li>
@@ -54,29 +48,21 @@
             </div>
             <div class="columns flex-wrap">
                 <div class="column is-full is-4-desktop" *ngFor="let card of filteredCards">
-                    <app-card>
+                    <app-card class="app-card">
                         <div class="card-content">
                             <p class="card-title">
                                 {{card?.title}}
-                                <a class="next is-hidden-desktop" *ngIf="card?.button"
-                                    [routerLink]="[card?.button?.routerLink]">
-                                    <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title">
+                                <a class="next is-hidden-desktop" *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.title">
+                                    <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title" [alt]="card?.title">
                                 </a>
                             </p>
                             <p class="sub-description">
                                 {{card?.description }}
                             </p>
-                            <a class="btn btn-text is-hidden-touch" *ngIf="card?.button"
-                                [routerLink]="[card?.button?.routerLink]">
+                            <a class="btn btn-digital-cian tertiary arrow-right is-hidden-touch" *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.button?.text">
                                 {{
                                     card?.button?.text
                                 }}
-                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M11.3492 0.938082C11.1433 1.24975 11.187 1.70309 11.4477 1.94993L13.2895 3.69461L15.7088 6.28211L0.600826 6.28211C0.268769 6.28211 -2.39681e-07 6.60482 -2.25521e-07 7.00246C-2.11362e-07 7.40009 0.268769 7.7228 0.600826 7.7228L15.5578 7.7228L11.3604 12.0703C11.1097 12.3297 11.0812 12.7849 11.2983 13.086C11.5154 13.3871 11.8947 13.4203 12.1459 13.16L17.6218 7.48797C17.7528 7.35254 17.8285 7.15613 17.8301 6.94867C17.8301 6.94675 17.8301 6.94483 17.8301 6.94291C17.8301 6.73737 17.7572 6.54191 17.6294 6.40553L14.0621 2.592L12.1932 0.819944C11.9328 0.573104 11.5551 0.625931 11.3492 0.938082Z"
-                                        fill="#0079C8" />
-                                </svg>
                             </a>
                         </div>
                     </app-card>

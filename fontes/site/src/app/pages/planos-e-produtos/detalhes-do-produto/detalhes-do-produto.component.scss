@@ -1,5 +1,4 @@
 @import "~src/scss/_variables";
-
 .anchor-buttons {
     height: 62px;
     z-index: 202;
@@ -16,9 +15,8 @@
             height: 82px;
             background-color: getColor(_bupa, _white);
             border-radius: 2px;
-            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black-rgb), 0.25);
+            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black), 0.25);
             display: flex;
-
             a {
                 flex: 0 0 calc(50% - 0.5px);
                 width: calc(50% - 0.5px);
@@ -27,11 +25,9 @@
                 font-size: getSize("p");
                 line-height: 82px;
                 color: getColor(_bupa, _black);
-
                 &:first-child {
                     border-right: 0.5px solid getColor(_bupa, _grey-3);
                 }
-
                 &:last-child {
                     border-left: 0.5px solid getColor(_bupa, _grey-3);
                 }
@@ -44,48 +40,45 @@
     position: fixed;
     width: 280px;
     height: 60px;
-    background-color: getColor(_carePlus, _light-green);
+    background-color: getColor(_bupa, _digital-cian);
     display: flex;
     padding: 21.5px 32px;
     right: 144px;
     bottom: 0;
     cursor: pointer;
-    z-index: 2;
-
+    z-index: 204;
     .text {
         align-self: center;
         margin: 0;
-        color: getColor(_bupa, _navy);
+        color: getColor(_bupa, _white);
         font-size: getSize("sbm");
         line-height: getLineHeight("sbm");
     }
-
     img {
         position: absolute;
         right: 16px;
         align-self: center;
+        top: calc(50% - 22px);
     }
 }
 
-section#clinicServices {
+section#clinic-services {
     .container {
         .columns {
             margin: 0;
             .column {
                 padding-top: 0;
                 padding-bottom: 0;
-
                 .big-title {
                     max-width: 592px;
                     margin: 0 auto;
                     text-align: center;
                 }
             }
-
             &.cards {
                 margin-top: 48px;
                 .column {
-                    ::ng-deep app-card {
+                     ::ng-deep .app-card {
                         .card.default {
                             padding: 34px 20px;
                             .card-content {
@@ -106,7 +99,7 @@ section#clinicServices {
 }
 
 @media (max-width: 1023px) {
-    section#clinicServices {
+    section#clinic-services {
         .container {
             .columns {
                 &.cards {
@@ -114,7 +107,7 @@ section#clinicServices {
                     .column {
                         padding-top: 15px;
                         padding-bottom: 15px;
-                        ::ng-deep app-card {
+                         ::ng-deep .app-card {
                             .card.default {
                                 .card-content {
                                     .card-description {
@@ -129,7 +122,6 @@ section#clinicServices {
             }
         }
     }
-
     .get-price-box {
         top: unset;
         bottom: 84px;
@@ -137,6 +129,14 @@ section#clinicServices {
         left: 0;
         margin: 0 auto;
         position: fixed;
+    }
+}
+
+@media (min-width: 505px) and (max-width: 1023px) {
+     ::ng-deep .app-simple-banner {
+        .container {
+            padding-bottom: 30px;
+        }
     }
 }
 

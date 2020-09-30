@@ -1,5 +1,6 @@
 export * from './banner.model';
 export * from './bloco.model';
+export * from './differential.model';
 export * from './busca-noticia.model';
 export * from './login.model';
 export * from './noticia-tipo.model';
@@ -33,5 +34,5 @@ export * from './fale-conosco.model';
 export * from './ouvidoria.model';
 export * from './canal-de-denuncia.model';
 export * from './anexo.model';
-export * from './captcha.model';
 export * from './menu.model';
+export * from './profile.model';

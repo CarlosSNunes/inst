@@ -1,14 +1,13 @@
 @import "~src/scss/_variables";
-
 section {
-    &#aCareplusFaqFilters {
+    &#a-careplus-faq-filters {
         .container {
             .columns {
                 .column {
                     &.filter-box {
                         position: relative;
                         .filters {
-                            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black-rgb), 0.25);
+                            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black), 0.25);
                             background-color: getColor(_bupa, _white);
                             border-radius: 2px;
                             position: absolute;
@@ -24,16 +23,13 @@ section {
                                         align-self: center;
                                         display: inline-flex;
                                         width: 100%;
-
                                         .field {
-                                            width: 100%;
                                             display: block;
                                             height: 56px;
                                             width: 100%;
                                             .control {
                                                 display: flex;
                                                 width: 100%;
-
                                                 input:not([type="radio"]) {
                                                     min-width: 100px;
                                                 }
@@ -46,13 +42,11 @@ section {
                     }
                 }
             }
-
             .is-centered {
                 margin: 20px auto;
                 text-align: center;
             }
-            
-            ::ng-deep app-accordion {
+             ::ng-deep .app-accordion {
                 .accordion {
                     max-width: 1008px;
                 }
@@ -63,7 +57,7 @@ section {
 
 @media (min-width: 1024px) and (max-width: 1150px) {
     section {
-        &#aCareplusFaqFilters {
+        &#a-careplus-faq-filters {
             .container {
                 .columns {
                     .column {
@@ -72,7 +66,7 @@ section {
                                 form {
                                     ul {
                                         li {
-                                            input[type="radio"] ~ label {
+                                            input[type="radio"]~label {
                                                 font-size: 0.75em;
                                             }
                                         }
@@ -89,13 +83,12 @@ section {
 
 @media (max-width: 1023px) {
     section {
-        &#aCareplusFaqFilters {
+        &#a-careplus-faq-filters {
             .container {
                 .columns {
                     .column {
                         &.filter-box {
-                            height: 430px;
-
+                            height: 0;
                             .filters {
                                 position: relative;
                                 left: 0;
@@ -107,10 +100,8 @@ section {
                                         justify-content: unset;
                                         li {
                                             display: flex;
-                                            margin: 0;
                                             align-self: unset;
                                             margin: 20px 0;
-
                                             .field {
                                                 max-width: 100%;
                                                 width: 100%;
@@ -122,15 +113,14 @@ section {
                         }
                     }
                 }
-                ::ng-deep app-documents {
+                 ::ng-deep .app-documents {
                     .columns {
                         &.cards {
                             margin-top: 0;
                         }
                     }
                 }
-
-                ::ng-deep app-accordion.first {
+                 ::ng-deep .app-accordion.first {
                     .accordion {
                         margin-top: 20px;
                     }
@@ -142,7 +132,7 @@ section {
 
 @media (max-width: 359px) {
     section {
-        &#aCareplusFaqFilters {
+        &#a-careplus-faq-filters {
             .container {
                 .columns {
                     .column {

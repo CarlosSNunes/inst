@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
 import { WindowRef } from 'src/utils/window-ref';
 import { PlanModel } from 'src/app/models';
 
@@ -11,6 +10,7 @@ import { PlanModel } from 'src/app/models';
 export class ThirdStepComponent implements OnInit, OnChanges {
     @Output() finish: EventEmitter<void> = new EventEmitter<void>();
     @Input() selectedPlan: PlanModel = new PlanModel({});
+    message: string = 'O nosso produto mais indicado para sua empresa é:';
     constructor(
         private windowRef: WindowRef
     ) { }
@@ -19,7 +19,18 @@ export class ThirdStepComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.selectedPlan = changes.selectedPlan.currentValue;
+        if (changes.selectedPlan.currentValue && changes.selectedPlan.currentValue.id) {
+            this.message = 'O nosso produto mais indicado para sua empresa é:'
+            this.selectedPlan = changes.selectedPlan.currentValue;
+        } else {
+            this.message = 'Você escolheu o:'
+            this.selectedPlan = new PlanModel({
+                name: 'Medicina Ocupacional',
+                id: 'medicina-ocupacional',
+                subTitle: 'Cuide da sua empresa e dos seus funcionários criando um ambiente seguro e saudável',
+                linkId: 'medicina-ocupacional'
+            });
+        }
     }
 
     goToPlan() {

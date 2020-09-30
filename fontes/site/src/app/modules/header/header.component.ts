@@ -54,13 +54,13 @@ export class HeaderComponent implements OnInit {
                 break;
 
             case '/home/rh':
-                this.subMenu = SubMenus.find(sub => sub.id == 'rh/corretor')
+                this.subMenu = SubMenus.find(sub => sub.id == 'rh')
                 break;
             case '/home/corretor':
-                this.subMenu = SubMenus.find(sub => sub.id == 'rh/corretor')
+                this.subMenu = SubMenus.find(sub => sub.id == 'corretor')
                 break;
             case '/home/credenciado':
-                this.subMenu = SubMenus.find(sub => sub.id == 'default')
+                this.subMenu = SubMenus.find(sub => sub.id == 'credenciado')
                 break;
 
             default:

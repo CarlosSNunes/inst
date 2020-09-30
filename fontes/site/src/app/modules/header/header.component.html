@@ -1,8 +1,8 @@
 <nav class="navbar background bupa-navy" role="navigation" aria-label="main navigation">
-    <div id="navbarPerfilCareplus" class="navbar-menu">
+    <div id="navbar-perfil-careplus" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item logo" [routerLink]="['/home']" routerLinkActive="has-background-white"
-                [routerLinkActiveOptions]="{exact: true}">
+                [routerLinkActiveOptions]="{exact: true}" title="Home">
                 <span class="item-label">
                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -11,42 +11,33 @@
                     </svg>
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/beneficiario']"
+            <a class="navbar-item is-home-link" [routerLink]="['/home/beneficiario']" title="Sou Beneficiário"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
-                    Sou beneficiário
+                    Sou Beneficiário
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/rh']" routerLinkActive="has-background-white"
-                [routerLinkActiveOptions]="{exact: true}">
+            <a class="navbar-item is-home-link" title="Sou RH" [routerLink]="['/home/rh']"
+                routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
                     Sou RH
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/corretor']"
+            <a class="navbar-item is-home-link" title="Sou Corretor" [routerLink]="['/home/corretor']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
-                    Sou corretor
+                    Sou Corretor
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/credenciado']"
+            <a class="navbar-item is-home-link" title="Sou Credenciado" [routerLink]="['/home/credenciado']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
-                    Sou credenciado
+                    Sou Credenciado
                 </span>
             </a>
         </div>
         <div class="navbar-middle">
-            <a class="button is-navbar-button is-accessible init-is-acessible">
-                <span class="item-label">
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M25.6809 12.2127C25.546 13.2871 25.3032 13.7063 25.2762 13.7587C25.1952 13.8898 25.0334 13.916 24.9254 13.8373C24.8175 13.7587 24.7635 13.6015 24.8445 13.4967C24.8445 13.4967 24.9794 13.2609 25.0873 12.7368L25.1413 11.1645C25.0603 10.7715 24.9254 10.4832 24.9254 10.4832C24.8715 10.3522 24.9254 10.2212 25.0603 10.1688C25.1952 10.1164 25.3302 10.1688 25.3841 10.2736C25.3841 10.2998 25.7888 11.1645 25.6809 12.2127ZM24.1429 13.4705C24.089 13.6015 23.9271 13.6539 23.7922 13.5753C23.6573 13.5229 23.6033 13.3657 23.6843 13.2346C23.6843 13.2346 23.7922 12.9988 23.8461 12.4485L23.7382 10.8763C23.6033 10.4832 23.4684 10.2212 23.4684 10.2212C23.3875 10.0901 23.4414 9.95913 23.5493 9.88051C23.6843 9.8019 23.8192 9.85431 23.9001 9.95913C23.9271 9.98533 24.4128 10.7977 24.3858 11.872C24.3858 12.9464 24.1699 13.4181 24.1429 13.4705ZM23.0367 12.8416C22.605 14.6759 21.8225 16.1695 21.5797 16.746C21.3098 17.3225 21.1749 18.1348 21.2289 20.0739C21.2829 22.0131 21.1749 23.3757 21.121 23.8736C21.094 24.1356 20.8242 24.319 20.5274 24.319C20.2575 24.319 19.9877 24.1618 19.9338 23.7687C19.7988 22.9564 19.502 19.8381 19.4211 19.4188C19.3671 19.183 19.1513 18.7899 18.9354 18.7899C18.7735 18.7899 18.5847 18.9996 18.4497 19.5761C18.126 20.9911 17.6133 24.2666 17.4514 25.0003C17.2895 25.734 16.9927 25.8389 16.8038 25.8389C16.7229 25.8389 16.6689 25.8127 16.6689 25.8127H16.642C16.534 25.8127 15.9944 25.7865 16.0214 25.1576C16.0483 24.45 16.6689 19.8119 16.642 19.3664C16.642 19.1044 16.561 18.8685 16.4261 18.8685C16.3182 18.8685 16.2102 18.9734 16.0483 19.2092C15.6436 19.8119 13.4581 23.5591 12.7835 24.8169C12.6486 25.0789 12.4058 25.1576 12.1629 25.1576C11.9741 25.1576 11.8122 25.1051 11.7312 25.0527C11.5154 24.9217 11.3265 24.45 11.4344 24.1356C11.5154 23.8211 13.8358 18.921 14.1596 18.3183C14.3755 17.9252 14.2945 17.5059 13.9977 17.5059C13.8628 17.5059 13.647 17.6108 13.4311 17.8728C12.7026 18.6327 9.62664 21.5938 9.24889 21.9868C9.087 22.1703 8.9251 22.2489 8.76321 22.2489C8.57434 22.2489 8.41245 22.1441 8.25055 22.0131C7.98073 21.751 7.89979 21.3842 8.16961 21.0697C8.30452 20.9125 9.24889 19.7071 10.3012 18.3969C10.571 18.0562 10.8408 17.6894 11.1106 17.3487L11.2725 17.1391L11.3265 17.0867L11.4614 16.9032L11.4884 16.7984C11.5154 16.746 11.5693 16.6936 11.5963 16.6412L11.6503 16.5626C11.6773 16.5102 11.7312 16.4578 11.7582 16.4054L11.8122 16.3267L11.9201 16.1957L12.0011 16.0909C12.028 16.0385 12.055 16.0123 12.082 15.9599L12.1629 15.8551L12.2439 15.7503L12.2979 15.6716L12.3788 15.5668L12.4328 15.4882C12.4597 15.462 12.4867 15.4096 12.4867 15.3834L12.5407 15.3048L12.5947 15.2C12.6216 15.1738 12.6216 15.1476 12.6486 15.1214C12.6756 15.0951 12.6756 15.0689 12.7026 15.0427L12.7296 14.9903C12.7565 14.9379 12.7835 14.9117 12.7835 14.8593C13.3502 13.7325 14.3755 12.0031 12.4867 12.0031C12.3788 12.0031 12.2709 12.0031 12.136 12.0293C11.3805 12.1079 10.8408 12.1341 10.4631 12.1341C9.62664 12.1341 9.41078 12.0031 9.14096 11.9244C8.76321 11.7934 8.22357 11.4004 8.41245 11.0597C8.60132 10.719 9.54569 10.8763 9.92344 10.7453L10.3012 10.6142H10.3282C10.517 10.5618 11.2995 10.3522 12.082 10.0377C12.4328 9.90672 12.7835 9.74949 13.0803 9.59227C14.1596 8.98957 16.615 7.96761 17.2625 7.86279C17.5593 7.81038 17.8831 7.78418 18.1799 7.78418C18.6116 7.78418 19.0434 7.83659 19.3402 7.96761C19.8528 8.17724 20.3385 9.25161 22.4431 10.1688C22.551 10.1164 23.4954 10.9811 23.0367 12.8416ZM4.71591 16.1957C4.01438 14.4138 3.82551 12.763 3.71758 12.1603C3.60965 11.5576 3.25889 10.7715 2.12564 9.1992C0.965418 7.62695 0.290868 6.42156 0.0480303 5.97609C-0.194808 5.53062 0.533706 4.8231 1.10033 5.452C1.66695 6.0547 3.6906 8.49169 4.01438 8.80614C4.31118 9.09439 5.25555 9.48745 4.7429 8.15104C4.20326 6.78842 2.74623 3.80114 2.47641 3.09363C2.07168 2.07166 2.66528 1.99305 2.66528 1.99305C2.66528 1.99305 3.20492 1.59999 3.58267 2.20269C3.96042 2.80538 6.092 6.99805 6.36182 7.36491C6.63164 7.73177 6.95542 7.88899 6.95542 7.18148C6.92844 6.44776 6.63164 2.17648 6.46974 0.761455C6.41578 0.263575 6.95542 0.00153333 7.22524 0.00153333C7.49506 -0.0246709 7.89979 0.289779 8.00772 0.578026C8.11565 0.892476 8.97907 6.21193 9.087 6.89324C9.16794 7.57454 9.78853 7.88899 9.95042 6.86703C10.1123 5.84507 11.0027 1.73101 11.0837 1.20693C11.1646 0.682842 11.5424 0.578026 11.9201 0.656638C12.2979 0.735251 12.5677 0.997293 12.5407 1.41656C12.5137 1.80962 12.082 6.99805 12.1629 8.75373C11.4344 9.06818 10.544 9.33022 10.1933 9.40884L10.1393 9.43504L10.0853 9.46125L9.59965 9.53986C9.54569 9.53986 9.41078 9.53986 9.32983 9.56606C8.76321 9.59227 7.79186 9.64467 7.36015 10.457C7.14429 10.8501 7.11731 11.3217 7.2792 11.741C7.60299 12.5533 8.49339 12.9464 8.76321 13.0512L8.81718 13.0774C9.19492 13.2346 9.59965 13.3395 10.517 13.3395C10.9757 13.3395 11.5424 13.3133 12.2439 13.2346C12.109 13.5229 11.9471 13.8898 11.8122 14.0994L11.7042 14.2828C11.4614 14.7545 10.517 16.0385 8.87114 18.1086C8.30452 18.0562 7.60299 18.03 6.6856 18.1872C6.6856 18.1872 5.39046 17.9776 4.71591 16.1957ZM5.95709 19.4975C5.90312 19.6285 5.74123 19.6809 5.6333 19.6285C5.60632 19.6023 4.68893 19.2616 4.04136 18.3969C3.3938 17.5321 3.28587 17.0343 3.25889 16.9818C3.2319 16.8508 3.31285 16.7198 3.44776 16.6936C3.58267 16.6674 3.71758 16.746 3.74456 16.877C3.74456 16.877 3.79853 17.1391 4.09533 17.6108L5.17461 18.8161C5.52537 19.052 5.79519 19.183 5.79519 19.183C5.95709 19.2354 6.01105 19.3664 5.95709 19.4975ZM4.63497 20.1526C4.581 20.2836 4.41911 20.3098 4.2842 20.2574C4.25722 20.2312 3.3938 19.7857 2.82717 18.8685C2.26055 17.9514 2.20659 17.4535 2.20659 17.4011C2.17961 17.2701 2.28754 17.1391 2.44943 17.1391C2.58434 17.1129 2.71925 17.2177 2.71925 17.3749C2.71925 17.3749 2.74623 17.637 2.98907 18.1348L3.93344 19.4188C4.25722 19.6809 4.52704 19.8381 4.52704 19.8381C4.63497 19.8643 4.68893 20.0215 4.63497 20.1526Z"
-                            fill="#E0E0E0" />
-                    </svg>
-                </span>
-            </a>
-            <a class="button is-navbar-button is-accessible">
+            <a class="button is-navbar-button is-accessible" title="Tamanho da fonte">
                 <span class="item-label">
                     <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -73,7 +64,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-navbar-button is-telefone" href="tel:0800-13-2992">
+                    <a class="button is-navbar-button is-telefone" href="tel:0800-13-2992" title="Contato">
                         <span class="item-label">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -83,12 +74,13 @@
                             </svg>
                         </span>
                         &nbsp;
-                        <span class="item-label">
+                        <span class="item-label phone">
                             0800-13-2992
                         </span>
                     </a>
-                    <a class="button is-navbar-button login bupa-digital-cyan"
-                        href="https://www8.careplus.com.br/portal/LoginBeneficiario.aspx" target="_blank">
+                    <a class="button is-navbar-button login bupa-digital-cyan" rel="noopener noreferrer"
+                        href="https://www8.careplus.com.br/portal/LoginBeneficiario.aspx" title="Entrar"
+                        target="_blank">
                         <span class="item-label">
                             Entrar
                         </span>
@@ -100,17 +92,11 @@
 </nav>
 <nav class="navbar is-home" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" [routerLink]="['/']">
-            <img class="img-careplus" src="assets/img/careplus-logo.png" alt="Careplus">
-        </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+        <a class="navbar-item" [routerLink]="['/']" title="Home">
+            <img class="img-careplus" src="assets/svg/logo-careplus.svg" alt="Careplus">
         </a>
     </div>
-    <div id="navbarHome" class="navbar-menu">
+    <div id="navbar-home" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" *ngFor="let subMenuItem of subMenu.items">
                 <span class="item" [routerLink]="[subMenuItem.routerLink]" routerLinkActive="active"
@@ -121,8 +107,8 @@
                     <div class="column is-6">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:0:5">
-                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
-                                    class="sub-menu-items">
+                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title"
+                                    [fragment]="subItem.fragment" class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>
                             </li>
@@ -131,8 +117,8 @@
                     <div class="column is-6" *ngIf="subMenuItem.subItems.length > 5">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:5:10">
-                                <a [routerLink]="[subItem.routerLink]" [fragment]="subItem.fragment"
-                                    class="sub-menu-items">
+                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title"
+                                    [fragment]="subItem.fragment" class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>
                             </li>
@@ -140,182 +126,40 @@
                     </div>
                 </div>
             </a>
-            <!-- <a class="navbar-item">
-                <span class="item" [routerLink]="['/a-careplus']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    A Care Plus
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-6">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/a-careplus" class="sub-menu-items">
-                                    A Empresa
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/diferenciais" class="sub-menu-items">
-                                    Diferenciais
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/responsabilidade-social" class="sub-menu-items">
-                                    Responsabilidade Social
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/rede-plus">
-                                    Rede Plus
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/faq" class="sub-menu-items">
-                                    Perguntas Frequentes
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="column is-6">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/a-careplus/resultados-financeiros" class="sub-menu-items">
-                                    Resultados Financeiros
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/materiais" class="sub-menu-items">
-                                    Materiais
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/termos-e-condicoes" class="sub-menu-items">
-                                    Termos e Condições
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/a-careplus/politica-de-privacidade" class="sub-menu-items">
-                                    Política de Privacidade
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/planos-e-produtos']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    Planos
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/planos-e-produtos/soho" class="sub-menu-items">
-                                    Care Plus SoHo (de 2 a 29 vidas)
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/planos-e-produtos/clube-careplus" class="sub-menu-items">
-                                    Clube Care Plus (de 30 a 200 vidas)
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/planos-e-produtos/empresarial" class="sub-menu-items">
-                                    Care Plus Empresarial (mais de 200 vidas)
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/planos-e-produtos']" fragment="produtos"
-                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    Produtos
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/planos-e-produtos/medicina-ocupacional" class="sub-menu-items">
-                                    Medicina Ocupacional
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/gestao-de-saude" class="sub-menu-items">
-                                    Gestão de saúde
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/carreiras']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    Carreiras
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/carreiras" class="sub-menu-items">
-                                    Carreiras
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/carreiras/vagas" class="sub-menu-items">
-                                    Vagas
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/careplus-mais']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    Care plus+
-                </span>
-            </a>
-            <a class="navbar-item">
-                <span class="item" [routerLink]="['/fale-conosco']" routerLinkActive="active">
-                    Fale Conosco
-                </span>
-                <div class="sub-menu columns">
-                    <div class="column is-4">
-                        <ul class="items">
-                            <li>
-                                <a routerLink="/fale-conosco" class="sub-menu-items">
-                                    Solicite Uma Cotação
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/fale-conosco/contato" class="sub-menu-items">
-                                    Fale Conosco
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/fale-conosco/canal-de-denuncias" class="sub-menu-items">
-                                    Canal De Denúncias
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/fale-conosco/ouvidoria" class="sub-menu-items">
-                                    Ouvidoria
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a> -->
         </div>
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <button class="btn btn-primary small" (click)="openSimulator()">
-                        Simule Seu Plano
-                    </button>
+                    <a *ngIf="subMenu.id == 'default'" class="btn btn-digital-orange primary small"
+                        (click)="openSimulator()">
+                        Simule Planos e Produtos
+                    </a>
+
+                    <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-digital-orange primary small"
+                        rel="noopener noreferrer"
+                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
+                        target="_blank">
+                        Entre em Contato
+                    </a>
+
+                    <a *ngIf="subMenu.id == 'rh'" class="btn btn-digital-orange primary small"
+                        routerLink="/fale-conosco/solicite-uma-cotacao">
+                        Solicite uma Cotação
+                    </a>
+
+                    <a *ngIf="subMenu.id == 'corretor'" class="btn btn-digital-orange primary small"
+                        rel="noopener noreferrer"
+                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
+                        target="_blank">
+                        Seja um Corretor
+                    </a>
+
+                    <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-digital-orange primary small"
+                        rel="noopener noreferrer"
+                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
+                        target="_blank">
+                        Seja um Credenciado
+                    </a>
                 </div>
             </div>
         </div>

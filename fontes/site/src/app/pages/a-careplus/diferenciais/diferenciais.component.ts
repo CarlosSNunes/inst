@@ -30,7 +30,7 @@ export class DiferenciaisComponent implements OnInit {
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         smallTitle: 'A CARE PLUS',
         bigTitle: 'Por que escolher a Care Plus?',
-        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8',
+        embedSrc: 'https://www.youtube.com/embed/VkJDsgCRrTk',
         button: new ButtonModel({
             text: 'Conheça a Care Plus',
             routerLink: '/a-careplus'
@@ -56,7 +56,7 @@ export class DiferenciaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Diferenciais | Care Plus');
+        this.title.setTitle('Diferenciais | A Care Plus | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Atendimento, acolhimento e humanização que fazem toda a diferença na vida de quem contrata, usa e comercializa as soluções Care Plus.'

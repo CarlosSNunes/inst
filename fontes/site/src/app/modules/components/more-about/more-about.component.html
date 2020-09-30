@@ -5,7 +5,7 @@
                 <p class="section-category color bupa-digital-cyan">
                     Conheça mais sobre a Care Plus
                 </p>
-                <h2 class="title color bupa-navy">
+                <h2 class="h2 title color bupa-navy">
                     Visite outras áreas do site e <br>saiba mais sobre a Care Plus
                 </h2>
             </div>
@@ -24,7 +24,7 @@
                                 {{ item.description }}
                             </p>
                             <div *ngIf="item.link" class="saiba-mais">
-                                <a [href]=item.link>{{ item.linkTitle }}</a>
+                                <a [href]=item.link [attr.title]="item.linkTitle">{{ item.linkTitle }}</a>
                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="column is-12 button-column has-text-centered">
-                <button class="btn btn-primary big">
+                <button class="btn btn-digital-cian secondary arrow-right big">
                     Saiba mais sobre a Care Plus
                 </button>
             </div>
@@ -56,7 +56,7 @@
                                 {{ item.description }}
                             </p>
                             <div *ngIf="item.link" class="saiba-mais">
-                                <a [href]=item.link>{{ item.linkTitle }}</a>
+                                <a [href]=item.link [attr.title]="item.linkTitle">{{ item.linkTitle }}</a>
                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path

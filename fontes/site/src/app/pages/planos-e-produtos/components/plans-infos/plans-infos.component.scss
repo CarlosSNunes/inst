@@ -1,6 +1,5 @@
 @import "~src/scss/_variables";
-
-section#plansDetails {
+section#plans-details {
     article {
         .container {
             .plan-tabs {
@@ -9,7 +8,6 @@ section#plansDetails {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
                 li {
                     position: relative;
                     display: inline-block;
@@ -21,7 +19,6 @@ section#plansDetails {
                     text-align: center;
                     cursor: pointer;
                     transition: color 0.3s ease-in-out;
-
                     &::before {
                         content: "";
                         transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
@@ -32,15 +29,12 @@ section#plansDetails {
                         left: 50%;
                         position: absolute;
                     }
-
                     &:first-child {
                         margin-left: 0;
                     }
-
                     &.active {
                         font-weight: 600;
                         color: getColor(_bupa, _navy);
-
                         &::before {
                             content: "";
                             height: 2px;
@@ -53,14 +47,12 @@ section#plansDetails {
                     }
                 }
             }
-
-            ::ng-deep app-card {
+             ::ng-deep .app-card {
                 .content {
                     .card.default {
                         padding: 35px;
                         .card-content {
                             padding: 0;
-
                             .card-title {
                                 font-weight: normal;
                                 font-size: getSize("mbt");
@@ -68,7 +60,6 @@ section#plansDetails {
                                 color: getColor(_bupa, _digital-cian);
                                 margin-bottom: 0;
                             }
-
                             .card-description {
                                 margin-top: 8px;
                                 font-weight: normal;
@@ -77,27 +68,22 @@ section#plansDetails {
                                 color: getColor(_bupa, _black);
                                 margin-bottom: 0;
                             }
-
                             .card-items {
                                 margin-top: 32px;
                                 list-style: none;
                                 margin-left: 0;
-
                                 li {
                                     padding-left: 27px;
                                     position: relative;
                                     margin-top: 8px;
                                     margin-bottom: 8px;
                                     display: inline-block;
-
                                     &:first-child {
                                         margin-top: 0;
                                     }
-
                                     &:last-child {
                                         margin-bottom: 0;
                                     }
-
                                     &::before {
                                         position: absolute;
                                         content: "";
@@ -109,12 +95,10 @@ section#plansDetails {
                                         background-size: contain;
                                         background-repeat: no-repeat;
                                     }
-
                                     p {
                                         font-weight: normal;
                                         color: getColor(_bupa, _grey);
                                         margin: 0;
-
                                         &.obs {
                                             margin-top: 5px;
                                             font-size: getSize("sbm");
@@ -128,17 +112,14 @@ section#plansDetails {
                     }
                 }
             }
-
-            ::ng-deep app-plan-card {
+             ::ng-deep .app-plan-card {
                 .info-title {
                     color: #ae9962;
                 }
             }
-
             .plan-card {
                 margin-top: 78px;
             }
-
             .cards {
                 margin-top: 24px;
             }
@@ -147,7 +128,7 @@ section#plansDetails {
 }
 
 @media (max-width: 1023px) {
-    section#plansDetails {
+    section#plans-details {
         article {
             .container {
                 .plan-tabs {

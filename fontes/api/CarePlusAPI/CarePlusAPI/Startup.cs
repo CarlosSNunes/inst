@@ -110,6 +110,7 @@ namespace Neotix.Neocms.CarePlusAPI
             services.AddScoped<INewsletterService, NewsletterService>();
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IFaleConoscoService, FaleConoscoService>();
+            services.AddScoped<IDashboardService, DashboardService>();
            
             services.AddSwaggerGen(c =>
             {

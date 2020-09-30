@@ -1,8 +1,7 @@
 @import "~src/scss/_variables";
-@import "~src/scss/_animations";
 
 section {
-    &#responsabilidadeSocialIniciativaSection {
+    &#responsabilidade-social-iniciativa-section {
         .container {
             .box-infos {
                 position: sticky;
@@ -17,13 +16,7 @@ section {
                         content: "";
                         width: 114px;
                         height: 4px;
-                        background: linear-gradient(
-                            to left,
-                            getColor(_bupa, _digital-cian) 60%,
-                            getColor(_bottom-line, _dark-green) 60%,
-                            getColor(_bottom-line, _dark-green) 80%,
-                            getColor(_bottom-line, _light-green) 80%
-                        );
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                         right: 0;
                         top: 20px;
                         transform: translateX(95%);
@@ -44,7 +37,7 @@ section {
 
 @media (max-width: 1300px) {
     section {
-        &#responsabilidadeSocialIniciativaSection {
+        &#responsabilidade-social-iniciativa-section {
             .container {
                 .box-infos {
                     .big-title {

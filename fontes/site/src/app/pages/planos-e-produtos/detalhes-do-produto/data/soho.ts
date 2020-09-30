@@ -1,12 +1,12 @@
 import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
 
 export default {
-    id: 'soho',
-    name: 'Soho',
+    id: 'careplus-soho',
+    name: 'Care Plus Soho',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Care Plus SoHo: planos de 2 a 29 vidas',
         description: 'O Care Plus SoHo apresenta planos para pequenas empresas, de 2 a 29 vidas e é indicado para aquelas que atuam em home office ou com operações mais enxutas.',
-        image: 'assets/img/clube-careplus-banner.jpg',
+        image: 'assets/img/banner_plano_soho.png',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
@@ -18,7 +18,7 @@ export default {
             }),
             new BreadcrumbModel({
                 name: 'Care Plus Soho',
-                link: '/planos-e-produtos/soho',
+                link: '/planos-e-produtos/careplus-soho',
                 active: true
             })
         ],
@@ -30,10 +30,10 @@ export default {
         subDescriptions: [
             'Se sua empresa possui dois titulares ou mais, com atividade ativa e comprovada por documentos contábeis e fiscais há mais de 18 (ou 24) meses, o Care Plus SoHo apresenta planos sob medida para sua empresa. Com ele, você e seus colaboradores, terão acesso ao acolhimento, cuidado e humanização que tanto merecem, juntamente com a entrega de uma ampla rede credenciada, facilidades para reembolso, atendimento personalizado e mais uma gama de serviços premium.'
         ],
-        imageSrc: 'assets/img/about-plan-section-careplus-club.jpg',
+        imageSrc: 'assets/img/sobre_plano_soho.png',
         button: new ButtonModel({
-            text: 'SOLICITE UMA COTAÇÃO',
-            routerLink: '/fale-conosco',
+            text: 'Solicite uma Cotação',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'soho'
             }
@@ -291,10 +291,10 @@ export default {
         bigTitle: 'Saiba como funcionam os Planos Odontológicos',
         description: 'Temos planos odontológicos que se encaixam nas necessidades de sua empresa',
         subDescription: 'Nossos planos odontológicos também fazem parte das classificações: Care Plus Soho, Clube Care Plus e Care Plus Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
-        imageSrc: 'assets/img/dental-plan.jpg',
+        imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
-            text: 'SOLICITE UMA COTAÇÃO',
-            routerLink: '/fale-conosco',
+            text: 'Solicite uma Cotação',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'soho',
                 planoOdontologico: true
@@ -312,7 +312,7 @@ export default {
         subDescription: 'Temos planos para empresas de 2 a 29 vidas, de 30 a 200 vidas ou de mais de 200 vidas. Acesse nossa página de Planos e Produtos e conheça todos.',
         imageSrc: 'assets/svg/plans-section-illustation.svg',
         button: new ButtonModel({
-            text: 'VER TODOS OS PLANOS',
+            text: 'Ver todos os Planos',
             routerLink: '/planos-e-produtos'
         }),
         reverse: true,
@@ -323,8 +323,8 @@ export default {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em Gestão de Saúde',
         subDescription: 'Mais do que cuidado, proporcionamos facilidade e comodidade para todos os nossos beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'CONHEÇA NOSSOS PROGRAMAS',
-            routerLink: '/gestao-de-saude'
+            text: 'Conheça o Gestão de Saúde',
+            routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: [
             new IconCardModel({
@@ -332,29 +332,29 @@ export default {
                 "title": "Programas Preventivos",
                 "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento, uma vida saudável.",
                 "imagePath": "assets/svg/shield.svg",
-                "routerLink": "/gestao-de-saude/programas-preventivos"
+                "routerLink": "/planos-e-produtos/gestao-de-saude/programas-preventivos"
             }),
             new IconCardModel({
                 "type": "icon",
-                "title": "Serviços Online",
+                "title": "Serviços On-line",
                 "description": "Os beneficiários podem aproveitar alguns serviços a distância com a qualidade, o carinho e o cuidado que só a Care Plus tem.",
                 "imagePath": "assets/svg/monitor-screen.svg",
                 "backgroundColorClass": "white-background-color",
-                "routerLink": "/gestao-de-saude/servicos-online"
+                "routerLink": "/planos-e-produtos/gestao-de-saude/servicos-online"
             }),
             new IconCardModel({
                 "type": "icon",
                 "title": "Personal System",
                 "description": "A Care Plus oferece consultas em clínicas próprias com médicos, nutricionistas e psicólogos. Conheça os programas.",
                 "imagePath": "assets/svg/doctor.svg",
-                "routerLink": "/gestao-de-saude/personal-system"
+                "routerLink": "/planos-e-produtos/gestao-de-saude/personal-system"
             }),
             new IconCardModel({
                 "type": "icon",
                 "title": "Programas Empresariais",
                 "description": "A Care Plus disponibiliza  médicos, nutricionistas, enfermeiras e psicólogos para realizar atendimento no ambiente das empresas.",
                 "imagePath": "assets/svg/doctorphone.svg",
-                "routerLink": "/gestao-de-saude/programas-empresariais"
+                "routerLink": "/planos-e-produtos/gestao-de-saude/programas-empresariais"
             })
         ],
         columnClass: 'is-3-desktop'
@@ -367,26 +367,30 @@ export default {
             'Elas contam com o que há de mais moderno e eficiente, obedecendo ao mais alto grau de exigência para estabelecimentos de saúde determinado pela ANVISA, que assegura os mais rígidos padrões de qualidade e excelência.',
             'Temos clínicas na Vila Olímpia e Brooklin, em São Paulo e no Barra Sul Shopping, no Rio de Janeiro.',
         ],
-        imageSrc: 'assets/img/clinic-section.jpg',
+        button: new ButtonModel({
+            text: 'Conheça a Care Plus Clinic',
+            link: 'https://careplusclinic.com.br'
+        }),
+        imageSrc: 'assets/img/bloco-clinicas.jpg',
         reverse: true,
     }),
-    clinicInfos: {
-        bigTitle: 'Veja algumas das especialidades e tratamentos das nossas clínicas',
-        items: [
-            {
-                text: 'Clínica Geral e Pediatria.',
-            },
-            {
-                text: 'Invisalign.'
-            },
-            {
-                text: 'Ortodontia.'
-            },
-            {
-                text: 'Implantodontia.'
-            }
-        ],
-    },
+    // clinicInfos: {
+    //     bigTitle: 'Veja algumas das especialidades e tratamentos das nossas clínicas',
+    //     items: [
+    //         {
+    //             text: 'Clínica Geral e Pediatria.',
+    //         },
+    //         {
+    //             text: 'Invisalign.'
+    //         },
+    //         {
+    //             text: 'Ortodontia.'
+    //         },
+    //         {
+    //             text: 'Implantodontia.'
+    //         }
+    //     ],
+    // },
     travelSection: new InfoSectionModel({
         smallTitle: 'CARE PLUS TRAVEL',
         bigTitle: 'Vai viajar para o exterior? Conte com o nosso serviço de assistência viagem',
@@ -398,12 +402,13 @@ export default {
         title: 'Solicite uma Cotação',
         type: 'icon',
         button: new ButtonModel({
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite cotação',
             queryParams: {
                 plano: 'soho'
             }
         }),
+        backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
     })
 };

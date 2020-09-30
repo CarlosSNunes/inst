@@ -1,29 +1,25 @@
 @import "~src/scss/_variables";
-
+@import "~src/scss/_mixins";
 section#perfis {
     .container {
         .columns {
             &.tabs-columns {
                 margin-top: 38px;
             }
-
             .column {
                 .small-title {
                     text-align: center;
                 }
-
                 .big-title {
                     max-width: 592px;
                     margin: 8px auto 0 auto;
                     text-align: center;
                 }
-
                 .sub-description {
                     max-width: 592px;
                     margin: 32px auto 0 auto;
                     text-align: center;
                 }
-
                 .tabs {
                     z-index: 10;
                     position: relative;
@@ -78,7 +74,6 @@ section#perfis {
                         transition: all ease-in-out 0.3s;
                     }
                 }
-
                 .card-content {
                     width: 100%;
                     height: 100%;
@@ -91,7 +86,6 @@ section#perfis {
                         color: getColor(_bupa, _navy);
                         transition: color 0.3s ease-in-out;
                     }
-
                     .sub-description {
                         font-weight: normal;
                         font-size: getSize("p");
@@ -100,14 +94,12 @@ section#perfis {
                         text-align: left;
                         transition: color 0.3s ease-in-out;
                     }
-
-                    .btn-text {
+                    .btn.tertiary {
                         padding-left: 0;
                         margin-top: 20px;
                     }
                 }
-
-                ::ng-deep app-card {
+                 ::ng-deep .app-card {
                     .content {
                         .card.default {
                             padding: 25px 16px;
@@ -115,22 +107,23 @@ section#perfis {
                             &:hover {
                                 background-color: getColor(_bupa, _digital-cian);
                                 border: 1px solid getColor(_bupa, _digital-cian);
-
                                 .card-title {
                                     color: getColor(_bupa, _white);
                                 }
-
                                 .sub-description {
                                     color: getColor(_bupa, _white);
                                 }
-
-                                .btn-text {
+                                .btn.tertiary {
                                     color: getColor(_bupa, _white);
-
-                                    svg {
-                                        fill: getColor(_bupa, _white);
-                                        path {
-                                            fill: getColor(_bupa, _white);
+                                    &:before {
+                                        border: solid getColor(_bupa, _white);
+                                        @include arrowElement(-45deg);
+                                    }
+                                    &:hover {
+                                        &:before {
+                                            border: solid getColor(_bupa, _white);
+                                            @include arrowElement(-45deg);
+                                            right: 14px;
                                         }
                                     }
                                 }
@@ -154,18 +147,15 @@ section#perfis {
                         padding-top: 0;
                     }
                 }
-
                 .column {
                     .small-title {
                         display: none;
                     }
-
                     .big-title {
                         max-width: 592px;
                         margin: 0;
                         text-align: left;
                     }
-
                     .sub-description {
                         max-width: 592px;
                         margin: 32px 0 0 0;
@@ -190,7 +180,6 @@ section#perfis {
                                 position: relative;
                                 font-size: 1.125em;
                             }
-
                             &.active {
                                 a {
                                     &::before {
@@ -205,15 +194,12 @@ section#perfis {
                                 }
                             }
                         }
-
                         .active-line {
                             display: none;
                         }
                     }
-
                     .card-content {
                         padding: 0;
-
                         .card-title {
                             margin-bottom: 0;
                             padding-right: 30px;
@@ -230,7 +216,6 @@ section#perfis {
                                 border: 1px solid getColor(_bupa, _digital-cian);
                                 border-radius: 2px;
                                 padding: 8.21px 5.61px;
-
                                 &.next {
                                     img {
                                         width: 12.63px;
@@ -240,21 +225,17 @@ section#perfis {
                                 }
                             }
                         }
-
                         .sub-description {
                             display: none;
                         }
                     }
-
-                    ::ng-deep app-card {
+                     ::ng-deep .app-card {
                         .content {
                             .card.default {
                                 padding: 8px 16px;
-
                                 &:hover {
                                     background-color: getColor(_bupa, _white);
                                     border: 1px solid getColor(_bupa, _grey-3);
-
                                     .card-title {
                                         color: getColor(_bupa, _navy);
                                     }

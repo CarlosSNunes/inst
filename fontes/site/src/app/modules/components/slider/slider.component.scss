@@ -1,50 +1,41 @@
 @import "~src/scss/_variables";
 .image-slider {
     margin-top: 50px;
-
     &.has-background-color-white {
-        ::ng-deep ng-image-slider {
+         ::ng-deep .ng-image-slider {
             .img-div {
                 .caption {
                     background-color: getColor(_bupa, _white);
                 }
-
                 &.has-modal {
                     cursor: pointer;
                 }
             }
         }
     }
-
-    ::ng-deep ng-image-slider {
+     ::ng-deep .ng-image-slider {
         .img-div {
             border-radius: 2px !important;
             background: getColor(_bupa, _white);
             opacity: 0.6;
             border-bottom: 5px solid getColor(_bupa, _digital-cian);
-
             &.active {
                 opacity: 1;
             }
-
             &:first-child {
                 margin-left: 0 !important;
             }
-
             &:last-child {
                 margin-right: 0 !important;
             }
-
             margin-left: 16px !important;
             margin-right: 16px !important;
-
             img {
                 max-height: 204px;
                 margin: 0 auto !important;
                 border-radius: 0 !important;
                 object-fit: cover;
             }
-
             .caption {
                 background-image: unset !important;
                 font-weight: normal !important;
@@ -55,7 +46,6 @@
             }
         }
     }
-
     .arrows-box {
         margin-top: 24px;
         a {
@@ -65,12 +55,10 @@
             border: 1px solid getColor(_bupa, _digital-cian);
             border-radius: 2px;
             padding: 13px 9px;
-
             &.disable {
                 opacity: 0.6;
                 cursor: not-allowed;
             }
-
             &.next {
                 margin-left: 18px;
                 img {
@@ -83,7 +71,7 @@
 
 .video-slider {
     margin-top: 50px;
-    ::ng-deep ng-image-slider {
+     ::ng-deep .ng-image-slider {
         .img-div {
             cursor: pointer;
             border-radius: 2px !important;
@@ -93,18 +81,14 @@
             &.active {
                 opacity: 1;
             }
-
             &:first-child {
                 margin-left: 0 !important;
             }
-
             &:last-child {
                 margin-right: 0 !important;
             }
-
             margin-left: 16px !important;
             margin-right: 16px !important;
-
             &:before {
                 content: "";
                 width: 100%;
@@ -113,15 +97,8 @@
                 bottom: 0;
                 left: 0;
                 z-index: 1;
-                background: linear-gradient(
-                    to right,
-                    getColor(_bupa, _digital-cian) 60%,
-                    getColor(_bottom-line, _dark-green) 60%,
-                    getColor(_bottom-line, _dark-green) 80%,
-                    getColor(_bottom-line, _light-green) 80%
-                );
+                background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
             }
-
             &::after {
                 content: "";
                 position: absolute;
@@ -135,14 +112,11 @@
                 background-image: getSvg("playVideo.svg");
                 background-size: contain;
             }
-
             img {
-                // max-height: 204px;
                 margin: 0 auto !important;
                 border-radius: 0 !important;
                 object-fit: cover;
             }
-
             .caption {
                 background-image: unset !important;
                 font-weight: normal !important;
@@ -151,12 +125,12 @@
                 color: getColor(_bupa, _white) !important;
                 padding: 0 !important;
                 text-align: unset !important;
-                top: 25px;
-                left: 29px;
+                top: 9px;
+                left: 6px;
+                text-shadow: 1px 1px 2px black;
             }
         }
     }
-
     .arrows-box {
         margin-top: 24px;
         a {
@@ -166,12 +140,10 @@
             border: 1px solid getColor(_bupa, _digital-cian);
             border-radius: 2px;
             padding: 13px 9px;
-
             &.disable {
                 opacity: 0.6;
                 cursor: not-allowed;
             }
-
             &.next {
                 margin-left: 18px;
                 img {
@@ -184,14 +156,13 @@
 
 @media (max-width: 1023px) {
     .video-slider {
-        ::ng-deep ng-image-slider {
+         ::ng-deep .ng-image-slider {
             .img-div {
                 .caption {
                     line-height: 120%;
                 }
             }
         }
-
         .arrows-box {
             margin-top: 24px;
             a {
@@ -201,12 +172,10 @@
                 border: 1px solid getColor(_bupa, _digital-cian);
                 border-radius: 2px;
                 padding: 13px 9px;
-
                 &.disable {
                     opacity: 0.6;
                     cursor: not-allowed;
                 }
-
                 &.next {
                     margin-left: 18px;
                     img {

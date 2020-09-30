@@ -4,17 +4,17 @@
     </h3>
     <div class="columns" [formGroup]="firstStepForm">
         <div class="column is-4-desktop is-full">
-            <div class="illustration-check" [class.checked]="form?.plano?.value == 'soho'">
+            <div class="illustration-check" [class.checked]="form?.plano?.value == 'careplus-soho'">
                 <div class="green-primary-box"></div>
                 <div class="green-light-box"></div>
                 <img src="assets/svg/plans-soho.svg" alt="Ilustração Plano Soho">
             </div>
             <div class="field">
                 <div class="control">
-                    <input class="checkbox" type="radio" formControlName="plano" value="soho" name="plano"
-                        id="planSohoRadio" [ngClass]="{ 'is-invalid' : form?.plano?.errors }" />
-                    <label class="checkbox-label" for="planSohoRadio">
-                        DE 2 A 29
+                    <input class="checkbox" type="radio" formControlName="plano" value="careplus-soho" name="plano"
+                        id="plan-soho-radio" [ngClass]="{ 'is-invalid' : form?.plano?.errors }" />
+                    <label class="checkbox-label" for="plan-soho-radio">
+                        De 2 a 29
                     </label>
                 </div>
             </div>
@@ -29,16 +29,16 @@
             <div class="field">
                 <div class="control">
                     <input formControlName="plano" [ngClass]="{ 'is-invalid' : form?.plano?.errors }" class="checkbox"
-                        id="clubeCarePlusRadio" type="radio" name="plano" value="clube-careplus">
-                    <label class="checkbox-label" for="clubeCarePlusRadio">
-                        DE 30 A 200
+                        id="clube-care-plus-radio" type="radio" name="plano" value="clube-careplus">
+                    <label class="checkbox-label" for="clube-care-plus-radio">
+                        De 30 a 200
                     </label>
                 </div>
             </div>
         </div>
 
         <div class="column is-4-desktop is-full illustration-check">
-            <div class="illustration-check" [class.checked]="form?.plano?.value == 'empresarial'">
+            <div class="illustration-check" [class.checked]="form?.plano?.value == 'careplus-empresarial'">
                 <div class="green-primary-box"></div>
                 <div class="green-light-box"></div>
                 <img src="assets/svg/empresarial.svg" alt="Ilustração Plano Empresarial">
@@ -46,9 +46,9 @@
             <div class="field">
                 <div class="control">
                     <input formControlName="plano" [ngClass]="{ 'is-invalid' : form?.plano?.errors }" class="checkbox"
-                        type="radio" name="plano" id="empresarialRadio" value="empresarial">
-                    <label class="checkbox-label" for="empresarialRadio">
-                        MAIS DE 200
+                        type="radio" name="plano" id="empresarial-radio" value="careplus-empresarial">
+                    <label class="checkbox-label" for="empresarial-radio">
+                        Mais de 200
                     </label>
                 </div>
             </div>

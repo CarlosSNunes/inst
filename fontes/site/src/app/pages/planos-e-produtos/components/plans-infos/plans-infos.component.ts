@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { carePlusCards, carePlusCardsOdonto } from './data/cards';
-import { PlanCardModel, ButtonModel } from 'src/app/models';
+import { PlanCardModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 
 @Component({

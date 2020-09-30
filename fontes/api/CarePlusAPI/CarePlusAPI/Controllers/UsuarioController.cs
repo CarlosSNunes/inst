@@ -76,8 +76,10 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                        new Claim(ClaimTypes.Name, usuario.Id.ToString())
+                        new Claim(ClaimTypes.Name, usuario.Id.ToString()),
+                        new Claim(ClaimTypes.Role, usuario.UsuarioPerfil.OrderBy(x=>x.Perfil.Prioridade).FirstOrDefault().Perfil.Descricao) 
                 }),
+
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
@@ -100,8 +102,8 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
-        [AllowAnonymous]
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Post(UsuarioCreateModel model)
         {
             if (model == null)
@@ -110,6 +112,9 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
             Usuario usuario = Mapper.Map<Usuario>(model);
 
             await UserService.Criar(usuario, model.Senha);
+
+            await UserService.EnviarEmailConfirmacao(usuario);
+
             return Ok();
         }
 
@@ -121,6 +126,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Get()
         {
             IEnumerable<Usuario> users = await UserService.Listar();
@@ -137,6 +143,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="Id">Id do usuário</param>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -158,6 +165,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///<param name="id">Id do usuário a ser atualizado</param>
         ///<param name="model">Model de atualização de um usuário</param>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Put(int id, [FromBody]UsuarioUpdateModel model)
         {
             if (id == 0)
@@ -181,6 +189,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do usuário</param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)

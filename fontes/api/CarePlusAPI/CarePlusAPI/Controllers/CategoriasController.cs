@@ -54,8 +54,8 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [AllowAnonymous]
         [HttpGet]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             List<Categoria> categorias = await _categoriasService.Listar();
@@ -74,6 +74,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id da Categorias</param>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -95,6 +96,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de uma Categorias</param>
         [HttpPost]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromBody] CategoriasCreateModel model)
         {
             if (model == null)
@@ -126,6 +128,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de atualização de um Categorias</param>
         [HttpPut]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromBody] CategoriasUpdateModel model)
         {
             if (model == null)
@@ -155,6 +158,7 @@ namespace Neotix.Neocms.CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Categorias</param>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)

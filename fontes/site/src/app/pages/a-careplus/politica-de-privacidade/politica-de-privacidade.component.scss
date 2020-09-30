@@ -1,17 +1,15 @@
 section {
-    &#politicaDePrivacidadeSection {
+    &#politica-de-privacidade-section {
         .container {
-            app-sidebar {
+            .app-sidebar {
                 height: 100%;
                 display: block;
             }
-            
             .term-section {
                 margin-top: 22px;
                 &:first-child {
                     margin-top: 0;
                 }
-
                 .big-title {
                     max-width: 100%;
                 }

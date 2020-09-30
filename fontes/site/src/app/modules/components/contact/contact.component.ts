@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID, Input } 
 import { ButtonModel, IconCardModel } from 'src/app/models';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { Button } from 'protractor';
 
 @Component({
     selector: 'app-contact',
@@ -12,8 +11,8 @@ import { Button } from 'protractor';
 export class ContactComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     button: ButtonModel = new ButtonModel({
-        link: '/fale-conosco',
-        text: 'ENTRE EM CONTATO'
+        link: '/fale-conosco/solicite-uma-cotacao',
+        text: 'Entre em contato'
     });
     @ViewChild('buttonElement', { static: false }) buttonElement: ElementRef<HTMLButtonElement>;
     isBrowser: boolean = false;

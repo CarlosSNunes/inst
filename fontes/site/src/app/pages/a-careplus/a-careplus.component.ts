@@ -9,8 +9,9 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
-import { IconCardModel, SliderModel, HeroBannerModel, VideoModel, BreadcrumbModel, ButtonModel } from 'src/app/models';
+import { IconCardModel, SliderModel, HeroBannerModel, VideoModel, BreadcrumbModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-careplus',
@@ -27,16 +28,13 @@ import { Title, Meta } from '@angular/platform-browser';
     heroBannerModel: HeroBannerModel = new HeroBannerModel({
         video: new VideoModel(
             {
-                url: 'assets/videos/video-teste.mp4',
+                url: 'assets/videos/dedicacao.mp4',
                 type: 'video/mp4'
             }
         ),
-        bigTitle: 'Somos a maior operadora de saúde premium do mercado',
-        subTitle: 'Desde 2016 fazemos parte do grupo Bupa, empresa de saúde global, presente em mais de 190 países. Fornecemos soluções de saúde premium por meio de uma extensa variedade de serviços, entre eles medicina, odontologia, saúde ocupacional e medicina preventiva',
+        bigTitle: '',
+        subTitle: '',
         isFullScreen: true,
-        button: new ButtonModel({
-            text: 'Assista e saiba mais',
-        }),
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
@@ -60,17 +58,23 @@ import { Title, Meta } from '@angular/platform-browser';
         hasBackgroundColorWhite: true,
         images: [
             {
-                image: 'assets/img/slider-video-image.jpg',
-                thumbImage: 'assets/img/slider-video-image.jpg',
-                alt: 'alt of image',
+                image: 'assets/img/banner-rh.jpg',
+                thumbImage: 'assets/img/banner-rh.jpg',
+                alt: 'Oferecendo à sua empresa escolha e flexibilidade.',
                 title: 'Oferecendo à sua empresa escolha e flexibilidade.'
             },
             {
-                image: 'assets/img/slider-video-image-2.jpg',
-                thumbImage: 'assets/img/slider-video-image-2.jpg',
-                alt: 'alt of image',
+                image: 'assets/img/careplus-plus-post-image.jpg',
+                thumbImage: 'assets/img/careplus-plus-post-image.jpg',
+                alt: 'O cuidado está no coração de tudo o que fazemos.',
                 title: 'O cuidado está no coração de tudo o que fazemos.'
             },
+            {
+                image: 'assets/img/sobre-a-bupa.jpg',
+                thumbImage: 'assets/img/sobre-a-bupa.jpg',
+                alt: 'Seu bem-estar é a nossa razão de ser.',
+                title: 'Seu bem-estar é a nossa razão de ser.'
+            }
         ]
     });
 
@@ -85,11 +89,8 @@ import { Title, Meta } from '@angular/platform-browser';
         this.isBrowser = isPlatformBrowser(this.plataformId)
         if (this.isBrowser) {
             this.width = this.windowRef.nativeWindow.innerWidth;
-            if (this.width < 1024) {
-                this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-            } else {
-                this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-            }
+            this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
+
         }
     }
 
@@ -103,11 +104,7 @@ import { Title, Meta } from '@angular/platform-browser';
 
     @HostListener('window: resize', ['$event']) onResize(event) {
         this.width = event.target.innerWidth;
-        if (this.width < 1024) {
-            this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-        } else {
-            this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
-        }
+        this.offset = - (this.windowRef.nativeWindow.innerHeight * 0.9);
         this.populateElements()
     }
 
@@ -148,6 +145,75 @@ import { Title, Meta } from '@angular/platform-browser';
         this.meta.updateTag({
             name: 'description',
             content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'A Care Plus | Care Plus',
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/assets/img/banner-dog-a-careplus.jpg`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/a-careplus`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'A Care Plus | Care Plus',
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/assets/img/banner-dog-a-careplus.jpg`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/a-careplus`,
         });
     }
 

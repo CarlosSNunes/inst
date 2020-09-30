@@ -1,17 +1,16 @@
 import { Component, OnInit, ChangeDetectorRef, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { DropDownItem, FaleConoscoAutoFields } from 'src/app/models';
-import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
-import { FeedbackModalModel } from 'src/app/models/modal.model';
-import { ModalService } from 'src/app/services/modal/modal.service';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 declare var grecaptcha: any;
 import { requireAtLeastOne } from '../utils/validators';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-solicite-uma-cotacao',
@@ -21,34 +20,30 @@ import { Subscription } from 'rxjs';
 export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     dropDownItems: DropDownItem[] = [
         new DropDownItem({
-            key: '2 a 29 vidas - Soho',
-            value: 'soho'
+            title: '2 a 29 vidas - Soho',
+            value: 'careplus-soho'
         }),
         new DropDownItem({
-            key: '30 a 200 vidas - Clube Care Plus',
+            title: '30 a 200 vidas - Clube Care Plus',
             value: 'clube-careplus'
         }),
         new DropDownItem({
-            key: 'Mais de 200 vidas - Empresarial',
-            value: 'empresarial'
+            title: '+ 200 vidas - Empresarial',
+            value: 'careplus-empresarial'
         })
     ];
-    defaultItem = new DropDownItem({
-        key: 'Selecione...',
-        value: ''
-    });
+    selectedPlan: string = '';
     soliciteUmaCotacaoForm: FormGroup;
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
     formValueChangesSubscription: Subscription;
-    changed: boolean = false;
+    retURL: string = `${environment.SELF_URL}/obrigado`;
 
     constructor(
         private fb: FormBuilder,
         private activatedRoute: ActivatedRoute,
         private cdr: ChangeDetectorRef,
         private validateBrService: ValidateBrService,
-        private modalService: ModalService,
         @Inject(PLATFORM_ID) private platformId: Platform,
         private scriptLoaderService: ScriptLoaderService,
         @Inject(DOCUMENT) private document: Document
@@ -56,17 +51,18 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.soliciteUmaCotacaoForm = this.fb.group({
             plano: ['',],
-            planoSaude: [false,],
-            planoOdontologico: [false,],
-            medicinaOcupacional: [false,],
+            planoSaude: [0,],
+            planoOdontologico: [0,],
+            medicinaOcupacional: [0,],
             nome: ['', Validators.compose([Validators.required])],
             razaoSocial: ['', Validators.compose([Validators.required])],
-            cpf: ['', Validators.compose([Validators.required, this.validateBrService.cpf])],
+            // cpf: ['', Validators.compose([Validators.required, this.validateBrService.cpf])],
             cnpj: ['', Validators.compose([Validators.required, this.validateBrService.cnpj])],
             email: ['', Validators.compose([Validators.required, Validators.email])],
             telefone: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
             mensagem: ['', Validators.compose([Validators.required])],
             validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
+            aceiteDeTermos: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
         }, {
             validators: [
                 requireAtLeastOne()
@@ -91,6 +87,16 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
                 }
             }
             this.initRecaptchaScript();
+        }
+    }
+
+    checkboxChange(event, controlName) {
+        if (event.target.checked) {
+            this.soliciteUmaCotacaoForm.controls[controlName].setValue(1);
+            event.target.value = 1;
+        } else {
+            this.soliciteUmaCotacaoForm.controls[controlName].setValue(0);
+            event.target.value = 0;
         }
     }
 
@@ -139,19 +145,15 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     }
 
     private fillForm(params) {
-        this.defaultItem = new DropDownItem({
-            key: 'Selecione...',
-            value: ''
-        });
         let fields = { ...params }
-        fields.planoOdontologico = (fields.planoOdontologico == 'true');
-        fields.medicinaOcupacional = (fields.medicinaOcupacional == 'true');
-        fields.planoSaude = (fields.planoSaude == 'true');
+        fields.planoOdontologico = (fields.planoOdontologico == 'true') ? 1 : 0;
+        fields.medicinaOcupacional = (fields.medicinaOcupacional == 'true') ? 1 : 0;
+        fields.planoSaude = (fields.planoSaude == 'true') ? 1 : 0;
         this.faleConoscoAutoFiels = new FaleConoscoAutoFields(fields);
         const item = this.dropDownItems.find(item => item.value === params.plano)
         if (item) {
-            this.defaultItem = item;
-            this.soliciteUmaCotacaoForm.controls.plano.setValue(item.value);
+            this.selectedPlan = item.title;
+            this.soliciteUmaCotacaoForm.controls.plano.setValue(item.title);
             this.cdr.detectChanges();
         }
         this.soliciteUmaCotacaoForm.controls.planoSaude.setValue(this.faleConoscoAutoFiels.planoSaude);
@@ -159,24 +161,27 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         this.soliciteUmaCotacaoForm.controls.medicinaOcupacional.setValue(this.faleConoscoAutoFiels.medicinaOcupacional);
     }
 
-    sendForm() {
+    sendForm(event) {
         if (this.soliciteUmaCotacaoForm.valid) {
-            console.log('valid', this.soliciteUmaCotacaoForm.value)
 
-            const modal: FeedbackModalModel = new FeedbackModalModel();
+            event.target.submit();
 
-            this.modalService.openModal(modal)
+            // const modal: FeedbackModalModel = new FeedbackModalModel();
+
+            // this.modalService.openModal(modal)
         } else {
+            event.preventDefault();
             Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
             });
+            return false;
         }
     }
 
     updateFormValidation() {
-        if (this.soliciteUmaCotacaoForm.value.planoSaude || this.soliciteUmaCotacaoForm.value.planoOdontologico && !this.changed) {
-            if (this.defaultItem.value != '') {
-                this.soliciteUmaCotacaoForm.controls.plano.setValue(this.defaultItem.value)
+        if (this.soliciteUmaCotacaoForm.value.planoSaude || this.soliciteUmaCotacaoForm.value.planoOdontologico) {
+            if (this.selectedPlan != '') {
+                this.soliciteUmaCotacaoForm.controls.plano.setValue(this.selectedPlan)
             } else {
                 this.soliciteUmaCotacaoForm.controls.plano.setValue('')
             }
@@ -186,6 +191,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             this.soliciteUmaCotacaoForm.controls.plano.updateValueAndValidity();
 
         } else {
+            this.selectedPlan = '';
             this.soliciteUmaCotacaoForm.controls.plano.setValue('');
             this.soliciteUmaCotacaoForm.controls.plano.setValidators(null);
             this.soliciteUmaCotacaoForm.controls.plano.updateValueAndValidity();
@@ -195,7 +201,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
     /*
      * Recaptcha functions
-     * 
+     *
      */
     getCaptchaErrorCallback(error) {
         console.error(error)
@@ -225,6 +231,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
         if (this.formValueChangesSubscription) {
             this.formValueChangesSubscription.unsubscribe();
+            this.formValueChangesSubscription.remove(this.formValueChangesSubscription);
         }
     }
 

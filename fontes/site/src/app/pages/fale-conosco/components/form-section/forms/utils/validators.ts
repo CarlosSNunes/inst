@@ -6,7 +6,7 @@ export function requireAtLeastOne(minRequired = 1): ValidatorFn {
 
         Object.keys(formGroup.controls).filter(key => key === 'planoSaude' || key === 'planoOdontologico' || key === 'medicinaOcupacional').forEach(key => {
             const control = formGroup.controls[key];
-            if (control.value === true) {
+            if (control.value === 1) {
                 checked++;
             }
         });

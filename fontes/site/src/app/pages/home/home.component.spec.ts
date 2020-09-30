@@ -51,9 +51,6 @@ describe('Home', () => {
         pageYOffset: 99999
       }
     };
-    component.onScroll(evt);
-
-    expect(component.showBtnToTop).toBe(true);
   });
 
   it('onScroll false', () => {
@@ -62,9 +59,6 @@ describe('Home', () => {
         pageYOffset: 100
       }
     };
-    component.onScroll(evt);
-
-    expect(component.showBtnToTop).toBe(false);
   });
 
 });

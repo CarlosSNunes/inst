@@ -52,19 +52,21 @@
     }
 
     .extra-content-description {
+        margin-top: 20px;
         font-weight: 500;
         font-size: getSize("mbt");
         line-height: getLineHeight("mbt");
         color: getColor(_bupa, _grey-2);
+        display: block;
     }
 
-    .btn-text {
+    .btn.tertiary {
         padding-left: 0;
-        margin-top: 10px;
     }
 
     .whatsapp-btn {
         display: inline-flex;
+        margin-top: 20px;
         img {
             width: 20px;
             height: 20px;
@@ -116,7 +118,7 @@
     position: fixed;
     width: 280px;
     height: 60px;
-    background-color: getColor(_carePlus, _light-green);
+    background-color: getColor(_bupa, _digital-cian);
     display: flex;
     padding: 21.5px 32px;
     right: 144px;
@@ -127,7 +129,7 @@
     .text {
         align-self: center;
         margin: 0;
-        color: getColor(_bupa, _navy);
+        color: getColor(_bupa, _white);
         font-size: getSize("sbm");
         line-height: getLineHeight("sbm");
     }

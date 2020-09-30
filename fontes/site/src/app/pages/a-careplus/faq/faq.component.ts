@@ -26,25 +26,25 @@ export class FaqComponent implements OnInit, AfterViewInit {
     @ViewChild('searchInput', { static: true }) searchInput: ElementRef<HTMLInputElement>;
     simpleBannerModel: SimpleBannerModel = {
         title: 'Perguntas Frequentes',
-        description: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.',
+        description: 'Confira as principais dúvidas de Beneficiários, RHs, Corretores e Credenciados',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'A CarePlus',
+                name: 'A Care Plus',
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({
-                name: 'Faq',
-                link: '/a-careplus/faq',
+                name: 'Perguntas Frequentes',
+                link: '/a-careplus/perguntas-frequentes',
                 active: true
             })
         ],
         hasAnchor: false,
         hasFilters: true,
-        image: 'assets/img/a-careplus-faq-banner.jpg'
+        image: 'assets/img/banner-faq.jpg'
     };
     filterForm: FormGroup;
     script: HTMLScriptElement;
@@ -104,7 +104,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     }
 
     initAcordions() {
-        this.questions = [...this.questionsDefault];;
+        this.questions = [...this.questionsDefault];
         this.authorizationQuestions = [...this.authorizationQuestionsDefault];
         this.authorizationQuestionsExtra = [...this.authorizationQuestionsExtraDefault];
         this.previaDeReembolso = [...this.previaDeReembolsoDefault];
@@ -168,7 +168,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Perguntas Frequentes | Care Plus | Care Plus');
+        this.title.setTitle('Perguntas Frequentes | A Care Plus | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.'

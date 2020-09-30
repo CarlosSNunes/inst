@@ -1,16 +1,16 @@
 <app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToNextSection()"></app-simple-banner>
-<section #aboutPlusNetwork id="aboutPlusNetwork">
+<section #aboutPlusNetwork id="about-plus-network">
     <article>
         <div class="container">
             <div class="columns flex-wrap">
                 <div class="column is-full is-6-desktop">
                     <div #boxInfos class="box-infos">
                         <p class="small-title">
-                            Sobre a Rede Plus
+                            Sobre a Care Plus
                         </p>
-                        <h4 class="big-title">
+                        <h2 class="h4 big-title">
                             Conheça o nosso trabalho e traga sua carreira para a Care Plus
-                        </h4>
+                        </h2>
                     </div>
                 </div>
                 <div class="column is-full is-6-desktop">
@@ -18,19 +18,15 @@
                         Nossos talentos só crescem todos os dias e formamos um futuro ideal para todos.
                     </p>
                     <p class="sub-description">
-                        A Care Plus se preocupa com os seus colaboradores e queremos oferecer o melhor para eles, nosso
-                        time é composto de pessoas capacitadas para ajudar a sua carreira a decolar. Venha fazer parte
-                        desse time e conheça nosso trabalho nesses 27 anos, criamos um ambiente capaz de te acolher de
-                        todas as formas, com representatividade, diversidade e respeito por todos.
+                         A Care Plus se preocupa com os seus colaboradores e queremos oferecer o melhor para eles. Nosso time é composto de pessoas capacitadas para ajudar a sua carreira a decolar. Venha fazer parte desse time e conheça nosso trabalho nesses quase 30 anos. Criamos um ambiente capaz de te acolher de todas as formas, com representatividade, diversidade e respeito por todos.
                     </p>
                 </div>
             </div>
         </div>
     </article>
 </section>
-<app-a-careplus-video [videoModel]="videoModel" [backgroundColor]="'#0079C81A'"></app-a-careplus-video>
-<app-info-section *ngFor="let infoSection of infoSections" [sectionInfo]="infoSection"></app-info-section>
+<app-a-careplus-video [videoModel]="videoModel" [backgroundColor]="'blue'"></app-a-careplus-video>
 <app-join-the-team [reverse]="true"></app-join-the-team>
-<app-learn-more></app-learn-more>
-<app-careplus-plus></app-careplus-plus>
+<app-learn-more [cards]=""></app-learn-more>
+
 <app-social-posts></app-social-posts>

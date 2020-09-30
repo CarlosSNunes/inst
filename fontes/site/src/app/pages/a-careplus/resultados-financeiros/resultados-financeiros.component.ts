@@ -5,6 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { FormControlError } from 'src/utils/form-control-error';
 import Documents from './data/documents';
 import TableItems from './data/table-mock';
+import Cards from './data/cards';
 
 @Component({
     selector: 'app-resultados-financeiros',
@@ -14,14 +15,14 @@ import TableItems from './data/table-mock';
 export class ResultadosFinanceirosComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
         title: 'Transparência e responsabilidade na prestação de contas',
-        description: 'Nesta área, você encontra os últimos relatórios de resultados financeiros da Care Plus.',
+        description: 'Nesta área, você encontra os últimos relatórios de resultados financeiros da Care Plus',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
                 link: '/home'
             }),
             new BreadcrumbModel({
-                name: 'A CarePlus',
+                name: 'A Care Plus',
                 link: '/a-careplus'
             }),
             new BreadcrumbModel({
@@ -32,20 +33,20 @@ export class ResultadosFinanceirosComponent implements OnInit {
         ],
         hasAnchor: false,
         hasFilters: true,
-        image: 'assets/img/banner-resultados-financeiros.jpg'
+        image: 'assets/img/banner-relatorios-financeiros.jpg'
     };
     filterForm: FormGroup;
     dropDownOptions: DropDownItem[] = [
         {
-            key: 'Todos',
+            title: 'Todos',
             value: 'all'
         },
         {
-            key: 'Resultados financeiros de 2019',
+            title: 'Resultados financeiros de 2019',
             value: '2019'
         },
         {
-            key: 'Resultados financeiros de 2018',
+            title: 'Resultados financeiros de 2018',
             value: '2018'
         },
     ];
@@ -57,16 +58,17 @@ export class ResultadosFinanceirosComponent implements OnInit {
     table: TableModel = new TableModel({
         headItems: [
             {
-                key: 'title',
+                title: 'title',
                 text: 'Título'
             },
             {
-                key: 'button',
+                title: 'button',
                 text: 'Download'
             }
         ],
         bodyItems: this.tableItemsMockFiltered,
-    })
+    });
+    cards = Cards;
 
     constructor(
         private fb: FormBuilder,

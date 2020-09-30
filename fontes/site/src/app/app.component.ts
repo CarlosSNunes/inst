@@ -6,12 +6,32 @@ import { filter } from 'rxjs/operators';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CanonicalService } from './services/caninical/canonical.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [
+        trigger('cookieAgreeAnimation', [
+            state('agree', style({
+                opacity: 0,
+                display: 'none'
+            })),
+            state('not-agree', style({
+                opacity: 1,
+                display: 'block'
+            })),
+            transition('not-agree => agree', [
+                animate('0.3s')
+            ]),
+            transition('agree => not-agree', [
+                animate('0.3s')
+            ]),
+        ]),
+    ]
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
@@ -20,6 +40,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     width: number = 1440;
     elementOffset: number = 0;
     initiated: boolean = false;
+    scrollTop: number = 0;
+    showBtnToTop: boolean = false;
+    invertColors: boolean = false;
+    footer: HTMLElement;
+    cookieAgree: string = 'not-agree';
 
     constructor(
         private cdRef: ChangeDetectorRef,
@@ -30,7 +55,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         private windowRef: WindowRef,
         iconRegistry: MatIconRegistry,
         sanitizer: DomSanitizer,
+        private caninicalService: CanonicalService
     ) {
+        this.caninicalService.createCanonicalURL();
         if (isPlatformBrowser(this.platformId)) {
             this.isBrowser = true;
             this.width = this.windowRef.nativeWindow.innerWidth;
@@ -42,6 +69,13 @@ export class AppComponent implements OnInit, AfterViewInit {
             }
 
             this.addAnchorListener();
+
+            const agreed = localStorage.getItem('cookies-accepted');
+
+            if (agreed == 'true') {
+                this.cookieAgree = 'agree';
+            }
+
         }
 
         iconRegistry.addSvgIconLiteral(
@@ -56,12 +90,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.initiated = true;
+        if (this.isBrowser) {
+            this.footer = this.document.querySelector('footer');
+        }
     }
 
     addAnchorListener() {
         this.router.events.pipe(filter((e: Event): e is Scroll => e instanceof Scroll)).subscribe(async () => {
             const fragment = this.activatedRoute.snapshot.fragment;
             const offset = parseInt(localStorage.getItem('elementOffset'))
+            this.caninicalService.createCanonicalURL();
             if (fragment) {
                 this.cdRef.detectChanges();
                 this.windowRef.nativeWindow.scroll(0, 0)
@@ -80,14 +118,37 @@ export class AppComponent implements OnInit, AfterViewInit {
         });
     }
 
+    @HostListener('window:scroll', ['$event'])
+    onScroll(event) {
+        this.scrollTop = event.currentTarget.pageYOffset;
+        if (this.scrollTop > this.windowRef.nativeWindow.innerHeight) {
+            this.showBtnToTop = true;
+        } else {
+            this.showBtnToTop = false;
+        }
+
+        if (this.footer && this.footer != null) {
+            const footerTop = this.footer.getBoundingClientRect().top + window.pageYOffset;
+            const bottomTop = (this.windowRef.nativeWindow.innerHeight + this.scrollTop)
+            if (bottomTop > footerTop) {
+                this.invertColors = true;
+            } else {
+                this.invertColors = false;
+            }
+        }
+    }
+
     @HostListener('window:resize', ['$event']) onResize(event) {
         if (this.isBrowser) {
-            this.width = event.target.innerWidth
-            if (this.width <= 1024) {
-                localStorage.setItem('elementOffset', '72')
+            this.width = event.target.innerWidth;
+
+            if (this.width < 1024) {
+                localStorage.setItem('elementOffset', '72');
+
             } else {
-                localStorage.setItem('elementOffset', '0')
+                localStorage.setItem('elementOffset', '0');
             }
+
         }
     }
 
@@ -109,5 +170,18 @@ export class AppComponent implements OnInit, AfterViewInit {
                 this.document.body.classList.remove('using-mouse');
             }
         }
+    }
+
+    goToTop() {
+        this.windowRef.nativeWindow.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+
+    agreeCookieComponent() {
+        this.cookieAgree = 'agree';
+        localStorage.setItem('cookies-accepted', 'true');
     }
 }

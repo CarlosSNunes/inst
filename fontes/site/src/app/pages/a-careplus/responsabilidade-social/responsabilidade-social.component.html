@@ -1,16 +1,16 @@
 <app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToNextSection()"></app-simple-banner>
-<section #iniciativaSection id="responsabilidadeSocialIniciativaSection">
+<section #iniciativaSection id="responsabilidade-social-iniciativa-section">
     <article>
         <div class="container">
             <div class="columns">
                 <div class="column is-half-desktop is-full">
                     <div class="box-infos">
                         <p class="small-title">
-                            iniciativa Care Plus
+                            iniciativas Care Plus
                         </p>
-                        <h4 class="big-title">
+                        <h2 class="h4 big-title">
                             Confira algumas de nossas ações já realizadas
-                        </h4>
+                        </h2>
                     </div>
                 </div>
                 <div class="column is-half-desktop is-full">
@@ -49,10 +49,7 @@
     </article>
 </section>
 
-<app-a-careplus-video [videoModel]="videoModel" [backgroundColor]="'#0079C81A'"></app-a-careplus-video>
-
 <app-info-section *ngFor="let infoSection of infoSections" [sectionInfo]="infoSection"></app-info-section>
 
 <app-learn-more [cards]="cards"></app-learn-more>
 
-<app-careplus-plus></app-careplus-plus>

@@ -11,7 +11,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @Input() bigTitle: string = 'Entre em contato ou agende uma visita';
     @Input() firstCard: IconCardModel = new IconCardModel({
-        title: 'Central de atendimento',
+        title: 'Central de Atendimento',
         type: 'icon',
         button: new ButtonModel({
             link: 'tel: 11 4197-9000',
@@ -22,11 +22,11 @@ export class ContactScheduleAVisitComponent implements OnInit {
         backgroundColorClass: this.backgroundColorClass
     });
     @Input() secondCard: IconCardModel = new IconCardModel({
-        title: 'Solicite Uma Cotação',
+        title: 'Solicite uma Cotação',
         type: 'icon',
         imagePath: 'assets/svg/calendar.svg',
         button: new ButtonModel({
-            routerLink: '/fale-conosco',
+            routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite uma cotação',
             target: '_blank',
         }),

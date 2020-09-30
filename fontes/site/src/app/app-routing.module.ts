@@ -21,10 +21,6 @@ const routes: Routes = [
         loadChildren: () => import('./pages/fale-conosco/fale-conosco.module').then(m => m.FaleConoscoModule)
     },
     {
-        path: 'gestao-de-saude',
-        loadChildren: () => import('./pages/gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
-    },
-    {
         path: 'planos-e-produtos',
         loadChildren: () => import('./pages/planos-e-produtos/planos-e-produtos.module').then(m => m.PlanosEProdutosModule),
     },
@@ -33,8 +29,8 @@ const routes: Routes = [
         loadChildren: () => import('./pages/carreiras/carreiras.module').then(m => m.CarreirasModule),
     },
     {
-        path: 'careplus-mais',
-        loadChildren: () => import('./pages/careplus-mais/careplus-mais.module').then(m => m.CareplusMaisModule),
+        path: 'obrigado',
+        loadChildren: () => import('./pages/obrigado/obrigado.module').then(m => m.ObrigadoModule),
     },
     {
         path: '**',

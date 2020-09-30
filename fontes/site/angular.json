@@ -24,10 +24,38 @@
                         "tsConfig": "tsconfig.app.json",
                         "aot": false,
                         "assets": [
-                            "src/careplus-bupa.ico",
                             "src/assets",
-                            "src/.htaccess",
-                            "src/.htpasswd"
+                            "src/android-icon-36x36.png",
+                            "src/android-icon-48x48.png",
+                            "src/android-icon-72x72.png",
+                            "src/android-icon-96x96.png",
+                            "src/android-icon-144x144.png",
+                            "src/android-icon-192x192.png",
+                            "src/apple-icon-57x57.png",
+                            "src/apple-icon-60x60.png",
+                            "src/apple-icon-72x72.png",
+                            "src/apple-icon-76x76.png",
+                            "src/apple-icon-114x114.png",
+                            "src/apple-icon-120x120.png",
+                            "src/apple-icon-144x144.png",
+                            "src/apple-icon-152x152.png",
+                            "src/apple-icon-180x180.png",
+                            "src/apple-icon-precomposed.png",
+                            "src/apple-icon.png",
+                            "src/favicon-16x16.png",
+                            "src/favicon-32x32.png",
+                            "src/favicon-96x96.png",
+                            "src/favicon.ico",
+                            "src/manifest.json",
+                            "src/ms-icon-70x70.png",
+                            "src/ms-icon-144x144.png",
+                            "src/ms-icon-150x150.png",
+                            "src/ms-icon-310x310.png",
+                            "src/browserconfig.xml",
+                            "src/robots.txt",
+                            "src/sitemap.xml",
+                            "src/manifest.webmanifest",
+                            "src/web.config"
                         ],
                         "styles": [
                             "src/styles.scss",
@@ -43,12 +71,10 @@
                     },
                     "configurations": {
                         "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
-                                }
-                            ],
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
@@ -58,8 +84,36 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
-                            "budgets": [
+                            "baseHref": "/institucional/",
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
                                 {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ],
+                            "serviceWorker": true,
+                            "ngswConfigPath": "ngsw-config.json"
+                        },
+                        "homolog": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.homolog.ts"
+                            }],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
                                     "type": "initial",
                                     "maximumWarning": "2mb",
                                     "maximumError": "5mb"
@@ -71,34 +125,8 @@
                                 }
                             ]
                         },
-                        "homolog": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.homolog.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
+                        "es5": {
+                            "tsConfig": "./tsconfig.es5.json"
                         }
                     }
                 },
@@ -111,6 +139,12 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "Care-plus:build:production"
+                        },
+                        "homolog": {
+                            "browserTarget": "Care-plus:build:homolog"
+                        },
+                        "es5": {
+                            "browserTarget": "Care-plus:build:es5"
                         }
                     }
                 },
@@ -134,8 +168,37 @@
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
                         "assets": [
-                            "src/careplus-bupa.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/android-icon-36x36.png",
+                            "src/android-icon-48x48.png",
+                            "src/android-icon-72x72.png",
+                            "src/android-icon-96x96.png",
+                            "src/android-icon-144x144.png",
+                            "src/android-icon-192x192.png",
+                            "src/apple-icon-57x57.png",
+                            "src/apple-icon-60x60.png",
+                            "src/apple-icon-72x72.png",
+                            "src/apple-icon-76x76.png",
+                            "src/apple-icon-114x114.png",
+                            "src/apple-icon-120x120.png",
+                            "src/apple-icon-144x144.png",
+                            "src/apple-icon-152x152.png",
+                            "src/apple-icon-180x180.png",
+                            "src/apple-icon-precomposed.png",
+                            "src/apple-icon.png",
+                            "src/favicon-16x16.png",
+                            "src/favicon-32x32.png",
+                            "src/favicon-96x96.png",
+                            "src/favicon.ico",
+                            "src/manifest.json",
+                            "src/ms-icon-70x70.png",
+                            "src/ms-icon-144x144.png",
+                            "src/ms-icon-150x150.png",
+                            "src/ms-icon-310x310.png",
+                            "src/browserconfig.xml",
+                            "src/robots.txt",
+                            "src/sitemap.xml",
+                            "src/manifest.webmanifest"
                         ],
                         "styles": [
                             "src/styles.scss"
@@ -165,6 +228,9 @@
                     "configurations": {
                         "production": {
                             "devServerTarget": "Care-plus:serve:production"
+                        },
+                        "homolog": {
+                            "devServerTarget": "Care-plus:serve:homolog"
                         }
                     }
                 },
@@ -177,12 +243,21 @@
                     },
                     "configurations": {
                         "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
-                                }
-                            ],
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "sourceMap": false,
+                            "optimization": {
+                                "scripts": false,
+                                "styles": true
+                            }
+                        },
+                        "homolog": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.homolog.ts"
+                            }],
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,

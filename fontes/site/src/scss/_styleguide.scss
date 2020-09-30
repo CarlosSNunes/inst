@@ -1,7 +1,8 @@
 @import "_variables.scss";
+@import "_mixins.scss";
 
 /*
-    Grid
+Grid
 */
 
 .container {
@@ -11,42 +12,17 @@
 
 .columns {
     margin: 0;
-
     &:last-child {
         margin: 0;
         margin-bottom: 0;
     }
-
     &.has-negative-margin {
         margin-left: -16px;
         margin-right: -16px;
     }
-
     .column {
-        // padding-top: 0;
-        // padding-bottom: 0;
         padding-left: 16px;
         padding-right: 16px;
-        // @media (min-width: 769px) {
-        //     &:first-child {
-        //         padding-left: 0;
-        //     }
-        //     &:last-child {
-        //         padding-right: 0;
-        //     }
-        // }
-
-        // &:first-child {
-        //     padding-left: 0;
-        // }
-        // &:last-child {
-        //     padding-right: 0;
-        // }
-
-        // @media (max-width: 768px) {
-        //     padding-right: 32px;
-        //     padding-left: 32px;
-        // }
 
         &.is-paddingless-vertical {
             padding-top: 0;
@@ -55,6 +31,7 @@
     }
 }
 
+
 /*
     pt - Regras de espaçamento
     en - Spacement rules
@@ -62,347 +39,32 @@
 
 section {
     padding: 60px 0;
-
     @media (max-width: 768px) {
         padding: 30px 0;
     }
-
     &.no-margin {
         margin-top: unset;
         margin-bottom: unset;
     }
-
     &.no-padding {
         padding-top: unset;
         padding-bottom: unset;
     }
-
     &.subtitle {
         margin-top: 16px;
     }
-
     &.description {
         margin-top: 32px;
     }
 }
 
+
 /*
-    pt - Botões
-    en - Buttons
+    Pt - Botões
+    En - Buttons
 */
 
-.btn {
-    -webkit-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
-        color 0.3s ease-in-out;
-    -moz-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
-        color 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
-        color 0.3s ease-in-out;
-    letter-spacing: 3.5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    outline: none;
-    border-radius: 2px;
-    cursor: pointer;
-    display: inline-block;
-
-    &.small {
-        padding: 16px 24px;
-        font-size: getSize("sbm");
-        line-height: getLineHeight("p");
-        @media (max-width: 991px) {
-            font-weight: 600;
-            padding: 8px 16px;
-            letter-spacing: 3.5px;
-        }
-    }
-
-    &.medium {
-        padding: 20px 32px;
-        font-size: getSize("p");
-        line-height: getLineHeight("p");
-        @media (max-width: 991px) {
-            font-weight: 600;
-            padding: 8px 16px;
-            letter-spacing: 3.5px;
-        }
-    }
-
-    &.big {
-        padding: 24px 32px;
-        font-size: getSize("p");
-        line-height: getLineHeight("p");
-        @media (max-width: 991px) {
-            font-weight: 600;
-            padding: 12px 24px;
-            letter-spacing: 3.5px;
-        }
-    }
-
-    /*
-        Pt - Botão primário
-        En - Primary button
-    */
-
-    &.btn-primary {
-        border: 2px solid getColor(_carePlus, _green);
-        color: getColor(_bupa, _white);
-        background-color: getColor(_carePlus, _green);
-        outline: none;
-
-        &:hover {
-            border: 2px solid getColor(_carePlus, _dark-green);
-            background-color: getColor(_carePlus, _dark-green);
-        }
-
-        &:focus {
-            border: 2px solid getColor(_carePlus, _dark-green);
-            background-color: getColor(_carePlus, _dark-green);
-            box-shadow: 0px 0px 10px getColor(_carePlus, _dark-green);
-        }
-
-        &:active {
-            border: 2px solid getColor(_carePlus, _green);
-            background-color: getColor(_carePlus, _green);
-            -webkit-transform: scale(0.95);
-            transform: scale(0.95);
-            box-shadow: unset;
-        }
-
-        &:disabled {
-            cursor: not-allowed;
-            border: 2px solid getColor(_bupa, _grey-3);
-            background-color: getColor(_bupa, _grey-3);
-        }
-
-        @media (max-width: 991px) {
-            background-color: getColor(_bupa, _white);
-            border: unset;
-            border-radius: 2px;
-            color: getColor(_carePlus, _green);
-
-            &:hover {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-            }
-
-            &:focus {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                box-shadow: unset;
-            }
-
-            &:active {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                -webkit-transform: scale(0.95);
-                transform: scale(0.95);
-                box-shadow: unset;
-            }
-        }
-    }
-
-    /*
-        Pt - Botão secundário
-        En - Secondary button
-    */
-
-    &.btn-secondary {
-        border: 2px solid getColor(_carePlus, _green);
-        box-sizing: border-box;
-        background-color: getColor(_bupa, _white);
-        color: getColor(_carePlus, _green);
-
-        &:hover {
-            border: 2px solid getColor(_carePlus, _green);
-            background-color: getColor(_carePlus, _green);
-            color: getColor(_bupa, _white);
-        }
-
-        &:focus {
-            border: 2px solid getColor(_carePlus, _green);
-            background-color: getColor(_carePlus, _green);
-            box-shadow: 0px 0px 10px getColor(_carePlus, _green);
-            color: getColor(_bupa, _white);
-        }
-
-        &:active {
-            border: 2px solid getColor(_carePlus, _dark-green);
-            background-color: getColor(_carePlus, _dark-green);
-            -webkit-transform: scale(0.95);
-            transform: scale(0.95);
-            color: getColor(_bupa, _white);
-        }
-
-        &:disabled {
-            cursor: not-allowed;
-            border: 2px solid getColor(_bupa, _grey-3);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _grey-3);
-        }
-    }
-
-    /*
-        Pt - Botão de texto
-        En - Text button
-    */
-
-    &.btn-text {
-        cursor: pointer;
-        display: flex;
-        color: getColor(_bupa, _digital-cian);
-        text-transform: uppercase;
-        line-height: 120%;
-        font-weight: 500;
-        background-color: unset;
-        border: unset;
-
-        svg {
-            margin-right: 20px;
-            margin-left: 10px;
-            transition: margin 0.4s ease-in-out;
-            align-self: center;
-        }
-        &:hover {
-            color: getColor(_carePlus, _blue-btn-text);
-            svg {
-                margin-right: 10px;
-                margin-left: 20px;
-                path {
-                    fill: getColor(_carePlus, _blue-btn-text);
-                }
-            }
-        }
-
-        &.reverse {
-            &:hover {
-                svg {
-                    margin-right: 30px;
-                    margin-left: 0px;
-                    path {
-                        fill: getColor(_carePlus, _blue-btn-text);
-                    }
-                }
-            }
-        }
-
-        &:active {
-            color: getColor(_carePlus, _blue-btn-text);
-            svg {
-                margin-right: 10px;
-                margin-left: 20px;
-                path {
-                    fill: getColor(_carePlus, _blue-btn-text);
-                }
-            }
-        }
-
-        &:disabled,
-        &.disabled {
-            cursor: not-allowed;
-            color: getColor(_bupa, _grey);
-            opacity: 0.6;
-            svg {
-                path {
-                    fill: getColor(_bupa, _grey);
-                }
-            }
-        }
-
-        &.small {
-            font-size: getSize("sbm");
-            /* or 29px */
-
-            letter-spacing: 2px;
-            svg {
-                width: 18px;
-            }
-        }
-
-        &.medium {
-            font-size: getSize("p");
-            svg {
-                width: 22px;
-            }
-        }
-
-        &.big {
-            font-size: getSize("mbt");
-            svg {
-                width: 26px;
-            }
-        }
-
-        &.no-padding {
-            padding: 0 !important;
-        }
-    }
-
-    /**
-        pt - Botão Digital cian
-        en - Digital cian button
-    */
-
-    &.btn-digital-cian {
-        border: 2px solid getColor(_bupa, _white);
-        color: getColor(_bupa, _white);
-        background-color: getColor(_bupa, _digital-cian);
-        outline: none;
-        text-align: center;
-
-        &:hover {
-            border: 2px solid getColor(_bupa, _white);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _digital-cian);
-        }
-
-        &:focus {
-            border: 2px solid getColor(_bupa, _white);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _digital-cian);
-        }
-
-        &:active {
-            border: 2px solid getColor(_bupa, _white);
-            background-color: getColor(_bupa, _white);
-            color: getColor(_bupa, _digital-cian);
-            -webkit-transform: scale(0.95);
-            transform: scale(0.95);
-        }
-
-        &:disabled {
-            cursor: not-allowed;
-            border: 2px solid getColor(_bupa, _grey-3);
-            background-color: getColor(_bupa, _grey-3);
-        }
-
-        @media (max-width: 991px) {
-            background-color: getColor(_bupa, _white);
-            border: unset;
-            border-radius: 2px;
-            color: getColor(_bupa, _digital-cian);
-
-            &:hover {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-            }
-
-            &:focus {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                box-shadow: unset;
-            }
-
-            &:active {
-                border: unset;
-                background-color: getColor(_bupa, _white);
-                -webkit-transform: scale(0.95);
-                transform: scale(0.95);
-                box-shadow: unset;
-            }
-        }
-    }
-}
+@import "~src/scss/_buttons";
 
 /*
     Tabs
@@ -416,7 +78,6 @@ section {
                 &:first-child {
                     padding-left: 1px;
                 }
-
                 &:last-child {
                     padding-right: 1px;
                 }
@@ -428,19 +89,16 @@ section {
                     }
                 }
                 a {
-                    border-radius: 2px 0px 0px 2px;
                     border: 1px solid getColor(_bupa, _grey-3);
                     color: getColor(_bupa, _grey-2);
                     height: 56px;
                     border-radius: unset !important;
                     transition: color 0.4s ease-in-out, border 0.3s ease-in-out, background 0.3s ease-in-out;
-
                     &:hover {
                         background-color: unset;
                         border: 1px solid getColor(_bupa, _digital-cian);
                         color: getColor(_bupa, _digital-cian);
                     }
-
                     @media (max-width: 1023px) {
                         color: getColor(_carePlus, _grey_inactive_tab);
                         &:hover {
@@ -449,11 +107,9 @@ section {
                             color: getColor(_bupa, _white);
                         }
                     }
-
                     span {
                         font-size: getSize("p");
                         line-height: 125%;
-
                         @media (min-width: 1024px) and (max-width: 1200px) {
                             font-size: getSize("sbm");
                         }
@@ -463,6 +119,7 @@ section {
         }
     }
 }
+
 
 /*
     pt - Formularios
@@ -477,17 +134,14 @@ section {
     font-size: 1.125em;
     line-height: 122.22222222%;
     color: getColor(_bupa, _grey-2);
-
     &:focus {
         box-shadow: none;
         outline: none;
         border: 1px solid getColor(_bupa, _grey-2);
     }
-
     &:hover {
         border: 1px solid getColor(_bupa, _grey-2);
     }
-
     &::placeholder,
     &::-webkit-input-placeholder {
         font-weight: normal;
@@ -510,53 +164,44 @@ select,
 .field {
     .control {
         width: 100%;
-
         input:not(:placeholder-shown),
         input:focus,
         input:active {
             box-shadow: none;
         }
-
         &.has-icons-left,
         &.has-icons-right {
             .icon {
                 height: 56px;
                 pointer-events: stroke;
-
                 * {
                     color: getColor(_bupa, _grey-2);
                     fill: getColor(_bupa, _grey-2);
                 }
             }
         }
-
         &.has-icons-right {
-            input.is-touched + label {
+            input.is-touched+label {
                 left: 19px !important;
             }
-
             input {
                 padding-right: 38px !important;
             }
         }
-
         &.has-icons-left {
             input {
                 padding-left: 39px !important;
             }
-
             label {
                 left: 45px !important;
             }
-
-            input:not([type="checkbox"]):not([type="radio"]).is-touched + label {
+            input:not([type="checkbox"]):not([type="radio"]).is-touched+label {
                 left: 40px !important;
             }
-            input:not([type="checkbox"]):not([type="radio"]):focus + label {
+            input:not([type="checkbox"]):not([type="radio"]):focus+label {
                 left: 40px !important;
             }
         }
-
         input:not(.datetimepicker-dummy-input) {
             outline: none;
             transition: 0.2s ease-in-out;
@@ -569,16 +214,13 @@ select,
             border: 1px solid getColor(_bupa, _grey-2);
             box-sizing: border-box;
             border-radius: 2px;
-
             &.file-input {
                 padding: 0;
             }
         }
-
-        .datetimepicker-dummy-wrapper > .datetime.ng-invalid + .datetimepicker-dummy-input {
+        .datetimepicker-dummy-wrapper>.datetime.ng-invalid+.datetimepicker-dummy-input {
             border-bottom: 2px solid getColor(_bupa, _error);
         }
-
         label:not(.file-label):not(.switch) {
             top: 0;
             left: 15px;
@@ -596,28 +238,29 @@ select,
             line-height: 20px;
             color: getColor(_bupa, _grey-2);
         }
-
         input,
         label:not(.file-label):not(.switch) {
             width: 100%;
             height: 56px;
             margin-bottom: 0;
         }
-
-        input.is-valid:not(:disabled) {
-            border-bottom: 2px solid getColor(_carePlus, _valid);
+        input,
+        select {
+            &.is-valid:not(:disabled) {
+                border-bottom: 2px solid getColor(_carePlus, _valid);
+            }
         }
-
-        input.is-invalid:not(:disabled) {
-            border-bottom: 2px solid getColor(_carePlus, _error);
+        input,
+        select {
+            &.is-invalid:not(:disabled) {
+                border-bottom: 2px solid getColor(_carePlus, _error);
+            }
+            &:focus:not(:disabled) {
+                border-bottom: 2px solid getColor(_bupa, _digital-cian);
+            }
         }
-
-        input:focus:not(:disabled) {
-            border-bottom: 2px solid getColor(_bupa, _digital-cian);
-        }
-
-        input:not([type="checkbox"]):not([type="radio"]).is-touched + label,
-        input:not([type="checkbox"]):not([type="radio"]):focus + label {
+        input:not([type="checkbox"]):not([type="radio"]).is-touched+label,
+        input:not([type="checkbox"]):not([type="radio"]):focus+label {
             font-style: normal;
             font-weight: normal;
             font-size: 12px;
@@ -626,40 +269,44 @@ select,
             pointer-events: none;
             left: 19px;
         }
-
         .select {
+            height: 56px;
+            width: 100%;
             select {
+                height: 56px;
+                width: 100%;
                 background: getColor(_bupa, _white);
                 border: 1px solid getColor(_bupa, _grey-2);
                 box-sizing: border-box;
                 border-radius: 2px;
                 color: getColor(_bupa, _grey-2);
-
+                display: flex;
+                position: relative;
                 option {
                     color: getColor(_carePlus, _drop-down-option);
-
                     &:hover,
                     &:checked {
-                        background: rgba(getColor(_carePlus, _drop-down-option-rgb), 0.05);
+                        background: rgba(getColor(_carePlus, _drop-down-option), 0.05);
                     }
                 }
+                &:focus {
+                    outline: none;
+                    box-shadow: unset;
+                }
             }
-
             &:not(.is-multiple):not(.is-loading)::after {
-                border-color: rgba(getColor(_bupa, _grey-2-rgb), 0.5);
+                border-color: rgba(getColor(_bupa, _grey-2), 0.5);
+                align-self: center;
             }
         }
-
         input.checkbox {
             opacity: 0;
-
-            + label.checkbox-label {
+            +label.checkbox-label {
                 font-style: normal;
                 font-weight: normal;
                 font-size: 16px;
                 line-height: 20px;
                 color: getColor(_bupa, _grey-2);
-
                 &:before {
                     content: "";
                     background: getColor(_bupa, _white);
@@ -675,8 +322,7 @@ select,
                     box-sizing: border-box;
                 }
             }
-
-            &:checked + label.checkbox-label:before {
+            &:checked+label.checkbox-label:before {
                 border: none;
                 padding: 0;
                 background: getColor(_bupa, _digital-cian);
@@ -688,21 +334,17 @@ select,
                 background-origin: content-box;
                 background-size: 65% 65%;
             }
-
-            &:focus + label.checkbox-label {
+            &:focus+label.checkbox-label {
                 outline: none;
             }
-
             &:disabled {
-                + label.checkbox-label:before {
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                +label.checkbox-label:before {
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     border: none !important;
                 }
-
-                &:checked + label.checkbox-label:before {
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                &:checked+label.checkbox-label:before {
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     border: none !important;
-
                     content: "";
                     background-image: getSvg("check.svg");
                     background-repeat: no-repeat;
@@ -712,30 +354,25 @@ select,
                     background-size: 65% 65%;
                 }
             }
-
             &:hover {
-                + label.checkbox-label:before {
+                +label.checkbox-label:before {
                     border: 1px solid getColor(_bupa, _digital-cian);
                 }
             }
-
-            &.is-invalid + label.checkbox-label:before {
+            &.is-invalid+label.checkbox-label:before {
                 border: 1px solid getColor(_carePlus, _error);
             }
         }
-
         input.radio {
             opacity: 0;
             width: 0;
             height: 0;
             position: absolute;
-
-            + label.radio-label {
+            +label.radio-label {
                 font-style: normal;
                 font-weight: 500;
                 font-size: 1em;
                 line-height: 150%;
-                color: getColor(_bupa, _grey);
                 display: flex;
                 position: relative;
                 padding-left: 36px;
@@ -745,7 +382,6 @@ select,
                 color: getColor(_bupa, _grey);
                 align-self: center;
                 cursor: pointer;
-
                 &:before {
                     content: "";
                     background: getColor(_bupa, _white);
@@ -762,86 +398,55 @@ select,
                     position: absolute;
                     display: inline-block;
                     min-width: 26px;
-                    // animation: animateUncheck 0.2s ease-in-out;
-
-                    // @keyframes animateUncheck {
-                    //     0% {
-                    //         background: getColor(_bupa, _digital-cian);
-                    //         box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                    //     }
-                    //     100% {
-                    //         box-shadow: inset 0px 0px 0px 10px getColor(_bupa, _white);
-                    //     }
-                    // }
                 }
             }
-
-            &:checked + label.radio-label:before {
+            &:checked+label.radio-label:before {
                 border: 1px solid getColor(_bupa, _digital-cian);
                 padding: 0;
                 background: getColor(_bupa, _digital-cian);
                 content: "";
                 border-radius: 50px;
                 box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                // animation: animateCheck 0.2s ease-in-out;
-
-                // @keyframes animateCheck {
-                //     0% {
-                //         box-shadow: inset 0px 0px 0px 10px getColor(_bupa, _white);
-                //     }
-                //     100% {
-                //         box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                //     }
-                // }
             }
-
-            &:focus + label.radio-label {
+            &:focus+label.radio-label {
                 outline: none;
             }
-
             &:disabled {
-                + label.radio-label:before {
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                +label.radio-label:before {
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     border: none;
                 }
-
-                &:checked + label.radio-label:before {
+                &:checked+label.radio-label:before {
                     border: 1px solid getColor(_carePlus, _checkbox-border);
                     padding: 0;
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     content: "";
                     border-radius: 50px;
                     box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
                 }
             }
-
             &:hover {
-                + label.radio-label:before {
+                +label.radio-label:before {
                     border: 1px solid getColor(_bupa, _digital-cian);
                 }
             }
-
-            &.is-invalid + label.radio-label:before {
+            &.is-invalid+label.radio-label:before {
                 border: 1px solid getColor(_carePlus, _error);
             }
         }
-
         .switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 34px;
             pointer-events: unset;
-
             input {
                 opacity: 0;
                 width: 0;
                 height: 0;
-
                 &:checked {
-                    + .slider {
+                    +.slider {
                         background-color: getColor(_carePlus, _valid);
-
                         &:before {
                             -webkit-transform: translateX(26px);
                             -ms-transform: translateX(26px);
@@ -849,12 +454,10 @@ select,
                         }
                     }
                 }
-
                 &:focus {
                     box-shadow: 0 0 1px getColor(_carePlus, _valid);
                 }
             }
-
             .slider {
                 position: absolute;
                 cursor: pointer;
@@ -865,7 +468,6 @@ select,
                 background-color: getColor(_carePlus, _checkbox-border);
                 -webkit-transition: 0.4s;
                 transition: 0.4s;
-
                 &:before {
                     position: absolute;
                     content: "";
@@ -878,21 +480,17 @@ select,
                     transition: 0.4s;
                 }
             }
-
             .slider.round {
                 border-radius: 34px;
-
                 &:before {
                     border-radius: 50%;
                 }
             }
         }
     }
-
     .errors {
         margin-top: 10px;
         padding-left: 10px;
-
         .error {
             font-style: normal;
             font-weight: normal;
@@ -901,7 +499,6 @@ select,
             color: getColor(_carePlus, _error);
         }
     }
-
     .help {
         font-style: normal;
         font-weight: normal;
@@ -913,6 +510,7 @@ select,
         }
     }
 }
+
 
 /*
     pt - inputs de arquivo
@@ -926,19 +524,16 @@ select,
         border: 1px dashed getColor(_bupa, _grey-2);
         box-sizing: border-box;
         width: 100%;
-
         label.file-label {
             @media (max-width: 1023px) {
                 flex-wrap: wrap;
             }
-
             .file-cta {
                 background: getColor(_bupa, _digital-cian);
                 border-radius: 2px;
                 padding: 16.5px 15px;
                 height: 48px;
                 border: unset;
-
                 * {
                     font-style: normal;
                     font-weight: 600;
@@ -949,7 +544,6 @@ select,
                     text-transform: uppercase;
                 }
             }
-
             span.file-name {
                 border: none;
                 font-style: normal;
@@ -959,7 +553,6 @@ select,
                 color: getColor(_bupa, _grey-2);
                 align-self: center;
                 max-width: 100%;
-
                 @media (max-width: 1023px) {
                     width: 100%;
                     flex: 0 0 100%;
@@ -967,7 +560,6 @@ select,
                     margin-top: 10px;
                 }
             }
-
             &:hover {
                 .file-cta {
                     -webkit-transition: background 0.3s ease-in-out;
@@ -979,6 +571,7 @@ select,
     }
 }
 
+
 /*
     en - File inputs
     pt - Inputs de arquivo
@@ -986,11 +579,9 @@ select,
 
 .file-details {
     margin-bottom: 15px;
-
     &.first {
         margin-top: 15px;
     }
-
     .file-name-with-extension {
         font-style: normal;
         font-weight: normal;
@@ -1000,7 +591,6 @@ select,
         position: relative;
         padding-right: 30px;
     }
-
     .file-size {
         font-style: normal;
         font-weight: normal;
@@ -1008,7 +598,6 @@ select,
         line-height: 15px;
         color: getColor(_bupa, _grey-2);
     }
-
     .trash-icon {
         position: absolute;
         right: 0;
@@ -1017,12 +606,14 @@ select,
     }
 }
 
+
 /*
     Alertas
 
     pt - scss no componente notification dentro da pasta modules
     en - scss in notification component.scss file inside modules folder
 */
+
 
 /*
     Toooltip
@@ -1059,6 +650,7 @@ select,
     border-color: transparent transparent getColor(_bupa, _grey) transparent !important;
 }
 
+
 /*
 
     Modais
@@ -1068,7 +660,6 @@ select,
 */
 
 // Datepicker
-
 .mat-calendar-body-selected {
     background-color: getColor(_bupa, _digital-cian);
     border-radius: 0 !important;
@@ -1076,35 +667,34 @@ select,
 }
 
 .mat-calendar-cell-semi-selected {
-    background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.15);
+    background-color: rgba(getColor(_bupa, _digital-cian), 0.15);
     color: getColor(_carePlus, _drop-down-option);
 }
 
 .mat-calendar-body-begin-range:not(.mat-calendar-body-end-range) {
     border-radius: 0 !important;
-    background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.15);
+    background-color: rgba(getColor(_bupa, _digital-cian), 0.15);
 }
 
 .mat-calendar-body-end-range:not(.mat-calendar-body-begin-range) {
     border-radius: 0 !important;
-    background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.15);
+    background-color: rgba(getColor(_bupa, _digital-cian), 0.15);
 }
 
-.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover
-    > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
-.cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
-.cdk-program-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+.cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+.cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
     border-radius: 0 !important;
     background-color: getColor(_bupa, _white) !important;
     color: getColor(_bupa, _digital-cian) !important;
 }
 
-.mat-calendar-cell-over > .mat-calendar-body-cell-content {
+.mat-calendar-cell-over>.mat-calendar-body-cell-content {
     border: getColor(_bupa, _digital-cian) 1px solid;
 }
 
 .mat-calendar-body-today:not(.mat-calendar-body-selected) {
-    border: rgba(getColor(_bupa, _digital-cian-rgb), 0.38) 1px dashed;
+    border: rgba(getColor(_bupa, _digital-cian), 0.38) 1px dashed;
     border-radius: 0% !important;
     transform: translate3d(0, 0, 0);
 }
@@ -1153,10 +743,7 @@ span.mat-button-wrapper {
 }
 
 .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
-.mat-form-field-appearance-legacy.mat-form-field-can-float
-    .mat-input-server:focus
-    + .mat-form-field-label-wrapper
-    .mat-form-field-label {
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
     transform: translateY(-0.8125em) scale(0.75) perspective(100px) translateZ(0.001px) !important;
 }
 
@@ -1167,6 +754,7 @@ input.mat-input-element {
 .mat-form-field-appearance-legacy .mat-form-field-label {
     top: 1.58125em;
 }
+
 
 /*
 
@@ -1179,6 +767,7 @@ input.mat-input-element {
 .mat-accent .mat-slider-thumb-label {
     background-color: getColor(_bupa, _grey-3);
 }
+
 
 /*
 

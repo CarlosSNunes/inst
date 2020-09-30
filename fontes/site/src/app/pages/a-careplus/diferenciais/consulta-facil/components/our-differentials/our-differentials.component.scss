@@ -1,6 +1,5 @@
 @import "~src/scss/_variables";
-
-section#ourDifferentials {
+section#our-differentials {
     .container {
         .cards {
             margin-top: 30px;
@@ -16,7 +15,6 @@ section#ourDifferentials {
                     color: getColor(_bupa, _navy);
                     transition: color 0.3s ease-in-out;
                 }
-
                 .sub-description {
                     font-weight: normal;
                     font-size: getSize("p");
@@ -25,14 +23,12 @@ section#ourDifferentials {
                     text-align: left;
                     transition: color 0.3s ease-in-out;
                 }
-
-                .btn-text {
+                .btn.tertiary {
                     padding-left: 0;
                     margin-top: 20px;
                 }
             }
-
-            ::ng-deep app-card {
+             ::ng-deep .app-card {
                 .content {
                     .card.default {
                         padding: 25px 16px;
@@ -40,18 +36,14 @@ section#ourDifferentials {
                         &:hover {
                             background-color: getColor(_bupa, _digital-cian);
                             border: 1px solid getColor(_bupa, _digital-cian);
-
                             .card-title {
                                 color: getColor(_bupa, _white);
                             }
-
                             .sub-description {
                                 color: getColor(_bupa, _white);
                             }
-
-                            .btn-text {
+                            .btn.tertiary {
                                 color: getColor(_bupa, _white);
-
                                 svg {
                                     fill: getColor(_bupa, _white);
                                     path {
@@ -64,14 +56,15 @@ section#ourDifferentials {
                 }
             }
         }
-
+        .display-flex {
+            display: flex;
+        }
         .btn {
             &.is-centered {
                 margin: 45px auto 0 auto;
-                display: table;
+                display: inline-flex;
             }
-
-            &.btn-text {
+            &.tertiary {
                 padding-left: 0;
             }
         }

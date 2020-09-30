@@ -6,7 +6,6 @@ import { BannerModule } from 'src/app/modules/components/banner/banner.module';
 import { AccreditedNetworkModule } from 'src/app/modules/components/accredited-network/accredited-network.module';
 import { PlusNetworkModule } from 'src/app/modules/components/plus-network/plus-network.module';
 import { DifferentialModule } from 'src/app/modules/components/differential/differential.module';
-import { CareplusPlusModule } from 'src/app/modules/components/careplus-plus/careplus-plus.module';
 import { SocialPostsModule } from 'src/app/modules/components/social-posts/social-posts.module';
 import { AppCareplusModule } from 'src/app/modules/components/app-careplus/app-careplus.module';
 import { MaterialsModule } from 'src/app/modules/components/materials/materials.module';
@@ -25,7 +24,7 @@ import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-se
         PlusNetworkModule,
         DifferentialModule,
         InfoSectionModule,
-        CareplusPlusModule,
+        
         SocialPostsModule,
         AppCareplusModule,
         MaterialsModule

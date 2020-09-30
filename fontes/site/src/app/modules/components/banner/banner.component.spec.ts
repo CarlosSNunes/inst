@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BannerComponent } from './banner.component';
 import { BannerModel } from 'src/app/models';
 import { BannerService } from 'src/app/services';
-import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('BannerComponent', () => {

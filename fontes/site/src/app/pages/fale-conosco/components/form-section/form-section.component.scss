@@ -1,6 +1,5 @@
 @import "~src/scss/_variables";
-
-section#faleConoscoForm {
+section#fale-conosco-form {
     .container {
         .columns {
             &.infos {
@@ -10,13 +9,7 @@ section#faleConoscoForm {
                 &.has-line {
                     position: relative;
                     &::before {
-                        background: linear-gradient(
-                            to left,
-                            var(--bupa_digital-cian) 60%,
-                            var(--bottom-line_dark-green) 60%,
-                            var(--bottom-line_dark-green) 80%,
-                            var(--bottom-line_light-green) 80%
-                        );
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                         content: "";
                         position: absolute;
                         height: 4px;
@@ -27,7 +20,6 @@ section#faleConoscoForm {
                         width: 126px;
                     }
                 }
-
                 .contact-info {
                     padding: 32px;
                     display: flex;
@@ -40,40 +32,32 @@ section#faleConoscoForm {
                             line-height: getLineHeight("mbt");
                             color: getColor(_bupa, _navy);
                         }
-
                         .contact-subdescription {
                             display: flex;
                             margin-top: 26px;
-
                             &:first-child {
                                 margin-top: 48px;
                             }
-
                             span {
                                 color: getColor(_bupa, _digital-cian);
-
                                 &.text {
                                     align-self: flex-start;
                                     margin-left: 16px;
                                 }
-
                                 &.image {
                                     height: 34px;
                                     display: inline-block;
                                 }
-
                                 img {
                                     width: 34px;
                                     height: 34px;
                                 }
                             }
                         }
-
                         .contact-link {
                             font-size: 1.5em;
                             line-height: 150%;
-                            color: var(--bupa_grey);
-                            text-align: center;
+                            color: getColor(_bupa, _grey);
                             margin-left: 50px;
                             word-break: break-all;
                             display: block;
@@ -82,7 +66,6 @@ section#faleConoscoForm {
                                 text-decoration: underline;
                             }
                         }
-
                         .separator {
                             background-color: getColor(_bupa, _navy);
                             height: 1px;
@@ -96,7 +79,7 @@ section#faleConoscoForm {
 }
 
 @media (max-width: 1250px) {
-    section#faleConoscoForm {
+    section#fale-conosco-form {
         .container {
             .columns {
                 .column {
@@ -112,26 +95,23 @@ section#faleConoscoForm {
 }
 
 @media (max-width: 1023px) {
-    section#faleConoscoForm {
+    section#fale-conosco-form {
         .container {
             .columns {
                 &.infos {
                     margin-top: 0px;
                 }
-
                 .column {
                     .tabs {
                         ul {
                             width: 100%;
                             display: flex;
                             flex-wrap: wrap;
-
                             li {
                                 width: calc(50% - 11.5px);
                                 flex: 0 0 calc(50% - 11.5px);
                                 margin: 8px 11.5px;
                                 padding: 8px auto;
-
                                 &:first-child {
                                     margin-left: 0;
                                 }
@@ -144,11 +124,9 @@ section#faleConoscoForm {
                                 &:nth-child(4) {
                                     margin-right: 0;
                                 }
-
                                 a {
                                     border-radius: 2px;
                                     border-spacing: 2px;
-
                                     span {
                                         font-size: 0.75em;
                                     }
@@ -156,14 +134,12 @@ section#faleConoscoForm {
                             }
                         }
                     }
-
                     .contact-info {
                         .contact-content {
                             .description {
                                 font-size: getSize("p");
                                 line-height: getLineHeight("p");
                             }
-
                             .contact-link {
                                 font-size: 1em;
                             }
