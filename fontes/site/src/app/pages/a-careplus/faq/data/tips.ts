@@ -1,3 +1,5 @@
+import { environment } from 'src/environments/environment';
+
 export default [
     {
         title: 'Canal de denúncia',
@@ -60,7 +62,7 @@ export default [
             <p class="sub-description">
                 Se presenciar algum dos exemplos citados acima, entre em contato com a Care Plus pelo seu consultor, corretor ou
                 Central de Relacionamento. Se preferir, utilize nosso <a
-                    href="https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx">canal de denúncias eletrônico
+                    href="${environment.CAREPLUS_URL}portal/modulos/home/canalDenuncias.aspx">canal de denúncias eletrônico
                     clicando aqui.</a>
             </p>
 

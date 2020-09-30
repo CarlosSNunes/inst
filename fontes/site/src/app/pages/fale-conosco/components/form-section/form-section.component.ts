@@ -3,6 +3,7 @@ import { BreadcrumbModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { WindowRef } from 'src/utils/window-ref';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-form-section',
@@ -92,13 +93,13 @@ export class FormSectionComponent implements OnInit {
         } else {
             switch(index) {
                 case 1:
-                    this.windowRef.nativeWindow.open('https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx', '_blank');
+                    this.windowRef.nativeWindow.open(`${environment.CAREPLUS_URL}portal/modulos/atendimento/inclusaoDemandaContato.aspx`, '_blank');
                 break;
                 case 2:
-                    this.windowRef.nativeWindow.open('https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx', '_blank');
+                    this.windowRef.nativeWindow.open(`${environment.CAREPLUS_URL}portal/modulos/home/canalDenuncias.aspx`, '_blank');
                 break;
                 case 3:
-                    this.windowRef.nativeWindow.open('https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx', '_blank');
+                    this.windowRef.nativeWindow.open(`${environment.CAREPLUS_URL}portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx`, '_blank');
                 break;
             }
         }

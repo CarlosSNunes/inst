@@ -1,8 +1,9 @@
 import { Platform } from '@angular/cdk/platform';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { IconCardModel, ButtonModel } from 'src/app/models';
 import { SimuladoresService } from 'src/app/services';
+import { WindowRef } from 'src/utils/window-ref';
 
 @Component({
     selector: 'app-footer',
@@ -31,14 +32,27 @@ export class FooterComponent implements OnInit, AfterViewInit {
         backgroundColorClass: 'navy-background-color'
     });
     isBrowser: boolean = false;
+    trustSignScript: HTMLScriptElement;
+    siteBlindadoScript: HTMLScriptElement;
+    dunAndBrandstreetScript: HTMLScriptElement;
+    width: number = 1400;
+    addedOnDesktop: boolean = true;
+    addedOnMobile: boolean = false;
+
     constructor(
         private simuladoresService: SimuladoresService,
-        private renderer2: Renderer2,
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: Platform,
-        private elementRef: ElementRef<HTMLElement>
+        private windowRef: WindowRef
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
+        if (this.isBrowser) {
+            this.width = this.windowRef.nativeWindow.innerWidth;
+            if (this.width < 1024) {
+                this.addedOnDesktop = false;
+                this.addedOnMobile = true;
+            }
+        }
     }
 
     ngOnInit() {
@@ -52,26 +66,71 @@ export class FooterComponent implements OnInit, AfterViewInit {
         }
     }
 
+    @HostListener('window:resize', ['$event']) onResize(event) {
+        if (this.isBrowser) {
+            this.width = event.target.innerWidth;
+            this.renewScripts();
+        }
+    }
+
+    private renewScripts() {
+        if (this.width > 1023) {
+            if (this.siteBlindadoScript && !this.addedOnDesktop) {
+                this.siteBlindadoScript.remove()
+                this.setSiteBlindadoButton();
+            }
+
+            if (this.trustSignScript && !this.addedOnDesktop) {
+                this.trustSignScript.remove();
+                this.setTrustSignButton();
+            }
+
+            if (this.dunAndBrandstreetScript && !this.addedOnDesktop) {
+                this.dunAndBrandstreetScript.remove();
+                this.setDunButton();
+            }
+            this.addedOnDesktop = true;
+            this.addedOnMobile = false;
+        } else if (this.width < 1024) {
+            if (this.siteBlindadoScript && !this.addedOnMobile) {
+                this.siteBlindadoScript.remove()
+                this.setSiteBlindadoButton();
+            }
+
+            if (this.trustSignScript && !this.addedOnMobile) {
+                this.trustSignScript.remove();
+                this.setTrustSignButton();
+            }
+
+            if (this.dunAndBrandstreetScript && !this.addedOnMobile) {
+                this.dunAndBrandstreetScript.remove();
+                this.setDunButton();
+            }
+            this.addedOnDesktop = false;
+            this.addedOnMobile = true;
+        }
+    }
+
     setDunButton() {
-        const script = this.document.createElement('script') as HTMLScriptElement;
-        script.setAttribute('language', 'JavaScript');
-        script.src = 'https://dunsregistered.dnb.com';
-        script.type = 'text/javascript';
-        this.document.body.appendChild(script);
+        this.dunAndBrandstreetScript = this.document.createElement('script') as HTMLScriptElement;
+        this.dunAndBrandstreetScript.setAttribute('language', 'JavaScript');
+        this.dunAndBrandstreetScript.src = 'https://dunsregistered.dnb.com';
+        this.dunAndBrandstreetScript.type = 'text/javascript';
+        this.document.body.appendChild(this.dunAndBrandstreetScript);
     }
 
     setSiteBlindadoButton() {
-        const script = this.document.createElement('script') as HTMLScriptElement;
-        script.src = '//cdn.siteblindado.com/aw.js';
-        script.type = 'text/javascript';
-        this.document.body.appendChild(script);
+        this.siteBlindadoScript = this.document.createElement('script') as HTMLScriptElement;
+        this.siteBlindadoScript.src = '//cdn.siteblindado.com/aw.js';
+        this.siteBlindadoScript.type = 'text/javascript';
+        this.document.body.appendChild(this.siteBlindadoScript);
     }
 
     setTrustSignButton() {
-        const script = this.document.createElement('script') as HTMLScriptElement;
-        script.src = '//s3-sa-east-1.amazonaws.com/selo.trustsign.com/ssltrust.js';
-        script.type = 'text/javascript';
-        this.document.body.appendChild(script);
+        this.trustSignScript = this.document.createElement('script') as HTMLScriptElement;
+        this.trustSignScript.src = '//s3-sa-east-1.amazonaws.com/selo.trustsign.com/ssltrust.js';
+        this.trustSignScript.type = 'text/javascript';
+        this.document.body.appendChild(this.trustSignScript);
     }
 
     openSimulator() {

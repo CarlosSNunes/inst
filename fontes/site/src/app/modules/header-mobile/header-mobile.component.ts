@@ -8,6 +8,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { DOCUMENT } from '@angular/common';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { SimuladoresService } from 'src/app/services';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-header-mobile',
@@ -31,6 +32,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     pageLoaded: boolean = false;
     static params: Params = {};
     actualRoute: string = '';
+    careplusUrl = environment.CAREPLUS_URL;
 
     constructor(
         private router: Router,

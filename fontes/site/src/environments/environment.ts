@@ -5,7 +5,8 @@
 export const environment = {
     production: false,
     API_URL: 'http://52.3.44.106/api/',
-    SELF_URL: 'http://localhost:4300'
+    SELF_URL: 'http://localhost:4300',
+    CAREPLUS_URL: 'https://www8.careplus.com.br/portal/'
 };
 
 /*

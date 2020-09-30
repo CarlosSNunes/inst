@@ -13,12 +13,23 @@
             </div>
 
         </div>
-        <div class="certifications is-hidden-up-tablet">
+        <div class="certifications is-hidden-up-tablet" *ngIf="width < 1023">
             <p>Certificações</p>
             <div class="certifications-images">
-                <img src="assets/svg/secureSite.svg" alt="Site seguro">
-                <img src="assets/svg/dunAndBradstreet.svg" alt="Site seguro">
-                <img class="trust-sign" src="assets/svg/trustSign.svg" alt="Certificado de segurança">
+                <a title="Site Blindado">
+                    <div id="armored_website">
+                        <param id="aw_preload" value="true" />                           
+                        <param id="aw_use_cdn" value="true" />
+                    </div>
+                </a>
+                <a title="dun & brandstreet" id="dun-and-brandstreet-button">
+                    
+                </a>
+                <a title="Trust Sign">
+                    <div id="ssltrust">
+                        <param id="ssltrust_preload" value="true" />
+                    </div>
+                </a>
                 <img src="assets/svg/ans.svg" alt="Ans">
                 <img src="assets/svg/ansNumber.svg" alt="Ans">
             </div>
@@ -232,7 +243,7 @@
             </div>
         </div>
         <hr class="is-hidden-down-tablet">
-        <div class="columns site-map is-hidden-down-tablet">
+        <div class="columns site-map is-hidden-down-tablet" *ngIf="width > 1023">
             <div class="column is-5 certificacoes">
                 <p>
                     Certificações

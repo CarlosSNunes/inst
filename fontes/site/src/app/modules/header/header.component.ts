@@ -6,6 +6,7 @@ import { Platform } from '@angular/cdk/platform';
 import { SubMenu } from 'src/app/models';
 import SubMenus from './data/menus';
 import { Router, NavigationEnd } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-header',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
     step: number = 0.5;
     isBrowser: boolean = false;
     subMenu: SubMenu = SubMenus[0];
-
+    careplusUrl = environment.CAREPLUS_URL;
     constructor(
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: Platform,
