@@ -12,6 +12,9 @@ section.sectionInfo {
     }
 
     .columns {
+        align-items: stretch;
+        align-content: stretch;
+
         &.reverse-columns {
             flex-direction: row-reverse;
 
@@ -22,16 +25,12 @@ section.sectionInfo {
                 }
 
                 &.col-image {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    overflow: hidden;
                     &::before {
                         transform: translateX(50%);
                         right: 0;
                         top: 40px;
                         left: unset;
-                        background: linear-gradient(to left, #CDECFD 0%, getColor(_bupa, _digital-cian) 100%);
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                     }
                 }
             }
@@ -104,14 +103,12 @@ section.sectionInfo {
             &.col-image {
                 position: relative;
                 display: flex;
-                align-items: center;
-
                 &::before {
                     position: absolute;
                     content: "";
                     width: 211px;
                     height: 4px;
-                    background: linear-gradient(to right, #CDECFD 0%, getColor(_bupa, _digital-cian) 100%);
+                    background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                     transform: translateX(-50%);
                     top: 40px;
                     z-index: 1;
@@ -124,9 +121,8 @@ section.sectionInfo {
                 }
 
                 img {
-                    width: 100%;
+                    width: auto;
                     object-fit: cover;
-                    height: auto;
                     &.hasModal {
                         cursor: pointer;
                     }
@@ -191,7 +187,7 @@ section.sectionInfo {
                             content: "";
                             width: 211px;
                             height: 4px;
-                            background: linear-gradient(to left, #CDECFD 0%, getColor(_bupa, _digital-cian) 100%);
+                            background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                             transform: translateX(0%);
                             top: -15px;
                         }
