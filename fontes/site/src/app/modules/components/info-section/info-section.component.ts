@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { InfoSectionModel } from 'src/app/models';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ContentModalModel } from 'src/app/models/modal.model';
@@ -17,6 +17,7 @@ export class InfoSectionComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @ViewChild('sectionInfoElement', { static: false }) sectionInfoElement: ElementRef<HTMLElement>;
     isBrowser: boolean = false;
+    width: number = 1400;
     constructor(
         private modalService: ModalService,
         @Inject(PLATFORM_ID) private platformId: Platform,
@@ -31,6 +32,7 @@ export class InfoSectionComponent implements OnInit {
 
     ngAfterViewInit() {
         if (this.isBrowser) {
+            this.width = this.windowRef.nativeWindow.innerWidth;
             if (this.sectionInfo.parallax && this.windowRef.nativeWindow.innerWidth > 1023) {
                 this.activateParallax();
             }
@@ -42,6 +44,12 @@ export class InfoSectionComponent implements OnInit {
         new SimpleParallax(nodeElements, {
             orientation: 'down'
         });
+    }
+
+    @HostListener('window:resize', ['$event']) onResize(event) {
+        if (this.isBrowser) {
+            this.width = event.target.innerWidth;
+        }
     }
 
     get offsetTop(): number {
