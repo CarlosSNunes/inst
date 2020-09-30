@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { faPencilAlt, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faCalendarPlus, faEye, faClone, faArrowAltCircleLeft, faThumbsDown, faStar } from '@fortawesome/free-regular-svg-icons';
 import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
 import { CategoriasModel } from 'src/models/categorias/categorias.model';
 import { PostsBlogService } from './posts-blog.service';
+import { TagModel } from 'src/models/tag/tag.model';
+import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { CategoriasService } from './categorias/categorias.service';
 
 @Component({
   selector: 'app-posts-blog',
@@ -11,23 +15,44 @@ import { PostsBlogService } from './posts-blog.service';
 })
 export class PostsBlogComponent implements OnInit {
   postsBlog: PostsBlogModel[] = [];
-  faPencilAlt = faPencilAlt;
-  faTrash = faTrash;
-  faPlus = faPlus;
+  tagModel: TagModel[] = [];
+  faEdit = faEdit;
+  faTrashAlt = faTrashAlt;
+  faCalendarPlus = faCalendarPlus;
+  faEye = faEye;
+  faClone = faClone;
+  faStar = faStar;
+  faArrowAltCircleLeft = faArrowAltCircleLeft;
   categorias: CategoriasModel[] = [];
   loaded: boolean;
   showPostsDelete: boolean;
   postBlog: PostsBlogModel;
-
+  usuario: UserAuthenticateModel;
+  podeEscrever: boolean = false;
   imagemLargura = 50;
   imagemMargem = 2;
 
   constructor(
-    private postsBlogService: PostsBlogService
-  ) { }
+    private postsBlogService: PostsBlogService,
+    private authenticationService: AuthenticationService,
+    private categoriasService: CategoriasService
+  ) { 
+    this.authenticationService.usuarioChanged.subscribe(usuario =>
+      this.usuario = usuario
+    );
+  }
 
   ngOnInit() {
+    this.usuario = this.authenticationService.state;
+    
+    this.usuario.perfis.forEach(perfil => {
+        if(perfil.descricao == 'Editor' || perfil.descricao == 'Administrador')
+        {
+          this.podeEscrever = true;
+        }
+    });
     this.getPosts();
+    this.getCategorias();
   }
 
   openPostDelete(post: PostsBlogModel) {
@@ -36,6 +61,70 @@ export class PostsBlogComponent implements OnInit {
   }
 
   getPosts() {
+    this.postsBlog  = [
+      {
+      'id': 1,
+      'titulo': 'Title Post 01',
+      'subtitulo': 'Subtitle post 01',
+      'descricaoPrevia': 'Descrição previa',
+      'descricao': 'Descrição POST',
+      'dataPublicacao': '2020/09/29',
+      'dataExpiracao': '31/12/2020',   
+      'dataCadastro': '2020/09/29',
+      'caminhoImagem': '/assets/img/',
+      'nomeImagem': 'careplus.png',
+      'destaque': 'false',
+      'ativo': 'false',
+      'vizualizacoes': 10,
+      'tituloPaginaSEO': 'title page SEO',
+      'descricaoPaginaSEO': 'SEO Description',
+      'categoriaId': 1,
+      'postsTag': [
+                    { 'id': 1,
+                    'descricao': 'Tag 01',
+                    'dataCadastro': new Date(),
+                    'selected': true
+                    },
+                    { 'id': 2,
+                    'descricao': 'Tag 02',
+                    'dataCadastro': new Date(),
+                    'selected': true
+                    }
+      ]
+      },
+      {
+        'id': 2,
+        'titulo': 'Title Post 02',
+        'subtitulo': 'Subtitle post 01',
+        'descricaoPrevia': 'Descrição previa',
+        'descricao': 'Descrição POST',
+        'dataPublicacao': '2020/09/29',
+        'dataExpiracao': '31/12/2020',   
+        'dataCadastro': '2020/09/29',
+        'caminhoImagem': '/assets/img/',
+        'nomeImagem': 'careplus.png',
+        'destaque': 'true',
+        'ativo': 'true',
+        'vizualizacoes': 10,
+        'tituloPaginaSEO': 'title page SEO',
+        'descricaoPaginaSEO': 'SEO Description',
+        'categoriaId': 2,
+        'postsTag': [
+                      { 'id': 1,
+                      'descricao': 'Tag 01',
+                      'dataCadastro': new Date(),
+                      'selected': true
+                      },
+                      { 'id': 2,
+                      'descricao': 'Tag 02',
+                      'dataCadastro': new Date(),
+                      'selected': true
+                      }
+        ]
+      }
+  ];
+
+
     this.showPostsDelete = false;
     this.postsBlogService
       .getAll()
@@ -46,6 +135,57 @@ export class PostsBlogComponent implements OnInit {
         error => {
           this.loaded = true;
         });
+
+  
   }
+
+  filterPosts(input)
+  {
+    if(input.value != '')
+    {
+      //this.postBlog = this.postBlog.filter(x => x.descricao == input.value);
+    }
+    else{
+      this.getPosts();
+    }
+
+  }
+
+  filterPostsByCategory(select)
+  {
+    this.getPosts();
+
+    if(select.value != '')
+    {
+      //this.postBlog = this.postBlog.filter(x => x.categoria == select.value);
+    }
+  }
+
+  getPostByCategory(id) {
+    this.postsBlogService
+      .getByCategoryId(id.selectedIndex)
+      .subscribe(result => {
+        this.loaded = true;
+        this.postBlog = result;
+        console.log(result);
+      },
+        error => {
+          this.loaded = true;
+        });
+  }
+
+  getCategorias() {
+    this.categoriasService
+      .getAll()
+      .subscribe(result => {
+        this.loaded = true;
+        this.categorias = result;
+        console.log(result);
+      },
+        error => {
+          this.loaded = true;
+        });
+  }
+
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import * as BulmaCalendar from 'src/assets/js/bulma-calendar';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -28,6 +28,7 @@ export class PostsBlogEditComponent implements OnInit {
   faCheck = faCheck;
   faUpload = faUpload;
   faPlus = faPlus;
+  faArrowCircleLeft = faArrowCircleLeft;
   optionsDate = {
     type: 'date',
     dateFormat: 'DD/MM/YYYY',
