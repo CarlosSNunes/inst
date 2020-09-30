@@ -22,6 +22,10 @@ section.sectionInfo {
                 }
 
                 &.col-image {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
                     &::before {
                         transform: translateX(50%);
                         right: 0;
@@ -99,11 +103,8 @@ section.sectionInfo {
 
             &.col-image {
                 position: relative;
-                width: 100%;
-                height: 100%;
                 display: flex;
                 align-items: center;
-                justify-content: center;
 
                 &::before {
                     position: absolute;
