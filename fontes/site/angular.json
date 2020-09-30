@@ -84,7 +84,6 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
-                            "baseHref": "/institucional/",
                             "budgets": [{
                                     "type": "initial",
                                     "maximumWarning": "2mb",
@@ -130,6 +129,7 @@
                                 "replace": "src/environments/environment.ts",
                                 "with": "src/environments/environment.staging.ts"
                             }],
+                            "baseHref": "/institucional/",
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
