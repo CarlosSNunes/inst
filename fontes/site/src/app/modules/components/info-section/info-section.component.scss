@@ -99,6 +99,12 @@ section.sectionInfo {
 
             &.col-image {
                 position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 &::before {
                     position: absolute;
                     content: "";
@@ -119,7 +125,7 @@ section.sectionInfo {
                 img {
                     width: 100%;
                     object-fit: cover;
-                    height: 100%;
+                    height: auto;
                     &.hasModal {
                         cursor: pointer;
                     }
