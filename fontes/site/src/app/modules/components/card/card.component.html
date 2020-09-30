@@ -5,7 +5,9 @@
 
     <div *ngIf="card.type === 'icon' && !card.routerLink" class="card icon-card" [ngClass]="card.backgroundColorClass"
         (click)="collapse()">
-        <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image" [ngClass]="card.backgroundColorClass">
+        <div class="image" [ngClass]="card.backgroundColorClass">
+            <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image">
+        </div>
         <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
             [innerHTML]="card.title"></p>
         <p class="card-description" #p [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
@@ -37,7 +39,9 @@
 
     <a [routerLink]="card.routerLink" *ngIf="card.type === 'icon' && card.routerLink" class="card icon-card"
         [ngClass]="card.backgroundColorClass" (click)="collapse()" [attr.title]="card.title">
-        <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image" [ngClass]="card.backgroundColorClass">
+        <div class="image" [ngClass]="card.backgroundColorClass">
+            <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image">
+        </div>
         <p *ngIf="card.title" class="card-title" [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
             [innerHTML]="card.title"></p>
         <p class="card-description" #p [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse"
