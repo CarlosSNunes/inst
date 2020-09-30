@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2020 
+ *   All rights reserved.
+ */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +16,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { ButtonsModule } from "ngx-bootstrap/buttons";
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
+
+const ngWizardConfig: NgWizardConfig = {
+  theme: THEME.circles,
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +39,10 @@ import { ButtonsModule } from "ngx-bootstrap/buttons";
     HttpClientModule,
     TooltipModule.forRoot(),
     PopoverModule.forRoot(),
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    NgWizardModule.forRoot(ngWizardConfig),
+    BrowserAnimationsModule,
+    SelectDropDownModule
   ],
   providers: [
     {

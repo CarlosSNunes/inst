@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2020 
+ *   All rights reserved.
+ */
 import { TestBed } from '@angular/core/testing';
 import { BannerService } from './banner.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';

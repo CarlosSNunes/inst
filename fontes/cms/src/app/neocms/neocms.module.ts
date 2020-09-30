@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2020 
+ *   All rights reserved.
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NeocmsComponent } from './neocms.component';

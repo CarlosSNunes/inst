@@ -10,8 +10,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $Care-plus-primary: mat-palette($mat-indigo);
-$Care-plus-accent : mat-palette($mat-pink, A200, A100, A400);
-
+$Care-plus-accent: mat-palette($mat-pink, A200, A100, A400);
 // The warn palette is optional (defaults to red).
 $Care-plus-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
@@ -24,14 +23,9 @@ $Care-plus-theme: mat-light-theme($Care-plus-primary, $Care-plus-accent, $Care-p
 @import "scss/_styleguide.scss";
 @import "scss/_base.scss";
 @import "~saturn-datepicker/bundle.css";
-
-html,
 body {
-    height: 100%;
-}
-
-body {
-    margin     : 0;
+    min-height: calc(100vh - 151px);
+    margin: 0;
     font-family: $mainFont, Roboto, "Helvetica Neue", sans-serif;
 }
 

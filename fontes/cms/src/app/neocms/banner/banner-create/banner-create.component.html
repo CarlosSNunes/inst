@@ -1,234 +1,282 @@
-<section class="hero is-dark is-small">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                Cadastrar novo banner
-            </h1>
-        </div>
+<style type="css/text">
+    div.card.m-5.position-fixed.shadow {
+        z-index: 99999 !important;
+        right: 0 !important;
+        padding: 20px !important;
+        overflow:auto;
+        width:300px
+    }
+</style>
+<!-- <div class="card position-fixed m-5 shadow">
+    <div class="card-body">
+            <pre>
+                <code>{{bannerForm.value | json}}</code>               
+            </pre>
     </div>
-</section>
-<form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
-    <div class="card">
-        <div class="card-content">
-            <div class="columns">
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Imagem Grande</label>
-                        <div class="file has-name">
-                            <label class="file-label">
-                                <input class="file-input" type="file" (change)="updateFileName($event.srcElement.files)">
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <fa-icon [icon]="faUpload"></fa-icon>
-                                    </span>
-                                    <span class="file-label">
-                                        Escolha um arquivo…
-                                    </span>
-                                </span>
-                                <span class="file-name">
-                                    {{arquivoNome}}
-                                </span>
-                            </label>
-                        </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.arquivo)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Imagem Pequena</label>
-                        <div class="file has-name">
-                            <label class="file-label">
-                                <input class="file-input" type="file"
-                                    (change)="updateFileNameMobile($event.srcElement.files)">
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <fa-icon [icon]="faUpload"></fa-icon>
-                                    </span>
-                                    <span class="file-label">
-                                        Escolha um arquivo…
-                                    </span>
-                                </span>
-                                <span class="file-name">
-                                    {{arquivoNomeMobile}}
-                                </span>
-                            </label>
-                        </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.arquivoMobile)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
+</div>  -->
+<div class="card-banner-wizard">
+    <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
+        <div class="card shadow my-3" id="card-header">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a [routerLink]="['/neocms/banner']">
+                            <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+                            <span class="title-banner">Upload de Banner</span>
+                        </a>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Nome do Banner</label>
-                        <div class="control">
-                            <input formControlName="nomeImagem" class="input" type="text" placeholder="" [ngClass]="{ 'is-success': submitted && !f.nomeImagem.errors, 'is-danger' : submitted && f.nomeImagem.errors }">
-                        </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.nomeImagem)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Título</label>
-                        <div class="control">
-                            <input formControlName="titulo" class="input" type="text" placeholder="" [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
-                        </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Subtítulo</label>
-                        <div class="control">
-                            <input formControlName="subtitulo" class="input" type="text" placeholder="" [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }">
-                        </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column is-three-quarters">
-                            <div class="field">
-                                <label class="label">Area</label>
-                                <div class="control">
-                                    <input formControlName="area" class="input" type="text" placeholder="" [ngClass]="{ 'is-success': submitted && !f.area.errors, 'is-danger' : submitted && f.area.errors }">
-                                </div>
-                                <div *ngIf="submitted" class="errors">
-                                    <p *ngFor="let error of getErrors(f.area)" class="help is-danger">
-                                        {{error}}
-                                    </p>
+            </div>
+        </div>
+        <div class="card shadow my-3" id="cardWizardArea">
+            <div class="card-body">
+                <ng-wizard [config]="configBanner" (stepChanged)="stepChanged($event)">
+                    <ng-wizard-step [title]="'Área'" [description]="'Escolher Área'">
+                        <div class="row my-5">
+                            <div class="col-md-12">
+                                <div class="card col-md-6 m-auto fade-in shadow">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Area do Banner</h5>
+                                        <ngx-select-dropdown tabindex="0" (change)="changeAreaBanner($event)"
+                                            [config]="configSelect" [options]="areaOptions" [multiple]="false"
+                                            value="0">
+
+                                        </ngx-select-dropdown>
+                                        <input formControlName="area" type="hidden">
+                                        <div class="my-2" *ngFor="let a of areaSelectedObject">
+                                            <h5>Descrição: {{a.descricao }}</h5>
+                                        </div>
+                                        <div *ngIf="submitted" class="errors">
+                                            <p *ngFor="let error of getErrors(f.area)" class="help is-danger">
+                                                {{error}}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Tempo de Exibição</label>
-                                <div class="control">
-                                    <input formControlName="tempoExibicao" class="input" type="text" placeholder="" [ngClass]="{ 'is-success': submitted && !f.tempoExibicao.errors, 'is-danger' : submitted && f.tempoExibicao.errors }">
+                    </ng-wizard-step>
+                    <ng-wizard-step [title]="'Imagens'" [description]="'Escolher os Banners'">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6 w-100 my-5 card-crop">
+                                <div class="card shadow fade-in">
+                                    {{nomeDaImagem}}
+                                    <div class="card-body text-center m-3 card-crop">
+                                        <h3>Imagem Grande</h3>
+                                        <small>Dimensões: 1920 x 720 px</small>
+                                        <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
+                                        <div class="shadow p-0 m-auto">
+                                            <image-cropper 
+                                                [imageChangedEvent]="imageChangedEvent"
+                                                [maintainAspectRatio]="true" 
+                                                [containWithinAspectRatio]="false"
+                                                [autoCrop]="true" 
+                                                [onlyScaleDown]="false" 
+                                                [aspectRatio]="8/3"
+                                                [resizeToWidth]="1920" 
+                                                [cropperMinWidth]="1920" 
+                                                [resizeToHeight]="720"
+                                                [cropperMinHeight]="720" 
+                                                format="png"
+                                                (imageCropped)="imageCropped($event)" 
+                                                (imageLoaded)="imageLoaded()"
+                                                (cropperReady)="cropperReady()" 
+                                                (loadImageFailed)="loadImageFailed()">
+                                            </image-cropper>
+                                        </div>
+                                        <div *ngIf="croppedImage" class="shadow thumbnail-image-box">
+                                            <h4 class="titulo-visualizacao">visualização</h4>
+                                            <img class="thumbnail-image" [src]="croppedImage" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div *ngIf="submitted" class="errors">
-                                    <p *ngFor="let error of getErrors(f.tempoExibicao)" class="help is-danger">
-                                        {{error}}
-                                    </p>
+                            </div>
+                            <div class="col-md-12 col-lg-6 w-100 my-5">
+                                <div class="card shadow fade-in card-crop">
+                                    <div class="card-body text-center m-3 card-crop">
+                                        <h3>Imagem Pequena</h3>
+                                        <small>Dimensões: 200 x 150 px</small>
+                                        <input type="file" class="text-truncate"
+                                            (change)="fileChangeEventMobile($event)" />
+                                        <div class="shadow p-0 m-auto">
+                                            <image-cropper 
+                                                [imageChangedEvent]="imageChangedEventMobile"
+                                                [maintainAspectRatio]="true" 
+                                                [containWithinAspectRatio]="false"
+                                                [autoCrop]="true" 
+                                                [onlyScaleDown]="false" 
+                                                [aspectRatio]="4/3"
+                                                [imageFile]="bannerMobile" 
+                                                [resizeToWidth]="200" 
+                                                [cropperMinWidth]="200"
+                                                [resizeToHeight]="150" 
+                                                [cropperMinHeight]="150" 
+                                                format="png"
+                                                (imageCropped)="imageCroppedMobile($event)"
+                                                (imageLoaded)="imageLoaded()" 
+                                                (cropperReady)="cropperReady()"
+                                                (loadImageFailed)="loadImageFailed()">
+                                            </image-cropper>
+                                        </div>
+                                        <div *ngIf="croppedImageMobile" class="shadow thumbnail-image-box-mobile">
+                                            <h4 class="titulo-visualizacao-mobile">visualização</h4>
+                                            <img class="thumbnail-image-mobile" [src]="croppedImageMobile" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </ng-wizard-step>
+                    <ng-wizard-step [title]="'Dados'" [description]="'Dados do Banners'">
+                        <div class="card container shadow fade-in">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="my-input">Nome do Banner*</label>
+                                            <input formControlName="nomeImagem" class="form-control" type="text"
+                                                placeholder="Nome do Banner"
+                                                [ngClass]="{ 'is-success': submitted && !f.nomeImagem.errors, 'is-danger' : submitted && f.nomeImagem.errors }">
+                                            <div *ngIf="submitted" class="errors">
+                                                <p *ngFor="let error of getErrors(f.nomeImagem)" class="help is-danger">
+                                                    {{error}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="my-input">Título*</label>
+                                            <input formControlName="titulo" class="form-control" type="text"
+                                                placeholder="Título do Banner" [ngClass]="{ 'is-success': submitted &&
+                                                                !f.titulo.errors, 'is-danger' :
+                                                                submitted && f.titulo.errors }">
+                                            <div *ngIf="submitted" class="errors">
+                                                <p *ngFor="let error of
+                                                                    getErrors(f.titulo)" class="help
+                                                                    is-danger">
+                                                    {{error}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="my-input">Subtítulo</label>
+                                            <input formControlName="subtitulo" class="form-control" type="text"
+                                                placeholder="Subtítulo do Banner" [ngClass]="{ 'is-success': submitted &&
+                                                                !f.subtitulo.errors, 'is-danger' :
+                                                                submitted && f.subtitulo.errors }">
+                                            <div *ngIf="submitted" class="errors">
+                                                <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
+                                                    {{error}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="my-input">Área*</label>
+                                            <input class="form-control" type="text"
+                                                placeholder="Ex: Topo (Banner da Home)">
 
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="field">
-                <label class="label">Descrição</label>
-                <div class="control">
-                    <textarea formControlName="descricao" [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }" class="textarea" placeholder="" rows="5"></textarea>
-                </div>
-                <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
-
-            <div class="columns">
-                <div class="column is-one-fifth">
-                    <div class="field">
-                        <label class="label">Rota</label>
-                        <div class="control">
-                            <input formControlName="rota" class="input" type="text" placeholder="" [ngClass]="{ 'is-success': submitted && !f.rota.errors, 'is-danger' : submitted && f.rota.errors }">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="my-input">Tempo de Exibição</label>
+                                            <input formControlName="tempoExibicao" class="form-control" type="text"
+                                                placeholder="Ex: 12 (12 Segundos)" [ngClass]="{ 'is-success': submitted &&
+                                                                !f.area.errors, 'is-danger' : submitted
+                                                                && f.area.errors }">
+                                            <div *ngIf="submitted" class="errors">
+                                                <p *ngFor="let error of
+                                                                    getErrors(f.tempoExibicao)" class="help is-danger">
+                                                    {{error}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="my-input">Rota/Link*</label>
+                                            <input formControlName="rota" class="form-control" type="text"
+                                                placeholder="" [ngClass]="{ 'is-success': submitted &&
+                                                                !f.rota.errors, 'is-danger' : submitted
+                                                                && f.rota.errors }">
+                                            <div *ngIf="submitted" class="errors">
+                                                <p *ngFor="let error of
+                                                                    getErrors(f.rota)" class="help
+                                                                    is-danger">
+                                                    {{error}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="my-input">Descrição</label>
+                                            <textarea formControlName="descricao"
+                                                [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
+                                                class="form-control" placeholder="Descrição do Banner" rows="5">
+                                            </textarea>
+                                            <div *ngIf="submitted" class="errors">
+                                                <p *ngFor="let error of
+                                                                getErrors(f.descricao)" class="help is-danger">
+                                                    {{error}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-3 w-100">
+                                        <label class="label">É um link externo?</label>
+                                        <div class="form-group">
+                                            <div class="form-check form-check-inline">
+                                                <input id="naoLink" type="radio" class="form-check-input" checked
+                                                    value="0" formControlName="linkExterno" name="linkExterno"
+                                                    [ngClass]="{'is-danger': isLinkExternoSelected,'is-selected': !isLinkExternoSelected}"
+                                                    (click)="changeLinkExterno('0',false)">
+                                                <label for="linkExterno">Não</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input id="simLink" type="radio" class="form-check-input" value="1"
+                                                    name="linkExterno" formControlName="linkExterno"
+                                                    [ngClass]="{'is-danger': isLinkExternoSelected, 'is-selected':  !isLinkExternoSelected}"
+                                                    (click)="changeLinkExterno('1',true)">
+                                                <label for="linkExterno">Sim</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-3 w-100">
+                                        <label class="label">Ativar banner?</label>
+                                        <div class="form-group">
+                                            <div class="form-check form-check-inline">
+                                                <input id="ativo" type="radio" class="form-check-input" checked
+                                                    value="0" name="ativo" formControlName="ativo"
+                                                    [ngClass]="{'is-danger': !isBannerAtivo, 'is-selected': !isBannerAtivo}"
+                                                    (click)="changeStatusBanner('0', false)">
+                                                <label for="ativo">Não</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input id="ativo1" type="radio" class="form-check-input" value="1"
+                                                    name="ativo" formControlName="ativo"
+                                                    [ngClass]="{'is-success': isBannerAtivo, 'is-selected': isBannerAtivo}"
+                                                    (click)="changeStatusBanner('1',true)">
+                                                <label for="ativo">Sim</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 w-100 text-right">
+                                        <button class="badge badge-dark shadow p-3" type="submit">
+                                            SALVAR ALTERAÇÕES
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.rota)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-one-fifth">
-                    <div class="field">
-                        <label class="label">É um link externo?</label>
-                        <div class="buttons has-addons">
-                            <button type="button" class="button is-danger is-selected" [ngClass]="{'is-danger': !isLinkExternoSelected, 'is-selected': !isLinkExternoSelected}" (click)="changeLinkExterno('0', false)">
-                                Não
-                            </button>
-                            <button type="button" class="button" [ngClass]="{'is-success': isLinkExternoSelected, 'is-selected': isLinkExternoSelected}" (click)="changeLinkExterno('1', true)">
-                                Sim
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="column">
-                    <div class="field">
-                        <label class="label">Ativar banner?</label>
-                        <div class="buttons has-addons">
-                            <button type="button" class="button is-danger is-selected" [ngClass]="{'is-danger': !isBannerAtivo, 'is-selected': !isBannerAtivo}" (click)="changeStatusBanner('0', false)">
-                                Não
-                            </button>
-                            <button type="button" class="button" [ngClass]="{'is-success': isBannerAtivo, 'is-selected': isBannerAtivo}" (click)="changeStatusBanner('1', true)">
-                                Sim
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- <div class="column">
-                    <div class="field">
-                        <label class="label">Imagem</label>
-                        <div class="file has-name">
-                            <label class="file-label">
-                                <input class="file-input" type="file"
-                                    (change)="updateFileName($event.srcElement.files)">
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <fa-icon [icon]="faUpload"></fa-icon>
-                                    </span>
-                                    <span class="file-label">
-                                        Escolha um arquivo…
-                                    </span>
-                                </span>
-                                <span class="file-name">
-                                    {{arquivoNome}}
-                                </span>
-                            </label>
-                        </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.arquivo)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
+                    </ng-wizard-step>
+                </ng-wizard>
             </div>
         </div>
-
-        <footer class="card-footer">
-            <p class="card-footer-item">
-                <button routerLink="/neocms/banner" routerLinkActive="active" class="button is-light" type="button">
-                    Fechar &nbsp;
-                    <fa-icon [icon]="faTimes"></fa-icon>
-                </button>
-            </p>
-            <p class="card-footer-item">
-                <button class="button is-primary" type="submit" [ngClass]="{'is-loading': btnSubmitDisable}">
-                    Gravar &nbsp;
-                    <fa-icon [icon]="faCheck"></fa-icon>
-                </button>
-            </p>
-        </footer>
-    </div>
-</form>
+    </form>
+</div>

@@ -80,9 +80,9 @@ const routes: Routes = [
     loadChildren: () => import('./pergunta-tipo/pergunta-tipo.module').then(m => m.PerguntaTipoModule)
   },
   {
-    path: 'usuarios',
+    path: 'usuario',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule)
+    loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)
   },
   {
     path: '**',

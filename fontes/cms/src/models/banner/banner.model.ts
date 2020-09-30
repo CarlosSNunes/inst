@@ -1,8 +1,8 @@
 export class BannerModel {
+
     public constructor(init?: Partial<BannerModel>) {
         Object.assign(this, init);
     }
-
     id: number;
     titulo: string;
     subtitulo: string;
