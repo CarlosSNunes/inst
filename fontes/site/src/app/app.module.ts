@@ -41,8 +41,8 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },
-        { provide: APP_BASE_HREF, useValue: '/institucional/' },
         WindowRef,
+        { provide: APP_BASE_HREF, useValue: environment.BASE_HREF },
         { provide: 'locationObject', useValue: location },
         {
             provide: HTTP_INTERCEPTORS,
