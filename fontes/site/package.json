@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
+    "build-hml": "ng build --configuration=homolog",
+    "build-staging": "ng build --configuration=staging --base-href=/institucional/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
