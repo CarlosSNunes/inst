@@ -21,28 +21,9 @@ Grid
         margin-right: -16px;
     }
     .column {
-        // padding-top: 0;
-        // padding-bottom: 0;
         padding-left: 16px;
         padding-right: 16px;
-        // @media (min-width: 769px) {
-        //     &:first-child {
-        //         padding-left: 0;
-        //     }
-        //     &:last-child {
-        //         padding-right: 0;
-        //     }
-        // }
-        // &:first-child {
-        //     padding-left: 0;
-        // }
-        // &:last-child {
-        //     padding-right: 0;
-        // }
-        // @media (max-width: 768px) {
-        //     padding-right: 32px;
-        //     padding-left: 32px;
-        // }
+
         &.is-paddingless-vertical {
             padding-top: 0;
             padding-bottom: 0;
@@ -305,17 +286,16 @@ select,
                     color: getColor(_carePlus, _drop-down-option);
                     &:hover,
                     &:checked {
-                        background: rgba(getColor(_carePlus, _drop-down-option-rgb), 0.05);
+                        background: rgba(getColor(_carePlus, _drop-down-option), 0.05);
                     }
                 }
                 &:focus {
                     outline: none;
-                    // border: none;
                     box-shadow: unset;
                 }
             }
             &:not(.is-multiple):not(.is-loading)::after {
-                border-color: rgba(getColor(_bupa, _grey-2-rgb), 0.5);
+                border-color: rgba(getColor(_bupa, _grey-2), 0.5);
                 align-self: center;
             }
         }
@@ -359,11 +339,11 @@ select,
             }
             &:disabled {
                 +label.checkbox-label:before {
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     border: none !important;
                 }
                 &:checked+label.checkbox-label:before {
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     border: none !important;
                     content: "";
                     background-image: getSvg("check.svg");
@@ -418,16 +398,6 @@ select,
                     position: absolute;
                     display: inline-block;
                     min-width: 26px;
-                    // animation: animateUncheck 0.2s ease-in-out;
-                    // @keyframes animateUncheck {
-                    //     0% {
-                    //         background: getColor(_bupa, _digital-cian);
-                    //         box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                    //     }
-                    //     100% {
-                    //         box-shadow: inset 0px 0px 0px 10px getColor(_bupa, _white);
-                    //     }
-                    // }
                 }
             }
             &:checked+label.radio-label:before {
@@ -437,28 +407,19 @@ select,
                 content: "";
                 border-radius: 50px;
                 box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                // animation: animateCheck 0.2s ease-in-out;
-                // @keyframes animateCheck {
-                //     0% {
-                //         box-shadow: inset 0px 0px 0px 10px getColor(_bupa, _white);
-                //     }
-                //     100% {
-                //         box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
-                //     }
-                // }
             }
             &:focus+label.radio-label {
                 outline: none;
             }
             &:disabled {
                 +label.radio-label:before {
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     border: none;
                 }
                 &:checked+label.radio-label:before {
                     border: 1px solid getColor(_carePlus, _checkbox-border);
                     padding: 0;
-                    background: rgba(getColor(_carePlus, _checkbox-border-rgb), 0.5);
+                    background: rgba(getColor(_carePlus, _checkbox-border), 0.5);
                     content: "";
                     border-radius: 50px;
                     box-shadow: inset 0px 0px 0px 5px getColor(_bupa, _white);
@@ -706,18 +667,18 @@ select,
 }
 
 .mat-calendar-cell-semi-selected {
-    background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.15);
+    background-color: rgba(getColor(_bupa, _digital-cian), 0.15);
     color: getColor(_carePlus, _drop-down-option);
 }
 
 .mat-calendar-body-begin-range:not(.mat-calendar-body-end-range) {
     border-radius: 0 !important;
-    background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.15);
+    background-color: rgba(getColor(_bupa, _digital-cian), 0.15);
 }
 
 .mat-calendar-body-end-range:not(.mat-calendar-body-begin-range) {
     border-radius: 0 !important;
-    background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.15);
+    background-color: rgba(getColor(_bupa, _digital-cian), 0.15);
 }
 
 .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
@@ -733,7 +694,7 @@ select,
 }
 
 .mat-calendar-body-today:not(.mat-calendar-body-selected) {
-    border: rgba(getColor(_bupa, _digital-cian-rgb), 0.38) 1px dashed;
+    border: rgba(getColor(_bupa, _digital-cian), 0.38) 1px dashed;
     border-radius: 0% !important;
     transform: translate3d(0, 0, 0);
 }

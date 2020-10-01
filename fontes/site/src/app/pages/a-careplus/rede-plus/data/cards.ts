@@ -8,7 +8,7 @@ export default [
         imagePath: 'assets/svg/faq.svg',
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/perguntas-frequentes',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -17,7 +17,7 @@ export default [
         imagePath: "assets/svg/earth.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/responsabilidade-social',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",

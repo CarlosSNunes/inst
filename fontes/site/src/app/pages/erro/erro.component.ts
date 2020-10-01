@@ -3,6 +3,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { BreadcrumbModel, RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-erro',
@@ -40,6 +41,75 @@ export class ErroComponent implements OnInit {
         this.meta.updateTag({
             name: 'description',
             content: 'Você pode realizar uma busca em nosso site ou voltar para a nossa home principal. Você também consegue navegar pelo nosso site através do cabeçalho.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'Página não Encontrada | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/assets/svg/error-404.svg`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Você pode realizar uma busca em nosso site ou voltar para a nossa home principal. Você também consegue navegar pelo nosso site através do cabeçalho.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/erro`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'Página não Encontrada | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/assets/svg/error-404.svg`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Você pode realizar uma busca em nosso site ou voltar para a nossa home principal. Você também consegue navegar pelo nosso site através do cabeçalho.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/erro`,
         });
     }
 

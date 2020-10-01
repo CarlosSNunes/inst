@@ -1,14 +1,5 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
-
 using Microsoft.EntityFrameworkCore;
-using Neotix.Neocms.CarePlusAPI.Entities;
+using CarePlusAPI.Entities;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -16,7 +7,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Neotix.Neocms.CarePlusAPI.Helpers
+namespace CarePlusAPI.Helpers
 {
     [ExcludeFromCodeCoverage]
     public class DataContext : DbContext
@@ -100,6 +91,7 @@ namespace Neotix.Neocms.CarePlusAPI.Helpers
         public DbSet<Clinica> Clinica { get; set; }
         public DbSet<EnderecoClinica> EnderecoClinica { get; set; }
         public DbSet<HorarioClinica> HorarioClinica { get; set; }
+        public DbSet<RequisicaoUsuario> RequisicaoUsuario { get; set; }
 
         public override int SaveChanges()
         {

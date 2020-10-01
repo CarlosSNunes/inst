@@ -2,15 +2,15 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Neotix.Neocms.CarePlusAPI.Controllers;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Controllers;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Services;
 using System;
 using System.Text;
 using Xunit;
 
-namespace Neotix.Neocms.CarePlusAPI.Tests.Controllers
+namespace CarePlusAPI.Tests.Controllers
 {
     public class DashboardControllerTest : IDisposable
     {

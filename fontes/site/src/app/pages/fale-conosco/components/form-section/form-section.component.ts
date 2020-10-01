@@ -84,16 +84,6 @@ export class FormSectionComponent implements OnInit {
     }
 
     setActiveChanel(index: number) {
-        // this.chanelForms = this.chanelForms.map((chanel, i) => {
-        //     if (i === index) {
-        //         chanel.active = true
-        //         this.activeChanel = chanel;
-        //     } else {
-        //         chanel.active = false
-        //     }
-        //     return chanel
-        // });
-
         /*
             Solução temporária para primeira publicação do site.
         */

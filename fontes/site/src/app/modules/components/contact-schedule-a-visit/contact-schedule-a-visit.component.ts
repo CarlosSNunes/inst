@@ -11,7 +11,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @Input() bigTitle: string = 'Entre em contato ou agende uma visita';
     @Input() firstCard: IconCardModel = new IconCardModel({
-        title: 'Central de atendimento',
+        title: 'Central de Atendimento',
         type: 'icon',
         button: new ButtonModel({
             link: 'tel: 11 4197-9000',

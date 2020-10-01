@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
-import { registerLocaleData } from '@angular/common';
+import { APP_BASE_HREF, registerLocaleData } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
 import { HeaderModule } from 'src/app/modules/header/header.module';
 import { FooterModule } from 'src/app/modules/footer/footer.module';
@@ -41,8 +41,9 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },
+        { provide: APP_BASE_HREF, useValue: '/institucional/' },
         WindowRef,
-        { provide: 'locationObject', useValue: location},
+        { provide: 'locationObject', useValue: location },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpRequestInterceptor,

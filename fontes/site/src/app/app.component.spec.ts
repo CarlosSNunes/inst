@@ -26,7 +26,6 @@ describe('AppComponent', () => {
   it('should create the app', (done: DoneFn) => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    // spyOn(appService, 'rotaEvent').and.returnValue(new EventEmitter());
     fixture.detectChanges();
     expect(app).toBeTruthy();
     done();

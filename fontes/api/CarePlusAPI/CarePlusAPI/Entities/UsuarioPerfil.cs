@@ -1,16 +1,7 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
-
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Neotix.Neocms.CarePlusAPI.Entities
+namespace CarePlusAPI.Entities
 {
     [ExcludeFromCodeCoverage]
     [Table("TB_USUARIO_PERFIL")]

@@ -125,6 +125,7 @@ section {
                         margin-top: 10px;
                         color: getColor(_bupa, _digital-cian);
                         font-weight: 600;
+                        min-height: 65px;
                         .small {
                             font-size: 0.6666em;
                         }
@@ -249,7 +250,12 @@ section {
                 }
                 .columns {
                     &.our-numbers {
-                        margin-top: 30px;
+                        margin-top: 80px;
+
+                        &.animate {
+                            margin-top: 30px;
+                        }
+
                         .column {
                             .description {
                                 margin-top: 16px;
@@ -257,7 +263,12 @@ section {
                         }
                     }
                     &.infos-cols {
-                        margin-top: 30px;
+                        margin-top: 80px;
+
+                        &.animate {
+                            margin-top: 30px;
+                        }
+                        
                         .column {
                             margin-top: 20px;
                             &:first-child {

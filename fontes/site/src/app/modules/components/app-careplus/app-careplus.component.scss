@@ -7,7 +7,6 @@ section#app-careplus {
             .column {
                 &.image {
                     position: relative;
-                    /* The device with borders */
                     .smartphone {
                         position: absolute;
                         width: 327px;
@@ -15,8 +14,8 @@ section#app-careplus {
                         left: 16px;
                         top: -108px;
                         margin: auto;
-                        border: 16px var(--bupa_black) solid;
-                        background-color: var(--bupa_black);
+                        border: 16px getColor(_bupa, _black) solid;
+                        background-color: getColor(_bupa, _black);
                         border-radius: 36px;
                         .content {
                             width: 100%;
@@ -51,6 +50,7 @@ section#app-careplus {
                             width: 19px;
                             height: 19px;
                             align-self: center;
+                            top: calc(50% - 9.5px);
                             left: 0;
                         }
                     }

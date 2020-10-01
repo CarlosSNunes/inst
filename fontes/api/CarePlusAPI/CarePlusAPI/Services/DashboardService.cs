@@ -1,20 +1,11 @@
-//===============================================================================
-//Web API 
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API para uso do NEOCMS
-//==============================================================================
-
 using Microsoft.EntityFrameworkCore;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Neotix.Neocms.CarePlusAPI.Services
+namespace CarePlusAPI.Services
 {
     public interface IDashboardService
     {

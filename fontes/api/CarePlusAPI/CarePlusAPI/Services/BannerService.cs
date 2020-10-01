@@ -1,16 +1,7 @@
-//===============================================================================
-//Web API Banner
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Banner para uso do NEOCMS
-//==============================================================================
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +10,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using TinifyAPI;
 
-namespace Neotix.Neocms.CarePlusAPI.Services
+namespace CarePlusAPI.Services
 {
     public interface IBannerService
     {

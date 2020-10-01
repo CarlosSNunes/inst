@@ -26,7 +26,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     @ViewChild('searchInput', { static: true }) searchInput: ElementRef<HTMLInputElement>;
     simpleBannerModel: SimpleBannerModel = {
         title: 'Perguntas Frequentes',
-        description: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.',
+        description: 'Confira as principais dúvidas de Beneficiários, RHs, Corretores e Credenciados',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
@@ -168,7 +168,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Perguntas Frequentes | Care Plus | Care Plus');
+        this.title.setTitle('Perguntas Frequentes | A Care Plus | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.'

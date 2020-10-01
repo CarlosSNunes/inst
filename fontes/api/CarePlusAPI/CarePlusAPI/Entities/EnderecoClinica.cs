@@ -1,16 +1,7 @@
-﻿//===============================================================================
-//Web API 
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade EnderecoClinica para uso do NEOCMS
-//==============================================================================
-
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Neotix.Neocms.CarePlusAPI.Entities
+namespace CarePlusAPI.Entities
 {
     [ExcludeFromCodeCoverage]
     [Table("TB_ENDERECO_CLINICA")]
@@ -35,6 +26,6 @@ namespace Neotix.Neocms.CarePlusAPI.Entities
 
         [Column("CLINICA_ID")]
         public int ClinicaId { get; set; }
-        public virtual Clinica Clinica{ get; set; }
+        public virtual Clinica Clinica { get; set; }
     }
 }

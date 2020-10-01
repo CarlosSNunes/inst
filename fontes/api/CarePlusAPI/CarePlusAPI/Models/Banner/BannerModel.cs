@@ -1,16 +1,7 @@
-//===============================================================================
-//Web API Banner
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Banner para uso do NEOCMS
-//==============================================================================
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Neotix.Neocms.CarePlusAPI.Models.Banner
+namespace CarePlusAPI.Models.Banner
 {
     [ExcludeFromCodeCoverage]
     public class BannerModel

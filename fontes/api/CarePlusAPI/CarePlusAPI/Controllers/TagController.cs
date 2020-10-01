@@ -1,25 +1,18 @@
-//===============================================================================
-//Web API Tag
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Tag para uso do NEOCMS
-//==============================================================================
+
 
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Services;
 using AutoMapper;
-using Neotix.Neocms.CarePlusAPI.Helpers;
+using CarePlusAPI.Helpers;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Models.Tag;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Models.Tag;
 using System.Linq;
 
-namespace Neotix.Neocms.CarePlusAPI.Controllers
+namespace CarePlusAPI.Controllers
 {
     [Authorize]
     [ApiController]

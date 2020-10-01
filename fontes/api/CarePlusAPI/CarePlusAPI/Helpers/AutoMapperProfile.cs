@@ -1,27 +1,19 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using AutoMapper;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Models.Banner;
-using Neotix.Neocms.CarePlusAPI.Models.Categorias;
-using Neotix.Neocms.CarePlusAPI.Models.ConsultaFacil;
-using Neotix.Neocms.CarePlusAPI.Models.Newsletter;
-using Neotix.Neocms.CarePlusAPI.Models.Perfil;
-using Neotix.Neocms.CarePlusAPI.Models.Post;
-using Neotix.Neocms.CarePlusAPI.Models.PostTag;
-using Neotix.Neocms.CarePlusAPI.Models.Tag;
-using Neotix.Neocms.CarePlusAPI.Models.Usuario;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Models.Banner;
+using CarePlusAPI.Models.Categorias;
+using CarePlusAPI.Models.ConsultaFacil;
+using CarePlusAPI.Models.Newsletter;
+using CarePlusAPI.Models.Perfil;
+using CarePlusAPI.Models.Post;
+using CarePlusAPI.Models.PostTag;
+using CarePlusAPI.Models.Tag;
+using CarePlusAPI.Models.Usuario;
 
-namespace Neotix.Neocms.CarePlusAPI.Helpers
+namespace CarePlusAPI.Helpers
 {
     [ExcludeFromCodeCoverage]
     public class AutoMapperProfile : Profile

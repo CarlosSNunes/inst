@@ -8,7 +8,7 @@ export default [
         imagePath: "assets/svg/star-hand.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/rede-plus',
-        hasCollapse: true
+        hasCollapse: false
     }),
     new IconCardModel({
         type: "icon",
@@ -17,7 +17,7 @@ export default [
         imagePath: "assets/svg/document.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/materiais-de-saude',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -26,7 +26,7 @@ export default [
         imagePath: "assets/svg/people.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/carreiras',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -35,7 +35,7 @@ export default [
         imagePath: "assets/svg/charts.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/resultados-financeiros',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -44,7 +44,7 @@ export default [
         imagePath: "assets/svg/earth.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/responsabilidade-social',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -53,7 +53,7 @@ export default [
         imagePath: "assets/svg/medal.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/planos-e-produtos/gestao-de-saude',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -62,7 +62,7 @@ export default [
         imagePath: "assets/svg/faq.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/perguntas-frequentes',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -71,7 +71,7 @@ export default [
         imagePath: "assets/svg/lock.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/politica-de-privacidade',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: "icon",
@@ -80,6 +80,6 @@ export default [
         imagePath: "assets/svg/paper.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/termos-e-condicoes',
-        hasCollapse: true
+        hasCollapse:false
     })
 ]

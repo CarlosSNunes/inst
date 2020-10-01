@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Moq;
-using Neotix.Neocms.CarePlusAPI.Controllers;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Models.Banner;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Controllers;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.Banner;
+using CarePlusAPI.Services;
 using System;
 using System.IO;
 using System.Threading;
 using Xunit;
 
-namespace Neotix.Neocms.CarePlusAPI.Tests.Controllers
+namespace CarePlusAPI.Tests.Controllers
 {
     public class BannerControllerTest : IDisposable
     {
