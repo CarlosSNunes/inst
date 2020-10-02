@@ -10,7 +10,7 @@ export default [
     {
         title: "Sou RH",
         description: "Para você que é responsável pela contratação e gestão dos serviços de saúde e odontologia da sua empresa.",
-        link: "/home/gestor-rh",
+        link: "/home/rh",
         image: "assets/svg/RH.svg",
         linkTitle: "Visite sua área",
         active: false
