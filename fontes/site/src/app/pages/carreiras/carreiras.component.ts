@@ -3,6 +3,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { BreadcrumbModel, CareplusVideoModel, InfoSectionModel, SimpleBannerModel } from 'src/app/models';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { Cards } from './data/mock';
 
 @Component({
     selector: 'app-carreiras',
@@ -41,7 +42,8 @@ export class CarreirasComponent implements OnInit {
             imageSrc: 'assets/img/section-our-colaborators.jpg',
             hasModal: true,
         })
-    ]
+    ];
+    cards = Cards;
     constructor(
         private windowRef: WindowRef,
         private title: Title,
