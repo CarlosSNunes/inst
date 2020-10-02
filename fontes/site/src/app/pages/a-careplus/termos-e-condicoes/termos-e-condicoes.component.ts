@@ -54,10 +54,10 @@ export class TermosECondicoesComponent implements OnInit {
     }
 
     setSEOinfos() {
-        this.title.setTitle('Termos e Condições | A Care Plus | Care Plus');
+        this.title.setTitle('Termos e Condições | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Confira os termos e condições gerais de uso e compra de produtos e serviços do cliente do site Care Plus.'
+            content: 'Confira os termos e condições gerais de uso e aquisição de planos e produtos relacionados ao site da Care Plus.'
         });
     }
 

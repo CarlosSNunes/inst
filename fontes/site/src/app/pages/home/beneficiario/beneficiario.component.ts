@@ -68,10 +68,10 @@ export class BeneficiarioComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Beneficiário | Care Plus');
+        this.title.setTitle('Sou Beneficiário | Care Plus ');
         this.meta.updateTag({
             name: 'description',
-            content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
+            content: 'A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos Beneficiários. Desta forma, tudo fica fácil para você.'
         });
 
         /* 
@@ -80,7 +80,7 @@ export class BeneficiarioComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                "Beneficiário | Care Plus",
+                "Sou Beneficiário | Care Plus ",
         });
 
         this.meta.updateTag({
@@ -101,7 +101,7 @@ export class BeneficiarioComponent implements OnInit {
         this.meta.updateTag({
             name: "og:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos Beneficiários. Desta forma, tudo fica fácil para você.",
         });
 
         this.meta.updateTag({
@@ -116,7 +116,7 @@ export class BeneficiarioComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                "Beneficiário | Care Plus",
+                "Sou Beneficiário | Care Plus ",
         });
 
         this.meta.updateTag({
@@ -137,7 +137,7 @@ export class BeneficiarioComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos Beneficiários. Desta forma, tudo fica fácil para você.",
         });
 
         this.meta.updateTag({

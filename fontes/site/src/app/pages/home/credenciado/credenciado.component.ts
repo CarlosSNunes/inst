@@ -83,11 +83,11 @@ export class CredenciadoComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle("Credenciado | Care Plus");
+        this.title.setTitle("Sou Credenciado | Care Plus ");
         this.meta.updateTag({
             name: "description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos Credenciados parceiros. Desta forma, tudo fica fácil para você.",
         });
 
 
@@ -97,7 +97,7 @@ export class CredenciadoComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                "Credenciado | Care Plus",
+                "Sou Credenciado | Care Plus ",
         });
 
         this.meta.updateTag({
@@ -118,7 +118,7 @@ export class CredenciadoComponent implements OnInit {
         this.meta.updateTag({
             name: "og:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos Credenciados parceiros. Desta forma, tudo fica fácil para você.",
         });
 
         this.meta.updateTag({
@@ -133,7 +133,7 @@ export class CredenciadoComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                "Credenciado | Care Plus",
+                "Sou Credenciado | Care Plus ",
         });
 
         this.meta.updateTag({
@@ -154,7 +154,7 @@ export class CredenciadoComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos Credenciados parceiros. Desta forma, tudo fica fácil para você.",
         });
 
         this.meta.updateTag({

@@ -36,10 +36,10 @@ export class GestaoDeSaudeComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Gestão de Saúde | Produtos e Planos | Care Plus');
+        this.title.setTitle('Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Gestão de Saúde: o jeito Care Plus de cuidar da sua saúde e bem-estar.'
+            content: 'A Gestão de Saúde conta com programas e serviços de saúde especiais feitos para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva.'
         });
 
         /* 
@@ -48,7 +48,7 @@ export class GestaoDeSaudeComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                `Gestão de Saúde | Produtos e Planos | Care Plus`
+                `Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus`
         });
 
         this.meta.updateTag({
@@ -68,7 +68,7 @@ export class GestaoDeSaudeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'Gestão de Saúde: o jeito Care Plus de cuidar da sua saúde e bem-estar.'
+            content: 'A Gestão de Saúde conta com programas e serviços de saúde especiais feitos para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva.'
         });
 
         this.meta.updateTag({
@@ -83,7 +83,7 @@ export class GestaoDeSaudeComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                `Gestão de Saúde | Produtos e Planos | Care Plus`
+                `Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus`
         });
 
         this.meta.updateTag({
@@ -103,7 +103,7 @@ export class GestaoDeSaudeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Gestão de Saúde: o jeito Care Plus de cuidar da sua saúde e bem-estar.'
+            content: 'A Gestão de Saúde conta com programas e serviços de saúde especiais feitos para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva.'
         });
 
         this.meta.updateTag({

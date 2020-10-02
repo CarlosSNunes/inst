@@ -42,10 +42,10 @@ export class MedicinaOcupacionalComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Medicina Ocupacional | Produtos e Planos | Care Plus');
+        this.title.setTitle('Medicina do Trabalho, Ocupacional, e-Social e PCMSO | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Cuide da sua empresa e dos seus funcionários criando um ambiente seguro e saudável.'
+            content: 'A Care Plus, maior operadora de saúde premium do Brasil, disponibiliza serviços de Medicina do Trabalho, Medicina Ocupacional, e-Social, PCMSO, PPRA e ASO. '
         });
 
         /* 
@@ -54,7 +54,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                "Medicina Ocupacional | Produtos e Planos | Care Plus",
+                "Medicina do Trabalho, Ocupacional, e-Social e PCMSO | Care Plus",
         });
 
         this.meta.updateTag({
@@ -74,7 +74,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'Cuide da sua empresa e dos seus funcionários criando um ambiente seguro e saudável.'
+            content: 'A Care Plus, maior operadora de saúde premium do Brasil, disponibiliza serviços de Medicina do Trabalho, Medicina Ocupacional, e-Social, PCMSO, PPRA e ASO. '
         });
 
         this.meta.updateTag({
@@ -89,7 +89,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                "Medicina Ocupacional | Produtos e Planos | Care Plus",
+                "Medicina do Trabalho, Ocupacional, e-Social e PCMSO | Care Plus",
         });
 
         this.meta.updateTag({
@@ -109,7 +109,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Cuide da sua empresa e dos seus funcionários criando um ambiente seguro e saudável.'
+            content: 'A Care Plus, maior operadora de saúde premium do Brasil, disponibiliza serviços de Medicina do Trabalho, Medicina Ocupacional, e-Social, PCMSO, PPRA e ASO. '
         });
 
         this.meta.updateTag({

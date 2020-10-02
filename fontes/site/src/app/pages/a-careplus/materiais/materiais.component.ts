@@ -83,10 +83,10 @@ export class MateriaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Materiais de Saúde | A Care Plus | Care Plus');
+        this.title.setTitle('Materiais de Saúde | ANS, Comunicados e Materiais de Apoio | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.'
+            content: 'Disponibilizamos uma biblioteca de documentos onde você encontra todos os materiais de saúde e da ANS oferecidos pela Care Plus para os seus parceiros.'
         });
     }
 

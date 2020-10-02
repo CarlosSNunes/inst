@@ -109,11 +109,11 @@ export class RhComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle("RH | Care Plus");
+        this.title.setTitle("Sou RH | Care Plus ");
         this.meta.updateTag({
             name: "description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos RHs parceiros. Desta forma, tudo fica fácil para você.",
         });
 
         /* 
@@ -122,7 +122,7 @@ export class RhComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                "RH | Care Plus",
+                "Sou RH | Care Plus ",
         });
 
         this.meta.updateTag({
@@ -143,7 +143,7 @@ export class RhComponent implements OnInit {
         this.meta.updateTag({
             name: "og:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos RHs parceiros. Desta forma, tudo fica fácil para você.",
         });
 
         this.meta.updateTag({
@@ -158,7 +158,7 @@ export class RhComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                "RH | Care Plus",
+                "Sou RH | Care Plus ",
         });
 
         this.meta.updateTag({
@@ -179,7 +179,7 @@ export class RhComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus reuniu em um única página informações relevantes, organizadas e específicas para nossos RHs parceiros. Desta forma, tudo fica fácil para você.",
         });
 
         this.meta.updateTag({

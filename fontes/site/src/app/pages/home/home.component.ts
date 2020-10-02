@@ -56,11 +56,11 @@ export class HomeComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle("Home | Care Plus");
+        this.title.setTitle("Care Plus | Planos de Saúde e Odontológicos Premium, Clínicas e Medicina Ocupacional");
         this.meta.updateTag({
             name: "description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus é uma operadora premium de saúde que oferece Planos de Saúde e Odontológicos, Clínicas Odontológicas e Médicas, além de Medicina Ocupacional.",
         });
 
         /* 
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                "Home | Care Plus",
+                "Care Plus | Planos de Saúde e Odontológicos Premium, Clínicas e Medicina Ocupacional",
         });
 
         this.meta.updateTag({
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
         this.meta.updateTag({
             name: "og:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus é uma operadora premium de saúde que oferece Planos de Saúde e Odontológicos, Clínicas Odontológicas e Médicas, além de Medicina Ocupacional.",
         });
 
         this.meta.updateTag({
@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                "Home | Care Plus",
+                "Care Plus | Planos de Saúde e Odontológicos Premium, Clínicas e Medicina Ocupacional",
         });
 
         this.meta.updateTag({
@@ -126,7 +126,7 @@ export class HomeComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:description",
             content:
-                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+                "A Care Plus é uma operadora premium de saúde que oferece Planos de Saúde e Odontológicos, Clínicas Odontológicas e Médicas, além de Medicina Ocupacional.",
         });
 
         this.meta.updateTag({

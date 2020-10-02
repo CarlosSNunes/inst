@@ -40,7 +40,7 @@ export class ErroComponent implements OnInit {
         this.title.setTitle('Página não Encontrada | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Você pode realizar uma busca em nosso site ou voltar para a nossa home principal. Você também consegue navegar pelo nosso site através do cabeçalho.'
+            content: ' Infelizmente não encontramos a página que você está procurando'
         });
 
         /* 
@@ -69,7 +69,7 @@ export class ErroComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'Você pode realizar uma busca em nosso site ou voltar para a nossa home principal. Você também consegue navegar pelo nosso site através do cabeçalho.'
+            content: ' Infelizmente não encontramos a página que você está procurando '
         });
 
         this.meta.updateTag({
@@ -104,7 +104,7 @@ export class ErroComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Você pode realizar uma busca em nosso site ou voltar para a nossa home principal. Você também consegue navegar pelo nosso site através do cabeçalho.'
+            content: ' Infelizmente não encontramos a página que você está procurando '
         });
 
         this.meta.updateTag({

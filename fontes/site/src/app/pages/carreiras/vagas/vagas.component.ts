@@ -75,10 +75,10 @@ export class VagasComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Vagas | Carreiras | Care Plus');
+        this.title.setTitle('Vagas e Oportunidades | Carreiras | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+            content: 'Conheça os nossos programas, vagas e oportunidades em aberto. A Care Plus é uma das melhores empresas no Brasil para se trabalhar.'
         });
 
         /* 
@@ -87,7 +87,7 @@ export class VagasComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                'Vagas | Carreiras | Care Plus'
+                'Vagas e Oportunidades | Carreiras | Care Plus'
         });
 
         this.meta.updateTag({
@@ -107,7 +107,7 @@ export class VagasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+            content: 'Conheça os nossos programas, vagas e oportunidades em aberto. A Care Plus é uma das melhores empresas no Brasil para se trabalhar.'
         });
 
         this.meta.updateTag({
@@ -122,7 +122,7 @@ export class VagasComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                'Vagas | Carreiras | Care Plus'
+                'Vagas e Oportunidades | Carreiras | Care Plus'
         });
 
         this.meta.updateTag({
@@ -142,7 +142,7 @@ export class VagasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+            content: 'Conheça os nossos programas, vagas e oportunidades em aberto. A Care Plus é uma das melhores empresas no Brasil para se trabalhar.'
         });
 
         this.meta.updateTag({

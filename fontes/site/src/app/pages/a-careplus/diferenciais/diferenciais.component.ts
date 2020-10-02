@@ -56,10 +56,10 @@ export class DiferenciaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Diferenciais | A Care Plus | Care Plus');
+        this.title.setTitle('Diferenciais | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Atendimento, acolhimento e humanização que fazem toda a diferença na vida de quem contrata, usa e comercializa as soluções Care Plus.'
+            content: 'A Care Plus sabe que atendimento, acolhimento e humanização fazem toda a diferença na vida de quem contrata, usa e comercializa os nossos planos e produtos de saúde.'
         });
     }
 

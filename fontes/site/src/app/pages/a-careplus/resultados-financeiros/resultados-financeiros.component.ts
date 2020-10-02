@@ -94,10 +94,10 @@ export class ResultadosFinanceirosComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Resultados Financeiros | A Care Plus | Care Plus');
+        this.title.setTitle('Resultados Financeiros | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'A Care Plus tem o compromisso de manter transparência e responsabilidade na prestação de contas.'
+            content: 'A Care Plus preza pela transparência e responsabilidade na prestação de contas. Aqui, você encontra os últimos resultados financeiros da Care Plus.'
         });
     }
 

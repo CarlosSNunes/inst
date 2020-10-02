@@ -43,10 +43,10 @@ export class PlanosEProdutosComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Produtos e Planos | Care Plus');
+        this.title.setTitle('Planos e Produtos de Saúde e Odontológicos Premium | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+            content: 'A Care Plus oferece planos de saúde e odontológicos premium para empresas a partir de 2 vidas, além de produtos como o Medicina Ocupacional e o Gestão de Saúde.'
         })
 
         /* 
@@ -55,7 +55,7 @@ export class PlanosEProdutosComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                "Produtos e Planos | Care Plus",
+                "Planos e Produtos de Saúde e Odontológicos Premium | Care Plus",
         });
 
         this.meta.updateTag({
@@ -75,7 +75,7 @@ export class PlanosEProdutosComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+            content: 'A Care Plus oferece planos de saúde e odontológicos premium para empresas a partir de 2 vidas, além de produtos como o Medicina Ocupacional e o Gestão de Saúde.'
         });
 
         this.meta.updateTag({
@@ -90,7 +90,7 @@ export class PlanosEProdutosComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                "Produtos e Planos | Care Plus",
+                "Planos e Produtos de Saúde e Odontológicos Premium | Care Plus",
         });
 
         this.meta.updateTag({
@@ -110,7 +110,7 @@ export class PlanosEProdutosComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+            content: 'A Care Plus oferece planos de saúde e odontológicos premium para empresas a partir de 2 vidas, além de produtos como o Medicina Ocupacional e o Gestão de Saúde.'
         });
 
         this.meta.updateTag({

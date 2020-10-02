@@ -51,10 +51,10 @@ export class ProgramasEmpresariaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Programas Empresariais | Gestão de Saúde | Produtos e Planos | Care Plus');
+        this.title.setTitle('Programas Empresariais | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Conte com as melhores soluções em saúde para a sua empresa e os seus funcionários. Conheça todos os serviços!'
+            content: 'A Care Plus oferece programas empresariais de atendimento altamente capacitado com médicos, nutricionistas, enfermeiros e psicólogos para todos os clientes.'
         });
     }
 }

@@ -141,10 +141,10 @@ import { environment } from 'src/environments/environment';
     }
 
     setSEOInfos() {
-        this.title.setTitle('A Care Plus | Care Plus');
+        this.title.setTitle('A Empresa | Sobre Nós | Care Plus ');
         this.meta.updateTag({
             name: 'description',
-            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+            content: 'A Care Plus cuida do bem mais precioso das pessoas, a vida. A responsabilidade é enorme, por isso priorizamos pilares como cuidado, dedicação e segurança.'
         });
 
         /* 
@@ -153,7 +153,7 @@ import { environment } from 'src/environments/environment';
         this.meta.updateTag({
             name: "og:title",
             content:
-                'A Care Plus | Care Plus',
+                'A Empresa | Sobre Nós | Care Plus ',
         });
 
         this.meta.updateTag({
@@ -173,7 +173,7 @@ import { environment } from 'src/environments/environment';
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+            content: 'A Care Plus cuida do bem mais precioso das pessoas, a vida. A responsabilidade é enorme, por isso priorizamos pilares como cuidado, dedicação e segurança.'
         });
 
         this.meta.updateTag({
@@ -188,7 +188,7 @@ import { environment } from 'src/environments/environment';
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                'A Care Plus | Care Plus',
+                'A Empresa | Sobre Nós | Care Plus ',
         });
 
         this.meta.updateTag({
@@ -208,7 +208,7 @@ import { environment } from 'src/environments/environment';
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+            content: 'A Care Plus cuida do bem mais precioso das pessoas, a vida. A responsabilidade é enorme, por isso priorizamos pilares como cuidado, dedicação e segurança.'
         });
 
         this.meta.updateTag({

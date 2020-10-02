@@ -79,10 +79,10 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     }
 
     setSEOInfos(infos) {
-        this.title.setTitle(`${infos.name} | Produtos e Planos | Care Plus`)
+        this.title.setTitle(infos.title)
         this.meta.updateTag({
             name: 'description',
-            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+            content: infos.description
         })
 
         /* 
@@ -90,8 +90,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
         */
         this.meta.updateTag({
             name: "og:title",
-            content:
-                `${infos.name} | Produtos e Planos | Care Plus`
+            content: infos.title
         });
 
         this.meta.updateTag({
@@ -125,8 +124,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
 
         this.meta.updateTag({
             name: "twitter:title",
-            content:
-                `${infos.name} | Produtos e Planos | Care Plus`
+            content: infos.title
         });
 
         this.meta.updateTag({
@@ -146,7 +144,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+            content: infos.description
         });
 
         this.meta.updateTag({

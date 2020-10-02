@@ -67,7 +67,7 @@ export class CarreirasComponent implements OnInit {
         this.title.setTitle('Carreiras | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+            content: 'Faça Parte de um time que gosta de sonhar grande! A Care Plus tem como objetivo de acompanhar sua carreira e criar um futuro junto com você.'
         });
 
         /* 
@@ -96,7 +96,7 @@ export class CarreirasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+            content: 'Faça Parte de um time que gosta de sonhar grande! A Care Plus tem como objetivo de acompanhar sua carreira e criar um futuro junto com você.'
         });
 
         this.meta.updateTag({
@@ -131,7 +131,7 @@ export class CarreirasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+            content: 'Faça Parte de um time que gosta de sonhar grande! A Care Plus tem como objetivo de acompanhar sua carreira e criar um futuro junto com você.'
         });
 
         this.meta.updateTag({

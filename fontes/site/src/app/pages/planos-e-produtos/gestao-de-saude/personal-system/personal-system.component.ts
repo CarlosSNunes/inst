@@ -45,10 +45,10 @@ export class PersonalSystemComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Personal System | Gestão de Saúde | Produtos e Planos | Care Plus');
+        this.title.setTitle('Personal System | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Saiba mais sobre o Personal System Care Plus.'
+            content: 'A Care Plus apresenta o Personal System, um programa especializado na promoção de saúde e prevenção de doenças cardiovasculares, atendendo em clínicas próprias, rede credenciada e diretamente nas empresas.'
         });
     }
 
