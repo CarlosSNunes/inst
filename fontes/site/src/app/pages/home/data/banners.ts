@@ -2,7 +2,7 @@ import { BannerModel } from "src/app/models";
 
 export const bannersMock = [
      new BannerModel({
-        caminhoImagem: "assets/videos/CP-nova-identidade.gif",
+        caminhoImagem: "assets/img/banner_marca.png",
         titulo: "Uma nova marca!",
         descricao: "A mesma paixão e dedicação em cuidar de pessoas! #todosnamesmabatida",
         tempo: 11000,
