@@ -1,0 +1,65 @@
+.third-step {
+    .columns {
+        margin: 0 -16px;
+        .column {
+            h3.big-title {
+                margin-top: 20px;
+            }
+
+            .description {
+                margin-top: 36px;
+            }
+
+            .third-step-buttons {
+                margin-top: 50px;
+                display: flex;
+                justify-content: flex-end;
+
+                .btn {
+                    &:last-child {
+                        margin-left: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .third-step {
+        .columns {
+            .column {
+                .third-step-buttons {
+                    .btn {
+                        &.medium {
+                            padding: 20px 22px;
+                            font-size: 0.75em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .third-step {
+        .columns {
+            .column {
+                .third-step-buttons {
+                    flex-wrap: wrap;
+
+                    .btn {
+                        width: 100%;
+                        flex: 0 0 100%;
+                        display: block;
+
+                        &.primary {
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

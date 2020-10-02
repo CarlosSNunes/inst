@@ -1,0 +1,100 @@
+@import "~src/scss/_variables";
+@import "~src/scss/_mixins";
+
+.notification {
+    box-sizing: border-box;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: calc(100% - 64px);
+    left: 32px;
+    z-index: 2000;
+    transition: top 0.3s ease-in-out;
+    @include fade(0.3s);
+
+    &.bottom {
+        top: unset;
+        bottom: 32px;
+    }
+
+    &.is-success {
+        background: #edf8f0;
+        border: 1px solid #bfe6cb;
+        border-left: 4px solid getColor(_carePlus, _success);
+
+        span {
+            font-style: normal;
+            font-weight: 500;
+            font-size: getSize("p");
+            line-height: 125%;
+            color: getColor(_carePlus, _success);
+            margin-left: 17px;
+        }
+
+        svg,
+        svg * {
+            fill: getColor(_carePlus, _success);
+        }
+    }
+
+    &.is-info {
+        background: #e6f2fa;
+        border: 1px solid #7abae3;
+        border-left: 4px solid getColor(_bupa, _digital-cian);
+
+        span {
+            font-style: normal;
+            font-weight: 500;
+            font-size: getSize("p");
+            line-height: 125%;
+            color: getColor(_bupa, _digital-cian);
+            margin-left: 17px;
+        }
+
+        svg,
+        svg * {
+            fill: getColor(_bupa, _digital-cian);
+        }
+    }
+
+    &.is-warning {
+        background: #fef7e6;
+        border: 1px solid #e6cb85;
+        border-left: 4px solid getColor(_carePlus, _warning);
+
+        span {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: getColor(_carePlus, _warning);
+            margin-left: 17px;
+        }
+
+        svg,
+        svg * {
+            fill: getColor(_carePlus, _warning);
+        }
+    }
+
+    &.is-danger {
+        background: #ffece8;
+        border: 1px solid #ff9b8a;
+        border-left: 4px solid getColor(_carePlus, _error);
+
+        span {
+            font-style: normal;
+            font-weight: 500;
+            font-size: getSize("p");
+            line-height: 125%;
+            color: getColor(_carePlus, _error);
+            margin-left: 17px;
+        }
+
+        svg,
+        svg * {
+            fill: getColor(_carePlus, _error);
+        }
+    }
+}

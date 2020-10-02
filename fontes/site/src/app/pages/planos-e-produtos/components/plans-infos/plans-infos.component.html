@@ -1,0 +1,50 @@
+<section id="plans-details" [ngClass]="backgroundColorClass">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-5-desktop is-full">
+                    <h2 class="h4 big-title no-margin">
+                        {{plan?.plansTypes[selectedOptionId -1]?.title}}
+                    </h2>
+                    <p class="description">
+                        Selecione ao lado qual tipo de plano gostaria de visualizar.
+                    </p>
+                </div>
+                <div class="column is-7-desktop is-full">
+                    <ul class="plan-tabs">
+                        <li tabindex="0" *ngFor="let option of options" [class.active]="selectedOptionId === option.id" (click)="activeOption(option.id)">
+                            {{option.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="columns flex-wrap cards">
+                <div class="column is-4-desktop is-full" *ngFor="let card of cards">
+                    <app-card class="app-card" [card]="card">
+                        <div class="card-content">
+                            <p class="card-title">
+                                {{card?.title}}
+                            </p>
+                            <p class="card-description">
+                                {{card?.description}}
+                            </p>
+                            <ul class="card-items">
+                                <li *ngFor="let item of card?.items">
+                                    <p>{{item.text}}</p>
+                                    <p class="obs" *ngIf="item.obs">{{item.obs}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </app-card>
+                </div>
+            </div>
+
+            <div class="columns plan-card" *ngIf="cardPlan">
+                <div class="column is-full">
+                    <app-plan-card class="app-plan-card" [backgroundColorClass]="'white-background-color'" [planCardModel]="cardPlan">
+                    </app-plan-card>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

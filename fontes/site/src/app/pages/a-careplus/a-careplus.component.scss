@@ -1,0 +1,315 @@
+@import "~src/scss/_variables";
+::ng-deep .app-hero-banner#custom-for-a-careplus {
+    .vg-player {
+        .video-content {
+            .container {
+                &.centered {
+                    .big-title {
+                        color: getColor(_bupa, _navy);
+                        max-width: 488px;
+                        text-align: left;
+                    }
+                    .sub-description {
+                        max-width: 382px;
+                    }
+                }
+                &.is-breadcrumb {
+                    .app-breadcrumb {
+                        margin-bottom: 0;
+                        display: block;
+                        position: absolute;
+                         ::ng-deep {
+                            ul {
+                                li {
+                                    &:before {
+                                        background-image: getSvg('a-careplus-play-button.svg') !important;
+                                    }
+                                    a {
+                                        color: getColor(_bupa, _grey-2) !important;
+                                        &.active {
+                                            color: getColor(_bupa, _digital-cian) !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+section {
+    &#a-careplus-main-content {
+        position: relative;
+        &::before {
+            background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
+            content: "";
+            position: absolute;
+            height: 4px;
+            left: 0;
+            top: 340px;
+            width: 33.33%;
+        }
+        .container {
+            .main-title {
+                font-weight: 500;
+                font-size: getSize("h4");
+                line-height: 150%;
+                color: getColor(_bupa, _navy);
+                max-width: 696px;
+            }
+            .main-text {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 150%;
+                color: getColor(_bupa, _navy);
+                max-width: 696px;
+            }
+            .section-text {
+                color: getColor(_bupa, _black);
+            }
+            .main-section-image {
+                margin-top: 90px;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            .columns {
+                &:not(:last-child) {
+                    margin-bottom: 0;
+                }
+                .column {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+                &.our-numbers {
+                    margin-top: 140px;
+                    transition: margin-top 0.8s ease-in-out;
+                    &.animate {
+                        margin-top: 90px;
+                    }
+                    .column {
+                        &.has-line {
+                            position: relative;
+                            &::before {
+                                background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
+                                content: "";
+                                position: absolute;
+                                height: 4px;
+                                left: -30px;
+                                transform: translateX(-100%);
+                                top: 70px;
+                                width: 126px;
+                            }
+                        }
+                        .description {
+                            margin-top: 0;
+                        }
+                    }
+                }
+                &.infos-cols {
+                    margin-top: 170px;
+                    transition: margin-top 0.8s ease-in-out;
+                    &.animate {
+                        margin-top: 120px;
+                    }
+                    .first-title {
+                        font-size: getSize("mbt");
+                        line-height: getLineHeight("mbt");
+                        text-align: center;
+                        color: getColor(_bupa, _grey-1);
+                    }
+                    .col-title {
+                        margin-top: 10px;
+                        color: getColor(_bupa, _digital-cian);
+                        font-weight: 600;
+                        min-height: 65px;
+                        .small {
+                            font-size: 0.6666em;
+                        }
+                    }
+                    .subtitle {
+                        margin-top: 4px;
+                        font-weight: normal;
+                        font-size: getSize("mbt");
+                        line-height: getLineHeight("mbt");
+                        text-align: center;
+                        color: getColor(_bupa, _grey);
+                    }
+                    .content {
+                        margin-top: 40px;
+                        font-weight: normal;
+                        font-size: getSize("p");
+                        line-height: getLineHeight("p");
+                        text-align: center;
+                        color: getColor(_bupa, _grey);
+                    }
+                }
+            }
+        }
+    }
+    &#a-careplus-about-bupa {
+        .container {
+            position: relative;
+            .bupa-logo {
+                width: 72px;
+                height: 72px;
+                margin-top: 50px;
+                transition: margin-top 0.8s ease-in-out;
+                &.animate {
+                    margin-top: 0px;
+                }
+            }
+            .description {
+                font-weight: normal;
+                &.has-line {
+                    position: relative;
+                    &::before {
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
+                        content: "";
+                        position: absolute;
+                        height: 4px;
+                        left: -30px;
+                        transform: translateX(-100%);
+                        top: 50px;
+                        width: 126px;
+                    }
+                }
+            }
+            .about-bupa {
+                transition: margin-top 0.8s ease-in-out;
+                margin-top: 50px;
+                &.animate {
+                    margin-top: 0px;
+                }
+            }
+            .about-bupa-description {
+                transition: margin-top 0.8s ease-in-out;
+                margin-top: 50px;
+                &.animate {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+     ::ng-deep .app-card {
+        .content {
+            .card.icon-card {
+                padding: 39px 35px !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+     ::ng-deep .app-hero-banner#custom-for-a-careplus {
+        .vg-player {
+            .video-content {
+                .container {
+                    &.centered {
+                        .big-title {
+                            color: getColor(_bupa, _white);
+                            max-width: 100%;
+                        }
+                        .sub-description {
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section {
+        &#a-careplus-main-content {
+            &::before {
+                content: unset;
+            }
+            .container {
+                .main-title {
+                    position: relative;
+                    max-width: 100%;
+                    font-size: 1.125em;
+                    margin-bottom: 40px;
+                    &::before {
+                        background: linear-gradient(to right, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
+                        content: "";
+                        position: absolute;
+                        height: 4px;
+                        left: -32px;
+                        bottom: -16px;
+                        width: 33.33%;
+                    }
+                }
+                .main-section-image {
+                    margin-top: 30px;
+                }
+                .columns {
+                    &.our-numbers {
+                        margin-top: 80px;
+
+                        &.animate {
+                            margin-top: 30px;
+                        }
+
+                        .column {
+                            .description {
+                                margin-top: 16px;
+                            }
+                        }
+                    }
+                    &.infos-cols {
+                        margin-top: 80px;
+
+                        &.animate {
+                            margin-top: 30px;
+                        }
+                        
+                        .column {
+                            margin-top: 20px;
+                            &:first-child {
+                                margin-top: 0;
+                            }
+                        }
+                        .first-title {
+                            font-size: 1.125em;
+                        }
+                        .col-title {
+                            font-size: 3em;
+                            .small {
+                                font-size: 0.6666em;
+                            }
+                        }
+                        .subtitle {
+                            font-size: 1.125em;
+                        }
+                        .content {
+                            font-size: 0.875em;
+                            margin-top: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    section {
+        &#a-careplus-about-bupa {
+            .container {
+                .description {
+                    &.has-line {
+                        &::before {
+                            content: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

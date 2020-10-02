@@ -1,0 +1,56 @@
+@import "~src/scss/_variables";
+
+section {
+    &#premios-e-certificacoes-premios-section {
+        padding-top: 120px;
+        .container {
+            .big-title {
+                max-width: 614px;
+            }
+
+            .cards {
+                margin-top: 70px;
+            }
+        }
+    }
+
+    &#premios-e-certificacoes-certifications-section {
+        .container {
+            .big-title {
+                max-width: 614px;
+            }
+
+            .cards {
+                margin-top: 70px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#premios-e-certificacoes-premios-section {
+            padding-top: 60px;
+            .container {
+                .cards {
+                    margin-top: 30px;
+                    .column {
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                    }
+                }
+            }
+        }
+        &#premios-e-certificacoes-certifications-section {
+            .container {
+                .cards {
+                    margin-top: 30px;
+                    .column {
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

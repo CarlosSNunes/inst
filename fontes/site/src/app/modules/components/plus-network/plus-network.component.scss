@@ -1,0 +1,393 @@
+@import "~src/scss/_variables.scss";
+@import "~src/scss/_mixins.scss";
+
+section.is-rede-plus {
+    .rede-plus-banner {
+        padding: 0;
+        margin: 0;
+        margin-top: -277px;
+        z-index: 2;
+        .people-background {
+            margin: 0 auto;
+            &:before {
+                content: "";
+                background-image: getImage("pessoas-farmacia.jpg");
+                width: 228px;
+                height: 200px;
+                background-size: cover;
+                position: absolute;
+                left: -100px;
+                bottom: 12px;
+            }
+        }
+        .carousel {
+            position: relative;
+            display: block;
+            width: 873px;
+            height: 500px;
+            overflow: hidden;
+            z-index: 2;
+            .item {
+                position: absolute;
+                bottom: 100%;
+                width: 100%;
+                height: 100%;
+                transition: bottom 1s ease-in-out;
+                -webkit-transition: bottom 1s ease-in-out;
+                z-index: 1;
+                background-size: cover;
+                &.active {
+                    bottom: 0;
+                    top: 0;
+                    z-index: -1;
+                    animation: bottomToTop 0.6s;
+                    -webkit-animation: bottomToTop 0.6s;
+                }
+
+                @keyframes bottomToTop {
+                    0% {
+                        top: 30%;
+                    }
+                    100% {
+                        top: 0;
+                    }
+                }
+
+                @-moz-keyframes bottomToTop {
+                    0% {
+                        top: 30%;
+                    }
+                    100% {
+                        top: 0;
+                    }
+                }
+
+                @-webkit-keyframes bottomToTop {
+                    0% {
+                        top: 30%;
+                    }
+                    100% {
+                        top: 0;
+                    }
+                }
+
+                @-ms-keyframes bottomToTop {
+                    0% {
+                        top: 30%;
+                    }
+                    100% {
+                        top: 0;
+                    }
+                }
+
+                @-o-keyframes bottomToTop {
+                    0% {
+                        top: 30%;
+                    }
+                    100% {
+                        top: 0;
+                    }
+                }
+            }
+
+            .banner-details {
+                background: getColor(_bupa, _white);
+                text-align: left;
+                right: 0;
+                bottom: 0;
+                min-height: 25vh;
+                position: absolute;
+                height: calc(100% - 165px);
+                padding-left: 3%;
+                padding-top: 3%;
+
+                .mobile-banner-image {
+                    display: none;
+                }
+
+                .section-category {
+                    font-weight: 500;
+                    font-size: getSize("sbm");
+                    line-height: getLineHeight("sbm");
+                    letter-spacing: 0.2em;
+                    text-transform: uppercase;
+                    color: getColor(_bupa, _digital-cian);
+                }
+
+                .banner-title {
+                    font-weight: 500;
+                    font-size: getSize("mbt");
+                    line-height: 120%;
+                    color: getColor(_bupa, _navy);
+                }
+
+                .banner-content {
+                    color: getColor(_bupa, _grey);
+                }
+            }
+
+            .stepper {
+                position: absolute;
+                z-index: 1;
+                display: table;
+                left: 32px;
+                width: 100%;
+                bottom: 22px;
+
+                .play-carrousel {
+                    position: relative;
+                    .play {
+                        width: 34px;
+                        height: 34px;
+                        &::before {
+                            content: "";
+                            background-image: getSvg('plus-network-play-button.svg');
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            width: 10px;
+                            height: 10px;
+                            position: absolute;
+                            top: calc(50% - 5.5px);
+                            left: 12px;
+                        }
+                        &.stopped {
+                            &::before {
+                                background-image: getSvg('plus-network-stop-button.svg') !important;
+                                left: 14px;
+                            }
+                        }
+                        #svg {
+                            cursor: pointer;
+                            transform: rotate(-90deg);
+                            circle {
+                                transition: stroke-dashoffset 0.1s linear;
+                                stroke: getColor(_bupa, _grey-4);
+                            }
+                            #bar {
+                                stroke: getColor(_carePlus, _light-green);
+                                stroke-width: 3px;
+                            }
+                        }
+                    }
+                    .steps {
+                        list-style: none;
+                        padding: 0;
+                        position: absolute;
+                        left: 45px;
+                        top: 0;
+                        width: 100px;
+                        height: 34px;
+                        display: flex;
+
+                        li {
+                            padding: 0;
+                            border-radius: 50%;
+                            margin: 0 auto;
+                            width: 10px;
+                            height: 10px;
+                            align-self: center;
+                            background: getColor(_bupa, _grey-4);
+                            cursor: pointer;
+                            .mobile-border {
+                                display: none;
+                            }
+                            &.active {
+                                background: getColor(_carePlus, _light-green);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .rede-plus-description {
+        min-height: 650px;
+
+        .first-column {
+            padding-right: 120px;
+        }
+
+        .sub-description {
+            margin-top: 32px;
+        }
+
+        .has-background {
+            padding: 4rem 3rem;
+            height: 562px;
+
+            p {
+                display: flex;
+                align-items: center;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 150%;
+                color: getColor(_bupa, _white);
+                svg {
+                    min-width: 32px;
+                }
+                span {
+                    margin-left: 10px;
+                }
+            }
+
+            .has-margin-bottom {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+
+    .rede-plus-padding {
+        padding: 7%;
+    }
+
+    .has-background {
+        background: getImage("rede-plus-background.png") no-repeat;
+
+        p {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 120%;
+            color: getColor(_bupa, _white);
+        }
+
+        .btn {
+            float: right;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: getColor(_bupa, _navy);
+                &:before {
+                    border: solid getColor(_bupa, _navy);
+                    @include arrowElement(-45deg);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section.is-rede-plus {
+        .rede-plus-description {
+            min-height: unset;
+            .first-column {
+                padding-right: 16px;
+            }
+        }
+        .rede-plus-banner {
+            margin-top: 0;
+            .carousel {
+                width: 100%;
+                height: unset;
+                z-index: 3;
+                .item {
+                    background-image: unset !important;
+                    display: none;
+                    position: relative;
+
+                    &.active {
+                        display: block;
+                    }
+
+                    &.left {
+                        transform: translateX(0%);
+                        animation: fromLeftToRight 0.3s;
+
+                        @keyframes fromLeftToRight {
+                            0% {
+                                transform: translateX(-100%);
+                            }
+                            100% {
+                                transform: translateX(0%);
+                            }
+                        }
+                    }
+
+                    &.right {
+                        transform: translateX(0%);
+                        animation: fromRightToLeft 0.3s;
+
+                        @keyframes fromRightToLeft {
+                            0% {
+                                transform: translateX(100%);
+                            }
+                            100% {
+                                transform: translateX(0%);
+                            }
+                        }
+                    }
+
+                    .banner-details {
+                        height: 100%;
+                        position: initial;
+                        margin-top: 0;
+                        .mobile-banner-image {
+                            display: block;
+                        }
+                        .section-category {
+                            margin-top: 16px;
+                        }
+                        .banner-title {
+                            margin-top: 8px;
+                        }
+                        .banner-content {
+                            display: none;
+                        }
+                    }
+                }
+                .stepper {
+                    bottom: 26px;
+                    .play-carrousel {
+                        position: relative;
+                        .play {
+                            display: none;
+                        }
+                        .steps {
+                            left: 0;
+                            right: 72px;
+                            margin: 0 auto;
+                            li {
+                                &.active {
+                                    position: relative;
+                                    background: getColor(_bupa, _digital-cian);
+                                    .mobile-border {
+                                        display: block;
+                                        position: absolute;
+                                        width: 14px;
+                                        height: 14px;
+                                        z-index: -1;
+                                        left: -2px;
+                                        top: -2px;
+                                        border-radius: 50%;
+                                        border: 5px solid transparent;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .people-background {
+                padding: 0;
+                &::before {
+                    content: unset;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+    section.is-rede-plus {
+        .rede-plus-description {
+            .has-divider {
+                align-self: unset;
+            }
+        }
+    }
+}

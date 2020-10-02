@@ -1,0 +1,88 @@
+<div class="custom-modal">
+    <div class="modal-body" [ngClass]="[modalModel.type, modalModel.layout]">
+        <a tabindex="0" class="times-icon" title="Fechar" (keyup.enter)="close()" (click)="close()">
+            <div class="lines">
+                <span class="first-line"></span>
+                <span class="second-line"></span>
+            </div>
+        </a>
+
+        <div class="feedback-content" *ngIf="modalModel.layout === 'feedback'">
+
+            <img src="assets/svg/feedback-icon-success.svg" *ngIf="modalModel.type === 'info'" alt="Sucesso" class="feedback-image">
+            <img src="assets/svg/feedback-icon-error.svg" *ngIf="modalModel.type === 'error'" alt="Erro" class="feedback-image">
+
+            <p class="title">{{modalModel.title}}</p>
+            <p class="description">{{modalModel.description}}</p>
+
+            <button class="modal-button has-icon" (click)="close()">{{modalModel.buttonText}}</button>
+        </div>
+
+        <div class="table-content" *ngIf="modalModel.layout  === 'table'">
+            <p class="title">
+                Confira os produtos atendidos por este credenciado:
+            </p>
+
+            <table>
+                <caption class="is-hidden">Produtos atendidos</caption>
+                <thead>
+                    <tr>
+                        <th id="rede">Rede</th>
+                        <th id="registroANS">Registro ANS</th>
+                        <th id="nomeComercial">Nome comercial</th>
+                        <th id="tipoContratacao">Tipo de Contratação</th>
+                        <th id="segmentacao">Segmentação</th>
+                        <th id="situacaoPlano">Situação do Plano</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of modalModel.items">
+                        <td>{{item.rede}}</td>
+                        <td>{{item.register}}</td>
+                        <td>{{item.fullName}}</td>
+                        <td>{{item.contratationType}}</td>
+                        <td>{{item.segmentation}}</td>
+                        <td>{{item.situation}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content" *ngIf="modalModel.layout  === 'content'">
+            <div class="columns">
+                <div class="column">
+                    <p class="small-title">
+                        {{modalModel.smallTitle}}
+                    </p>
+
+                    <p class="title">
+                        {{modalModel.title}}
+                    </p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-6">
+                    <div class="paragraphs" *ngFor="let p of modalModel.paragraphs">
+                        <p class="paragraph-title" *ngIf="p.title">
+                            {{p.title}}
+                        </p>
+                        <p class="paragraph" *ngIf="p.text">
+                            {{p.text}}
+                        </p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <img [src]="modalModel.imagePath" alt="Imágem do conteúdo">
+                </div>
+            </div>
+        </div>
+
+        <div class="video" *ngIf="modalModel?.layout === 'video'">
+            <div class="videoBox">
+
+                <iframe width="560" height="315" [src]="modalModel?.videoModel?.embedSrc | safe" [title]="modalModel?.videoModel?.bigTitle" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="modal-close-div" (click)="close()"></div>
+</div>

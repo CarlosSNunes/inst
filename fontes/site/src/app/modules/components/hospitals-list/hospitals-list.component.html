@@ -1,0 +1,115 @@
+<section id="hospitals-list">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12 mobile-title">
+                <p class="small-title">
+                    {{smallTitle}}
+                </p>
+                <h2 class="h4 big-title">
+                    {{bigTitle}}
+                </h2>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-12">
+                <div class="columns filter-box mobile-hidden">
+                    <div class="column is-3 filter">
+                        <app-dropdown class="app-dropdown" [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); ">
+                        </app-dropdown>
+                    </div>
+                    <div class="column is-3 filter ">
+                        <app-dropdown class="app-dropdown" [options]="allHospitals" [default]="{ title: 'Hospitais', value: '' }" (setFilter)=" setFilter('type', $event)">
+                        </app-dropdown>
+                    </div>
+                    <div class="column is-3 filter">
+                        <app-dropdown class="app-dropdown" [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event)">
+                        </app-dropdown>
+                    </div>
+                    <div class="column is-3 filter">
+                        <img src="assets/svg/list-menu-active.svg" alt="Modo lista" [class.active]="menuStyle== 'list'" (click)="changeMenuStyle('list')">
+                        <img src="assets/svg/list-menu.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'" (click)="changeMenuStyle('list')">
+                        <img src="assets/svg/grid-menu-active.svg" alt="Modo grid" [class.active]="menuStyle== 'grid'" (click)="changeMenuStyle('grid')">
+                        <img src="assets/svg/grid-menu.svg" alt="Modo lista" [class.active]="menuStyle== 'list'" (click)="changeMenuStyle('grid')">
+                        <button class="btn btn-digital-cian secondary medium" (click)="mountHospitalsList()">Filtrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns filter-box desktop-hidden">
+            <div class="column is-12 mobile-filter is-paddingless">
+                <button class="btn small" [class.active]="selectedType?.value == 'Hospital'" (click)="setFilter('type', { title: 'Hospital', value: 'Hospital' }, true); mountHospitalsList()">Hospitais</button>
+                <button class="btn small" [class.active]="selectedType?.value == 'Laboratório'" (click)="setFilter('type', { title: 'Laboratório', value: 'Laboratório' }, true); mountHospitalsList()">Laboratórios</button>
+
+            </div>
+        </div>
+        <div class="columns filter-box dropdown desktop-hidden">
+            <div class=" filter">
+                <app-dropdown class="app-dropdown" [options]="allStates" [default]="{ title: 'Estados', value: '' }" (setFilter)=" setFilter('state', $event); mountHospitalsList() ">
+                </app-dropdown>
+            </div>
+
+            <div class=" filter">
+                <app-dropdown class="app-dropdown" [options]="allPlans" [default]="{ title: 'Planos', value: '' }" (setFilter)="setFilter('plan', $event);  mountHospitalsList()">
+                </app-dropdown>
+            </div>
+
+        </div>
+
+        <div class="columns">
+            <div class="column is-12 hospitals-grid-list" [class.hidden]="hiddenGrid">
+                <div *ngFor="let hospital of gridList" [title]="hospital.name">
+                    <p>
+                        {{hospital.name}}
+                    </p>
+                </div>
+
+
+            </div>
+            <div class="column is-12" [class.hidden]="hiddenList">
+                <div class="hospitals-list">
+                    <table>
+                        <caption class="is-hidden">Lista de Hospitais</caption>
+                        <thead>
+                            <tr>
+                                <th id="hospitais">
+                                    <p>Hospitais</p>
+                                </th>
+                                <th id="basico">
+                                    <p>Básico</p>
+                                </th>
+                                <th id="especialII">
+                                    <p>Especial II</p>
+                                </th>
+                                <th id="especialIII">
+                                    <p>Especial III</p>
+                                </th>
+                                <th id="executivoI">
+                                    <p>Executivo I</p>
+                                </th>
+                                <th id="executivoII">
+                                    <p>Executivo II</p>
+                                </th>
+                                <th id="masterI">
+                                    <p>Master I</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let hospital of gridList; let i = index" [class.table-color1]="i%2 == 0 ? true : false" [class.table-color2]="i%2 == 0 ? false : true">
+                                <td>
+                                    <p>
+                                        {{hospital.name}}
+                                    </p>
+                                </td>
+                                <td *ngFor="let plan of hospital.plans">
+                                    <img *ngIf="plan.included" src="assets/svg/plan-pin.svg" [alt]="plan.plan">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

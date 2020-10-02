@@ -1,0 +1,200 @@
+@import "~src/scss/_variables";
+section {
+    &#a-careplus-financial-reports-filters {
+        .container {
+            .columns {
+                .column {
+                    &.filter-box {
+                        position: relative;
+                        .filters {
+                            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black), 0.25);
+                            background-color: getColor(_bupa, _white);
+                            border-radius: 2px;
+                            position: absolute;
+                            left: 16px;
+                            width: calc(100% - 32px);
+                            top: -120px;
+                            padding: 32px 25px;
+                            form {
+                                .columns {
+                                    display: flex;
+                                    .column {
+                                        align-self: center;
+                                        display: inline-flex;
+                                        padding: 0;
+                                        padding-left: 16px;
+                                        padding-right: 16px;
+                                        &:first-child {
+                                            padding-left: 0;
+                                            margin-top: 7px;
+                                        }
+                                        &:last-child {
+                                            margin-right: 0px;
+                                            padding-right: 0;
+                                        }
+                                        .app-dropdown {
+                                            width: 100%;
+                                        }
+                                        .field {
+                                            max-width: 100%;
+                                            width: 100%;
+                                            display: block;
+                                            height: 56px;
+                                            .control {
+                                                display: flex;
+                                                width: 100%;
+                                                input:not([type="radio"]) {
+                                                    min-width: 100px;
+                                                }
+                                            }
+                                        }
+                                        &.buttons {
+                                            justify-content: space-between;
+                                            .images {
+                                                display: flex;
+                                                margin: 0 auto 0 calc(15% - 15px);
+                                                img {
+                                                    display: none;
+                                                    &.active {
+                                                        display: inline-block;
+                                                        cursor: pointer;
+                                                        align-self: center;
+                                                        &.list-image {
+                                                            margin-left: 14px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+             ::ng-deep .app-documents {
+                .columns {
+                    &.cards {
+                        margin-top: 42px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    section {
+        &#a-careplus-financial-reports-filters {
+            .columns {
+                .column {
+                    &.filter-box {
+                        .filters {
+                            form {
+                                .columns {
+                                    .column {
+                                        &.buttons {
+                                            justify-content: unset !important;
+                                            .images {
+                                                display: block !important;
+                                                margin-right: 20px;
+                                                img {
+                                                    &.active {
+                                                        display: block !important;
+                                                        &.list-image {
+                                                            margin-top: 10px;
+                                                            margin-left: unset !important;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#a-careplus-financial-reports-filters {
+            .container {
+                .columns {
+                    .column {
+                        &.filter-box {
+                            height: 80px;
+                            .filters {
+                                position: relative;
+                                left: 0;
+                                width: 100%;
+                                form {
+                                    .columns {
+                                        display: block;
+                                        justify-content: unset;
+                                        .column {
+                                            display: flex;
+                                            align-self: unset;
+                                            padding-left: 0;
+                                            padding-right: 0;
+                                            margin: 20px 0;
+                                            &:first-child {
+                                                margin-top: 0;
+                                            }
+                                            &:last-child {
+                                                margin-bottom: 0;
+                                            }
+                                            .field {
+                                                max-width: 100%;
+                                                width: 100%;
+                                                .control {
+                                                    input:not([type="radio"]) {
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+                                            .btn.tertiary {
+                                                padding-left: 0 !important;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                 ::ng-deep .app-documents {
+                    .columns {
+                        &.cards {
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 359px) {
+    section {
+        &#a-careplus-financial-reports-filters {
+            .container {
+                .columns {
+                    .column {
+                        &.filter-box {
+                            height: 110px;
+                            .filters {
+                                top: -100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToNextSection()"></app-simple-banner>
+<section #premiosECertificacoes id="premios-e-certificacoes-premios-section">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <p class="small-title">
+                        PRÊMIOS
+                    </p>
+                    <h2 class="h4 big-title">
+                        Todos os prêmios que conquistamos ao longo da nossa trajetória
+                    </h2>
+                </div>
+            </div>
+            <div class="columns cards flex-wrap">
+                <div class="column is-3-desktop is-full" *ngFor="let card of cards">
+                    <app-card [card]="card" (click)="openModal(); $event.preventDefault();"></app-card>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+
+<section id="premios-e-certificacoes-certifications-section">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <p class="small-title">
+                        CERTIFICAÇÕES
+                    </p>
+                    <h4 class="big-title">
+                        Os certificados que confirmam o nosso prestígio no mercado
+                    </h4>
+                </div>
+            </div>
+            <div class="columns cards flex-wrap">
+                <div class="column is-3-desktop is-full" *ngFor="let card of cards">
+                    <app-card [card]="card" (click)="openModal(); $event.preventDefault();"></app-card>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+
+<app-learn-more></app-learn-more>

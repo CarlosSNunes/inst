@@ -1,0 +1,54 @@
+@import "~src/scss/_variables";
+section#learn-more {
+    .small-title {
+        color: getColor(_bupa, _digital-cian);
+    }
+    .big-title {
+        color: getColor(_bupa, _navy);
+    }
+    .cards {
+        margin: 0;
+        margin-top: 95px;
+    }
+    .is-mobile {
+        overflow-x: auto;
+        .column {
+            min-width: 255px;
+        }
+    }
+    .btn-column {
+        margin: 0;
+        margin-top: 69px;
+        .column {
+            display: flex;
+            .learn-more-button {
+                margin: 0 auto;
+                display: inline-flex;
+            }
+        }
+    }
+     ::ng-deep .app-card {
+        .link {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#learn-more {
+        .small-title {
+            text-align: center;
+        }
+        .big-title {
+            text-align: center;
+            font-size: 1.25em;
+            line-height: 120%;
+        }
+        .cards {
+            margin-top: 0px;
+        }
+        .btn-column {
+            margin-top: 32px;
+        }
+    }
+}

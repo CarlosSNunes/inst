@@ -1,0 +1,77 @@
+@import "~src/scss/_variables";
+.more-about {
+    padding-left: 8% !important;
+    padding-right: 8% !important;
+    padding-bottom: 5% !important;
+    .column {
+        margin-bottom: 30px;
+    }
+    .columns .column:first-child {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .columns .column:last-child {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    h2.title {
+        @media (max-width: 991px) {
+            font-weight: 600;
+            font-size: 2em;
+        }
+    }
+    p {
+        font-size: 15px;
+    }
+    .legend {
+        position: absolute;
+        top: -11%;
+        left: 8%;
+    }
+    .content {
+        height: 100%
+    }
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 70%;
+        min-height: 300px;
+        padding: 40px 0;
+        cursor: pointer;
+        @media (max-width: 991px) {
+            min-height: 100%;
+            padding: 10px 0;
+        }
+        &:hover {
+            .saiba-mais {
+                transform: scale(1);
+                opacity: 1;
+                transition: all .4s ease
+            }
+        }
+    }
+    background: transparent;
+    min-height: 100%;
+    h3.title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 150%;
+    }
+    p.content {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 150%;
+    }
+    .saiba-mais {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 50%;
+        transform: scale(0);
+        opacity: 0;
+        transition: all .4s ease
+    }
+}

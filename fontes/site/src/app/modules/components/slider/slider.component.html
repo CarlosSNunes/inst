@@ -1,0 +1,29 @@
+<div class="image-slider" *ngIf="sliderModel.type === 'image'" [class.has-background-color-white]="sliderModel.hasBackgroundColorWhite">
+    <ng-image-slider class="ng-image-slider" [images]="sliderModel.images" #nav [imageSize]="sliderModel.cardSizes" [slideImage]="1" [animationSpeed]="0.5" [imagePopup]="false" [showArrow]="false" (imageClick)="onImageClick($event)" (arrowClick)="changeSlide($event)">
+
+    </ng-image-slider>
+    <div class="arrows-box">
+        <a class="prev" [class.disable]="index === 0" (click)="prev()" title="Anterior">
+            <img src="assets/svg/arrow-left.svg" alt="Anterior">
+        </a>
+
+        <a class="next" [class.disable]="index === (sliderModel.images.length - 1)" (click)="next()" title="Próximo">
+            <img src="assets/svg/arrow-left.svg" alt="Próximo">
+        </a>
+    </div>
+</div>
+
+<div class="video-slider" *ngIf="sliderModel.type === 'video'">
+    <ng-image-slider class="ng-image-slider" [images]="sliderModel.images" #nav [imageSize]="sliderModel.cardSizes" [slideImage]="1" [animationSpeed]="0.5" [imagePopup]="false" [showArrow]="false" (imageClick)="onImageClick($event)" (arrowClick)="changeSlide($event)">
+
+    </ng-image-slider>
+    <div class="arrows-box">
+        <a class="prev" [class.disable]="index === 0" (click)="prev()" title="Anterior">
+            <img src="assets/svg/arrow-left.svg" alt="Anterior">
+        </a>
+
+        <a class="next" [class.disable]="index === (sliderModel.images.length - 1)" (click)="next()" title="Próximo">
+            <img src="assets/svg/arrow-left.svg" alt="Próximo">
+        </a>
+    </div>
+</div>

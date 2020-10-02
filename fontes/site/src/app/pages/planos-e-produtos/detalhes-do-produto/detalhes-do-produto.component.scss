@@ -1,0 +1,154 @@
+@import "~src/scss/_variables";
+.anchor-buttons {
+    height: 62px;
+    z-index: 202;
+    .container {
+        position: relative;
+        .buttons-box {
+            z-index: 203;
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            width: 504px;
+            height: 82px;
+            background-color: getColor(_bupa, _white);
+            border-radius: 2px;
+            box-shadow: 2px 2px 6px rgba(getColor(_bupa, _black), 0.25);
+            display: flex;
+            a {
+                flex: 0 0 calc(50% - 0.5px);
+                width: calc(50% - 0.5px);
+                height: 100%;
+                text-align: center;
+                font-size: getSize("p");
+                line-height: 82px;
+                color: getColor(_bupa, _black);
+                &:first-child {
+                    border-right: 0.5px solid getColor(_bupa, _grey-3);
+                }
+                &:last-child {
+                    border-left: 0.5px solid getColor(_bupa, _grey-3);
+                }
+            }
+        }
+    }
+}
+
+.get-price-box {
+    position: fixed;
+    width: 280px;
+    height: 60px;
+    background-color: getColor(_bupa, _digital-cian);
+    display: flex;
+    padding: 21.5px 32px;
+    right: 144px;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 204;
+    .text {
+        align-self: center;
+        margin: 0;
+        color: getColor(_bupa, _white);
+        font-size: getSize("sbm");
+        line-height: getLineHeight("sbm");
+    }
+    img {
+        position: absolute;
+        right: 16px;
+        align-self: center;
+        top: calc(50% - 22px);
+    }
+}
+
+section#clinic-services {
+    .container {
+        .columns {
+            margin: 0;
+            .column {
+                padding-top: 0;
+                padding-bottom: 0;
+                .big-title {
+                    max-width: 592px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+            }
+            &.cards {
+                margin-top: 48px;
+                .column {
+                     ::ng-deep .app-card {
+                        .card.default {
+                            padding: 34px 20px;
+                            .card-content {
+                                padding: 0;
+                                .card-description {
+                                    font-weight: normal;
+                                    font-size: getSize("mbt");
+                                    line-height: getLineHeight("mbt");
+                                    color: getColor(_bupa, _navy);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#clinic-services {
+        .container {
+            .columns {
+                &.cards {
+                    margin-top: 32px;
+                    .column {
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                         ::ng-deep .app-card {
+                            .card.default {
+                                .card-content {
+                                    .card-description {
+                                        font-size: getSize("p");
+                                        line-height: getLineHeight("p");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .get-price-box {
+        top: unset;
+        bottom: 84px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        position: fixed;
+    }
+}
+
+@media (min-width: 505px) and (max-width: 1023px) {
+     ::ng-deep .app-simple-banner {
+        .container {
+            padding-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width: 504px) {
+    .anchor-buttons {
+        height: 112px;
+        .container {
+            .buttons-box {
+                width: 100%;
+                transform: translateY(0%);
+                margin-top: 30px;
+            }
+        }
+    }
+}

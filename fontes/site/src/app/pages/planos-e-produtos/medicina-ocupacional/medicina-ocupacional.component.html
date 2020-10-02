@@ -1,0 +1,86 @@
+<div class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="{ medicinaOcupacional: true }">
+    <p class="text">
+        SOLICITE UMA COTAÇÃO
+    </p>
+    <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
+</div>
+<app-simple-banner [simpleBannerModel]="simpleBannerModel"></app-simple-banner>
+<app-info-section [sectionInfo]="eSocialSection"></app-info-section>
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
+    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
+<app-info-section [sectionInfo]="unidadesSection">
+    <div class="extra-content blue-background-color">
+        <p class="extra-content-title">
+            <span><img src="assets/svg/phone.svg" alt="Imagem fone"></span>
+            <span class="text">
+                Contato
+            </span>
+        </p>
+        <p class="extra-content-small-title">
+            Entre em contato para saber a unidade mais próxima a você
+        </p>
+
+        <a rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5511971381187&text=Care%20Plus" target="_blank"
+            class="btn btn-digital-cian primary small whatsapp-btn is-hidden-touch" title="Cotação por Whatsapp">
+            <img src="assets/svg/whatsapp-branco.svg" alt="Whats App">
+            <span>
+                Cotação por Whatsapp
+            </span>
+        </a>
+
+
+        <a rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5511971381187&text=Care%20Plus" target="_blank"
+            class="btn btn-digital-cian tertiary arrow-right medium whatsapp-btn is-hidden-desktop"
+            title="Cotação por Whatsapp">
+            <img src="assets/svg/whatsapp-digital-cian.svg" alt="Whats App">
+            <span>
+                Cotação por Whatsapp
+            </span>
+        </a>
+
+        <a href="tel:11 4063-0083" title="(11) 4063-0083" class="extra-content-description">
+            (11) 4063-0083
+        </a>
+
+        <p class="extra-content-small-title bottom">
+            Ou contate nossa <span class="bold">Central de Atendimento.</span>
+        </p>
+
+        <a routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="{
+            medicinaOcupacional: true
+        }" class="btn btn-digital-cian tertiary arrow-right medium" title="Solicite uma Cotação">
+            Solicite uma Cotação
+        </a>
+    </div>
+</app-info-section>
+<app-info-section [sectionInfo]="occupationalSection">
+    <div class="extra-content blue-background-color occupational">
+        <ul class="occupational-infos">
+            <li>
+                <img src="assets/svg/doctor_phone_blue.svg" alt="Equipe especializada">
+                <p>
+                    Equipe
+                    especializada
+                </p>
+            </li>
+            <li>
+                <img src="assets/svg/target.svg" alt="Capilaridade
+                expandida">
+                <p>
+                    Capilaridade
+                    expandida
+                </p>
+            </li>
+            <li>
+                <img src="assets/svg/jigsaw.svg" alt="Capilaridade
+                expandida">
+                <p>
+                    Soluções
+                    personalizadas
+                </p>
+            </li>
+        </ul>
+    </div>
+</app-info-section>
+<app-contact-schedule-a-visit [firstCard]="firstCard" [secondCard]="secondCard" [bigTitle]="'Entre em contato ou solicite uma cotação'"
+    [backgroundColorClass]="'blue-background-color'"></app-contact-schedule-a-visit>

@@ -1,0 +1,28 @@
+@import "~src/scss/_variables";
+section#contact-schedule-a-visit {
+    .container {
+        max-width: 880px;
+        .big-title {
+            text-align: center;
+            margin: 0 auto;
+        }
+        .cards {
+            margin-top: 71px;
+             ::ng-deep .app-card {
+                .card {
+                    padding: 39px 26px 26px 26px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#contact-schedule-a-visit {
+        .container {
+            .cards {
+                margin-top: 30px;
+            }
+        }
+    }
+}

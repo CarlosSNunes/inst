@@ -1,0 +1,93 @@
+<section class="sectionInfo" [ngClass]="backgroundColorClass" #sectionInfoElement>
+    <article>
+        <div class="container">
+            <div class="columns is-paddingless is-desktop" [class.reverse-columns]="sectionInfo.reverse">
+                <div class="column is-6-desktop is-full-tablet infos"
+                    [class.align-self-center]="sectionInfo.alignCenter">
+                    <p class="small-title" *ngIf="sectionInfo?.smallTitle">
+                        {{sectionInfo.smallTitle}}
+                    </p>
+                    <h2 class="h4 big-title" *ngIf="sectionInfo?.bigTitle">
+                        {{sectionInfo.bigTitle}}
+                    </h2>
+                    <div class="img-mobile-box is-hidden-desktop" [class.no-line]="sectionInfo?.removeLine">
+                        <img class="image-mobile" [style.objectFit]="sectionInfo?.objectFit" (click)="openModal()"
+                            [class.hasModal]="sectionInfo?.hasModal" [src]="sectionInfo?.imageSrc"
+                            [alt]="'Imagem seção ' + sectionInfo?.bigTitle">
+                    </div>
+                    <p class="description" *ngIf="sectionInfo?.description" [class.no-margin]="!sectionInfo?.bigTitle">
+                        {{sectionInfo?.description}}
+                    </p>
+                    <p class="sub-description" *ngIf="sectionInfo?.subDescription">
+                        {{sectionInfo?.subDescription}}
+                    </p>
+
+                    <p class="sub-description" *ngFor="let subDescription of sectionInfo?.subDescriptions"
+                        [innerHTML]="subDescription">
+                    </p>
+
+                    <ul class="items" *ngIf="sectionInfo?.items && sectionInfo?.items.length > 0">
+                        <li class="item" *ngFor="let item of sectionInfo?.items">
+                            <p *ngIf="item?.text">{{item.text}}</p>
+                            <p class="obs" *ngIf="item?.obs">{{item.obs}}</p>
+                        </li>
+                    </ul>
+
+                    <ng-content select=".extra-content"></ng-content>
+
+                    <!-- With routerLink-->
+
+                    <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
+                        [queryParams]="sectionInfo?.button?.queryParams" class="btn medium is-hidden-touch"
+                        [ngClass]="sectionInfo?.button?.class" [attr.title]="sectionInfo?.button?.text">
+                        {{sectionInfo?.button?.text}}
+                    </a>
+                    <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
+                        [queryParams]="sectionInfo?.button?.queryParams" [ngClass]="sectionInfo?.button?.touchClass"
+                        class="btn tertiaty arrow-right small is-hidden-desktop"
+                        [attr.title]="sectionInfo?.button?.text">
+                        {{sectionInfo?.button?.text}}
+                    </a>
+
+                    <!-- With href-->
+
+                    <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
+                        class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class"
+                        [attr.title]="sectionInfo?.button?.text">
+                        {{sectionInfo?.button?.text}}
+                    </a>
+                    <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
+                        [ngClass]="sectionInfo?.button?.touchClass"
+                        class="btn tertiaty arrow-right small is-hidden-desktop"
+                        [attr.title]="sectionInfo?.button?.text">
+                        {{sectionInfo?.button?.text}}
+                    </a>
+
+                    <!-- With Action -->
+                    <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"
+                        class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class"
+                        [attr.title]="sectionInfo?.button?.text">
+                        {{sectionInfo?.button?.text}}
+                    </a>
+                    <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"
+                        [ngClass]="sectionInfo?.button?.touchClass"
+                        class="btn tertiaty arrow-right small is-hidden-desktop"
+                        [attr.title]="sectionInfo?.button?.text">
+                        {{sectionInfo?.button?.text}}
+                    </a>
+                </div>
+                <div class="column is-6-desktop col-image is-full-tablet is-hidden-touch"
+                    [class.no-line]="sectionInfo?.removeLine">
+                    <img *ngIf="!changeToBackground" [src]="sectionInfo?.imageSrc"
+                        [style.objectFit]="sectionInfo?.objectFit" (click)="openModal()"
+                        [class.hasModal]="sectionInfo?.hasModal" [alt]="'Imagem seção ' + sectionInfo?.bigTitle">
+
+                    <div class="ie-image" [ngStyle]="{
+                        backgroundImage: 'url(' + sectionInfo?.imageSrc + ')',
+                        backgroundSize: sectionInfo?.objectFit
+                    }" *ngIf="changeToBackground" (click)="openModal()" [class.hasModal]="sectionInfo?.hasModal"></div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

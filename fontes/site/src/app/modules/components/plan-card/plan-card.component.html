@@ -1,0 +1,47 @@
+<section class="plan-card" [ngClass]="backgroundColorClass">
+    <article>
+        <div class="info">
+            <div class="columns">
+                <div class="column is-full is-5-desktop">
+                    <h2 class="h4 info-title" *ngIf="planCardModel?.title">
+                        {{planCardModel?.title}}
+                    </h2>
+                    <p class="info-sub-title" *ngIf="planCardModel?.subTitle">
+                        {{planCardModel?.subTitle}}
+                    </p>
+
+                    <p class="sub-description" *ngIf="planCardModel?.description">
+                        {{planCardModel?.description}}
+                    </p>
+
+                    <!--
+                        Buttons with routerLink
+                    -->
+
+                    <a [routerLink]="planCardModel?.button?.routerLink" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="planCardModel?.button && planCardModel?.button?.routerLink" [attr.title]="planCardModel?.button?.text">
+                        {{planCardModel?.button?.text}}
+                    </a>
+
+                    <a [routerLink]="planCardModel?.button?.routerLink" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="planCardModel?.button && planCardModel?.button?.routerLink" [attr.title]="planCardModel?.button?.text">
+                        {{planCardModel?.button?.text}}
+                    </a>
+
+                    <!--
+                        Buttons with href
+                    -->
+
+                    <a target="_blank" [href]="planCardModel?.button?.link" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="planCardModel?.button && planCardModel?.button?.link" [attr.title]="planCardModel?.button?.text">
+                        {{planCardModel?.button?.text}}
+                    </a>
+
+                    <a target="_blank" [href]="planCardModel?.button?.link" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="planCardModel?.button && planCardModel?.button?.link" [attr.title]="planCardModel?.button?.text">
+                        {{planCardModel?.button?.text}}
+                    </a>
+                </div>
+                <div class="column is-full is-7-desktop">
+                    <img [src]="planCardModel?.image" [attr.alt]="'Ilustração ' + planCardModel?.title" [alt]="'Ilustração ' + planCardModel?.title" title="Ilustração">
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

@@ -1,0 +1,131 @@
+@import "~src/scss/_variables";
+
+section {
+    &#alimentacao-saudavel,
+    &#assesoria-esportiva {
+        .container {
+            .columns {
+                .has-line {
+                    position: relative;
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        width: 176px;
+                        height: 4px;
+                        background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
+                        transform: translateX(calc(-100% - 20px));
+                        top: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .promo-content {
+        .main-link {
+            font-size: getSize("p");
+            line-height: getLineHeight("p");
+            color: getColor(_bupa, _digital-cian);
+            word-break: break-all;
+
+            &:hover {
+                color: getColor(_bupa, _digital-cian);
+                text-decoration: underline;
+            }
+        }
+
+        .sub-description {
+            color: getColor(_bupa, _grey-2);
+
+            .bold {
+                font-weight: 500;
+                font-size: getSize("p");
+                color: getColor(_bupa, _grey-2);
+            }
+        }
+
+        .small-description {
+            font-size: getSize("sbm");
+            line-height: 150%;
+            font-weight: normal;
+            color: getColor(_bupa, _grey-2);
+
+            .bold {
+                font-weight: 500;
+                font-size: getSize("p");
+                color: getColor(_bupa, _grey-2);
+            }
+        }
+
+        .small-link {
+            font-size: getSize("sbm");
+            line-height: getLineHeight("sbm");
+            color: getColor(_bupa, _digital-cian);
+            margin-top: 0;
+            display: table;
+            word-break: break-all;
+
+            &:first-child {
+                margin-top: 16px;
+            }
+
+            &.grey-2 {
+                color: getColor(_bupa, _grey-2);
+                &:hover {
+                    color: getColor(_bupa, _grey-2);
+                }
+            }
+
+            &:hover {
+                color: getColor(_bupa, _digital-cian);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    section {
+        &#alimentacao-saudavel,
+        &#assesoria-esportiva {
+            .container {
+                .columns {
+                    .has-line {
+                        &::before {
+                            width: 96px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#alimentacao-saudavel,
+        &#assesoria-esportiva {
+            .container {
+                .columns {
+                    .has-line {
+                        margin-top: 5px;
+                        position: relative;
+                        &::before {
+                            transform: translateX(0%);
+                            top: -10px;
+                        }
+                    }
+
+                    .column {
+                        .sub-description {
+                            margin-top: 16px;
+                        }
+
+                        .description {
+                            margin-top: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

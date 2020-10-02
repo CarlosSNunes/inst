@@ -1,0 +1,79 @@
+@import "~src/scss/_variables";
+.columns {
+    &.cards {
+        .column {
+            min-height: 228px;
+            .card-content {
+                width: 100%;
+                height: 100%;
+                padding: 0 0 30px 0;
+                position: relative;
+                .card-title {
+                    font-weight: normal;
+                    font-size: getSize("mbt");
+                    line-height: getLineHeight("mbt");
+                    color: getColor(_bupa, _navy);
+                    transition: color 0.3s ease-in-out;
+                }
+                .download-link {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    font-weight: 600;
+                    font-size: getSize("p");
+                    line-height: 120%;
+                    letter-spacing: 2px;
+                    color: getColor(_bupa, _digital-cian);
+                    display: flex;
+                    transition: color 0.3s ease-in-out;
+                    span {
+                        margin-left: 10px;
+                        align-self: center;
+                        svg {
+                            transition: fill 0.3s ease-in-out;
+                            path {
+                                transition: fill 0.3s ease-in-out;
+                            }
+                        }
+                    }
+                }
+            }
+             ::ng-deep .app-card {
+                .content {
+                    .card.default {
+                        padding: 25px 16px;
+                        transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+                        &:hover {
+                            background-color: getColor(_bupa, _digital-cian);
+                            border: 1px solid getColor(_bupa, _digital-cian);
+                            .card-title {
+                                color: getColor(_bupa, _white);
+                            }
+                            .download-link {
+                                color: getColor(_bupa, _white);
+                                span {
+                                    svg {
+                                        fill: getColor(_bupa, _white);
+                                        path {
+                                            fill: getColor(_bupa, _white);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .columns {
+        &.cards {
+            .column {
+                min-height: unset;
+            }
+        }
+    }
+}

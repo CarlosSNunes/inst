@@ -1,0 +1,8 @@
+<app-hero-banner [heroBannerModel]="heroBannerModel" (slideToNextElement)="goToSection('#section-info-1')">
+</app-hero-banner>
+
+<app-info-section [attr.id]="'section-info-' + (i + 1)" *ngFor="let infoSection of infoSections; let i = index;"
+    [sectionInfo]="infoSection" [backgroundColorClass]="infoSection?.backgroundColorClass"></app-info-section>
+
+<app-commom-questions></app-commom-questions>
+

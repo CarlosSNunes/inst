@@ -1,0 +1,146 @@
+
+/* All default colors */
+$color-map: (
+    _bupa: (
+        // Hexadecimal colors
+        _digital-cian:  #0079c8,
+        _navy:  #00335b,
+        _purple: #6a2ca1,
+        _violet: #a4219b,
+        _fuchsia: #c6007e,
+        _burgundy: #942151,
+        _digital-orange: #db3907,
+        _teal: #008385,
+        _green: #007a3d,
+        _red: #e8505b,
+        _dark-green: #18542c,
+        _digital-lime: #678004,
+        _grey: #333333,
+        _grey-2: #808080,
+        _grey-3: #c9c9c9,
+        _grey-4: #f1efeb,
+        _grey-5: #7f7f7f,
+        _white: #ffffff,
+        _black: #000,
+        _blue-menu: #50a1ff,
+    ),
+    _carePlus: (
+        // Hexadecimal colors
+        _green: #00837b,
+        _light-green: #a7d59d,
+        _light-blue: #f2f8fc,
+        _dark-green: #006660,
+        _blue-btn-text: #0064a5,
+        _error: #ff3e1d,
+        _valid: #00d200,
+        _drop-down-option: #2c2c2c,
+        _checkbox-border: #a8a7a4,
+        _warning: #a4904b,
+        _success: #49b869,
+        _blue-section: #e5f2fa,
+        _grey_inactive_tab: #c9c9c9,
+        _grey-5: #f5f6f8,
+        _blue-plan-card: #bce4ff,
+    ),
+    _bottom-line: (
+        // Hexadecimal colors
+        _light-green: #b3d59c,
+        _dark-green: #007777,
+    ),
+);
+
+$asset-base-path: "~src/assets";
+
+/* Default font */
+$mainFont: "Montserrat";
+
+/* The default font size for html is 16px */
+$base-size: 16;
+
+/* A function to get color from color map */
+@function getColor($color, $shade: "base", $map: $color-map) {
+    // check color exists
+    @if (map-has-key($map, $color)) {
+        $value: map-get($map, unquote($color));
+        // check if color or map
+        @if type-of($value) == function {
+            // return color
+            @return $value;
+        }
+        // check shade of color exists
+        @if (map-has-key($value, $shade)) {
+            // return shade of color
+            @return map-get($value, $shade);
+        }
+    }
+    // else do nothing
+    @return null;
+}
+
+/* A function to create all type of assets path */
+@function asset($type, $file) {
+    @return url($asset-base-path + "/" + $type + "/" + $file);
+}
+
+/* A function to create image Path */
+@function getImage($file) {
+    @return asset("img", $file);
+}
+
+/* A function to create svg Path */
+@function getSvg($file) {
+    @return asset("svg", $file);
+}
+
+@function getSize($tag) {
+    @if $tag == "h1" {
+        @return (56 / $base-size) * 1em;
+    }
+    @if $tag == "h2" {
+        @return (48 / $base-size) * 1em;
+    }
+    @if $tag == "h3" {
+        @return (40 / $base-size) * 1em;
+    }
+    @if $tag == "h4" {
+        @return (32 / $base-size) * 1em;
+    }
+    @if $tag == "mbt" {
+        @return (24 / $base-size) * 1em;
+    }
+    @if $tag == "p" {
+        @return (16 / $base-size) * 1em;
+    }
+    @if $tag == "sbm" {
+        @return (12 / $base-size) * 1em;
+    }
+    @if $tag == "cta" {
+        @return (16 / $base-size) * 1em;
+    }
+}
+@function getLineHeight($tag) {
+    @if $tag == "h1" {
+        @return 120%;
+    }
+    @if $tag == "h2" {
+        @return 120%;
+    }
+    @if $tag == "h3" {
+        @return 120%;
+    }
+    @if $tag == "h4" {
+        @return 120%;
+    }
+    @if $tag == "mbt" {
+        @return 150%;
+    }
+    @if $tag == "p" {
+        @return 150%;
+    }
+    @if $tag == "sbm" {
+        @return 150%;
+    }
+    @if $tag == "cta" {
+        @return 150%;
+    }
+}

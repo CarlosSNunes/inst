@@ -1,0 +1,433 @@
+@import "~src/scss/_variables";
+@import "~src/scss/_mixins";
+
+.content {
+    width: auto;
+    height: 100%;
+    &.pd-top-20 {
+        padding-top: 20px;
+    }
+    .card {
+        &.default {
+            border: 1px solid getColor(_bupa, _grey-3);
+            padding: 39px 35px 12px 35px;
+            box-shadow: none;
+            position: relative;
+            height: 100%;
+        }
+
+        &.icon-card {
+            border: 1px solid getColor(_bupa, _navy);
+            padding: 39px 35px 12px 35px;
+            box-shadow: none;
+            position: relative;
+            height: 100%;
+            display: block;
+
+            @media (max-width: 1023px) {
+                padding: 21px 25px 6px 35px;
+            }
+            .image {
+                position: absolute;
+                top: -15px;
+                left: 45px;
+                width: 75px;
+                max-height: 34px;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: auto;
+                    height: 34px;
+                    object-fit: contain;
+                }
+
+                @media (max-width: 1023px) {
+                    width: 50px;
+                    height: 50px;
+                    left: 16px;
+                    top: -14px;
+                }
+            }
+            .card-title {
+                font-size: getSize("mbt");
+                line-height: getLineHeight("mbt");
+                color: getColor(_bupa, _digital-cian);
+                min-height: 36px;
+                font-weight: 600;
+                margin: 0;
+                @media (max-width: 1023px) {
+                    font-weight: 600;
+                    font-size: 1.125em;
+                    line-height: 150%;
+                    color: getColor(_bupa, _digital-cian);
+                    position: relative;
+
+                    &.hasCollapse {
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 16px;
+                            height: 9.14px;
+                            right: -15px;
+                            top: 5px;
+                            background-image: getSvg("angle-down.svg");
+                            transition: transform 0.4s ease-in-out;
+                        }
+                    }
+
+                    &.collapsed {
+                        &::before {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+            .card-description {
+                font-weight: normal;
+                font-size: getSize("p");
+                line-height: getLineHeight("p");
+                color: getColor(_bupa, _grey);
+                margin-top: 32px;
+                margin-bottom: unset;
+
+                @media (max-width: 1023px) {
+                    font-size: 0.875em;
+                    overflow: hidden;
+                    margin-top: unset;
+                    &.hasCollapse {
+                        opacity: 0;
+                        transition: height 0.4s linear, margin 0.4s linear, opacity 0.4s ease-in-out;
+                    }
+
+                    &.collapsed {
+                        overflow: unset;
+                        margin-top: 16px;
+                        margin-bottom: 1em;
+                        opacity: 1;
+                    }
+                }
+            }
+            .link {
+                font-size: getSize("mbt");
+                line-height: getLineHeight("mbt");
+                color: getColor(_bupa, _grey);
+                font-weight: normal;
+                margin-top: 8px;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                }
+                @media (max-width: 1023px) {
+                    font-weight: 600;
+                    font-size: calc(#{getSize("sbm")} - 2px);
+                    line-height: 150%;
+                    color: getColor(_bupa, _digital-cian);
+                    margin-top: unset;
+                    margin-bottom: unset;
+
+                    &.hasCollapse {
+                        overflow: hidden;
+                        opacity: 0;
+                        transition: height 0.4s linear, margin 0.4s linear, opacity 0.4s ease-in-out;
+                    }
+                    &.collapsed {
+                        overflow: unset;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .line-1 {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 1px;
+                background-color: getColor(_bupa, _navy);
+                left: -1px;
+                bottom: -1px;
+                z-index: 0;
+            }
+            .line-2 {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 1px;
+                background-color: getColor(_bupa, _navy);
+                left: -1px;
+                top: -1px;
+                z-index: 0;
+            }
+            .line-3 {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 1px;
+                background-color: getColor(_bupa, _navy);
+                right: -1px;
+                top: -1px;
+                z-index: 0;
+            }
+            .line-4 {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 1px;
+                background-color: getColor(_bupa, _navy);
+                right: -1px;
+                bottom: -1px;
+                z-index: 0;
+            }
+
+            &.navy-background-color {
+                border: 1px solid getColor(_bupa, _white);
+
+                .link {
+                    color: getColor(_bupa, _white);
+                }
+
+                .line-1,
+                .line-2,
+                .line-3,
+                .line-4 {
+                    background-color: getColor(_bupa, _white);
+                }
+            }
+
+            &:hover {
+                border: 1px solid transparent;
+
+                .line-1 {
+                    animation: move1 1500ms infinite ease;
+                }
+
+                .line-2 {
+                    animation: move2 1500ms infinite ease;
+                }
+
+                .line-3 {
+                    animation: move3 1500ms infinite ease;
+                }
+
+                .line-4 {
+                    animation: move4 1500ms infinite ease;
+                }
+
+                @keyframes move1 {
+                    0% {
+                        height: 100%;
+                        bottom: 0;
+                    }
+                    54% {
+                        height: 0;
+                        bottom: 100%;
+                    }
+                    55% {
+                        height: 0;
+                        bottom: 0;
+                    }
+                    100% {
+                        height: 100%;
+                        bottom: 0;
+                    }
+                }
+
+                @keyframes move2 {
+                    0% {
+                        width: 0;
+                        left: 0;
+                    }
+                    50% {
+                        width: 100%;
+                        left: 0;
+                    }
+                    100% {
+                        width: 0;
+                        left: 100%;
+                    }
+                }
+
+                @keyframes move3 {
+                    0% {
+                        height: 100%;
+                        top: 0;
+                    }
+                    54% {
+                        height: 0;
+                        top: 100%;
+                    }
+                    55% {
+                        height: 0;
+                        top: 0;
+                    }
+                    100% {
+                        height: 100%;
+                        top: 0;
+                    }
+                }
+
+                @keyframes move4 {
+                    0% {
+                        width: 0;
+                        right: 0;
+                    }
+                    55% {
+                        width: 100%;
+                        right: 0;
+                    }
+                    100% {
+                        width: 0;
+                        right: 100%;
+                    }
+                }
+            }
+        }
+
+        &.image-card {
+            position: relative;
+            width: 100%;
+            height: 373px;
+            border: 1px solid getColor(_bupa, _grey-3);
+            box-sizing: border-box;
+            @include animationCrossContent();
+
+            .img {
+                background-position: center;
+                width: 100%;
+                height: 157.5px;
+                background-size: cover !important;
+            }
+            .tags {
+                position: absolute;
+                left: 8px;
+                top: 140px;
+                p {
+                    font-size: getSize("sbm");
+                    line-height: getLineHeight("sbm");
+                    padding: 2px 10px;
+                    background-color: getColor(_bupa, _white);
+                    margin-left: 8px;
+                    font-weight: 500;
+                    margin-bottom: 1em;
+                }
+                p:first-child {
+                    color: getColor(_bupa, _digital-cian);
+                }
+                p:last-child {
+                    color: getColor(_bupa, _burgundy);
+                }
+            }
+            .content {
+                padding-top: 24px;
+                height: auto;
+
+                .card-title {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    font-size: getSize("p");
+                    line-height: getLineHeight("p");
+                    font-weight: 600;
+                    color: getColor(_bupa, _grey);
+                    margin-bottom: 0;
+                    min-height: 56px;
+
+                    @media (max-width: 1023px) {
+                        min-height: 48px;
+                    }
+                }
+                .card-description {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: getColor(_bupa, _black);
+                    margin-bottom: 0;
+                    height: 77px;
+                    @media (max-width: 1023px) {
+                        height: 72px;
+                    }
+                }
+
+                .btn-digital-cian {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin-left: auto;
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        &.promo-card {
+            border: 1px solid getColor(_bupa, _grey-3);
+            padding: 0;
+            box-shadow: none;
+            position: relative;
+            height: 100%;
+            @include animationCrossContent();
+            cursor: unset;
+
+            img {
+                width: 100%;
+                height: 216px;
+                object-fit: cover;
+                object-position: center top;
+            }
+
+            .logo-box {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                height: 216px;
+                .logo-content {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    img {
+                        &.logo {
+                            max-width: 142px;
+                            height: 100px;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            margin: 0 auto;
+                            align-self: center;
+                            top: calc(50% - 50px);
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+
+            .card-body {
+                padding: 24px 26px;
+
+                .promocard-title {
+                    font-weight: normal;
+                    font-size: getSize("mbt");
+                    line-height: getLineHeight("mbt");
+                    color: getColor(_bupa, _navy);
+
+                    .small {
+                        font-size: 16px;
+                        line-height: 150%;
+                        display: block;
+                    }
+                }
+
+                .sub-description {
+                    color: getColor(_bupa, _grey-2);
+                }
+
+                .separator {
+                    height: 1px;
+                    background-color: getColor(_bupa, _grey-3);
+                }
+            }
+        }
+    }
+}

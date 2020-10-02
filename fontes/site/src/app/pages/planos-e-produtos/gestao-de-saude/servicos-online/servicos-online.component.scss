@@ -1,0 +1,152 @@
+@import "~src/scss/_variables";
+.extra-content {
+    margin-top: 50px;
+    padding: 28px 22px;
+    &.occupational {
+        padding: 0;
+    }
+    .extra-content-title {
+        height: 23px;
+        display: flex;
+        margin-top: 32px;
+        &:first-child {
+            margin-top: 0;
+        }
+        span {
+            width: 23px;
+            height: 23px;
+            position: relative;
+            display: inline-block;
+            img {
+                width: 23px;
+                height: 23px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: inline-block;
+            }
+            svg {
+                width: 23px;
+                height: 23px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: inline-block;
+                fill: getColor(_bupa, _digital-cian);
+                path {
+                    fill: getColor(_bupa, _digital-cian);
+                }
+            }
+            &.text {
+                margin-left: 10px;
+                width: auto;
+                height: auto;
+                align-self: center;
+                color: getColor(_bupa, _digital-cian);
+                &.bold {
+                    font-weight: bold;
+                }
+            }
+        }
+        font-size: 1.125em;
+        line-height: 127.77777778%;
+    }
+    .extra-content-small-title {
+        margin-top: 10px;
+        font-size: getSize("sbm");
+        line-height: getLineHeight("sbm");
+        color: getColor(_bupa, _grey-2);
+        &.bottom {
+            margin-bottom: 16px;
+        }
+        a {
+            &.bold {
+                font-weight: 600;
+                color: getColor(_bupa, _grey-2);
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .extra-content-description {
+        font-weight: 500;
+        font-size: getSize("mbt");
+        line-height: getLineHeight("mbt");
+        color: getColor(_bupa, _grey-2);
+    }
+    .btn-text {
+        margin-top: 10px;
+        padding-left: 0;
+    }
+}
+
+section {
+    &#icare {
+        position: relative;
+        min-height: 950px;
+        display: flex;
+        justify-content: center;
+        &:before {
+            content: "";
+            width: 41.66666667%;
+            height: calc(100% - 180px);
+            background-color: rgba(getColor(_bupa, _digital-cian), 0.1);
+            position: absolute;
+            right: 0;
+            top: 60px;
+        }
+        article {
+            align-self: center;
+            .container {
+                 ::ng-deep {
+                    .app-slider {
+                        .video-slider {
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .extra-content {
+        .occupational-infos {
+            flex-wrap: wrap;
+            li {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin-top: 20px;
+                &:first-child {
+                    margin-top: 0;
+                }
+                img {
+                    margin: 0 auto;
+                }
+                p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &#icare {
+            min-height: unset;
+            display: block;
+            justify-content: unset;
+            &:before {
+                content: unset;
+            }
+            article {
+                align-self: unset;
+            }
+        }
+    }
+}

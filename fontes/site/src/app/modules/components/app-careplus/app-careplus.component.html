@@ -1,0 +1,77 @@
+<section id="app-careplus" [ngClass]="backgroundColorClass">
+    <article>
+        <div class="container">
+            <div class="columns principal">
+                <div class="column is-half-desktop is-full image is-hidden-touch" *ngIf="width > 1023">
+                    <div class="smartphone">
+                        <div class="content">
+                            <video #video preload="auto" muted autoplay loop playsinline oncanplay="this.play()"
+                                onloadedmetadata="this.muted = true">
+                                <source src="assets/videos/care_plusAPP.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half-desktop is-full">
+                    <p class="small-title">
+                        APP CARE PLUS
+                    </p>
+                    <h4 class="h4 big-title">
+                        Aplicativo Care Plus:
+                        mais facilidade para você
+                    </h4>
+                    <p class="description">
+                        Baixe o aplicativo e tenha acesso a todos os serviços oferecidos para os beneficiários.
+                    </p>
+
+                    <ul class="infos is-hidden-touch">
+                        <li>Peça reembolsos de despesas médicas </li>
+                        <li>Acesse e apresente a sua carteirinha virtual</li>
+                        <li>Solicite autorizações e acompanhe pelo seu smartphone</li>
+                    </ul>
+
+                    <div class="app-stores-box is-hidden-touch">
+                        <a rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR"
+                            class="play-store" target="_blank" title="App Playstore">
+                            <img src="assets/svg/playstore.svg" alt="App Playstore">
+                        </a>
+                        <a rel="noopener noreferrer" href="https://apps.apple.com/br/app/care-plus/id899562421" class="app-store" target="_blank"
+                            title="App Appstore">
+                            <img src="assets/svg/appstore.svg" alt="App Appstore">
+                        </a>
+                    </div>
+
+                    <div class="mobile-app-store-box is-hidden-desktop columns has-negative-margin is-mobile"
+                        *ngIf="width < 1024">
+                        <div class="image column is-6">
+                            <div class="smartphone">
+                                <div class="content">
+                                    <video #video preload="auto" muted autoplay loop playsinline oncanplay="this.play()"
+                                        onloadedmetadata="this.muted = true">
+                                        <source src="assets/videos/CARE_PLUS_NAVEGACAO_APP_V5.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column is-6 mobile-store-infos">
+                            <div class="store-infos">
+                                <p class="description">
+                                    Baixe agora!
+                                </p>
+                                <a rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR"
+                                    class="play-store" target="_blank" title="App Playstore">
+                                    <img src="assets/svg/playstore.svg" alt="App Playstore">
+                                </a>
+                                <a rel="noopener noreferrer" href="https://apps.apple.com/br/app/care-plus/id899562421" class="app-store"
+                                    target="_blank" title="App Appstore">
+                                    <img src="assets/svg/appstore.svg" alt="App Appstore">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

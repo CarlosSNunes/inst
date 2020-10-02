@@ -1,0 +1,20 @@
+<app-banner [banners]="banners" [area]="'home'" [hasAnchor]="true" (slideToNextElement)="slideToSection()"></app-banner>
+<app-product #sectionProduct></app-product>
+<app-info-section [sectionInfo]="ocupationalSection"></app-info-section>
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'">
+</app-icon-cards-section>
+<app-differential [differentials]="differentials"></app-differential>
+<app-plus-network></app-plus-network>
+<app-a-careplus-video [videoModel]="videoModel" [backgroundColor]="'blue'"></app-a-careplus-video>
+<app-join-the-team></app-join-the-team>
+<app-profile></app-profile>
+<app-accredited-network [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
+
+<app-social-posts></app-social-posts>
+
+<div class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao">
+    <p class="text">
+        Solicite uma Cotação
+    </p>
+    <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
+</div>

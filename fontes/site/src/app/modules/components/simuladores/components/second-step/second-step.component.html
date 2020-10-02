@@ -1,0 +1,59 @@
+<div class="second-step">
+    <h3 class="big-title white">
+        Selecione abaixo o plano ou produto que você tem interesse e clique para avançar.
+    </h3>
+    <div class="columns" [formGroup]="secondStepForm">
+        <div class="column is-4-desktop is-full">
+            <div class="illustration-check" [class.checked]="form?.planoSaude.value == true">
+                <div class="green-primary-box"></div>
+                <div class="green-light-box"></div>
+                <img src="assets/svg/plans-international.svg" alt="Ilustração Plano de Saúde">
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="checkbox" type="checkbox" formControlName="planoSaude"
+                        name="planoSaude" id="saude" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" />
+                    <label class="checkbox-label">
+                        Plano de Saúde
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-4-desktop is-full">
+            <div class="illustration-check" [class.checked]="form?.planoOdontologico.value == true">
+                <div class="green-primary-box"></div>
+                <div class="green-light-box"></div>
+                <img src="assets/svg/plans-dental.svg" alt="Ilustração Plano Odontológico">
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input formControlName="planoOdontologico"
+                        [ngClass]="{ 'is-invalid' : form?.planoOdontologico?.errors }" class="checkbox"
+                        id="odontologico" type="checkbox" name="planoOdontologico">
+                    <label class="checkbox-label" for="odontologico">
+                        Plano Odontológico
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-4-desktop is-full illustration-check">
+            <div class="illustration-check" [class.checked]="form?.medicinaOcupacional.value == true">
+                <div class="green-primary-box"></div>
+                <div class="green-light-box"></div>
+                <img src="assets/svg/art-image-one.svg" alt="Ilustração Plano Medicina Ocupacional">
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input formControlName="medicinaOcupacional" [ngClass]="{ 'is-invalid' : form?.medicinaOcupacional?.errors }"
+                        class="checkbox" type="checkbox" name="medicinaOcupacional" id="medicina-ocupacional"
+                        value="medicinaOcupacional">
+                    <label class="checkbox-label" for="medicina-ocupacional">
+                        Medicina Ocupacional
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

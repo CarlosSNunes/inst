@@ -1,0 +1,180 @@
+@import "./variables";
+
+html,
+body {
+    font-size: 16px;
+
+    &.using-mouse {
+        outline: none;
+        * {
+            outline: none !important;
+        }
+    }
+}
+
+h1, .h1 {
+    font-size: getSize("h1");
+    line-height: getLineHeight("h1");
+}
+
+h2, .h2 {
+    font-size: getSize("h2");
+    line-height: getLineHeight("h2");
+}
+
+h3, .h3 {
+    font-size: getSize("h3");
+    line-height: getLineHeight("h3");
+}
+
+h4, .h4 {
+    font-size: getSize("h4");
+    line-height: getLineHeight("h4");
+}
+
+p, .p {
+    font-size: getSize("p");
+    line-height: getLineHeight("p");
+}
+
+.small-title {
+    font-weight: 500;
+    font-size: getSize("sbm");
+    line-height: getLineHeight("sbm");
+    color: getColor(_bupa, _digital-cian);
+    text-transform: uppercase;
+    &.white {
+        color: getColor(_bupa, _white);
+    }
+}
+.big-title {
+    max-width: 488px;
+    margin-top: 8px;
+    color: getColor(_bupa, _navy);
+    font-weight: 600;
+    &.no-margin {
+        margin-top: 0;
+    }
+    &.white {
+        color: getColor(_bupa, _white);
+    }
+}
+
+.description {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: getSize("mbt");
+    line-height: getLineHeight("mbt");
+    color: getColor(_bupa, _grey);
+
+    &.no-margin {
+        margin-top: 0;
+    }
+    &.white {
+        color: getColor(_bupa, _white);
+    }
+}
+
+.sub-description {
+    margin-top: 32px;
+    font-weight: normal;
+    font-size: getSize("p");
+    line-height: getLineHeight("p");
+    color: getColor(_bupa, _grey);
+    &.no-margin {
+        margin-top: 0;
+    }
+    &.white {
+        color: getColor(_bupa, _white);
+    }
+}
+
+@media (max-width: 1023px) {
+    .big-title {
+        font-size: 1.25em;
+        line-height: 120%;
+    }
+
+    .description {
+        font-size: 1.125em;
+        line-height: 150%;
+    }
+
+    .sub-description {
+        font-size: 0.875em;
+        line-height: 150%;
+    }
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.white-background-color {
+    background-color: getColor(_bupa, _white);
+}
+
+.blue-background-color {
+    background-color: getColor(_carePlus, _blue-section);
+}
+
+.navy-background-color {
+    background-color: getColor(_bupa, _navy);
+}
+
+.is-paddingless-vertical {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.align-self-center {
+    align-self: center;
+}

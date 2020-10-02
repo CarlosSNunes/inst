@@ -1,0 +1,67 @@
+@import "~src/scss/_variables";
+.table-box {
+    max-width: 100%;
+    overflow: auto;
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        background-color: getColor(_bupa, _white);
+        border: 1px solid getColor(_bupa, _grey-3);
+        border-radius: 4px;
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: unset;
+        }
+        thead {
+            width: 100%;
+            tr {
+                background-color: rgba(getColor(_bupa, _digital-cian), 0.1);
+                th {
+                    padding: 22px 15px;
+                    font-weight: 500;
+                    font-size: getSize("p");
+                    line-height: 100%;
+                    color: getColor(_bupa, _black);
+                }
+            }
+        }
+        tbody {
+            width: 100%;
+            tr {
+                &:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+                td {
+                    padding: 22px 15px;
+                    font-weight: 500;
+                    font-size: getSize("p");
+                    line-height: 100%;
+                    color: getColor(_bupa, _grey-2);
+                    .download-link {
+                        align-self: center;
+                        font-weight: 600;
+                        font-size: getSize("p");
+                        line-height: 120%;
+                        letter-spacing: 2px;
+                        color: getColor(_bupa, _digital-cian);
+                        display: flex;
+                        transition: color 0.3s ease-in-out;
+                        span {
+                            margin-left: 10px;
+                            align-self: center;
+                            svg {
+                                transition: fill 0.3s ease-in-out;
+                                path {
+                                    transition: fill 0.3s ease-in-out;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

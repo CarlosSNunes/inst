@@ -1,0 +1,179 @@
+@import "~src/scss/_variables";
+
+.extra-content {
+    padding: 28px 22px;
+
+    &.occupational {
+        padding: 0;
+    }
+
+    .extra-content-title {
+        height: 23px;
+        display: flex;
+        span {
+            width: 23px;
+            height: 23px;
+            position: relative;
+            display: inline-block;
+            img {
+                width: 23px;
+                height: 23px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: inline-block;
+            }
+
+            &.text {
+                margin-left: 10px;
+                width: auto;
+                height: auto;
+                align-self: center;
+            }
+        }
+
+        font-size: 1.125em;
+        line-height: 127.77777778%;
+    }
+
+    .extra-content-small-title {
+        margin-top: 10px;
+        font-size: getSize("sbm");
+        line-height: getLineHeight("sbm");
+        color: getColor(_bupa, _grey-2);
+
+        &.bottom {
+            margin-bottom: 16px;
+        }
+
+        .bold {
+            font-weight: 500;
+        }
+    }
+
+    .extra-content-description {
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: getSize("mbt");
+        line-height: getLineHeight("mbt");
+        color: getColor(_bupa, _grey-2);
+        display: block;
+    }
+
+    .btn.tertiary {
+        padding-left: 0;
+    }
+
+    .whatsapp-btn {
+        display: inline-flex;
+        margin-top: 20px;
+        img {
+            width: 20px;
+            height: 20px;
+            align-self: center;
+        }
+
+        span {
+            margin-left: 20px;
+            align-self: center;
+        }
+    }
+
+    .occupational-infos {
+        display: flex;
+        padding: 26px 40px;
+        justify-content: space-between;
+
+        li {
+            flex: 0 0 calc(100% / 3);
+            width: calc(100% / 3);
+            max-width: calc(100% / 3);
+            padding: 0 15px;
+
+            p {
+                margin-top: 8px;
+                font-size: getSize("p");
+                line-height: getLineHeight("p");
+                color: getColor(_bupa _grey);
+            }
+
+            img {
+                width: 44px;
+                height: 44px;
+                display: block;
+            }
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.get-price-box {
+    position: fixed;
+    width: 280px;
+    height: 60px;
+    background-color: getColor(_bupa, _digital-cian);
+    display: flex;
+    padding: 21.5px 32px;
+    right: 144px;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 2;
+
+    .text {
+        align-self: center;
+        margin: 0;
+        color: getColor(_bupa, _white);
+        font-size: getSize("sbm");
+        line-height: getLineHeight("sbm");
+    }
+
+    img {
+        position: absolute;
+        right: 16px;
+        align-self: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .extra-content {
+        .occupational-infos {
+            flex-wrap: wrap;
+            li {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin-top: 20px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                img {
+                    margin: 0 auto;
+                }
+                p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .get-price-box {
+        top: unset;
+        bottom: 84px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        position: fixed;
+    }
+}

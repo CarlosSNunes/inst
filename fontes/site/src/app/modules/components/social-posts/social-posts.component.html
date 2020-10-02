@@ -1,0 +1,56 @@
+<section id="social-posts" [ngClass]="backgroundColorClass">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-full">
+                    <p class="section-breadcrumb">REDES SOCIAIS</p>
+                    <h2 class="h4 title">Care Plus na mídia</h2>
+                </div>
+            </div>
+            <div class="columns flex-wrap">
+                <div class="column is-2 is-full-mobile is-half-tablet-only" *ngFor="let post of posts">
+                    <a class="post" [href]="post.link" [title]="post.title" target="_blank">
+                        <img [src]="post.url" [alt]="post.alt">
+                    </a>
+                </div>
+                <div class="column is-2 is-full-mobile is-half-tablet-only media-box">
+                    <div class="social-media-box">
+                        <div class="columns flex-wrap">
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a rel="noopener noreferrer" href="https://www.instagram.com/careplusoficial/" title="Instagram"
+                                        target="_blank">
+                                        <img src="assets/svg/instagram.svg" alt="Instagram">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a rel="noopener noreferrer" href="https://www.facebook.com/careplusnarede/" title="Facebook" target="_blank">
+                                        <img src="assets/svg/facebook.svg" alt="Facebook">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a rel="noopener noreferrer" href="https://www.youtube.com/user/careplusnarede" title="Youtube"
+                                        target="_blank">
+                                        <img src="assets/svg/youtube.svg" alt="Youtube">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="share-box">
+                                    <a rel="noopener noreferrer" href="https://br.linkedin.com/company/care-plus" title="Linkedin"
+                                        target="_blank">
+                                        <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

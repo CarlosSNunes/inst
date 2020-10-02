@@ -1,0 +1,12 @@
+<div id="dropdown" tabindex="1" (blur)="hideList()">
+    <div class="dropdown-select" (click)="showList()" [class.active]="!hidden">
+        <p>{{selectedOption.title}}</p>
+        <img src="assets/svg/dropdown-arrow.svg" alt="Seta Drop Down">
+    </div>
+    <div class="dropdown-list" [class.hiddenList]="hidden">
+        <p *ngIf="options.length == 0" [class.hidden]="hidden"> Selecione...</p>
+
+        <p *ngFor="let opt of options" (click)="selectOption(opt)" [class.is-active]="selectedOption.title === opt.title"
+            [class.hidden]="hidden"> {{opt.title}}</p>
+    </div>
+</div>

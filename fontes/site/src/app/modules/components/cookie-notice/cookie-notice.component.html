@@ -1,0 +1,28 @@
+
+<div class="cookie-notice" #cookieNotice>
+    <div class="images">
+        <ul>
+            <li>
+                <img src="assets/svg/brasil.svg" [class.active]="selectedLanguageTexts.language == 'pt'" (click)="changeLanguage('pt')" alt="Brasil">
+            </li>
+            <li>
+                <img src="assets/svg/usa.svg" (click)="changeLanguage('en')" [class.active]="selectedLanguageTexts.language == 'en'" alt="USA">
+            </li>
+        </ul>
+    </div>
+
+    <div class="text">
+        <p class="title">
+            {{selectedLanguageTexts.title}}
+        </p>
+        <p class="sub-title">
+            {{selectedLanguageTexts.description}}
+        </p>
+    </div>
+
+    <div class="agree-button">
+        <a (click)="agree.emit()" class="btn btn-white-to-digital-cian secondary small">
+            {{selectedLanguageTexts.buttonText}}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<section class="is-perfil" [ngClass]="backgroundColorClass">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <p class="small-title">
+                        Para quem
+                    </p>
+                    <h2 class="h4 big-title">
+                        Um espaço personalizado para o seu perfil
+                    </h2>
+                </div>
+            </div>
+            <div class="columns beneficios-tabs">
+                <div class="column">
+                    <div class="tabs is-toggle is-fullwidth is-centered">
+                        <ul>
+                            <li [class.is-active]="profile.active" *ngFor="let profile of profiles; let i = index;"
+                                (click)="setActiveProfile(i)">
+                                <a [attr.title]="profile.title">
+                                    <span>{{profile.title}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="columns tab-content" [class.active]="profile.active"
+                *ngFor="let profile of profiles | showActiveProfile">
+                <div class="column is-6 has-text-centered">
+                    <img class="ambient-image" [src]="profile.image" [alt]="profile.title">
+                </div>
+                <div class="column is-5 is-offset-1">
+                    <p class="perfil-title color bupa-navy">
+                        {{profile.title}}
+                    </p>
+                    <p class="content">
+                        {{profile.description}}
+                    </p>
+                    <a [routerLink]="[profile.link]" [attr.title]="profile.title"
+                        class="btn btn-navy secondary arrow-right medium is-hidden-touch">
+                        {{profile.linkTitle}}
+                    </a>
+
+                    <a [routerLink]="[profile.link]" [attr.title]="profile.title"
+                        class="btn btn-navy tertiary arrow-right small is-hidden-desktop">
+                        {{profile.linkTitle}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article> 
+</section>

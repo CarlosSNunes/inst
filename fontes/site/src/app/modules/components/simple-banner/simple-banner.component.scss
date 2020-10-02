@@ -1,0 +1,91 @@
+@import "~src/scss/_variables";
+
+section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: inset 640px -1px 499px 20px rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 450px;
+    padding: 60px 0 0 0;
+    &.hasFilters {
+        padding: 60px 0;
+    }
+
+    .container {
+        height: 390px;
+        .banner-content {
+
+            .big-title {
+                max-width: 590px;
+            }
+            
+            .sub-description {
+                max-width: 382px;
+                font-weight: 500;
+            }
+        }
+
+        .mouse-image {
+            position: absolute;
+            bottom: 10px;
+            left: 32px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        height: auto;
+        padding: 0 0 10px 0;
+        background-image: unset !important;
+        background-color: getColor(_bupa, _digital-cian);
+        box-shadow: unset;
+        &.hasFilters {
+            padding: 0 0 80px 0;
+        }
+
+        .mobile-image {
+            height: 216px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .container {
+            height: auto;
+            .banner-content {
+                .big-title {
+                    color: getColor(_bupa, _white);
+                    margin-top: 0;
+                }
+                .sub-description {
+                    color: getColor(_bupa, _white);
+                    max-width: 382px;
+                    font-weight: 500;
+                    margin-top: 16px;
+                }
+            }
+
+            .mouse-image {
+                display: none;
+            }
+
+            .hasFilters {
+                .banner-content {
+                    .big-title {
+                        margin-top: 8px;
+                    }
+                    .sub-description {
+                        margin-top: 16px;
+                    }
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

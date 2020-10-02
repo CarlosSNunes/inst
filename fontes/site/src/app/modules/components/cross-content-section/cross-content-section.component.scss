@@ -1,0 +1,152 @@
+@import "~src/scss/_variables";
+@import "~src/scss/_mixins";
+
+section {
+    &.cross-content-section {
+        position: relative;
+        .background {
+            height: 57.42331288%;
+            max-height: 468px;
+            width: 100%;
+            position: absolute;
+            bottom: 151px;
+        }
+        .container {
+            .big-title {
+                max-width: 1012px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .content-info {
+                height: 664px;
+                width: 100%;
+                position: relative;
+                margin-top: 75px;
+
+                .info-box {
+                    position: absolute;
+                    left: 0;
+                    top: 27.56024096%;
+                    width: 30.26315789%;
+                    background-color: getColor(_bupa, _digital-cian);
+                    display: block;
+                    padding: 32px 34px;
+                    z-index: 1;
+                    .info-title {
+                        font-weight: 600;
+                        font-size: getSize("h4");
+                        line-height: getLineHeight("h4");
+                        color: getColor(_bupa, _white);
+                    }
+
+                    .info-description {
+                        font-size: getSize("p");
+                        line-height: getLineHeight("p");
+                        margin-top: 8px;
+                        color: getColor(_bupa, _white);
+                    }
+
+                    .btn-digital-cian.tertiary {
+                        float: right;
+                        padding-bottom: 0;
+                        padding-top: 0;
+                        margin-top: 8px;
+                        color: getColor(_bupa, _white);
+
+                        svg {
+                            fill: getColor(_bupa, _white);
+
+                            path {
+                                fill: getColor(_bupa, _white);
+                            }
+                        }
+
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                                right: 15px;
+                            }
+                        }
+                    }
+                }
+                .first-image {
+                    position: absolute;
+                    width: 44.73684211%;
+                    right: 38.15789474%;
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        @include animationCrossContent();
+                    }
+                }
+                .second-image {
+                    position: absolute;
+                    width: 43.42105263%;
+                    top: 22.89156627%;
+                    right: 0;
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        height: 500px;
+                        @include animationCrossContent();
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    section {
+        &.cross-content-section {
+            .container {
+                .content-info {
+                    height: 568px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section {
+        &.cross-content-section {
+            .background {
+                height: 100%;
+                max-height: unset;
+                bottom: 0;
+            }
+            .container {
+                .content-info {
+                    height: auto;
+                    margin-top: 30px;
+                    .info-box {
+                        width: 100%;
+                        top: 0%;
+                        position: relative;
+
+                        .btn-digital-cian.tertiary {
+                            float: unset;
+                            padding-left: 0;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    .first-image {
+                        display: none;
+                    }
+                    .second-image {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

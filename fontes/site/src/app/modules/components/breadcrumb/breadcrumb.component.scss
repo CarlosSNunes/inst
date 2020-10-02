@@ -1,0 +1,41 @@
+@import "~src/scss/_variables";
+.links {
+    min-height: 24px;
+    .link {
+        margin-left: 21px;
+        position: relative;
+        display: inline-flex;
+        align-self: center;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 9px;
+            left: -13px;
+            align-self: center;
+            top: calc(50% - 4.5px);
+            background-image: getSvg("arrow-right-grey.svg");
+        }
+        &:first-child {
+            margin-left: 0;
+            &::before {
+                content: unset;
+            }
+        }
+        a {
+            font-weight: 500;
+            font-size: 0.75em;
+            line-height: 125%;
+            color: getColor(_bupa, _grey-2);
+            &.active {
+                color: getColor(_bupa, _digital-cian);
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .links {
+        display: none;
+    }
+}

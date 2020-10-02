@@ -1,0 +1,55 @@
+<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToNextSection()"></app-simple-banner>
+<section #iniciativaSection id="responsabilidade-social-iniciativa-section">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half-desktop is-full">
+                    <div class="box-infos">
+                        <p class="small-title">
+                            iniciativas Care Plus
+                        </p>
+                        <h2 class="h4 big-title">
+                            Confira algumas de nossas ações já realizadas
+                        </h2>
+                    </div>
+                </div>
+                <div class="column is-half-desktop is-full">
+                    <p class="description no-margin">
+                        Somos uma empresa que se preocupa com o seu papel na sociedade e, além de fornecer cobertura de
+                        saúde, diariamente trabalhamos para marcar a nossa história com responsabilidade e compromisso
+                        social.
+                    </p>
+                    <p class="sub-description">
+                        Ajudar as pessoas a terem vidas mais longas, saudáveis e felizes é o coração da nossa política
+                        de Responsabilidade Corporativa e Sustentabilidade (CRS). Nosso objetivo é gerar impacto
+                        positivo na comunidade por meio de cinco pilares de atuação, sempre trabalhando ao lado de
+                        nossos clientes, colaboradores, parceiros, fornecedores e com a sociedade em geral. Nossos
+                        pilares são:
+                    </p>
+                    <ul class="items">
+                        <li class="item">
+                            <strong> Consumidor: </strong> prestar serviços de saúde com qualidade
+                        </li>
+                        <li class="item">
+                            <strong>Pessoas: </strong> ser um lugar onde as pessoas amam trabalhar
+                        </li>
+                        <li class="item">
+                            <strong>Ética: </strong> conduzir nossos negócios com ética e governança robusta
+                        </li>
+                        <li class="item">
+                            <strong>Comunidade: </strong> envolver-se e engajar-se com nossa comunidade
+                        </li>
+                        <li class="item">
+                            <strong>Meio-Ambiente: </strong> impactar positivamente o meio ambiente
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<app-info-section *ngFor="let infoSection of infoSections" [sectionInfo]="infoSection"></app-info-section>
+
+<app-learn-more [cards]="cards"></app-learn-more>
+
