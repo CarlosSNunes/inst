@@ -11,6 +11,18 @@
     <div class="card">
         <div class="card-content">
             <div class="field">
+                <label class="label">Cod Perfil</label>
+                <div class="control">
+                    <input formControlName="perfilId" class="input" type="number" placeholder=""
+                        [ngClass]="{ 'is-success': submitted && !f.perfilId.errors, 'is-danger' : submitted && f.perfilId.errors }">
+                </div>
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.perfilId)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+            <div class="field">
                 <label class="label">Descrição</label>
                 <div class="control">
                     <input formControlName="descricao" class="input" type="text" placeholder=""

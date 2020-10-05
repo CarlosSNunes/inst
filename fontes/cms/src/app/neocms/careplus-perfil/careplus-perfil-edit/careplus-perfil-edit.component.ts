@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { CareplusPerfilModel } from 'src/models/careplus-perfil/careplus-perfil.model';
+import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
+import { CareplusPerfilModel } from './../../../../../src/models/careplus-perfil/careplus-perfil.model';
 import { CareplusPerfilService } from '../careplus-perfil.service';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
-import { FormControlError } from 'src/utils/form-control-error';
-import { CareplusPerfilUpdateModel } from 'src/models/careplus-perfil/careplus-perfil-update.model';
+import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
+import { FormControlError } from './../../../../../src/utils/form-control-error';
+import { CareplusPerfilUpdateModel } from './../../../../../src/models/careplus-perfil/careplus-perfil-update.model';
 
 @Component({
   selector: 'app-careplus-perfil-edit',
@@ -51,15 +51,9 @@ export class CareplusPerfilEditComponent implements OnInit {
 
   updateForm() {
     this.careplusPerfilForm = this.fb.group({
-      id: [this.careplusPerfil.id, [Validators.required]],
-      descricao: [
-        this.careplusPerfil.descricao,
-        [
-          Validators.required,
-          Validators.maxLength(255),
-          FormControlError.noWhitespaceValidator
-        ]
-      ],
+      id: [this.careplusPerfil.id,],
+      descricao: [this.careplusPerfil.descricao,[Validators.required,Validators.maxLength(255), FormControlError.noWhitespaceValidator ]],
+      perfilId:[this.careplusPerfil.id,]
     });
   }
 

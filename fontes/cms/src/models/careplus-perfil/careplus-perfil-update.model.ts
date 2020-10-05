@@ -3,6 +3,7 @@ export class CareplusPerfilUpdateModel {
         Object.assign(this, init);
     }
 
-    id: number;
+    id       : number;
     descricao: string;
+    perfilId : number;
 }
