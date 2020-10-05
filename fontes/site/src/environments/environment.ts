@@ -4,10 +4,12 @@
 
 export const environment = {
     production: false,
-    API_URL: 'http://52.3.44.106/api/',
+    API_URL: 'http://52.3.44.106:8081',
     SELF_URL: 'http://localhost:4300',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
-    BASE_HREF: '/'
+    BASE_HREF: '/',
+    API_USER: 'admin@admin.com',
+    API_PASSWORD: '1234'
 };
 
 /*

@@ -36,3 +36,4 @@ export * from './canal-de-denuncia.model';
 export * from './anexo.model';
 export * from './menu.model';
 export * from './profile.model';
+export * from './error.model';

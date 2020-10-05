@@ -18,6 +18,6 @@ export class BannerService {
     }
 
     async getByArea(area: string): Promise<BannerModel[]> {
-        return this.http.get<BannerModel[]>(`${this.url}/${area}`).toPromise();
+        return this.http.get<BannerModel[]>(`${this.url}/getByArea/${area}`).toPromise();
     }
 }

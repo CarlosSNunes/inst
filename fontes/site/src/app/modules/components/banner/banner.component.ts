@@ -1,9 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, Input, Output, EventEmitter, PLATFORM_ID, Inject } from '@angular/core';
-import { BannerModel, BreadcrumbModel } from 'src/app/models';
+import { BannerModel, BreadcrumbModel, FieldErrors } from 'src/app/models';
 import { BannerService } from 'src/app/services';
 import { interval, Subscription } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
+import { ErrorHandler } from 'src/utils/error-handler';
 
 @Component({
     selector: 'app-banner',
@@ -50,12 +51,26 @@ export class BannerComponent implements OnInit {
     constructor(
         private bannerService: BannerService,
         private cdRef: ChangeDetectorRef,
-        @Inject(PLATFORM_ID) private plataformId
+        @Inject(PLATFORM_ID) private plataformId,
+        private errorHandler: ErrorHandler
     ) {
         this.isBrowser = isPlatformBrowser(this.plataformId)
     }
 
-    ngOnInit() {
+    async ngOnInit() {
+        /*
+            Somente irá pesquisar na api se o parâmetro area for passado
+        */
+        if (this.area) {
+            const apiBanners = await this.getBannersFromApi();
+            /*
+                Caso nenhum banner seja retornado da api ele não irá preencher os banners
+            */
+            if (apiBanners.length > 0) {
+                this.banners = apiBanners;
+                this.cdRef.detectChanges();
+            }
+        }
         if (this.isBrowser) {
             this.banners.forEach((banner, i) => {
                 banner.slideAtual = true
@@ -76,6 +91,16 @@ export class BannerComponent implements OnInit {
         }
     }
 
+    async getBannersFromApi() {
+        try {
+            const banners = await this.bannerService.getByArea(this.area)
+            return banners;
+        } catch (error) {
+            this.errorHandler.ShowError(error)
+            return [];
+        }
+    }
+
     startBannerPercentage(time: number, totalTime: number) {
         this.bannerPercentageSubscription = interval(time).subscribe(() => {
             this.percentageStoped += 1
@@ -88,8 +113,10 @@ export class BannerComponent implements OnInit {
     }
 
     stopBannerPercentage() {
-        this.bannerPercentageSubscription.unsubscribe();
-        this.bannerPercentageSubscription.remove(this.bannerPercentageSubscription);
+        if (this.bannerPercentageSubscription) {
+            this.bannerPercentageSubscription.unsubscribe();
+            this.bannerPercentageSubscription.remove(this.bannerPercentageSubscription);
+        }
     }
 
     toggleBannerPercentage() {
@@ -113,14 +140,6 @@ export class BannerComponent implements OnInit {
             this.setCurrentSlide(this.selectedBanner + 1)
         } else {
             this.setCurrentSlide(0)
-        }
-    }
-
-    async getBanners() {
-        try {
-            this.banners = await this.bannerService.getByArea(this.area)
-        } catch (error) {
-            console.log(error)
         }
     }
 
