@@ -15,7 +15,7 @@ export default [
         imagePath: "assets/svg/document.svg",
         backgroundColorClass: "white-background-color",
         routerLink: '/a-careplus/materiais-de-saude',
-        hasCollapse: true
+        hasCollapse:false
     }),
     new IconCardModel({
         type: 'icon',

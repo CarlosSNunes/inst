@@ -51,7 +51,9 @@ export class RedePlusComponent implements OnInit {
         private windowRef: WindowRef,
         private title: Title,
         private meta: Meta,
-    ) { }
+    ) {
+        this.setSEOInfos();
+    }
 
     ngOnInit() {
     }

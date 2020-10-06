@@ -17,8 +17,6 @@
             font-weight: 500;
             font-size: 16px;
             line-height: 20px;
-            /* identical to box height */
-            /* Bupa Grey */
             color: getColor(_bupa, _grey);
             position: relative;
             padding-right: 50px;
@@ -38,7 +36,7 @@
 
             &.active {
                 color: getColor(_bupa, _digital-cian);
-                background: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+                background: rgba(getColor(_bupa, _digital-cian), 0.1);
                 font-style: normal;
                 font-weight: 500;
                 font-size: 16px;
@@ -56,15 +54,12 @@
             overflow: hidden;
             transition: all 0.3s;
             -moz-transition: all 0.3s;
-            /* Firefox 4 */
             -webkit-transition: all 0.3s;
-            /* Safari and Chrome */
             -o-transition: all 0.3s;
-            /* Opera */
             .inner {
                 height: 100%;
                 padding: 0 22px 22px;
-                background: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+                background: rgba(getColor(_bupa, _digital-cian), 0.1);
                 border-left: solid 3px getColor(_bupa, _digital-cian);
 
                 h5 {
@@ -149,7 +144,7 @@
                         thead {
                             width: 100%;
                             tr {
-                                background-color: rgba(getColor(_bupa, _digital-cian-rgb), 0.1);
+                                background-color: rgba(getColor(_bupa, _digital-cian), 0.1);
                                 td {
                                     padding: 22px 15px;
                                     font-weight: 500;

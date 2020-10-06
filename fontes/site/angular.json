@@ -82,6 +82,7 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
+                            "baseHref": "/institucional/",
                             "budgets": [{
                                     "type": "initial",
                                     "maximumWarning": "2mb",
@@ -121,6 +122,9 @@
                                     "maximumError": "10kb"
                                 }
                             ]
+                        },
+                        "es5": {
+                            "tsConfig": "./tsconfig.es5.json"
                         }
                     }
                 },
@@ -133,6 +137,12 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "Care-plus:build:production"
+                        },
+                        "homolog": {
+                            "browserTarget": "Care-plus:build:homolog"
+                        },
+                        "es5": {
+                            "browserTarget": "Care-plus:build:es5"
                         }
                     }
                 },
@@ -214,6 +224,9 @@
                     "configurations": {
                         "production": {
                             "devServerTarget": "Care-plus:serve:production"
+                        },
+                        "homolog": {
+                            "devServerTarget": "Care-plus:serve:homolog"
                         }
                     }
                 },
@@ -229,6 +242,17 @@
                             "fileReplacements": [{
                                 "replace": "src/environments/environment.ts",
                                 "with": "src/environments/environment.prod.ts"
+                            }],
+                            "sourceMap": false,
+                            "optimization": {
+                                "scripts": false,
+                                "styles": true
+                            }
+                        },
+                        "homolog": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.homolog.ts"
                             }],
                             "sourceMap": false,
                             "optimization": {

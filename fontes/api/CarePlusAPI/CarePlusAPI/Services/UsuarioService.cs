@@ -1,25 +1,16 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
-
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.Usuario;
 using CarePlusHomolog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Models.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static CarePlusHomolog.PartnerServiceClient;
 
-namespace Neotix.Neocms.CarePlusAPI.Services
+namespace CarePlusAPI.Services
 {
     public interface IUsuarioService
     {
@@ -264,7 +255,7 @@ namespace Neotix.Neocms.CarePlusAPI.Services
         ///<param name="senhaSalt">Array de byte do salt da senha criada</param>
         private static void CriarSenha(string senha, out byte[] senhaHash, out byte[] senhaSalt)
         {
-            using System.Security.Cryptography.HMACSHA512 hmac = new System.Security.Cryptography.HMACSHA512();
+            System.Security.Cryptography.HMACSHA512 hmac = new System.Security.Cryptography.HMACSHA512();
             senhaSalt = hmac.Key;
             senhaHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(senha));
         }

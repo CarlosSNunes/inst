@@ -6,6 +6,7 @@ import { AccreditedNetworkComponent } from 'src/app/modules/components/accredite
 import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
 import { Title, Meta } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-beneficiario',
@@ -28,7 +29,7 @@ export class BeneficiarioComponent implements OnInit {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em saúde',
         subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'Conheça nossos Programas',
+            text: 'Conheça o Gestão de Saúde',
             routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: Cards,
@@ -71,6 +72,77 @@ export class BeneficiarioComponent implements OnInit {
         this.meta.updateTag({
             name: 'description',
             content: 'A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.'
+        });
+
+        /* 
+           Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                "Beneficiário | Care Plus",
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/${this.banners[0].caminhoImagem}`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content:
+                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/home/beneficiario`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                "Beneficiário | Care Plus",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/${this.banners[0].caminhoImagem}`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content:
+                "A Care Plus é uma operadora que disponibiliza soluções de medicina, odontologia, saúde ocupacional e prevenção. Atendemos mais de 100 mil beneficiários.",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/home/beneficiario`,
         });
     }
 

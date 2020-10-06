@@ -1,21 +1,21 @@
 using Xunit;
 using System;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Controllers;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Controllers;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Neotix.Neocms.CarePlusAPI.Services;
-using Neotix.Neocms.CarePlusAPI.Entities;
+using CarePlusAPI.Services;
+using CarePlusAPI.Entities;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Options;
 using AutoMapper;
-using Neotix.Neocms.CarePlusAPI.Models.Usuario;
+using CarePlusAPI.Models.Usuario;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Neotix.Neocms.CarePlusAPI.Models.Perfil;
+using CarePlusAPI.Models.Perfil;
 
-namespace Neotix.Neocms.CarePlusAPI.Tests.Controllers
+namespace CarePlusAPI.Tests.Controllers
 {
     public class UsuarioControllerTest : IDisposable
     {

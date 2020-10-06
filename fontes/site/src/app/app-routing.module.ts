@@ -32,10 +32,6 @@ const routes: Routes = [
         path: 'obrigado',
         loadChildren: () => import('./pages/obrigado/obrigado.module').then(m => m.ObrigadoModule),
     },
-    // {
-    //     path: 'careplus-mais',
-    //     loadChildren: () => import('./pages/careplus-mais/careplus-mais.module').then(m => m.CareplusMaisModule),
-    // },
     {
         path: '**',
         loadChildren: () => import('./pages/erro/erro.module').then(m => m.ErroModule)

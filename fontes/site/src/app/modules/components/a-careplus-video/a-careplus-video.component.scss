@@ -16,16 +16,36 @@
     .video-bg {
         position: relative;
     }
-    .video-bg:after {
-        position: absolute;
-        content: "";
-        z-index: -1;
-        top: 12.5%;
-        height: 75%;
-        left: 16px;
-        width: calc(100% - 32px);
-        background-color: var(--banner-background);
+
+    .video-bg {
+        
+        &.white {
+            &:after {
+                position: absolute;
+                content: "";
+                z-index: -1;
+                top: 12.5%;
+                height: 75%;
+                left: 16px;
+                width: calc(100% - 32px);
+                background-color: getColor(_bupa, _white);
+            }
+        }
+
+        &.blue {
+            &:after {
+                position: absolute;
+                content: "";
+                z-index: -1;
+                top: 12.5%;
+                height: 75%;
+                left: 16px;
+                width: calc(100% - 32px);
+                background-color: rgba(getColor(_bupa, _digital-cian), 0.1);
+            }
+        }
     }
+
     .videoBox {
         margin: auto;
         max-height: 511px;

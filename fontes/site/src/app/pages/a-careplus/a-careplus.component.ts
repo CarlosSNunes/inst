@@ -11,6 +11,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
 import { IconCardModel, SliderModel, HeroBannerModel, VideoModel, BreadcrumbModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-careplus',
@@ -144,6 +145,75 @@ import { Title, Meta } from '@angular/platform-browser';
         this.meta.updateTag({
             name: 'description',
             content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'A Care Plus | Care Plus',
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/assets/img/banner-dog-a-careplus.jpg`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/a-careplus`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'A Care Plus | Care Plus',
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // TODO
+        /*
+            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
+        */
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/assets/img/banner-dog-a-careplus.jpg`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Referência em planos de saúde, planos odontológicos e Medicina Ocupacional.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/a-careplus`,
         });
     }
 

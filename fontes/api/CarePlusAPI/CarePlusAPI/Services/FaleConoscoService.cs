@@ -1,29 +1,16 @@
-﻿//===============================================================================
-//Web API 
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API para uso do NEOCMS
-//==============================================================================
-
+﻿using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.FaleConosco;
 using CarePlusHomolog;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Models.FaleConosco;
 using Newtonsoft.Json;
 using System;
-using System.Buffers.Text;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using static CarePlusHomolog.PartnerServiceClient;
 
-namespace Neotix.Neocms.CarePlusAPI.Services
+namespace CarePlusAPI.Services
 {
     public interface IFaleConoscoService
     {

@@ -1,12 +1,12 @@
+import { CareplusPerfilCreateModel } from './../../../../models/careplus-perfil/careplus-perfil-create.model';
+import { FormControlError } from './../../../../utils/form-control-error';
+import { AuthenticationService } from './../../../authentication/authentication.service';
+import { UserAuthenticateModel } from './../../../../models/user-authenticate.model';
+import { CareplusPerfilService } from './../careplus-perfil.service';
 import { Component, OnInit } from '@angular/core';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { CareplusPerfilService } from '../careplus-perfil.service';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
-import { FormControlError } from 'src/utils/form-control-error';
-import { CareplusPerfilCreateModel } from 'src/models/careplus-perfil/careplus-perfil-create.model';
 
 @Component({
   selector: 'app-careplus-perfil-create',
@@ -37,6 +37,13 @@ export class CareplusPerfilCreateComponent implements OnInit {
 
   createForm() {
     this.careplusPerfilForm = this.fb.group({
+      perfilId: [
+        '',
+        [
+          Validators.required,
+          FormControlError.noWhitespaceValidator
+        ]
+      ],
       descricao: [
         '',
         [

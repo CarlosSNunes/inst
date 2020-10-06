@@ -65,7 +65,7 @@ export const occupationalSection: InfoSectionModel = new InfoSectionModel({
 });
 
 export const firstCard: IconCardModel = new IconCardModel({
-    title: 'Central de atendimento',
+    title: 'Central de Atendimento',
     type: 'icon',
     button: new ButtonModel({
         link: 'tel: 11 4063-0083',

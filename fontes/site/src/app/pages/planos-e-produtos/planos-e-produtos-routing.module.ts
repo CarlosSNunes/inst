@@ -14,7 +14,7 @@ const routes: Routes = [
     },
     {
         path: 'gestao-de-saude',
-        loadChildren: () => import('../gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
+        loadChildren: () => import('./gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
     },
     {
         path: ':id',

@@ -1,21 +1,11 @@
-//===============================================================================
-//Web API Tag
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Tag para uso do NEOCMS
-//==============================================================================
-
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace Neotix.Neocms.CarePlusAPI.Services
+namespace CarePlusAPI.Services
 {
     public interface ITagService
     {

@@ -155,7 +155,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
 
 
     setSEOinfos() {
-        this.title.setTitle('Responsabilidade Social | Care Plus | Care Plus');
+        this.title.setTitle('Responsabilidade Social | A Care Plus | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'Aqui você pode conferir as ações de responsabilidade social da Care Plus para um mundo melhor.'

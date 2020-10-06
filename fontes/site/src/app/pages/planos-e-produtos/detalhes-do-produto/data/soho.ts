@@ -2,7 +2,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
 
 export default {
     id: 'careplus-soho',
-    name: 'Soho',
+    name: 'Care Plus Soho',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Care Plus SoHo: planos de 2 a 29 vidas',
         description: 'O Care Plus SoHo apresenta planos para pequenas empresas, de 2 a 29 vidas e é indicado para aquelas que atuam em home office ou com operações mais enxutas.',
@@ -323,7 +323,7 @@ export default {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em Gestão de Saúde',
         subDescription: 'Mais do que cuidado, proporcionamos facilidade e comodidade para todos os nossos beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'Conheça nossos Programas',
+            text: 'Conheça o Gestão de Saúde',
             routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: [
@@ -408,6 +408,7 @@ export default {
                 plano: 'soho'
             }
         }),
+        backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
     })
 };

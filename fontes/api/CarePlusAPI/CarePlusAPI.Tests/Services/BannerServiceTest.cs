@@ -1,13 +1,13 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Services;
 using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Neotix.Neocms.CarePlusAPI.Tests.Services
+namespace CarePlusAPI.Tests.Services
 {
     public class BannerServiceTest : IDisposable
     {

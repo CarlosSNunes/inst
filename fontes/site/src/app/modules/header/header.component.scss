@@ -2,6 +2,7 @@
 @import "~src/scss/_mixins";
 
 /**
+    Reset bulma scss
 */
 
 .navbar-item,
@@ -282,8 +283,6 @@ nav.navbar:not(.is-home) {
             }
 
             .init-is-acessible {
-
-                // margin-left: 100px;
                 @media (max-width: 1550px) {
                     margin-left: 0;
                 }
@@ -319,10 +318,6 @@ nav.navbar:not(.is-home) {
                     font-weight: 600;
                     font-size: getSize("p");
                     line-height: 100%;
-                    // letter-spacing: 3.5px;
-                    @media (max-width: 1100px) {
-                        // letter-spacing: 2px;
-                    }
                 }
             }
         }
@@ -394,9 +389,7 @@ nav.is-home {
                 font-weight: 500;
                 font-size: 0.875em;
                 line-height: getSize("p");
-                // letter-spacing: 0.2em;
                 color: getColor(_bupa, _grey);
-                // text-transform: uppercase;
                 display: inline-block;
                 position: relative;
                 @include underline(getColor(_bupa, _digital-cian));

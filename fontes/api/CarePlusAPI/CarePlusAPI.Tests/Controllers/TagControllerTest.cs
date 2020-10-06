@@ -8,13 +8,13 @@ using Microsoft.Extensions.Options;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Models.Tag;
-using Neotix.Neocms.CarePlusAPI.Services;
-using Neotix.Neocms.CarePlusAPI.Controllers;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Models.Tag;
+using CarePlusAPI.Services;
+using CarePlusAPI.Controllers;
 
-namespace Neotix.Neocms.CarePlusAPI.Tests.Controllers
+namespace CarePlusAPI.Tests.Controllers
 {
     public class TagControllerTest : IDisposable
     {

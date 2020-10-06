@@ -1,16 +1,7 @@
-//===============================================================================
-//Web API Categorias
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Categorias para uso do NEOCMS
-//==============================================================================
-
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Neotix.Neocms.CarePlusAPI.Models.Categorias
+namespace CarePlusAPI.Models.Categorias
 {
     [ExcludeFromCodeCoverage]
     public class CategoriasUpdateModel

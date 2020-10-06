@@ -1,11 +1,3 @@
-//===============================================================================
-//Web API Usuario
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API da entidade Usuario para uso do NEOCMS
-//==============================================================================
 
 using System;
 using System.Collections.Generic;
@@ -19,12 +11,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Neotix.Neocms.CarePlusAPI.Entities;
-using Neotix.Neocms.CarePlusAPI.Helpers;
-using Neotix.Neocms.CarePlusAPI.Models.Usuario;
-using Neotix.Neocms.CarePlusAPI.Services;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.Usuario;
+using CarePlusAPI.Services;
 
-namespace Neotix.Neocms.CarePlusAPI.Controllers
+namespace CarePlusAPI.Controllers
 {
     [Authorize]
     [ApiController]

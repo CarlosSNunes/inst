@@ -1,10 +1,8 @@
 import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
 
-
-
 export default {
     id: 'careplus-empresarial',
-    name: 'Empresarial',
+    name: 'Care Plus Empresarial',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Empresarial: planos para mais de 200 vidas',
         description: 'O Care Plus Empresarial apresenta planos totalmente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
@@ -327,7 +325,7 @@ export default {
         bigTitle: 'Programas e serviços exclusivos: a melhor experiência em Gestão de Saúde',
         subDescription: 'Mais do que cuidado, proporcionamos facilidade e comodidade para todos os nossos beneficiários e empresas.',
         button: new ButtonModel({
-            text: 'Conheça nossos Programas',
+            text: 'Conheça o Gestão de Saúde',
             routerLink: '/planos-e-produtos/gestao-de-saude'
         }),
         cards: [
@@ -412,6 +410,7 @@ export default {
                 plano: 'empresarial'
             }
         }),
+        backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
     })
 };

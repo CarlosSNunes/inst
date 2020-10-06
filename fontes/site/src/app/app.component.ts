@@ -7,6 +7,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CanonicalService } from './services/caninical/canonical.service';
 
 @Component({
     selector: 'app-root',
@@ -54,7 +55,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         private windowRef: WindowRef,
         iconRegistry: MatIconRegistry,
         sanitizer: DomSanitizer,
+        private caninicalService: CanonicalService
     ) {
+        this.caninicalService.createCanonicalURL();
         if (isPlatformBrowser(this.platformId)) {
             this.isBrowser = true;
             this.width = this.windowRef.nativeWindow.innerWidth;
@@ -72,6 +75,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             if (agreed == 'true') {
                 this.cookieAgree = 'agree';
             }
+
         }
 
         iconRegistry.addSvgIconLiteral(
@@ -95,6 +99,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.router.events.pipe(filter((e: Event): e is Scroll => e instanceof Scroll)).subscribe(async () => {
             const fragment = this.activatedRoute.snapshot.fragment;
             const offset = parseInt(localStorage.getItem('elementOffset'))
+            this.caninicalService.createCanonicalURL();
             if (fragment) {
                 this.cdRef.detectChanges();
                 this.windowRef.nativeWindow.scroll(0, 0)
