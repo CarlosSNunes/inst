@@ -1,12 +1,3 @@
-/**
- * * Copyright (c) 2020 - NEOTIX INTERNET AGENCY – LTDA.
- * * All rights reserved.
- * @ Author: Bruno Sábio
- * @ Create Time: 2020-09-20 16:54:14
- * @ Modified by: Your name
- * @ Modified time: 2020-09-28 04:29:45
- * @ Description:
- */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BannerComponent } from './banner.component';

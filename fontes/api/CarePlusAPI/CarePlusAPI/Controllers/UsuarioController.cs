@@ -19,6 +19,7 @@ using CarePlusAPI.Services;
 namespace CarePlusAPI.Controllers
 {
     [Authorize]
+    [AllowAnonymous]
     [ApiController]
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
@@ -60,21 +61,21 @@ namespace CarePlusAPI.Controllers
             if (model == null)
                 throw new AppException("O usuário não pode estar nulo");
 
-            if (!UserService.ValidaUsuario(model.Email, model.Senha).Result)
-            {
-                throw new AppException("O usuário não foi encontrado");
-            }
+            //if (!UserService.ValidaUsuario(model.Email, model.Senha).Result)
+            //{
+            //    throw new AppException("O usuário não foi encontrado");
+            //}
 
             Usuario usuario = await UserService.Autenticar(model.Email, model.Senha);
 
-            if (usuario == null)
-            {
-                throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
-                {
-                    Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
-                    Dados = model
-                }));
-            }
+            //if (usuario == null)
+            //{
+            //    throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
+            //    {
+            //        Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
+            //        Dados = model
+            //    }));
+            //}
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             byte[] key = Encoding.ASCII.GetBytes(AppSettings.Secret);
@@ -108,8 +109,8 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost("gera-requisicao")]
-       
-        [Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Administrador")]
         public async Task<IActionResult> GenerateUserRequisition(UsuarioCreateModel model)
         {
             if (model == null)
@@ -131,8 +132,8 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost]
-      
-        [Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Post(UsuarioCreateModel model)
         {
             if (model == null)
@@ -155,7 +156,8 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> Get()
         {
             IEnumerable<Usuario> users = await UserService.Listar();
@@ -172,7 +174,8 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="Id">Id do usuário</param>
         [HttpGet("{id}")]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             if (id == 0)
@@ -193,7 +196,8 @@ namespace CarePlusAPI.Controllers
         ///<param name="id">Id do usuário a ser atualizado</param>
         ///<param name="model">Model de atualização de um usuário</param>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> Put(int id, [FromBody] UsuarioUpdateModel model)
         {
             if (id == 0)
@@ -217,7 +221,8 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do usuário</param>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
@@ -235,7 +240,8 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do usuário</param>
         [HttpGet("valida-requisicao/{token}")]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> ValidateRequisition(string token)
         {
 
@@ -265,8 +271,9 @@ namespace CarePlusAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("listar-requisicoes")]
-        
-        [Authorize(Roles = "Administrador")]
+
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> ListarRequisicoes()
         {
 
@@ -287,7 +294,9 @@ namespace CarePlusAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("requisicoes-pendentes")]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
+
         public async Task<IActionResult> ListarRequisicoesPendentes()
         {
 

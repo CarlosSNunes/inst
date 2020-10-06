@@ -9,7 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CareplusPerfilService } from './careplus-perfil.service';
-import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
+import { HttpHandlerService } from '../../../../src/app/http-handler/http-handler.service';
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 
 
 
@@ -25,7 +26,8 @@ import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
     CareplusPerfilRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgWizardModule
   ],
   providers: [
     CareplusPerfilService,

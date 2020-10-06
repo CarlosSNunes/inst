@@ -1,1 +1,83 @@
-<p>usuario-create works!</p>
+<div class="card">
+    <div class="card-header">
+        Cadastro de Usuário
+    </div>
+    <div class="card-body">
+        <ng-wizard [config]="configBanner" (stepChanged)="stepChanged($event)">
+            <ng-wizard-step [title]="'Usuário'" [description]="'Novo Usuário'">
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-4 m-auto">
+
+                        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="label">Nome Completo</label>
+                                    <input formControlName="nome" class="form-control" type="text" placeholder=""
+                                        [ngClass]="{ 'is-success': submitted && !f.nome.errors, 'is-danger' : submitted && f.nome.errors }">
+                                    <div *ngIf="submitted" class="errors">
+                                        <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">{{error}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="label">E-mail</label>
+                                    <input formControlName="email" class="form-control" type="email" placeholder=""
+                                        [ngClass]="{ 'is-success': submitted && !f.email.errors, 'is-danger' : submitted && f.email.errors }">
+                                    <div *ngIf="submitted" class="errors">
+                                        <p *ngFor="let error of getErrors(f.email)" class="help is-danger">{{error}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="label">Perfil</label>
+                                    <!-- <ngx-select-dropdown tabindex="0" (change)="changeUsuarioPerfil($event)"
+                                        [config]="configSelect" [options]="perfilOptions" [multiple]="false" value="0">
+
+                                    </ngx-select-dropdown> -->
+                                    <!-- <div *ngIf="submitted" class="errors">
+                                        <p *ngFor="let error of getErrors(f.perfil)" class="help is-danger">
+                                            {{error}}
+                                        </p>
+                                    </div> -->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="label">Senha</label>
+                                    <input formControlName="senhaHash" class="form-control" type="password"
+                                        placeholder=""
+                                        [ngClass]="{ 'is-success': submitted && !f.senhaHash.errors, 'is-danger' : submitted && f.senhaHash.errors }">
+                                    <div *ngIf="submitted" class="errors">
+                                        <p *ngFor="let error of getErrors(f.senhaHash)" class="help is-danger">{{error}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="label">Confirme a Senha</label>
+                                    <input formControlName="senhaSalt" class="form-control" type="password"
+                                        placeholder=""
+                                        [ngClass]="{ 'is-success': submitted && !f.senhaSalt.errors, 'is-danger' : submitted && f.senhaSalt.errors }">
+                                    <div *ngIf="submitted" class="errors">
+                                        <p *ngFor="let error of getErrors(f.senhaSalt)" class="help is-danger">{{error}}
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 w-100 text-right">
+                                    <button class="badge badge-dark shadow p-3" type="submit">
+                                        SALVAR ALTERAÇÕES
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </ng-wizard-step>
+        </ng-wizard>
+    </div>
+    <div class="card-footer">
+
+    </div>
+</div>

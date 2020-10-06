@@ -1,4 +1,9 @@
+import { CareplusPerfilService } from './../careplus-perfil/careplus-perfil.service';
+import { CareplusPerfilModel } from './../../../models/careplus-perfil/careplus-perfil.model';
 import { Component, OnInit } from '@angular/core';
+import { faPencilAlt, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { UsuarioModel } from './../../../models/usuario/usuario.model';
+import { UsuarioService } from './usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -6,10 +11,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
+  faPencilAlt = faPencilAlt;
+  faTrash = faTrash;
+  faPlus = faPlus;
+  showUsuarioDelete: boolean;
+  usuarios: UsuarioModel[];
+  usuario: UsuarioModel;
+  perfis: CareplusPerfilModel[];
+  usuarioPerfil: any;
+  loaded: boolean;
 
-  constructor() { }
+  constructor(
+    private usuarioService: UsuarioService,
+  ) { }
 
   ngOnInit() {
+    this.getUsuarios();
   }
+
+  
+
+
+openUsuarioDelete(usuario: UsuarioModel) {
+  this.usuario = usuario;
+}
+
+getUsuarios() {
+  this.usuarioService
+    .getAll()
+    .subscribe(usuarios => {
+      this.loaded = true;
+      this.usuarios = usuarios;
+    })
+    .add(() => this.loaded = true);
+}
 
 }

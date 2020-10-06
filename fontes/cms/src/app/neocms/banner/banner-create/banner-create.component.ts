@@ -7,14 +7,14 @@ import { FileValueAccessor } from './../../../../utils/file-control-value-access
  * @ModifiedTime : 2020-09-26 02:45:34
  **/
 import { Component, HostListener, OnInit, ViewChild, EventEmitter } from '@angular/core';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
 import { faTimes, faCheck, faUpload, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { BannerService } from '../banner.service';
 import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
-import { FormControlError } from 'src/utils/form-control-error';
-import { BannerCreateModel } from 'src/models/banner/banner-create.model';
+import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
+import { FormControlError } from './../../../../../src/utils/form-control-error';
+import { BannerCreateModel } from './../../../../../src/models/banner/banner-create.model';
 import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 @Component({
@@ -23,44 +23,44 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
   styleUrls: ['./banner-create.component.scss'],
 })
 export class BannerCreateComponent implements OnInit {
+  bannerForm;
 
   faSearch = faSearch;
-  imageChangedEvent: any;
+  imageChangedEvent      : any;
   imageChangedEventMobile: any;
-  croppedImage: any;
-  croppedImageMobile: any;
-  bannerGrande: File;
-  bannerMobile: File;
-  thumbnailImage: File;
-  imageURL: string;
-  bannerForm;
-  faTimes = faTimes;
-  faCheck = faCheck;
-  faUpload = faUpload;
-  faPlus = faPlus;
-  arquivoNome = 'Selecione um arquivo';
-  arquivoNomeMobile = 'Selecione um arquivo'
+  croppedImage           : any;
+  croppedImageMobile     : any;
+  bannerGrande           : File;
+  bannerMobile           : File;
+  thumbnailImage         : File;
+  imageURL               : string;
+  faTimes           = faTimes;
+  faCheck           = faCheck;
+  faUpload          = faUpload;
+  faPlus            = faPlus;
+  arquivoNome       = 'Selecione um arquivo';
+  arquivoNomeMobile = 'Selecione um arquivo';
   submitted: boolean;
-  usuario: UserAuthenticateModel;
+  usuario  : UserAuthenticateModel;
   isLinkExternoSelected = false;
-  btnSubmitDisable = false;
-  isBannerAtivo = false;
+  btnSubmitDisable      = false;
+  isBannerAtivo         = false;
 
   //*Configuração 'ng-wizard'
   configBanner: NgWizardConfig = {
     selected: 0,
-    theme: THEME.dots,
-    lang: { next: 'Próximo', previous: 'Voltar' }
+    theme   : THEME.dots,
+    lang    : { next: 'Próximo', previous: 'Voltar' }
   };
   ngWizardService: any;
 
   //*Configuração 'ngx-select-dropdown'
   configSelect = {
-    displayKey: "nome",      /** se a matriz de objetos passou a chave a ser exibida, o padrão é: @description */
-    search: false,           /** true/false para a funcionalidade de pesquisa padronizada para: @false */
-    height: 'auto',          /** altura da lista, para ela mostrar uma rolagem, o padrão é: @auto */
-    placeholder: 'Selecione',/** texto a ser exibido quando nenhum item é selecionado, o padrão é @Select */
-    moreText: 'mais',        /** texto a ser exibido quando mais de um item for selecionado, o padrão é @More */
+    displayKey : "nome",        /** se a matriz de objetos passou a chave a ser exibida, o padrão é: @description */
+    search     : false,         /** true/false para a funcionalidade de pesquisa padronizada para: @false */
+    height     : 'auto',        /** altura da lista, para ela mostrar uma rolagem, o padrão é: @auto */
+    placeholder: 'Selecione',   /** texto a ser exibido quando nenhum item é selecionado, o padrão é @Select */
+    moreText   : 'mais',        /** texto a ser exibido quando mais de um item for selecionado, o padrão é @More */
   }
 
   areaOptions = [
@@ -71,18 +71,18 @@ export class BannerCreateComponent implements OnInit {
     { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
   ];
   areaSelectedObject: [{ nome: string, descricao: string }];
-  areaNome: any;
-  areaDescricao: any;
-  blob: File;
-  nomeDaImagem: any;
-  areaSelecImagem: string;
-  file: ImageData;
-  fileMobile: Blob;
+  areaNome          : any;
+  areaDescricao     : any;
+  blob              : File;
+  nomeDaImagem      : any;
+  areaSelecImagem   : string;
+  file              : ImageData;
+  fileMobile        : Blob;
 
   constructor(
-    private bannerService: BannerService,
-    private fb: FormBuilder,
-    private router: Router,
+    private bannerService      : BannerService,
+    private fb                 : FormBuilder,
+    private router             : Router,
     private authenticateService: AuthenticationService,
 
   ) {
@@ -98,16 +98,16 @@ export class BannerCreateComponent implements OnInit {
 
   createForm() {
     this.bannerForm = this.fb.group({
-      nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      nomeImagem   : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      titulo       : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      subtitulo    : ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      area         : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-      linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      arquivo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+      descricao    : ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      rota         : ['', [Validators.required, FormControlError.noWhitespaceValidator]],
+      linkExterno  : ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      ativo        : ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
+      arquivo      : ['', [Validators.required, FormControlError.noWhitespaceValidator],],
       arquivoMobile: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
     });
   }
