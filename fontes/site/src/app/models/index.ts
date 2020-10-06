@@ -37,3 +37,4 @@ export * from './anexo.model';
 export * from './menu.model';
 export * from './profile.model';
 export * from './error.model';
+export * from './modal.model';

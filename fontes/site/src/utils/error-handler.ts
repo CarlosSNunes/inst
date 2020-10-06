@@ -10,7 +10,7 @@ export class ErrorHandler {
 
     }
 
-    public ShowError(error: any): void {
+    public ShowError(error): void {
         let message = ''
         if (error instanceof FieldErrors) {
             const keys = Object.keys(error.errors)

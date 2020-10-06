@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { LoginModel, UserloginResponse } from 'src/app/models';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +12,11 @@ export class UsuarioService {
         private httpClient: HttpClient
     ) { }
 
-    authenticate(login: LoginModel): Observable<UserloginResponse> {
-        return this.httpClient.post<UserloginResponse>(this.apiUrl, login);
+    authenticate(): Promise<UserloginResponse> {
+        const login: LoginModel = new LoginModel({
+            email: environment.API_USER,
+            senha: environment.API_PASSWORD
+        });
+        return this.httpClient.post<UserloginResponse>(this.apiUrl, login).toPromise();
     }
 }

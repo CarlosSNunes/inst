@@ -1,0 +1,57 @@
+@import "~src/scss/_variables";
+
+form {
+    .columns {
+        &.w-100 {
+            width: 100%;
+        }
+        .column {
+            &.display-flex {
+                display: flex;
+            }
+
+            .btn.right {
+                float: right;
+            }
+
+            .btn-text {
+                padding-left: 0;
+            }
+
+            .obs {
+                margin-top: 10px;
+                font-size: getSize("sbm");
+                color: getColor(_bupa, _grey-2);
+            }
+
+            #captcha_element_ouvidoria {
+                display: flex;
+                justify-content: flex-end;
+
+                + .field {
+                    max-width: 304px;
+                    width: 100%;
+                    float: right;
+                }
+            }
+
+            .field .control input.checkbox {
+
+                &#aceiteDeTermos {
+                    width: 26px
+                }
+
+                + label.checkbox-label {
+                    left: 0;
+                    z-index: 0;
+
+                    a {
+                        z-index: 1;
+                        pointer-events: visible;
+                        white-space: wrap;
+                    }
+                }
+            }
+        }
+    }
+}

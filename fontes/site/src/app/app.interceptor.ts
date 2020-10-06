@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, throwError, from } from "rxjs";
-import { catchError, retry, switchMap, } from "rxjs/operators";
+import { catchError, retry, switchMap, timeout, } from "rxjs/operators";
 import {
     HttpEvent,
     HttpInterceptor,
@@ -8,7 +8,6 @@ import {
     HttpRequest, HttpErrorResponse
 } from "@angular/common/http";
 import { UsuarioService } from './services';
-import { ErrorHandler } from 'src/utils/error-handler';
 import { environment } from 'src/environments/environment';
 import { LocalStorageService } from 'src/utils/local-storage';
 import { DefaultErrors } from './models';
@@ -21,8 +20,6 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         private localStorageService: LocalStorageService
     ) { }
     private token: string = '';
-    private email: string = environment.API_USER;
-    private password: string = environment.API_PASSWORD;
     private retried: boolean = false;
 
     intercept(
@@ -66,7 +63,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                                 } else {
 
                                     /*
-                                        Caso dê não autorizado ele revova o token mais uma vez e tenta novamente.
+                                        Caso dê não autorizado ele revova o token e tenta novamente.
                                     */
                                     if (error.status === 401) {
                                         this.localStorageService.removeItem('token');
@@ -100,10 +97,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         try {
             this.token = this.localStorageService.getItem('token');
             if (!this.token || this.token == '' || this.token == null) {
-                const userLoginResponse = await this.usuarioService.authenticate({
-                    email: this.email,
-                    senha: this.password
-                }).toPromise();
+                const userLoginResponse = await this.usuarioService.authenticate();
                 this.localStorageService.setItem('token', userLoginResponse.token);
                 this.token = userLoginResponse.token;
                 return this.token;

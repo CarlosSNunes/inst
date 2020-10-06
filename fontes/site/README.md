@@ -13,14 +13,16 @@ Refatoramento do website [Care Plus](https://www.careplus.com.br)
 3. Todos itens do styleguide foram criados usando classes CSS para facilitar seu reuso.  
 4. Foram utilizados alguns plugins cmo datepicker e carousel, porém modificado seus estilos para atender o design criado.  
 5. Dentro da pasta src/utils foram criados alguns arquivos para auxiliar no desenvolvimento, sendo eles:  
-    - "class-helper.ts" - Com métodos para ajudar a montar o formdata, em casos de upload de arquivo.  
-    - "form-control-error.ts" - Com métodos para pegar os erros existentes em um controle de um reactive form.  
-    - "file-helper.ts" - Com métodos para pegar string de tamanho de dados através de um arquivo.  
-    - "image-helper.ts" - Com métodos para pode consumir uma imagem no frontend.  
-    - "window-ref.ts" - Com a ideia de poder usar a variavel "window", mas sem precisar javascript puro.
-    - "route-names.ts" - Exporta um array do tipo RouteModel que está localizada em "src/app/models/rota.model.ts" com todas as rotas do projeto
-6. Dentro da pasta src/plugins foi criado um arquivo com intuito de usar o CMKEditor e fazer upload de imagens.  
+    - [class-helper.ts](src/utils/class-helper.ts) - Com métodos para ajudar a montar o formdata, em casos de upload de arquivo.  
+    - [form-control-error.ts](src/utils/form-control-error.ts) - Com métodos para pegar os erros existentes em um controle de um reactive form.  
+    - [file-helper.ts](src/utils/file-helper.ts) - Com métodos para pegar string de tamanho de dados através de um arquivo.  
+    - [image-helper.ts](src/utils/image-helper.ts) - Com métodos para pode consumir uma imagem no frontend.  
+    - [window-ref.ts](src/utils/window-ref.ts) - Com a ideia de poder usar a variavel "window", mas sem precisar javascript puro.
+    - [route-names.ts](src/utils/route-names.ts) - Exporta um array do tipo RouteModel que está localizada em "src/app/models/rota.model.ts" com todas as rotas do projeto
+    - [error-handler](src/utils/error-handler) - Exporta uma class ErrorHandler que possuí um método publico chamado "ShowError" onde ele verifica o erro retornado pela api chama a service de notificação para mostrar o erro na tela ao usuário final.
+    - [local-storage](src/utils/local-storage) - Uma classe que simula o localStorage no server side rendering. 
 7. Dentro da pasta src/models estão as models mapeadas do backend.
+8. O arquivo [app.interceptor.ts](src/app/app.interceptor.ts) intercepta todas as requisições http que partem da aplicação angular, automaticamente se autentica na api, preenche o token antes de enviar uma requisição e também renova o token quando necessário.
 
 ### Pré-requisitos
 

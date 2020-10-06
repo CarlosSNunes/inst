@@ -1,4 +1,3 @@
-import { Anexo } from './anexo.model';
 
 export class FaleConoscoAutoFields {
     constructor(init?: Partial<FaleConoscoAutoFields>) {
@@ -62,8 +61,8 @@ export class GravarFaleConoscoEntrada {
     NomeContato: string;
     // TokenAutenticacao deverá ser enviado pelo backend.
     NomeEntidade: string; // necerrário somente em casos diferentes do tipo Beneficiário.
-    lstAnexo: {
-        AnexoByte: Array<Anexo>; // lista de arquivos.
+    LstAnexo: {
+        Arquivo: Array<File>; // lista de arquivos.
     };
 }
 

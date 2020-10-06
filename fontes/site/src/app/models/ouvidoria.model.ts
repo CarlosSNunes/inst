@@ -1,4 +1,3 @@
-import { Anexo } from './anexo.model';
 
 export class BuscarAssuntoOuvidoriaSaida {
     constructor(init?: Partial<BuscarAssuntoOuvidoriaSaida>) {
@@ -61,7 +60,7 @@ export class GravarOuvidoriaEntrada {
     Mensagem: string;
     ProtocoloAtendimento?: string;
     Anexo: {
-        AnexoByte: Array<Anexo>; // lista de arquivos.
+        Arquivo: File[]
     };
 }
 

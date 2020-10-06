@@ -12,6 +12,7 @@ import {
     GravarOuvidoriaEntrada,
     GravarOuvidoriaSaida
 } from 'src/app/models';
+import { ClassHelper } from 'src/utils/class-helper';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +20,7 @@ import {
 export class FaleConoscoService {
     constructor(private http: HttpClient) { }
 
-    private url = `${environment.API_URL}/fale-conosco/`;
+    private url = `${environment.API_URL}/FaleConosco/`;
 
     getListaTipoAssuntoFaleConosco(): Promise<ListaTipoAssuntoFaleConosco> {
         return this.http.get<ListaTipoAssuntoFaleConosco>(`${this.url}tipo-assunto-fale-conosco`).toPromise();
@@ -42,7 +43,7 @@ export class FaleConoscoService {
     }
 
     gravarOuvidoria(body: GravarOuvidoriaEntrada): Promise<GravarOuvidoriaSaida> {
-        return this.http.post<GravarOuvidoriaSaida>(`${this.url}gravar-ouvidoria`, body).toPromise();
+        return this.http.post<GravarOuvidoriaSaida>(`${this.url}gravar-ouvidoria`, ClassHelper.jsonToFormData(body)).toPromise();
     }
 
 }

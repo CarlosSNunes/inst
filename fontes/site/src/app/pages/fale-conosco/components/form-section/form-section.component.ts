@@ -85,24 +85,15 @@ export class FormSectionComponent implements OnInit {
     }
 
     setActiveChanel(index: number) {
-        /*
-            Solução temporária para primeira publicação do site.
-        */
-        if (index == 0) {
-            this.activeChanel = this.chanelForms[0];
-        } else {
-            switch(index) {
-                case 1:
-                    this.windowRef.nativeWindow.open(`${environment.CAREPLUS_URL}portal/modulos/atendimento/inclusaoDemandaContato.aspx`, '_blank');
-                break;
-                case 2:
-                    this.windowRef.nativeWindow.open(`${environment.CAREPLUS_URL}portal/modulos/home/canalDenuncias.aspx`, '_blank');
-                break;
-                case 3:
-                    this.windowRef.nativeWindow.open(`${environment.CAREPLUS_URL}portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx`, '_blank');
-                break;
+        this.chanelForms = this.chanelForms.map((chanel, i) => {
+            if (i === index) {
+                chanel.active = true
+                this.activeChanel = chanel;
+            } else {
+                chanel.active = false
             }
-        }
+            return chanel
+        });
     }
 
 }

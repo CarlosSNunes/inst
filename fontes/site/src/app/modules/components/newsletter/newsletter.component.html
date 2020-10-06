@@ -1,0 +1,44 @@
+<div id="newsletter">
+    <p class="title">
+        Cadastre-se para receber conteúdos em primeira mão!
+    </p>
+    <form [formGroup]="newsLetterForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <p class="control">
+                <input
+                    [ngClass]="{ 'is-valid': !form.nome.errors, 'is-invalid' : form.nome.dirty && form.nome.errors, 'is-touched': form.nome.value.length > 0 }"
+                    class="input" formControlName="nome" type="text">
+                <label class="label">Nome Completo</label>
+            </p>
+            <div *ngIf="form.nome.touched" class="errors">
+                <p *ngFor="let error of getErrors(form.nome)" class="help is-danger">
+                    {{error}}
+                </p>
+            </div>
+        </div>
+        <div class="field">
+            <p class="control">
+                <input
+                    [ngClass]="{ 'is-valid': !form.email.errors, 'is-invalid' : form.email.dirty && form.email.errors, 'is-touched': form.email.value.length > 0 }"
+                    class="input" formControlName="email" type="email" [email]="true">
+                <label class="label">Email</label>
+            </p>
+            <div *ngIf="form.email.touched" class="errors">
+                <p *ngFor="let error of getErrors(form.email)" class="help is-danger">
+                    {{error}}
+                </p>
+            </div>
+        </div>
+
+        <button class="btn btn-digital-cian secondary arrow-right small is-hidden-touch"
+            [disabled]="!newsLetterForm.valid">
+            Cadastrar
+        </button>
+
+        <button class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
+            [disabled]="!newsLetterForm.valid">
+            Cadastrar
+        </button>
+
+    </form>
+</div>
