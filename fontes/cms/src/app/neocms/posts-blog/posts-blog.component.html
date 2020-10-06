@@ -1,6 +1,7 @@
-<div>
+<div class="container"> 
     <span class="title">
-        <fa-icon [icon]="faArrowAltCircleLeft" routerLink="/neocms/posts-blog/index" routerLinkActive="active"></fa-icon>
+        <fa-icon [icon]="faArrowAltCircleLeft" routerLink="/neocms/posts-blog/index" routerLinkActive="active">
+        </fa-icon>
         Blog Care Plus+
     </span>
 
@@ -17,13 +18,27 @@
         </button> -->
     </div>
     <div style="display: -webkit-inline-box;  float:right;">
-        <select class="form-control" id="categorias" style="margin-left: 15px; width: 200px;"
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorias
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        <!-- <select class="form-control" id="categorias" style="margin-left: 15px; width: 200px;"
             (change)="getPostByCategory($event.target)">
             <option>Categorias...</option>
-            <option *ngFor="let cat of categorias">{{cat.descricao}}</option>
-        </select>
+            <option *ngFor="let cat of categorias" value="{{cat.id}}">{{cat.descricao}}</option>
+            <option>Administrar categorias 
+                <fa-icon [icon]="faCog">
+                </fa-icon>
+            </option>
+        </select> -->
         <input type="search" class="form-control" style="margin-left: 15px; width: 300px;"
-            placeholder="Pesquisar por titulo" (change)="filterPosts($event.target)" />
+            placeholder="Pesquisar por titulo" (change)="filterPosts($event.target)" /> 
     </div>
 </div>
 <section class="margin-title">
@@ -39,13 +54,13 @@
             <div class="marging-box">
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
-                        <thead style="text-align-last:center; font-weight: 200;"> 
+                        <thead style="text-align-last:center; font-weight: 200;">
                             <th>Favorito</th>
                             <th>Imagem</th>
                             <th>Titulo</th>
                             <th>Data Publicação</th>
                             <th>Categoria</th>
-                            <th >Ações</th>
+                            <th>Ações</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -70,26 +85,26 @@
                                     {{post.dataPublicacao}}
                                 </td>
                                 <td>
-                                    {{post.categoria}}
+                                    {{post.categoriaId}}
                                 </td>
                                 <td style="align-content: flex-end;">
-                                    <button type="button" class="btn btn-primary" style="float: right;" *ngIf="!podeEscrever"
-                                       (click)="salvarAlteracoes()">
+                                    <button type="button" class="btn btn-primary" style="float: right;"
+                                        *ngIf="!podeEscrever" (click)="salvarAlteracoes()">
                                         Revisar e autorizar
                                     </button>
-                                    <div *ngIf="post.status != 'pendente'" style="float: right;"   >
+                                    <div *ngIf="post.status != 'pendente'" style="float: right;">
                                         <a [routerLink]="['./', post.id]" routerLinkActive="active" class="info-icon"
-                                            alt="Visualizar post" >
+                                            alt="Visualizar post">
                                             <fa-icon [icon]="faEye"></fa-icon>
                                             <span>preview</span>
                                         </a>
-                                        <a [routerLink]="['/neocms/posts-blog/edit', post.id]" routerLinkActive="active" class="info-icon"
-                                            alt="Editar post">
+                                        <a [routerLink]="['/neocms/posts-blog/edit', post.id]" routerLinkActive="active"
+                                            class="info-icon" alt="Editar post">
                                             <fa-icon [icon]="faEdit"></fa-icon>
                                             <span>editar</span>
                                         </a>
-                                        <a [routerLink]="['/neocms/posts-blog/delete', post.id]" routerLinkActive="active" class="info-icon"
-                                            alt="Excluir post">
+                                        <a [routerLink]="['/neocms/posts-blog/delete', post.id]"
+                                            routerLinkActive="active" class="info-icon" alt="Excluir post">
                                             <fa-icon [icon]="faTrashAlt"></fa-icon>
                                             <span>excluir</span>
                                         </a>
@@ -110,7 +125,7 @@
 </div>
 
 <footer class="card-footer">
-    <button type="button" class="btn btn-primary" routerLink="/neocms/posts-blog/create" routerLinkActive="active" >
+    <button type="button" class="btn btn-primary" routerLink="/neocms/posts-blog/create" routerLinkActive="active">
         Novo post &nbsp;
         <fa-icon [icon]="faPlus"></fa-icon>
     </button>

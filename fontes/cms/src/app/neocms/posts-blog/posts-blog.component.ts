@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faEdit, faTrashAlt, faCalendarPlus, faEye, faClone, faArrowAltCircleLeft, faThumbsDown, faStar } from '@fortawesome/free-regular-svg-icons';
+import { faPlus, faCog, faEdit, faTrashAlt, faCalendarPlus, faEye, faClone, faArrowAltCircleLeft, faThumbsDown, faStar } from '@fortawesome/free-solid-svg-icons';
 import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
 import { CategoriasModel } from 'src/models/categorias/categorias.model';
 import { PostsBlogService } from './posts-blog.service';
@@ -7,7 +7,7 @@ import { TagModel } from 'src/models/tag/tag.model';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 import { CategoriasService } from './categorias/categorias.service';
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { TagService } from './tag/tag.service';
 
 @Component({
   selector: 'app-posts-blog',
@@ -16,7 +16,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 })
 export class PostsBlogComponent implements OnInit {
   postsBlog: PostsBlogModel[] = [];
-  tagModel: TagModel[] = [];
+  tagsModel: TagModel[] = [];
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
   faCalendarPlus = faCalendarPlus;
@@ -24,6 +24,7 @@ export class PostsBlogComponent implements OnInit {
   faClone = faClone;
   faStar = faStar;
   faPlus = faPlus;
+  faCog = faCog;
   faArrowAltCircleLeft = faArrowAltCircleLeft;
   categorias: CategoriasModel[] = [];
   loaded: boolean;
@@ -37,7 +38,8 @@ export class PostsBlogComponent implements OnInit {
   constructor(
     private postsBlogService: PostsBlogService,
     private authenticationService: AuthenticationService,
-    private categoriasService: CategoriasService
+    private categoriasService: CategoriasService,
+    private tagService: TagService
   ) { 
     this.authenticationService.usuarioChanged.subscribe(usuario =>
       this.usuario = usuario
@@ -54,7 +56,7 @@ export class PostsBlogComponent implements OnInit {
         }
     });
     this.getPosts();
-    this.getCategorias();
+   this.getCategorias();
   }
 
   openPostDelete(post: PostsBlogModel) {
@@ -128,15 +130,15 @@ export class PostsBlogComponent implements OnInit {
 
 
     this.showPostsDelete = false;
-    this.postsBlogService
-      .getAll()
-      .subscribe(postsBlog => {
-        this.loaded = true;
-        this.postsBlog = postsBlog;
-      },
-        error => {
-          this.loaded = true;
-        });
+    // this.postsBlogService
+    //   .getAll()
+    //   .subscribe(postsBlog => {
+    //     this.loaded = true;
+    //     this.postsBlog = postsBlog;
+    //   },
+    //     error => {
+    //       this.loaded = true;
+    //     });
 
   
   }
@@ -153,28 +155,28 @@ export class PostsBlogComponent implements OnInit {
 
   }
 
-  filterPostsByCategory(select)
+  getPostByCategory(select)
   {
     this.getPosts();
 
     if(select.value != '')
     {
-      //this.postBlog = this.postBlog.filter(x => x.categoria == select.value);
+      this.postsBlog = this.postsBlog.filter(x => x.categoriaId == select.value);
     }
   }
 
-  getPostByCategory(id) {
-    this.postsBlogService
-      .getByCategoryId(id.selectedIndex)
-      .subscribe(result => {
-        this.loaded = true;
-        this.postBlog = result;
-        console.log(result);
-      },
-        error => {
-          this.loaded = true;
-        });
-  }
+  // getPostByCategory(id) {
+  //   this.postsBlogService
+  //     .getByCategoryId(id.selectedIndex)
+  //     .subscribe(result => {
+  //       this.loaded = true;
+  //       this.postBlog = result;
+  //       console.log(result);
+  //     },
+  //       error => {
+  //         this.loaded = true;
+  //       });
+  // }
 
   getCategorias() {
     this.categoriasService
@@ -188,6 +190,5 @@ export class PostsBlogComponent implements OnInit {
           this.loaded = true;
         });
   }
-
 
 }

@@ -13,12 +13,16 @@ import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-men
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { PopoverModule } from 'ngx-bootstrap/popover';
-import { ButtonsModule } from "ngx-bootstrap/buttons";
+
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
+
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SelectDropDownModule } from 'ngx-select-dropdown'
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -37,12 +41,13 @@ const ngWizardConfig: NgWizardConfig = {
     NeocmsMenuLateralModule,
     ErrorHandlerModule,
     HttpClientModule,
-    TooltipModule.forRoot(),
-    PopoverModule.forRoot(),
-    ButtonsModule.forRoot(),
     NgWizardModule.forRoot(ngWizardConfig),
     BrowserAnimationsModule,
-    SelectDropDownModule
+    ButtonsModule.forRoot(),
+    PopoverModule.forRoot(),
+    TooltipModule.forRoot(),
+    SelectDropDownModule,
+    TabsModule.forRoot(),
   ],
   providers: [
     {

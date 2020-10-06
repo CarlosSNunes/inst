@@ -8,9 +8,9 @@ import { UsuariosComponent } from './usuarios.component';
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { UsuarioService } from './usuario.service';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
-import { ButtonsModule } from "ngx-bootstrap/buttons";
-import { PopoverModule } from "ngx-bootstrap/popover";
-
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,10 @@ import { PopoverModule } from "ngx-bootstrap/popover";
     HttpClientModule,
     FontAwesomeModule,
     UsuariosRoutingModule,
-    ButtonsModule.forRoot(),
-    PopoverModule.forRoot()
+    // ButtonsModule.forRoot(),
+    // PopoverModule.forRoot(),
+    // TooltipModule.forRoot(),
+    
   ],
   providers: [
     UsuarioService,

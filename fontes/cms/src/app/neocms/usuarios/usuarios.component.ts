@@ -35,7 +35,7 @@ export class UsuariosComponent implements OnInit {
       .subscribe(result => {
         this.loaded = true;
         this.usuariosAtivos = result;
-        this.usuariosPendentes = result.filter(x => x.usuarioPerfil.length == 0);
+        this.usuariosPendentes = result.filter(x => x.perfil.length == 0);
       },
         error => {
           this.loaded = true;

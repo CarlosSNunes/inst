@@ -52,7 +52,7 @@ export class UsuarioEditComponent implements OnInit {
     this.usuarioService.getById(id)
       .subscribe(usuario => {
         this.usuarioModel = usuario;
-        this.usuarioModel.usuarioPerfil.forEach(perfil => {
+        this.usuarioModel.perfil.forEach(perfil => {
           
           if(perfil.descricao == 'Administrador'){
             document.getElementById('checkAdministrador').setAttribute('checked', '');
@@ -76,10 +76,10 @@ export class UsuarioEditComponent implements OnInit {
     {
       if(event.checked == true)
       {
-        this.usuarioModel.usuarioPerfil.push({id:'1', descricao:'Administrador'})
+        this.usuarioModel.perfil.push({id:1, descricao:'Administrador'})
       }
       else{
-        this.usuarioModel.usuarioPerfil.pop();
+        this.usuarioModel.perfil.pop();
       }
     }
       console.log(event.checked);
@@ -90,7 +90,7 @@ export class UsuarioEditComponent implements OnInit {
       id: [this.usuarioModel.id, [Validators.required]],
       nome: [this.usuarioModel.nome, [Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       email: [this.usuarioModel.email, [Validators.required, Validators.email, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
-      usuarioPerfil: [this.usuarioModel.usuarioPerfil, [Validators.required, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
+      usuarioPerfil: [this.usuarioModel.perfil, [Validators.required, Validators.maxLength(15), FormControlError.noWhitespaceValidator]],
 
     });
   }
