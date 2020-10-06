@@ -69,7 +69,6 @@ export class DashboardComponent implements OnInit {
 
     this.postsMaisLidos = posts;
     this.postSelecionado = this.postsMaisLidos[0];
-    return this.postsMaisLidos;
   }
 
   getPostsAtivos(){
@@ -83,15 +82,10 @@ export class DashboardComponent implements OnInit {
       error => {
         this.loaded = true;
       });
-
-      return this.postsAtivos;
   }
 
   getBannersAtivos(){
 
-    // const bannersAtivos = 6;
-    // this.bannersAtivos = bannersAtivos;
-    // return this.bannersAtivos;
     this.dashboardService
       .getBannerAtivos()
       .subscribe(resp => {
