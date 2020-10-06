@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
-import { BlogService, NotificationService } from 'src/app/services';
+import { NewsletterService, NotificationService } from 'src/app/services';
 
 @Component({
     selector: 'app-newsletter',
@@ -13,18 +13,19 @@ export class NewsletterComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private blogService: BlogService,
         private notificationService: NotificationService,
-        public viewContainerRef: ViewContainerRef
-    ) { }
+        public viewContainerRef: ViewContainerRef,
+        private newsLetterService: NewsletterService
+    ) {
+        this.createForm()
+    }
 
     ngOnInit() {
-        this.createForm()
     }
 
     createForm() {
         this.newsLetterForm = this.fb.group({
-            nome: ['', [Validators.required]],
+            nomeCompleto: ['', [Validators.required]],
             email: ['', [Validators.required, Validators.email]],
         });
     }
@@ -40,13 +41,15 @@ export class NewsletterComponent implements OnInit {
     async onSubmit() {
         if (this.newsLetterForm.valid) {
             try {
-                // TODO adicionar service de newsLetter
-                // await this.blogService.sendNewsletter(this.newsLetterForm.value)
+                await this.newsLetterService.create(this.newsLetterForm.value);
+                this.newsLetterForm.reset();
+                this.createForm();
+                this.notificationService.addNotification('success', 'Dados enviados com sucesso!');
             } catch (err) {
                 this.notificationService.addNotification('error', err.message)
             }
         } else {
-            console.log("Fill form")
+            this.notificationService.addNotification('error', 'Preencha os campos faltantes no formulário.');
         }
     }
 }

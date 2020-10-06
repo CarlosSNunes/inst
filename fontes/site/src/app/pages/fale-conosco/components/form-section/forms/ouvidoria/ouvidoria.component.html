@@ -23,7 +23,7 @@
                     <input
                         [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.dirty && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
                         class="input" formControlName="NomeContato" type="text">
-                    <label class="label">Nome</label>
+                    <label class="label">Nome *</label>
                 </p>
                 <div *ngIf="form.NomeContato.touched" class="errors">
                     <p *ngFor="let error of getErrors(form.NomeContato, 'Nome')" class="help is-danger">
@@ -39,7 +39,7 @@
                     <input
                         [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.dirty && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
                         mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="tel">
-                    <label class="label">CPF</label>
+                    <label class="label">CPF *</label>
                 </p>
                 <div *ngIf="form.CPFCNPJ.touched" class="errors">
                     <p *ngFor="let error of getErrors(form.CPFCNPJ, 'CPF')" class="help is-danger">
@@ -112,7 +112,7 @@
                             <input
                                 [ngClass]="{ 'is-valid': !form?.DDDTelefoneResidencial?.errors && form?.DDDTelefoneResidencial?.touched, 'is-invalid' : form.DDDTelefoneResidencial?.dirty && form?.DDDTelefoneResidencial?.errors, 'is-touched': form?.DDDTelefoneResidencial?.value?.length > 0 }"
                                 class="input" formControlName="DDDTelefoneResidencial" type="tel">
-                            <label class="label">DDD</label>
+                            <label class="label">DDD *</label>
                         </p>
                         <div *ngIf="form?.DDDTelefoneResidencial?.touched" class="errors">
                             <p *ngFor="let error of getErrors(form.DDDTelefoneResidencial, 'DDD')"
@@ -131,7 +131,7 @@
                                 class="input" formControlName="TelefoneResidencial" type="tel"
                                 [mask]="form.TelefoneResidencial?.value?.length > 8 ? '00000-0000' : '0000-00000'"
                                 [validation]="false">
-                            <label class="label">Telefone residencial</label>
+                            <label class="label">Telefone residencial *</label>
                         </p>
                         <div *ngIf="form?.TelefoneResidencial?.touched" class="errors">
                             <p *ngFor="let error of getErrors(form.TelefoneResidencial, 'Telefone Residencial')"

@@ -46,7 +46,7 @@
 </section>
 <app-highlight-post [post]="highLightPost"></app-highlight-post>
 <app-last-posts [posts]="recentPosts"></app-last-posts>
-<app-cross-content-section [crossContentModel]="crossContentModel"></app-cross-content-section>
+<app-cross-content-section class="blog-cross-content" [crossContentModel]="crossContentModel"></app-cross-content-section>
 <app-all-posts *ngIf="allPosts.length > 0" [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
 
 <app-social-posts></app-social-posts>

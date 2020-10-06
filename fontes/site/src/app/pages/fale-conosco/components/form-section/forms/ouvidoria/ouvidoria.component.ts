@@ -158,8 +158,8 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
             // Certificado: [, Validators.compose([Validators.required])], // TODO ver com o cliente pois no site não há este campo mas ele é requisitado na documentação word e no xml
             DDDTelefoneCelular: [, Validators.compose([Validators.required])],
             TelefoneCelular: [, Validators.compose([Validators.required, Validators.minLength(8)])],
-            DDDTelefoneResidencial: [,],
-            TelefoneResidencial: [, Validators.compose([Validators.minLength(8)])],
+            DDDTelefoneResidencial: [,Validators.compose([Validators.required])],
+            TelefoneResidencial: [, Validators.compose([Validators.required, Validators.minLength(8)])],
             Email: [, Validators.compose([Validators.required, Validators.email])],
             IdAssunto: [, Validators.compose([Validators.required])],
             IdClassificacao: [, Validators.compose([Validators.required])],

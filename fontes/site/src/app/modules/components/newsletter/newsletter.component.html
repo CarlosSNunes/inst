@@ -6,12 +6,12 @@
         <div class="field">
             <p class="control">
                 <input
-                    [ngClass]="{ 'is-valid': !form.nome.errors, 'is-invalid' : form.nome.dirty && form.nome.errors, 'is-touched': form.nome.value.length > 0 }"
-                    class="input" formControlName="nome" type="text">
+                    [ngClass]="{ 'is-valid': !form?.nomeCompleto?.errors, 'is-invalid' : form?.nomeCompleto?.dirty && form?.nomeCompleto?.errors, 'is-touched': form?.nomeCompleto?.value?.length > 0 }"
+                    class="input" formControlName="nomeCompleto" type="text">
                 <label class="label">Nome Completo</label>
             </p>
-            <div *ngIf="form.nome.touched" class="errors">
-                <p *ngFor="let error of getErrors(form.nome)" class="help is-danger">
+            <div *ngIf="form.nomeCompleto?.touched" class="errors">
+                <p *ngFor="let error of getErrors(form?.nomeCompleto)" class="help is-danger">
                     {{error}}
                 </p>
             </div>
