@@ -111,32 +111,8 @@
                         </ul>
 
                         <ul class="post-tags">
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
-                            </li>
-                            <li class="post-tag">
-                                <a href="#" title="Tema 1">#Tema 1</a>
+                            <li class="post-tag" *ngFor="let tag of post?.postTag">
+                                <a [title]="tag?.descricao">{{tag?.descricao}}</a>
                             </li>
                         </ul>
                     </div>

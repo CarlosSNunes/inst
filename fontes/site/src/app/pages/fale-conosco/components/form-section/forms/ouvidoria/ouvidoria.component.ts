@@ -35,6 +35,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     filesNumber: number = 0;
     filerHelper = FileHelper;
     isBrowser: boolean = false;
+    loading: boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -97,7 +98,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
         } catch (error) {
             console.log(error)
         }
-    }   
+    }
 
     ngAfterViewInit() {
         if (this.isBrowser) {
@@ -158,8 +159,8 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
             // Certificado: [, Validators.compose([Validators.required])], // TODO ver com o cliente pois no site não há este campo mas ele é requisitado na documentação word e no xml
             DDDTelefoneCelular: [, Validators.compose([Validators.required])],
             TelefoneCelular: [, Validators.compose([Validators.required, Validators.minLength(8)])],
-            DDDTelefoneResidencial: [,Validators.compose([Validators.required])],
-            TelefoneResidencial: [, Validators.compose([Validators.required, Validators.minLength(8)])],
+            DDDTelefoneResidencial: [,],
+            TelefoneResidencial: [, Validators.compose([Validators.minLength(8)])],
             Email: [, Validators.compose([Validators.required, Validators.email])],
             IdAssunto: [, Validators.compose([Validators.required])],
             IdClassificacao: [, Validators.compose([Validators.required])],
@@ -205,6 +206,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
 
     async sendForm() {
         if (this.ouvidoriaForm.valid) {
+            this.loading = true;
 
             const formValue = new GravarOuvidoriaEntrada({ ...this.ouvidoriaForm.value });
 
@@ -214,18 +216,34 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
                 }
             }
 
+            if (!formValue.DDDTelefoneResidencial) {
+                formValue.DDDTelefoneResidencial = 0;
+            }
+
+            if (!formValue.TelefoneResidencial) {
+                formValue.TelefoneResidencial = 0;
+            }
+
             delete formValue['validCaptcha'];
             delete formValue['aceiteDeTermos'];
 
             try {
-                await this.faleConoscoService.gravarOuvidoria(formValue);
+                // await this.faleConoscoService.gravarOuvidoria(formValue);
 
                 const modal: FeedbackModalModel = new FeedbackModalModel();
 
-                this.modalService.openModal(modal)
+                this.modalService.openModal(modal);
+                this.ouvidoriaForm.reset();
+                this.mountForm();
+
+                Object.keys(this.ouvidoriaForm.controls).map(control => {
+                    this.ouvidoriaForm.controls[control].markAsUntouched();
+                });
+                this.loading = false;
             } catch (error) {
                 const modal: ErrorModalModel = new ErrorModalModel();
-                this.modalService.openModal(modal)
+                this.modalService.openModal(modal);
+                this.loading = false;
             }
 
         } else {

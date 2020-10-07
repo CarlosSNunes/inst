@@ -95,7 +95,9 @@ export class BuscaComponent implements OnInit {
 
     goToPostMobile(post: NoticiaModel) {
         if (this.windowRef.nativeWindow.innerWidth < 1024) {
-            this.router.navigate(['/careplus-mais', post.slug])
+            
+            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
+            this.router.navigate(['/careplus-mais', post.id])
         }
     }
 

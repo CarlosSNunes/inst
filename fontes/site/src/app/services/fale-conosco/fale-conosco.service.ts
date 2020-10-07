@@ -27,11 +27,12 @@ export class FaleConoscoService {
     }
 
     gravarFaleConosco(body: GravarFaleConoscoEntrada): Promise<GravarFaleConoscoSaida> {
-        return this.http.post<GravarFaleConoscoSaida>(`${this.url}gravar-fale-conosco`, body).toPromise();
+        return this.http.post<GravarFaleConoscoSaida>(`${this.url}gravar-fale-conosco`, ClassHelper.jsonToFormData(body)).toPromise();
     }
 
     gravarCanalDeDenuncia(body: GravarCanalDenunciaEntrada): Promise<GravarCanalDenunciaSaida> {
-        return this.http.post<GravarCanalDenunciaSaida>(`${this.url}gravar-canal-de-denuncia`, body).toPromise();
+        return this.http.post<GravarCanalDenunciaSaida>(`${this.url}gravar-canal-de-denuncia`,
+            ClassHelper.jsonToFormData(body)).toPromise();
     }
 
     buscarAssuntoOuvidoria(): Promise<BuscarAssuntoOuvidoriaSaida> {

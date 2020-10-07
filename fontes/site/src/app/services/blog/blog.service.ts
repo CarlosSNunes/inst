@@ -10,7 +10,7 @@ export class BlogService {
 
     constructor(private http: HttpClient) { }
 
-    private url = `${environment.API_URL}/artigos`;
+    private url = `${environment.API_URL}/Post`;
 
     async getRelatedPosts(post: NoticiaModel): Promise<NoticiaModel[]> {
         return this.http.post<NoticiaModel[]>(this.url, post).toPromise();
@@ -25,7 +25,7 @@ export class BlogService {
     }
 
     async getMostRead(): Promise<NoticiaModel[]> {
-        return this.http.get<NoticiaModel[]>(`${this.url}/maislidos`).toPromise();
+        return this.http.get<NoticiaModel[]>(`${this.url}/maisLidos`).toPromise();
     }
 
     async getAllPostsPaginated(): Promise<any> {

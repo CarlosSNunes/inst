@@ -1,11 +1,13 @@
 <div id="most-read">
     <p class="title">Mais lidas</p>
     <p class="description">Veja as matérias preferidas dos leitores</p>
-    <a [href]="post.link" [attr.title]="post.title" target="_blank" *ngFor="let post of posts">
+
+    <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
+    <a [routerLink]="['/careplus-mais', post.id]" [attr.title]="post.titulo" target="_blank" *ngFor="let post of posts">
         <div class="post">
-            <img [src]="post.img" [alt]="post.title">
+            <img [src]="post.caminhoImagem" [alt]="post.titulo">
             <div class="title">
-                <p>{{post.title}}</p>
+                <p>{{post.titulo}}</p>
 
             </div>
         </div>

@@ -47,11 +47,13 @@ export class DetalheDoPostComponent implements OnInit {
     ) {
         this.activatedRoute.params.subscribe(async params => {
             this.slug = params.slug;
-            this.post = PostMock;
+            await this.getPostBySlug();
+
+            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
             this.breadcrumbs.push(
                 new BreadcrumbModel({
                     name: this.post.titulo,
-                    link: `/careplus-mais/${this.post.slug}`,
+                    link: `/careplus-mais/${this.post.id}`,
                     active: true
                 })
             );
@@ -93,14 +95,18 @@ export class DetalheDoPostComponent implements OnInit {
 
             this.meta.updateTag({ name: 'twitter:image', content: `${this.post.caminhoImagem}?${new Date().getTime()}` });
             this.meta.updateTag({ name: 'twitter:description', content: this.post.descricaoPrevia });
-            this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
+
+            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
+            this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}careplus-mais/${this.post.id}` });
 
             // Facebook e demais redes sociais
             this.meta.updateTag({ property: 'og:title', content: `${this.post.titulo} | Care Plus +` });
             this.meta.updateTag({ property: 'og:type', content: 'website' });
             this.meta.updateTag({ property: 'og:image', content: this.post.caminhoImagem });
             this.meta.updateTag({ property: 'og:description', content: this.post.descricaoPrevia });
-            this.meta.updateTag({ property: 'og:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
+
+            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
+            this.meta.updateTag({ property: 'og:url', content: `${environment.SELF_URL}careplus-mais/${this.post.id}` });
 
             // Imagem linkedin
             this.meta.updateTag({ name: 'image', property: 'og:image', content: this.post.caminhoImagem });

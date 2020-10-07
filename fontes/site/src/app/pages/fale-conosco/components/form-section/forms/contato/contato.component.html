@@ -26,7 +26,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.NomeEntidade?.errors && form?.NomeEntidade?.touched, 'is-invalid' : form.NomeEntidade?.dirty && form?.NomeEntidade?.errors, 'is-touched': form?.NomeEntidade?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.NomeEntidade?.errors && form?.NomeEntidade?.touched, 'is-invalid' : form.NomeEntidade?.touched && form?.NomeEntidade?.errors, 'is-touched': form?.NomeEntidade?.value?.length > 0 }"
                             class="input" formControlName="NomeEntidade" type="text">
                         <label class="label">{{formFields.NomeEntidade.label}} *</label>
                     </p>
@@ -43,7 +43,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.dirty && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.touched && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
                             class="input" formControlName="NomeContato" type="text">
                         <label class="label">{{formFields.NomeContato.label}} *</label>
                     </p>
@@ -59,7 +59,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.dirty && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.touched && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
                             [mask]="formFields.CPFCNPJ.mask" [validation]="false" class="input"
                             formControlName="CPFCNPJ" type="tel">
                         <label class="label">{{formFields.CPFCNPJ.label}}
@@ -78,7 +78,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.CodigoCarePlus?.errors && form?.CodigoCarePlus?.touched, 'is-invalid' : form.CodigoCarePlus?.dirty && form?.CodigoCarePlus?.errors, 'is-touched': form?.CodigoCarePlus?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.CodigoCarePlus?.errors && form?.CodigoCarePlus?.touched, 'is-invalid' : form.CodigoCarePlus?.touched && form?.CodigoCarePlus?.errors, 'is-touched': form?.CodigoCarePlus?.value?.length > 0 }"
                             class="input" formControlName="CodigoCarePlus" type="tel" appOnlyNumbers>
                         <label class="label">{{formFields.CodigoCarePlus.label}}
                             {{formFields.CodigoCarePlus.required ? '*': ''}}</label>
@@ -95,7 +95,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.DDDTelefone1?.errors && form?.DDDTelefone1?.touched, 'is-invalid' : form.DDDTelefone1?.dirty && form?.DDDTelefone1?.errors, 'is-touched': form?.DDDTelefone1?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.DDDTelefone1?.errors && form?.DDDTelefone1?.touched, 'is-invalid' : form.DDDTelefone1?.touched && form?.DDDTelefone1?.errors, 'is-touched': form?.DDDTelefone1?.value?.length > 0 }"
                             class="input" formControlName="DDDTelefone1" type="tel" mask="000" [validation]="false">
                         <label class="label">{{formFields.DDDTelefone1.label}}
                             {{formFields.DDDTelefone1.required ? '*': ''}}</label>
@@ -112,7 +112,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.Telefone1?.errors && form?.Telefone1?.touched, 'is-invalid' : form.Telefone1?.dirty && form?.Telefone1?.errors, 'is-touched': form?.Telefone1?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.Telefone1?.errors && form?.Telefone1?.touched, 'is-invalid' : form.Telefone1?.touched && form?.Telefone1?.errors, 'is-touched': form?.Telefone1?.value?.length > 0 }"
                             class="input" formControlName="Telefone1" type="tel"
                             [mask]="form.Telefone1?.value?.length > 8 ? '00000-0000' : '0000-00000'"
                             [validation]="false">
@@ -131,7 +131,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.DDDTelefone2?.errors && form?.DDDTelefone2?.touched, 'is-invalid' : form.DDDTelefone2?.dirty && form?.DDDTelefone2?.errors, 'is-touched': form?.DDDTelefone2?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.DDDTelefone2?.errors && form?.DDDTelefone2?.touched, 'is-invalid' : form.DDDTelefone2?.touched && form?.DDDTelefone2?.errors, 'is-touched': form?.DDDTelefone2?.value?.length > 0 }"
                             class="input" formControlName="DDDTelefone2" type="tel" mask="000" [validation]="false">
                         <label class="label">{{formFields.DDDTelefone2.label}}
                             {{formFields.DDDTelefone2.required ? '*': ''}}</label>
@@ -148,7 +148,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.Telefone2?.errors && form?.Telefone2?.touched, 'is-invalid' : form.Telefone2?.dirty && form?.Telefone2?.errors, 'is-touched': form?.Telefone2?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.Telefone2?.errors && form?.Telefone2?.touched, 'is-invalid' : form.Telefone2?.touched && form?.Telefone2?.errors, 'is-touched': form?.Telefone2?.value?.length > 0 }"
                             class="input" formControlName="Telefone2" type="tel"
                             [mask]="form.Telefone2?.value?.length > 8 ? '00000-0000' : '0000-00000'"
                             [validation]="false">
@@ -167,7 +167,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.Certificado?.errors && form?.Certificado?.touched, 'is-invalid' : form.Certificado?.dirty && form?.Certificado?.errors, 'is-touched': form?.Certificado?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.Certificado?.errors && form?.Certificado?.touched, 'is-invalid' : form.Certificado?.touched && form?.Certificado?.errors, 'is-touched': form?.Certificado?.value?.length > 0 }"
                             class="input" formControlName="Certificado" type="tel" appOnlyNumbers>
                         <label class="label">{{formFields.Certificado.label}}
                             {{formFields.Certificado.required ? '*': ''}}</label>
@@ -184,7 +184,7 @@
                 <div class="field">
                     <p class="control">
                         <input
-                            [ngClass]="{ 'is-valid': !form?.Email?.errors && form?.Email?.touched, 'is-invalid' : form.Email?.dirty && form?.Email?.errors, 'is-touched': form?.Email?.value?.length > 0 }"
+                            [ngClass]="{ 'is-valid': !form?.Email?.errors && form?.Email?.touched, 'is-invalid' : form.Email?.touched && form?.Email?.errors, 'is-touched': form?.Email?.value?.length > 0 }"
                             class="input" formControlName="Email" type="text">
                         <label class="label">{{formFields.Email.label}}
                             {{formFields.Email.required ? '*': ''}}</label>
@@ -290,7 +290,8 @@
                         <label class="checkbox-label" for="aceiteDeTermos">
                             <span>
                                 Eu aceito os
-                                <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos </a> de Política de
+                                <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos </a> de Política
+                                de
                                 Privacidade.
                             </span>
                         </label>
@@ -306,7 +307,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="column is-6-desktop is-full-touch">
                 <div id="captcha_element_contato"></div>
                 <div class="field">
@@ -319,11 +320,12 @@
             </div>
 
             <div class="column is-full">
-                <button class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">
-                    Enviar
+                <button [disabled]="loading" [class.loading]="loading"
+                    class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">Enviar
                 </button>
 
-                <button class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" (click)="sendForm()">
+                <button [disabled]="loading" [class.loading]="loading"
+                    class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" (click)="sendForm()">
                     Enviar
                 </button>
             </div>

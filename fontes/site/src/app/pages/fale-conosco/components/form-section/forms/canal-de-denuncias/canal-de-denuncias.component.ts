@@ -5,10 +5,12 @@ import { ValidateBrService } from 'angular-validate-br'
 import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService } from 'src/app/services';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { FeedbackModalModel } from 'src/app/models/modal.model';
+import { ErrorModalModel, FeedbackModalModel } from 'src/app/models/modal.model';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
+import { GravarCanalDenunciaEntrada } from 'src/app/models';
+import { FaleConoscoService } from 'src/app/services/fale-conosco/fale-conosco.service';
 declare var grecaptcha: any;
 
 
@@ -23,6 +25,7 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
     filesNumber: number = 0;
     filerHelper = FileHelper;
     isBrowser: boolean = false;
+    loading: boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -31,7 +34,8 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
         private modalService: ModalService,
         @Inject(PLATFORM_ID) private platformId: Platform,
         private scriptLoaderService: ScriptLoaderService,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        private faleConoscoService: FaleConoscoService
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.mountForm();
@@ -146,17 +150,32 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
         this.filesNumber = this.files.length;
     }
 
-    sendForm() {
+    async sendForm() {
         if (this.canalDeDenunciasForm.valid) {
-            console.log('valid', this.canalDeDenunciasForm.value)
+            this.loading = true;
 
-            const formValue = { ...this.canalDeDenunciasForm.value };
+            const formValue = new GravarCanalDenunciaEntrada({ ...this.canalDeDenunciasForm.value });
 
-            delete formValue.Authorization;
+            delete formValue['validCaptcha'];
+            delete formValue['aceiteDeTermos'];
+            delete formValue['Authorization'];
 
-            const modal: FeedbackModalModel = new FeedbackModalModel();
+            try {
 
-            this.modalService.openModal(modal)
+                await this.faleConoscoService.gravarCanalDeDenuncia(formValue);
+
+                this.canalDeDenunciasForm.reset();
+                this.mountForm();
+
+                const modal: FeedbackModalModel = new FeedbackModalModel();
+
+                this.modalService.openModal(modal);
+                this.loading = false;
+            } catch (error) {
+                const modal: ErrorModalModel = new ErrorModalModel();
+                this.modalService.openModal(modal);
+                this.loading = false;
+            }
         } else {
             Object.keys(this.canalDeDenunciasForm.controls).map(control => {
                 this.canalDeDenunciasForm.controls[control].markAsTouched();

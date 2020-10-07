@@ -1,5 +1,11 @@
 @import "~src/scss/_variables";
 
+::ng-deep app-banner.blog-banners {
+    section.home-banner #carousel-banner .item .container:not(.breadcrumb-container) {
+        padding-bottom: 120px;
+    }
+}
+
 section {
     &#careplus-plus-filters {
         .container {
@@ -51,9 +57,17 @@ section {
                                             width: 100%;
                                             flex: 0 0 100%;
                                             display: flex;
-                                            justify-content: space-between;
                                             li {
                                                 display: inline;
+                                                padding: 0 15px;
+
+                                                &:first-child {
+                                                    padding-left: 0;
+                                                }
+
+                                                &:last-child {
+                                                    padding-right: 0;
+                                                }
 
                                                 a {
                                                     font-weight: normal;
@@ -149,19 +163,26 @@ section {
                 }
             }
         }
-        app-cross-content-section.blog-cross-content section.cross-content-section {
-            padding-top: 0;
-            .container {
-                .columns {
-                    .column {
-                        padding-top: 0;
+        app-cross-content-section {
+            display: block;
+            &.blog-cross-content section.cross-content-section {
+                padding-top: 0;
+                .container {
+                    .columns {
+                        .column {
+                            padding-top: 0;
+                        }
                     }
-                }
-                .content-info {
-                    margin-top: 0 !important;
+                    .content-info {
+                        margin-top: 0 !important;
+                    }
                 }
             }
         }
+    }
+
+    section#careplus-plus-filters {
+        height: 60px;
     }
 }
 
@@ -222,6 +243,13 @@ section {
             }
         }
     }
+
+    ::ng-deep app-banner.blog-banners {
+        section.home-banner #carousel-banner .item .container:not(.breadcrumb-container) {
+            padding-bottom: 0;
+        }
+    }
+
     section {
         &#careplus-plus-filters {
             .container {

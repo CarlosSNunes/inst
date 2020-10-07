@@ -7,9 +7,16 @@ export class NoticiaModel {
         Object.assign(this, init);
 
         this.bloco = [];
+        this.postTag = [];
 
-        if (init && init.bloco) {
-            init.bloco.forEach(bloco => this.bloco.push(new BlocoModel(bloco)));
+        if (init) {
+            if (init.bloco) {
+                init.bloco.forEach(bloco => this.bloco.push(new BlocoModel(bloco)));
+            }
+
+            if (init.postTag) {
+                init.postTag.forEach(tag => this.postTag.push(new TagModel(tag)));
+            }
         }
     }
 

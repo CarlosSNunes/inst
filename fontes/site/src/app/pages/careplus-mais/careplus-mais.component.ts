@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BannerModel, BreadcrumbModel, CategoryModel, CrossContentModel, PostCardModel, ButtonModel } from 'src/app/models';
+import { BannerModel, CategoryModel, PostCardModel, NoticiaModel, ButtonModel } from 'src/app/models';
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
@@ -7,8 +7,12 @@ import Banners from './data/banner';
 import HighlightPost from './data/highlight';
 import RecentPosts from './data/recent-posts';
 import { all, extra } from './data/all-posts';
-import { NotificationService, BlogService } from 'src/app/services';
+import { crossContentModel, breadcrumbs } from './data/mock';
+import { BlogService } from 'src/app/services';
 import { Router } from '@angular/router';
+import { CategoriasService } from 'src/app/services/categorias/categorias.service';
+import { ErrorHandler } from 'src/utils/error-handler';
+
 
 @Component({
     selector: 'app-careplus-mais',
@@ -17,86 +21,24 @@ import { Router } from '@angular/router';
 })
 export class CareplusMaisComponent implements OnInit {
     banners: BannerModel[] = Banners;
-    breadcrumbs: BreadcrumbModel[] = [
-        new BreadcrumbModel({
-            link: '/home',
-            name: 'Home'
-        }),
-        new BreadcrumbModel({
-            link: '/careplus-mais',
-            name: 'Care Plus +',
-            active: true
-        })
-    ];
+    breadcrumbs = breadcrumbs;
     filterForm: FormGroup;
     selectCategoryId: number = 0;
-    categories: CategoryModel[] = [
-        new CategoryModel({
-            name: 'Todos',
-            slug: 'todos',
-            id: 0
-        }),
-        new CategoryModel({
-            name: 'Dicas de Saúde',
-            slug: 'dicasDeSaude',
-            id: 1
-        }),
-        new CategoryModel({
-            name: 'Atividade Física',
-            slug: 'atividadeFisica',
-            id: 2
-        }),
-        new CategoryModel({
-            name: 'Dicas Para o RH',
-            slug: 'dicasParaORh',
-            id: 3
-        }),
-        new CategoryModel({
-            name: 'Planos de Saúde',
-            slug: 'planosDeSaude',
-            id: 4
-        }),
-        new CategoryModel({
-            name: 'Nutrição',
-            slug: 'nutricao',
-            id: 5
-        }),
-        new CategoryModel({
-            name: 'Outros',
-            slug: 'outros',
-            id: 6
-        })
-    ];
-    highLightPost = HighlightPost;
-    recentPosts = RecentPosts;
-    allPosts = all;
-    crossContentModel: CrossContentModel = new CrossContentModel({
-        firstImage: {
-            src: 'assets/img/blog-posts-cross-content-image-1-mock.jpg',
-            alt: 'Serviços On-line imagem 1'
-        },
-        secondImage: {
-            src: 'assets/img/servicos-online.jpg',
-            alt: 'Serviços On-line imagem 2'
-        },
-        boxContent: {
-            title: 'Voce conheçe os nossos Serviços On-line?',
-            description: 'Serviços à distância com qualidade, carinho e cuidado. Conheça os serviços que a Care Plus disponibilizar a distância para seus beneciários.',
-            button: new ButtonModel({
-                text: 'Saiba mais',
-                routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
-            })
-        }
-    });
+    categories: CategoryModel[] = [];
+    highLightPost: NoticiaModel;
+    recentPosts: PostCardModel[] = [];
+    allPosts: PostCardModel[] = [];
+    crossContentModel = crossContentModel;
     allPostsLoaded: boolean = false;
 
     constructor(
         private fb: FormBuilder,
         private title: Title,
         private meta: Meta,
-        private notificationService: NotificationService,
         private blogService: BlogService,
-        private router: Router
+        private router: Router,
+        private categoriasService: CategoriasService,
+        private errorHandler: ErrorHandler
     ) {
         this.setSEOInfos();
         this.filterForm = this.fb.group({
@@ -106,25 +48,51 @@ export class CareplusMaisComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getAllCategories();
+        this.getLastPosts();
     }
 
-    // TODO chamar este endpoint e remover os mocks quando a api estiver pronta e publicada
     private async getLastPosts() {
         try {
             const lastPosts = await this.blogService.getLastPosts();
-            this.highLightPost = lastPosts.find(post => post.destaque == 1);
-            this.recentPosts = lastPosts.map(post => {
-                if (post.destaque == 0) {
-                    return new PostCardModel({
-                        post
-                    })
-                } else {
-                    return null
-                }
-            }).filter(post => post != null)
-
+            this.filterHighlightPost(lastPosts);
+            this.filterRecentPosts(lastPosts);
         } catch (error) {
-            this.notificationService.addNotification('error', error.message);
+            this.errorHandler.ShowError(error.error);
+        }
+    }
+
+    private filterHighlightPost(lastPosts: NoticiaModel[]) {
+        const highlight = lastPosts.find(post => post.destaque == 1);
+        if (highlight) {
+            this.highLightPost = new NoticiaModel(highlight);
+        }
+    }
+
+    private filterRecentPosts(lastPosts: NoticiaModel[]) {
+        this.recentPosts = lastPosts.map(post => {
+            if (post.destaque == 0) {
+                // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
+                return new PostCardModel({
+                    post,
+                    button: new ButtonModel({
+                        text: 'Ler artigo',
+                        routerLink: `/careplus-mais/${post.id}`
+                    })
+                })
+            } else {
+                return null
+            }
+        }).filter(post => post != null)
+    }
+
+    private async getAllCategories() {
+        this.categories = [];
+        try {
+            const categories = await this.categoriasService.getAll();
+            categories.forEach(category => this.categories.push(category));
+        } catch (error) {
+            this.errorHandler.ShowError(error.error);
         }
     }
 
@@ -157,7 +125,7 @@ export class CareplusMaisComponent implements OnInit {
     loadMore() {
         if (!this.allPostsLoaded) {
             extra.map(ex => {
-                ex['isNewRequest'] = true;
+                ex.isNewRequest = true;
                 this.allPosts.push(ex)
             });
             this.allPostsLoaded = true;

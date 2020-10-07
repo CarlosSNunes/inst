@@ -68,8 +68,9 @@
                             <p class="post-description">
                                 {{post.descricaoPrevia}}
                             </p>
-
-                            <a class="next" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
+                            
+                            <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
+                            <a class="next" [routerLink]="['/careplus-mais', post.id]" [attr.title]="post.titulo">
                                 <img src="assets/svg/arrow-left.svg" alt="Próximo">
                             </a>
                         </li>

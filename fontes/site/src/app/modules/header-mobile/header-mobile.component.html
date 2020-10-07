@@ -58,8 +58,7 @@
                 alt="Logo mobile careplus">
         </div>
         <div class="column is-4">
-            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'"
-                title="Entrar" target="_blank">
+            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
                 <img class="user-icon" src="assets/svg/user-digital-cian.svg" alt="User Icon">
             </a>
         </div>
@@ -240,6 +239,11 @@
                                     title="Ouvidoria">Ouvidoria </a></li>
                         </ul>
                     </div>
+                </li>
+                <li>
+                    <a tabindex="0" title="Care Plus+" routerLink="/careplus-mais" (click)="initTransition()">
+                        Care Plus+
+                    </a>
                 </li>
             </ul>
         </div>

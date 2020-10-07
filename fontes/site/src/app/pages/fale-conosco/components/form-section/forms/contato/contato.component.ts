@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef, PLATFORM_ID, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
-import { DropDownItem } from 'src/app/models';
+import { DropDownItem, GravarFaleConoscoEntrada } from 'src/app/models';
 import { Types } from './data/mock-data'
 import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService } from 'src/app/services';
 import { filterFormFields } from './utils/mount-form';
-import { FeedbackModalModel } from 'src/app/models/modal.model';
+import { ErrorModalModel, FeedbackModalModel } from 'src/app/models/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
@@ -38,6 +38,7 @@ export class ContatoComponent implements OnInit {
     captchaRendered: boolean = false;
     validCaptcha: boolean = false;
     isBrowser: boolean = false;
+    loading: boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -234,27 +235,41 @@ export class ContatoComponent implements OnInit {
         this.filesNumber = this.files.length;
     }
 
-    sendForm() {
+    async sendForm() {
         if (this.contatoForm.valid) {
-            console.log('valid', this.contatoForm.value)
-
-            const formValue = { ...this.contatoForm.value };
+            this.loading = true;
+            const formValue = new GravarFaleConoscoEntrada({ ...this.contatoForm.value });
 
             if (!formValue.CodigoCarePlus) {
                 formValue.CodigoCarePlus = 0;
             }
 
             if (!formValue.DDDTelefone2) {
-                formValue.DDDTelefone2 = 0
+                formValue.DDDTelefone2 = 0;
             }
 
             if (!formValue.Telefone2) {
-                formValue.Telefone2 = 0
+                formValue.Telefone2 = 0;
             }
 
-            const modal: FeedbackModalModel = new FeedbackModalModel();
+            delete formValue['validCaptcha'];
+            delete formValue['aceiteDeTermos'];
 
-            this.modalService.openModal(modal)
+            try {
+                await this.faleConoscoService.gravarFaleConosco(formValue);
+
+                this.contatoForm.reset();
+                this.mountForm();
+
+                const modal: FeedbackModalModel = new FeedbackModalModel();
+
+                this.modalService.openModal(modal);
+                this.loading = false;
+            } catch (error) {
+                const modal: ErrorModalModel = new ErrorModalModel();
+                this.modalService.openModal(modal);
+                this.loading = false;
+            }
         } else {
             Object.keys(this.contatoForm.controls).map(control => {
                 this.contatoForm.controls[control].markAsTouched();

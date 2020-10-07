@@ -3,7 +3,7 @@ export class CategoryModel {
         Object.assign(this, init)
     }
 
-    name: string = '';
-    slug: string = '';
+    titulo: string = '';
+    descricao: string = '';
     id: number;
 }
