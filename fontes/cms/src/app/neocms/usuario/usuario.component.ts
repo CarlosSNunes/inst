@@ -1,4 +1,3 @@
-import { CareplusPerfilService } from './../careplus-perfil/careplus-perfil.service';
 import { CareplusPerfilModel } from './../../../models/careplus-perfil/careplus-perfil.model';
 import { Component, OnInit } from '@angular/core';
 import { faPencilAlt, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';

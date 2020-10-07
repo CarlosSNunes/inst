@@ -19,7 +19,7 @@
                                         <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">{{error}}</p>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label class="label">E-mail</label>
                                     <input formControlName="email" class="form-control" type="email" placeholder=""
                                         [ngClass]="{ 'is-success': submitted && !f.email.errors, 'is-danger' : submitted && f.email.errors }">
@@ -27,19 +27,18 @@
                                         <p *ngFor="let error of getErrors(f.email)" class="help is-danger">{{error}}</p>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label class="label">Perfil</label>
-                                    <!-- <ngx-select-dropdown tabindex="0" (change)="changeUsuarioPerfil($event)"
-                                        [config]="configSelect" [options]="perfilOptions" [multiple]="false" value="0">
-
-                                    </ngx-select-dropdown> -->
-                                    <!-- <div *ngIf="submitted" class="errors">
+                                    <ngx-select-dropdown tabindex="0" (change)="changeUsuarioPerfil($event)"
+                                        [config]="configSelect" [options]="careplusPerfils" [multiple]="false" value="0">
+                                    </ngx-select-dropdown>
+                                    <div *ngIf="submitted" class="errors">
                                         <p *ngFor="let error of getErrors(f.perfil)" class="help is-danger">
                                             {{error}}
                                         </p>
-                                    </div> -->
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label class="label">Senha</label>
                                     <input formControlName="senhaHash" class="form-control" type="password"
                                         placeholder=""
@@ -47,15 +46,21 @@
                                     <div *ngIf="submitted" class="errors">
                                         <p *ngFor="let error of getErrors(f.senhaHash)" class="help is-danger">{{error}}
                                         </p>
+                                        <p *ngIf="senhaErro === true"  class="help is-danger">
+                                            As senhas devem ser iguais.
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label class="label">Confirme a Senha</label>
                                     <input formControlName="senhaSalt" class="form-control" type="password"
                                         placeholder=""
                                         [ngClass]="{ 'is-success': submitted && !f.senhaSalt.errors, 'is-danger' : submitted && f.senhaSalt.errors }">
                                     <div *ngIf="submitted" class="errors">
                                         <p *ngFor="let error of getErrors(f.senhaSalt)" class="help is-danger">{{error}}
+                                        </p>
+                                        <p *ngIf="senhaErro === true"  class="help is-danger">
+                                            As senhas devem ser iguais.
                                         </p>
                                     </div>
                                 </div>
@@ -71,6 +76,13 @@
                         </form>
 
                     </div>
+
+                    <!-- <div class="col-md-12 col-lg-4 m-auto">
+                        <pre>
+                            {{userForm.value | json}}
+
+                        </pre>
+                    </div> -->
 
                 </div>
 
