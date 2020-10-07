@@ -228,7 +228,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
             delete formValue['aceiteDeTermos'];
 
             try {
-                // await this.faleConoscoService.gravarOuvidoria(formValue);
+                await this.faleConoscoService.gravarOuvidoria(formValue);
 
                 const modal: FeedbackModalModel = new FeedbackModalModel();
 
