@@ -47,7 +47,7 @@ export class BannerCreateComponent implements OnInit {
   isBannerAtivo         = false;
 
   //*Configuração 'ng-wizard'
-  configBanner: NgWizardConfig = {
+  configBannerWin: NgWizardConfig = {
     selected: 0,
     theme   : THEME.dots,
     lang    : { next: 'Próximo', previous: 'Voltar' }

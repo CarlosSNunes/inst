@@ -30,7 +30,7 @@
         </div>
         <div class="card shadow my-3" id="cardWizardArea">
             <div class="card-body">
-                <ng-wizard [config]="configBanner" (stepChanged)="stepChanged($event)">
+                <ng-wizard [config]="configBannerWin" (stepChanged)="stepChanged($event)">
                     <ng-wizard-step [title]="'Área'" [description]="'Escolher Área'">
                         <div class="row my-5">
                             <div class="col-md-12">
