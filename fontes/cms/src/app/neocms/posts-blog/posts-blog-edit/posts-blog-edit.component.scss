@@ -1,0 +1,33 @@
+.marging-box{
+    margin-top: 55px;
+    // margin-left: 35px;
+  }
+  .marging-title{
+      margin-top: 35px;
+  }
+  
+  .marging-input{
+      margin-top: 10px;
+  }
+
+.info-icon{
+    width: auto;
+    margin-left: 15px;
+    display: inline-grid;
+    text-align: center;
+    font-size: small;
+}
+
+.tabset{
+    display: -webkit-inline-box; 
+    float:right;
+}
+
+.label{
+    font-weight: bolder;
+    color: #00335B;
+}
+
+.btn-primary{
+    background-color: #073457 !important;
+}

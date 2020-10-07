@@ -54,6 +54,11 @@ export class PostsBlogEditComponent implements OnInit {
   isPostAtivo = false;
   isPostDestaque = false;
 
+  fileData: File = null;
+  previewUrl: any = null;
+  fileUploadProgress: string = null;
+  uploadedFilePath: string = null;
+
   constructor(
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
@@ -66,11 +71,10 @@ export class PostsBlogEditComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authenticateService.state;
-    //this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
-    //this.tagService.getAll().subscribe(tags => this.tags = tags);
+    this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
+    this.tagService.getAll().subscribe(tags => this.tags = tags);
     this.getPost()
 
-    //BulmaCalendar.attach('[type="date"]', this.optionsDate);
     this.createForm();
   }
 
@@ -100,13 +104,19 @@ export class PostsBlogEditComponent implements OnInit {
       .subscribe(postBlog => {
         this.postBlog = postBlog;
         this.arquivoNome = postBlog.nomeImagem;
-        this.updateForm();
+        
 
-        this.optionsDate.startDate = new Date(postBlog.dataPublicacao);
-        BulmaCalendar.attach('#dataPublicacao', this.optionsDate);
+        // this.optionsDate.startDate = new Date(postBlog.dataPublicacao);
+        // BulmaCalendar.attach('#dataPublicacao', this.optionsDate);
+        const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
+        dataPublicacaoElement.value = postBlog.dataPublicacao;
 
-        this.optionsDate.startDate = postBlog.dataExpiracao ? new Date(postBlog.dataExpiracao) : null;
-        BulmaCalendar.attach('#dataExpiracao', this.optionsDate);
+        // this.optionsDate.startDate = postBlog.dataExpiracao ? new Date(postBlog.dataExpiracao) : null;
+        // BulmaCalendar.attach('#dataExpiracao', this.optionsDate);
+        const dataPExpiracaoElement: any = document.querySelector('#dataExpiracao');
+        dataPExpiracaoElement.value = new Date(postBlog.dataExpiracao);
+
+        this.updateForm(this.postBlog);
       });
   }
 
@@ -145,20 +155,20 @@ export class PostsBlogEditComponent implements OnInit {
     this.getCategorias();
   }
 
-  updateForm() {
+  updateForm(postBlog: PostsBlogModel) {
     this.postsBlogForm = this.fb.group({
-      titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      dataPublicacao: ['', [Validators.required]],
-      dataExpiracao: [''],
-      destaque: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
-      descricaoPaginaSEO : ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
-      categoriaId: ['', Validators.required],
+      titulo: [postBlog.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      subtitulo: [postBlog.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      descricaoPrevia: [postBlog.descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      dataPublicacao: [postBlog.dataPublicacao, [Validators.required]],
+      dataExpiracao: [postBlog.dataExpiracao],
+      destaque: [postBlog.destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
+      ativo: [postBlog.ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
+      tituloPaginaSEO: [postBlog.tituloPaginaSEO],
+      descricaoPaginaSEO : [postBlog.descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
+      categoriaId: [postBlog.categoriaId, Validators.required],
       postTag: this.fb.array([], [Validators.required]), 
-      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
+      descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
       arquivo: ['']
     });
 
@@ -229,11 +239,33 @@ export class PostsBlogEditComponent implements OnInit {
     }
   }
 
-  updateFileName(files: any) {
-    this.arquivoNome = 'Selecione um arquivo';
-    if (files.length > 0) {
-      this.arquivoNome = files[0].name;
-      this.arquivo = files[0];
+  // updateFileName(files: any) {
+  //   this.arquivoNome = 'Selecione um arquivo';
+  //   if (files.length > 0) {
+  //     this.arquivoNome = files[0].name;
+  //     this.arquivo = files[0];
+  //   }
+  // }
+
+  fileProgress(arquivos: any) {
+    //this.arquivo = <File>fileInput.target.files[0];
+    this.arquivo = arquivos[0];
+    this.arquivoNome = this.arquivo.name;
+    this.preview();
+  }
+
+  preview() {
+    // Show preview 
+    var mimeType = this.arquivo.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    var reader = new FileReader();      
+    reader.readAsDataURL(this.arquivo); 
+    reader.onload = (_event) => { 
+      this.previewUrl = reader.result; 
+      this.arquivo = this.previewUrl;
     }
   }
 

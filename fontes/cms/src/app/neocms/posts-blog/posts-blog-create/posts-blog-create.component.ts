@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import * as BulmaCalendar from 'src/assets/js/bulma-calendar';
+import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router } from '@angular/router';
@@ -16,6 +15,8 @@ import { PostsBlogCreateModel } from 'src/models/posts-blog/posts-blog-create.mo
 import { TagModel } from 'src/models/tag/tag.model';
 import { TagService } from '../tag/tag.service';
 import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+
 
 
 @Component({
@@ -24,12 +25,15 @@ import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
   styleUrls: ['./posts-blog-create.component.scss']
 })
 export class PostsBlogCreateComponent implements OnInit {
-  editor = DecoupledEditor; 
+  locale = 'pt-br';
+  editor = DecoupledEditor;
   postsBlogForm;
   faTimes = faTimes;
   faCheck = faCheck;
   faUpload = faUpload;
   faPlus = faPlus;
+  faArrowCircleLeft = faArrowCircleLeft;
+  faCheckCircle = faCheckCircle;
   optionsDate = {
     type: 'date',
     dateFormat: 'DD/MM/YYYY',
@@ -52,6 +56,12 @@ export class PostsBlogCreateComponent implements OnInit {
   submitted: boolean;
   user: UserAuthenticateModel;
 
+
+  fileData: File = null;
+  previewUrl: any = null;
+  fileUploadProgress: string = null;
+  uploadedFilePath: string = null;
+
   isPostAtivo = false;
   isPostDestaque = false;
 
@@ -59,17 +69,19 @@ export class PostsBlogCreateComponent implements OnInit {
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
     private postsBlogService: PostsBlogService,
-    private tagService: TagService,    
+    private tagService: TagService,
     private fb: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private localeService: BsLocaleService
+  ) {
+    this.localeService.use(this.locale);
+  }
 
   ngOnInit() {
     this.user = this.authenticateService.state;
     this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
     this.tagService.getAll().subscribe(tags => this.tags = tags);
 
-    BulmaCalendar.attach('[type="date"]', this.optionsDate);
     this.createForm();
   }
 
@@ -83,11 +95,13 @@ export class PostsBlogCreateComponent implements OnInit {
       destaque: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
       ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
       tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
-      descricaoPaginaSEO : ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
+      descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
       categoriaId: ['', Validators.required],
-      postTag: this.fb.array([], [Validators.required]), 
-      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
-      arquivo: ['']
+      postTag: this.fb.array([]),
+      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+      arquivo: [''],
+      caminhoImagem: ['assets/img'],
+      nomeImagem: ['']
     });
   }
 
@@ -96,7 +110,7 @@ export class PostsBlogCreateComponent implements OnInit {
       eventData.ui.view.toolbar.element,
       eventData.ui.getEditableElement()
     );
-    
+
     eventData.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
       return new PostsUploadAdapter(loader, this.postsBlogService);
     };
@@ -105,14 +119,14 @@ export class PostsBlogCreateComponent implements OnInit {
   get f() {
     return this.postsBlogForm.controls;
   }
-  
+
   get tagControls() {
     return this.postsBlogForm.get('postTag') as FormArray;
   }
 
   onSubmit() {
     const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-    const dataPublicacao: Date = dataPublicacaoElement.bulmaCalendar.date.start;
+    const dataPublicacao: Date = dataPublicacaoElement.value;
 
     this.validateDate(dataPublicacao);
 
@@ -120,20 +134,21 @@ export class PostsBlogCreateComponent implements OnInit {
     if (this.postsBlogForm.valid) {
       const dataExpiracaoElement: any = document.querySelector('#dataExpiracao');
 
-      const dataExpiracao: Date = dataExpiracaoElement.bulmaCalendar.date.start;
+      const dataExpiracao: Date = dataExpiracaoElement.value;
 
-      this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao.toISOString());
+      this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao);
 
       if (dataExpiracao) {
-        this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao.toISOString());
+        this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao);
       } else {
         this.postsBlogForm.controls.dataExpiracao.setValue('');
       }
 
       this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
+      this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
       const model = new PostsBlogCreateModel(this.postsBlogForm.value);
       this.postsBlogService.post(model)
-        .subscribe(() => 
+        .subscribe(() =>
           this.router.navigate(['/neocms/posts-blog'])
         );
     }
@@ -147,9 +162,31 @@ export class PostsBlogCreateComponent implements OnInit {
     }
   }
 
+  fileProgress(arquivos: any) {
+    //this.arquivo = <File>fileInput.target.files[0];
+    this.arquivo = arquivos[0];
+    this.arquivoNome = this.arquivo.name;
+    this.preview();
+  }
+
+  preview() {
+    // Show preview 
+    var mimeType = this.arquivo.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    var reader = new FileReader();      
+    reader.readAsDataURL(this.arquivo); 
+    reader.onload = (_event) => { 
+      this.previewUrl = reader.result; 
+      this.arquivo = this.previewUrl;
+    }
+  }
+
   validateDate(data: Date) {
-    if (data) {
-      this.f.dataPublicacao.setErrors(null);
+    if (!data) {
+      this.f.dataPublicacao.setErrors('Data inválida!');
     }
   }
 

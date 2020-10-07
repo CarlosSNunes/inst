@@ -17,13 +17,25 @@ import { PostsBlogCreateComponent } from './posts-blog-create/posts-blog-create.
 import { PostsBlogEditComponent } from './posts-blog-edit/posts-blog-edit.component';
 import { PostsBlogDeleteComponent } from './posts-blog-delete/posts-blog-delete.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownConfig, BsDropdownDirective, BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
   declarations: [
     PostsBlogComponent,
     PostsBlogCreateComponent,
     PostsBlogEditComponent,
-    PostsBlogDeleteComponent,        
+    PostsBlogDeleteComponent,
+
   ],
   imports: [
     PostsBlogRoutingModule,
@@ -34,7 +46,11 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     HttpClientModule,    
     CategoriasModule,
     MaisLidosModule,
-    TagModule
+    TagModule,
+    TabsModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   providers: [
     PostsBlogService,
