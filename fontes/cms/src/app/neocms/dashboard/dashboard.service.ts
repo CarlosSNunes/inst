@@ -14,15 +14,15 @@ export class DashboardService {
   ) { }
 
   getUsuariosAtivos() {
-    return this.http.get<string>(this.url + 'usuario-ativo');
+    return this.http.get<any>(this.url + 'usuario-ativo');
   }
 
   getBannerAtivos() {
-    return this.http.get<string>(this.url + 'banner-ativo') ;
+    return this.http.get<any>(this.url + 'banner-ativo') ;
   }
 
   getPostsAtivos() {
-    return this.http.get<string>(this.url  + 'post-ativo');
+    return this.http.get<any>(this.url  + 'post-ativo');
   }
 
   getPostsMaisLidos()
