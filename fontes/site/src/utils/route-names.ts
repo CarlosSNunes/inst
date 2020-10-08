@@ -130,6 +130,10 @@ export const routes: RouteModel[] = [
         description: 'Programas Preventivos - Gestão de saude'
     }),
     new RouteModel({
+        route: '/planos-e-produtos/gestao-de-saude/programas-empresariais',
+        description: 'Programas Empresariais - Gestão de saude'
+    }),
+    new RouteModel({
         route: '/planos-e-produtos/gestao-de-saude/servicos-online',
         description: 'Serviços On-line - Gestão de saude'
     }),
