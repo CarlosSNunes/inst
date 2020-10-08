@@ -18,7 +18,7 @@ export class NeocmsHeaderComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    public router: Router
   ) {
     this.authenticationService.usuarioChanged.subscribe(usuario =>
       this.usuario = usuario

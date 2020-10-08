@@ -1,22 +1,6 @@
-<style type="css/text">
-    div.card.m-5.position-fixed.shadow {
-        z-index: 99999 !important;
-        right: 0 !important;
-        padding: 20px !important;
-        overflow:auto;
-        width:300px
-    }
-</style>
-<!-- <div class="card position-fixed m-5 shadow">
-    <div class="card-body">
-            <pre>
-                <code>{{bannerForm.value | json}}</code>               
-            </pre>
-    </div>
-</div>  -->
 <div class="card-banner-wizard">
     <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
-        <div class="card shadow my-3" id="card-header">
+        <div class="card my-3" id="card-header">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -28,20 +12,22 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow my-3" id="cardWizardArea">
-            <div class="card-body">
+        <div class="card my-3" id="cardWizardArea">
+            <div class="card-body p-5">
                 <ng-wizard [config]="configBannerWin" (stepChanged)="stepChanged($event)">
                     <ng-wizard-step [title]="'Área'" [description]="'Escolher Área'">
                         <div class="row my-5">
                             <div class="col-md-12">
-                                <div class="card col-md-6 m-auto fade-in shadow">
+                                <div class="card col-md-6 m-auto fade-in shadow-sm border-light">
                                     <div class="card-body">
                                         <h5 class="card-title">Area do Banner</h5>
-                                        <ngx-select-dropdown tabindex="0" (change)="changeAreaBanner($event)"
-                                            [config]="configSelect" [options]="areaOptions" [multiple]="false"
-                                            value="0">
+                                        <select formControlName="profile" class="form-control my-3" (change)="selectionChanged($event)">
+                                            <option [ngValue]="null" disabled>Selecione</option>
+                                            <option *ngFor="let prf of dropdownOptions" [ngValue]="prf.nome">
+                                                {{ prf.nome }}
+                                            </option>
+                                        </select>
 
-                                        </ngx-select-dropdown>
                                         <input formControlName="area" type="hidden">
                                         <div class="my-2" *ngFor="let a of areaSelectedObject">
                                             <h5>Descrição: {{a.descricao }}</h5>
@@ -59,29 +45,20 @@
                     <ng-wizard-step [title]="'Imagens'" [description]="'Escolher os Banners'">
                         <div class="row">
                             <div class="col-md-12 col-lg-6 w-100 my-5 card-crop">
-                                <div class="card shadow fade-in">
+                                <div class="card shadow-sm border-light fade-in">
                                     {{nomeDaImagem}}
                                     <div class="card-body text-center m-3 card-crop">
                                         <h3>Imagem Grande</h3>
                                         <small>Dimensões: 1920 x 720 px</small>
                                         <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper 
-                                                [imageChangedEvent]="imageChangedEvent"
-                                                [maintainAspectRatio]="true" 
-                                                [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" 
-                                                [onlyScaleDown]="false" 
-                                                [aspectRatio]="8/3"
-                                                [resizeToWidth]="1920" 
-                                                [cropperMinWidth]="1920" 
-                                                [resizeToHeight]="720"
-                                                [cropperMinHeight]="720" 
-                                                format="png"
-                                                (imageCropped)="imageCropped($event)" 
-                                                (imageLoaded)="imageLoaded()"
-                                                (cropperReady)="cropperReady()" 
-                                                (loadImageFailed)="loadImageFailed()">
+                                            <image-cropper [imageChangedEvent]="imageChangedEvent"
+                                                [maintainAspectRatio]="true" [containWithinAspectRatio]="false"
+                                                [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="8/3"
+                                                [resizeToWidth]="1920" [cropperMinWidth]="1920" [resizeToHeight]="720"
+                                                [cropperMinHeight]="720" format="png"
+                                                (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                                                (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
                                             </image-cropper>
                                         </div>
                                         <div *ngIf="croppedImage" class="shadow thumbnail-image-box">
@@ -99,22 +76,13 @@
                                         <input type="file" class="text-truncate"
                                             (change)="fileChangeEventMobile($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper 
-                                                [imageChangedEvent]="imageChangedEventMobile"
-                                                [maintainAspectRatio]="true" 
-                                                [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" 
-                                                [onlyScaleDown]="false" 
-                                                [aspectRatio]="4/3"
-                                                [imageFile]="bannerMobile" 
-                                                [resizeToWidth]="200" 
-                                                [cropperMinWidth]="200"
-                                                [resizeToHeight]="150" 
-                                                [cropperMinHeight]="150" 
-                                                format="png"
+                                            <image-cropper [imageChangedEvent]="imageChangedEventMobile"
+                                                [maintainAspectRatio]="true" [containWithinAspectRatio]="false"
+                                                [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="4/3"
+                                                [imageFile]="bannerMobile" [resizeToWidth]="200" [cropperMinWidth]="200"
+                                                [resizeToHeight]="150" [cropperMinHeight]="150" format="png"
                                                 (imageCropped)="imageCroppedMobile($event)"
-                                                (imageLoaded)="imageLoaded()" 
-                                                (cropperReady)="cropperReady()"
+                                                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
                                                 (loadImageFailed)="loadImageFailed()">
                                             </image-cropper>
                                         </div>
@@ -172,14 +140,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 col-lg-6">
+                                    <!-- <div class="col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="my-input">Área*</label>
                                             <input class="form-control" type="text"
-                                                placeholder="Ex: Topo (Banner da Home)">
+                                                placeholder="Ex: Topo (Banner da Home)" [ngValue]="bannerForm.get['area'].value">
 
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="my-input">Tempo de Exibição</label>

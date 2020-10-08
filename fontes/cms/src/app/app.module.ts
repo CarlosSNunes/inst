@@ -11,7 +11,6 @@ import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SelectDropDownModule } from 'ngx-select-dropdown'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -32,8 +31,7 @@ const ngWizardConfig: NgWizardConfig = {
     ErrorHandlerModule,
     NgWizardModule.forRoot(ngWizardConfig),
     BrowserAnimationsModule,
-    SelectDropDownModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {

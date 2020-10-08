@@ -1,14 +1,6 @@
-import { FileValueAccessor } from './../../../../utils/file-control-value-accessor';
-/**
- * Copyright (c) 2020 - NEOTIX INTERNET AGENCY – LTDA.
- * @Author       : Bruno Sábio
- * @CreateTime   : 2020-09-20 16:54:14
- * @Modifiedby   : Bruno Sábio
- * @ModifiedTime : 2020-09-26 02:45:34
- **/
 import { Component, HostListener, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
-import { faTimes, faCheck, faUpload, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faCheck, faUpload, faPlus, faSearch, faPhotoVideo } from '@fortawesome/free-solid-svg-icons';
 import { BannerService } from '../banner.service';
 import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -25,7 +17,8 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 export class BannerCreateComponent implements OnInit {
   bannerForm;
 
-  faSearch = faSearch;
+  faSearch     = faSearch;
+  faPhotoVideo = faPhotoVideo;
   imageChangedEvent      : any;
   imageChangedEventMobile: any;
   croppedImage           : any;
@@ -49,21 +42,20 @@ export class BannerCreateComponent implements OnInit {
   //*Configuração 'ng-wizard'
   configBannerWin: NgWizardConfig = {
     selected: 0,
-    theme   : THEME.dots,
-    lang    : { next: 'Próximo', previous: 'Voltar' }
+    theme: THEME.dots,
+    lang: { next: '🠞', previous: '🠜' }
   };
   ngWizardService: any;
 
   //*Configuração 'ngx-select-dropdown'
-  configSelect = {
-    displayKey : "nome",        /** se a matriz de objetos passou a chave a ser exibida, o padrão é: @description */
-    search     : false,         /** true/false para a funcionalidade de pesquisa padronizada para: @false */
-    height     : 'auto',        /** altura da lista, para ela mostrar uma rolagem, o padrão é: @auto */
-    placeholder: 'Selecione',   /** texto a ser exibido quando nenhum item é selecionado, o padrão é @Select */
-    moreText   : 'mais',        /** texto a ser exibido quando mais de um item for selecionado, o padrão é @More */
+  config = {
+    displayKey: "nome",
+    search: false,
+    height: 'auto',
+    placeholder: 'Selecione'
   }
 
-  areaOptions = [
+  dropdownOptions = [
     { nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
     { nome: 'Home RH', descricao: 'Banner da home do RH' },
     { nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
@@ -71,23 +63,25 @@ export class BannerCreateComponent implements OnInit {
     { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
   ];
   areaSelectedObject: [{ nome: string, descricao: string }];
-  areaNome          : any;
-  areaDescricao     : any;
-  blob              : File;
-  nomeDaImagem      : any;
-  areaSelecImagem   : string;
-  file              : ImageData;
-  fileMobile        : Blob;
+  areaNome: any;
+  areaDescricao: any;
+  blob: File;
+  nomeDaImagem: any;
+  areaSelecImagem: string;
+  file: ImageData;
+  fileMobile: Blob;
 
   constructor(
-    private bannerService      : BannerService,
-    private fb                 : FormBuilder,
-    private router             : Router,
+    private bannerService: BannerService,
+    private fb: FormBuilder,
+    private router: Router,
     private authenticateService: AuthenticationService,
 
   ) {
   }
+  onResize(): void {
 
+  }
 
 
   ngOnInit() {
@@ -98,16 +92,16 @@ export class BannerCreateComponent implements OnInit {
 
   createForm() {
     this.bannerForm = this.fb.group({
-      nomeImagem   : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      titulo       : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo    : ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      area         : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricao    : ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      rota         : ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-      linkExterno  : ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo        : ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      arquivo      : ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+      descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
+      linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
+      arquivo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
       arquivoMobile: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
     });
   }
@@ -128,8 +122,8 @@ export class BannerCreateComponent implements OnInit {
 
     var teste1 = {};
     var teste2 = {};
-    formDataArquivo.forEach(function(value, key){ teste1[key] = value; }); 
-    formDataArquivoMobile.forEach(function(value, key){ teste2[key] = value; }); 
+    formDataArquivo.forEach(function (value, key) { teste1[key] = value; });
+    formDataArquivoMobile.forEach(function (value, key) { teste2[key] = value; });
 
     // this.bannerForm.get('arquivo').setValue(JSON.stringify(teste1));
     // this.bannerForm.get('arquivoMobile').setValue(JSON.stringify(teste2));
@@ -157,7 +151,7 @@ export class BannerCreateComponent implements OnInit {
     this.isBannerAtivo = selected;
   }
 
-  async changeAreaBanner(e) {
+  selectionChanged(e): void {
     this.areaNome = JSON.stringify(e.value.nome).replace(/['"]+/g, '');
     this.areaDescricao = JSON.stringify(e.value.descricao).replace(/['"]+/g, '');
     this.areaSelectedObject = [
@@ -229,10 +223,10 @@ export class BannerCreateComponent implements OnInit {
     )
     console.log(file)
 
-   let areaNome = JSON.stringify(file).replace(/['"]+/g, '');
-  //  console.log(areaNome.toString().)
-  //  this.bannerForm.get('arquivo').setValue(areaNome);
-  //  console.log(this.bannerForm.get('arquivo').setValue(areaNome));
+    let areaNome = JSON.stringify(file).replace(/['"]+/g, '');
+    //  console.log(areaNome.toString().)
+    //  this.bannerForm.get('arquivo').setValue(areaNome);
+    //  console.log(this.bannerForm.get('arquivo').setValue(areaNome));
 
   }
 

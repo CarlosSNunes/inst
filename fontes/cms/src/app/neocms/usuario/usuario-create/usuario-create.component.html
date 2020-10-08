@@ -29,9 +29,9 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="label">Perfil</label>
-                                    <ngx-select-dropdown tabindex="0" (change)="changeUsuarioPerfil($event)"
+                                    <!-- <ngx-select-dropdown tabindex="0" (change)="changeUsuarioPerfil($event)"
                                         [config]="configSelect" [options]="careplusPerfils" [multiple]="false" value="0">
-                                    </ngx-select-dropdown>
+                                    </ngx-select-dropdown> -->
                                     <div *ngIf="submitted" class="errors">
                                         <p *ngFor="let error of getErrors(f.perfil)" class="help is-danger">
                                             {{error}}

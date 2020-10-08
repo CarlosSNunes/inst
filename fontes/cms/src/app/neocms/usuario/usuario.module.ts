@@ -7,7 +7,6 @@ import { UsuarioUpdateComponent } from './usuario-update/usuario-update.componen
 import { UsuarioService } from '../usuario/usuario.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SelectDropDownModule } from 'ngx-select-dropdown'
 import { NgWizardModule} from 'ng-wizard';
 
 
@@ -22,7 +21,6 @@ import { NgWizardModule} from 'ng-wizard';
     ReactiveFormsModule,
     UsuarioRoutingModule,
     FontAwesomeModule,
-    SelectDropDownModule,
     NgWizardModule,
     
     
