@@ -113,10 +113,6 @@ export const routes: RouteModel[] = [
         route: '/a-careplus/diferenciais',
         description: 'Diferenciais'
     }),
-    // new RouteModel({
-    //     route: '/a-careplus/diferenciais/consulta-facil',
-    //     description: 'Consulta fácil'
-    // }),
     new RouteModel({
         route: '/planos-e-produtos/gestao-de-saude',
         description: 'Gestão de saude'
@@ -132,6 +128,10 @@ export const routes: RouteModel[] = [
     new RouteModel({
         route: '/planos-e-produtos/gestao-de-saude/servicos-online',
         description: 'Serviços On-line - Gestão de saude'
+    }),
+    new RouteModel({
+        route: '/planos-e-produtos/gestao-de-saude/programas-empresariais',
+        description: 'Programas Empresariais - Gestão de saude'
     }),
     new RouteModel({
         route: '/planos-e-produtos/gestao-de-saude/nossas-parcerias',

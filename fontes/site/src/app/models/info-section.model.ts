@@ -25,6 +25,7 @@ export class InfoSectionModel {
     objectFit?: string = 'cover';
     hasModal?: boolean = false;
     parallax?: boolean = false;
+    mobileImageHeight: string = '208px';
     backgroundColorClass: string = 'white-background-color';
 }
 

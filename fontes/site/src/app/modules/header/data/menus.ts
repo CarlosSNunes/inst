@@ -74,6 +74,11 @@ export default [
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
+                        title: 'Master International',
+                        href: 'https://www8.careplus.com.br/masterinternational/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
@@ -192,6 +197,11 @@ export default [
                     new SubMenuItem({
                         title: 'Medicina Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'https://www8.careplus.com.br/masterinternational/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Gestão de Saúde',
@@ -328,6 +338,11 @@ export default [
                     new SubMenuItem({
                         title: 'Medicina Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'https://www8.careplus.com.br/masterinternational/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Gestão de Saúde',
@@ -472,6 +487,11 @@ export default [
                         routerLink: '/carreiras',
                     }),
                     new SubMenuItem({
+                        title: 'Master International',
+                        href: 'https://www8.careplus.com.br/masterinternational/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
                         title: 'Vagas',
                         routerLink: '/carreiras/vagas',
                     }),
@@ -576,6 +596,11 @@ export default [
                     new SubMenuItem({
                         title: 'Medicina Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'https://www8.careplus.com.br/masterinternational/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Gestão de Saúde',
