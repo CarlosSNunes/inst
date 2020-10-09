@@ -37,7 +37,7 @@
 
 //!LOGIN PRIORITY
 div#containerLogin {
-  display: grid !important;
+  display      : grid !important;
   justify-items: center !important;
   align-content: center !important;
 }
@@ -59,8 +59,6 @@ div#containerLogin {
 .ng-wizard-theme-dots>ul.step-anchor>li.done>a:after {
   background: #a0a6ab;
 }
-
-
 
 .btn-group>.btn-group:not(:last-child)>.btn,
 .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
@@ -124,4 +122,29 @@ button.btn.btn-secondary.ng-wizard-btn-next:hover {
 .btn-group.mr-2.ng-wizard-btn-group {
   position: absolute;
   top     : -9px;
+}
+
+
+//! BUTTONS CUSTOM
+
+button.badge.badge-dark.shadow.p-3 {
+  border-radius   : 3px !important;
+  border          : 0px !important;
+  margin          : 5px 0px 5px 20px !important;
+  background-color: #4e728d !important;
+  text-shadow     : 2px 2px 4px #000000 !important;
+  letter-spacing  : 1px !important;
+  font-weight     : 400 !important;
+  box-shadow      : 0px 1px 3px -2px #000000 !important;
+  min-width       : 90px !important;
+  font-size       : 15px;
+  float           : right;
+}
+
+button.badge.badge-dark.shadow.p-3:hover {
+  background-color: #38556b !important;
+  text-shadow     : 2px 2px 6px #000000 !important;
+  letter-spacing  : 1px !important;
+  font-weight     : 600 !important;
+  box-shadow      : 0px 1px 3px -2px #000000 !important;
 }
