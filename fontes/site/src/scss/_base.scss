@@ -178,3 +178,47 @@ p, .p {
 .align-self-center {
     align-self: center;
 }
+
+.get-price-box {
+    position: fixed;
+    width: 280px;
+    height: 60px;
+    background-color: getColor(_bupa, _digital-cian);
+    display: flex;
+    padding: 21.5px 32px;
+    right: 32px;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 204;
+    border-radius: 6px 6px 0px 0;
+    .text {
+        align-self: center;
+        margin: 0;
+        color: getColor(_bupa, _white);
+        font-size: getSize("p");
+        line-height: getLineHeight("p");
+    }
+    img {
+        position: absolute;
+        right: 16px;
+        align-self: center;
+        top: calc(50% - 22px);
+    }
+}
+
+@media (min-width: 1280px) {
+    .get-price-box {
+        right: calc(100% - (100vw + 1216px) / 2);
+    }
+}
+
+@media (max-width: 1023px) {
+    .get-price-box {
+        top: unset;
+        bottom: 84px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        position: fixed;
+    }
+}

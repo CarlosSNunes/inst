@@ -2,14 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-    },
     // Rotas para das demais homes estão dentro do home-routing.mdule
     {
-        path: 'home',
+        path: '',
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
     },
     {

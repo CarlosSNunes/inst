@@ -15,7 +15,7 @@ export class ErroComponent implements OnInit {
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
             name: 'Home',
-            link: '/home'
+            link: '/'
         }),
         new BreadcrumbModel({
             name: 'Error 404 Page not found',

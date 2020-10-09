@@ -54,7 +54,7 @@ export class CredenciadoComponent implements OnInit {
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
             name: "Home",
-            link: "/home",
+            link: "/",
         }),
         new BreadcrumbModel({
             name: "Sou Credenciado",

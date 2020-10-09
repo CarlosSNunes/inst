@@ -2,7 +2,7 @@ import { RouteModel } from 'src/app/models';
 
 export const routes: RouteModel[] = [
     new RouteModel({
-        route: '/home',
+        route: '/',
         description: 'Home'
     }),
     new RouteModel({

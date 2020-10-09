@@ -11,7 +11,7 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
     breadcrumbs: [
         new BreadcrumbModel({
             name: 'Home',
-            link: '/home'
+            link: '/'
         }),
         new BreadcrumbModel({
             name: 'Planos e Produtos',

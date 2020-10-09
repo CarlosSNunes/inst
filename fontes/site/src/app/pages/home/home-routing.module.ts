@@ -23,10 +23,6 @@ const routes: Routes = [
         path: 'credenciado',
         loadChildren: () => import('src/app/pages/home/credenciado/credenciado.module').then(m => m.CredenciadoModule),
     },
-    {
-        path: '**',
-        loadChildren: () => import('src/app/pages/erro/erro.module').then(m => m.ErroModule)
-    },
 ];
 
 @NgModule({

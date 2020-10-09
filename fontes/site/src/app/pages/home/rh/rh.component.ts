@@ -67,7 +67,7 @@ export class RhComponent implements OnInit {
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
             name: "Home",
-            link: "/home",
+            link: "/",
         }),
         new BreadcrumbModel({
             name: "Sou RH",

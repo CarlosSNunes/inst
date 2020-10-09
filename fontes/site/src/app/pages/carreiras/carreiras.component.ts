@@ -18,7 +18,7 @@ export class CarreirasComponent implements OnInit {
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'Carreiras',
