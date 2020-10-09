@@ -2,7 +2,6 @@ import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { BreadcrumbModel, NoticiaModel, IconCardsSectionModel, PostCardModel, RouteModel } from 'src/app/models';
 import { ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import PostMock from './data/post-mock';
 import RelatedPosts from './data/related-posts';
 import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
