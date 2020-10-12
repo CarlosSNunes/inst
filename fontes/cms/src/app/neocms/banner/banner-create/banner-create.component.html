@@ -21,9 +21,9 @@
                                 <div class="card col-md-6 m-auto fade-in shadow-sm border-light">
                                     <div class="card-body">
                                         <h5 class="card-title">Area do Banner</h5>
-                                        <select formControlName="profile" class="form-control my-3" (change)="selectionChanged($event)">
+                                        <select formControlName="area" class="form-control my-3">
                                             <option [ngValue]="null" disabled>Selecione</option>
-                                            <option *ngFor="let prf of dropdownOptions" [ngValue]="prf.nome">
+                                            <option *ngFor="let prf of dropdownOptions" [ngValue]="prf['nome']">
                                                 {{ prf.nome }}
                                             </option>
                                         </select>
@@ -52,13 +52,21 @@
                                         <small>Dimensões: 1920 x 720 px</small>
                                         <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper [imageChangedEvent]="imageChangedEvent"
-                                                [maintainAspectRatio]="true" [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="8/3"
-                                                [resizeToWidth]="1920" [cropperMinWidth]="1920" [resizeToHeight]="720"
+                                            <image-cropper 
+                                                [imageChangedEvent]="imageChangedEvent"
+                                                [maintainAspectRatio]="true" 
+                                                [containWithinAspectRatio]="false"
+                                                [autoCrop]="true" 
+                                                [onlyScaleDown]="false"
+                                                [aspectRatio]="8/3"
+                                                [resizeToWidth]="1920" 
+                                                [cropperMinWidth]="1920" 
+                                                [resizeToHeight]="720"
                                                 [cropperMinHeight]="720" format="png"
-                                                (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
-                                                (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                                                (imageCropped)="imageCropped($event)" 
+                                                (imageLoaded)="imageLoaded()"
+                                                (cropperReady)="cropperReady()" 
+                                                (loadImageFailed)="loadImageFailed()">
                                             </image-cropper>
                                         </div>
                                         <div *ngIf="croppedImage" class="shadow thumbnail-image-box">
@@ -76,13 +84,22 @@
                                         <input type="file" class="text-truncate"
                                             (change)="fileChangeEventMobile($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper [imageChangedEvent]="imageChangedEventMobile"
-                                                [maintainAspectRatio]="true" [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="4/3"
-                                                [imageFile]="bannerMobile" [resizeToWidth]="200" [cropperMinWidth]="200"
-                                                [resizeToHeight]="150" [cropperMinHeight]="150" format="png"
+                                            <image-cropper 
+                                                [imageChangedEvent]="imageChangedEventMobile"
+                                                [maintainAspectRatio]="true" 
+                                                [containWithinAspectRatio]="false"
+                                                [autoCrop]="true" 
+                                                [onlyScaleDown]="false" 
+                                                [aspectRatio]="4/3"
+                                                [imageFile]="bannerMobile" 
+                                                [resizeToWidth]="200" 
+                                                [cropperMinWidth]="200"
+                                                [resizeToHeight]="150" 
+                                                [cropperMinHeight]="150" 
+                                                format="png"
                                                 (imageCropped)="imageCroppedMobile($event)"
-                                                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                                                (imageLoaded)="imageLoaded()" 
+                                                (cropperReady)="cropperReady()"
                                                 (loadImageFailed)="loadImageFailed()">
                                             </image-cropper>
                                         </div>
@@ -140,14 +157,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Área*</label>
-                                            <input class="form-control" type="text"
-                                                placeholder="Ex: Topo (Banner da Home)" [ngValue]="bannerForm.get['area'].value">
-
-                                        </div>
-                                    </div> -->
                                     <div class="col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="my-input">Tempo de Exibição</label>

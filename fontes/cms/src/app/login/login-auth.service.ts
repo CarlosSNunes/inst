@@ -11,7 +11,7 @@ export class LoginAuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.authenticationService.retrieveToken();
-
+        debugger;
         if (currentUser) {
             this.router.navigate(['/neocms']);
         }
