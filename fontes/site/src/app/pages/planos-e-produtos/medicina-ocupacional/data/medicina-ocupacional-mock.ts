@@ -24,8 +24,8 @@ export const simpleBannerModel: SimpleBannerModel = {
 };
 
 export const eSocialSection: InfoSectionModel = new InfoSectionModel({
-    smallTitle: 'E-SOCIAL',
-    bigTitle: 'Conheça o E-Social e entenda como ele unificou todas as bases de saúde ocupacional',
+    smallTitle: 'eSOCIAL',
+    bigTitle: 'Conheça o eSocial e entenda como ele unificou todas as bases de saúde ocupacional',
     subDescriptions: [
         'O Decreto nº 8373/2014 instituiu o Sistema de Escrituração Digital das Obrigações Fiscais, Previdenciárias e Trabalhistas (eSocial). Por meio desse sistema, os empregadores passarão a comunicar ao Governo, de forma unificada, as informações relativas aos trabalhadores, como vínculos, contribuições previdenciárias, folha de pagamento, comunicações de acidente de trabalho, aviso prévio, escriturações fiscais e informações sobre o FGTS.',
         'Esse novo modelo traz outras vantagens, como: '
