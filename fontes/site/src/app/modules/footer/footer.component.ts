@@ -32,7 +32,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
         backgroundColorClass: 'navy-background-color'
     });
     isBrowser: boolean = false;
-    trustSignScript: HTMLScriptElement;
+    goDaddyScript: HTMLScriptElement;
     siteBlindadoScript: HTMLScriptElement;
     dunAndBrandstreetScript: HTMLScriptElement;
     width: number = 1400;
@@ -63,7 +63,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
         if (this.isBrowser) {
             this.setDunButton();
             this.setSiteBlindadoButton();
-            this.setTrustSignButton();
+            this.setGoDaddyButton();
         }
     }
 
@@ -81,9 +81,9 @@ export class FooterComponent implements OnInit, AfterViewInit {
                 this.setSiteBlindadoButton();
             }
 
-            if (this.trustSignScript && !this.addedOnDesktop) {
-                this.trustSignScript.remove();
-                this.setTrustSignButton();
+            if (this.goDaddyScript && !this.addedOnDesktop) {
+                this.goDaddyScript.remove();
+                this.setGoDaddyButton();
             }
 
             if (this.dunAndBrandstreetScript && !this.addedOnDesktop) {
@@ -98,9 +98,9 @@ export class FooterComponent implements OnInit, AfterViewInit {
                 this.setSiteBlindadoButton();
             }
 
-            if (this.trustSignScript && !this.addedOnMobile) {
-                this.trustSignScript.remove();
-                this.setTrustSignButton();
+            if (this.goDaddyScript && !this.addedOnMobile) {
+                this.goDaddyScript.remove();
+                this.setGoDaddyButton();
             }
 
             if (this.dunAndBrandstreetScript && !this.addedOnMobile) {
@@ -117,17 +117,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
         // this.dunAndBrandstreetScript.setAttribute('language', 'JavaScript');
         // this.dunAndBrandstreetScript.src = 'https://dunsregistered.dnb.com';
         // this.dunAndBrandstreetScript.type = 'text/javascript';
-
-        // this.dunAndBrandstreetScript = this.document.createElement('script') as HTMLScriptElement;
-        // this.dunAndBrandstreetScript.async = true;
-        // this.dunAndBrandstreetScript.src = 'https://seal.godaddy.com/getSeal?sealID=bk4Lqe58bWynxrJ2iysC5AWayBzBtXRJoE90dFcCyxOyDGbNFBjXOO9uJBvR';
-        // this.dunAndBrandstreetScript.type = 'text/javascript';
-
-        // const element = this.elementRef.nativeElement.querySelector('#siteseal')
-
-        // if (element) {
-        //     element.appendChild(this.dunAndBrandstreetScript)
-        // }
     }
 
     setSiteBlindadoButton() {
@@ -137,11 +126,17 @@ export class FooterComponent implements OnInit, AfterViewInit {
         this.document.body.appendChild(this.siteBlindadoScript);
     }
 
-    setTrustSignButton() {
-        this.trustSignScript = this.document.createElement('script') as HTMLScriptElement;
-        this.trustSignScript.src = '//s3-sa-east-1.amazonaws.com/selo.trustsign.com/ssltrust.js';
-        this.trustSignScript.type = 'text/javascript';
-        this.document.body.appendChild(this.trustSignScript);
+    setGoDaddyButton() {
+        this.goDaddyScript = this.document.createElement('script') as HTMLScriptElement;
+        this.goDaddyScript.async = true;
+        this.goDaddyScript.src = 'https://seal.godaddy.com/getSeal?sealID=bk4Lqe58bWynxrJ2iysC5AWayBzBtXRJoE90dFcCyxOyDGbNFBjXOO9uJBvR';
+        this.goDaddyScript.type = 'text/javascript';
+
+        const element = this.elementRef.nativeElement.querySelector('#siteseal')
+
+        if (element) {
+            element.appendChild(this.goDaddyScript)
+        }
     }
 
     openSimulator() {
