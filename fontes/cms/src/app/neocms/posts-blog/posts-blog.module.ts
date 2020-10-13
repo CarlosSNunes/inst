@@ -20,7 +20,6 @@ import { PostsBlogDeleteComponent } from './posts-blog-delete/posts-blog-delete.
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownConfig, BsDropdownDirective, BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -55,7 +54,6 @@ defineLocale('pt-br', ptBrLocale);
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    SelectDropDownModule,
     PaginationModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
