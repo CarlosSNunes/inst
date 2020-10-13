@@ -113,6 +113,9 @@
         }
     }
 }
+.esocial{
+    ::ng-deep .small-title{text-transform: none;}
+}
 
 @media (max-width: 1200px) {
     .extra-content {
