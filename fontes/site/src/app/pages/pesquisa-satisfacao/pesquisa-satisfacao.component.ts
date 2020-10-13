@@ -1,41 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbModel, SimpleBannerModel } from 'src/app/models';
-import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
-import { FormControlError } from 'src/utils/form-control-error';
-import Materias from './data/materials';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
+import { FormControlError } from 'src/utils/form-control-error';
+import { simpleBannerModel, materiais } from './data/mock';
 import { remove } from 'remove-accents';
 
 @Component({
-    selector: 'app-documentos',
-    templateUrl: './materiais.component.html',
-    styleUrls: ['./materiais.component.scss']
+  selector: 'app-pesquisa-satisfacao',
+  templateUrl: './pesquisa-satisfacao.component.html',
+  styleUrls: ['./pesquisa-satisfacao.component.scss']
 })
-export class MateriaisComponent implements OnInit {
-    simpleBannerModel: SimpleBannerModel = {
-        title: 'Biblioteca de documentos: encontre todos os nossos arquivos disponíveis',
-        description: 'Todos os Materiais de Saúde divulgados pela Care Plus estão aqui, reunidos em um só lugar',
-        breadcrumbs: [
-            new BreadcrumbModel({
-                name: 'Home',
-                link: '/'
-            }),
-            new BreadcrumbModel({
-                name: 'A Care Plus',
-                link: '/a-careplus'
-            }),
-            new BreadcrumbModel({
-                name: 'Materiais de Saúde',
-                link: '/a-careplus/materiais-de-saude',
-                active: true
-            })
-        ],
-        hasAnchor: false,
-        hasFilters: true,
-        image: 'assets/img/banner-documentos.jpg'
-    };
+export class PesquisaSatisfacaoComponent implements OnInit {
+    simpleBannerModel = simpleBannerModel;
     filterForm: FormGroup;
-    documents = Materias;
+    documents = materiais;
     documentsFiltered = this.documents;
 
     constructor(
@@ -83,11 +61,11 @@ export class MateriaisComponent implements OnInit {
         return this.filterForm.controls;
     }
 
-    setSEOInfos() {
-        this.title.setTitle('Materiais de Saúde | ANS, Comunicados e Materiais de Apoio | Care Plus');
+    private setSEOInfos() {
+        this.title.setTitle('Pesquisa de Satisfação | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Disponibilizamos uma biblioteca de documentos onde você encontra todos os materiais de saúde e da ANS oferecidos pela Care Plus para os seus parceiros.'
+            content: 'Encontre aqui os resultados da nossa Pesquisa de Satisfação com nossos Beneficiários.'
         });
     }
 

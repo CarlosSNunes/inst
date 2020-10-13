@@ -231,6 +231,7 @@
             p {
                 width: 100%;
                 flex: 0 0 100%;
+                margin-bottom: 31px;
             }
             a {
                 align-self: center;
@@ -238,6 +239,7 @@
                 margin-left: 6px;
                 margin-right: 6px;
                 line-height: 100%;
+                height: 36.44px;
                 &:nth-child(2) {
                     margin-left: 0;
                 }
@@ -254,6 +256,11 @@
             display: flex;
             flex-wrap: wrap;
             align-self: flex-end;
+            p {
+                width: 100%;
+                flex: 0 0 100%;
+                margin-bottom: 48px;
+            }
             a {
                 margin: 0;
                 margin-left: 0 !important;
@@ -276,24 +283,33 @@
             align-self: flex-end;
             display: flex;
             flex-wrap: wrap;
+            p {
+                width: 100%;
+                flex: 0 0 100%;
+            }
             a {
                 align-self: center;
-                margin-right: 12.5px;
-                margin-left: 12.5px;
-                display: inline-block;
+                display: block;
                 line-height: 100%;
+                cursor: initial;
                 &:first-child {
-                    margin-left: 0;
                     img {
                         width: 138px;
                     }
                 }
-                &:last-child {
-                    margin-right: 0;
-                    img {
-                        width: 111px;
-                        margin-top: 10px;
-                    }
+                &.btn-ans {
+                    border-top: groove 2px getColor(_bupa, _white);
+                    border-left: groove 2px getColor(_bupa, _white);
+                    border-bottom: ridge 2px getColor(_bupa, _white);
+                    border-right: ridge 2px getColor(_bupa, _white);
+                    display: inline-block;
+                    padding: 3px 20px;
+                    background: #616161;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: getColor(_bupa, _white);
+                    font-size: 11px;
+                    margin-top: 10px;
                 }
             }
         }
@@ -388,6 +404,25 @@
                         margin-left: 10px;
                     }
                     &:last-child {
+                        margin-right: 10px;
+                    }
+                }
+
+                a {
+                    &.btn-ans {
+                        border-top: groove 2px getColor(_bupa, _white);
+                        border-left: groove 2px getColor(_bupa, _white);
+                        border-bottom: ridge 2px getColor(_bupa, _white);
+                        border-right: ridge 2px getColor(_bupa, _white);
+                        display: table;
+                        padding: 3px 20px;
+                        background: #616161;
+                        text-align: center;
+                        text-transform: uppercase;
+                        color: getColor(_bupa, _white);
+                        font-size: 11px;
+                        margin-top: 5px;
+                        margin-left: 10px;
                         margin-right: 10px;
                     }
                 }
