@@ -51,8 +51,8 @@ export class PostsBlogComponent implements OnInit {
   ngOnInit() {
     //this.usuario = this.authenticationService.state;
     
-    this.usuario.perfil.forEach(perfil => {
-        if(perfil.descricao == 'Editor' || perfil.descricao == 'Administrador')
+    this.usuario.usuarioPerfil.forEach(perfil => {
+        if(perfil == 'Editor' || perfil == 'Administrador')
         {
           this.podeEscrever = true;
         }

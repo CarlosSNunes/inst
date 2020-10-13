@@ -12,6 +12,8 @@ import { HttpHandlerService } from './http-handler/http-handler.service';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -30,10 +32,6 @@ const ngWizardConfig: NgWizardConfig = {
     NeocmsMenuLateralModule,
     ErrorHandlerModule,
     NgWizardModule.forRoot(ngWizardConfig),
-    
-    PopoverModule.forRoot(),
-    TooltipModule.forRoot(),
-    SelectDropDownModule,
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BrowserAnimationsModule,
