@@ -1,15 +1,35 @@
-<div class="card">
+<style type="css/text">
+    div.card.m-5.position-fixed.shadow {
+        z-index: 99999 !important;
+        right: 0 !important;
+        padding: 20px !important;
+        overflow:auto;
+        width:300px
+    }
+</style>
+<div class="card shadow my-2" id="card-header">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-10">
+                <a [routerLink]="['/neocms/posts-blog/index']">
+                    <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+                    <span class="title-banner">Tags</span>
+                </a>
+            </div>
+            <div style="align-content: flex-end;">
+                <button class="btn btn-primary is-primary" type="button" 
+                routerLink="/neocms/posts-blog/tag/create" routerLinkActive="active">
+                    Criar Nova Tag &nbsp;
+                    <fa-icon [icon]="faPlus"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow">
     <div class="card-content">
         <div class="content">
-            <section class="hero is-dark is-small">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Tags
-                        </h1>
-                    </div>
-                </div>
-            </section>
             <table id="tagTable" class="table">
                 <caption></caption>
                 <thead>
@@ -32,7 +52,7 @@
                         <td>{{tag.id}}</td>
                         <td>{{tag.descricao}}</td>
                         <td>
-                            <a [routerLink]="['/neocms/noticia/tag', tag.id]" routerLinkActive="active">
+                            <a [routerLink]="['/neocms/posts-blog/tag', tag.id]" routerLinkActive="active">
                                 <fa-icon [icon]="faPencilAlt"></fa-icon>
                             </a>
                             &nbsp;
@@ -45,12 +65,12 @@
             </table>
         </div>
     </div>
-    <footer class="card-footer">
-        <a routerLink="/neocms/noticia/tag/create" routerLinkActive="active" class="card-footer-item">
+    <!-- <footer class="card-footer">
+        <a routerLink="/neocms/posts-blog/tag/create" routerLinkActive="active" class="card-footer-item">
             Criar novas tags &nbsp;
             <fa-icon [icon]="faPlus"></fa-icon>
         </a>
-    </footer>
+    </footer> -->
 </div>
 
 <app-tag-delete *ngIf="showTagDelete" [tag]="tag" (onClose)="getTags()"></app-tag-delete>

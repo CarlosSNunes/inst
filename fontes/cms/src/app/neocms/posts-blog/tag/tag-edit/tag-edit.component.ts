@@ -76,7 +76,7 @@ export class TagEditComponent implements OnInit {
 
       this.tagService.put(tagsToUpdate)
         .subscribe(() =>
-          this.router.navigate(['/neocms/noticia/tag'])
+          this.router.navigate(['/neocms/posts-blog/tag'])
         );
     }
   }

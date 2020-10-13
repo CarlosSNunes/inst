@@ -1,6 +1,110 @@
-.a{
-    color: #073457 !important;
+@import './../../../assets/sass/animations.scss';
+
+img.arrow-return {
+  width   : 35px;
+  position: absolute;
+  left    : 15px;
+  top     : 0px;
 }
+
+h4.card-title {
+  padding    : 2px 0px 0px 40px;
+  font-weight: 600;
+}
+
+div.card.card-bg {
+  background-color: #f9f9f9;
+  box-shadow      : inset 0px 0px 20px 0px rgb(0 0 0 / 16%)
+}
+
+
+.media-upload-box {
+  width          : 500px;
+  height         : 200px;
+  background     : #ffffff;
+  align-items    : center;
+  display        : flex;
+  flex-direction : row;
+  flex-wrap      : wrap;
+  justify-content: center;
+}
+
+img.icon-upload {
+  width: 30px;
+}
+
+span.label-dimension {
+  position   : relative;
+  font-weight: 700;
+  display    : flex;
+  width      : 100%;
+}
+
+
+span.title-banner {
+  position   : absolute;
+  left       : 60px;
+  top        : 0px;
+  color      : #073457;
+  font-weight: bolder;
+  font-size  : 20px;
+}
+
+div#card-header {
+  height: 75px;
+}
+
+#cardAread {
+  animation : fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  transition: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+
+div#cardWizardArea {
+  min-height: 100%;
+  position  : absolute;
+  right     : 0;
+  left      : 0;
+  bottom    : 0px;
+  top       : 94px;
+  width     : auto;
+  height    : fit-content;
+}
+
+img.thumbnail-image {
+  width  : 100%;
+  padding: 10px;
+}
+
+div.shadow.thumbnail-image-box {
+  margin: 60px 0 0 0;
+}
+
+h4.titulo-visualizacao {
+  padding       : 10px 10px 0px 10px !important;
+  text-transform: capitalize;
+}
+
+img.thumbnail-image-mobile {
+  width: 100%;
+  padding: 10px;
+}
+
+div.shadow.thumbnail-image-box-mobile {
+  margin: 60px auto;
+  width: 75%;
+}
+h4.titulo-visualizacao-mobile {
+  padding       : 10px 10px 0px 10px !important;
+  text-transform: capitalize;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.10rem;
+}
+
 
 .marging-box{
     margin-top: 55px;

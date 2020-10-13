@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import * as BulmaCalendar from 'src/assets/js/bulma-calendar';
+import { faTimes, faCheck, faUpload, faPlus, faCog, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
@@ -15,6 +14,8 @@ import { TagModel } from 'src/models/tag/tag.model';
 import { TagService } from '../tag/tag.service';
 import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
 import { PostBlogUpdateModel } from 'src/models/posts-blog/posts-blog-update-model';
+import { DatePipe, formatCurrency, formatDate } from '@angular/common';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-posts-blog-edit',
@@ -28,20 +29,8 @@ export class PostsBlogEditComponent implements OnInit {
   faCheck = faCheck;
   faUpload = faUpload;
   faPlus = faPlus;
-  optionsDate = {
-    type: 'date',
-    dateFormat: 'DD/MM/YYYY',
-    displayMode: 'default',
-    lang: 'pt',
-    cancelLabel: 'Cancelar',
-    clearLabel: 'Limpar',
-    todayLabel: 'Hoje',
-    nowLabel: 'Agora',
-    validateLabel: 'Validar',
-    minDate: new Date(),
-    startDate: new Date(),
-    color: 'dark'
-  };
+  faCog = faCog;
+  faArrowCircleLeft = faArrowCircleLeft;
   postsBlog: PostsBlogModel[] = [];
   tags: TagModel[] = [];
   categorias: CategoriasModel[] = [];
@@ -59,6 +48,16 @@ export class PostsBlogEditComponent implements OnInit {
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
 
+  //*Configuração 'ngx-select-dropdown'
+  // configSelect = {
+  //   displayKey: "descricao",      /** se a matriz de objetos passou a chave a ser exibida, o padrão é: @description */
+  //   search: false,           /** true/false para a funcionalidade de pesquisa padronizada para: @false */
+  //   height: 'auto',          /** altura da lista, para ela mostrar uma rolagem, o padrão é: @auto */
+  //   placeholder: 'Selecione uma categoria...',/** texto a ser exibido quando nenhum item é selecionado, o padrão é @Select */
+  //   moreText: 'mais',        /** texto a ser exibido quando mais de um item for selecionado, o padrão é @More */
+  // }
+
+
   constructor(
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
@@ -67,9 +66,12 @@ export class PostsBlogEditComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
+    private datepipe: DatePipe,
+    private localeService: BsLocaleService
   ) { }
 
   ngOnInit() {
+    this.localeService.use('pt-br')
     this.user = this.authenticateService.state;
     this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
     this.tagService.getAll().subscribe(tags => this.tags = tags);
@@ -103,19 +105,16 @@ export class PostsBlogEditComponent implements OnInit {
       .getById(id)
       .subscribe(postBlog => {
         this.postBlog = postBlog;
-        this.arquivoNome = postBlog.nomeImagem;
+        this.previewUrl = postBlog.caminhoImagem + postBlog.nomeImagem;
         
-
-        // this.optionsDate.startDate = new Date(postBlog.dataPublicacao);
-        // BulmaCalendar.attach('#dataPublicacao', this.optionsDate);
         const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-        dataPublicacaoElement.value = postBlog.dataPublicacao;
+        dataPublicacaoElement.value =  this.datepipe.transform(postBlog.dataPublicacao, 'dd/MM/yyyy', this.localeService.currentLocale);
 
-        // this.optionsDate.startDate = postBlog.dataExpiracao ? new Date(postBlog.dataExpiracao) : null;
-        // BulmaCalendar.attach('#dataExpiracao', this.optionsDate);
         const dataPExpiracaoElement: any = document.querySelector('#dataExpiracao');
-        dataPExpiracaoElement.value = new Date(postBlog.dataExpiracao);
+        dataPExpiracaoElement.value = this.datepipe.transform(postBlog.dataExpiracao, 'dd/MM/yyyy', '');
 
+        this.changeStatusPost(this.postBlog.ativo, this.postBlog.ativo == '1' ? true : false);
+        this.changeStatusDestaque(this.postBlog.destaque, this.postBlog.destaque == '1' ? true : false);
         this.updateForm(this.postBlog);
       });
   }
@@ -130,12 +129,19 @@ export class PostsBlogEditComponent implements OnInit {
   getCategorias() {
     this.categoriasService.getAll().subscribe(categorias => {
       this.categorias = categorias;
-      //this.getPost();
     });
   }
 
+  changeCategoria(categoria) {
+    if(categoria.value == 'Administrar' ){
+       this.router.navigate(['/neocms/posts-blog/categorias/index']);
+    }
+   }
+
   createForm() {
+
     this.postsBlogForm = this.fb.group({
+      id:[''],
       titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
@@ -146,17 +152,18 @@ export class PostsBlogEditComponent implements OnInit {
       tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
       descricaoPaginaSEO : ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
       categoriaId: ['', Validators.required],
-      postTag: this.fb.array([], [Validators.required]), 
+      postTag: this.fb.array([]), 
       descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
       arquivo: ['']
     });
 
-    this.getTags();
+    //this.getTags();
     this.getCategorias();
   }
 
   updateForm(postBlog: PostsBlogModel) {
     this.postsBlogForm = this.fb.group({
+      id: [postBlog.id],
       titulo: [postBlog.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       subtitulo: [postBlog.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       descricaoPrevia: [postBlog.descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
@@ -167,16 +174,17 @@ export class PostsBlogEditComponent implements OnInit {
       tituloPaginaSEO: [postBlog.tituloPaginaSEO],
       descricaoPaginaSEO : [postBlog.descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
       categoriaId: [postBlog.categoriaId, Validators.required],
-      postTag: this.fb.array([], [Validators.required]), 
+      postTag: this.fb.array(postBlog.postTag), 
       descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
-      arquivo: ['']
+      arquivo: [''],
+      caminhoImagem: [''],
+      nomeImagem: ['']
     });
 
-    this.getTags();
   }
 
   updateTags() {
-    this.postBlog.postsTag.forEach(tag => {
+    this.postBlog.postTag.forEach(tag => {
       this.toggleTag(tag);
     });
   }
@@ -213,24 +221,31 @@ export class PostsBlogEditComponent implements OnInit {
 
   onSubmit() {
     const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-    const dataPublicacao: Date = dataPublicacaoElement.bulmaCalendar.date.start;
+    const dataPublicacao: Date = dataPublicacaoElement.value;
 
     this.validateDate(dataPublicacao);
 
     this.submitted = true;
     if (this.postsBlogForm.valid) {
       const dataExpiracaoElement: any = document.querySelector('#dataExpiracao');
-
-      const dataExpiracao: Date = dataExpiracaoElement.bulmaCalendar.date.start;
-      this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao.toISOString());
+      const dataExpiracao: Date = dataExpiracaoElement.value;
+      this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao);
 
       if (dataExpiracao) {
-        this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao.toISOString());
+        this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao);
       } else {
         this.postsBlogForm.controls.dataExpiracao.setValue('');
       }
 
-      this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
+      if(this.arquivo != undefined){
+        this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
+      }
+      else{
+        this.postsBlogForm.controls.arquivo.setValue([]);
+      }
+      this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
+      this.postsBlogForm.controls.caminhoImagem.setValue('http://www.careplus.com.br/assets/img/');
+
       const model = new PostBlogUpdateModel(this.postsBlogForm.value);
       this.postsBlogService.put(model)
         .subscribe(() =>
@@ -270,7 +285,7 @@ export class PostsBlogEditComponent implements OnInit {
   }
 
   validateDate(data: Date) {
-    if (data) {
+    if (!data) {
       this.f.dataPublicacao.setErrors(null);
     }
   }

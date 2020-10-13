@@ -76,8 +76,8 @@ namespace CarePlusAPI
                         int userId = int.Parse(context.Principal.Identity.Name);
                         HttpUser.UsuarioId = userId;
 
-                        if (!userService.Validar(userId))
-                            context.Fail("Unauthorized");
+                        //if (!userService.Validar(userId))
+                        //    context.Fail("Unauthorized");
 
                         return Task.CompletedTask;
                     }

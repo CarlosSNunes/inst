@@ -9,10 +9,16 @@ import { NeocmsFooterModule } from './neocms/neocms-footer/neocms-footer.module'
 import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-menu-lateral.module';
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { PostsBlogModule } from './neocms/posts-blog/posts-blog.module';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PostsBlogDeleteComponent } from './neocms/posts-blog/posts-blog-delete/posts-blog-delete.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
@@ -23,6 +29,9 @@ const ngWizardConfig: NgWizardConfig = {
   declarations: [
     AppComponent,
   ],
+  entryComponents:[
+    PostsBlogDeleteComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,13 +40,19 @@ const ngWizardConfig: NgWizardConfig = {
     NeocmsFooterModule,
     NeocmsMenuLateralModule,
     ErrorHandlerModule,
+    HttpClientModule,
     NgWizardModule.forRoot(ngWizardConfig),
+    
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule,
+    PostsBlogModule,
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   providers: [
+    BsModalRef,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -7,6 +7,7 @@ import { PostsBlogRoutingModule } from './posts-blog-routing.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { MaisLidosModule } from './mais-lidos/mais-lidos.module';
 import { TagModule } from './tag/tag.module';
+
 
 import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
 import { PostsBlogService } from './posts-blog.service';
@@ -24,7 +25,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -35,6 +37,9 @@ defineLocale('pt-br', ptBrLocale);
     PostsBlogEditComponent,
     PostsBlogDeleteComponent,
 
+  ],
+  entryComponents:[
+    PostsBlogDeleteComponent
   ],
   imports: [
     PostsBlogRoutingModule,
@@ -49,11 +54,15 @@ defineLocale('pt-br', ptBrLocale);
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
     ModalModule.forRoot(),
   ],
   providers: [
     PostsBlogService,
     AuthenticationService,
+    BsModalRef,
+    DatePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,
