@@ -13,9 +13,7 @@ import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-men
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
-
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -24,7 +22,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { PostsBlogModule } from './neocms/posts-blog/posts-blog.module';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PostsBlogDeleteComponent } from './neocms/posts-blog/posts-blog-delete/posts-blog-delete.component';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -33,6 +34,9 @@ const ngWizardConfig: NgWizardConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+  ],
+  entryComponents:[
+    PostsBlogDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +55,13 @@ const ngWizardConfig: NgWizardConfig = {
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BrowserAnimationsModule,
-    
+    PostsBlogModule,
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   providers: [
+    BsModalRef,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,

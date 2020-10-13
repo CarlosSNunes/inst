@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -22,13 +22,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownConfig, BsDropdownDirective, BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
+defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
   declarations: [
     PostsBlogComponent,
     PostsBlogCreateComponent,
     PostsBlogEditComponent,
+    PostsBlogDeleteComponent,
+
+  ],
+  entryComponents:[
     PostsBlogDeleteComponent
   ],
   imports: [
@@ -42,11 +53,18 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     MaisLidosModule,
     TagModule,
     TabsModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    SelectDropDownModule,
+    PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   providers: [
     PostsBlogService,
     AuthenticationService,
+    BsModalRef,
+    DatePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,

@@ -4,10 +4,10 @@ export class PostsBlogModel {
     public constructor(init?: Partial<PostsBlogModel>) {
         Object.assign(this, init); 
         
-        this.postsTag = [];
+        this.postTag = [];
 
         if (init) {
-            init.postsTag.forEach(tag => this.postsTag.push(new TagModel(tag)));
+            init.postTag.forEach(tag => this.postTag.push(new TagModel(tag)));
         }
     }
 
@@ -28,5 +28,5 @@ export class PostsBlogModel {
     descricaoPaginaSEO: string;
     categoriaId: number;
 
-    postsTag: TagModel[];
+    postTag: TagModel[];
 }

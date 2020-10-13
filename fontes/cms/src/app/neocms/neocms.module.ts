@@ -14,19 +14,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PostsBlogModule } from './posts-blog/posts-blog.module';
 import { PostsBlogComponent } from './posts-blog/posts-blog.component';
+import { PostsBlogDeleteComponent } from './posts-blog/posts-blog-delete/posts-blog-delete.component';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     NeocmsComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     NeocmsRoutingModule,
     CommonModule,
     FontAwesomeModule,
+    PostsBlogModule
    
   ],
   providers: [
+    
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,

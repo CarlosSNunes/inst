@@ -45,17 +45,17 @@
                 <h5 class="card-title-post title-color">
                     Posts mais lidos no Blog</h5>
                 <div class="d-flex justify-content-start" style="margin-top: 80px;">
-                    <ul class="list-group list-group-flush" style="line-height: 1.0ch;">
-                        <li class="list-group-item title-color list-group-item-action"
+                    <ul class="list-group list-group-flush" style="line-height: 2.0ch; max-width: 300px;">
+                        <li class="list-group-item title-color list-group-item-action" role="button"
                             *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
                             {{post.id}}- {{post.titulo}}</li>
                     </ul>
-                    <div class="d-flex justify-content-end" class="post" >
-                        <div class="card" style="width:inherit">
-                            <img class="card-img-top" src="{{postSelecionado? postSelecionado.imagem : ''}}" alt="">
-                            <div class="card-body post-title" >
-                                <h5 class="card-color ">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
-                                <p class="card-text">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
+                    <div class="d-flex justify-content-end" class="post ml-9" style="width: 600px; margin-left: 130px; z-index: 2;"  >
+                        <div class="card" style="width:inherit; height: 350px;">
+                            <img class="card-img-top" style="height: inherit;" src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
+                            <div class="card-body" >
+                                <h5 class="card-color title-color">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
+                                <p class="card-text title-color">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
                                 <!-- <a *ngIf="postSelecionado !== null" href="#" class="btn btn-primary">Ir para o Post</a> -->
                             </div>
                         </div>
