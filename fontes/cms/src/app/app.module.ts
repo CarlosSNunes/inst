@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -42,12 +44,14 @@ const ngWizardConfig: NgWizardConfig = {
     ErrorHandlerModule,
     HttpClientModule,
     NgWizardModule.forRoot(ngWizardConfig),
-    BrowserAnimationsModule,
-    ButtonsModule.forRoot(),
+    
     PopoverModule.forRoot(),
     TooltipModule.forRoot(),
     SelectDropDownModule,
     TabsModule.forRoot(),
+    ButtonsModule.forRoot(),
+    BrowserAnimationsModule,
+    
   ],
   providers: [
     {
