@@ -292,7 +292,9 @@
                 display: block;
                 line-height: 100%;
                 cursor: initial;
-                &:first-child {
+                &:not(.btn-ans) {
+                    width: 100%;
+                    flex: 0 0 100%;
                     img {
                         width: 138px;
                     }
