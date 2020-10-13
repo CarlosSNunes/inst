@@ -19,6 +19,7 @@ import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
 import { join } from 'path';
+import https from 'https';
 
 // Express server
 const app = express();
@@ -57,7 +58,7 @@ function getMockMutationObserver() {
 }
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap } = require('./dist/server/main');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap, env } = require('./dist/server/main');
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -83,6 +84,14 @@ app.get('*', (req, res) => {
 });
 
 // Start up the Node server
-app.listen(PORT, () => {
-    console.log(`Node Express server listening on http://localhost:${PORT}`);
-});
+if (env.production) {
+    https.createServer({
+        key: fs.readFileSync(env.CERT_PATH.key),
+        cert: fs.readFileSync(env.CERT_PATH.cert),
+        ca: fs.readFileSync(env.CERT_PATH.ca),
+    }, app).listen(443);
+} else {
+    app.listen(PORT, () => {
+        console.log(`Node Express server listening on http://localhost:${PORT}`);
+    });
+}
