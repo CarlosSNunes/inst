@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <h1 class="title">Categorias</h1>
                 <a routerLink="/neocms/posts-blog/categorias/create" routerLinkActive="active"
-                    class="badge badge-dark shadow-sm p-3">
+                    class="badge badge-dark p-3">
                     Nova Categoria
                 </a>
                 <table id="bannerTable" class="table table-hover">
@@ -23,14 +23,14 @@
                             Não há banners cadastrados
                         </td>
                         <tr *ngFor="let categoria of categorias" class="table-cell text-center">
-                                                       
+
                             <td class="py-3 align-middle text-center">
                                 <span class="p-2">{{categoria.titulo}}</span>
                             </td>
                             <td class="py-3 align-middle text-center">
                                 <span class="p-2">{{categoria.descricao}}</span>
                             </td>
-                           
+
 
                             <td class="py-3 align-middle text-center">
                                 <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', categoria.id]" routerLinkActive="active">

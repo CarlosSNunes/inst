@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ClassHelper } from 'src/utils/class-helper';
-import { BannerModel } from 'src/models/banner/banner.model';
-import { BannerCreateModel } from 'src/models/banner/banner-create.model';
-import { BannerUpdateModel } from 'src/models/banner/banner-update.model';
+import { ClassHelper } from './../../../../src/utils/class-helper';
+import { BannerModel } from './../../../../src/models/banner/banner.model';
+import { BannerCreateModel } from './../../../../src/models/banner/banner-create.model';
+import { BannerUpdateModel } from './../../../../src/models/banner/banner-update.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/authentication/auth.service';
+import { AuthGuard } from './../../../../src/app/authentication/auth.service';
 import { CareplusPerfilComponent } from './careplus-perfil.component';
 import { CareplusPerfilCreateComponent } from './careplus-perfil-create/careplus-perfil-create.component';
 import { CareplusPerfilEditComponent } from './careplus-perfil-edit/careplus-perfil-edit.component';
@@ -32,4 +32,5 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
+
 export class CareplusPerfilRoutingModule { }

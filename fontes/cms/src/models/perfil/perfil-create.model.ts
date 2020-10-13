@@ -1,8 +1,7 @@
 export class PerfilCreateModel {
   public constructor(init?: Partial<PerfilCreateModel>) {
-      Object.assign(this, init);
+    Object.assign(this, init);
   }
-
-  id       : number;
+  id: number;
   descricao: string;
 }

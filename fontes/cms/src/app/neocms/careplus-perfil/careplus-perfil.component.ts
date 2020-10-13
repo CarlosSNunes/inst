@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CareplusPerfilModel } from 'src/models/careplus-perfil/careplus-perfil.model';
+import { CareplusPerfilModel } from './../../../../src/models/careplus-perfil/careplus-perfil.model';
 import { faPencilAlt, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { CareplusPerfilService } from './careplus-perfil.service';
 import { throwError } from 'rxjs';

@@ -15,9 +15,28 @@ import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
   templateUrl: './banner-create.component.html',
   styleUrls: ['./banner-create.component.scss'],
 })
-export class BannerCreateComponent implements OnInit {
-  bannerForm;
 
+
+export class BannerCreateComponent implements OnInit {
+
+  // ?--------- Configuração 'ng-wizard' ---------
+  configBannerWin: NgWizardConfig = {
+    selected: 0,
+    theme: THEME.dots,
+    lang: { next: '🠞', previous: '🠜' }
+  };
+  ngWizardService: any;
+
+  // ?--------- Configuração 'DropDown' ---------
+  dropdownOptions = [
+    { nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
+    { nome: 'Home RH', descricao: 'Banner da home do RH' },
+    { nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
+    { nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
+    { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
+  ];
+
+  bannerForm;
   faSearch = faSearch;
   faPhotoVideo = faPhotoVideo;
   imageChangedEvent: any;
@@ -39,30 +58,6 @@ export class BannerCreateComponent implements OnInit {
   isLinkExternoSelected = false;
   btnSubmitDisable = false;
   isBannerAtivo = false;
-
-  //*Configuração 'ng-wizard'
-  configBannerWin: NgWizardConfig = {
-    selected: 0,
-    theme: THEME.dots,
-    lang: { next: '🠞', previous: '🠜' }
-  };
-  ngWizardService: any;
-
-  //*Configuração 'ngx-select-dropdown'
-  config = {
-    displayKey: "nome",
-    search: false,
-    height: 'auto',
-    placeholder: 'Selecione'
-  }
-
-  dropdownOptions = [
-    { nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
-    { nome: 'Home RH', descricao: 'Banner da home do RH' },
-    { nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
-    { nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
-    { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
-  ];
   areaSelectedObject: [{ nome: string, descricao: string }];
   areaNome: any;
   areaDescricao: any;
@@ -79,6 +74,7 @@ export class BannerCreateComponent implements OnInit {
   FileTypeMobile: any;
   FileType: any;
 
+
   constructor(
     private bannerService: BannerService,
     private fb: FormBuilder,
@@ -86,17 +82,16 @@ export class BannerCreateComponent implements OnInit {
     private authenticateService: AuthenticationService,
   ) {
   }
-  onResize(): void {
-
-  }
-
 
   ngOnInit() {
     this.usuario = this.authenticateService.state;
     this.createForm();
-
   }
 
+  /**
+   * @description: Criação do FormGroup
+   * @memberOf BannerCreateComponent
+   */
   createForm() {
     this.bannerForm = this.fb.group({
       nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
@@ -107,9 +102,9 @@ export class BannerCreateComponent implements OnInit {
       descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
       linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      arquivo: ['', [Validators.required],],
-      arquivoMobile: ['', [Validators.required],],
+      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      arquivo: ['', [Validators.required]],
+      arquivoMobile: ['', [Validators.required]],
     });
   }
 
@@ -119,8 +114,6 @@ export class BannerCreateComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
-
     if (this.bannerForm.valid) {
       this.btnSubmitDisable = true;
       const model = new BannerCreateModel(this.bannerForm.value);
@@ -138,11 +131,9 @@ export class BannerCreateComponent implements OnInit {
   }
 
   changeStatusBanner(value: string, selected: boolean) {
-
     this.f.ativo.setValue(value);
     this.isBannerAtivo = selected;
   }
-
 
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
@@ -157,61 +148,69 @@ export class BannerCreateComponent implements OnInit {
   }
 
   /**
-   ** Usando o 'ngx-image-cropper'
-   *  Quando você escolhe um arquivo da entrada do arquivo, ele será acionado @fileChangeEvent 
-   *  Esse evento é então passado para o cortador de imagens, por meio do @imageChangedEvent qual 
-   *  carregará a imagem no cortador. Sempre que você soltar o mouse, o @imageCropped evento será 
+   * *Usando o 'ngx-image-cropper'
+   *  Quando você escolhe um arquivo da entrada do arquivo, ele será acionado @fileChangeEvent
+   *  Esse evento é então passado para o cortador de imagens, por meio do @imageChangedEvent qual
+   *  carregará a imagem no cortador. Sempre que você soltar o mouse, o @imageCropped evento será
    *  disparado com a imagem cortada como uma string Base64 em sua carga útil.
    */
 
+  /**
+   * @param: {*} event
+   * @description: Metodo que captura o evento, quando escolhe um arquivo da entrada do arquivo
+   * @memberOf BannerCreateComponent
+   */
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.fileName = event.target.files[0].name;
   }
 
+  /**
+   * @param: {any} event
+   * @memberOf BannerCreateComponent
+   */
   fileChangeEventMobile(event): void {
     this.imageChangedEventMobile = event;
     console.log(this.imageChangedEventMobile.target.files[0]);
-    this.fileNameMobile = 'small-'+event.target.files[0].name;
+    this.fileNameMobile = 'small-' + event.target.files[0].name;
   }
 
+  /**
+   * @param: {any} event
+   * @memberOf BannerCreateComponent
+   */
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-    let img = base64ToFile(event.base64);
-    let contentType = 'image/png';
-    var blob = new Blob([img], { type: contentType });
-    var file = new File([blob], this.fileName, { type: contentType, lastModified: Date.now() });
+    const img = base64ToFile(event.base64);
+    const contentType = 'image/png';
+    const blob = new Blob([img], { type: contentType });
+    const file = new File([blob], this.fileName, { type: contentType, lastModified: Date.now() });
     this.bannerForm.controls.arquivo.setValue(file);
   }
 
+  /**
+   * @description Método para Converter arquivo Blob gerado no @imageCropped no tipo File
+   * @method: blobToFile
+   * @memberOf BannerCreateComponent
+   */
   imageCroppedMobile(event: ImageCroppedEvent) {
     this.croppedImageMobile = event.base64;
-    let img = base64ToFile(event.base64);
-    let contentType = 'image/png';
-    var blob = new Blob([img], { type: contentType });
-    var file = new File([blob], this.fileNameMobile, { type: contentType, lastModified: Date.now() });
+    const img = base64ToFile(event.base64);
+    const contentType = 'image/png';
+    const blob = new Blob([img], { type: contentType });
+    const file = new File([blob], this.fileNameMobile, { type: contentType, lastModified: Date.now() });
     this.bannerForm.controls.arquivoMobile.setValue(file);
-  }
-
-
-  public blobToFile = (theBlob: Blob, fileName: string): File => {
-    var b: any = theBlob;
-    b.lastModifiedDate = new Date();
-    b.name = fileName;
-    return <File>theBlob;
   }
 
   imageLoaded() {
     // show cropper
   }
+
   cropperReady() {
   }
+
   loadImageFailed() {
-    // show message
   }
-
-
-
 }
 
 
