@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BannerModel } from 'src/models/banner/banner.model';
+import { BannerModel } from './../../../../src/models/banner/banner.model';
 import { BannerService } from './banner.service';
 import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';

@@ -1,7 +1,7 @@
 import { UsuarioComponent } from './usuario.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/authentication/auth.service';
+import { AuthGuard } from './../../../../src/app/authentication/auth.service';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import { UsuarioUpdateComponent } from './usuario-update/usuario-update.component';
 

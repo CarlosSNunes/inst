@@ -3,9 +3,13 @@
 }
 
 div.container-conteudo {
+  margin: auto;
+  overflow: auto;
   position: absolute;
-  right: 30px !important;
-  left: 280px !important;
-  top: 85px !important;
-  bottom: 130px !important;
+  right: 50px;
+  top: 110px;
+  left: 300px;
+  bottom: 0px;
+  width: auto;
+  background-color: white;
 }

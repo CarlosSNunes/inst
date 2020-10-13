@@ -1,47 +1,42 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 m-auto">
-            <div class="card shadow-lg p-3 mb-5" id='cardLogin'>
-                <div class="card-body">
-                    <img class="m-auto w-100 img-logo-cms" src="assets/img/neocms-white.png" alt="NeoCMS">
-                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-5">
-                        <div class="form-group form-row">
-                            <label for="exampleInputEmail1" class="text-white">Email address</label>
-                            <input type="email" class="form-control" placeholder="Email" formControlName="email"
-                                id="exampleInputEmail1" aria-describedby="emailHelp"
-                                [ngClass]="{ 'is-success': submitted && !f.email.errors, 'is-danger' : submitted && f.email.errors || error }">
-                            <p *ngIf="submitted && f.email.errors?.required"
-                                class="form-text is-danger text-white m-0 p-0">
-                                Email é obrigatório
-                            </p>
-                            <p *ngIf="error" class="form-text text-muted is-danger">
-                                {{error.message}}
-                            </p>
-                        </div>
-                        <div class="row"></div>
-                        <div class="form-group form-row mt-3">
-                            <label for="exampleInputPassword1" class="text-white">Password</label>
-                            <input type="password" placeholder="Senha" class="form-control" id="exampleInputPassword1"
-                                formControlName="senha"
-                                [ngClass]="{ 'is-success': submitted && !f.senha.errors, 'is-danger' : submitted && f.senha.errors || error }">
-                            <p *ngIf="submitted && f.senha.errors?.required" class="help is-danger text-white m-0 p-0">
-                                Senha é obrigatória
-                            </p>
-                        </div>
-                        <div class="field">
-                            <div class="form-group">
-                            </div>
-                            <button class="btn btn-light w-100 mt-3">Entrar</button>
-                        </div>
-                        <div class="field esqueceu-senha text-center text-white">
-                            <a>Esqueceu sua senha?</a>
-                        </div>
-                    </form>
+<div class="container h-100" id="containerLogin">
+    <div class="card shadow-sm p-3 fade-in" id='cardLogin'>
+        <div class="card-body">
+            <img class="m-auto w-100 img-logo-cms" src="assets/img/neocms-white.png" alt="NeoCMS">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-5">
+                <div class="form-group form-row">
+                    <label for="exampleInputEmail1" class="text-white">Usuário</label>
+                    <input type="email" class="form-control" placeholder="Email" formControlName="email"
+                        id="exampleInputEmail1" aria-describedby="emailHelp"
+                        [ngClass]="{ 'is-success': submitted && !f.email.errors, 'is-danger' : submitted && f.email.errors || error }">
+                    <p *ngIf="submitted && f.email.errors?.required" class="form-text is-danger text-white m-0 p-0">
+                        Email é obrigatório
+                    </p>
+                    <p *ngIf="error" class="form-text text-muted is-danger">
+                        {{error.message}}
+                    </p>
                 </div>
-            </div>
-            <div class="logo-footer">
-                <img class="img-logo-careplus" src="assets/img/careplus_logo.svg" alt="NeoCMS">
-            </div>
+                <div class="row"></div>
+                <div class="form-group form-row mt-3">
+                    <label for="exampleInputPassword1" class="text-white">Senha</label>
+                    <input type="password" placeholder="Senha" class="form-control" id="exampleInputPassword1"
+                        formControlName="senha"
+                        [ngClass]="{ 'is-success': submitted && !f.senha.errors, 'is-danger' : submitted && f.senha.errors || error }">
+                    <p *ngIf="submitted && f.senha.errors?.required" class="help is-danger text-white m-0 p-0">
+                        Senha é obrigatória
+                    </p>
+                </div>
+                <div class="field">
+                    <div class="form-group">
+                    </div>
+                    <button id="btnLogin" class="btn btn-light w-100 mt-3">Entrar</button>
+                </div>
+                <!-- <div class="field esqueceu-senha text-center text-white">
+                    <a>Esqueceu sua senha?</a>
+                </div> -->
+            </form>
         </div>
     </div>
-</div>
+    <!-- <div class="logo-footer">
+        <img class="img-logo-careplus" src="assets/img/careplus_logo.svg" alt="NeoCMS">
+    </div> -->
+</div>  

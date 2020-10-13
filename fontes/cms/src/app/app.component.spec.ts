@@ -6,7 +6,7 @@ import { NeocmsHeaderModule } from './neocms/neocms-header/neocms-header.module'
 import { NeocmsFooterModule } from './neocms/neocms-footer/neocms-footer.module';
 import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-menu-lateral.module';
 import { AuthenticationService } from './authentication/authentication.service';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { UserAuthenticateModel } from './../models/user-authenticate.model';
 
 
 describe('AppComponent', () => {

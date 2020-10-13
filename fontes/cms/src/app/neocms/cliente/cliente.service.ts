@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ClassHelper } from 'src/utils/class-helper';
+import { ClassHelper } from './../../../../src/utils/class-helper';
 import { HttpClient } from '@angular/common/http';
-import { ClienteModel } from 'src/models/cliente/cliente.model';
-import { ClienteCreateModel } from 'src/models/cliente/cliente-create.model';
-import { ClienteUpdateModel } from 'src/models/cliente/cliente-update.model';
+import { ClienteModel } from './../../../models/cliente/cliente.model';
+import { ClienteCreateModel } from './../../../models/cliente/cliente-create.model';
+import { ClienteUpdateModel } from './../../../models/cliente/cliente-update.model';
 
 @Injectable({
   providedIn: 'root'

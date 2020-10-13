@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ClassHelper } from 'src/utils/class-helper';
-import { UsuarioModel } from 'src/models/usuario/usuario.model';
-import { UsuarioCreateModel } from 'src/models/usuario/usuario-create.model';
-import { UsuarioUpdateModel } from 'src/models/usuario/usuario-update.model';
+import { ClassHelper } from './../../../../src/utils/class-helper';
+import { UsuarioModel } from './../../../models/usuario/usuario.model';
+import { UsuarioCreateModel } from './../../../models/usuario/usuario-create.model';
+import { UsuarioUpdateModel } from './../../../models/usuario/usuario-update.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,9 @@ export class UsuarioService {
    * @memberOf UsuarioService
    */
   getAll() {
+    
     return this.http.get<UsuarioModel[]>(this.url);
+    
   }
   /**
    * @method GETBYID() - Método retorna usuários por id.

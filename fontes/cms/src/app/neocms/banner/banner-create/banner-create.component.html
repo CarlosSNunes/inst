@@ -1,22 +1,6 @@
-<style type="css/text">
-    div.card.m-5.position-fixed.shadow {
-        z-index: 99999 !important;
-        right: 0 !important;
-        padding: 20px !important;
-        overflow:auto;
-        width:300px
-    }
-</style>
-<!-- <div class="card position-fixed m-5 shadow">
-    <div class="card-body">
-            <pre>
-                <code>{{bannerForm.value | json}}</code>               
-            </pre>
-    </div>
-</div>  -->
 <div class="card-banner-wizard">
     <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
-        <div class="card shadow my-3" id="card-header">
+        <div class="card my-3" id="card-header">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -28,20 +12,22 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow my-3" id="cardWizardArea">
-            <div class="card-body">
-                <ng-wizard [config]="configBanner" (stepChanged)="stepChanged($event)">
+        <div class="card my-3" id="cardWizardArea">
+            <div class="card-body p-5">
+                <ng-wizard [config]="configBannerWin" (stepChanged)="stepChanged($event)">
                     <ng-wizard-step [title]="'Área'" [description]="'Escolher Área'">
                         <div class="row my-5">
                             <div class="col-md-12">
-                                <div class="card col-md-6 m-auto fade-in shadow">
+                                <div class="card col-md-6 m-auto fade-in shadow-sm border-light">
                                     <div class="card-body">
                                         <h5 class="card-title">Area do Banner</h5>
-                                        <ngx-select-dropdown tabindex="0" (change)="changeAreaBanner($event)"
-                                            [config]="configSelect" [options]="areaOptions" [multiple]="false"
-                                            value="0">
+                                        <select formControlName="area" class="form-control my-3">
+                                            <option [ngValue]="null" disabled>Selecione</option>
+                                            <option *ngFor="let prf of dropdownOptions" [ngValue]="prf['nome']">
+                                                {{ prf.nome }}
+                                            </option>
+                                        </select>
 
-                                        </ngx-select-dropdown>
                                         <input formControlName="area" type="hidden">
                                         <div class="my-2" *ngFor="let a of areaSelectedObject">
                                             <h5>Descrição: {{a.descricao }}</h5>
@@ -59,7 +45,7 @@
                     <ng-wizard-step [title]="'Imagens'" [description]="'Escolher os Banners'">
                         <div class="row">
                             <div class="col-md-12 col-lg-6 w-100 my-5 card-crop">
-                                <div class="card shadow fade-in">
+                                <div class="card shadow-sm border-light fade-in">
                                     {{nomeDaImagem}}
                                     <div class="card-body text-center m-3 card-crop">
                                         <h3>Imagem Grande</h3>
@@ -71,13 +57,12 @@
                                                 [maintainAspectRatio]="true" 
                                                 [containWithinAspectRatio]="false"
                                                 [autoCrop]="true" 
-                                                [onlyScaleDown]="false" 
+                                                [onlyScaleDown]="false"
                                                 [aspectRatio]="8/3"
                                                 [resizeToWidth]="1920" 
                                                 [cropperMinWidth]="1920" 
                                                 [resizeToHeight]="720"
-                                                [cropperMinHeight]="720" 
-                                                format="png"
+                                                [cropperMinHeight]="720" format="png"
                                                 (imageCropped)="imageCropped($event)" 
                                                 (imageLoaded)="imageLoaded()"
                                                 (cropperReady)="cropperReady()" 
@@ -92,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-lg-6 w-100 my-5">
-                                <div class="card shadow fade-in card-crop">
+                                <div class="card shadow-sm border-light fade-in">
                                     <div class="card-body text-center m-3 card-crop">
                                         <h3>Imagem Pequena</h3>
                                         <small>Dimensões: 200 x 150 px</small>
@@ -128,7 +113,7 @@
                         </div>
                     </ng-wizard-step>
                     <ng-wizard-step [title]="'Dados'" [description]="'Dados do Banners'">
-                        <div class="card container shadow fade-in">
+                        <div class="card shadow-sm border-light fade-in">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-6">
@@ -170,14 +155,6 @@
                                                 <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
                                                     {{error}}</p>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Área*</label>
-                                            <input class="form-control" type="text"
-                                                placeholder="Ex: Topo (Banner da Home)">
-
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-lg-6">

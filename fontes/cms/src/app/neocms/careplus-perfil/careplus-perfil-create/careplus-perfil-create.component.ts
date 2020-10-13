@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
 
 @Component({
   selector: 'app-careplus-perfil-create',
@@ -22,7 +23,16 @@ export class CareplusPerfilCreateComponent implements OnInit {
   submitted: boolean;
   usuario: UserAuthenticateModel;
   btnSubmitDisable = false;
-
+  //*Configuração 'ng-wizard'
+  configBanner: NgWizardConfig = {
+    toolbarSettings: {
+      showNextButton: false,
+      showPreviousButton: false,
+    },
+    selected: 0,
+    theme: THEME.dots
+  };
+  ngWizardService: any;
   constructor(
     private careplusPerfilService: CareplusPerfilService,
     private fb: FormBuilder,
@@ -76,4 +86,26 @@ export class CareplusPerfilCreateComponent implements OnInit {
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }
+
+
+  showPreviousStep(event?: Event) {
+    this.ngWizardService.previous();
+  }
+
+  showNextStep(event?: Event) {
+    this.ngWizardService.next();
+  }
+
+  resetWizard(event?: Event) {
+    this.ngWizardService.reset();
+  }
+
+  setTheme(theme: THEME) {
+    this.ngWizardService.theme(theme);
+  }
+
+  stepChanged(args: StepChangedArgs) {
+    console.log(args.step);
+  }
+
 }
