@@ -8,7 +8,7 @@ import { CareplusPerfilUpdateModel } from './../../../../src/models/careplus-per
   providedIn: 'root'
 })
 export class CareplusPerfilService {
-  private url = 'localhost:8081/Perfil';
+  private url = 'http://localhost:8081/Perfil';
 
   constructor(
     private http: HttpClient

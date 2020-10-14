@@ -9,7 +9,7 @@ import { UsuarioUpdateModel } from './../../../models/usuario/usuario-update.mod
   providedIn: 'root'
 })
 export class UsuarioService {
-  private url = 'localhost:8081/Usuario';
+  private url = 'http://localhost:8081/Usuario';
   private classHelper = ClassHelper;
 
   constructor(

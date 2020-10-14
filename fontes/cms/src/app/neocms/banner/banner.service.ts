@@ -9,7 +9,7 @@ import { BannerUpdateModel } from './../../../../src/models/banner/banner-update
   providedIn: 'root'
 })
 export class BannerService {
-  private url = 'localhost:8081/Banner';
+  private url = 'http://localhost:8081/Banner';
   private classHelper = ClassHelper;
 
   constructor(

@@ -37,7 +37,7 @@ describe('LoginService', () => {
       }
     );
 
-    const req = httpTestingController.expectOne('localhost:8081/Usuario/Autenticar');
+    const req = httpTestingController.expectOne('http://localhost:8081/Usuario/Autenticar');
 
     req.flush('404 error', { status: 404, statusText: 'Not Found' });
   });
