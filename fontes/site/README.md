@@ -116,7 +116,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 * `SELF_URL` - Url do proprio site, utilizada para setar as meta tags de redes sociais.
 * `CAREPLUS_URL` - Url do portal da Care Plus.
 * `BASE_HREF` - Url base do projeto.
-* `CERT_PATH` - Objeto com os caminhos dos arquivos necessários do certificado. (necessário somente em ambiente de produção por hora, as propriedades do objeto devem ser preenchidas com uma string vazia "").
+* `CERT_PATH` - Objeto com os caminhos dos arquivos necessários do certificado. (necessário somente em ambiente de produção por hora, em outros ambientes as propriedades do objeto devem ser preenchidas com uma string vazia "").
 * `CERT_PATH.key` - Caminho para o arquivo com extensão .key do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
 * `CERT_PATH.cert` - Caminho para o arquivo com extensão .cert do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
 * `CERT_PATH.ca` - Caminho para o arquivo com extensão .ca do certificado. (opcional,  preencher com "" quando o certificado não possuir esta informação).
