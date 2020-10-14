@@ -8,7 +8,7 @@ import { CategoriasModel } from './../../../../../src/models/categorias/categori
   providedIn: 'root'
 })
 export class CategoriasService {
-  private url = 'http://52.3.44.106:8081/Categorias';
+  private url = 'localhost:8081/Categorias';
 
 
   constructor(

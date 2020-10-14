@@ -10,7 +10,7 @@ import { PostBlogUpdateModel } from './../../../../src/models/posts-blog/posts-b
   providedIn: 'root'
 })
 export class PostsBlogService {
-  private url = 'http://52.3.44.106:8081/Post';
+  private url = 'localhost:8081/Post';
   private classHelper = ClassHelper;
 
   constructor(

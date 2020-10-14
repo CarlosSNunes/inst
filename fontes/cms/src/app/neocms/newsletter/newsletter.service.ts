@@ -6,7 +6,7 @@ import { NewsletterModel } from '../../../../src/models/newsletter/newsletter.mo
   providedIn: 'root'
 })
 export class NewsletterService {
-  private url = 'http://52.3.44.106:8081/Newsletter';
+  private url = 'localhost:8081/Newsletter';
 
   constructor(
     private http: HttpClient

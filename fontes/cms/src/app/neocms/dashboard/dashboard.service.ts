@@ -7,7 +7,7 @@ import { throwError } from 'rxjs';
 })
 export class DashboardService {
 
-  private url = 'http://52.3.44.106:8081/Dashboard/';
+  private url = 'localhost:8081/Dashboard/';
 
   constructor(
     private http: HttpClient
