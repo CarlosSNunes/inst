@@ -13,8 +13,8 @@ import { Cards } from './data/mock';
 export class CarreirasComponent implements OnInit {
     @ViewChild('aboutPlusNetwork', { static: false }) aboutPlusNetwork: ElementRef<HTMLElement>;
     simpleBannerModel: SimpleBannerModel = {
-        title: 'Faça Parte de um time que gosta de sonhar grande!',
-        description: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você',
+        title: 'Faça parte de um time apaixonado em cuidar de pessoas!',
+        description: 'Nosso objetivo é acompanhar o colaborador em sua carreira e juntos criarmos uma história sólida, de muito aprendizado.',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
