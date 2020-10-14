@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
-
+import { setTheme } from 'ngx-bootstrap/utils';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService
   ) {
+    setTheme('bs4');
     this.authenticationService.usuarioChanged.subscribe(usuario =>
       this.usuario = usuario
     );

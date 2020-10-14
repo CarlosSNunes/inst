@@ -1,4 +1,4 @@
-<div class="pageloader is-dark" [ngClass]="{'is-active': !tag}">
+<!-- <div class="pageloader is-dark" [ngClass]="{'is-active': !tag}">
     <span class="title">
         Carregando
     </span>
@@ -11,15 +11,34 @@
             </h1>
         </div>
     </div>
-</section>
+</section> -->
 <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
-    <div class="card">
+    <div class="card shadow my-2" id="card-header">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <a [routerLink]="['/neocms/posts-blog/tag/']">
+                        <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+                        <span class="title-banner">Editar Tag</span>
+                    </a>
+                </div>
+                <!-- <div style="align-content: flex-end;">
+                    <button class="btn btn-primary is-primary" type="submit">
+                        Salvar Tag &nbsp;
+                        <fa-icon [icon]="faCheck"></fa-icon>
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="card shadow p-3">
         <div class="card-content">
             <div class="columns">
                 <div class="column">
                     <div class="field">
-                        <div class="control">
-                            <input formControlName="descricao" class="input" type="text" placeholder=""
+                        <span class="">Descrição</span>
+                        <div class="control mt-2">
+                            <input formControlName="descricao" class="form-control col-md-4" type="text" placeholder=""
                                 [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }">
                         </div>
                         <div *ngIf="submitted" class="errors">
@@ -31,21 +50,20 @@
                 </div>
             </div>
         </div>
-
-        <footer class="card-footer">
-            <p class="card-footer-item">
-                <button routerLink="/neocms/noticia/tag" routerLinkActive="active" class="button is-light"
-                    type="button">
-                    Fechar &nbsp;
-                    <fa-icon [icon]="faTimes"></fa-icon>
-                </button>
-            </p>
-            <p class="card-footer-item">
-                <button class="button is-primary" type="submit">
-                    Gravar &nbsp;
-                    <fa-icon [icon]="faCheck"></fa-icon>
-                </button>
-            </p>
-        </footer>
     </div>
+    <footer class="card  mt-3 p-3 d-block">
+        <p class="d-inline ml-3">
+            <button routerLink="/neocms/posts-blog/tag" routerLinkActive="active" class="btn btn-secondary"
+                type="button">
+                Fechar &nbsp;
+                <fa-icon [icon]="faTimes"></fa-icon>
+            </button>
+        </p>
+        <p class="d-inline ml-3">
+            <button class="btn btn-primary" type="submit">
+                Gravar &nbsp;
+                <fa-icon [icon]="faCheck"></fa-icon>
+            </button>
+        </p>
+    </footer>
 </form>

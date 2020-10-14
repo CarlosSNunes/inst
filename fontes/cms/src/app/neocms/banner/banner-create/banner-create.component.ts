@@ -119,7 +119,7 @@ export class BannerCreateComponent implements OnInit {
       const model = new BannerCreateModel(this.bannerForm.value);
       this.bannerService.post(model)
         .subscribe(() => {
-          this.router.navigate(['/neocms/banner']);
+          this.router.navigate(['/posts-blog/index']);
         })
         .add(() => this.btnSubmitDisable = false);
     }

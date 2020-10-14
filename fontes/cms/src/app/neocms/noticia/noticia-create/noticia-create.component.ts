@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UploadAdapter } from 'src/plugins/upload-adapter';
 import { NoticiaService } from '../noticia.service';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import * as BulmaCalendar from 'src/assets/js/bulma-calendar';
 import { NoticiaTipoModel } from 'src/models/noticia-tipo/noticia-tipo.model';
 import { NoticiaCreateModel } from 'src/models/noticia/noticia-create.model';
 import { Router } from '@angular/router';
@@ -21,7 +20,7 @@ import { TipoService } from '../tipo/tipo.service';
   styleUrls: ['./noticia-create.component.scss']
 })
 export class NoticiaCreateComponent implements OnInit {
-  editor = ClassicEditor;
+  editor = CKEditorModule;
   noticiaForm;
   faTimes = faTimes;
   faCheck = faCheck;
@@ -62,7 +61,6 @@ export class NoticiaCreateComponent implements OnInit {
     this.noticiaTipoService.getAll().subscribe(tipos => this.tipos = tipos);
     this.tagService.getAll().subscribe(tags => this.tags = tags);
 
-    BulmaCalendar.attach('[type="date"]', this.optionsDate);
     this.createForm();
   }
 

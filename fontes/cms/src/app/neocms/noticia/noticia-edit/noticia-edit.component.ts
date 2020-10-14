@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UploadAdapter } from 'src/plugins/upload-adapter';
 import { NoticiaService } from '../noticia.service';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import * as BulmaCalendar from 'src/assets/js/bulma-calendar';
 import { NoticiaTipoModel } from 'src/models/noticia-tipo/noticia-tipo.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
@@ -23,7 +22,7 @@ import { NoticiaUpdateModel } from 'src/models/noticia/noticia-update-model';
   styleUrls: ['./noticia-edit.component.scss']
 })
 export class NoticiaEditComponent implements OnInit {
-  editor = ClassicEditor;
+  editor = CKEditorModule;
   noticiaForm;
   faTimes = faTimes;
   faCheck = faCheck;
@@ -77,10 +76,7 @@ export class NoticiaEditComponent implements OnInit {
         this.updateForm();
 
         this.optionsDate.startDate = new Date(noticia.dataPublicacao);
-        BulmaCalendar.attach('#dataPublicacao', this.optionsDate);
-
         this.optionsDate.startDate = noticia.dataExpiracao ? new Date(noticia.dataExpiracao) : null;
-        BulmaCalendar.attach('#dataExpiracao', this.optionsDate);
       });
   }
 

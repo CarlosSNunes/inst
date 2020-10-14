@@ -75,7 +75,7 @@ export class TagCreateComponent implements OnInit {
 
       this.tagService.post(tagsToCreate)
         .subscribe(() =>
-          this.router.navigate(['/neocms/noticia/tag'])
+          this.router.navigate(['/neocms/posts-blog/tag'])
         );
     }
   }

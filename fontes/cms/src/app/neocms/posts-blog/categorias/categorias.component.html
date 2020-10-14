@@ -10,6 +10,7 @@
                 <table id="bannerTable" class="table table-hover">
                     <thead>
                         <tr>
+                            <th scope="col" class="text-center">Id</th>
                             <th scope="col" class="text-center">Categoria</th>
                             <th scope="col" class="text-center">Descrição</th>
                             <th scope="col" class="text-center">Ação</th>
@@ -23,15 +24,15 @@
                             Não há banners cadastrados
                         </td>
                         <tr *ngFor="let categoria of categorias" class="table-cell text-center">
-
+                            <td class="py-1 align-middle text-center">
+                                <span class="p-1">{{categoria.id}}</span>
+                            </td>
                             <td class="py-3 align-middle text-center">
                                 <span class="p-2">{{categoria.titulo}}</span>
                             </td>
                             <td class="py-3 align-middle text-center">
                                 <span class="p-2">{{categoria.descricao}}</span>
                             </td>
-
-
                             <td class="py-3 align-middle text-center">
                                 <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', categoria.id]" routerLinkActive="active">
                                     <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
@@ -48,6 +49,5 @@
         </div>
     </div>
 </div>
-
 <app-categorias-delete *ngIf="showCategoriaDelete " [categoria]="categoria" (onClose)="getCategorias()">
 </app-categorias-delete>

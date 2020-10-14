@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import * as BulmaCalendar from 'src/assets/js/bulma-calendar';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft, faCheckCircle, faCog } from '@fortawesome/free-solid-svg-icons';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
@@ -16,6 +14,9 @@ import { PostsBlogCreateModel } from 'src/models/posts-blog/posts-blog-create.mo
 import { TagModel } from 'src/models/tag/tag.model';
 import { TagService } from '../tag/tag.service';
 import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
+
 
 
 @Component({
@@ -24,12 +25,16 @@ import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
   styleUrls: ['./posts-blog-create.component.scss']
 })
 export class PostsBlogCreateComponent implements OnInit {
-  editor = DecoupledEditor; 
+  locale = 'pt-br';
+  editor = DecoupledEditor;
   postsBlogForm;
   faTimes = faTimes;
   faCheck = faCheck;
   faUpload = faUpload;
   faPlus = faPlus;
+  faCog = faCog;
+  faArrowCircleLeft = faArrowCircleLeft;
+  faCheckCircle = faCheckCircle;
   optionsDate = {
     type: 'date',
     dateFormat: 'DD/MM/YYYY',
@@ -48,9 +53,29 @@ export class PostsBlogCreateComponent implements OnInit {
   tags: TagModel[] = [];
   categorias: CategoriasModel[] = [];
   arquivoNome = 'Selecione um arquivo';
-  arquivo: File;
+  arquivoNomeImagemPequena = 'Selecione um arquivo';
+  arquivos: File[] = [];
+  imagemGrande: File;
+  imagemPequena: File;
   submitted: boolean;
   user: UserAuthenticateModel;
+
+  imageChangedEvent: any;
+  imageChangedEventMobile: any;
+  croppedImage: any;
+  croppedImageMobile: any;
+  blob: File;
+  nomeDaImagem: any;
+  areaSelecImagem: string;
+  file: ImageData;
+  fileMobile: Blob;
+
+
+  fileData: File = null;
+  previewUrl: any = null;
+  previewUrlImagemPequena: any = null;
+  fileUploadProgress: string = null;
+  uploadedFilePath: string = null;
 
   isPostAtivo = false;
   isPostDestaque = false;
@@ -59,17 +84,19 @@ export class PostsBlogCreateComponent implements OnInit {
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
     private postsBlogService: PostsBlogService,
-    private tagService: TagService,    
+    private tagService: TagService,
     private fb: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private localeService: BsLocaleService
+  ) {
+    this.localeService.use(this.locale);
+  }
 
   ngOnInit() {
     this.user = this.authenticateService.state;
     this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
     this.tagService.getAll().subscribe(tags => this.tags = tags);
 
-    BulmaCalendar.attach('[type="date"]', this.optionsDate);
     this.createForm();
   }
 
@@ -83,11 +110,13 @@ export class PostsBlogCreateComponent implements OnInit {
       destaque: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
       ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
       tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
-      descricaoPaginaSEO : ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
+      descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
       categoriaId: ['', Validators.required],
-      postTag: this.fb.array([], [Validators.required]), 
-      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
-      arquivo: ['']
+      postTag: this.fb.array([]),
+      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+      arquivo: [''],
+      caminhoImagem: ['http://www.careplus.com.br/assets/img/'],
+      nomeImagem: ['']
     });
   }
 
@@ -96,7 +125,7 @@ export class PostsBlogCreateComponent implements OnInit {
       eventData.ui.view.toolbar.element,
       eventData.ui.getEditableElement()
     );
-    
+
     eventData.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
       return new PostsUploadAdapter(loader, this.postsBlogService);
     };
@@ -105,14 +134,15 @@ export class PostsBlogCreateComponent implements OnInit {
   get f() {
     return this.postsBlogForm.controls;
   }
-  
+
   get tagControls() {
     return this.postsBlogForm.get('postTag') as FormArray;
   }
 
   onSubmit() {
+    
     const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-    const dataPublicacao: Date = dataPublicacaoElement.bulmaCalendar.date.start;
+    const dataPublicacao: Date = dataPublicacaoElement.value;
 
     this.validateDate(dataPublicacao);
 
@@ -120,36 +150,80 @@ export class PostsBlogCreateComponent implements OnInit {
     if (this.postsBlogForm.valid) {
       const dataExpiracaoElement: any = document.querySelector('#dataExpiracao');
 
-      const dataExpiracao: Date = dataExpiracaoElement.bulmaCalendar.date.start;
-
-      this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao.toISOString());
+      const dataExpiracao: Date = dataExpiracaoElement.value;
+      this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao);
 
       if (dataExpiracao) {
-        this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao.toISOString());
+        this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao);
       } else {
         this.postsBlogForm.controls.dataExpiracao.setValue('');
       }
 
-      this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
+      this.postsBlogForm.controls.arquivo.setValue(this.imagemGrande);
+      this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
       const model = new PostsBlogCreateModel(this.postsBlogForm.value);
       this.postsBlogService.post(model)
-        .subscribe(() => 
-          this.router.navigate(['/neocms/posts-blog'])
+        .subscribe(() =>
+          this.router.navigate(['/neocms/posts-blog/index'])
         );
     }
   }
 
-  updateFileName(arquivos: any) {
+  updateFileName(arquivo: any) {
     this.arquivoNome = 'Selecione um arquivo';
-    if (arquivos.length > 0) {
-      this.arquivoNome = arquivos[0].name;
-      this.arquivo = arquivos[0];
+    if (arquivo.length > 0) {
+      this.arquivoNome = arquivo[0].name;
+      this.arquivos.push(arquivo[0]);
+    }
+  }
+
+  fileProgress(arquivo: any) {
+    //this.arquivo = <File>fileInput.target.files[0];
+    this.imagemGrande = arquivo[0];
+    this.arquivoNome = this.imagemGrande.name;
+    this.preview();
+  }
+
+  fileProgressImagemPequena(arquivo: any) {
+    //this.arquivo = <File>fileInput.target.files[0];
+    this.imagemPequena = arquivo[0];
+    this.arquivoNomeImagemPequena = this.imagemPequena.name;
+    this.previewImagemPequena();
+  }
+
+  preview() {
+    // Show preview 
+    var mimeType = this.imagemGrande.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    var reader = new FileReader();      
+    reader.readAsDataURL(this.imagemGrande); 
+    reader.onload = (_event) => { 
+      this.previewUrl = reader.result; 
+      this.imagemGrande = this.previewUrl;
+    }
+  }
+
+  previewImagemPequena() {
+    // Show preview 
+    var mimeType = this.imagemPequena.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    var reader = new FileReader();      
+    reader.readAsDataURL(this.imagemPequena); 
+    reader.onload = (_event) => { 
+      this.previewUrlImagemPequena = reader.result; 
+      this.imagemPequena = this.previewUrlImagemPequena;
     }
   }
 
   validateDate(data: Date) {
-    if (data) {
-      this.f.dataPublicacao.setErrors(null);
+    if (!data) {
+      this.f.dataPublicacao.setErrors('Data inválida!');
     }
   }
 
@@ -183,6 +257,13 @@ export class PostsBlogCreateComponent implements OnInit {
     this.tagControls.removeAt(index);
   }
 
+
+  changeCategoria(categoria) {
+   if(categoria.value == 'Administrar' ){
+      this.router.navigate(['/neocms/posts-blog/categorias/index']);
+   }
+  }
+
   changeStatusPost(value: string, selected: boolean) {
     this.f.ativo.setValue(value);
     this.isPostAtivo = selected;
@@ -195,6 +276,53 @@ export class PostsBlogCreateComponent implements OnInit {
 
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
+  }
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+    console.log(event);
+  }
+
+  fileChangeEventMobile(event: any): void {
+    this.imageChangedEventMobile = event;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+    const file = this.base64ToFile(
+      event.base64,
+      this.imageChangedEvent.target.files[0].name,
+    )
+    console.log(file)
+
+   let areaNome = JSON.stringify(file).replace(/['"]+/g, '');
+  //  console.log(areaNome.toString().)
+  //  this.bannerForm.get('arquivo').setValue(areaNome);
+  //  console.log(this.bannerForm.get('arquivo').setValue(areaNome));
+
+  }
+
+  imageCroppedMobile(event: ImageCroppedEvent) {
+    this.croppedImageMobile = event.base64;
+    this.fileMobile = this.base64ToFile(
+      event.base64,
+      this.imageChangedEvent.target.files[0].name,
+    )
+
+  }
+
+  base64ToFile(data, filename) {
+    const arr = data.split(',');
+    const mime = arr[0].match(/:(.*?);/)[1];
+    const bstr = atob(arr[1]);
+    let n = bstr.length;
+    let u8arr = new Uint8Array(n);
+
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new File([u8arr], filename, { type: mime });
   }
 
 }

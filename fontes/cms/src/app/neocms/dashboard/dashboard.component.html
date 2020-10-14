@@ -1,12 +1,10 @@
 <div class="row" style="margin-bottom: 25px;">
-    <div class="col-sm-8">
-        <div class="card" style="height: 218px; ">
+    <div class="col-sm-5" style="margin: 0px;">
+        <div class="card shadow-sm  bg-white rounded" style="height: 218px; ">
             <div class="card-body">
-                <h1 class="card-title title-color"
-                    style="font-size: 111px; top: 82px; font-style: normal; font-weight: normal; line-height: 130px; ">
-                    258</h1>
-                <h5 class="card-title title-color"
-                    style="font-size: 24px; font-style: normal; font-weight: normal; line-height: 28px; position: absolute; ">
+                <h1 class="card-title title-color">
+                    {{postsAtivos}}</h1>
+                <h5 class="card-subtitle title-color">
                     Posts no Blog Care Plus+</h5>
                 <p class="card-text"></p>
             </div>
@@ -14,13 +12,24 @@
     </div>
 
     <div class="col-sm-4">
-        <div class="card" style="height: 218px;">
+        <div class="card shadow-sm bg-white rounded" style="height: 218px;">
             <div class="card-body">
-                <h1 class="card-title title-color"
-                    style="font-size: 111px; font-style: normal; font-weight: normal; line-height: 130px; ">8</h1>
-                <h5 class="card-title title-color"
-                    style="font-size: 24px; font-style: normal; font-weight: normal; line-height: 28px; position: absolute; ">
+                <h1 class="card-title title-color">
+                    {{bannersAtivos}}</h1>
+                <h5 class="card-subtitle title-color">
                     Banners ativos</h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-3">
+        <div class="card shadow-sm bg-white rounded" style="height: 218px;">
+            <div class="card-body" >
+                <h1 class="card-title title-color">
+                    {{usuariosAtivos}}</h1>
+                <h5 class="card-subtitle title-color">
+                    Usuários</h5>
                 <p class="card-text"></p>
             </div>
         </div>
@@ -29,57 +38,30 @@
 </div>
 
 <div class="row" style="margin-bottom: 25px;">
-    <!-- <div class="col-sm-4">
-        <div class="card" style="height: 472px; ">
-            <div class="card-body d-flex align-items-end">
-                <h1 class="card-title title-color"
-                    style="font-size: 111px; top: 372px; font-style: normal; font-weight: normal; line-height: 130px; margin-bottom: 20px; ">
-                    06</h1>
-                <h5 class="card-title title-color"
-                    style="font-size:24px; font-style: normal; font-weight: normal; line-height: 28px; position: absolute; ">
-                    Usuários</h5>
-                <p class="card-text"></p>
-            </div>
-        </div>
-    </div> -->
 
-    <div class="col-sm-4">
-        <div class="card" style="height: 472px;">
-            <div class="card-body d-flex align-items-end">
-                <h1 class="card-title title-color"
-                    style="font-size: 111px; font-style: normal; font-weight: normal; line-height: 130px; margin-bottom: 35px; ">6</h1>
-                <h5 class="card-title title-color"
-                    style="font-size: 24px; font-style: normal; font-weight: normal; line-height: 28px; position: absolute; ">
-                   Usuários</h5>
-                <p class="card-text"></p>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-sm-8">
-        <div class="card" style="height: 472px; ">
+    <div class="col-sm-12">
+        <div class="card shadow-sm bg-white rounded" style="height: 472px; ">
             <div class="card-body">
-                <h2 class="card-title title-color"
-                    style="width:150px; top:32px ; font-size: 24px; font-style: normal; font-weight: normal; line-height: 28px; position: absolute; ">
-                    Posts mais lidos no Blog</h2>
+                <h5 class="card-title-post title-color">
+                    Posts mais lidos no Blog</h5>
                 <div class="d-flex justify-content-start" style="margin-top: 80px;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item title-color">Cras justo odio</li>
-                        <li class="list-group-item ">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                    <ul class="list-group list-group-flush" style="line-height: 2.0ch; max-width: 300px;">
+                        <li class="list-group-item title-color list-group-item-action" role="button"
+                            *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
+                            {{post.id}}- {{post.titulo}}</li>
                     </ul>
-                    <div class="d-flex justify-content-center"
-                        style="width: 372px; height:310px; display: flex; align-self: flex-end;">
-                        <img class="img-logo-careplus" src="assets/img/careplus_logo.svg" alt="NeoCMS">
+                    <div class="d-flex justify-content-end" class="post ml-9" style="width: 600px; margin-left: 130px; z-index: 2;"  >
+                        <div class="card" style="width:inherit; height: 350px;">
+                            <img class="card-img-top" style="height: inherit;" src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
+                            <div class="card-body" >
+                                <h5 class="card-color title-color">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
+                                <p class="card-text title-color">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
+                                <!-- <a *ngIf="postSelecionado !== null" href="#" class="btn btn-primary">Ir para o Post</a> -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </div>

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TagModel } from 'src/models/tag/tag.model';
-import { TagCreateModel } from 'src/models/tag/tag-create.model';
-import { ClassHelper } from 'src/utils/class-helper';
-import { TagUpdateModel } from 'src/models/tag/tag-update.model';
+import { TagModel } from './../../../../../src/models/tag/tag.model';
+import { TagCreateModel } from './../../../../../src/models/tag/tag-create.model';
+import { ClassHelper } from './../../../../../src/utils/class-helper';
+import { TagUpdateModel } from './../../../../../src/models/tag/tag-update.model';
 
 @Injectable({
   providedIn: 'root'

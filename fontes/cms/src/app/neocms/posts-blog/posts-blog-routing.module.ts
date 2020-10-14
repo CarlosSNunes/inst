@@ -28,6 +28,11 @@ const routes: Routes = [
         loadChildren: () => import('./categorias/categorias.module').then(m => m.CategoriasModule)
     },
     {
+        path: 'tag',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./tag/tag.module').then(m => m.TagModule)
+    },
+    {
         path: 'mais-lidos',
         canActivate: [AuthGuard],
         loadChildren: () => import('./mais-lidos/mais-lidos.module').then(m => m.MaisLidosModule)

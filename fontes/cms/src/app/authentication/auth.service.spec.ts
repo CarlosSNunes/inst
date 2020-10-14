@@ -14,7 +14,7 @@ describe('AuthService', () => {
       declarations: [
       ],
       imports: [
-        RouterTestingModule....
+        RouterTestingModule,
       ],
       providers: [
         AuthenticationService,
