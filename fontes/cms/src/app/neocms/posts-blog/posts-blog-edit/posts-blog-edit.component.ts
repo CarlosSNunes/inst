@@ -48,16 +48,7 @@ export class PostsBlogEditComponent implements OnInit {
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
 
-  //*Configuração 'ngx-select-dropdown'
-  // configSelect = {
-  //   displayKey: "descricao",      /** se a matriz de objetos passou a chave a ser exibida, o padrão é: @description */
-  //   search: false,           /** true/false para a funcionalidade de pesquisa padronizada para: @false */
-  //   height: 'auto',          /** altura da lista, para ela mostrar uma rolagem, o padrão é: @auto */
-  //   placeholder: 'Selecione uma categoria...',/** texto a ser exibido quando nenhum item é selecionado, o padrão é @Select */
-  //   moreText: 'mais',        /** texto a ser exibido quando mais de um item for selecionado, o padrão é @More */
-  // }
-
-
+  
   constructor(
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
@@ -108,10 +99,12 @@ export class PostsBlogEditComponent implements OnInit {
         this.previewUrl = postBlog.caminhoImagem + postBlog.nomeImagem;
         
         const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-        dataPublicacaoElement.value =  this.datepipe.transform(postBlog.dataPublicacao, 'dd/MM/yyyy', this.localeService.currentLocale);
+        this.postsBlogForm.controls.dataPublicacao.setValue(this.datepipe.transform(postBlog.dataPublicacao,'dd/MM/yyyy', 'en'));
+        //dataPublicacaoElement.value = postBlog.dataPublicacao;
 
         const dataPExpiracaoElement: any = document.querySelector('#dataExpiracao');
-        dataPExpiracaoElement.value = this.datepipe.transform(postBlog.dataExpiracao, 'dd/MM/yyyy', '');
+        dataPExpiracaoElement.value = postBlog.dataExpiracao;
+        this.postsBlogForm.controls.dataExpiracao.setValue(postBlog.dataExpiracao);
 
         this.changeStatusPost(this.postBlog.ativo, this.postBlog.ativo == '1' ? true : false);
         this.changeStatusDestaque(this.postBlog.destaque, this.postBlog.destaque == '1' ? true : false);
@@ -147,14 +140,16 @@ export class PostsBlogEditComponent implements OnInit {
       descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       dataPublicacao: ['', [Validators.required]],
       dataExpiracao: [''],
-      destaque: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
+      destaque: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+      ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
       tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
       descricaoPaginaSEO : ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
       categoriaId: ['', Validators.required],
       postTag: this.fb.array([]), 
       descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
-      arquivo: ['']
+      arquivo: [''],
+      caminhoImagem:[''],
+      nomeImagem: [''],
     });
 
     //this.getTags();
@@ -177,8 +172,8 @@ export class PostsBlogEditComponent implements OnInit {
       postTag: this.fb.array(postBlog.postTag), 
       descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
       arquivo: [''],
-      caminhoImagem: [''],
-      nomeImagem: ['']
+      caminhoImagem: ['Src\\Images\\Banner\\'],
+      nomeImagem: [postBlog.nomeImagem]
     });
 
   }
@@ -239,13 +234,15 @@ export class PostsBlogEditComponent implements OnInit {
 
       if(this.arquivo != undefined){
         this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
+        this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
       }
       else{
         this.postsBlogForm.controls.arquivo.setValue([]);
-      }
-      this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
-      this.postsBlogForm.controls.caminhoImagem.setValue('http://www.careplus.com.br/assets/img/');
+        this.postsBlogForm.controls.caminhoImagem.setValue('');
+        this.postsBlogForm.controls.nomeImagem.setValue('');
 
+      }
+     
       const model = new PostBlogUpdateModel(this.postsBlogForm.value);
       this.postsBlogService.put(model)
         .subscribe(() =>

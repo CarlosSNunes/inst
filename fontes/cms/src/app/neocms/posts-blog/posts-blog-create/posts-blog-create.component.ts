@@ -16,6 +16,9 @@ import { TagService } from '../tag/tag.service';
 import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { DatePipe, formatDate } from '@angular/common';
+import { format } from 'util';
+import { ptBrLocale } from 'ngx-bootstrap/locale';
 
 
 
@@ -52,8 +55,8 @@ export class PostsBlogCreateComponent implements OnInit {
   postsBlog: PostsBlogModel[] = [];
   tags: TagModel[] = [];
   categorias: CategoriasModel[] = [];
-  arquivoNome = 'Selecione um arquivo';
-  arquivoNomeImagemPequena = 'Selecione um arquivo';
+  arquivoNome = '';
+  arquivoNomeImagemPequena = '';
   arquivos: File[] = [];
   imagemGrande: File;
   imagemPequena: File;
@@ -87,12 +90,14 @@ export class PostsBlogCreateComponent implements OnInit {
     private tagService: TagService,
     private fb: FormBuilder,
     private router: Router,
-    private localeService: BsLocaleService
+    private localeService: BsLocaleService,
+    private datepipe: DatePipe
   ) {
     this.localeService.use(this.locale);
   }
 
   ngOnInit() {
+    //this.localeService.use('pt-br')
     this.user = this.authenticateService.state;
     this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
     this.tagService.getAll().subscribe(tags => this.tags = tags);
@@ -105,18 +110,19 @@ export class PostsBlogCreateComponent implements OnInit {
       titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       dataPublicacao: ['', [Validators.required]],
       dataExpiracao: [''],
-      destaque: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
+      arquivo: [''],
+      caminhoImagem: ['Src\\Images\\Banner\\'],
+      nomeImagem: [''],
+      destaque: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+      ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+      visualizacoes: [''],
       tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
       descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
       categoriaId: ['', Validators.required],
       postTag: this.fb.array([]),
-      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
-      arquivo: [''],
-      caminhoImagem: ['http://www.careplus.com.br/assets/img/'],
-      nomeImagem: ['']
     });
   }
 
@@ -144,14 +150,17 @@ export class PostsBlogCreateComponent implements OnInit {
     const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
     const dataPublicacao: Date = dataPublicacaoElement.value;
 
+   
+
     this.validateDate(dataPublicacao);
 
     this.submitted = true;
     if (this.postsBlogForm.valid) {
-      const dataExpiracaoElement: any = document.querySelector('#dataExpiracao');
 
-      const dataExpiracao: Date = dataExpiracaoElement.value;
       this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao);
+
+      const dataExpiracaoElement: any = document.querySelector('#dataExpiracao');
+      const dataExpiracao: Date = dataExpiracaoElement.value;
 
       if (dataExpiracao) {
         this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao);
@@ -159,8 +168,15 @@ export class PostsBlogCreateComponent implements OnInit {
         this.postsBlogForm.controls.dataExpiracao.setValue('');
       }
 
-      this.postsBlogForm.controls.arquivo.setValue(this.imagemGrande);
-      this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
+      if(this.imagemGrande != undefined)
+      {
+        this.postsBlogForm.controls.arquivo.setValue(this.imagemGrande);
+        this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
+      }
+      else{
+        this.postsBlogForm.controls.arquivo = [];
+      }
+      
       const model = new PostsBlogCreateModel(this.postsBlogForm.value);
       this.postsBlogService.post(model)
         .subscribe(() =>
@@ -170,7 +186,7 @@ export class PostsBlogCreateComponent implements OnInit {
   }
 
   updateFileName(arquivo: any) {
-    this.arquivoNome = 'Selecione um arquivo';
+    this.arquivoNome = '';
     if (arquivo.length > 0) {
       this.arquivoNome = arquivo[0].name;
       this.arquivos.push(arquivo[0]);
