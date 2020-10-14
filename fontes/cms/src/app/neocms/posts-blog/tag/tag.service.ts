@@ -9,7 +9,7 @@ import { TagUpdateModel } from './../../../../../src/models/tag/tag-update.model
   providedIn: 'root'
 })
 export class TagService {
-  url = 'http://localhost:8081/Tag';
+  url = 'http://52.3.44.106:8081/Tag';
   private classHelper = ClassHelper;
 
   constructor(

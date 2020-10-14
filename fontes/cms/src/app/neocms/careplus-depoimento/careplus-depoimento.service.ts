@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CareplusDepoimentoService {
-  private url = 'https://localhost:4016/CareplusDepoimento';
+  private url = 'http://52.3.44.106:8081/CareplusDepoimento';
 
   constructor(
     private http: HttpClient

@@ -9,7 +9,7 @@ import { UserAuthenticateModel } from './../../../src/models/user-authenticate.m
   providedIn: 'root'
 })
 export class LoginService {
-  url = 'http://localhost:8081/Usuario';
+  url = 'http://52.3.44.106:8081/Usuario';
 
   constructor(
     private http: HttpClient
