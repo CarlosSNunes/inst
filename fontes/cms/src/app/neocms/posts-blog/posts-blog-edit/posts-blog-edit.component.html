@@ -103,7 +103,7 @@
                                                 <option value="">Selecione uma categoria..</option>
                                                 <option *ngFor="let categoria of categorias" [value]="categoria.id"  >
                                                     {{categoria.descricao}}</option>
-                                                <option value="Administrar"  >Administrar categorias... 
+                                                <option value="Administrar"  >Administrar categorias...
                                                     <span>
                                                         <fa-icon [icon]="faCog"></fa-icon>
                                                     </span>
@@ -119,7 +119,7 @@
                                             {{categoria.descricao}}</option>
                                     </select>
                                 </div> -->
-                                
+
                             </div>
                             <!-- <div *ngIf="submitted" class="errors">
                                 <p *ngFor="let error of getErrors(f.categoriaId)" class="help is-danger">
@@ -132,7 +132,7 @@
                                 <label class="label">Ativar Post?</label>
                                 <div class="buttons has-addons">
                                     <button type="button" class="btn btn-outline-primary is-selected"
-                                        [ngClass]="{'isSelected': !isPostAtivo, 'isSelected': !isPostAtivo}"
+                                        [ngClass]="{'isSelected': !isPostAtivo}"
                                         (click)="changeStatusPost('0', false)">
                                         Não
                                     </button>
@@ -147,7 +147,7 @@
                                 <label class="label">Destacar Post?</label>
                                 <div class="buttons has-addons">
                                     <button type="button" class="btn btn-outline-primary  is-selected"
-                                        [ngClass]="{'isSelected': !isPostDestaque, 'isSelected': !isPostDestaque}"
+                                        [ngClass]="{'isSelected': !isPostDestaque}"
                                         (click)="changeStatusDestaque('0', false)">
                                         Não
                                     </button>
@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </tab>
                     <tab heading="Opções" id="tabOpcoes" class="card shadow mb-5 p-3">
                         <div class="card shadow p-3">
@@ -185,10 +185,10 @@
                             <div class="marging-title ">
                                 <label class="label labelTeste">Quando será publicado?</label>
                                 <div class="col-xs-12 col-12 col-md-4 form-group">
-                                    <input type="text" id="dataPublicacao" 
+                                    <input type="text" id="dataPublicacao"
                                         formControlName="dataPublicacao"  type="text"
                                         [ngClass]="{ 'is-success': submitted && !f.dataPublicacao.errors, 'is-danger' : submitted && f.dataPublicacao.errors }"
-                                        placeholder="Selecione uma data" class="form-control data" bsDatepicker 
+                                        placeholder="Selecione uma data" class="form-control data" bsDatepicker
                                         [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'dd/MM/yyyy', containerClass: 'theme-dark-blue', showWeekNumbers: false  }">
                                 </div>
                                 <div *ngIf="submitted" class="errors">
@@ -205,7 +205,7 @@
                                         [ngClass]="{ 'is-success': submitted && !f.dataExpiracao.errors, 'is-danger' : submitted && f.dataExpiracao.errors }"
                                         class=" form-control input" type="text" placeholder="Selecione uma data"
                                         #dp="bsDatepicker"
-                                        bsDatepicker 
+                                        bsDatepicker
                                         [bsValue]="dataPublicacao"
                                         [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'dd/MM/yyyy', containerClass: 'theme-dark-blue', showWeekNumbers: false  }">
                                 </div>
@@ -214,11 +214,11 @@
                                         {{error}}
                                     </p>
                                 </div>
-                            
-                            
+
+
                             </div>
                         </div>
-                       
+
                     </tab>
                     <!-- SEO -->
                     <tab heading="SEO" id="tabSeo" class="card shadow p-3">
@@ -276,7 +276,7 @@
                             </div>
                             <div class="card shadow p-3 mt-3 are-medium d-block">
                                 <button type="button" (click)="toggleTag(tag)" class="btn btn-outline-primary btn-sm col-md-3 m-2"
-                                    btnCheckbox *ngFor="let tag of tags" 
+                                    btnCheckbox *ngFor="let tag of tags"
                                     btnCheckboxTrue="1" btnCheckboxFalse="0">
                                     {{tag.descricao}}
                                 </button>
