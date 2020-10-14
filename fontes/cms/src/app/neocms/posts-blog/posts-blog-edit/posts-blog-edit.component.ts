@@ -7,13 +7,13 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 import { FormControlError } from 'src/utils/form-control-error';
 import { PostsBlogService } from '../posts-blog.service';
-import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
-import { CategoriasModel } from 'src/models/categorias/categorias.model';
+import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 import { CategoriasService } from '../categorias/categorias.service';
-import { TagModel } from 'src/models/tag/tag.model';
+import { TagModel } from './../../../../../src/models/tag/tag.model';
 import { TagService } from '../tag/tag.service';
-import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
-import { PostBlogUpdateModel } from 'src/models/posts-blog/posts-blog-update-model';
+import { PostsUploadAdapter } from './../../../../../src/plugins/posts-upload-adapter';
+import { PostBlogUpdateModel } from './../../../../../src/models/posts-blog/posts-blog-update-model';
 import { DatePipe, formatCurrency, formatDate } from '@angular/common';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
@@ -23,7 +23,8 @@ import { BsLocaleService } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./posts-blog-edit.component.scss']
 })
 export class PostsBlogEditComponent implements OnInit {
-  editor = DecoupledEditor; 
+  editor = DecoupledEditor;
+  dataPublicacao;
   postsBlogForm;
   faTimes = faTimes;
   faCheck = faCheck;
@@ -53,7 +54,7 @@ export class PostsBlogEditComponent implements OnInit {
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
     private postsBlogService: PostsBlogService,
-    private tagService: TagService,    
+    private tagService: TagService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
@@ -84,7 +85,7 @@ export class PostsBlogEditComponent implements OnInit {
       eventData.ui.view.toolbar.element,
       eventData.ui.getEditableElement()
     );
-    
+
     eventData.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
       return new PostsUploadAdapter(loader, this.postsBlogService);
     };
@@ -97,7 +98,7 @@ export class PostsBlogEditComponent implements OnInit {
       .subscribe(postBlog => {
         this.postBlog = postBlog;
         this.previewUrl = postBlog.caminhoImagem + postBlog.nomeImagem;
-        
+
         const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
         this.postsBlogForm.controls.dataPublicacao.setValue(this.datepipe.transform(postBlog.dataPublicacao,'dd/MM/yyyy', 'en'));
         //dataPublicacaoElement.value = postBlog.dataPublicacao;
@@ -169,8 +170,8 @@ export class PostsBlogEditComponent implements OnInit {
       tituloPaginaSEO: [postBlog.tituloPaginaSEO],
       descricaoPaginaSEO : [postBlog.descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
       categoriaId: [postBlog.categoriaId, Validators.required],
-      postTag: this.fb.array(postBlog.postTag), 
-      descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
+      postTag: this.fb.array(postBlog.postTag),
+      descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [''],
       caminhoImagem: ['Src\\Images\\Banner\\'],
       nomeImagem: [postBlog.nomeImagem]
@@ -267,16 +268,16 @@ export class PostsBlogEditComponent implements OnInit {
   }
 
   preview() {
-    // Show preview 
+    // Show preview
     var mimeType = this.arquivo.type;
     if (mimeType.match(/image\/*/) == null) {
       return;
     }
 
-    var reader = new FileReader();      
-    reader.readAsDataURL(this.arquivo); 
-    reader.onload = (_event) => { 
-      this.previewUrl = reader.result; 
+    var reader = new FileReader();
+    reader.readAsDataURL(this.arquivo);
+    reader.onload = (_event) => {
+      this.previewUrl = reader.result;
       this.arquivo = this.previewUrl;
     }
   }

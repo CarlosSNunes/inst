@@ -29,7 +29,6 @@ export class BannerComponent implements OnInit {
   constructor(
     private bannerService: BannerService,
     private router: Router
-
   ) { }
 
   ngOnInit() {
@@ -52,7 +51,7 @@ export class BannerComponent implements OnInit {
       .subscribe(banners => {
         this.loaded = true;
         this.banners = banners;
-        
+
       },
         error => {
           this.loaded = true;

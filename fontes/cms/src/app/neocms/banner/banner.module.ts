@@ -10,12 +10,10 @@ import { BannerEditComponent } from './banner-edit/banner-edit.component';
 import { BannerDeleteComponent } from './banner-delete/banner-delete.component';
 import { BannerRoutingModule } from './banner-routing.module';
 import { HttpHandlerService } from './../../../../src/app/http-handler/http-handler.service';
-import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
+import { NgWizardModule } from 'ng-wizard';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
-const ngWizardConfig: NgWizardConfig = {
-  theme: THEME.default
-};
+
 @NgModule({
   declarations: [
     BannerComponent,
@@ -32,7 +30,7 @@ const ngWizardConfig: NgWizardConfig = {
     BannerRoutingModule,
     NgWizardModule,
     ImageCropperModule,
-    
+
   ],
   providers: [
     BannerService,

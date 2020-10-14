@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TagModel } from 'src/models/tag/tag.model';
-import { TagCreateModel } from 'src/models/tag/tag-create.model';
-import { ClassHelper } from 'src/utils/class-helper';
-import { TagUpdateModel } from 'src/models/tag/tag-update.model';
+import { TagModel } from './../../../../../src/models/tag/tag.model';
+import { TagCreateModel } from './../../../../../src/models/tag/tag-create.model';
+import { ClassHelper } from './../../../../../src/utils/class-helper';
+import { TagUpdateModel } from './../../../../../src/models/tag/tag-update.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TagService {
-  url = 'http://52.3.44.106:8081/Tag';
+  url = 'http://localhost:8081/Tag';
   private classHelper = ClassHelper;
 
   constructor(

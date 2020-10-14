@@ -9,7 +9,7 @@ import { UsuarioUpdateModel } from './../../../models/usuario/usuario-update.mod
   providedIn: 'root'
 })
 export class UsuarioService {
-  private url = 'https://localhost:4000/Usuario';
+  private url = 'https://localhost:8080/Usuario';
   private classHelper = ClassHelper;
 
   constructor(
@@ -22,9 +22,7 @@ export class UsuarioService {
    * @memberOf UsuarioService
    */
   getAll() {
-    
     return this.http.get<UsuarioModel[]>(this.url);
-    
   }
   /**
    * @method GETBYID() - Método retorna usuários por id.
@@ -46,7 +44,7 @@ export class UsuarioService {
     return this.http.post(this.url, this.classHelper.jsonToFormData(usuario));
   }
 
-    /**
+  /**
    * @method PUT() - Método atualizar um usuário.
    * @param id: string
    * @returns UsuarioModel

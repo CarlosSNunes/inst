@@ -1,57 +1,41 @@
-<div class="card">
-    <div class="card-content">
-        <div class="content">
-            <section class="hero is-dark is-small">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Perfis da careplus
-                        </h1>
-                    </div>
-                </div>
-            </section>
-            <table id="CareplusPerfilTable" class="table">
-                <caption></caption>
-                <thead>
-                    <tr>
-                        <th id="">Id</th>
-                        <th id="">Descrição</th>
-                        <th id="">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td *ngIf="careplusPerfils.length == 0 && !loaded" colspan="3">
-                            <progress class="progress is-large is-info" max="100">60%</progress>
-                        </td>
-                        <td class="has-text-centered" *ngIf="careplusPerfils.length == 0 && loaded" colspan="3">
-                            Não há Perfis da careplus cadastrados
-                        </td>
-                    </tr>
-                    <tr *ngFor="let careplusPerfil of careplusPerfils">
-                        <td>{{careplusPerfil.id}}</td>
-                        <td>{{careplusPerfil.descricao}}</td>
-                        <td>
-                            <a [routerLink]="['./', careplusPerfil.id]" routerLinkActive="active">
-                                <fa-icon [icon]="faPencilAlt"></fa-icon>
-                            </a>
-                            &nbsp;
-                            <a (click)="openCareplusPerfilDelete(careplusPerfil)">
-                                <fa-icon [icon]="faTrash"></fa-icon>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <footer class="card-footer">
-        <a routerLink="/neocms/careplus-perfil/create" routerLinkActive="active" class="card-footer-item">
-            Criar novo perfil da careplus &nbsp;
-            <fa-icon [icon]="faPlus"></fa-icon>
-        </a>
-    </footer>
-</div>
 
-<app-careplus-perfil-delete *ngIf="showCareplusPerfilDelete" [careplusPerfil]="careplusPerfil"
-    (onClose)="getCareplusPerfils()"></app-careplus-perfil-delete>
+<div class="card">
+  <div class="card-body">
+      <div class="row">
+          <div class="col-md-12">
+              <h1 class="title my-2">Perfis</h1>
+              <a routerLink="/neocms/careplus-perfil/create" routerLinkActive="active" class="badge badge-dark shadow p-3">
+                  Adicionar Perfil
+              </a>
+              <table id="bannerTable" class="table table-hover">
+                  <thead>
+                      <tr>
+                        <th scope="col" class="text-center hidden">Id</th>
+                        <th scope="col" class="text-center">Descrição</th>
+                        <th scope="col" class="text-center">Ação</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <td *ngIf="careplusPerfils.length == 0 && !loaded" colspan="6">
+                          <progress class="progress is-large is-info" max="100">60%</progress>
+                      </td>
+                      <td class="has-text-centered" *ngIf="careplusPerfils.length == 0 && loaded" colspan="6">
+                          Não há perfis cadastrados
+                      </td>
+                      <tr *ngFor="let p of careplusPerfils" class="table-cell text-center">
+                          <td class="hidden">{{p.id}}</td>
+                          <td class="py-3 align-middle text-center">
+                              {{p.descricao}}
+                          </td>
+                          <td class="py-3 align-middle text-center">
+                              <a [routerLink]="[ '/neocms/careplus-perfil/edit', p.id]" routerLinkActive="active" title="Editar">
+                                  <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
+                              </a>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>

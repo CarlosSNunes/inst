@@ -114,7 +114,7 @@
                                                 <option value="">Selecione uma categoria..</option>
                                                 <option *ngFor="let categoria of categorias" [value]="categoria.id"  >
                                                     {{categoria.descricao}}</option>
-                                                <option value="Administrar"  >Administrar categorias... 
+                                                <option value="Administrar"  >Administrar categorias...
                                                     <fa-icon [icon]="faCog"></fa-icon>
                                                 </option>
                                             </select>
@@ -130,12 +130,12 @@
                                     <label class="label">Destacar postagem na Home?</label>
                                     <div class="buttons has-addons">
                                         <button type="button" class="btn btn-outline-primary "
-                                            [ngClass]="{'isSelected': !isPostDestaque, 'isSelected': !isPostDestaque}"
+                                            [ngClass]="{'isSelected': !isPostDestaque}"
                                             (click)="changeStatusDestaque('0', false)">
                                             Não
                                         </button>
                                         <button type="button" class="btn btn-outline-primary ml-2"
-                                            [ngClass]="{'isSelected': isPostDestaque, 'is-selected': isPostDestaque}"
+                                            [ngClass]="{'isSelected': isPostDestaque}"
                                             (click)="changeStatusDestaque('1', true)">
                                             Sim
                                         </button>
@@ -146,12 +146,12 @@
                                         <label class="label">Ativar Post?</label>
                                         <div class="buttons has-addons">
                                             <button type="button" class="btn btn-outline-primary "
-                                                [ngClass]="{'isSelected': !isPostAtivo, 'isSelected': !isPostAtivo}"
+                                                [ngClass]="{'isSelected': !isPostAtivo}"
                                                 (click)="changeStatusPost('0', false)">
                                                 Não
                                             </button>
                                             <button type="button" class="btn btn-outline-primary ml-2"
-                                                [ngClass]="{'isSelected': isPostAtivo, 'isSelected': isPostAtivo}"
+                                                [ngClass]="{'isSelected': isPostAtivo}"
                                                 (click)="changeStatusPost('1', true)">
                                                 Sim
                                             </button>
@@ -203,7 +203,7 @@
                                     <img [src]="previewUrl" height="300" width="335px" />
                                 </div>
                             </div> -->
-                            
+
                             <!-- <div class="card shadow col-md-5 mt-3 mr-3 " style="float: right;" >
                                 <label class="label mt-2">Imagem Pequena</label>
                                 <div class="d-inline marging-input">
@@ -257,7 +257,7 @@
                             <h4 class="label d-inline">
                                 Tags
                             </h4>
-                        
+
                             <button type="button" class="btn btn-link ml-2 d-inline float-right" [routerLink]="['/neocms/posts-blog/tag/']"
                                 routerLinkActive="active">
                                 Nova Tag &nbsp;
@@ -290,7 +290,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                             <div class="column">

@@ -28,21 +28,21 @@ export class UsuarioComponent implements OnInit {
     this.getUsuarios();
   }
 
-  
+  openUsuarioDelete(usuario: UsuarioModel) {
+    this.usuario = usuario;
+  }
 
-
-openUsuarioDelete(usuario: UsuarioModel) {
-  this.usuario = usuario;
-}
-
-getUsuarios() {
-  this.usuarioService
-    .getAll()
-    .subscribe(usuarios => {
-      this.loaded = true;
-      this.usuarios = usuarios;
-    })
-    .add(() => this.loaded = true);
-}
+  /**
+   * @description Metodo que lista todos os usuários
+   * @memberOf UsuarioComponent
+   */
+  getUsuarios() {
+    this.usuarioService
+      .getAll()
+      .subscribe(usuarios => {
+        this.usuarios = usuarios;
+      })
+      .add(() => this.loaded = true);
+  }
 
 }

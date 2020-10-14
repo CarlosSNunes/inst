@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ClassHelper } from 'src/utils/class-helper';
+import { ClassHelper } from './../../../../src/utils/class-helper';
 import { Observable } from 'rxjs';
-import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
-import { PostsBlogCreateModel } from 'src/models/posts-blog/posts-blog-create.model';
-import { PostBlogUpdateModel } from 'src/models/posts-blog/posts-blog-update-model';
+import { PostsBlogModel } from './../../../../src/models/posts-blog/posts-blog.model';
+import { PostsBlogCreateModel } from './../../../../src/models/posts-blog/posts-blog-create.model';
+import { PostBlogUpdateModel } from './../../../../src/models/posts-blog/posts-blog-update-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsBlogService {
-  private url = 'http://52.3.44.106:8081/Post';
+  private url = 'http://localhost:8081/Post';
   private classHelper = ClassHelper;
 
   constructor(

@@ -1,6 +1,6 @@
 <div class="card-banner-wizard">
     <form [formGroup]="categoriasForm" (ngSubmit)="onSubmit()">
-        <div class="card shadow my-3" id="card-header">
+        <div class="card my-3" id="card-header">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -12,13 +12,13 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow my-3" id="cardWizardArea">
+        <div class="card my-3" id="cardWizardArea">
             <div class="card-body">
                 <ng-wizard [config]="config">
                     <ng-wizard-step [title]="'Categoria'" [description]="'Nova Categoria'">
                         <div class="row">
                             <div class="col-md-6 m-auto">
-                                <div class="card shadow">
+                                <div class="card">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="label">Título</label>
