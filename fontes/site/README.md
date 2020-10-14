@@ -116,11 +116,11 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 * `SELF_URL` - Url do proprio site, utilizada para setar as meta tags de redes sociais.
 * `CAREPLUS_URL` - Url do portal da Care Plus.
 * `BASE_HREF` - Url base do projeto.
+* `HAS_SSL_CERTIFIED` - Recebe um boolean, `true` ou `false` , caso `true` ele irá executar a aplicação na porta 443 no server side rendering, porém é necessário que o caminho correto dos arquivos do certificado estejam preenchidos nas variáveis abaixo:
 * `CERT_PATH` - Objeto com os caminhos dos arquivos necessários do certificado. (necessário somente em ambiente de produção por hora, em outros ambientes as propriedades do objeto devem ser preenchidas com uma string vazia "").
 * `CERT_PATH.key` - Caminho para o arquivo com extensão .key do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
 * `CERT_PATH.cert` - Caminho para o arquivo com extensão .cert do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
-* `CERT_PATH.ca` - Caminho para o arquivo com extensão .ca do certificado. (opcional,  preencher com "" quando o certificado não possuir esta informação).
-
+* `CERT_PATH.ca` - Caminho para o arquivo com extensão .ca do certificado. (opcional, preencher com "" quando o certificado não possuir esta informação).
 
 * O arquivo [environment](src/environments/environment.ts) possui as configurações de desenvolvimento do projeto.
 
@@ -131,6 +131,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "SELF_URL": "http://localhost:4300",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
     "BASE_HREF": "/",
+    "HAS_SSL_CERTIFIED": false,
     "CERT_PATH": {
         "key": "Caminho para o arquivo com extensão .key do certificado.",
         "cert": "Caminho para o arquivo com extensão .cert do certificado.",
@@ -148,6 +149,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "SELF_URL": "https://careplus.homolog.neotix.com.br",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
     "BASE_HREF": "/",
+    "HAS_SSL_CERTIFIED": false,
     "CERT_PATH": {
         "key": "Caminho para o arquivo com extensão .key do certificado.",
         "cert": "Caminho para o arquivo com extensão .cert do certificado.",
@@ -165,6 +167,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "SELF_URL": "https://uatp.careplus.com.br/institucional",
     "CAREPLUS_URL": "https://hml.careplus.com.br/homolog23/",
     "BASE_HREF": "/institucional/",
+    "HAS_SSL_CERTIFIED": false,
     "CERT_PATH": {
         "key": "Caminho para o arquivo com extensão .key do certificado.",
         "cert": "Caminho para o arquivo com extensão .cert do certificado.",
@@ -182,6 +185,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "SELF_URL": "https://www.careplus.com.br",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
     "BASE_HREF": "/",
+    "HAS_SSL_CERTIFIED": true,
     "CERT_PATH": {
         "key": "Caminho para o arquivo com extensão .key do certificado.",
         "cert": "Caminho para o arquivo com extensão .cert do certificado.",

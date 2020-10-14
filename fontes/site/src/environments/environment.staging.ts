@@ -4,6 +4,7 @@ export const environment = {
     SELF_URL: 'https://uatp.careplus.com.br/institucional',
     CAREPLUS_URL: 'https://hml.careplus.com.br/homolog23/',
     BASE_HREF: '/institucional/',
+    HAS_SSL_CERTIFIED: false,
     CERT_PATH: {
         key: '',
         cert: '',

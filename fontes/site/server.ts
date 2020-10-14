@@ -84,7 +84,7 @@ app.get('*', (req, res) => {
 });
 
 // Start up the Node server
-if (env.production) {
+if (env.HAS_SSL_CERTIFIED) {
     const options: { [key: string]: string } = {
         key: fs.readFileSync(env.CERT_PATH.key),
         cert: fs.readFileSync(env.CERT_PATH.cert),

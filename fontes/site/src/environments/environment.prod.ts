@@ -4,6 +4,7 @@ export const environment = {
     SELF_URL: 'https://www.careplus.com.br',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
+    HAS_SSL_CERTIFIED: true,
     CERT_PATH: {
         key: '',
         cert: '',

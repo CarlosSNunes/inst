@@ -8,6 +8,7 @@ export const environment = {
     SELF_URL: 'http://localhost:4300',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
+    HAS_SSL_CERTIFIED: false,
     CERT_PATH: {
         key: '',
         cert: '',
