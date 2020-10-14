@@ -85,11 +85,16 @@ app.get('*', (req, res) => {
 
 // Start up the Node server
 if (env.production) {
-    https.createServer({
+    const options: { [key: string]: string } = {
         key: fs.readFileSync(env.CERT_PATH.key),
         cert: fs.readFileSync(env.CERT_PATH.cert),
-        ca: fs.readFileSync(env.CERT_PATH.ca),
-    }, app).listen(443);
+    }
+
+    if (env.CERT_PATH.ca) {
+        options.ca = fs.readFileSync(env.CERT_PATH.ca)
+    }
+
+    https.createServer(options, app).listen(443);
 } else {
     app.listen(PORT, () => {
         console.log(`Node Express server listening on http://localhost:${PORT}`);

@@ -27,7 +27,7 @@ Refatoramento do website [Care Plus](https://www.careplus.com.br)
 Ter uma IDE instalada que suporte NodeJS, Angular instalado git para clonar o repositório
 
 ``` 
-git clone https://github.com/CareplusBR/inst.git
+    git clone https://github.com/CareplusBR/inst.git
 ```
 
 ### Instalação
@@ -35,13 +35,13 @@ git clone https://github.com/CareplusBR/inst.git
  Execute o comando abaixo na pasta `/fontes/site` para baixar os pacotes necessários para realizar o build do projeto
 
 ``` 
-npm i
+    npm i
 ```
 
 Para executar o servidor local a fim de utilizar o projeto execute o comando:
 
 ``` 
-ng serve
+    ng serve
 ```
 
 ### Build
@@ -116,6 +116,11 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 * `SELF_URL` - Url do proprio site, utilizada para setar as meta tags de redes sociais.
 * `CAREPLUS_URL` - Url do portal da Care Plus.
 * `BASE_HREF` - Url base do projeto.
+* `CERT_PATH` - Objeto com os caminhos dos arquivos necessários do certificado. (necessário somente em ambiente de produção por hora, as propriedades do objeto devem ser preenchidas com uma string vazia "").
+* `CERT_PATH.key` - Caminho para o arquivo com extensão .key do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
+* `CERT_PATH.cert` - Caminho para o arquivo com extensão .cert do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
+* `CERT_PATH.ca` - Caminho para o arquivo com extensão .ca do certificado. (opcional,  preencher com "" quando o certificado não possuir esta informação).
+
 
 * O arquivo [environment](src/environments/environment.ts) possui as configurações de desenvolvimento do projeto.
 
@@ -125,7 +130,12 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "API_URL": "http://52.3.44.106/api/",
     "SELF_URL": "http://localhost:4300",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
-    "BASE_HREF": "/"
+    "BASE_HREF": "/",
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
 }
 ```
 
@@ -137,7 +147,12 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "API_URL": "http://52.3.44.106/api/",
     "SELF_URL": "https://careplus.homolog.neotix.com.br",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
-    "BASE_HREF": "/"
+    "BASE_HREF": "/",
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
 }
 ```
 
@@ -149,7 +164,12 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "API_URL": "http://52.3.44.106/api/",
     "SELF_URL": "https://uatp.careplus.com.br/institucional",
     "CAREPLUS_URL": "https://hml.careplus.com.br/homolog23/",
-    "BASE_HREF": "/institucional/"
+    "BASE_HREF": "/institucional/",
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
 }
 ```
 
@@ -157,11 +177,16 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 
 ``` json
 {
-    "production": false,
+    "production": true,
     "API_URL": "http://52.3.44.106/api/",
     "SELF_URL": "https://www.careplus.com.br",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
-    "BASE_HREF": "/"
+    "BASE_HREF": "/",
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
 }
 ```
 
