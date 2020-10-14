@@ -8,32 +8,31 @@ import { CategoriasModel } from 'src/models/categorias/categorias.model';
   providedIn: 'root'
 })
 export class CategoriasService {
-  private url = 'https://localhost:4000/Categorias';
-  
-  
+  private url = 'http://localhost:8081/Categorias';
+
+
   constructor(
     private http: HttpClient
     ) { }
-    
+
     getAll() {
       return this.http.get<CategoriasModel[]>(this.url);
     }
-    
+
     getById(id: string) {
       return this.http.get<CategoriasModel>(this.url + '/' + id);
     }
-    
+
     post(banner: CategoriasCreateModel) {
       return this.http.post(this.url, banner);
     }
-    
+
     put(banner: CategoriasUpdateModel) {
       return this.http.put(this.url, banner);
     }
-    
+
     delete(id: number) {
       return this.http.delete(this.url + '/' + id);
     }
-    
+
   }
-  
