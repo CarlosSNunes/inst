@@ -124,6 +124,32 @@
                                 }
                             ]
                         },
+                        "homolog-windows": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.homolog-windows.ts"
+                            }],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        },
                         "staging": {
                             "fileReplacements": [{
                                 "replace": "src/environments/environment.ts",
@@ -167,6 +193,9 @@
                         },
                         "homolog": {
                             "browserTarget": "Care-plus:build:homolog"
+                        },
+                        "homolog-windows": {
+                            "browserTarget": "Care-plus:build:homolog-windows"
                         },
                         "staging": {
                             "browserTarget": "Care-plus:build:staging"
@@ -260,6 +289,9 @@
                         "homolog": {
                             "devServerTarget": "Care-plus:serve:homolog"
                         },
+                        "homolog-windows": {
+                            "devServerTarget": "Care-plus:serve:homolog-windows"
+                        },
                         "staging": {
                             "devServerTarget": "Care-plus:serve:staging"
                         }
@@ -288,6 +320,17 @@
                             "fileReplacements": [{
                                 "replace": "src/environments/environment.ts",
                                 "with": "src/environments/environment.homolog.ts"
+                            }],
+                            "sourceMap": false,
+                            "optimization": {
+                                "scripts": false,
+                                "styles": true
+                            }
+                        },
+                        "homolog-windows": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.homolog-windows.ts"
                             }],
                             "sourceMap": false,
                             "optimization": {
