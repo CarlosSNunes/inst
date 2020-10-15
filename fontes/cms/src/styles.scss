@@ -115,8 +115,9 @@ button.btn.btn-secondary.ng-wizard-btn-next:hover {
 }
 
 
-//! BUTTONS CUSTOM
-
+/**
+ *! [Button Custom - Dark]
+ */
 button.badge.badge-dark.shadow.p-3 {
   border-radius   : 3px !important;
   border          : 0px !important;
@@ -131,6 +132,9 @@ button.badge.badge-dark.shadow.p-3 {
   float           : right;
 }
 
+/**
+ *! [Button Custom - Dark :Hover]
+ */
 button.badge.badge-dark.shadow.p-3:hover {
   background-color: #38556b !important;
   text-shadow     : 2px 2px 6px #000000 !important;
@@ -139,8 +143,22 @@ button.badge.badge-dark.shadow.p-3:hover {
   box-shadow      : 0px 1px 3px -2px #000000 !important;
 }
 
+/**
+ * ![Container Login]
+ */
 div#containerLogin {
   position: fixed !important;
-  left: 20% !important;
-  top: 0% !important;
+  left    : 20% !important;
+  top     : 0% !important;
+}
+
+
+/**
+ * ![Badge Dark Custom]
+ */
+span.badge.badge-dark {
+  width      : 100px !important;
+  height     : 30px !important;
+  line-height: 20px !important;
+  padding    : 5px 5px 5px 5px !important;
 }
