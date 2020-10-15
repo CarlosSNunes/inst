@@ -5,18 +5,20 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { UserAuthenticateModel } from './../../../src/models/user-authenticate.model';
 
+import { environment } from './../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  url = 'http://localhost:8081/Usuario';
+  private readonly API_ENDPOINT = environment.API + '/Usuario';
 
   constructor(
     private http: HttpClient
   ) { }
 
   login(loginModel: LoginModel) {
-    return this.http.post<UserAuthenticateModel>(this.url + '/Autenticar', loginModel)
+    return this.http.post<UserAuthenticateModel>(this.API_ENDPOINT + '/Autenticar', loginModel)
       .pipe(catchError(this.errorHandler));
   }
 
