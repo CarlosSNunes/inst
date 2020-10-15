@@ -262,7 +262,6 @@
         .social-media {
             display: flex;
             flex-wrap: wrap;
-            align-self: flex-end;
             p {
                 width: 100%;
                 flex: 0 0 100%;
@@ -276,6 +275,7 @@
                 flex: 0 0 25%;
                 line-height: 100%;
                 position: relative;
+                align-self: flex-end;
                 svg {
                     margin: 0 auto;
                     display: block;
