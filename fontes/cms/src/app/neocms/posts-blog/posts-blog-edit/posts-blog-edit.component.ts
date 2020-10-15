@@ -97,11 +97,10 @@ export class PostsBlogEditComponent implements OnInit {
       .getById(id)
       .subscribe(postBlog => {
         this.postBlog = postBlog;
-        this.previewUrl = postBlog.caminhoImagem + postBlog.nomeImagem;
+        this.previewUrl = postBlog.caminhoImagem +'/'+ postBlog.nomeImagem;
 
         const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
         this.postsBlogForm.controls.dataPublicacao.setValue(this.datepipe.transform(postBlog.dataPublicacao,'dd/MM/yyyy', 'en'));
-        //dataPublicacaoElement.value = postBlog.dataPublicacao;
 
         const dataPExpiracaoElement: any = document.querySelector('#dataExpiracao');
         dataPExpiracaoElement.value = postBlog.dataExpiracao;
@@ -173,7 +172,7 @@ export class PostsBlogEditComponent implements OnInit {
       postTag: this.fb.array(postBlog.postTag),
       descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [''],
-      caminhoImagem: ['Src\\Images\\Banner\\'],
+      caminhoImagem: ['http://52.3.44.106:8081/Src/Images/Banner/'],
       nomeImagem: [postBlog.nomeImagem]
     });
 

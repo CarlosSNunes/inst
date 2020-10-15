@@ -114,7 +114,7 @@ export class PostsBlogCreateComponent implements OnInit {
       dataPublicacao: ['', [Validators.required]],
       dataExpiracao: [''],
       arquivo: [''],
-      caminhoImagem: ['Src\\Images\\Banner\\'],
+      caminhoImagem: ['http://52.3.44.106:8081/Src/Images/Banner/'],
       nomeImagem: [''],
       destaque: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
       ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
@@ -149,8 +149,6 @@ export class PostsBlogCreateComponent implements OnInit {
     
     const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
     const dataPublicacao: Date = dataPublicacaoElement.value;
-
-   
 
     this.validateDate(dataPublicacao);
 

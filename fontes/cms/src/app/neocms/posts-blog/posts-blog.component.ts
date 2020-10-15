@@ -97,6 +97,7 @@ export class PostsBlogComponent implements OnInit {
       .subscribe(postsBlog => {
         this.loaded = true;
         this.postsBlog = postsBlog;
+        
       },
         error => {
           this.loaded = true;
@@ -179,7 +180,7 @@ export class PostsBlogComponent implements OnInit {
       postTag: this.fb.array(post.postTag),
       descricao: [post.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [[]],
-      caminhoImagem: [post.caminhoImagem],
+      caminhoImagem: ['http://52.3.44.106:8081/Src/Images/Banner/'],
       nomeImagem: [post.nomeImagem]
     });
 
