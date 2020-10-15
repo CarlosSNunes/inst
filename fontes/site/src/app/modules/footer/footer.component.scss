@@ -211,7 +211,7 @@
             }
             a {
                 display: inline-block;
-                align-self: center;
+                align-self: flex-end;
                 margin-left: 20px;
                 margin-right: 6px;
                 line-height: 100%;
@@ -237,12 +237,13 @@
                 margin-bottom: 31px;
             }
             a {
-                align-self: center;
+                align-self: flex-end;
                 display: inline-block;
                 margin-left: 6px;
                 margin-right: 6px;
                 line-height: 100%;
-                height: 36.44px;
+                position: relative;
+                width: 121px;
                 &:nth-child(2) {
                     margin-left: 0;
                 }
@@ -252,6 +253,9 @@
                 img {
                     width: 121px;
                     height: 36.44px;
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
                 }
             }
         }
@@ -271,10 +275,15 @@
                 margin-bottom: 0px;
                 flex: 0 0 25%;
                 line-height: 100%;
+                position: relative;
                 svg {
                     margin: 0 auto;
                     display: block;
                     max-width: 16px;
+                    position: absolute;
+                    bottom: 0;
+                    height: auto;
+                    left: 0;
 
                     &.youtube {
                         margin-top: -3px;
