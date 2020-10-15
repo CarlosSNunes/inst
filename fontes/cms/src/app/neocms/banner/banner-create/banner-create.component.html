@@ -14,7 +14,7 @@
         </div>
         <div class="card my-3" id="cardWizardArea">
             <div class="card-body p-5">
-                <ng-wizard [config]="configBannerWin" (stepChanged)="stepChanged($event)">
+                <ng-wizard [config]="configBannerWin1" (stepChanged)="stepChanged($event)">
                     <ng-wizard-step [title]="'Área'" [description]="'Escolher Área'">
                         <div class="row my-5">
                             <div class="col-md-12">
@@ -45,27 +45,27 @@
                     <ng-wizard-step [title]="'Imagens'" [description]="'Escolher os Banners'">
                         <div class="row">
                             <div class="col-md-12 col-lg-6 w-100 my-5 card-crop">
-                                <div class="card shadow-sm border-light fade-in">
+                                <div class="fade-in">
                                     {{nomeDaImagem}}
-                                    <div class="card-body text-center m-3 card-crop">
+                                    <div class="text-center m-3 card-crop">
                                         <h3>Imagem Grande</h3>
                                         <small>Dimensões: 1920 x 720 px</small>
                                         <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper 
+                                            <image-cropper
                                                 [imageChangedEvent]="imageChangedEvent"
-                                                [maintainAspectRatio]="true" 
+                                                [maintainAspectRatio]="true"
                                                 [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" 
+                                                [autoCrop]="true"
                                                 [onlyScaleDown]="false"
                                                 [aspectRatio]="8/3"
-                                                [resizeToWidth]="1920" 
-                                                [cropperMinWidth]="1920" 
+                                                [resizeToWidth]="1920"
+                                                [cropperMinWidth]="1920"
                                                 [resizeToHeight]="720"
                                                 [cropperMinHeight]="720" format="png"
-                                                (imageCropped)="imageCropped($event)" 
+                                                (imageCropped)="imageCropped($event)"
                                                 (imageLoaded)="imageLoaded()"
-                                                (cropperReady)="cropperReady()" 
+                                                (cropperReady)="cropperReady()"
                                                 (loadImageFailed)="loadImageFailed()">
                                             </image-cropper>
                                         </div>
@@ -77,28 +77,28 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-lg-6 w-100 my-5">
-                                <div class="card shadow-sm border-light fade-in">
-                                    <div class="card-body text-center m-3 card-crop">
-                                        <h3>Imagem Pequena</h3>
+                                <div class="fade-in">
+                                    <div class="text-center m-3 card-crop">
+                                        <h3>Imagem Mobile</h3>
                                         <small>Dimensões: 200 x 150 px</small>
                                         <input type="file" class="text-truncate"
                                             (change)="fileChangeEventMobile($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper 
+                                            <image-cropper
                                                 [imageChangedEvent]="imageChangedEventMobile"
-                                                [maintainAspectRatio]="true" 
+                                                [maintainAspectRatio]="true"
                                                 [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" 
-                                                [onlyScaleDown]="false" 
+                                                [autoCrop]="true"
+                                                [onlyScaleDown]="false"
                                                 [aspectRatio]="4/3"
-                                                [imageFile]="bannerMobile" 
-                                                [resizeToWidth]="200" 
+                                                [imageFile]="bannerMobile"
+                                                [resizeToWidth]="200"
                                                 [cropperMinWidth]="200"
-                                                [resizeToHeight]="150" 
-                                                [cropperMinHeight]="150" 
+                                                [resizeToHeight]="150"
+                                                [cropperMinHeight]="150"
                                                 format="png"
                                                 (imageCropped)="imageCroppedMobile($event)"
-                                                (imageLoaded)="imageLoaded()" 
+                                                (imageLoaded)="imageLoaded()"
                                                 (cropperReady)="cropperReady()"
                                                 (loadImageFailed)="loadImageFailed()">
                                             </image-cropper>
