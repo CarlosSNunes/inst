@@ -45,21 +45,18 @@
 
 <nav class="navbar background menu-header" role="navigation" aria-label="main navigation">
     <div class="columns is-mobile">
-        <div class="column is-4">
+        <div class="column is-6">
+            <img class="logo-careplus-mobile" routerLink="/" src="assets/svg/logo-careplus-mobile.svg" alt="Logo mobile careplus">
+        </div>
+        
+        <div class="column is-6">
             <input tabindex="-1" id="menu-check" type="checkbox" [checked]="checked">
             <label tabindex="-1" class="label-menu" (click)="initTransition()">
                 <span class="menu-mobile">
                     <span class="hamburger"></span>
                 </span>
             </label>
-        </div>
-        <div class="column is-4">
-            <img class="logo-careplus-mobile" routerLink="/" src="assets/svg/logo-careplus-mobile.svg"
-                alt="Logo mobile careplus">
-        </div>
-        <div class="column is-4">
-            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'"
-                title="Entrar" target="_blank">
+            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
                 <img class="user-icon" src="assets/svg/user-digital-cian.svg" alt="User Icon">
             </a>
         </div>

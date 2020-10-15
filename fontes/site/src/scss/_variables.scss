@@ -111,11 +111,17 @@ $base-size: 16;
     @if $tag == "p" {
         @return (16 / $base-size) * 1em;
     }
+    @if $tag == "p14" {
+        @return (14 / $base-size) * 1em;
+    }
     @if $tag == "sbm" {
         @return (12 / $base-size) * 1em;
     }
     @if $tag == "cta" {
         @return (16 / $base-size) * 1em;
+    }
+    @if $tag == "fs20" {
+        @return (20 / $base-size) * 1em;
     }
 }
 @function getLineHeight($tag) {
