@@ -6,8 +6,8 @@ export const environment = {
     BASE_HREF: '/',
     HAS_SSL_CERTIFIED: true,
     CERT_PATH: {
-        key: '',
-        cert: '',
-        ca: ''
+        key: 'E:\certs\www.careplus.com.br.key',
+        cert: 'E:\certs\www.careplus.com.br.crt',
+        ca: 'E:\certs\ca.cer'
     }
 };
