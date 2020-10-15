@@ -198,12 +198,13 @@ p, .p {
         font-size: getSize("p");
         line-height: getLineHeight("p");
     }
-    img {
+    img.girl {
         position: absolute;
         right: 16px;
         align-self: center;
         top: calc(50% - 22px);
     }
+    .icon{display: none;}
 }
 
 @media (min-width: 1280px) {
@@ -214,11 +215,31 @@ p, .p {
 
 @media (max-width: 1023px) {
     .get-price-box {
-        top: unset;
-        bottom: 84px;
-        right: 0;
-        left: 0;
-        margin: 0 auto;
+        bottom: 94px;
+        right: 22px;
         position: fixed;
+        width: 68px;
+        height: 68px;
+        padding: 0;
+        border-radius: 100%;
+        .text{display: none;}
+        img.girl {
+            position: absolute;
+            right: 10px;
+            align-self: center;
+            top: 10px;
+        }
+        .icon{
+            background-color: #FC0000;
+            border-radius: 100%;
+            display: flex;
+            height: 21px;
+            width: 21px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: -5px;
+        }
     }
 }

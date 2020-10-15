@@ -7,7 +7,7 @@
 .info-header {
     top: 0;
     left: 0;
-    height: 24px;
+    height: 33px;
     width: 100vw;
     min-height: unset;
     padding: 0 32px;
@@ -16,13 +16,13 @@
     z-index: 1002;
     .selected {
         height: 100%;
-        line-height: 24px;
+        line-height: 33px;
         color: getColor(_bupa, _white);
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        padding-right: 25px;
+        padding-left: 25px;
         position: relative;
         cursor: pointer;
         img {
@@ -32,7 +32,7 @@
                 vertical-align: -0.225em;
             }
             position: absolute;
-            right: 0px;
+            left: 0px;
             width: 10px;
             height: 100%;
             transition: transform 0.5s;
@@ -56,7 +56,7 @@
     position: fixed;
     width: 218px;
     left: 32px;
-    top: 24px;
+    top: 33px;
     background-color: getColor(_bupa, _white);
     border-radius: 25px;
     z-index: 1032;
@@ -118,12 +118,12 @@
 .menu-header {
     position: fixed;
     width: 100vw;
-    height: 48px;
+    height: 78px;
     min-height: unset;
-    top: 24px;
+    top: 33px;
     left: 0;
     z-index: 1002;
-    padding: 10px 36px;
+    padding: 15px 36px;
     background-color: getColor(_bupa, _digital-cian);
     #menu-check {
         display: none;
@@ -150,7 +150,7 @@
         padding-top: 6px;
         outline: none;
         cursor: pointer;
-        display: inline-block;
+        float: right;
     }
     .menu-mobile {
         width: 23px;
@@ -189,12 +189,12 @@
         margin: 0;
         height: 100%;
         width: 100%;
+        align-items: center;
         .column {
             padding: 0;
-            height: 100%;
             position: relative;
             .logo-careplus-mobile {
-                margin: 0 auto;
+                margin: 0;
                 display: block;
                 width: 88px;
                 height: 33px;
@@ -204,6 +204,7 @@
                 width: 20px;
                 height: 20px;
                 margin-top: 6px;
+                margin-right: 15px;
             }
         }
     }
