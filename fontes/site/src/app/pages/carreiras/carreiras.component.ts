@@ -37,8 +37,8 @@ export class CarreirasComponent implements OnInit {
         new InfoSectionModel({
             smallTitle: 'nossos colaboradores',
             bigTitle: 'Veja como é trabalhar na Care Plus',
-            description: 'Assista ao lado depoimentos dos nossos colaboradores e entenda mais do nosso mundo',
-            subDescription: 'Fizemos esse vídeo com os nossos colaboradores para que mais pessoas conheçam o trabalho institucional da Care Plus garantindo cuidado, carinho e o melhor ambiente de trabalho para todos.',
+            description: 'Assista aos depoimentos dos nossos colaboradores e entenda mais do nosso mundo',
+            subDescription: 'Fizemos esse vídeo com os nossos colaboradores para que mais pessoas conheçam este trabalho institucional, que garante cuidado, carinho e o melhor ambiente de trabalho para todos.',
             imageSrc: 'assets/img/section-our-colaborators.jpg',
             hasModal: true,
         })
