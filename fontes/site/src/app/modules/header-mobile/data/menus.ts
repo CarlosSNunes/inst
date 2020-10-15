@@ -112,15 +112,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -253,15 +253,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -382,15 +382,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -511,15 +511,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -636,15 +636,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
