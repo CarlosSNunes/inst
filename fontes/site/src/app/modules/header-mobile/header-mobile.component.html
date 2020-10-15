@@ -154,29 +154,30 @@
         </div>
         <div class="bottom" #bottom id="bottom">
             <a *ngIf="subMenu.id == 'default'" class="btn btn-white-to-digital-cian primary small"
-                (click)="openSimulator()">
+                (click)="openSimulator();initTransition();">
                 Simule Planos e Produtos
             </a>
 
             <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-white-to-digital-cian primary small"
                 rel="noopener noreferrer"
+                (click)="initTransition()"
                 [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                 Entre em Contato
             </a>
 
-            <a *ngIf="subMenu.id == 'rh'" class="btn btn-white-to-digital-cian primary small"
+            <a *ngIf="subMenu.id == 'rh'" class="btn btn-white-to-digital-cian primary small" (click)="initTransition()"
                 routerLink="/fale-conosco/solicite-uma-cotacao">
                 Solicite uma Cotação
             </a>
 
             <a *ngIf="subMenu.id == 'corretor'" class="btn btn-white-to-digital-cian primary small"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer" (click)="initTransition()"
                 [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                 Seja um Corretor
             </a>
 
             <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-white-to-digital-cian primary small"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer" (click)="initTransition()"
                 [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                 Seja um Credenciado
             </a>
