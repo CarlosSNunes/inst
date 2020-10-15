@@ -75,18 +75,23 @@
             </label>
         </div>
         <div #body class="body" (resized)="positionFooterOnBottom($event)">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Home">
+                <img class="logo-careplus-mobile" src="assets/svg/logo-careplus-mobile.svg" alt="Logo mobile careplus">
+            </a>
+            
+
             <p class="page-title">
                 {{selectedPage}}
             </p>
             <div class="buttons">
                 <a routerLink="/home/beneficiario" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Beneficiário">Beneficiário</a>
+                    (click)="initTransition()" class="button" title="Sou Beneficiário">Sou Beneficiário</a>
                 <a routerLink="/home/rh" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Gestor de RH">Gestor de RH</a>
+                    (click)="initTransition()" class="button" title="Sou RH">Sou RH</a>
                 <a routerLink="/home/corretor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Corretor">Corretor</a>
+                    (click)="initTransition()" class="button" title="Sou Corretor">Sou Corretor</a>
                 <a routerLink="/home/credenciado" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Credenciado">Credenciado</a>
+                    (click)="initTransition()" class="button" title="Sou Credenciado">Sou Credenciado</a>
             </div>
             <div class="line"></div>
 
@@ -99,39 +104,58 @@
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
-                            <li> <a routerLink="/a-careplus" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="A Empresa">A Empresa </a></li>
-                            <li> <a routerLink="/a-careplus/materiais-de-saude" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Materiais de Saúde">Materiais de Saúde</a></li>
-                            <li><a routerLink="/a-careplus/responsabilidade-social" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Responsabilidade social">Responsabilidade social</a></li>
-                            <li><a routerLink="/a-careplus/perguntas-frequentes" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Perguntas Frequentes">Perguntas Frequentes</a></li>
-                            <li><a routerLink="/a-careplus/resultados-financeiros" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Resultados financeiros">Resultados financeiros</a></li>
-                            <li><a routerLink="/a-careplus/termos-e-condicoes" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Termos e condições">Termos e condições</a></li>
-                            <li><a routerLink="/a-careplus/politica-de-privacidade" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Politica de privacidade">Politica de privacidade</a></li>
-                            <li><a routerLink="/a-careplus/rede-plus" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Rede Plus">Rede Plus</a></li>
-                            <li><a routerLink="/a-careplus/diferenciais" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Diferenciais">Diferenciais</a></li>
+                            <li>
+                                <a routerLink="/a-careplus" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="A Empresa">
+                                    A Empresa
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/diferenciais" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Diferenciais">
+                                    Diferenciais
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/responsabilidade-social" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Responsabilidade social">
+                                    Responsabilidade Social
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/rede-plus" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Rede Plus">
+                                    Rede Plus
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/perguntas-frequentes" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Perguntas Frequentes">
+                                    Perguntas Frequentes
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/resultados-financeiros" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Resultados financeiros">
+                                    Resultados Financeiros
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/materiais-de-saude" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Materiais de Saúde">
+                                    Materiais de Saúde
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/termos-e-condicoes" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Termos e condições">
+                                    Termos e Condições
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/a-careplus/politica-de-privacidade" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Politica de privacidade">
+                                    Politica de Privacidade
+                                </a>
+                            </li>
+                            
                         </ul>
                     </div>
                 </li>
                 <li class="acc2">
-                    <a tabindex="0" (click)="expandAccordion('acc2')" title="Produtos">
-                        Produtos
+                    <a tabindex="0" (click)="expandAccordion('acc2')" title="Planos">
+                        Planos
                     </a>
                     <input tabindex="-1" type="checkbox" id="acc2" name="acc2" [checked]="expandedAccordion === 'acc2'">
                     <label tabindex="-1"></label>
@@ -142,65 +166,48 @@
                                     title="Home">Home </a></li>
                             <li> <a routerLink="/planos-e-produtos/careplus-soho" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Care Plus Soho">Care Plus Soho </a></li>
+                                    title="Care Plus Soho">Care Plus SoHo (de 2 a 29 vidas)</a></li>
                             <li> <a routerLink="/planos-e-produtos/clube-careplus" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Clube Care Plus">Clube Care Plus </a></li>
+                                    title="Clube Care Plus">Clube Care Plus (de 30 a 200 vidas)</a></li>
                             <li> <a routerLink="/planos-e-produtos/careplus-empresarial" routerLinkActive="active"
                                     [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Care Plus Empresarial">Care Plus Empresarial </a></li>
-                            <li> <a routerLink="/planos-e-produtos/medicina-ocupacional" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Medicina Ocupacional">Medicina Ocupacional </a></li>
+                                    title="Care Plus Empresarial">Care Plus Empresarial (mais de 200 vidas)</a></li>
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a tabindex="0" (click)="expandAccordion('acc3')" title="Gestão de Saúde">
-                        Gestão de Saúde
+                <li class="acc3">
+                    <a tabindex="0" (click)="expandAccordion('acc3')" title="Produtos">
+                        Produtos
                     </a>
-
                     <input tabindex="-1" type="checkbox" id="acc3" name="acc3" [checked]="expandedAccordion === 'acc3'">
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Home">Home </a></li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/programas-preventivos"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Programas Preventivos">Programas
-                                    Preventivos </a></li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/servicos-online"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Serviços On-line">Serviços On-line
-                                </a></li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/personal-system"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Personal System">Personal System </a>
+                            <li>
+                                <a routerLink="/planos-e-produtos/medicina-ocupacional" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Medicina Ocupacional">
+                                    Medicina Ocupacional
+                                </a>
                             </li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/programas-empresariais"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Programas Empresariais">Programas
-                                    Empresariais </a></li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/nossas-parcerias"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Nossas Parcerias">Nossas Parcerias
-                                </a></li>
+                            <li>
+                                <a href="https://www8.careplus.com.br/masterinternational/" target="_blank" rel="noopener noreferrer" (click)="initTransition()" tabindex="0" title="Master Internacional">
+                                    Master Internacional
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/planos-e-produtos/gestao-de-saude" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0" title="Gestão de Saúde">
+                                    Gestão de Saúde
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a tabindex="0" (click)="expandAccordion('acc4')" title="Carreiras">
+                    <a tabindex="0" (click)="expandAccordion('acc5')" title="Carreiras">
                         Carreiras
                     </a>
 
-                    <input tabindex="-1" type="checkbox" id="acc4" name="acc4" [checked]="expandedAccordion === 'acc4'">
+                    <input tabindex="-1" type="checkbox" id="acc5" name="acc5" [checked]="expandedAccordion === 'acc5'">
                     <label tabindex="-1"></label>
                     <div class="extra">
                         <ul>
