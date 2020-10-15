@@ -6,11 +6,13 @@ import { PostsBlogModel } from './../../../../src/models/posts-blog/posts-blog.m
 import { PostsBlogCreateModel } from './../../../../src/models/posts-blog/posts-blog-create.model';
 import { PostBlogUpdateModel } from './../../../../src/models/posts-blog/posts-blog-update-model';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PostsBlogService {
-  private url = 'http://localhost:8081/Post';
+  private readonly API_ENDPOINT = environment.API + '/Post';
   private classHelper = ClassHelper;
 
   constructor(
@@ -18,35 +20,35 @@ export class PostsBlogService {
   ) { }
 
   uploadImage(file: File) {
-    return this.http.post(this.url + '/Upload', this.classHelper.jsonToFormData(file));
+    return this.http.post(this.API_ENDPOINT + '/Upload', this.classHelper.jsonToFormData(file));
   }
 
   deleteImage(fileName: string) {
-    return this.http.post(this.url + '/DeleteImage', fileName);
+    return this.http.post(this.API_ENDPOINT + '/DeleteImage', fileName);
   }
 
   getAll() {
-    return this.http.get<PostsBlogModel[]>(this.url);
+    return this.http.get<PostsBlogModel[]>(this.API_ENDPOINT);
   }
 
   getById(id: string): Observable<PostsBlogModel> {
-    return this.http.get<PostsBlogModel>(this.url + '/' + id);
+    return this.http.get<PostsBlogModel>(this.API_ENDPOINT + '/' + id);
   }
 
   getByCategoryId(id: string): Observable<PostsBlogModel> {
-    return this.http.get<PostsBlogModel>(this.url + '/categoria/' + id);
+    return this.http.get<PostsBlogModel>(this.API_ENDPOINT + '/categoria/' + id);
   }
 
   post(post: PostsBlogCreateModel) {
-    return this.http.post(this.url, this.classHelper.jsonToFormData(post));
+    return this.http.post(this.API_ENDPOINT, this.classHelper.jsonToFormData(post));
   }
 
   put(post: PostBlogUpdateModel) {
-    return this.http.put(this.url, this.classHelper.jsonToFormData(post));
+    return this.http.put(this.API_ENDPOINT, this.classHelper.jsonToFormData(post));
   }
 
   delete(id: number) {
-    return this.http.delete(this.url + '/' + id);
+    return this.http.delete(this.API_ENDPOINT + '/' + id);
   }
 
 }

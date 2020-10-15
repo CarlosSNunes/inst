@@ -88,11 +88,11 @@
                                 </tr>
                                 <tr *ngFor="let post of postsBlog" >
                                     <td style="vertical-align:inherit">
-                                        <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == 1}">
+                                        <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == '1'}">
                                         </fa-icon>
                                     </td>
                                     <td style="vertical-align:inherit">
-                                        <img src="{{ post.caminhoImagem + post.nomeImagem }}"
+                                        <img src="{{ post.caminhoImagem  + post.nomeImagem}} "
                                             [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem">
                                     </td>
                                     <td style="vertical-align:inherit; text-align-last:left; max-width:250px; content-visibility: auto;" >{{post.titulo}}</td>

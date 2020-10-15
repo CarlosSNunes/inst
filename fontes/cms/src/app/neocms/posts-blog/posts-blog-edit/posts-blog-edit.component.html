@@ -84,11 +84,11 @@
                                     [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
                                     [editor]="editor" (ready)="onReady($event)">
                                 </ckeditor>
-                                <div *ngIf="submitted" class="errors">
+                                <!-- <div *ngIf="submitted" class="errors">
                                     <p *ngFor="let error of getErrors(f.descricao.errors)" class="help is-danger">
                                         {{error}}
                                     </p>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>
@@ -111,21 +111,9 @@
                                             </select>
                                         </div>
                                 </div>
-                                <!-- <div class="select"
-                                    [ngClass]="{ 'is-success': submitted && !f.categoriaId.errors, 'is-danger' : submitted && f.categoriaId.errors }">
-                                    <select formControlName="categoriaId" class="form-control input w-25 p-2">
-                                        <option value="">Selecione..</option>
-                                        <option *ngFor="let categoria of categorias" [value]="categoria.id">
-                                            {{categoria.descricao}}</option>
-                                    </select>
-                                </div> -->
-
+                               
                             </div>
-                            <!-- <div *ngIf="submitted" class="errors">
-                                <p *ngFor="let error of getErrors(f.categoriaId)" class="help is-danger">
-                                    {{error}}
-                                </p>
-                            </div> -->
+                            
                         </div>
                         <div class="car shadow p-3 mt-3 columns">
                             <div class="marging-input">
@@ -184,12 +172,12 @@
                         <div class="card shadow p-3 mt-3">
                             <div class="marging-title ">
                                 <label class="label labelTeste">Quando será publicado?</label>
-                                <div class="col-xs-12 col-12 col-md-4 form-group">
-                                    <input type="text" id="dataPublicacao"
-                                        formControlName="dataPublicacao"  type="text"
+                                <div class="col-xs-12 col-12 col-md-3 form-group">
+                                    <input type="date" id="dataPublicacao" 
+                                        formControlName="dataPublicacao" 
                                         [ngClass]="{ 'is-success': submitted && !f.dataPublicacao.errors, 'is-danger' : submitted && f.dataPublicacao.errors }"
-                                        placeholder="Selecione uma data" class="form-control data" bsDatepicker
-                                        [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'dd/MM/yyyy', containerClass: 'theme-dark-blue', showWeekNumbers: false  }">
+                                        placeholder="Selecione uma data" class="form-control data" 
+                                       >
                                 </div>
                                 <div *ngIf="submitted" class="errors">
                                     <p *ngFor="let error of getErrors(f.dataPublicacao)" class="help is-danger">
@@ -200,14 +188,11 @@
 
                             <div class="d-inline">
                                 <label class="label">Quando deverá ser removido?</label>
-                                <div class="col-xs-12 col-12 col-md-4 form-group">
-                                    <input id="dataExpiracao" formControlName="dataExpiracao"
+                                <div class="col-xs-12 col-12 col-md-3 form-group">
+                                    <input type="date" id="dataExpiracao" formControlName="dataExpiracao"
                                         [ngClass]="{ 'is-success': submitted && !f.dataExpiracao.errors, 'is-danger' : submitted && f.dataExpiracao.errors }"
-                                        class=" form-control input" type="text" placeholder="Selecione uma data"
-                                        #dp="bsDatepicker"
-                                        bsDatepicker
-                                        [bsValue]="dataPublicacao"
-                                        [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'dd/MM/yyyy', containerClass: 'theme-dark-blue', showWeekNumbers: false  }">
+                                        class=" form-control input" placeholder="Selecione uma data"
+                                       >
                                 </div>
                                 <div *ngIf="submitted" class="errors">
                                     <p *ngFor="let error of getErrors(f.dataExpiracao)" class="help is-danger">
@@ -275,8 +260,8 @@
                             </button>
                             </div>
                             <div class="card shadow p-3 mt-3 are-medium d-block">
-                                <button type="button" (click)="toggleTag(tag)" class="btn btn-outline-primary btn-sm col-md-3 m-2"
-                                    btnCheckbox *ngFor="let tag of tags"
+                                <button type="button" (click)="toggleTag(tag)" class="btn btn-outline-primary btn-sm col-md-* m-2"
+                                    btnCheckbox *ngFor="let tag of tags" 
                                     btnCheckboxTrue="1" btnCheckboxFalse="0">
                                     {{tag.descricao}}
                                 </button>
