@@ -6,8 +6,8 @@ export const environment = {
     BASE_HREF: '/',
     HAS_SSL_CERTIFIED: true,
     CERT_PATH: {
-        key: 'D:\Users\developer\source\siteteste\careplushml.neotix.com.br-key.pem',
-        cert: 'D:\Users\developer\source\siteteste\careplushml.neotix.com.br-crt.pem',
-        ca: 'D:\Users\developer\source\siteteste\careplushml.neotix.com.br-chain.pem'
+        key: 'D:/Users/developer/source/siteteste/careplushml.neotix.com.br-key.pem',
+        cert: 'D:/Users/developer/source/siteteste/careplushml.neotix.com.br-crt.pem',
+        ca: 'D:/Users/developer/source/siteteste/careplushml.neotix.com.br-chain.pem'
     }
 };
