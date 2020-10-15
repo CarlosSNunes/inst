@@ -5,11 +5,13 @@ import { BannerModel } from './../../../../src/models/banner/banner.model';
 import { BannerCreateModel } from './../../../../src/models/banner/banner-create.model';
 import { BannerUpdateModel } from './../../../../src/models/banner/banner-update.model';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class BannerService {
-  private url = 'http://localhost:8081/Banner';
+  private readonly API_ENDPOINT = environment.API + '/Banner';
   private classHelper = ClassHelper;
 
   constructor(
@@ -17,22 +19,22 @@ export class BannerService {
   ) { }
 
   getAll() {
-    return this.http.get<BannerModel[]>(this.url);
+    return this.http.get<BannerModel[]>(this.API_ENDPOINT);
   }
 
   getById(id: string) {
-    return this.http.get<BannerModel>(this.url + '/' + id);
+    return this.http.get<BannerModel>(this.API_ENDPOINT + '/' + id);
   }
 
   post(banner: BannerCreateModel) {
-    return this.http.post(this.url, this.classHelper.jsonToFormData(banner));
+    return this.http.post(this.API_ENDPOINT, this.classHelper.jsonToFormData(banner));
   }
 
   put(banner: BannerUpdateModel) {
-    return this.http.put(this.url, this.classHelper.jsonToFormData(banner));
+    return this.http.put(this.API_ENDPOINT, this.classHelper.jsonToFormData(banner));
   }
 
   delete(id: number) {
-    return this.http.delete(this.url + '/' + id);
+    return this.http.delete(this.API_ENDPOINT + '/' + id);
   }
 }

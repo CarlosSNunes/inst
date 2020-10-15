@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
 
+import { environment } from '../../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MaisLidosService {
 
-  private url = 'http://localhost:8081/Post';
+  private readonly API_ENDPOINT = environment.API + '/Post';
 
 
   constructor(
@@ -15,7 +17,7 @@ export class MaisLidosService {
     ) { }
 
     getAll() {
-      return this.http.get<PostsBlogModel[]>(this.url + '/maisLidos');
+      return this.http.get<PostsBlogModel[]>(this.API_ENDPOINT + '/maisLidos');
     }
 
 }

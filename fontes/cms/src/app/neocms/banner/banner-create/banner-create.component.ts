@@ -1,14 +1,14 @@
-import { Component, HostListener, OnInit, ViewChild, EventEmitter } from '@angular/core';
-import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
-import { faTimes, faCheck, faUpload, faPlus, faSearch, faPhotoVideo } from '@fortawesome/free-solid-svg-icons';
-import { BannerService } from '../banner.service';
-import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
-import { FormControlError } from './../../../../../src/utils/form-control-error';
-import { BannerCreateModel } from './../../../../../src/models/banner/banner-create.model';
-import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
+import { faCheck, faPhotoVideo, faPlus, faSearch, faTimes, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
+import { BannerService } from '../banner.service';
+import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
+import { BannerCreateModel } from './../../../../../src/models/banner/banner-create.model';
+import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
+import { FormControlError } from './../../../../../src/utils/form-control-error';
 
 @Component({
   selector: 'app-banner-create',
@@ -16,16 +16,17 @@ import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
   styleUrls: ['./banner-create.component.scss'],
 })
 
-
 export class BannerCreateComponent implements OnInit {
 
   // ?--------- Configuração 'ng-wizard' ---------
-  configBannerWin: NgWizardConfig = {
+  configBannerWin1: NgWizardConfig = {
     selected: 0,
     theme: THEME.dots,
-    lang: { next: '🠞', previous: '🠜' }
+    lang: {
+      next: '🠞',
+      previous: '🠜'
+    }
   };
-  ngWizardService: any;
 
   // ?--------- Configuração 'DropDown' ---------
   dropdownOptions = [
@@ -36,44 +37,44 @@ export class BannerCreateComponent implements OnInit {
     { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
   ];
 
-  bannerForm;
-  faSearch = faSearch;
-  faPhotoVideo = faPhotoVideo;
-  imageChangedEvent: any;
-  imageChangedEventMobile: any;
-  croppedImage: any;
-  croppedImageMobile: any;
-  bannerGrande: File;
-  bannerMobile: File;
-  thumbnailImage: File;
-  imageURL: string;
-  faTimes = faTimes;
-  faCheck = faCheck;
-  faUpload = faUpload;
-  faPlus = faPlus;
-  arquivoNome = 'Selecione um arquivo';
-  arquivoNomeMobile = 'Selecione um arquivo';
-  submitted: boolean;
-  usuario: UserAuthenticateModel;
-  isLinkExternoSelected = false;
-  btnSubmitDisable = false;
-  isBannerAtivo = false;
-  areaSelectedObject: [{ nome: string, descricao: string }];
-  areaNome: any;
   areaDescricao: any;
-  blob: File;
-  nomeDaImagem: any;
+  areaNome: any;
   areaSelecImagem: string;
-  file: ImageData;
-  fileMobile: Blob;
-  filestring: string;
+  areaSelectedObject: [
+    {
+      nome: string,
+      descricao: string
+    }];
   arquivo: File;
   arquivoMobile: File;
+  bannerForm: any;
+  bannerGrande: File;
+  bannerMobile: File;
+  blob: File;
+  btnSubmitDisable: any = false;
+  croppedImage: any;
+  croppedImageMobile: any;
+  faCheck: any = faCheck;
+  faPhotoVideo: any = faPhotoVideo;
+  faPlus: any = faPlus;
+  faSearch: any = faSearch;
+  faTimes: any = faTimes;
+  faUpload: any = faUpload;
+  file: ImageData;
+  fileMobile: Blob;
   fileName: string;
   fileNameMobile: string;
-  FileTypeMobile: any;
-  FileType: any;
-
+  filestring: string;
+  imageChangedEvent: any;
+  imageChangedEventMobile: any;
+  imageURL: string;
+  isBannerAtivo: any = false;
+  isLinkExternoSelected: any = false;
+  ngWizardService: any;
+  nomeDaImagem: any;
+  submitted: boolean;
+  thumbnailImage: File;
+  usuario: UserAuthenticateModel;
 
   constructor(
     private bannerService: BannerService,
@@ -83,6 +84,10 @@ export class BannerCreateComponent implements OnInit {
   ) {
   }
 
+  /**
+   * @description: Metodo de inicialização do componente
+   * @memberOf   : BannerCreateComponent
+   */
   ngOnInit() {
     this.usuario = this.authenticateService.state;
     this.createForm();
@@ -90,29 +95,38 @@ export class BannerCreateComponent implements OnInit {
 
   /**
    * @description: Criação do FormGroup
-   * @memberOf BannerCreateComponent
+   * @memberOf   : BannerCreateComponent
    */
   createForm() {
     this.bannerForm = this.fb.group({
-      nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      nomeImagem   : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      titulo       : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      subtitulo    : ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      area         : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-      linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      arquivo: ['', [Validators.required]],
+      descricao    : ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      rota         : ['', [Validators.required, FormControlError.noWhitespaceValidator]],
+      linkExterno  : ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      ativo        : ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      arquivo      : ['', [Validators.required]],
       arquivoMobile: ['', [Validators.required]],
     });
   }
 
+  /**
+   * @description :Retorna o FormControl
+   * @memberOf    :BannerCreateComponent
+   * @returns:    {f} Form.Control
+   */
   get f() {
     return this.bannerForm.controls;
   }
 
-  onSubmit() {
+  /**
+   * @description: Metodo que submete o formulário de cadastro de Banners
+   * @memberOf   : BannerCreateComponent
+   */
+  onSubmit(): void {
     this.submitted = true;
     if (this.bannerForm.valid) {
       this.btnSubmitDisable = true;

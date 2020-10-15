@@ -4,11 +4,13 @@ import { CategoriasUpdateModel } from './../../../../../src/models/categorias/ca
 import { CategoriasCreateModel } from './../../../../../src/models/categorias/categorias-create.model';
 import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 
+import { environment } from '../../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriasService {
-  private url = 'http://localhost:8081/Categorias';
+  private readonly API_ENDPOINT = environment.API + '/Categorias';
 
 
   constructor(
@@ -16,23 +18,23 @@ export class CategoriasService {
     ) { }
 
     getAll() {
-      return this.http.get<CategoriasModel[]>(this.url);
+      return this.http.get<CategoriasModel[]>(this.API_ENDPOINT);
     }
 
     getById(id: string) {
-      return this.http.get<CategoriasModel>(this.url + '/' + id);
+      return this.http.get<CategoriasModel>(this.API_ENDPOINT + '/' + id);
     }
 
     post(banner: CategoriasCreateModel) {
-      return this.http.post(this.url, banner);
+      return this.http.post(this.API_ENDPOINT, banner);
     }
 
     put(banner: CategoriasUpdateModel) {
-      return this.http.put(this.url, banner);
+      return this.http.put(this.API_ENDPOINT, banner);
     }
 
     delete(id: number) {
-      return this.http.delete(this.url + '/' + id);
+      return this.http.delete(this.API_ENDPOINT + '/' + id);
     }
 
   }

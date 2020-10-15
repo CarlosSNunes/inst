@@ -5,11 +5,13 @@ import { TagCreateModel } from './../../../../../src/models/tag/tag-create.model
 import { ClassHelper } from './../../../../../src/utils/class-helper';
 import { TagUpdateModel } from './../../../../../src/models/tag/tag-update.model';
 
+import { environment } from '../../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class TagService {
-  url = 'http://localhost:8081/Tag';
+  private readonly API_ENDPOINT = environment.API + '/Tag';
   private classHelper = ClassHelper;
 
   constructor(
@@ -17,22 +19,22 @@ export class TagService {
   ) { }
 
   getAll() {
-    return this.http.get<TagModel[]>(this.url);
+    return this.http.get<TagModel[]>(this.API_ENDPOINT);
   }
 
   getById(id: string) {
-    return this.http.get<TagModel>(this.url + '/' + id);
+    return this.http.get<TagModel>(this.API_ENDPOINT + '/' + id);
   }
 
   delete(id: number) {
-    return this.http.delete(this.url + '/' + id);
+    return this.http.delete(this.API_ENDPOINT + '/' + id);
   }
 
   post(tags: TagCreateModel[]) {
-    return this.http.post(this.url, tags);
+    return this.http.post(this.API_ENDPOINT, tags);
   }
 
   put(tags: TagUpdateModel[]) {
-    return this.http.put(this.url, tags);
+    return this.http.put(this.API_ENDPOINT, tags);
   }
 }
