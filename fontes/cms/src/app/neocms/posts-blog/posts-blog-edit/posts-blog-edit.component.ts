@@ -16,6 +16,7 @@ import { PostsUploadAdapter } from './../../../../../src/plugins/posts-upload-ad
 import { PostBlogUpdateModel } from './../../../../../src/models/posts-blog/posts-blog-update-model';
 import { DatePipe, formatCurrency, formatDate } from '@angular/common';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-posts-blog-edit',
@@ -48,7 +49,7 @@ export class PostsBlogEditComponent implements OnInit {
   previewUrl: any = null;
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
-
+  private readonly API_ENDPOINT = environment.API
   
   constructor(
     private authenticateService: AuthenticationService,
@@ -172,7 +173,7 @@ export class PostsBlogEditComponent implements OnInit {
       postTag: this.fb.array(postBlog.postTag),
       descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [''],
-      caminhoImagem: ['http://52.3.44.106:8081/Src/Images/Banner/'],
+      caminhoImagem: [this.API_ENDPOINT +'/Src/Images/Post/'],
       nomeImagem: [postBlog.nomeImagem]
     });
 

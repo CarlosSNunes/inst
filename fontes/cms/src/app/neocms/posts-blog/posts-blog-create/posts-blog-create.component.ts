@@ -19,6 +19,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { DatePipe, formatDate } from '@angular/common';
 import { format } from 'util';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -72,8 +73,6 @@ export class PostsBlogCreateComponent implements OnInit {
   areaSelecImagem: string;
   file: ImageData;
   fileMobile: Blob;
-
-
   fileData: File = null;
   previewUrl: any = null;
   previewUrlImagemPequena: any = null;
@@ -83,6 +82,8 @@ export class PostsBlogCreateComponent implements OnInit {
   isPostAtivo = false;
   isPostDestaque = false;
 
+  private readonly API_ENDPOINT = environment.API
+  
   constructor(
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
@@ -114,7 +115,7 @@ export class PostsBlogCreateComponent implements OnInit {
       dataPublicacao: ['', [Validators.required]],
       dataExpiracao: [''],
       arquivo: [''],
-      caminhoImagem: ['http://52.3.44.106:8081/Src/Images/Banner/'],
+      caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Post/'],
       nomeImagem: [''],
       destaque: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
       ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
@@ -316,14 +317,7 @@ export class PostsBlogCreateComponent implements OnInit {
 
   }
 
-  imageCroppedMobile(event: ImageCroppedEvent) {
-    this.croppedImageMobile = event.base64;
-    this.fileMobile = this.base64ToFile(
-      event.base64,
-      this.imageChangedEvent.target.files[0].name,
-    )
-
-  }
+  
 
   base64ToFile(data, filename) {
     const arr = data.split(',');
