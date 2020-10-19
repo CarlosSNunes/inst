@@ -115,8 +115,16 @@
         padding: 0 15px;
         padding-top: 28px;
         margin-bottom: 0;
+        align-items: stretch;
         @media (min-width: 992px) {
             display: none;
+        }
+
+        ::ng-deep app-card .card {
+            display: flex;
+            a {
+                align-self: center;
+            }
         }
     }
     .certifications {

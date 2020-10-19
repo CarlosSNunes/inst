@@ -16,8 +16,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
     atendimentoPresencialCard: IconCardModel = new IconCardModel({
         type: 'icon',
         button: new ButtonModel({
-            text: 'Atendimento presencial',
-            link: '#',
+            text: 'Solicite uma Cotação',
+            action: () => this.openSimulator()
         }),
         imagePath: 'assets/svg/maps-white.svg',
         backgroundColorClass: 'navy-background-color'
