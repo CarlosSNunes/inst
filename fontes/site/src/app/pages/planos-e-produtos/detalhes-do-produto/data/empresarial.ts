@@ -120,7 +120,7 @@ export default {
                             text: 'Rede Credenciada com profissionais de saúde, laboratórios e hospitais referenciados.',
                         },
                         {
-                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador. (contratável)'
+                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador (contratável).'
                         },
                         {
                             text: 'Consultas domiciliares com clínico geral e pediatra na casa de nossos beneficiários.'
@@ -139,7 +139,7 @@ export default {
                             text: 'Rede Credenciada com profissionais de saúde, laboratórios e hospitais referenciados.',
                         },
                         {
-                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador. (contratável)'
+                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador (contratável).'
                         },
                         {
                             text: 'Consultas domiciliares com clínico geral e pediatra na casa de nossos beneficiários.'
@@ -415,7 +415,36 @@ export default {
         backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
     }),
-    tableHead: [],
+    tableHead: [
+        {
+            id: 'hospitais',
+            title: 'Hospitais'
+        },
+        {
+            id: 'basico',
+            title: 'Básico'
+        },
+        {
+            id: 'especialII',
+            title: 'Especial II'
+        },
+        {
+            id: 'especialIII',
+            title: 'Especial III'
+        },
+        {
+            id: 'executivoI',
+            title: 'Executivo I'
+        },
+        {
+            id: 'executivoII',
+            title: 'Executivo II'
+        },
+        {
+            id: 'masterI',
+            title: 'Master I'
+        }
+    ],
     hospitalList: new HospitalList({
         "states": [
             new Hospital({

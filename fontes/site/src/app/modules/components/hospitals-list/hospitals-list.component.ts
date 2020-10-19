@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import Hospitals from './data/hospitals-list';
 import { DropDownItem, Hospital, HospitalList } from 'src/app/models';
 import TableHeadItems from './data/table-head-itens';
@@ -8,7 +8,7 @@ import TableHeadItems from './data/table-head-itens';
     templateUrl: './hospitals-list.component.html',
     styleUrls: ['./hospitals-list.component.scss']
 })
-export class HospitalsListComponent implements OnInit {
+export class HospitalsListComponent implements OnInit, OnChanges {
     @Input() bigTitle: string = 'Veja todos os hospitais e laboratórios de cada plano';
     @Input() smallTitle: string = 'HOSPITAIS DA REDE CLUB CARE PLUS';
     @Input() customHospitals: HospitalList;
@@ -28,6 +28,10 @@ export class HospitalsListComponent implements OnInit {
 
 
     ngOnInit() {
+        this.mountList();
+    }
+
+    private mountList() {
         if (!this.tableHead || this.tableHead.length == 0) {
             this.tableHead = TableHeadItems;
         }
@@ -42,6 +46,26 @@ export class HospitalsListComponent implements OnInit {
             this.mountPlansDropdown(this.customHospitals)
             this.mountHospitalsList(this.customHospitals)
         }
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.bigTitle) {
+            this.bigTitle = changes.bigTitle.currentValue;
+        }
+
+        if (changes.smallTitle) {
+            this.smallTitle = changes.smallTitle.currentValue;
+        }
+
+        if (changes.customHospitals) {
+            this.customHospitals = changes.customHospitals.currentValue;
+        }
+
+        if (changes.tableHead) {
+            this.tableHead = changes.tableHead.currentValue;
+        }
+
+        this.mountList();
     }
 
     changeMenuStyle(style) {

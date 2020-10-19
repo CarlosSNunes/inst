@@ -28,7 +28,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         smallTitle: 'SOBRE O PLANO',
         bigTitle: 'Saiba mais sobre o Care Plus SoHo e como contratá-lo',
         subDescriptions: [
-            'Se sua empresa possui dois titulares ou mais, com atividade ativa e comprovada por documentos contábeis e fiscais há mais de 12 (ou 24) meses, o Care Plus SoHo apresenta planos sob medida para sua empresa. Com ele, você e seus colaboradores, terão acesso ao acolhimento, cuidado e humanização que tanto merecem, juntamente com a entrega de uma ampla rede credenciada, facilidades para reembolso, atendimento personalizado e mais uma gama de serviços premium.'
+            'Se sua empresa possui dois titulares ou mais, com atividade ativa e comprovada por documentos contábeis e fiscais com mínimo de 12 meses, o Care Plus SoHo apresenta planos sob medida para sua empresa. Com ele, você e seus colaboradores, terão acesso ao acolhimento, cuidado e humanização que tanto merecem, juntamente com a entrega de uma ampla rede credenciada, facilidades para reembolso, atendimento personalizado e mais uma gama de serviços premium.'
         ],
         imageSrc: 'assets/img/sobre_plano_soho.png',
         button: new ButtonModel({

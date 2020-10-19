@@ -74,13 +74,13 @@ export default [
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www8.careplus.com.br/masterinternational/',
-                        target: '_blank'
-                    }),
-                    new SubMenuItem({
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
                     }),
                 ]
             }),
@@ -120,7 +120,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -199,13 +199,13 @@ export default [
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www8.careplus.com.br/masterinternational/',
-                        target: '_blank'
-                    }),
-                    new SubMenuItem({
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
                     }),
                 ]
             }),
@@ -261,7 +261,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -340,13 +340,13 @@ export default [
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www8.careplus.com.br/masterinternational/',
-                        target: '_blank'
-                    }),
-                    new SubMenuItem({
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
                     }),
                 ]
             }),
@@ -390,7 +390,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -487,13 +487,13 @@ export default [
                         routerLink: '/carreiras',
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www8.careplus.com.br/masterinternational/',
-                        target: '_blank'
-                    }),
-                    new SubMenuItem({
                         title: 'Vagas',
                         routerLink: '/carreiras/vagas',
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
                     }),
                 ]
             }),
@@ -519,7 +519,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -598,13 +598,13 @@ export default [
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www8.careplus.com.br/masterinternational/',
-                        target: '_blank'
-                    }),
-                    new SubMenuItem({
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude/'
+                    }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
                     }),
                 ]
             }),
@@ -644,7 +644,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        href: '/https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),

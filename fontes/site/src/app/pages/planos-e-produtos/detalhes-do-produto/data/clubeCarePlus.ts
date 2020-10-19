@@ -119,7 +119,7 @@ export default {
                             text: 'Rede Credenciada com profissionais de saúde, laboratórios e hospitais referenciados.',
                         },
                         {
-                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador. (contratável)'
+                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador (contratável).'
                         },
                         {
                             text: 'Consultas domiciliares com clínico geral e pediatra na casa de nossos beneficiários.'

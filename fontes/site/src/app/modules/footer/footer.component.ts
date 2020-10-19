@@ -11,7 +11,7 @@ import { WindowRef } from 'src/utils/window-ref';
     styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit, AfterViewInit {
-    today: number = Date.now();
+    actualYear: number = new Date().getFullYear();
     siteMapOpened = false;
     atendimentoPresencialCard: IconCardModel = new IconCardModel({
         type: 'icon',

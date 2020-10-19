@@ -8,7 +8,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
             link: '/'
         }),
         new BreadcrumbModel({
-            name: 'Pesquisa Satisfação',
+            name: 'Pesquisa de Satisfação',
             link: '/pesquisa-satisfacao',
             active: true
         }),

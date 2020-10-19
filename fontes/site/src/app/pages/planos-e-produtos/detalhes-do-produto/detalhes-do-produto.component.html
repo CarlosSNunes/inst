@@ -1,4 +1,4 @@
-<div class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="queryParams">
+<a class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao" [queryParams]="queryParams">
     <p class="text">
         Solicite uma Cotação
     </p>
@@ -6,7 +6,7 @@
     <span class="icon">
         <img src="assets/svg/telephone-icon.svg" alt="Solicite uma Cotação">
     </span>
-</div>
+</a>
 <app-simple-banner class="app-simple-banner" [simpleBannerModel]="findedPlan?.simpleBannerModel"
     (goToNextSection)="goToSection('#about-plan')">
 </app-simple-banner>
