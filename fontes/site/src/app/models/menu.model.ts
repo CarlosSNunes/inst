@@ -15,5 +15,7 @@ export class SubMenuItem {
     title: string;
     routerLink: string;
     fragment: string;
+    href: string;
+    target: string = '_blank';
     subItems: SubMenuItem[];
 }

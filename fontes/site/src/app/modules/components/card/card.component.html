@@ -29,6 +29,15 @@
             [attr.title]="card?.button?.text">
             {{card?.button?.text}}
         </a>
+
+        <!--
+            Botão com action
+        -->
+        <a *ngIf="card?.button?.action" (click)="card.button.action()" #link
+            [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse" class="link"
+            [attr.title]="card?.button?.text">
+            {{card?.button?.text}}
+        </a>
         <ng-content></ng-content>
         <ng-content select=".icon-card-extra-content"></ng-content>
         <span class="line-1"></span>

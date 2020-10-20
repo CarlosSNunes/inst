@@ -11,8 +11,9 @@
                         {{sectionInfo.bigTitle}}
                     </h2>
                     <div class="img-mobile-box is-hidden-desktop" [class.no-line]="sectionInfo?.removeLine">
-                        <img class="image-mobile" [style.objectFit]="sectionInfo?.objectFit" [style.height]="sectionInfo?.mobileImageHeight ? sectionInfo?.mobileImageHeight : '208px'" (click)="openModal()"
-                            [class.hasModal]="sectionInfo?.hasModal" [src]="sectionInfo?.imageSrc"
+                        <img class="image-mobile" [style.objectFit]="sectionInfo?.objectFit"
+                            [style.height]="sectionInfo?.mobileImageHeight ? sectionInfo?.mobileImageHeight : '208px'"
+                            (click)="openModal()" [class.hasModal]="sectionInfo?.hasModal" [src]="sectionInfo?.imageSrc"
                             [alt]="'Imagem seção ' + sectionInfo?.bigTitle">
                     </div>
                     <p class="description" *ngIf="sectionInfo?.description" [class.no-margin]="!sectionInfo?.bigTitle">

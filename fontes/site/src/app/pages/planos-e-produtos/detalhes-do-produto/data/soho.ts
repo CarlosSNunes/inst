@@ -1,6 +1,4 @@
-import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel } from 'src/app/models';
-
-export default {
+import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel, HospitalList, Hospital } from 'src/app/models'; export default {
     id: 'careplus-soho',
     name: 'Care Plus Soho',
     title: 'Care Plus SoHo | De 2 a 29 Vidas | Planos de Saúde e Odontológicos Premium | Care Plus',
@@ -12,7 +10,7 @@ export default {
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'Planos e Produtos',
@@ -30,7 +28,7 @@ export default {
         smallTitle: 'SOBRE O PLANO',
         bigTitle: 'Saiba mais sobre o Care Plus SoHo e como contratá-lo',
         subDescriptions: [
-            'Se sua empresa possui dois titulares ou mais, com atividade ativa e comprovada por documentos contábeis e fiscais há mais de 18 (ou 24) meses, o Care Plus SoHo apresenta planos sob medida para sua empresa. Com ele, você e seus colaboradores, terão acesso ao acolhimento, cuidado e humanização que tanto merecem, juntamente com a entrega de uma ampla rede credenciada, facilidades para reembolso, atendimento personalizado e mais uma gama de serviços premium.'
+            'Se sua empresa possui dois titulares ou mais, com atividade ativa e comprovada por documentos contábeis e fiscais com mínimo de 12 meses, o Care Plus SoHo apresenta planos sob medida para sua empresa. Com ele, você e seus colaboradores, terão acesso ao acolhimento, cuidado e humanização que tanto merecem, juntamente com a entrega de uma ampla rede credenciada, facilidades para reembolso, atendimento personalizado e mais uma gama de serviços premium.'
         ],
         imageSrc: 'assets/img/sobre_plano_soho.png',
         button: new ButtonModel({
@@ -51,45 +49,7 @@ export default {
             plans: [
                 {
                     type: 'default',
-                    title: 'Básico',
-                    description: 'Um plano na medida certa para entregar tudo o que o seu colaborador merece.',
-                    items: [
-                        {
-                            text: 'Cobertura completa para consultas médicas, exames, internações, dentre outros.',
-                        },
-                        {
-                            text: 'Rede Credenciada com profissionais de saúde, laboratórios e hospitais referenciados.',
-                        },
-                        {
-                            text: 'Reembolso com total agilidade e praticidade pelo nosso site e app.'
-                        },
-                        {
-                            text: 'Programa de Prevenção de Doenças Cardiovasculares com equipe de saúde multidisciplinar.'
-                        }
-                    ]
-                },
-                {
-                    type: 'default',
-                    title: 'Especial I',
-                    description: 'O plano elaborado para as necessidades de seus colaboradores com a garantia de excelentes coberturas.',
-                    items: [
-                        {
-                            text: 'Cobertura completa para consultas médicas, exames, internações, dentre outros.',
-                        },
-                        {
-                            text: 'Rede Credenciada com profissionais de saúde, laboratórios e hospitais referenciados.',
-                        },
-                        {
-                            text: 'Reembolso com total agilidade e praticidade pelo nosso site e app.'
-                        },
-                        {
-                            text: 'Programa de Prevenção de Doenças Cardiovasculares com equipe de saúde multidisciplinar.'
-                        }
-                    ]
-                },
-                {
-                    type: 'default',
-                    title: 'Especial II',
+                    title: 'Especial III',
                     description: 'O plano na medida para sua empresa. Com ele, você assegurará a saúde dos colaboradores de sua empresa.',
                     items: [
                         {
@@ -103,44 +63,6 @@ export default {
                         },
                         {
                             text: 'Programa de Prevenção de Doenças Cardiovasculares com equipe de saúde multidisciplinar.'
-                        }
-                    ]
-                },
-                {
-                    type: 'default',
-                    title: 'Executivo I',
-                    description: 'Com o Executivo I, os seus colaboradores terão acesso a diferenciais exclusivos e únicos da Care Plus.',
-                    items: [
-                        {
-                            text: 'Cobertura completa para consultas médicas, exames, internações, dentre outros.',
-                        },
-                        {
-                            text: 'Rede Credenciada com profissionais de saúde, laboratórios e hospitais referenciados.',
-                        },
-                        {
-                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador.'
-                        },
-                        {
-                            text: 'Consultas domiciliares com clínico geral e pediatra na casa de nossos beneficiários.'
-                        }
-                    ]
-                },
-                {
-                    type: 'default',
-                    title: 'Executivo II',
-                    description: 'Um plano diferenciado para colaboradores que tem o plano de saúde como um atributo de decisão na escolha de sua empresa.',
-                    items: [
-                        {
-                            text: 'Cobertura completa para consultas médicas, exames, internações, dentre outros.',
-                        },
-                        {
-                            text: 'Rede Credenciada com profissionais de saúde, laboratórios e hospitais referenciados.',
-                        },
-                        {
-                            text: 'Check-up para o titular e cônjuge garantindo a saúde do seu colaborador.'
-                        },
-                        {
-                            text: 'Consultas domiciliares com clínico geral e pediatra na casa de nossos beneficiários.'
                         }
                     ]
                 },
@@ -412,5 +334,1148 @@ export default {
         }),
         backgroundColorClass: 'blue-background-color',
         imagePath: 'assets/svg/calendar.svg'
+    }),
+    tableHead: [
+        {
+            id: 'hospitais',
+            title: 'Hospitais'
+        },
+        {
+            id: 'especialIII',
+            title: 'Especial III'
+        },
+        {
+            id: 'masterI',
+            title: 'Master I'
+        }
+    ],
+    hospitalList: new HospitalList({
+        "states": [
+            new Hospital({
+                "id": 1,
+                "state": "São Paulo",
+                "unities": [
+                    {
+                        "id": 1,
+                        "name": "AACD",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Leforte - Liberdade",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "name": "AC Camargo",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "name": "Santa Paula",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 5,
+                        "name": "Sino Brasileiro (Osasco)",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "name": "Nipo Brasileiro",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 7,
+                        "name": "São Camilo (Santana)",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 8,
+                        "name": "São Camilo (Ipiranga)",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "name": "São Camilo (Pompéia)",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 10,
+                        "name": "Moriah",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 11,
+                        "name": "9 de Julho",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 12,
+                        "name": "HCOR",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 13,
+                        "name": "INCOR",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 14,
+                        "name": "Pro Matre",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 15,
+                        "name": "Santa Catarina",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 16,
+                        "name": "São Luiz",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 17,
+                        "name": "Leforte",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 18,
+                        "name": "Infantil Sabará",
+                        "type": "Hospital", "plans": [
+
+
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 19,
+                        "name": "Oswaldo Cruz",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20,
+                        "name": "Samaritano",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 21,
+                        "name": "Sírio Libanês",
+                        "type": "Hospital", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 22,
+                        "name": "Albert Einstein ", "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 23,
+                        "name": "A+",
+                        "type": "Laboratório", "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 24,
+                        "name": "CDB",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 25,
+                        "name": "Delboni Auriemo",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 26,
+                        "name": "Salomão e Zoppi",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 27,
+                        "name": "Digimagem",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 28,
+                        "name": "CURA",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 29,
+                        "name": "Lavoisier",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30,
+                        "name": "Centro de Diagnose HCOR",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 31,
+                        "name": "RDO Diagnósticos",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 32,
+                        "name": "Alta Diagnósticos",
+                        "type": "Laboratório",
+                        "plans": [
+
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 33,
+                        "name": "Centro Diag. Hosp Sírio",
+                        "type": "Laboratório",
+                        "plans": [
+
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 34,
+                        "name": "Fleury (Somente Análises Clinicas)",
+                        "type": "Laboratório",
+                        "plans": [
+
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 35,
+                        "name": "Fleury",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 36,
+                        "name": "Club DA",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 37,
+                        "name": "Centro Diag. Hosp Einstein",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    }
+                ]
+            }),
+            new Hospital({
+                "id": 2,
+                "state": "Rio de Janeiro",
+                "unities": [
+                    {
+                        "id": 1,
+                        "name": "São Lucas",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Casa de Saúde Sta. Lúcia",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "name": "Tijutrauma",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "name": "Badim",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 5,
+                        "name": "Policlínica de Botafogo",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "name": "Sabin Israelita",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 7,
+                        "name": "Clínicas de Jacarepaguá",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 8,
+                        "name": "Riomar", "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "name": "Perin. Laranjeiras", "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 10,
+                        "name": "Perin. Barra", "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 11,
+                        "name": "S.José (Humaitá)",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 12,
+                        "name": "Quinta Dor",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 13,
+                        "name": "Copa Dor",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 14,
+                        "name": "Barra Dor",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 15,
+                        "name": "Rios Dor",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vitória",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 17,
+                        "name": "S.Vicente Gávea", "type": "Hospital",
+                        "plans": [
+
+
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 18,
+                        "name": "Pro-Cardíaco",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 19,
+                        "name": "Copa Star",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20,
+                        "name": "Samaritano (Botafogo)",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 21,
+                        "name": "Samaritano (Barra)",
+                        "type": "Hospital",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 22,
+                        "name": "A +",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 23,
+                        "name": "Lâmina",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 24,
+                        "name": "Bronstein",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 25,
+                        "name": "Sergio Franco",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 26,
+                        "name": "Maiolino",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 27,
+                        "name": "Eliel Figueiredo",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": true
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 28,
+                        "name": "Felippe Mattoso",
+                        "type": "Laboratório",
+                        "plans": [{
+                            "id": 3,
+                            "plan": "Especial III",
+                            "included": true
+                        },
+                        {
+                            "id": 6,
+                            "plan": "Master I",
+                            "included": true
+                        }
+                        ]
+                    },
+                    {
+                        "id": 29,
+                        "name": "Club DA",
+                        "type": "Laboratório",
+                        "plans": [
+                            {
+                                "id": 3,
+                                "plan": "Especial III",
+                                "included": false
+                            },
+                            {
+                                "id": 6,
+                                "plan": "Master I",
+                                "included": true
+                            }
+                        ]
+                    }
+                ]
+            })
+        ]
     })
 };

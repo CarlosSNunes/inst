@@ -45,19 +45,18 @@
 
 <nav class="navbar background menu-header" role="navigation" aria-label="main navigation">
     <div class="columns is-mobile">
-        <div class="column is-4">
+        <div class="column is-6">
+            <img class="logo-careplus-mobile" routerLink="/" src="assets/svg/logo-careplus-mobile.svg"
+                alt="Logo mobile careplus">
+        </div>
+
+        <div class="column is-6">
             <input tabindex="-1" id="menu-check" type="checkbox" [checked]="checked">
             <label tabindex="-1" class="label-menu" (click)="initTransition()">
                 <span class="menu-mobile">
                     <span class="hamburger"></span>
                 </span>
             </label>
-        </div>
-        <div class="column is-4">
-            <img class="logo-careplus-mobile" routerLink="/home" src="assets/svg/logo-careplus-mobile.svg"
-                alt="Logo mobile careplus">
-        </div>
-        <div class="column is-4">
             <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
                 <img class="user-icon" src="assets/svg/user-digital-cian.svg" alt="User Icon">
             </a>
@@ -77,166 +76,77 @@
             </label>
         </div>
         <div #body class="body" (resized)="positionFooterOnBottom($event)">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                (click)="initTransition()" tabindex="0" title="Home">
+                <img class="logo-careplus-mobile" src="assets/svg/logo-careplus-mobile.svg" alt="Logo mobile careplus">
+            </a>
+
+
             <p class="page-title">
                 {{selectedPage}}
             </p>
             <div class="buttons">
                 <a routerLink="/home/beneficiario" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Beneficiário">Beneficiário</a>
+                    (click)="initTransition()" class="button" title="Sou Beneficiário">Sou Beneficiário</a>
                 <a routerLink="/home/rh" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Gestor de RH">Gestor de RH</a>
+                    (click)="initTransition()" class="button" title="Sou RH">Sou RH</a>
                 <a routerLink="/home/corretor" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Corretor">Corretor</a>
+                    (click)="initTransition()" class="button" title="Sou Corretor">Sou Corretor</a>
                 <a routerLink="/home/credenciado" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    (click)="initTransition()" class="button" title="Credenciado">Credenciado</a>
+                    (click)="initTransition()" class="button" title="Sou Credenciado">Sou Credenciado</a>
             </div>
             <div class="line"></div>
 
             <ul class="vantagens">
-                <li class="acc1">
-                    <a tabindex="0" (click)="expandAccordion('acc1')" title="A Care Plus">
-                        A Care Plus
-                    </a>
-                    <input tabindex="-1" type="checkbox" id="acc1" name="acc1" [checked]="expandedAccordion === 'acc1'">
-                    <label tabindex="-1"></label>
-                    <div class="extra">
-                        <ul>
-                            <li> <a routerLink="/a-careplus" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="A Empresa">A Empresa </a></li>
-                            <li> <a routerLink="/a-careplus/materiais-de-saude" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Materiais de Saúde">Materiais de Saúde</a></li>
-                            <li><a routerLink="/a-careplus/responsabilidade-social" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Responsabilidade social">Responsabilidade social</a></li>
-                            <li><a routerLink="/a-careplus/perguntas-frequentes" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Perguntas Frequentes">Perguntas Frequentes</a></li>
-                            <li><a routerLink="/a-careplus/resultados-financeiros" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Resultados financeiros">Resultados financeiros</a></li>
-                            <li><a routerLink="/a-careplus/termos-e-condicoes" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Termos e condições">Termos e condições</a></li>
-                            <li><a routerLink="/a-careplus/politica-de-privacidade" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Politica de privacidade">Politica de privacidade</a></li>
-                            <li><a routerLink="/a-careplus/rede-plus" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Rede Plus">Rede Plus</a></li>
-                            <li><a routerLink="/a-careplus/diferenciais" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Diferenciais">Diferenciais</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="acc2">
-                    <a tabindex="0" (click)="expandAccordion('acc2')" title="Produtos">
-                        Produtos
-                    </a>
-                    <input tabindex="-1" type="checkbox" id="acc2" name="acc2" [checked]="expandedAccordion === 'acc2'">
-                    <label tabindex="-1"></label>
-                    <div class="extra">
-                        <ul>
-                            <li> <a routerLink="/planos-e-produtos" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Home">Home </a></li>
-                            <li> <a routerLink="/planos-e-produtos/careplus-soho" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Care Plus Soho">Care Plus Soho </a></li>
-                            <li> <a routerLink="/planos-e-produtos/clube-careplus" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Clube Care Plus">Clube Care Plus </a></li>
-                            <li> <a routerLink="/planos-e-produtos/careplus-empresarial" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Care Plus Empresarial">Care Plus Empresarial </a></li>
-                            <li> <a routerLink="/planos-e-produtos/medicina-ocupacional" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Medicina Ocupacional">Medicina Ocupacional </a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a tabindex="0" (click)="expandAccordion('acc3')" title="Gestão de Saúde">
-                        Gestão de Saúde
+                <li [ngClass]="'acc' + (i + 1)" *ngFor="let menuItem of subMenu.items; let i = index;">
+
+                    <!-- Botão de accordion - Aparece somente quando houver sub-itens -->
+                    <a tabindex="0" (click)="expandAccordion('acc' + (i + 1))" [title]="menuItem.title"
+                        *ngIf="menuItem.subItems && menuItem.subItems.length > 0">
+                        {{menuItem.title}}
                     </a>
 
-                    <input tabindex="-1" type="checkbox" id="acc3" name="acc3" [checked]="expandedAccordion === 'acc3'">
-                    <label tabindex="-1"></label>
-                    <div class="extra">
+                    <!-- Botão com routerLink sem accordion - Aparece somente quando não houver sub-itens -->
+                    <a tabindex="0" [routerLink]="menuItem.routerLink" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
+                        [title]="menuItem.title"
+                        *ngIf="(!menuItem.subItems || (menuItem.subItems && menuItem.subItems.length == 0)) && menuItem.routerLink">
+                        {{menuItem.title}}
+                    </a>
+
+                    <!-- Botão com href sem accordion - Aparece somente quando não houver sub-itens -->
+                    <a tabindex="0" [href]="menuItem.href" target="_blank" rel="noopener noreferrer"
+                        (click)="initTransition()" tabindex="0" [title]="menuItem.title"
+                        *ngIf="(!menuItem.subItems || (menuItem.subItems && menuItem.subItems.length == 0)) && menuItem.href">
+                        {{menuItem.title}}
+                    </a>
+
+                    <!-- Aparece somente quando houver sub-itens -->
+                    <input *ngIf="menuItem.subItems && menuItem.subItems.length > 0" tabindex="-1" type="checkbox"
+                        [id]="'acc'+ (i + 1)" [name]="'acc'+ (i + 1)" [checked]="expandedAccordion === 'acc'+ (i + 1)">
+                    <!-- Aparece somente quando houver sub-itens -->
+                    <label *ngIf="menuItem.subItems && menuItem.subItems.length > 0" tabindex="-1"></label>
+
+                    <!-- Aparece somente quando houver sub-itens -->
+                    <div *ngIf="menuItem.subItems && menuItem.subItems.length > 0" #extra class="extra"
+                        [style.height.px]="expandedAccordion === 'acc'+ (i + 1) ? extra.scrollHeight : 0">
                         <ul>
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Home">Home </a></li>
+                            <li *ngFor="let menuSubItem of menuItem.subItems">
 
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/programas-preventivos"
+                                <!-- Botão com routerLink -->
+                                <a *ngIf="menuSubItem.routerLink" [routerLink]="menuSubItem.routerLink"
                                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Programas Preventivos">Programas
-                                    Preventivos </a></li>
+                                    (click)="initTransition()" tabindex="0" [title]="menuSubItem.title">
+                                    {{menuSubItem.title}}
+                                </a>
 
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/servicos-online"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Serviços On-line">Serviços On-line
-                                </a></li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/personal-system"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Personal System">Personal System </a>
+                                <!-- Botão com href -->
+                                <a *ngIf="menuSubItem.href" [href]="menuSubItem.href" target="_blank"
+                                    rel="noopener noreferrer" (click)="initTransition()" tabindex="0"
+                                    [title]="menuSubItem.title">
+                                    {{menuSubItem.title}}
+                                </a>
                             </li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/programas-empresariais"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Programas Empresariais">Programas
-                                    Empresariais </a></li>
-
-                            <li> <a routerLink="/planos-e-produtos/gestao-de-saude/nossas-parcerias"
-                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" title="Nossas Parcerias">Nossas Parcerias
-                                </a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a tabindex="0" (click)="expandAccordion('acc4')" title="Carreiras">
-                        Carreiras
-                    </a>
-
-                    <input tabindex="-1" type="checkbox" id="acc4" name="acc4" [checked]="expandedAccordion === 'acc4'">
-                    <label tabindex="-1"></label>
-                    <div class="extra">
-                        <ul>
-                            <li> <a routerLink="/carreiras" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Home">Home </a></li>
-
-                            <li> <a routerLink="/carreiras/vagas" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Vagas">Vagas</a></li>
-
-                        </ul>
-                    </div>
-                </li>
-                <li class="ac6">
-                    <a tabindex="0" (click)="expandAccordion('acc6')" title="Fale Conosco">
-                        Fale conosco
-                    </a>
-                    <input tabindex="-1" type="checkbox" id="acc6" [checked]="expandedAccordion === 'acc6'" name="acc6">
-                    <label tabindex="-1"></label>
-                    <div class="extra">
-                        <ul>
-                            <li> <a routerLink="/fale-conosco/solicite-uma-cotacao" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Solicite uma Cotação">Solicite uma Cotação </a></li>
-                            <li> <a routerLink="/fale-conosco/contato" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Contato">Contato </a></li>
-                            <li> <a routerLink="/fale-conosco/canal-de-denuncias" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Canal de Denúncias">Canal de Denúncias </a></li>
-                            <li> <a routerLink="/fale-conosco/ouvidoria" routerLinkActive="active"
-                                    [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                                    title="Ouvidoria">Ouvidoria </a></li>
                         </ul>
                     </div>
                 </li>
@@ -248,6 +158,34 @@
             </ul>
         </div>
         <div class="bottom" #bottom id="bottom">
+            <a *ngIf="subMenu.id == 'default'" class="btn btn-white-to-digital-cian primary small"
+                (click)="openSimulator();initTransition();">
+                Simule Planos e Produtos
+            </a>
+
+            <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-white-to-digital-cian primary small"
+                rel="noopener noreferrer"
+                (click)="initTransition()"
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
+                Entre em Contato
+            </a>
+
+            <a *ngIf="subMenu.id == 'rh'" class="btn btn-white-to-digital-cian primary small" (click)="initTransition()"
+                routerLink="/fale-conosco/solicite-uma-cotacao">
+                Solicite uma Cotação
+            </a>
+
+            <a *ngIf="subMenu.id == 'corretor'" class="btn btn-white-to-digital-cian primary small"
+                rel="noopener noreferrer" (click)="initTransition()"
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
+                Seja um Corretor
+            </a>
+
+            <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-white-to-digital-cian primary small"
+                rel="noopener noreferrer" (click)="initTransition()"
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
+                Seja um Credenciado
+            </a>
             <div class="line"></div>
 
             <p class="bottom-description">

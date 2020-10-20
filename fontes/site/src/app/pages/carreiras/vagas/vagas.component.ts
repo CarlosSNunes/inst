@@ -11,12 +11,12 @@ import { environment } from 'src/environments/environment';
 })
 export class VagasComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
-        title: 'Saiba mais sobre os nossos programas e vagas em aberto',
-        description: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você',
+        title: 'Venha fazer parte de um time apaixonado em cuidar de pessoas!',
+        description: 'Nosso objetivo é acompanhar o colaborador em sua carreira e, juntos, criarmos uma história sólida e de muito aprendizado.',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'Carreiras',
@@ -32,7 +32,7 @@ export class VagasComponent implements OnInit {
         image: 'assets/img/section-a-careplus-jobs.jpg'
     };
     crossContentModel: CrossContentModel = new CrossContentModel({
-        bigTitle: 'Mais do que trabalhar com líderes inspiradores, nós queremos que você seja um',
+        bigTitle: 'Mais do que trabalhar com líderes inspiradores, nós queremos que você seja um!',
         firstImage: {
             src: 'assets/img/Carreira_Vagas_1.png',
             alt: 'Banco de dados imagem 1'
@@ -42,8 +42,8 @@ export class VagasComponent implements OnInit {
             alt: 'Banco de dados imagem 2'
         },
         boxContent: {
-            title: 'Cadastre-se para integrar nosso banco de talentos',
-            description: 'Estamos compondo um time repleto de talentos, envie para nós os seus dados pessoais e profissionais e entraremos em contato para futuras oportunidades.',
+            title: 'Cadastre-se para fazer parte do nosso banco de talentos, ver todas as vagas ou saber de oportunidades futuras',
+            description: 'Para fazer parte deste time de talentos, envie seus dados. Se não houver vagas para o seu perfil, fique tranquilo, seu currículo ficará guardado em nosso banco de dados para futuras oportunidades.',
             button: new ButtonModel({
                 text: 'Saiba mais',
                 link: 'https://careplus.gupy.io/'

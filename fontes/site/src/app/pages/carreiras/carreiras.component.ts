@@ -13,12 +13,12 @@ import { Cards } from './data/mock';
 export class CarreirasComponent implements OnInit {
     @ViewChild('aboutPlusNetwork', { static: false }) aboutPlusNetwork: ElementRef<HTMLElement>;
     simpleBannerModel: SimpleBannerModel = {
-        title: 'Faça Parte de um time que gosta de sonhar grande!',
-        description: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você',
+        title: 'Faça parte de um time apaixonado em cuidar de pessoas!',
+        description: 'Nosso objetivo é acompanhar o colaborador em sua carreira e juntos criarmos uma história sólida, de muito aprendizado.',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'Carreiras',
@@ -37,8 +37,8 @@ export class CarreirasComponent implements OnInit {
         new InfoSectionModel({
             smallTitle: 'nossos colaboradores',
             bigTitle: 'Veja como é trabalhar na Care Plus',
-            description: 'Assista ao lado depoimentos dos nossos colaboradores e entenda mais do nosso mundo',
-            subDescription: 'Fizemos esse vídeo com os nossos colaboradores para que mais pessoas conheçam o trabalho institucional da Care Plus garantindo cuidado, carinho e o melhor ambiente de trabalho para todos.',
+            description: 'Assista aos depoimentos dos nossos colaboradores e entenda mais do nosso mundo',
+            subDescription: 'Fizemos esse vídeo com os nossos colaboradores para que mais pessoas conheçam este trabalho institucional, que garante cuidado, carinho e o melhor ambiente de trabalho para todos.',
             imageSrc: 'assets/img/section-our-colaborators.jpg',
             hasModal: true,
         })

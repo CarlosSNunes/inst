@@ -38,7 +38,7 @@ import { environment } from 'src/environments/environment';
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home'
+                link: '/'
             }),
             new BreadcrumbModel({
                 name: 'A Care Plus',

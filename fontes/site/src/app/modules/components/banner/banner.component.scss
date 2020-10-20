@@ -154,9 +154,9 @@ section.home-banner {
 
 @media (max-width: 1023px) {
     section.home-banner {
-        height: calc(100vh - 156px);
+        height: calc(100vh - 195px);
         #carousel-banner {
-            height: calc(100vh - (156px + 224px));
+            height: calc(100vh - (195px + 224px));
 
             .stepper {
                 left: 7.83px;
@@ -204,7 +204,7 @@ section.home-banner {
             }
         }
         .item {
-            height: calc(100vh - (156px + 224px));
+            height: calc(100vh - (195px + 224px));
             position: absolute;
             box-shadow: unset;
             .container:not(.breadcrumb-container) {
@@ -216,6 +216,7 @@ section.home-banner {
                 display: flex;
                 .columns {
                     align-self: center;
+                    width: 100%;
                 }
                 .banner-home-description {
                     padding-left: 64px;

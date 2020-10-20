@@ -12,27 +12,32 @@ body {
     }
 }
 
-h1, .h1 {
+h1,
+.h1 {
     font-size: getSize("h1");
     line-height: getLineHeight("h1");
 }
 
-h2, .h2 {
+h2,
+.h2 {
     font-size: getSize("h2");
     line-height: getLineHeight("h2");
 }
 
-h3, .h3 {
+h3,
+.h3 {
     font-size: getSize("h3");
     line-height: getLineHeight("h3");
 }
 
-h4, .h4 {
+h4,
+.h4 {
     font-size: getSize("h4");
     line-height: getLineHeight("h4");
 }
 
-p, .p {
+p,
+.p {
     font-size: getSize("p");
     line-height: getLineHeight("p");
 }
@@ -177,4 +182,94 @@ p, .p {
 
 .align-self-center {
     align-self: center;
+}
+
+.get-price-box {
+    position: fixed;
+    width: 300px;
+    height: 60px;
+    background-color: getColor(_bupa, _white);
+    display: flex;
+    padding: 16px 24px;
+    right: 32px;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 204;
+    border-radius: 6px 6px 0px 0;
+    border: 3px solid getColor(_bupa, _fuchsia);
+    border-bottom-width: 0;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: getColor(_bupa, _fuchsia);
+
+        .text {
+            color: getColor(_bupa, _white);
+        }
+    }
+
+    .text {
+        align-self: center;
+        margin: 0;
+        color: getColor(_bupa, _fuchsia);
+        font-size: getSize("p");
+        line-height: getLineHeight("p");
+        font-weight: 600;
+        transition: color 0.3s ease-in-out;
+    }
+
+    img.girl {
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        right: 24px;
+        align-self: center;
+        top: calc(50% - 24px);
+    }
+    .icon {
+        display: none;
+    }
+}
+
+@media (min-width: 1280px) {
+    .get-price-box {
+        right: calc(100% - (100vw + 1216px) / 2);
+    }
+}
+
+@media (max-width: 1023px) {
+    .get-price-box {
+        bottom: 94px;
+        right: 22px;
+        position: fixed;
+        width: 68px;
+        height: 68px;
+        padding: 0;
+        border-radius: 100%;
+        border-bottom-width: 3px;
+        border: none;
+        background-color: getColor(_bupa, _fuchsia);
+
+        .text {
+            display: none;
+        }
+        img.girl {
+            position: absolute;
+            right: 10px;
+            align-self: center;
+            top: 10px;
+        }
+        .icon {
+            background-color: #fc0000;
+            border-radius: 100%;
+            display: flex;
+            height: 21px;
+            width: 21px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: -5px;
+        }
+    }
 }

@@ -5,8 +5,9 @@ export const bannersMock = [
         caminhoImagem: "assets/img/banner_marca.png",
         titulo: "Uma nova marca!",
         descricao: "A mesma paixão e dedicação em cuidar de pessoas! #todosnamesmabatida",
+        nomeLink: 'Veja nossa Campanha',
+        linkExterno: 'https://www.youtube.com/watch?v=3zUd9VN4vmc',
         tempo: 5000,
-        slideAtual: true
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home1.png",

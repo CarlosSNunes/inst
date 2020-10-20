@@ -1,28 +1,4 @@
 @import "~src/scss/_variables";
-.get-price-box {
-    position: fixed;
-    width: 280px;
-    height: 60px;
-    background-color: getColor(_bupa, _digital-cian);
-    display: flex;
-    padding: 21.5px 32px;
-    bottom: 0;
-    cursor: pointer;
-    z-index: 204;
-    .text {
-        align-self: center;
-        margin: 0;
-        color: getColor(_bupa, _white);
-        font-size: getSize("sbm");
-        line-height: getLineHeight("sbm");
-    }
-    img {
-        position: absolute;
-        right: 16px;
-        align-self: center;
-        top: calc(50% - 22px);
-    }
-}
 
 .anchor-buttons {
     height: 62px;
@@ -164,14 +140,6 @@ section {
                 }
             }
         }
-    }
-    .get-price-box {
-        top: unset;
-        bottom: 84px;
-        right: 0;
-        left: 0;
-        margin: 0 auto;
-        position: fixed;
     }
 }
 

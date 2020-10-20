@@ -44,3 +44,16 @@ form {
         }
     }
 }
+
+@media (max-width: 1023px) {
+    form {
+        .columns {
+            .column {
+                #captcha_element_solicite_uma_cotacao {
+                    display: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

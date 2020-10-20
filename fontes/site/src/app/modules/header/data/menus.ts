@@ -77,6 +77,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -107,15 +112,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -197,6 +202,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -243,15 +253,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -333,6 +343,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -367,15 +382,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -475,6 +490,11 @@ export default [
                         title: 'Vagas',
                         routerLink: '/carreiras/vagas',
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             // new SubMenuItem({
@@ -491,15 +511,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
@@ -581,6 +601,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude/'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -611,15 +636,15 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Contato',
-                        routerLink: '/fale-conosco/contato',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
-                        routerLink: '/fale-conosco/canal-de-denuncias',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx',
                     }),
                     new SubMenuItem({
                         title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
+                        href: 'https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaOuvidoria.aspx',
                     }),
                 ]
             }),
