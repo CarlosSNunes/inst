@@ -39,57 +39,60 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
     authFunction(request: HttpRequest<any>,
         next: HttpHandler, retryTimes: number) {
-        return from(this.getToken()).pipe(
-            switchMap((token) => {
-                if (token) {
-                    request = request.clone({
-                        setHeaders: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    });
-                    return next.handle(request)
-                        .pipe(
-                            retry(retryTimes),
-                            catchError((error: HttpErrorResponse) => {
-                                let errorMessage = '';
-                                if (error.error instanceof ErrorEvent) {
-                                    // client-side error
-                                    errorMessage = `Error: ${error.error.message}`;
-                                    return throwError(
-                                        new DefaultErrors({
-                                            message: errorMessage
-                                        })
-                                    );
-                                } else {
-
-                                    /*
-                                        Caso dê não autorizado ele revova o token e tenta novamente.
-                                    */
-                                    if (error.status === 401) {
-                                        this.localStorageService.removeItem('token');
-                                        if (!this.retried) {
-                                            this.retried = true;
-                                            return this.authFunction(request, next, 1)
-                                        } else {
-                                            return throwError(
-                                                new DefaultErrors({
-                                                    message: 'Falha ao se conectar com o servidor.'
-                                                })
-                                            );
-                                        }
+        return from(
+            this.getToken()).pipe(
+                timeout(5000),
+                switchMap((token) => {
+                    if (token) {
+                        request = request.clone({
+                            setHeaders: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        });
+                        return next.handle(request)
+                            .pipe(
+                                timeout(5000),
+                                retry(retryTimes),
+                                catchError((error: HttpErrorResponse) => {
+                                    let errorMessage = '';
+                                    if (error.error instanceof ErrorEvent) {
+                                        // client-side error
+                                        errorMessage = `Error: ${error.error.message}`;
+                                        return throwError(
+                                            new DefaultErrors({
+                                                message: errorMessage
+                                            })
+                                        );
                                     } else {
-                                        return throwError(error);
-                                    }
-                                }
 
-                            })
-                        );
-                } else {
-                    return throwError(new DefaultErrors({
-                        message: 'Falha ao se conectar com o servidor.'
-                    }))
-                }
-            }))
+                                        /*
+                                            Caso dê não autorizado ele revova o token e tenta novamente.
+                                        */
+                                        if (error.status === 401) {
+                                            this.localStorageService.removeItem('token');
+                                            if (!this.retried) {
+                                                this.retried = true;
+                                                return this.authFunction(request, next, 1)
+                                            } else {
+                                                return throwError(
+                                                    new DefaultErrors({
+                                                        message: 'Falha ao se conectar com o servidor.'
+                                                    })
+                                                );
+                                            }
+                                        } else {
+                                            return throwError(error);
+                                        }
+                                    }
+
+                                })
+                            );
+                    } else {
+                        return throwError(new DefaultErrors({
+                            message: 'Falha ao se conectar com o servidor.'
+                        }))
+                    }
+                }))
     }
 
 
@@ -102,10 +105,10 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                 this.token = userLoginResponse.token;
                 return this.token;
             } else {
-                return this.token
+                return this.token;
             }
         } catch (error) {
-            return ''
+            return '';
         }
     }
 }
