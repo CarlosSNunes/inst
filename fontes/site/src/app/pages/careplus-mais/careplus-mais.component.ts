@@ -124,7 +124,7 @@ export class CareplusMaisComponent implements OnInit {
 
     loadMore() {
         if (!this.allPostsLoaded) {
-            extra.map(ex => {
+            extra.forEach(ex => {
                 ex.isNewRequest = true;
                 this.allPosts.push(ex)
             });

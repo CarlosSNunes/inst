@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, Input, Output, EventEmitter, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, Input, Output, EventEmitter, PLATFORM_ID, Inject, HostListener } from '@angular/core';
 import { BannerModel, BreadcrumbModel, FieldErrors } from 'src/app/models';
 import { BannerService } from 'src/app/services';
 import { interval, Subscription } from 'rxjs';
@@ -47,6 +47,7 @@ export class BannerComponent implements OnInit {
     percentageStoped: number = 0;
     stopped: boolean = false;
     isBrowser: boolean = false;
+    width: number = 1400;
 
     constructor(
         private bannerService: BannerService,
@@ -55,6 +56,10 @@ export class BannerComponent implements OnInit {
         private errorHandler: ErrorHandler
     ) {
         this.isBrowser = isPlatformBrowser(this.plataformId)
+    }
+
+    @HostListener('window:resize', ['$event']) onResize(event) {
+        this.width = event.target.innerWidth;
     }
 
     async ngOnInit() {
@@ -84,7 +89,7 @@ export class BannerComponent implements OnInit {
             });
             this.banners[0].firstInteraction = true;
             this.cdRef.detectChanges();
-            this.time = this.banners[0].tempo
+            this.time = this.banners[0].tempoExibicao
             if (this.banners.length > 1) {
                 this.startBannerPercentage(this.time / 100, this.time)
             }
@@ -93,7 +98,10 @@ export class BannerComponent implements OnInit {
 
     async getBannersFromApi() {
         try {
-            const banners = await this.bannerService.getByArea(this.area)
+            const banners = await (await this.bannerService.getByArea(this.area)).map(banner => {
+                return new BannerModel(banner)
+            });
+            console.log(banners)
             return banners;
         } catch (error) {
             this.errorHandler.ShowError(error)
@@ -155,7 +163,7 @@ export class BannerComponent implements OnInit {
             this.percentageStoped = 0
             this.percentage = 0
             this.stopBannerPercentage()
-            this.time = this.banners[i].tempo;
+            this.time = this.banners[i].tempoExibicao;
             this.startBannerPercentage(this.time / 100, this.time)
             this.banners = this.banners.map((banner, index) => {
                 if (i != index) {

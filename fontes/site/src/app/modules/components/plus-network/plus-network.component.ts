@@ -16,7 +16,7 @@ import { WindowRef } from 'src/utils/window-ref';
 export class PlusNetworkComponent implements OnInit {
     @ViewChild('circlePercentage', { static: false }) circlePercentage: ElementRef<HTMLElement>;
     @ViewChild('bannerSection', { static: false }) bannerSection: ElementRef<HTMLElement>;
-    banners: BannerModel[] = BannersJSON as BannerModel[];
+    banners: BannerModel[] = BannersJSON;
     private bannerPercentageSubscription: Subscription;
     selectedBanner = 0;
     percentage: number = 0;
@@ -53,7 +53,7 @@ export class PlusNetworkComponent implements OnInit {
                 return banner
             });
             this.cdRef.detectChanges();
-            this.time = this.banners[0].tempo
+            this.time = this.banners[0].tempoExibicao
             this.startBannerPercentage(this.time / 100, this.time)
 
             const hammerConfig = new HammerGestureConfig()
@@ -151,7 +151,7 @@ export class PlusNetworkComponent implements OnInit {
             this.percentageStoped = 0
             this.percentage = 0
             this.stopBannerPercentage()
-            this.time = this.banners[i].tempo;
+            this.time = this.banners[i].tempoExibicao;
             this.startBannerPercentage(this.time / 100, this.time)
             this.banners = this.banners.map((banner, index) => {
                 if (i != index) {
