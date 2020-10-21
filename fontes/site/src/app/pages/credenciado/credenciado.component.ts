@@ -58,7 +58,7 @@ export class CredenciadoComponent implements OnInit {
         }),
         new BreadcrumbModel({
             name: "Sou Credenciado",
-            link: "/home/credenciado",
+            link: "/credenciado",
             active: true,
         }),
     ];
@@ -123,7 +123,7 @@ export class CredenciadoComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/home/credenciado`,
+            content: `${environment.SELF_URL}/credenciado`,
         });
 
         /* 
@@ -159,7 +159,7 @@ export class CredenciadoComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/home/credenciado`,
+            content: `${environment.SELF_URL}/credenciado`,
         });
     }
 

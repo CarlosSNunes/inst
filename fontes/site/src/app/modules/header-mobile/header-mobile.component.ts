@@ -103,17 +103,17 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
 
     mountMenu(url: string) {
         switch (url) {
-            case '/home/beneficiario':
+            case '/beneficiario':
                 this.subMenu = SubMenus.find(sub => sub.id == 'beneficiario')
                 break;
 
-            case '/home/rh':
+            case '/rh':
                 this.subMenu = SubMenus.find(sub => sub.id == 'rh')
                 break;
-            case '/home/corretor':
+            case '/corretor':
                 this.subMenu = SubMenus.find(sub => sub.id == 'corretor')
                 break;
-            case '/home/credenciado':
+            case '/credenciado':
                 this.subMenu = SubMenus.find(sub => sub.id == 'credenciado')
                 break;
 

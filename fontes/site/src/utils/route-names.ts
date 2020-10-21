@@ -6,19 +6,19 @@ export const routes: RouteModel[] = [
         description: 'Home'
     }),
     new RouteModel({
-        route: '/home/beneficiario',
+        route: '/beneficiario',
         description: 'Home - Beneficiário'
     }),
     new RouteModel({
-        route: '/home/rh',
+        route: '/rh',
         description: 'Home - Gestor de RH'
     }),
     new RouteModel({
-        route: '/home/corretor',
+        route: '/corretor',
         description: 'Home - Corretor'
     }),
     new RouteModel({
-        route: '/home/credenciado',
+        route: '/credenciado',
         description: 'Home - Credenciado'
     }),
     new RouteModel({

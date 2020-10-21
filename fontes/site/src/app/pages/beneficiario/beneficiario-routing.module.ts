@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CredenciadoComponent } from './credenciado.component';
+import { BeneficiarioComponent } from './beneficiario.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: CredenciadoComponent
+        component: BeneficiarioComponent
     },
     {
         path: '**',
-        loadChildren: () => import('../../erro/erro.module').then(m => m.ErroModule)
+        loadChildren: () => import('../erro/erro.module').then(m => m.ErroModule)
     }
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class CredenciadoRoutingModule { }
+export class BeneficiarioRoutingModule { }

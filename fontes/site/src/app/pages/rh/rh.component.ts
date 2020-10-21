@@ -71,7 +71,7 @@ export class RhComponent implements OnInit {
         }),
         new BreadcrumbModel({
             name: "Sou RH",
-            link: "/home/rh",
+            link: "/rh",
             active: true,
         }),
     ];
@@ -148,7 +148,7 @@ export class RhComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/home/rh`,
+            content: `${environment.SELF_URL}/rh`,
         });
 
         /* 
@@ -184,7 +184,7 @@ export class RhComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/home/rh`,
+            content: `${environment.SELF_URL}/rh`,
         });
     }
 }

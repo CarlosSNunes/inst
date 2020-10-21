@@ -42,7 +42,7 @@ export class CorretorComponent implements OnInit {
         }),
         new BreadcrumbModel({
             name: 'Sou Corretor',
-            link: '/home/corretor',
+            link: '/corretor',
             active: true
         }),
     ];
@@ -106,7 +106,7 @@ export class CorretorComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/home/corretor`,
+            content: `${environment.SELF_URL}/corretor`,
         });
 
         /* 
@@ -142,7 +142,7 @@ export class CorretorComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/home/corretor`,
+            content: `${environment.SELF_URL}/corretor`,
         });
     }
 
