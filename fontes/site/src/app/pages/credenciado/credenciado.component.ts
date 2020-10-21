@@ -17,6 +17,7 @@ import { ACareplusVideoComponent } from "src/app/modules/components/a-careplus-v
 import Cards from "./data/cards";
 import { Meta, Title } from "@angular/platform-browser";
 import { environment } from 'src/environments/environment';
+import { CanonicalService } from 'src/app/services';
 
 @Component({
     selector: "app-credenciado",
@@ -66,12 +67,15 @@ export class CredenciadoComponent implements OnInit {
     constructor(
         private windowRef: WindowRef,
         private meta: Meta,
-        private title: Title
+        private title: Title,
+        private canonicalService: CanonicalService
     ) {
         this.setSEOInfos();
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.canonicalService.createCanonicalURL('/');
+    }
 
     slideToSection() {
         const elementOffset = parseInt(localStorage.getItem("elementOffset"));

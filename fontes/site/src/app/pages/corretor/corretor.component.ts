@@ -7,6 +7,7 @@ import { ProductComponent } from 'src/app/modules/components/product/product.com
 import Cards from './data/cards';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { CanonicalService } from 'src/app/services';
 
 @Component({
     selector: 'app-corretor',
@@ -50,12 +51,14 @@ export class CorretorComponent implements OnInit {
     constructor(
         private windowRef: WindowRef,
         private meta: Meta,
-        private title: Title
+        private title: Title,
+        private canonicalService: CanonicalService
     ) {
         this.setSEOInfos();
     }
 
     ngOnInit() {
+        this.canonicalService.createCanonicalURL('/');
     }
 
     slideToSection() {

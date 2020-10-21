@@ -4,6 +4,7 @@ import { BreadcrumbModel, RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { environment } from 'src/environments/environment';
+import { CanonicalService } from 'src/app/services';
 
 @Component({
     selector: 'app-erro',
@@ -25,12 +26,14 @@ export class ErroComponent implements OnInit {
     ];
     constructor(
         private title: Title,
-        private meta: Meta
+        private meta: Meta,
+        private canonicalService: CanonicalService
     ) {
         this.setSEOInfos();
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
             description: 'Erro - 404'
         }));
+        this.canonicalService.createCanonicalURL('/404/');
     }
 
     ngOnInit() {

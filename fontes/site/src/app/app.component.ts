@@ -7,7 +7,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { CanonicalService } from './services/caninical/canonical.service';
+import { CanonicalService } from './services';
 
 @Component({
     selector: 'app-root',
