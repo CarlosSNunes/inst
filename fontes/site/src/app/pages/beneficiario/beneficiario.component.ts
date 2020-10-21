@@ -7,6 +7,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import Cards from './data/cards';
 import { Title, Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { CanonicalService } from 'src/app/services';
 
 @Component({
     selector: 'app-beneficiario',
@@ -50,12 +51,14 @@ export class BeneficiarioComponent implements OnInit {
     constructor(
         private windowRef: WindowRef,
         private title: Title,
-        private meta: Meta
+        private meta: Meta,
+        private canonicalService: CanonicalService
     ) {
         this.setSEOInfos();
     }
 
     ngOnInit() {
+        this.canonicalService.createCanonicalURL('/');
     }
 
     slideToSection() {
