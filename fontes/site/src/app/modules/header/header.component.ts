@@ -50,17 +50,17 @@ export class HeaderComponent implements OnInit {
 
     mountMenu(url: string) {
         switch (url) {
-            case '/beneficiario':
+            case '/sou-beneficiario':
                 this.subMenu = SubMenus.find(sub => sub.id == 'beneficiario')
                 break;
 
-            case '/rh':
+            case '/sou-rh':
                 this.subMenu = SubMenus.find(sub => sub.id == 'rh')
                 break;
-            case '/corretor':
+            case '/sou-corretor':
                 this.subMenu = SubMenus.find(sub => sub.id == 'corretor')
                 break;
-            case '/credenciado':
+            case '/sou-credenciado':
                 this.subMenu = SubMenus.find(sub => sub.id == 'credenciado')
                 break;
 
