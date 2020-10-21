@@ -42,7 +42,7 @@ export class BeneficiarioComponent implements OnInit {
         }),
         new BreadcrumbModel({
             name: 'Sou Beneficiário',
-            link: '/beneficiario',
+            link: '/sou-beneficiario',
             active: true
         }),
     ];
@@ -106,7 +106,7 @@ export class BeneficiarioComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/beneficiario`,
+            content: `${environment.SELF_URL}/sou-beneficiario`,
         });
 
         /* 
@@ -142,7 +142,7 @@ export class BeneficiarioComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/beneficiario`,
+            content: `${environment.SELF_URL}/sou-beneficiario`,
         });
     }
 
