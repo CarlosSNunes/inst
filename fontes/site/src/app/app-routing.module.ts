@@ -13,20 +13,20 @@ const routes: Routes = [
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
     },
     {
-        path: 'home/beneficiario',
-        loadChildren: () => import('src/app/pages/home/beneficiario/beneficiario.module').then(m => m.BeneficiarioModule),
+        path: 'beneficiario',
+        loadChildren: () => import('src/app/pages/beneficiario/beneficiario.module').then(m => m.BeneficiarioModule),
     },
     {
-        path: 'home/rh',
-        loadChildren: () => import('src/app/pages/home/rh/rh.module').then(m => m.RhModule),
+        path: 'rh',
+        loadChildren: () => import('src/app/pages/rh/rh.module').then(m => m.RhModule),
     },
     {
-        path: 'home/corretor',
-        loadChildren: () => import('src/app/pages/home/corretor/corretor.module').then(m => m.CorretorModule),
+        path: 'corretor',
+        loadChildren: () => import('src/app/pages/corretor/corretor.module').then(m => m.CorretorModule),
     },
     {
-        path: 'home/credenciado',
-        loadChildren: () => import('src/app/pages/home/credenciado/credenciado.module').then(m => m.CredenciadoModule),
+        path: 'credenciado',
+        loadChildren: () => import('src/app/pages/credenciado/credenciado.module').then(m => m.CredenciadoModule),
     },
     {
         path: 'a-careplus',

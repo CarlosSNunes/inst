@@ -3,30 +3,30 @@ import { ButtonModel, CardModel } from 'src/app/models';
 export default [
     new CardModel({
         type: 'default',
-        title: 'ANS – Norma Técnica Nº 45',
+        title: 'Teleatendimento - Albert Einstein',
         button: new ButtonModel({
-            link: 'assets/documents/nota-tecnica-45.pdf'
+            link: 'assets/documents/teleatendimento-Albert-Einstein.pdf',
         })
     }),
     new CardModel({
         type: 'default',
-        title: 'ANS – Cartilha de Exclusão de Beneficiário – RN 412',
+        title: 'Teleatendimento - Amparo',
         button: new ButtonModel({
-            link: 'assets/documents/cartilha_cancelamento_ou_exclusao_de_contrato.pdf'
+            link: 'assets/documents/teleatendimento-Amparo.pdf',
         })
     }),
     new CardModel({
         type: 'default',
-        title: 'ANS – Artigo 15 – RN 412',
+        title: 'Telepsicologia',
         button: new ButtonModel({
-            link: 'assets/documents/artigo15_rn412.pdf'
+            link: 'assets/documents/telepsicologia.pdf',
         })
     }),
     new CardModel({
         type: 'default',
-        title: 'IDSS 2018',
+        title: 'Vidalink',
         button: new ButtonModel({
-            link: 'assets/documents/idsscareplus-2018.pdf'
+            link: 'assets/documents/vidalink.pdf',
         })
     }),
 ]
