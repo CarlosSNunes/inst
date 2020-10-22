@@ -3,16 +3,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-paddingless-vertical is-6-desktop is-full">
-                    <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+                    <app-breadcrumb [breadcrumbs]="selectedOrigin?.breadcrumbs"></app-breadcrumb>
                     <h1 class="h4 big-title">
-                        Obrigado pelo interesse em contar com o plano líder no Brasil! Em breve entraremos em contato.
+                        {{selectedOrigin?.message}}
                     </h1>
-                    <a routerLink="/" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" title="Voltar para Home">
+                    <a routerLink="/" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
+                        title="Voltar para Home">
                         Voltar para Home
                     </a>
 
 
-                    <a routerLink="/" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" title="Voltar para Home">
+                    <a routerLink="/" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop"
+                        title="Voltar para Home">
                         Voltar para Home
                     </a>
                 </div>

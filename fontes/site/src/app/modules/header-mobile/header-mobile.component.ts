@@ -10,11 +10,44 @@ import { EventEmitterService } from 'src/app/services/event-emitter/event-emitte
 import { SimuladoresService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
 import SubMenus from './data/menus';
+import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'app-header-mobile',
     templateUrl: './header-mobile.component.html',
-    styleUrls: ['./header-mobile.component.scss']
+    styleUrls: ['./header-mobile.component.scss'],
+    animations: [
+        trigger('layerAnimation', [
+            // ...
+            state('opened', style({
+                transform: 'translateX(0%)'
+            })),
+            transition('closed => opened', [
+                animate('0.3s')
+            ]),
+            state('closed', style({
+                transform: 'translateX(100%)'
+            })),
+            transition('opened => closed', [
+                animate('0.3s')
+            ]),
+        ]),
+        trigger('containerAnimation', [
+            // ...
+            state('opened', style({
+                transform: 'translateX(0%)'
+            })),
+            transition('closed => opened', [
+                animate('0.3s')
+            ]),
+            state('closed', style({
+                transform: 'translateX(100%)'
+            })),
+            transition('opened => closed', [
+                animate('0.3s')
+            ]),
+        ]),
+    ]
 })
 export class HeaderMobileComponent implements OnInit, AfterViewInit {
     selectedPage: string = '';
@@ -23,8 +56,6 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     faTimes = faTimes;
     openedDropDown: boolean = false;
     @ViewChild('menu', { static: true }) menu: ElementRef<HTMLDivElement>
-    @ViewChild('firstLayer', { static: true }) firstLayer: ElementRef<HTMLDivElement>
-    @ViewChild('secondLayer', { static: true }) secondLayer: ElementRef<HTMLDivElement>
     @ViewChild('body', { static: true }) body: ElementRef<HTMLDivElement>
     @ViewChild('bottom', { static: true }) bottom: ElementRef<HTMLDivElement>
     checked: boolean = false;
@@ -35,6 +66,8 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     actualRoute: string = '';
     careplusUrl = environment.CAREPLUS_URL;
     subMenu: SubMenu = SubMenus[0];
+    layerAnimation: string = 'closed';
+    containerAnimation: string = 'closed';
 
     constructor(
         private router: Router,
@@ -89,8 +122,6 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.firstLayer.nativeElement.addEventListener("transitionend", this.transitionListener.bind(this))
-        this.secondLayer.nativeElement.addEventListener("transitionend", this.transitionListener.bind(this))
     }
 
     ngAfterViewInit() {
@@ -134,44 +165,26 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     initTransition() {
         this.checked = !this.checked;
         if (this.checked) {
-            const top = (this.windowRef.nativeWindow.pageYOffset || this.document.documentElement.scrollTop) - (this.document.documentElement.clientTop || 0);
-            this.scrollPosition = top;
+            this.menu.nativeElement.classList.add('open');
+            this.layerAnimation = 'opened'
             this.document.body.classList.add('no-scroll');
-            this.document.body.scrollTop = this.scrollPosition;
         } else {
-            this.document.body.classList.remove('no-scroll');
-            this.windowRef.nativeWindow.scrollTo(0, this.scrollPosition)
-        }
-        if (this.menu.nativeElement.classList.contains('open')) {
-            this.secondLayer.nativeElement.classList.remove('open');
-        } else {
-            this.menu.nativeElement.classList.add('open')
-            this.firstLayer.nativeElement.classList.add('open');
+            this.containerAnimation = 'closed'
         }
     }
 
-    transitionListener(event) {
-        if (
-            event.target.classList.contains('layer') &&
-            !this.secondLayer.nativeElement.classList.contains('open') &&
-            this.menu.nativeElement.classList.contains('open') &&
-            event.target.classList.contains('open')
-        ) {
-            this.secondLayer.nativeElement.classList.add('open')
-            this.positionFooterOnBottom()
-        } else if (
-            event.target.classList.contains('container') &&
-            this.firstLayer.nativeElement.classList.contains('open') &&
-            !event.target.classList.contains('open')
-        ) {
-            this.firstLayer.nativeElement.classList.remove('open')
-        } else if (
-            event.target.classList.contains('layer') &&
-            !this.secondLayer.nativeElement.classList.contains('open') &&
-            !event.target.classList.contains('open') &&
-            this.menu.nativeElement.classList.contains('open')
-        ) {
-            this.menu.nativeElement.classList.remove('open')
+    captureDoneEvent(event: AnimationEvent) {
+        if (event.fromState == 'closed' && event.toState == 'opened' && event.triggerName == 'layerAnimation') {
+            this.containerAnimation = 'opened'
+        }
+
+        if (event.fromState == 'opened' && event.toState == 'closed' && event.triggerName == 'containerAnimation') {
+            this.layerAnimation = 'closed'
+        }
+
+        if (event.fromState == 'opened' && event.toState == 'closed' && event.triggerName == 'layerAnimation') {
+            this.menu.nativeElement.classList.remove('open');
+            this.document.body.classList.remove('no-scroll');
         }
     }
 
@@ -206,11 +219,6 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
 
     openSimulator() {
         this.simuladoresService.open();
-    }
-
-    ngOnDestroy() {
-        this.firstLayer.nativeElement.removeEventListener("transitionend", (evt) => null)
-        this.secondLayer.nativeElement.removeEventListener("transitionend", (evt) => null)
     }
 
 }

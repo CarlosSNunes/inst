@@ -39,3 +39,4 @@ export * from './profile.model';
 export * from './error.model';
 export * from './modal.model';
 export * from './hospital.model';
+export * from './form-section.model';

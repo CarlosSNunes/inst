@@ -12,6 +12,7 @@ import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 import { FaleConoscoService } from 'src/app/services/fale-conosco/fale-conosco.service';
+import { Router } from '@angular/router';
 declare var grecaptcha: any;
 
 @Component({
@@ -45,28 +46,19 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
         @Inject(PLATFORM_ID) private platformId: Platform,
         @Inject(DOCUMENT) private document: Document,
         private scriptLoaderService: ScriptLoaderService,
-        private faleConoscoService: FaleConoscoService
+        private faleConoscoService: FaleConoscoService,
+        private router: Router
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId)
         this.mountForm();
     }
 
     ngOnInit() {
-        AssuntoOuvidoria.Dados.map(assunto => {
-            this.subjects.push(new DropDownItem<number>({
-                title: assunto.TextoAssunto,
-                value: assunto.Id
-            }))
-        })
 
-        ClassificacaoOuvidoria.Dados.map(classificacao => {
-            this.classifications.push(new DropDownItem<number>({
-                title: classificacao.TextoClassificacao,
-                value: classificacao.Id
-            }))
-        })
-        this.getOuvidoriaSubjects();
-        this.getOuvidoriaClassifications();
+        if (this.isBrowser) {
+            this.getOuvidoriaSubjects();
+            this.getOuvidoriaClassifications();
+        }
     }
 
     ngOnDestroy() {
@@ -82,19 +74,31 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
         }
     }
 
-    async getOuvidoriaSubjects() {
+    private async getOuvidoriaSubjects() {
         try {
             const subjects = await this.faleConoscoService.buscarAssuntoOuvidoria();
-            console.log(subjects)
+
+            subjects.Dados.forEach(subject => {
+                this.subjects.push(new DropDownItem<number>({
+                    title: subject.TextoAssunto,
+                    value: subject.Id
+                }))
+            })
         } catch (error) {
             console.log(error)
         }
     }
 
-    async getOuvidoriaClassifications() {
+    private async getOuvidoriaClassifications() {
         try {
             const classifications = await this.faleConoscoService.buscarClassificacaoOuvidoria();
-            console.log(classifications)
+            classifications.Dados.forEach(classification => {
+                this.classifications.push(new DropDownItem<number>({
+                    title: classification.TextoClassificacao,
+                    value: classification.Id
+                }));
+            });
+
         } catch (error) {
             console.log(error)
         }
@@ -230,9 +234,6 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
             try {
                 await this.faleConoscoService.gravarOuvidoria(formValue);
 
-                const modal: FeedbackModalModel = new FeedbackModalModel();
-
-                this.modalService.openModal(modal);
                 this.ouvidoriaForm.reset();
                 this.mountForm();
 
@@ -240,6 +241,8 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
                     this.ouvidoriaForm.controls[control].markAsUntouched();
                 });
                 this.loading = false;
+
+                this.router.navigate(['/fale-conosco/ouvidoria/obrigado']);
             } catch (error) {
                 const modal: ErrorModalModel = new ErrorModalModel();
                 this.modalService.openModal(modal);

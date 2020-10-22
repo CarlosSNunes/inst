@@ -101,7 +101,6 @@ export class BannerComponent implements OnInit {
             const banners = await (await this.bannerService.getByArea(this.area)).map(banner => {
                 return new BannerModel(banner)
             });
-            console.log(banners)
             return banners;
         } catch (error) {
             this.errorHandler.ShowError(error)

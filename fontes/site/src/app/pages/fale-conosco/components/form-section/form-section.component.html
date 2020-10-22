@@ -4,7 +4,7 @@
 
             <div class="columns is-hidden-touch">
                 <div class="column is-full is-paddingless-vertical">
-                    <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+                    <app-breadcrumb [breadcrumbs]="activeChanel?.breadcrumbs"></app-breadcrumb>
                 </div>
             </div>
 
@@ -31,9 +31,8 @@
                 <div class="column is-full is-8-desktop">
                     <div class="tabs is-toggle is-fullwidth is-centered">
                         <ul>
-                            <li [class.is-active]="chanel.active" *ngFor="let chanel of chanelForms; let i = index;"
-                                (click)="setActiveChanel(i)">
-                                <a [attr.title]="chanel.title">
+                            <li [class.is-active]="chanel.active" *ngFor="let chanel of chanelForms">
+                                <a [routerLink]="['/fale-conosco', chanel.slug]" [title]="chanel.title">
                                     <span>{{chanel.title}}</span>
                                 </a>
                             </li>
@@ -72,7 +71,7 @@
                                 </span>
                             </p>
                             <a href="tel:114197-9000" title="Atendimento no Exterior" class="contact-link">
-                               +55 (11) 4197-9000
+                                +55 (11) 4197-9000
                             </a>
 
                             <p class="contact-subdescription">
@@ -83,7 +82,8 @@
                                     Atendimento 24h ao Credenciado
                                 </span>
                             </p>
-                            <a href="tel:1141979000" title="Atendimento 24h ao Credenciado Telefone" class="contact-link">
+                            <a href="tel:1141979000" title="Atendimento 24h ao Credenciado Telefone"
+                                class="contact-link">
                                 (11) 4197-9000
                             </a>
                             <hr class="separator" />
@@ -110,7 +110,8 @@
                                     Comunicação Care Plus
                                 </span>
                             </p>
-                            <a href="mailto:imprensa@careplus.com.br" title="Comunicação Care Plus Email" class="contact-link">
+                            <a href="mailto:imprensa@careplus.com.br" title="Comunicação Care Plus Email"
+                                class="contact-link">
                                 imprensa@careplus.com.br
                             </a>
                         </div>

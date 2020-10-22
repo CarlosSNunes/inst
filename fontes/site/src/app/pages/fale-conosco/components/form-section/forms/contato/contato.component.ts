@@ -12,6 +12,7 @@ import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 import { FaleConoscoService } from 'src/app/services/fale-conosco/fale-conosco.service';
+import { Router } from '@angular/router';
 declare var grecaptcha: any;
 
 @Component({
@@ -48,7 +49,8 @@ export class ContatoComponent implements OnInit {
         @Inject(PLATFORM_ID) private platformId: Platform,
         private scriptLoaderService: ScriptLoaderService,
         @Inject(DOCUMENT) private document: Document,
-        private faleConoscoService: FaleConoscoService
+        private faleConoscoService: FaleConoscoService,
+        private router: Router
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId)
         this.mountForm();
@@ -62,8 +64,8 @@ export class ContatoComponent implements OnInit {
                 value: tipoAssunto.Id
             }));
         })
-        this.getTipoAssuntoContato();
         if (this.isBrowser) {
+            this.getTipoAssuntoContato();
             const capctchaElements = this.document.querySelectorAll('.g-recaptcha-bubble-arrow');
             if (typeof grecaptcha != 'undefined' && typeof grecaptcha.render != 'undefined' && capctchaElements.length > 0) {
                 try {
@@ -90,8 +92,14 @@ export class ContatoComponent implements OnInit {
 
     private async getTipoAssuntoContato() {
         try {
-            const tiposAssunto = await this.faleConoscoService.getListaTipoAssuntoFaleConosco();
-            console.log(tiposAssunto);
+            const subjectTypes = await this.faleConoscoService.getListaTipoAssuntoFaleConosco();
+            subjectTypes.TipoAssunto.forEach(subjectType => {
+                this.types.push(new DropDownItem({
+                    title: subjectType.Descricao,
+                    value: subjectType.Id
+                }));
+            })
+
         } catch (error) {
             console.log(error)
         }
@@ -261,10 +269,9 @@ export class ContatoComponent implements OnInit {
                 this.contatoForm.reset();
                 this.mountForm();
 
-                const modal: FeedbackModalModel = new FeedbackModalModel();
-
-                this.modalService.openModal(modal);
                 this.loading = false;
+
+                this.router.navigate(['/fale-conosco/contato/obrigado']);
             } catch (error) {
                 const modal: ErrorModalModel = new ErrorModalModel();
                 this.modalService.openModal(modal);

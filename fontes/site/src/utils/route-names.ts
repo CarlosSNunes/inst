@@ -22,8 +22,24 @@ export const routes: RouteModel[] = [
         description: 'Home - Credenciado'
     }),
     new RouteModel({
+        route: '/fale-conosco',
+        description: 'Fale conosco - Solicite uma Cotação'
+    }),
+    new RouteModel({
         route: '/fale-conosco/solicite-uma-cotacao',
-        description: 'Home - Fale conosco'
+        description: 'Fale conosco - Solicite uma Cotação'
+    }),
+    new RouteModel({
+        route: '/fale-conosco/contato',
+        description: 'Fale conosco - Contato'
+    }),
+    new RouteModel({
+        route: '/fale-conosco/ouvidoria',
+        description: 'Fale conosco - Ouvidoria'
+    }),
+    new RouteModel({
+        route: '/fale-conosco/canal-de-denuncias',
+        description: 'Fale conosco - Canal de Denúncias'
     }),
     new RouteModel({
         route: '/a-careplus',

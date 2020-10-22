@@ -67,22 +67,3 @@ export class NotificationService {
         }, time);
     }
 }
-
-
-            // componentRef.hostView.onDestroy(() => {
-            //     componentRef.hostView.detectChanges();
-
-            //     const notificationsThatExists = this.document.querySelectorAll('.notification')
-
-            //     const number = notificationsThatExists.length
-
-            //     for (let i = 0; i < number; i++) {
-            //         const item = notificationsThatExists.item(i);
-            //         console.log((item as HTMLElement).style.top)
-            //         if (i != 0) {
-            //             (item as HTMLElement).style.top = `${(item as HTMLElement).offsetTop - ((notificationsThatExists[0] as HTMLElement).offsetTop + (notificationsThatExists[0] as HTMLElement).clientHeight)}px`;
-            //         } else {
-            //             (item as HTMLElement).style.top = '32px';
-            //         }
-            //     }
-            // })

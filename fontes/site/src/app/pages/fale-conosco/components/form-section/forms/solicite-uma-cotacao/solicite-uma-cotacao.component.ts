@@ -38,7 +38,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
     formValueChangesSubscription: Subscription;
-    retURL: string = `${environment.SELF_URL}/obrigado`;
+    retURL: string = `${environment.SELF_URL}fale-conosco/solicite-uma-cotacao/obrigado`;
 
     constructor(
         private fb: FormBuilder,
@@ -247,9 +247,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
             event.target.submit();
 
-            // const modal: FeedbackModalModel = new FeedbackModalModel();
-
-            // this.modalService.openModal(modal)
         } else {
             event.preventDefault();
             Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {

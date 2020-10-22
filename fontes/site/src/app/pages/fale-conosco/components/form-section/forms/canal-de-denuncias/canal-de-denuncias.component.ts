@@ -11,6 +11,7 @@ import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
 import { GravarCanalDenunciaEntrada } from 'src/app/models';
 import { FaleConoscoService } from 'src/app/services/fale-conosco/fale-conosco.service';
+import { Router } from '@angular/router';
 declare var grecaptcha: any;
 
 
@@ -35,7 +36,8 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
         @Inject(PLATFORM_ID) private platformId: Platform,
         private scriptLoaderService: ScriptLoaderService,
         @Inject(DOCUMENT) private document: Document,
-        private faleConoscoService: FaleConoscoService
+        private faleConoscoService: FaleConoscoService,
+        private router: Router
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.mountForm();
@@ -167,10 +169,9 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
                 this.canalDeDenunciasForm.reset();
                 this.mountForm();
 
-                const modal: FeedbackModalModel = new FeedbackModalModel();
-
-                this.modalService.openModal(modal);
                 this.loading = false;
+
+                this.router.navigate(['/fale-conosco/canal-de-denuncias/obrigado']);
             } catch (error) {
                 const modal: ErrorModalModel = new ErrorModalModel();
                 this.modalService.openModal(modal);

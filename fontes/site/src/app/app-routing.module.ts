@@ -61,10 +61,6 @@ const routes: Routes = [
         loadChildren: () => import('./pages/carreiras/carreiras.module').then(m => m.CarreirasModule),
     },
     {
-        path: 'obrigado',
-        loadChildren: () => import('./pages/obrigado/obrigado.module').then(m => m.ObrigadoModule),
-    },
-    {
         path: '**',
         loadChildren: () => import('./pages/erro/erro.module').then(m => m.ErroModule)
     }

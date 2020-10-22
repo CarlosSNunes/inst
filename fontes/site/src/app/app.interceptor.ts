@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
 import { Observable, throwError, from } from "rxjs";
 import { catchError, retry, switchMap, timeout, } from "rxjs/operators";
 import {
@@ -11,16 +11,29 @@ import { UsuarioService } from './services';
 import { environment } from 'src/environments/environment';
 import { LocalStorageService } from 'src/utils/local-storage';
 import { DefaultErrors } from './models';
+import { Platform } from '@angular/cdk/platform';
+import { isPlatformServer } from '@angular/common';
 
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
-    constructor(
-        private usuarioService: UsuarioService,
-        private localStorageService: LocalStorageService
-    ) { }
     private token: string = '';
     private retried: boolean = false;
+    private retryTimes: number = 2;
+    private timeout: number = 3000;
+    private isServer: boolean = false;
+    constructor(
+        private usuarioService: UsuarioService,
+        private localStorageService: LocalStorageService,
+        @Inject(PLATFORM_ID) private platformId: Platform
+    ) {
+        this.isServer = isPlatformServer(this.platformId);
+
+        if (this.isServer) {
+            this.retryTimes = 0;
+            this.timeout = 2000;
+        }
+    }
 
     intercept(
         request: HttpRequest<any>,
@@ -28,11 +41,12 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     ): Observable<HttpEvent<any>> {
         if (request.url != environment.API_URL + '/Usuario/Autenticar') {
             this.retried = false;
-            return this.authFunction(request, next, 2);
+            return this.authFunction(request, next, this.retryTimes);
         } else {
             return next.handle(request)
                 .pipe(
-                    retry(2)
+                    timeout(this.timeout),
+                    retry(this.retryTimes)
                 );
         }
     }
@@ -41,7 +55,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         next: HttpHandler, retryTimes: number) {
         return from(
             this.getToken()).pipe(
-                timeout(5000),
+                timeout(this.timeout),
                 switchMap((token) => {
                     if (token) {
                         request = request.clone({
@@ -51,7 +65,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                         });
                         return next.handle(request)
                             .pipe(
-                                timeout(5000),
+                                timeout(this.timeout),
                                 retry(retryTimes),
                                 catchError((error: HttpErrorResponse) => {
                                     let errorMessage = '';
