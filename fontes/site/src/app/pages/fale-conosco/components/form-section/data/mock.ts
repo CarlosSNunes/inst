@@ -13,7 +13,7 @@ export const chanelForms: FormSectionModel[] = [
             }),
             new BreadcrumbModel({
                 name: 'Fale Conosco',
-                link: '/fale-conosco/solicite-uma-cotacao',
+                link: '/fale-conosco',
             }),
             new BreadcrumbModel({
                 name: 'Solicite uma Cotação',
@@ -34,7 +34,7 @@ export const chanelForms: FormSectionModel[] = [
             }),
             new BreadcrumbModel({
                 name: 'Fale Conosco',
-                link: '/fale-conosco/solicite-uma-cotacao',
+                link: '/fale-conosco',
             }),
             new BreadcrumbModel({
                 name: 'Contato',
@@ -55,7 +55,7 @@ export const chanelForms: FormSectionModel[] = [
             }),
             new BreadcrumbModel({
                 name: 'Fale Conosco',
-                link: '/fale-conosco/solicite-uma-cotacao',
+                link: '/fale-conosco',
             }),
             new BreadcrumbModel({
                 name: 'Canal de Denúncias',
@@ -76,7 +76,7 @@ export const chanelForms: FormSectionModel[] = [
             }),
             new BreadcrumbModel({
                 name: 'Fale Conosco',
-                link: '/fale-conosco/solicite-uma-cotacao',
+                link: '/fale-conosco',
             }),
             new BreadcrumbModel({
                 name: 'Ouvidoria',

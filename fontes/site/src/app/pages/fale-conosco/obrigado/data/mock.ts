@@ -3,11 +3,13 @@ import { BreadcrumbModel } from 'src/app/models';
 export const origins: {
     id: string,
     message: string,
+    title: string,
     breadcrumbs: BreadcrumbModel[]
 }[] = [
         {
             id: 'solicite-uma-cotacao',
             message: 'Obrigado por enviar sua Solicitação de Cotação. A Care Plus, operadora líder em saúde premium no Brasil retornará sua solicitação o mais breve possível.',
+            title: 'Obrigado | Fale Conosco | Care Plus',
             breadcrumbs: [
                 new BreadcrumbModel({
                     name: 'Home',
@@ -15,7 +17,7 @@ export const origins: {
                 }),
                 new BreadcrumbModel({
                     name: 'Fale Conosco',
-                    link: '/fale-conosco/solicite-uma-cotacao',
+                    link: '/fale-conosco',
                 }),
                 new BreadcrumbModel({
                     name: 'Solicite uma Cotação',
@@ -31,6 +33,7 @@ export const origins: {
         {
             id: 'contato',
             message: 'Obrigado por enviar seu Contato. A Care Plus, operadora líder em saúde premium no Brasil retornará seu contato o mais breve possível.',
+            title: 'Obrigado | Contato | Care Plus',
             breadcrumbs: [
                 new BreadcrumbModel({
                     name: 'Home',
@@ -38,7 +41,7 @@ export const origins: {
                 }),
                 new BreadcrumbModel({
                     name: 'Fale Conosco',
-                    link: '/fale-conosco/solicite-uma-cotacao',
+                    link: '/fale-conosco',
                 }),
                 new BreadcrumbModel({
                     name: 'Contato',
@@ -54,6 +57,7 @@ export const origins: {
         {
             id: 'canal-de-denuncias',
             message: 'Obrigado por enviar sua Denúncia. A Care Plus, operadora líder em saúde premium no Brasil retornará sua denúncia o mais breve possível.',
+            title: 'Obrigado | Canal de Denúncias | Care Plus',
             breadcrumbs: [
                 new BreadcrumbModel({
                     name: 'Home',
@@ -61,7 +65,7 @@ export const origins: {
                 }),
                 new BreadcrumbModel({
                     name: 'Fale Conosco',
-                    link: '/fale-conosco/solicite-uma-cotacao',
+                    link: '/fale-conosco',
                 }),
                 new BreadcrumbModel({
                     name: 'Canal de Denúncias',
@@ -77,6 +81,7 @@ export const origins: {
         {
             id: 'ouvidoria',
             message: 'Obrigado por enviar sua Ouvidoria. A Care Plus, operadora líder em saúde premium no Brasil retornará sua ouvidoria o mais breve possível.',
+            title: 'Obrigado | Ouvidoria | Care Plus',
             breadcrumbs: [
                 new BreadcrumbModel({
                     name: 'Home',
@@ -84,7 +89,7 @@ export const origins: {
                 }),
                 new BreadcrumbModel({
                     name: 'Fale Conosco',
-                    link: '/fale-conosco/solicite-uma-cotacao',
+                    link: '/fale-conosco',
                 }),
                 new BreadcrumbModel({
                     name: 'Ouvidoria',

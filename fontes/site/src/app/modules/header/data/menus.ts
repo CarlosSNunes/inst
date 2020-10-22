@@ -104,7 +104,7 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco/solicite-uma-cotacao',
+                routerLink: '/fale-conosco',
                 subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Cotação',
