@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { FormControlError } from './../../../../src/utils/form-control-error';
 import { FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-posts-blog',
@@ -45,6 +46,9 @@ export class PostsBlogComponent implements OnInit {
   imagemMargem = 2;
   bsModalRef: BsModalRef;
   message: string;
+
+  private readonly API_ENDPOINT = environment.API;
+
   constructor(
     private postsBlogService: PostsBlogService,
     private authenticationService: AuthenticationService,
@@ -97,6 +101,7 @@ export class PostsBlogComponent implements OnInit {
       .subscribe(postsBlog => {
         this.loaded = true;
         this.postsBlog = postsBlog;
+        
       },
         error => {
           this.loaded = true;
@@ -179,7 +184,7 @@ export class PostsBlogComponent implements OnInit {
       postTag: this.fb.array(post.postTag),
       descricao: [post.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [[]],
-      caminhoImagem: [post.caminhoImagem],
+      caminhoImagem: [this.API_ENDPOINT +'/Src/Images/Banner/'],
       nomeImagem: [post.nomeImagem]
     });
 

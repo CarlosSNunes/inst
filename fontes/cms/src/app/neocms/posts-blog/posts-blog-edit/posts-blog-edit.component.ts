@@ -16,6 +16,7 @@ import { PostsUploadAdapter } from './../../../../../src/plugins/posts-upload-ad
 import { PostBlogUpdateModel } from './../../../../../src/models/posts-blog/posts-blog-update-model';
 import { DatePipe, formatCurrency, formatDate } from '@angular/common';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-posts-blog-edit',
@@ -48,7 +49,7 @@ export class PostsBlogEditComponent implements OnInit {
   previewUrl: any = null;
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
-
+  private readonly API_ENDPOINT = environment.API
   
   constructor(
     private authenticateService: AuthenticationService,
@@ -97,11 +98,10 @@ export class PostsBlogEditComponent implements OnInit {
       .getById(id)
       .subscribe(postBlog => {
         this.postBlog = postBlog;
-        this.previewUrl = postBlog.caminhoImagem + postBlog.nomeImagem;
+        this.previewUrl = postBlog.caminhoImagem +'/'+ postBlog.nomeImagem;
 
         const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
         this.postsBlogForm.controls.dataPublicacao.setValue(this.datepipe.transform(postBlog.dataPublicacao,'dd/MM/yyyy', 'en'));
-        //dataPublicacaoElement.value = postBlog.dataPublicacao;
 
         const dataPExpiracaoElement: any = document.querySelector('#dataExpiracao');
         dataPExpiracaoElement.value = postBlog.dataExpiracao;
@@ -173,7 +173,7 @@ export class PostsBlogEditComponent implements OnInit {
       postTag: this.fb.array(postBlog.postTag),
       descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [''],
-      caminhoImagem: ['Src\\Images\\Banner\\'],
+      caminhoImagem: [this.API_ENDPOINT +'/Src/Images/Post/'],
       nomeImagem: [postBlog.nomeImagem]
     });
 
