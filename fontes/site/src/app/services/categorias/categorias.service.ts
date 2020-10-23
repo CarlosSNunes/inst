@@ -16,4 +16,8 @@ export class CategoriasService {
     getAll(): Promise<CategoryModel[]> {
         return this.httpClient.get<CategoryModel[]>(this.apiUrl).toPromise();
     }
+
+    getById(id: number): Promise<CategoryModel> {
+        return this.httpClient.get<CategoryModel>(`${this.apiUrl}/${id}`).toPromise();
+    }
 }

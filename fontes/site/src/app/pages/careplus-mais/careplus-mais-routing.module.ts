@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CareplusMaisComponent } from './careplus-mais.component';
 import { DetalheDoPostComponent } from './detalhe-do-post/detalhe-do-post.component';
 import { BuscaComponent } from './busca/busca.component';
+import { BuscaPorCategoriaComponent } from './busca-por-categoria/busca-por-categoria.component';
 
 const routes: Routes = [
     {
@@ -12,6 +13,10 @@ const routes: Routes = [
     {
         path: 'busca/:term',
         component: BuscaComponent
+    },
+    {
+        path: 'categoria/:categoryId',
+        component: BuscaPorCategoriaComponent
     },
     {
         path: ':slug',

@@ -77,10 +77,10 @@ export class DetalheDoPostComponent implements OnInit {
 
     private setSEOInfos() {
 
-        this.title.setTitle(`${this.post.titulo} | Care Plus +`);
+        this.title.setTitle(`${this.post.tituloPaginaSEO} | Care Plus +`);
         this.meta.updateTag({
             name: 'description',
-            content: this.post.descricaoPrevia
+            content: this.post.descricaoPaginaSEO
         });
 
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
@@ -89,7 +89,7 @@ export class DetalheDoPostComponent implements OnInit {
 
         if (isPlatformServer(this.platformId)) {
             // Twitter
-            this.meta.updateTag({ name: 'twitter:title', content: `${this.post.titulo} | Care Plus +` });
+            this.meta.updateTag({ name: 'twitter:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
             this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
 
             this.meta.updateTag({ name: 'twitter:image', content: `${this.post.caminhoImagem}?${new Date().getTime()}` });
@@ -99,7 +99,7 @@ export class DetalheDoPostComponent implements OnInit {
             this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}careplus-mais/${this.post.id}` });
 
             // Facebook e demais redes sociais
-            this.meta.updateTag({ property: 'og:title', content: `${this.post.titulo} | Care Plus +` });
+            this.meta.updateTag({ property: 'og:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
             this.meta.updateTag({ property: 'og:type', content: 'website' });
             this.meta.updateTag({ property: 'og:image', content: this.post.caminhoImagem });
             this.meta.updateTag({ property: 'og:description', content: this.post.descricaoPrevia });

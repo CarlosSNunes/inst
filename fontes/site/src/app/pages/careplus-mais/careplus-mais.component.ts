@@ -4,9 +4,7 @@ import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
 import Banners from './data/banner';
-import HighlightPost from './data/highlight';
-import RecentPosts from './data/recent-posts';
-import { all, extra } from './data/all-posts';
+import { extra } from './data/all-posts';
 import { crossContentModel, breadcrumbs } from './data/mock';
 import { BlogService } from 'src/app/services';
 import { Router } from '@angular/router';
@@ -74,7 +72,7 @@ export class CareplusMaisComponent implements OnInit {
             if (post.destaque == 0) {
                 // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
                 return new PostCardModel({
-                    post,
+                    post: new NoticiaModel(post),
                     button: new ButtonModel({
                         text: 'Ler artigo',
                         routerLink: `/careplus-mais/${post.id}`
@@ -94,12 +92,6 @@ export class CareplusMaisComponent implements OnInit {
         } catch (error) {
             this.errorHandler.ShowError(error.error);
         }
-    }
-
-    activeCategory(categoryId: number) {
-        this.selectCategoryId = categoryId;
-        this.filterForm.controls.categoryId.setValue(this.selectCategoryId)
-        // this.filter()
     }
 
     getErrors(control: AbstractControl) {

@@ -4,8 +4,10 @@ export const bannersMock = [
     new BannerModel({
         caminhoImagem:
             'assets/img/banner-credenciado.jpg',
-        caminhoDesktop: 'assets/img/banner-credenciado.jpg',
-        caminhoMobile: 'assets/img/banner-credenciado.jpg',
+        caminhoDesktop: 'assets/img',
+        nomeImagemDesktop: 'banner-credenciado.jpg',
+        caminhoMobile: 'assets/img',
+        nomeImagemMobile: 'banner-credenciado.jpg',
         titulo: 'O cuidado com a sua saúde, no conforto de sua casa',
         descricao:
             'Com o Saúde em Casa, a Care Plus proporciona aos seus beneficiários consultas domiciliares nas especialidades de pediatria e clínico geral',
@@ -14,8 +16,10 @@ export const bannersMock = [
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home1.png",
-        caminhoDesktop: "assets/img/banner_home1.png",
-        caminhoMobile: "assets/img/banner_home1.png",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'banner_home1.png',
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'banner_home1.png',
         titulo: "Cuidado da Família",
         descricao: "Oferecemos um canal de acolhimento para crianças portadoras de Transtorno do Espectro Autista, Síndrome de Down e/ou outras condições específicas",
         tempoExibicao: 5000,
@@ -25,8 +29,10 @@ export const bannersMock = [
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home2.png",
-        caminhoDesktop: "assets/img/banner_home2.png",
-        caminhoMobile: "assets/img/banner_home2.png",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'banner_home2.png',
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'banner_home2.png',
         titulo: "Mental Health",
         descricao: "Possuímos um canal exclusivo 24 por 7, inclusive aos finais de semana e feriados para acompanhamento e direcionamento em situações de crise psicológica, tanto pessoais e/ou profissionais",
         nomeLink: 'Conheça o Mental Health',
@@ -36,8 +42,10 @@ export const bannersMock = [
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home3.png",
-        caminhoDesktop: "assets/img/banner_home3.png",
-        caminhoMobile: "assets/img/banner_home3.png",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'banner_home3.png',
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'banner_home3.png',
         titulo: "Coronavírus e Covid-19",
         descricao: "O coronavírus é uma família de vírus que pode causar infecções respiratórias de graus variados",
         nomeLink: 'Saiba mais informações',

@@ -16,11 +16,12 @@ import { DetalheDoPostComponent } from './detalhe-do-post/detalhe-do-post.compon
 import { BreadcrumbModule } from 'src/app/modules/components/breadcrumb/breadcrumb.module';
 import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
 import { BuscaComponent } from './busca/busca.component';
+import { BuscaPorCategoriaComponent } from './busca-por-categoria/busca-por-categoria.component';
 
 
 
 @NgModule({
-    declarations: [CareplusMaisComponent, HighlightPostComponent, LastPostsComponent, AllPostsComponent, DetalheDoPostComponent, BuscaComponent],
+    declarations: [CareplusMaisComponent, HighlightPostComponent, LastPostsComponent, AllPostsComponent, DetalheDoPostComponent, BuscaComponent, BuscaPorCategoriaComponent],
     imports: [
         CommonModule,
         CarePlusMaisRoutingModule,

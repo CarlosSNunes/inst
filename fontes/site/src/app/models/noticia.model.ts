@@ -18,6 +18,8 @@ export class NoticiaModel {
                 init.postTag.forEach(tag => this.postTag.push(new TagModel(tag)));
             }
         }
+
+        this.caminhoImagem = `${this.caminhoImagem}/${this.nomeImagem}`;
     }
 
     slug: string;

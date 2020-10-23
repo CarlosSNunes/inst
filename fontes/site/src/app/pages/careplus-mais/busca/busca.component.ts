@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BreadcrumbModel, RouteModel, NoticiaModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/services';
-import PostsMock from './data/posts-mock';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { Title, Meta } from '@angular/platform-browser';
@@ -27,8 +26,9 @@ export class BuscaComponent implements OnInit {
     term: string = '';
     resultsCountMessage: string = '';
     count: number = 0;
-    posts: NoticiaModel[] = PostsMock;
+    posts: NoticiaModel[] = [];
     filterForm: FormGroup;
+
     constructor(
         private activatedRoute: ActivatedRoute,
         private notificationService: NotificationService,
@@ -38,21 +38,8 @@ export class BuscaComponent implements OnInit {
         private router: Router,
         private windowRef: WindowRef
     ) {
-        this.activatedRoute.params.subscribe(async params => {
-            this.term = params.term;
-            this.filterForm = this.fb.group({
-                search: [this.term,],
-                categoryId: [0,]
-            });
-            this.breadcrumbs.push(
-                new BreadcrumbModel({
-                    name: 'Resultado de busca',
-                    link: `/careplus-mais/busca/${this.term}`,
-                    active: true
-                })
-            );
-
-            await this.getPostsByTerm();
+        this.activatedRoute.params.subscribe(params => {
+            this.filterPosts(params);
         });
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
             description: 'Resultado de busca - Care Plus +'
@@ -61,6 +48,23 @@ export class BuscaComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    private filterPosts(params) {
+        this.term = params.term;
+        this.filterForm = this.fb.group({
+            search: [this.term,],
+            categoryId: [0,]
+        });
+        this.breadcrumbs.push(
+            new BreadcrumbModel({
+                name: 'Resultado de busca',
+                link: `/careplus-mais/busca/${this.term}`,
+                active: true
+            })
+        );
+
+        this.getPostsByTerm();
     }
 
 
@@ -95,7 +99,7 @@ export class BuscaComponent implements OnInit {
 
     goToPostMobile(post: NoticiaModel) {
         if (this.windowRef.nativeWindow.innerWidth < 1024) {
-            
+
             // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
             this.router.navigate(['/careplus-mais', post.id])
         }

@@ -21,11 +21,15 @@ export class BlogService {
     }
 
     async getPostBySlug(slug: string): Promise<NoticiaModel> {
-        return this.http.get<NoticiaModel>(`${this.url}/${slug}`).toPromise();
+        return this.http.get<NoticiaModel>(`${this.url}/hit/${slug}`).toPromise();
     }
 
     async getMostRead(): Promise<NoticiaModel[]> {
         return this.http.get<NoticiaModel[]>(`${this.url}/maisLidos`).toPromise();
+    }
+
+    async getByCategoryId(id: number): Promise<NoticiaModel[]> {
+        return this.http.get<NoticiaModel[]>(`${this.url}/categoria/${id}`).toPromise();
     }
 
     async getAllPostsPaginated(): Promise<any> {
