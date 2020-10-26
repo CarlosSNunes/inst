@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbModel, RouteModel, NoticiaModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NotificationService } from 'src/app/services';
+import { NotificationService, EventEmitterService } from 'src/app/services';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 

@@ -3,14 +3,10 @@ import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/fo
 import { FormControlError } from 'src/utils/form-control-error';
 import { ValidateBrService } from 'angular-validate-br'
 import { FileHelper } from 'src/utils/file-helper';
-import { NotificationService } from 'src/app/services';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { ErrorModalModel, FeedbackModalModel } from 'src/app/models/modal.model';
+import { NotificationService, ModalService, ScriptLoaderService, FaleConoscoService } from 'src/app/services';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
-import { GravarCanalDenunciaEntrada } from 'src/app/models';
-import { FaleConoscoService } from 'src/app/services/fale-conosco/fale-conosco.service';
+import { GravarCanalDenunciaEntrada, ErrorModalModel } from 'src/app/models';
 import { Router } from '@angular/router';
 declare var grecaptcha: any;
 

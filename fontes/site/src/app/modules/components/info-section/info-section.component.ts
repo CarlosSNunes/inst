@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID, HostListener } from '@angular/core';
-import { InfoSectionModel } from 'src/app/models';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { ContentModalModel } from 'src/app/models/modal.model';
+import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { InfoSectionModel, ContentModalModel } from 'src/app/models';
+import { ModalService } from 'src/app/services';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import SimpleParallax from 'simple-parallax-js';

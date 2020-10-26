@@ -6,9 +6,8 @@ import { Title, Meta } from '@angular/platform-browser';
 import Banners from './data/banner';
 import { extra } from './data/all-posts';
 import { crossContentModel, breadcrumbs } from './data/mock';
-import { BlogService } from 'src/app/services';
+import { BlogService, CategoriasService } from 'src/app/services';
 import { Router } from '@angular/router';
-import { CategoriasService } from 'src/app/services/categorias/categorias.service';
 import { ErrorHandler } from 'src/utils/error-handler';
 
 

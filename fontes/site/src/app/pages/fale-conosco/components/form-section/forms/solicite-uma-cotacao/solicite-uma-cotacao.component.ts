@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
+import { ScriptLoaderService } from 'src/app/services';
 declare var grecaptcha: any;
 import { requireAtLeastOne } from '../utils/validators';
 import { Subscription } from 'rxjs';

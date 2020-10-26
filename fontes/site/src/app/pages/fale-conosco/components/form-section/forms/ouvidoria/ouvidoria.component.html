@@ -21,12 +21,12 @@
             <div class="field">
                 <p class="control">
                     <input
-                        [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.touched && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
-                        class="input" formControlName="NomeContato" type="text">
+                        [ngClass]="{ 'is-valid': !form?.Nome?.errors && form?.Nome?.touched, 'is-invalid' : form.Nome?.touched && form?.Nome?.errors, 'is-touched': form?.Nome?.value?.length > 0 }"
+                        class="input" formControlName="Nome" type="text">
                     <label class="label">Nome *</label>
                 </p>
-                <div *ngIf="form.NomeContato.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.NomeContato, 'Nome')" class="help is-danger">
+                <div *ngIf="form.Nome.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.Nome, 'Nome')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>
@@ -37,12 +37,12 @@
             <div class="field">
                 <p class="control">
                     <input
-                        [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.touched && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
-                        mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="tel">
+                        [ngClass]="{ 'is-valid': !form?.CPF?.errors && form?.CPF?.touched, 'is-invalid' : form.CPF?.touched && form?.CPF?.errors && form?.CPF?.touched, 'is-touched': form?.CPF?.value?.length > 0 }"
+                        mask="000.000.000-00" [validation]="false" class="input" formControlName="CPF" type="tel">
                     <label class="label">CPF *</label>
                 </p>
-                <div *ngIf="form.CPFCNPJ.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.CPFCNPJ, 'CPF')" class="help is-danger">
+                <div *ngIf="form.CPF.touched" class="errors">
+                    <p *ngFor="let error of getErrors(form.CPF, 'CPF')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>

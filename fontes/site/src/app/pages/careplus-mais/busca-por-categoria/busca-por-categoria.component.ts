@@ -1,11 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BreadcrumbModel, RouteModel, NoticiaModel, CategoryModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BlogService, NotificationService } from 'src/app/services';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
+import { BlogService, NotificationService, EventEmitterService, CategoriasService } from 'src/app/services';
 import { Title, Meta } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
-import { CategoriasService } from 'src/app/services/categorias/categorias.service';
 
 @Component({
     selector: 'app-busca-por-categoria',

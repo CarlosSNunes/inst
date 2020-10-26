@@ -1,10 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { NgImageSliderComponent } from 'ng-image-slider';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { SliderModel, SliderImage } from 'src/app/models';
+import { ModalService } from 'src/app/services';
+import { SliderModel, SliderImage, VideoModalModel } from 'src/app/models';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
-import { VideoModalModel } from 'src/app/models/modal.model';
 
 @Component({
     selector: 'app-slider',

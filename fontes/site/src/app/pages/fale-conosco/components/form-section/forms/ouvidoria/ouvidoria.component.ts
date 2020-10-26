@@ -2,16 +2,11 @@ import { Component, OnInit, AfterViewInit, PLATFORM_ID, Inject } from '@angular/
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { ValidateBrService } from 'angular-validate-br';
-import { DropDownItem, ErrorModalModel } from 'src/app/models';
-import { AssuntoOuvidoria, ClassificacaoOuvidoria } from './data/mock-data';
+import { DropDownItem, ErrorModalModel, GravarOuvidoriaEntrada } from 'src/app/models';
 import { FileHelper } from 'src/utils/file-helper';
-import { NotificationService } from 'src/app/services';
-import { FeedbackModalModel, GravarOuvidoriaEntrada } from 'src/app/models';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import { NotificationService, ModalService, ScriptLoaderService, FaleConoscoService } from 'src/app/services';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
-import { FaleConoscoService } from 'src/app/services/fale-conosco/fale-conosco.service';
 import { Router } from '@angular/router';
 declare var grecaptcha: any;
 
@@ -78,10 +73,10 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
         try {
             const subjects = await this.faleConoscoService.buscarAssuntoOuvidoria();
 
-            subjects.Dados.forEach(subject => {
+            subjects.dados.forEach(subject => {
                 this.subjects.push(new DropDownItem<number>({
-                    title: subject.TextoAssunto,
-                    value: subject.Id
+                    title: subject.textoAssunto,
+                    value: subject.id
                 }))
             })
         } catch (error) {
@@ -92,10 +87,10 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     private async getOuvidoriaClassifications() {
         try {
             const classifications = await this.faleConoscoService.buscarClassificacaoOuvidoria();
-            classifications.Dados.forEach(classification => {
+            classifications.dados.forEach(classification => {
                 this.classifications.push(new DropDownItem<number>({
-                    title: classification.TextoClassificacao,
-                    value: classification.Id
+                    title: classification.textoClassificacao,
+                    value: classification.id
                 }));
             });
 
@@ -170,8 +165,8 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
             IdClassificacao: [, Validators.compose([Validators.required])],
             Mensagem: [, Validators.compose([Validators.required])],
             ProtocoloAtendimento: [,],
-            NomeContato: [, Validators.compose([Validators.required])],
-            CPFCNPJ: [, Validators.compose([Validators.required, this.validateBrService.cpf])],
+            Nome: [, Validators.compose([Validators.required])],
+            CPF: [, Validators.compose([Validators.required, this.validateBrService.cpf])],
             validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
             aceiteDeTermos: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
         });

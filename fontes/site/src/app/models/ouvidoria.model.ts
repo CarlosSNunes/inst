@@ -4,10 +4,10 @@ export class BuscarAssuntoOuvidoriaSaida {
         Object.assign(this, init);
     }
 
-    Sucesso: boolean;
-    Erros: any;
-    Mensagem: string;
-    Dados: Array<Assunto> = [];
+    sucesso: boolean;
+    erros: any;
+    mensagem: string;
+    dados: Array<Assunto> = [];
 
 }
 
@@ -16,8 +16,8 @@ class Assunto {
         Object.assign(this, init);
     }
 
-    Id: number;
-    TextoAssunto: string;
+    id: number;
+    textoAssunto: string;
 }
 
 
@@ -26,10 +26,10 @@ export class BuscarClassificacaoOuvidoriaSaida {
         Object.assign(this, init);
     }
 
-    Sucesso: boolean;
-    Erros: any;
-    Mensagem: string;
-    Dados: Array<Classificacao> = [];
+    sucesso: boolean;
+    erros: any;
+    mensagem: string;
+    dados: Array<Classificacao> = [];
 }
 
 
@@ -38,8 +38,8 @@ class Classificacao {
         Object.assign(this, init);
     }
 
-    Id: number;
-    TextoClassificacao: string;
+    id: number;
+    textoClassificacao: string;
 }
 
 export class GravarOuvidoriaEntrada {
@@ -54,6 +54,8 @@ export class GravarOuvidoriaEntrada {
     TelefoneCelular: number;
     DDDTelefoneResidencial: number;
     TelefoneResidencial: number;
+    CPF: string;
+    Nome: string;
     Email: string;
     IdAssunto: number;
     IdClassificacao: number;

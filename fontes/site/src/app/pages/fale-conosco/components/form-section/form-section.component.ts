@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
+import { EventEmitterService } from 'src/app/services';
 import { activeChanel, chanelForms } from './data/mock';
 
 @Component({

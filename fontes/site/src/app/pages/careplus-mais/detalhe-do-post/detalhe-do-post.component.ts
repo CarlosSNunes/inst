@@ -4,9 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import RelatedPosts from './data/related-posts';
 import { isPlatformServer, isPlatformBrowser } from '@angular/common';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { WindowRef } from 'src/utils/window-ref';
-import { BlogService, NotificationService } from 'src/app/services';
+import { BlogService, NotificationService, EventEmitterService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
 
 @Component({

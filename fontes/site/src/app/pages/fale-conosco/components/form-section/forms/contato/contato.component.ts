@@ -1,17 +1,13 @@
 import { Component, OnInit, ChangeDetectorRef, PLATFORM_ID, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
-import { DropDownItem, GravarFaleConoscoEntrada } from 'src/app/models';
+import { DropDownItem, GravarFaleConoscoEntrada, ErrorModalModel } from 'src/app/models';
 import { Types } from './data/mock-data'
 import { FileHelper } from 'src/utils/file-helper';
-import { NotificationService } from 'src/app/services';
+import { NotificationService, ScriptLoaderService, FaleConoscoService, ModalService } from 'src/app/services';
 import { filterFormFields } from './utils/mount-form';
-import { ErrorModalModel, FeedbackModalModel } from 'src/app/models/modal.model';
-import { ModalService } from 'src/app/services/modal/modal.service';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
-import { FaleConoscoService } from 'src/app/services/fale-conosco/fale-conosco.service';
 import { Router } from '@angular/router';
 declare var grecaptcha: any;
 

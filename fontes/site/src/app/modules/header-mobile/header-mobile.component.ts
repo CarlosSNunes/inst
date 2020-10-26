@@ -6,8 +6,7 @@ import { faAngleDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { ResizedEvent } from 'angular-resize-event';
 import { WindowRef } from 'src/utils/window-ref';
 import { DOCUMENT } from '@angular/common';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
-import { SimuladoresService } from 'src/app/services';
+import { SimuladoresService, EventEmitterService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
 import SubMenus from './data/menus';
 import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
@@ -166,10 +165,12 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         this.checked = !this.checked;
         if (this.checked) {
             this.menu.nativeElement.classList.add('open');
-            this.layerAnimation = 'opened'
+            const top = (this.windowRef.nativeWindow.pageYOffset || this.document.documentElement.scrollTop) - (this.document.documentElement.clientTop || 0);
+            this.scrollPosition = top;
             this.document.body.classList.add('no-scroll');
+            this.document.body.scrollTop = this.scrollPosition;
         } else {
-            this.containerAnimation = 'closed'
+            this.containerAnimation = 'closed';
         }
     }
 
@@ -185,6 +186,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         if (event.fromState == 'opened' && event.toState == 'closed' && event.triggerName == 'layerAnimation') {
             this.menu.nativeElement.classList.remove('open');
             this.document.body.classList.remove('no-scroll');
+            this.windowRef.nativeWindow.scrollTo(0, this.scrollPosition)
         }
     }
 

@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { BreadcrumbModel, RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { environment } from 'src/environments/environment';
-import { CanonicalService } from 'src/app/services';
+import { CanonicalService, EventEmitterService } from 'src/app/services';
 
 @Component({
     selector: 'app-erro',

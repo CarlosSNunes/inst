@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { BreadcrumbModel, PostCardModel, SimpleBannerModel } from 'src/app/models';
+import { BreadcrumbModel, PostCardModel, SimpleBannerModel, ContentModalModel } from 'src/app/models';
+import { ModalService } from 'src/app/services';
 import { WindowRef } from 'src/utils/window-ref';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import Cards from './data/cards';
 import { Title, Meta } from '@angular/platform-browser';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { ContentModalModel } from 'src/app/models/modal.model';
 
 @Component({
     selector: 'app-premios-e-certificacoes',
