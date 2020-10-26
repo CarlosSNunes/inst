@@ -100,6 +100,13 @@ export class BannerComponent implements OnInit {
     private async verifyBanners() {
         const staticBanners = BannerComponent.staticBanners.find(stBanner => stBanner.area == this.area);
         if (staticBanners) {
+            staticBanners.banners.forEach((banner, i) => {
+                if (i == 0) {
+                    banner.slideAtual = true;
+                } else {
+                    banner.slideAtual = false;
+                }
+            })
             this.banners = staticBanners.banners;
         }
         const apiBanners = await this.getBannersFromApi();
