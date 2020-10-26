@@ -67,6 +67,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     subMenu: SubMenu = SubMenus[0];
     layerAnimation: string = 'closed';
     containerAnimation: string = 'closed';
+    lastRoute: string = '';
 
     constructor(
         private router: Router,
@@ -170,6 +171,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
             this.scrollPosition = top;
             this.document.body.classList.add('no-scroll');
             this.document.body.scrollTop = this.scrollPosition;
+            this.lastRoute = this.actualRoute;
         } else {
             this.containerAnimation = 'closed';
         }
@@ -187,7 +189,11 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         if (event.fromState == 'opened' && event.toState == 'closed' && event.triggerName == 'layerAnimation') {
             this.menu.nativeElement.classList.remove('open');
             this.document.body.classList.remove('no-scroll');
-            this.windowRef.nativeWindow.scrollTo(0, this.scrollPosition)
+            if (this.lastRoute === this.actualRoute) {
+                this.windowRef.nativeWindow.scrollTo(0, this.scrollPosition)
+            } else {
+                this.lastRoute = this.actualRoute;
+            }
         }
     }
 

@@ -49,6 +49,10 @@ export class BannerComponent implements OnInit {
     isBrowser: boolean = false;
     width: number = 1400;
     loading: boolean = false;
+    static staticBanners: Array<{
+        banners: BannerModel[],
+        area: string
+    }> = [];
 
     constructor(
         private bannerService: BannerService,
@@ -68,14 +72,7 @@ export class BannerComponent implements OnInit {
             Somente irá pesquisar na api se o parâmetro area for passado
         */
         if (this.area) {
-            const apiBanners = await this.getBannersFromApi();
-            /*
-                Caso nenhum banner seja retornado da api ele não irá preencher os banners
-            */
-            if (apiBanners.length > 0) {
-                this.banners = apiBanners;
-                this.cdRef.detectChanges();
-            }
+            await this.verifyBanners();
         }
         if (this.isBrowser) {
             this.banners.forEach((banner, i) => {
@@ -97,10 +94,40 @@ export class BannerComponent implements OnInit {
         }
     }
 
+    /*
+        Verifica se os banners já foram requisitados antes, se já ele pega os que estão armazenados ma memória, caso não irá verificar na request.
+    */
+    private async verifyBanners() {
+        const staticBanners = BannerComponent.staticBanners.find(stBanner => stBanner.area == this.area);
+        if (staticBanners) {
+            this.banners = staticBanners.banners;
+        }
+        const apiBanners = await this.getBannersFromApi();
+        /*
+            Caso nenhum banner seja retornado da api ele não irá preencher os banners
+        */
+        if (apiBanners.length > 0) {
+            this.banners = apiBanners;
+            this.cdRef.detectChanges();
+            if (!staticBanners) {
+                BannerComponent.staticBanners.push({
+                    area: this.area,
+                    banners: apiBanners
+                });
+            } else {
+                const index = BannerComponent.staticBanners.findIndex(stBanner => stBanner.area == this.area);
+                BannerComponent.staticBanners[index].banners = apiBanners;
+            }
+        }
+    }
+
     async getBannersFromApi() {
         this.loading = true;
         try {
-            const banners = await (await this.bannerService.getByArea(this.area)).map(banner => {
+            const banners = await (await this.bannerService.getByArea(this.area)).map((banner, i) => {
+                if (i === 0) {
+                    banner.slideAtual = true;
+                }
                 return new BannerModel(banner)
             });
             this.loading = false;

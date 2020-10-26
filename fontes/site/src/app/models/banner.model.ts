@@ -2,8 +2,10 @@ export class BannerModel {
     public constructor(init?: Partial<BannerModel>) {
         Object.assign(this, init);
 
+        // TODO tratativas temporárias, possível que o futuro estas regras de negócio fiquem no backend.
         this.caminhoDesktop = `${init.caminhoDesktop}/${init.nomeImagemDesktop}`;
         this.caminhoMobile = `${init.caminhoMobile}/${init.nomeImagemMobile}`;
+        this.tempoExibicao = init.tempoExibicao * 1000;
     }
 
     id: number;
