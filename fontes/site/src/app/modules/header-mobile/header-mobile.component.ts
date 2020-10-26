@@ -165,6 +165,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         this.checked = !this.checked;
         if (this.checked) {
             this.menu.nativeElement.classList.add('open');
+            this.layerAnimation = 'opened';
             const top = (this.windowRef.nativeWindow.pageYOffset || this.document.documentElement.scrollTop) - (this.document.documentElement.clientTop || 0);
             this.scrollPosition = top;
             this.document.body.classList.add('no-scroll');
