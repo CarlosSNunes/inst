@@ -48,6 +48,7 @@ export class BannerComponent implements OnInit {
     stopped: boolean = false;
     isBrowser: boolean = false;
     width: number = 1400;
+    loading: boolean = false;
 
     constructor(
         private bannerService: BannerService,
@@ -97,42 +98,49 @@ export class BannerComponent implements OnInit {
     }
 
     async getBannersFromApi() {
+        this.loading = true;
         try {
             const banners = await (await this.bannerService.getByArea(this.area)).map(banner => {
                 return new BannerModel(banner)
             });
+            this.loading = false;
             return banners;
         } catch (error) {
-            this.errorHandler.ShowError(error)
+            this.errorHandler.ShowError(error);
+            this.loading = false;
             return [];
         }
     }
 
     startBannerPercentage(time: number, totalTime: number) {
-        this.bannerPercentageSubscription = interval(time).subscribe(() => {
-            this.percentageStoped += 1
-            this.percentage = ((time * this.percentageStoped) / totalTime) * 100
-            this.svgPercentage(this.percentage)
-            if (time * this.percentageStoped >= totalTime) {
-                this.changeBanner()
-            }
-        })
+        if (!this.loading) {
+            this.bannerPercentageSubscription = interval(time).subscribe(() => {
+                this.percentageStoped += 1
+                this.percentage = ((time * this.percentageStoped) / totalTime) * 100
+                this.svgPercentage(this.percentage)
+                if (time * this.percentageStoped >= totalTime) {
+                    this.changeBanner()
+                }
+            })
+        }
     }
 
     stopBannerPercentage() {
-        if (this.bannerPercentageSubscription) {
+        if (this.bannerPercentageSubscription && !this.loading) {
             this.bannerPercentageSubscription.unsubscribe();
             this.bannerPercentageSubscription.remove(this.bannerPercentageSubscription);
         }
     }
 
     toggleBannerPercentage() {
-        if (this.stopped) {
-            this.stopped = false
-            this.startBannerPercentage(this.time / 100, this.time)
-        } else {
-            this.stopped = true;
-            this.bannerPercentageSubscription.unsubscribe();
+        if (!this.loading) {
+            if (this.stopped) {
+                this.stopped = false
+                this.startBannerPercentage(this.time / 100, this.time)
+            } else {
+                this.stopped = true;
+                this.bannerPercentageSubscription.unsubscribe();
+            }
         }
     }
 
