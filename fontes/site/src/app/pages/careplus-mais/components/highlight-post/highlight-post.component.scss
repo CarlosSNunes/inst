@@ -16,6 +16,10 @@ section#highlight-post {
                                 margin-bottom: -4px;
                             }
 
+                            .has-tooltip-top {
+                                text-transform: none;
+                            }
+
                             .text {
                                 margin-left: 10px;
                                 font-weight: normal;
@@ -71,6 +75,7 @@ section#highlight-post {
                             object-fit: cover;
                             height: 100%;
                             width: 100%;
+                            max-height: 408px;
                         }
                     }
                 }

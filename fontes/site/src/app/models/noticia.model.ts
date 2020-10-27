@@ -1,6 +1,8 @@
 import { BlocoModel } from './bloco.model';
 import { TagModel } from './tag.model';
 import { NoticiaTipoModel } from './noticia-tipo.model';
+import { DateDifference } from './date-difference.model';
+import GetDifferences from 'src/utils/date-difference';
 
 export class NoticiaModel {
     public constructor(init?: Partial<NoticiaModel>) {
@@ -16,6 +18,10 @@ export class NoticiaModel {
 
             if (init.postTag) {
                 init.postTag.forEach(tag => this.postTag.push(new TagModel(tag)));
+            }
+
+            if (init.getDateDifferences) {
+                this.dateDifferences = GetDifferences(new Date(), init.dataCadastro);
             }
         }
 
@@ -36,15 +42,17 @@ export class NoticiaModel {
     destaque: number = 0;
     periodoAtivo: number;
     ativo: number = 0;
-    visualizações: number = 0;
+    vizualizacoes: number = 0;
     tituloPaginaSEO: string = '';
     descricaoPaginaSEO: string = '';
     categoriaId: number;
-    categoriaModel: any;
+    categoria: any;
     postTag: TagModel[];
 
     // Used only on front-end
     tipoImagem: 'imagem' | 'video' = 'imagem';
+    getDateDifferences: boolean = false;
+    dateDifferences: DateDifference;
 
     // Unresolved fields.
     noticiaTipo: NoticiaTipoModel;

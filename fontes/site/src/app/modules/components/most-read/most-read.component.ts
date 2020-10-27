@@ -1,4 +1,4 @@
-import { Component, ErrorHandler, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ErrorHandler, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services';
 import { NoticiaModel } from 'src/app/models';
 
@@ -11,7 +11,8 @@ export class MostReadComponent implements OnInit {
     posts: NoticiaModel[] = [];
     constructor(
         private blogService: BlogService,
-        private errorHandler: ErrorHandler
+        private errorHandler: ErrorHandler,
+        private cdr: ChangeDetectorRef
     ) { }
 
     ngOnInit() {
@@ -20,7 +21,8 @@ export class MostReadComponent implements OnInit {
 
     async getMostReadPosts() {
         try {
-            this.posts = await this.blogService.getMostRead();
+            this.posts = (await this.blogService.getMostRead()).map(post => new NoticiaModel(post));
+            this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.handleError(error);
         }

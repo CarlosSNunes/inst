@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { BreadcrumbModel, NoticiaModel, IconCardsSectionModel, PostCardModel, RouteModel } from 'src/app/models';
 import { ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -41,7 +41,8 @@ export class DetalheDoPostComponent implements OnInit {
         @Inject(PLATFORM_ID) private platformId: Object,
         private windowRef: WindowRef,
         private blogService: BlogService,
-        private notificationService: NotificationService
+        private notificationService: NotificationService,
+        private cdr: ChangeDetectorRef
     ) {
         this.activatedRoute.params.subscribe(async params => {
             this.slug = params.slug;
@@ -65,14 +66,19 @@ export class DetalheDoPostComponent implements OnInit {
     ngOnInit() {
     }
 
-    // TODO chamar este endpoint e remover os mocks quando a api estiver pronta e publicada
     private async getPostBySlug() {
         try {
-            this.post = await this.blogService.getPostBySlug(this.slug);
+            const apiPost = await this.blogService.getPostBySlug(this.slug);
+            this.post = new NoticiaModel({
+                ...apiPost,
+                getDateDifferences: true,
+            });
+            this.cdr.detectChanges();
         } catch (error) {
             this.notificationService.addNotification('error', error.message);
         }
     }
+
 
     private setSEOInfos() {
 

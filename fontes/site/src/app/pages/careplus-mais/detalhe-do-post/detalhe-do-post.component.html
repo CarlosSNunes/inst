@@ -7,7 +7,7 @@
                 </div>
                 <div class="column is-full align-self-center title-column">
                     <h2 class="h3 big-title">
-                        Comunicados e avisos
+                        {{post?.categoria}}
                     </h2>
                 </div>
             </div>
@@ -48,19 +48,21 @@
 
                         <div class="publish-and-views">
                             <div class="publish">
-                                <span class="has-tooltip-top image" data-tooltip="Publicado há 10 horas a trás">
-                                    <img src="assets/svg/clock.svg" alt="Publicado há">
+                                <span class="has-tooltip-top image"
+                                    [attr.data-tooltip]="'Publicado há '+ post?.dateDifferences?.diffResponseMessage">
+                                    <img src="assets/svg/clock.svg" alt="Icon tempo de publicação">
                                 </span>
                                 <span>
-                                    10 horas a trás
+                                    {{post?.dateDifferences?.diffResponseMessage}}
                                 </span>
                             </div>
                             <div class="views">
-                                <span class="has-tooltip-top image" data-tooltip="1000 visualizações">
+                                <span class="has-tooltip-top image"
+                                    [attr.data-tooltip]="post?.vizualizacoes + ' visualizações'">
                                     <img src="assets/svg/eye.svg" alt="Visualizações">
                                 </span>
                                 <span>
-                                    1000
+                                    {{post?.vizualizacoes}}
                                 </span>
                             </div>
                         </div>
@@ -68,13 +70,10 @@
 
                     <div class="post-body">
                         <h3 class="big-title no-margin">
-                            Como combater o COVID-19 com resiliência
+                            {{post?.titulo}}
                         </h3>
                         <p class="description">
-                            As autoridades públicas estão tomando medidas decisivas para responder à ameaça emergente à
-                            saúde, o Corona Vírus, levando a comunidade e empresas a reconsiderar a adequação de suas
-                            medidas de preparação. Esta página reúne informações para ajudar as pessoas e empresas a
-                            gerenciar e mitigar o risco.
+                            {{post?.descricaoPrevia}}
                         </p>
 
                         <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem" class="post-image">
@@ -99,7 +98,8 @@
                                 </a>
                             </li> -->
                             <li>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank" title="Compartilhe no facebook">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank"
+                                    title="Compartilhe no facebook">
                                     <img src="assets/svg/facebook-second-logo.svg" alt="Facebook">
                                 </a>
                             </li>

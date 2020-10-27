@@ -62,7 +62,10 @@ export class CareplusMaisComponent implements OnInit {
     private filterHighlightPost(lastPosts: NoticiaModel[]) {
         const highlight = lastPosts.find(post => post.destaque == 1);
         if (highlight) {
-            this.highLightPost = new NoticiaModel(highlight);
+            this.highLightPost = new NoticiaModel({
+                ...highlight,
+                getDateDifferences: true,
+            });
         }
     }
 

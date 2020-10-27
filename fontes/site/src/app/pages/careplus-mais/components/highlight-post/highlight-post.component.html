@@ -13,9 +13,12 @@
                         {{post?.noticiaTipo?.descricao}}
                         <span class="separator">|</span>
                         <span class="posted">
-                            <img src="assets/svg/clock.svg" alt="10 Horas a atrás">
+                            <span class="has-tooltip-top"
+                                [attr.data-tooltip]="'Publicado há '+ post?.dateDifferences?.diffResponseMessage">
+                                <img src="assets/svg/clock.svg" alt="Icone relogio">
+                            </span>
                             <span class="text">
-                                {{post?.periodoAtivo}} Horas a atrás
+                                {{post?.dateDifferences?.diffResponseMessage}}
                             </span>
                         </span>
                     </p>
@@ -33,15 +36,13 @@
                     </p>
 
                     <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
-                    <a [routerLink]="['/careplus-mais/' + post?.id]"
-                    [attr.title]="post?.titulo"
+                    <a [routerLink]="['/careplus-mais/' + post?.id]" [attr.title]="post?.titulo"
                         class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
                         Leia agora
                     </a>
 
                     <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
-                    <a [routerLink]="['/careplus-mais/' + post?.id]"
-                    [attr.title]="post?.titulo"
+                    <a [routerLink]="['/careplus-mais/' + post?.id]" [attr.title]="post?.titulo"
                         class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop">
                         Leia agora
                     </a>
