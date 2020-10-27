@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GestaoDeSaudeComponent } from './gestao-de-saude.component';
 import { GestaoDeSaudeRoutingModule } from './gestao-de-saude-routing.module';
-import { HeroBannerModule, InfoSectionModule, CommomQuestionsModule } from 'src/app/modules';
+import { HeroBannerModule, InfoSectionModule, CommomQuestionsModule, CareplusPlusModule } from 'src/app/modules';
 
 @NgModule({
   declarations: [GestaoDeSaudeComponent],
@@ -12,6 +12,7 @@ import { HeroBannerModule, InfoSectionModule, CommomQuestionsModule } from 'src/
     HeroBannerModule,
     InfoSectionModule,
     CommomQuestionsModule,
+    CareplusPlusModule
   ]
 })
 export class GestaoDeSaudeModule { }

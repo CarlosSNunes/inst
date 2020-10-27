@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarreirasComponent } from './carreiras.component';
 import { CarreiraRoutingModule } from './carreiras-routing.module';
-import { ACareplusVideoModule, InfoSectionModule, JoinTheTeamModule, LearnMoreModule, SocialPostsModule, SimpleBannerModule } from 'src/app/modules';
+import { ACareplusVideoModule, InfoSectionModule, JoinTheTeamModule, LearnMoreModule, SocialPostsModule, SimpleBannerModule, CareplusPlusModule } from 'src/app/modules';
 
 @NgModule({
     declarations: [CarreirasComponent],
@@ -15,6 +15,7 @@ import { ACareplusVideoModule, InfoSectionModule, JoinTheTeamModule, LearnMoreMo
         JoinTheTeamModule,
         LearnMoreModule,
         SocialPostsModule,
+        CareplusPlusModule
     ]
 })
 export class CarreirasModule { }

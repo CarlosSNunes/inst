@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { WindowRef } from 'src/utils/window-ref';
 import { HomeRoutingModule } from './home-routing.module';
-import { BannerModule, SocialPostsModule, AccreditedNetworkModule, SharedModule, ProductModule, InfoSectionModule, ACareplusVideoModule, PlusNetworkModule, DifferentialModule, ProfileModule, JoinTheTeamModule, IconCardsSectionModule } from 'src/app/modules';
+import { BannerModule, SocialPostsModule, AccreditedNetworkModule, SharedModule, ProductModule, InfoSectionModule, ACareplusVideoModule, PlusNetworkModule, DifferentialModule, ProfileModule, JoinTheTeamModule, IconCardsSectionModule, CareplusPlusModule } from 'src/app/modules';
 
 @NgModule({
     declarations: [
@@ -23,7 +23,7 @@ import { BannerModule, SocialPostsModule, AccreditedNetworkModule, SharedModule,
         DifferentialModule,
         ProfileModule,
         JoinTheTeamModule,
-
+        CareplusPlusModule,
         IconCardsSectionModule
     ],
     providers: [

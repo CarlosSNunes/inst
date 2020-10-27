@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RedePlusComponent } from './rede-plus.component';
 import { RedePlusRountingModule } from './rede-plus-routing.module';
-import { ACareplusVideoModule, InfoSectionModule, AccreditedNetworkModule, LearnMoreModule, SimpleBannerModule } from 'src/app/modules';
+import { ACareplusVideoModule, InfoSectionModule, AccreditedNetworkModule, LearnMoreModule, SimpleBannerModule, CareplusPlusModule } from 'src/app/modules';
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import { ACareplusVideoModule, InfoSectionModule, AccreditedNetworkModule, Learn
         InfoSectionModule,
         AccreditedNetworkModule,
         LearnMoreModule,
-        SimpleBannerModule
+        SimpleBannerModule,
+        CareplusPlusModule
     ]
 })
 export class RedePlusModule { }

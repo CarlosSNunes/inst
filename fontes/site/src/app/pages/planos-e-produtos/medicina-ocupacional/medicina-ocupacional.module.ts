@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MedicinaOcupacionalComponent } from './medicina-ocupacional.component';
 import { MedicinaOcupacionalRoutingModule } from './medicina-ocupacional-routing.module';
-import { ContactScheduleAVisitModule, IconCardsSectionModule, InfoSectionModule, SimpleBannerModule } from 'src/app/modules';
+import { CareplusPlusModule, ContactScheduleAVisitModule, IconCardsSectionModule, InfoSectionModule, SimpleBannerModule } from 'src/app/modules';
 
 
 
@@ -14,7 +14,8 @@ import { ContactScheduleAVisitModule, IconCardsSectionModule, InfoSectionModule,
         SimpleBannerModule,
         InfoSectionModule,
         ContactScheduleAVisitModule,
-        IconCardsSectionModule
+        IconCardsSectionModule,
+        CareplusPlusModule
     ]
 })
 export class MedicinaOcupacionalModule { }

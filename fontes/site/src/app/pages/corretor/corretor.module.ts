@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CorretorComponent } from './corretor.component';
-import { BannerModule, ProductModule, DifferentialModule, AccreditedNetworkModule, InfoSectionModule, MaterialsModule, SocialPostsModule, IconCardsSectionModule } from 'src/app/modules';
+import { BannerModule, ProductModule, DifferentialModule, AccreditedNetworkModule, InfoSectionModule, MaterialsModule, SocialPostsModule, IconCardsSectionModule, CareplusPlusModule } from 'src/app/modules';
 import { CorretorRoutingModule } from './corretor-routing.module';
 
 
@@ -18,7 +18,7 @@ import { CorretorRoutingModule } from './corretor-routing.module';
         InfoSectionModule,
         MaterialsModule,
         SocialPostsModule,
-        
+        CareplusPlusModule 
     ]
 })
 export class CorretorModule { }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NossasParceriasComponent } from './nossas-parcerias.component';
 import { NossasParceriasRoutingModule } from './nossas-parcerias-routing.module';
-import { SimpleBannerModule, IconCardsSectionModule, ContactModule, CardModule } from 'src/app/modules';
+import { SimpleBannerModule, IconCardsSectionModule, ContactModule, CardModule, CareplusPlusModule } from 'src/app/modules';
 import { CardsSectionComponent } from './components/cards-section/cards-section.component';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { CardsSectionComponent } from './components/cards-section/cards-section.
         SimpleBannerModule,
         IconCardsSectionModule,
         ContactModule,
-        CardModule
+        CardModule,
+        CareplusPlusModule
     ]
 })
 export class NossasParceriasModule { }

@@ -9,6 +9,7 @@ export * from './components/app-careplus/app-careplus.module';
 export * from './components/banner/banner.module';
 export * from './components/breadcrumb/breadcrumb.module';
 export * from './components/card/card.module';
+export * from './components/careplus-plus/careplus-plus.module';
 export * from './components/commom-questions/commom-questions.module';
 export * from './components/contact/contact.module';
 export * from './components/contact-schedule-a-visit/contact-schedule-a-visit.module';
