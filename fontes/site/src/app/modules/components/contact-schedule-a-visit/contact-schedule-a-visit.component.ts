@@ -28,7 +28,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
         button: new ButtonModel({
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite uma cotação',
-            target: '_blank',
+            target: '_self',
         }),
         backgroundColorClass: this.backgroundColorClass
     })
