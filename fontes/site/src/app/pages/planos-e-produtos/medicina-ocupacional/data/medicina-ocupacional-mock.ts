@@ -81,6 +81,7 @@ export const secondCard: IconCardModel = new IconCardModel({
     button: new ButtonModel({
         text: 'Clique e solicite cotação',
         routerLink: '/fale-conosco/solicite-uma-cotacao',
+        target: '_self',
         queryParams: {
             medicinaOcupacional: true
         }

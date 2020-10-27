@@ -1,6 +1,10 @@
 export class ButtonModel {
     public constructor(init?: Partial<ButtonModel>) {
-        this.target = '_blank'
+        if (!this.routerLink) {
+            this.target = '_blank'
+        } else {
+            this.target = '_self'
+        }
         Object.assign(this, init);
     }
 
