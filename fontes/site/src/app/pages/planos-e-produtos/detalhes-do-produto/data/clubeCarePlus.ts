@@ -388,6 +388,7 @@ export default {
         button: new ButtonModel({
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite cotação',
+            target: '_self',
             queryParams: {
                 plano: 'clube-careplus'
             }

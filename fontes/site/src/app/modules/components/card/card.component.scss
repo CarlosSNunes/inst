@@ -116,6 +116,8 @@
                 color: getColor(_bupa, _grey);
                 font-weight: normal;
                 margin-top: 8px;
+                background-color: transparent;
+                border: none;
                 cursor: pointer;
                 &:hover {
                     text-decoration: underline;

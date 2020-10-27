@@ -328,6 +328,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         button: new ButtonModel({
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite cotação',
+            target: '_self',
             queryParams: {
                 plano: 'soho'
             }
