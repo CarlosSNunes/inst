@@ -497,10 +497,6 @@ export default [
                     }),
                 ]
             }),
-            // new SubMenuItem({
-            //     title: 'Care Plus +',
-            //     routerLink: '/careplus-mais',
-            // }),
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/solicite-uma-cotacao',

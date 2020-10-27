@@ -68,8 +68,8 @@ export const firstCard: IconCardModel = new IconCardModel({
     title: 'Central de Atendimento',
     type: 'icon',
     button: new ButtonModel({
-        link: 'tel: 11 4063-0083',
-        text: '(11) 4063-0083',
+        link: 'tel: 11 4197-9070',
+        text: '(11) 4197-9070',
         target: '_self',
     }),
     imagePath: 'assets/svg/phone.svg',
@@ -81,6 +81,7 @@ export const secondCard: IconCardModel = new IconCardModel({
     button: new ButtonModel({
         text: 'Clique e solicite cotação',
         routerLink: '/fale-conosco/solicite-uma-cotacao',
+        target: '_self',
         queryParams: {
             medicinaOcupacional: true
         }

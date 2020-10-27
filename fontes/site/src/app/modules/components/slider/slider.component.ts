@@ -32,7 +32,7 @@ export class SliderComponent implements OnInit {
             const imgDivs = this.elementRef.nativeElement.querySelectorAll('.img-div');
             imgDivs[0].classList.add('active')
 
-            this.sliderModel.images.map((image, i) => {
+            this.sliderModel.images.forEach((image, i) => {
                 if ((image as SliderImage).modal) {
                     imgDivs[i].classList.add('modal');
                 }

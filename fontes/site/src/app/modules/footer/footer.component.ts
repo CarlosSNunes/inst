@@ -63,7 +63,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         if (this.isBrowser) {
-            this.setDunButton();
             this.setSiteBlindadoButton();
             this.setGoDaddyButton();
         }
@@ -88,10 +87,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
                 this.setGoDaddyButton();
             }
 
-            if (this.dunAndBrandstreetScript && !this.addedOnDesktop) {
-                this.dunAndBrandstreetScript.remove();
-                this.setDunButton();
-            }
             this.addedOnDesktop = true;
             this.addedOnMobile = false;
         } else if (this.width < 1024) {
@@ -105,20 +100,9 @@ export class FooterComponent implements OnInit, AfterViewInit {
                 this.setGoDaddyButton();
             }
 
-            if (this.dunAndBrandstreetScript && !this.addedOnMobile) {
-                this.dunAndBrandstreetScript.remove();
-                this.setDunButton();
-            }
             this.addedOnDesktop = false;
             this.addedOnMobile = true;
         }
-    }
-
-    setDunButton() {
-        // this.dunAndBrandstreetScript = this.document.createElement('script') as HTMLScriptElement;
-        // this.dunAndBrandstreetScript.setAttribute('language', 'JavaScript');
-        // this.dunAndBrandstreetScript.src = 'https://dunsregistered.dnb.com';
-        // this.dunAndBrandstreetScript.type = 'text/javascript';
     }
 
     setSiteBlindadoButton() {

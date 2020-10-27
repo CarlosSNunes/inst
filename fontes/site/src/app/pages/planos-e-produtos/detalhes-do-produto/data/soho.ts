@@ -330,7 +330,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
             text: 'Clique e solicite cotação',
             target: '_self',
             queryParams: {
-                plano: 'soho'
+                plano: 'careplus-soho'
             }
         }),
         backgroundColorClass: 'blue-background-color',

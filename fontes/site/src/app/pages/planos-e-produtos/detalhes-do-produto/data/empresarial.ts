@@ -410,7 +410,7 @@ export default {
             text: 'Clique e solicite cotação',
             target: '_self',
             queryParams: {
-                plano: 'empresarial'
+                plano: 'careplus-empresarial'
             }
         }),
         backgroundColorClass: 'blue-background-color',

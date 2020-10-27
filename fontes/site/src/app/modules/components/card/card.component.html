@@ -33,9 +33,8 @@
         <!--
             Botão com action
         -->
-        <button *ngIf="card?.button?.action" (click)="card.button.action()" #link
-            [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse" class="link"
-            [attr.title]="card?.button?.text">
+        <button *ngIf="card?.button?.action" (click)="card.button.action()" #link [class.collapsed]="collapsed"
+            [class.hasCollapse]="card.hasCollapse" class="link" [attr.title]="card?.button?.text">
             {{card?.button?.text}}
         </button>
         <ng-content></ng-content>
