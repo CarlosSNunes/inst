@@ -42,8 +42,8 @@ export class AccordionComponent implements OnInit, OnChanges {
             this.cdr.detectChanges();
             setTimeout(() => {
                 this.cdr.detectChanges();
-                this.resetAccordion(), 100
-            })
+                this.resetAccordion();
+            }, 100)
         }
     }
 
