@@ -252,7 +252,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             // this.modalService.openModal(modal)
         } else {
             event.preventDefault();
-            Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
+            Object.keys(this.soliciteUmaCotacaoForm.controls).forEach(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
             });
             return false;

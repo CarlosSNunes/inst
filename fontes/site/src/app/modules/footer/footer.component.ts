@@ -17,7 +17,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
         type: 'icon',
         button: new ButtonModel({
             text: 'Solicite uma Cotação',
-            action: () => this.openSimulator()
+            action: () => this.openSimulator(),
+            target: '_self'
         }),
         imagePath: 'assets/svg/maps-white.svg',
         backgroundColorClass: 'navy-background-color'
@@ -26,7 +27,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
         type: 'icon',
         button: new ButtonModel({
             text: 'Central de Atendimento',
-            link: 'tel:11 4197-9000'
+            link: 'tel:11 4197-9000',
+            target: '_self'
         }),
         imagePath: 'assets/svg/phone-white.svg',
         backgroundColorClass: 'navy-background-color'
@@ -61,7 +63,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         if (this.isBrowser) {
-            this.setDunButton();
             this.setSiteBlindadoButton();
             this.setGoDaddyButton();
         }
@@ -86,10 +87,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
                 this.setGoDaddyButton();
             }
 
-            if (this.dunAndBrandstreetScript && !this.addedOnDesktop) {
-                this.dunAndBrandstreetScript.remove();
-                this.setDunButton();
-            }
             this.addedOnDesktop = true;
             this.addedOnMobile = false;
         } else if (this.width < 1024) {
@@ -103,20 +100,9 @@ export class FooterComponent implements OnInit, AfterViewInit {
                 this.setGoDaddyButton();
             }
 
-            if (this.dunAndBrandstreetScript && !this.addedOnMobile) {
-                this.dunAndBrandstreetScript.remove();
-                this.setDunButton();
-            }
             this.addedOnDesktop = false;
             this.addedOnMobile = true;
         }
-    }
-
-    setDunButton() {
-        // this.dunAndBrandstreetScript = this.document.createElement('script') as HTMLScriptElement;
-        // this.dunAndBrandstreetScript.setAttribute('language', 'JavaScript');
-        // this.dunAndBrandstreetScript.src = 'https://dunsregistered.dnb.com';
-        // this.dunAndBrandstreetScript.type = 'text/javascript';
     }
 
     setSiteBlindadoButton() {
