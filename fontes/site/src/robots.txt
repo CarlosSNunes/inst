@@ -1,4 +1,4 @@
-Sitemap: /sitemap.xml
+Sitemap: https://www.careplus.com.br/sitemap.xml
 
 User-agent: *
 Disallow: /fale-conosco/solicite-uma-cotacao
