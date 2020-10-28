@@ -60,7 +60,8 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                     if (token) {
                         request = request.clone({
                             setHeaders: {
-                                Authorization: `Bearer ${token}`
+                                Authorization: `Bearer ${token}`,
+                                Custom: 'institucional'
                             }
                         });
                         return next.handle(request)
