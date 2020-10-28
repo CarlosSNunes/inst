@@ -1,8 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, PLATFORM_ID, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
-import { DropDownItem, GravarFaleConoscoEntrada, ErrorModalModel } from 'src/app/models';
-import { Types } from './data/mock-data'
+import { DropDownItem, GravarFaleConoscoEntrada, ErrorModalModel, ListaTipoAssuntoFaleConosco } from 'src/app/models';
 import { FileHelper } from 'src/utils/file-helper';
 import { NotificationService, ScriptLoaderService, FaleConoscoService, ModalService } from 'src/app/services';
 import { filterFormFields } from './utils/mount-form';
@@ -19,6 +18,7 @@ declare var grecaptcha: any;
 export class ContatoComponent implements OnInit {
     contatoForm: FormGroup;
     types: DropDownItem<number>[] = [];
+    subjectTypes: ListaTipoAssuntoFaleConosco;
     defaultType = new DropDownItem<number>({
         title: 'Selecione...',
         value: undefined
@@ -54,12 +54,6 @@ export class ContatoComponent implements OnInit {
     }
 
     ngOnInit() {
-        Types.TipoAssunto.map(tipoAssunto => {
-            this.types.push(new DropDownItem({
-                title: tipoAssunto.Descricao,
-                value: tipoAssunto.Id
-            }));
-        })
         if (this.isBrowser) {
             this.getTipoAssuntoContato();
             const capctchaElements = this.document.querySelectorAll('.g-recaptcha-bubble-arrow');
@@ -89,10 +83,11 @@ export class ContatoComponent implements OnInit {
     private async getTipoAssuntoContato() {
         try {
             const subjectTypes = await this.faleConoscoService.getListaTipoAssuntoFaleConosco();
-            subjectTypes.TipoAssunto.forEach(subjectType => {
+            this.subjectTypes = subjectTypes;
+            subjectTypes.tipoAssunto.forEach(subjectType => {
                 this.types.push(new DropDownItem({
-                    title: subjectType.Descricao,
-                    value: subjectType.Id
+                    title: subjectType.descricao,
+                    value: subjectType.id
                 }));
             })
 
@@ -102,18 +97,19 @@ export class ContatoComponent implements OnInit {
     }
 
     selectType(type: DropDownItem<number>) {
+        console.log(type)
         this.formFields = filterFormFields(type.value);
         this.subjects = [];
         this.defaultSubject = new DropDownItem<number>({
             title: 'Selecione...',
             value: undefined
         });
-        const tipoAssunto = Types.TipoAssunto.find(tipo => tipo.Id == type.value);
-        tipoAssunto.Assunto.map(assunto => {
+        const tipoAssunto = this.subjectTypes.tipoAssunto.find(tipo => tipo.id == type.value);
+        tipoAssunto.assunto.map(assunto => {
             this.subjects.push(
                 new DropDownItem({
-                    title: assunto.Titulo,
-                    value: assunto.Id
+                    title: assunto.titulo,
+                    value: assunto.id
                 })
             )
         });
@@ -258,6 +254,13 @@ export class ContatoComponent implements OnInit {
 
             delete formValue['validCaptcha'];
             delete formValue['aceiteDeTermos'];
+
+            // Remove unused keys.
+            Object.keys(formValue).forEach(objectKey => {
+                if (formValue[objectKey] == null || formValue[objectKey] == undefined) {
+                    delete formValue[objectKey];
+                }
+            });
 
             try {
                 await this.faleConoscoService.gravarFaleConosco(formValue);

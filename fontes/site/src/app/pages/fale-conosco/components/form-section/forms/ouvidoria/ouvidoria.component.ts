@@ -226,6 +226,14 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
             delete formValue['validCaptcha'];
             delete formValue['aceiteDeTermos'];
 
+
+            // Remove unused keys.
+            Object.keys(formValue).forEach(objectKey => {
+                if (formValue[objectKey] == null || formValue[objectKey] == undefined) {
+                    delete formValue[objectKey];
+                }
+            });
+
             try {
                 await this.faleConoscoService.gravarOuvidoria(formValue);
 

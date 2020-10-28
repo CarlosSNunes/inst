@@ -158,6 +158,14 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
             delete formValue['aceiteDeTermos'];
             delete formValue['Authorization'];
 
+
+            // Remove unused keys.
+            Object.keys(formValue).forEach(objectKey => {
+                if (formValue[objectKey] == null || formValue[objectKey] == undefined) {
+                    delete formValue[objectKey];
+                }
+            });
+
             try {
 
                 await this.faleConoscoService.gravarCanalDeDenuncia(formValue);
