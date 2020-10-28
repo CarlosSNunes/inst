@@ -5,7 +5,6 @@ export class BannerModel {
         // TODO tratativas temporárias, possível que o futuro estas regras de negócio fiquem no backend.
         this.caminhoDesktop = `${init.caminhoDesktop}/${init.nomeImagemDesktop}`;
         this.caminhoMobile = `${init.caminhoMobile}/${init.nomeImagemMobile}`;
-        this.tempoExibicao = init.tempoExibicao * 1000;
     }
 
     id: number;
