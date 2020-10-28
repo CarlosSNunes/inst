@@ -182,7 +182,7 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
                 this.loading = false;
             }
         } else {
-            Object.keys(this.canalDeDenunciasForm.controls).map(control => {
+            Object.keys(this.canalDeDenunciasForm.controls).forEach(control => {
                 this.canalDeDenunciasForm.controls[control].markAsTouched();
             });
         }

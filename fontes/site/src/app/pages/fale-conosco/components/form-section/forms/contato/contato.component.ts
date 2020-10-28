@@ -277,7 +277,7 @@ export class ContatoComponent implements OnInit {
                 this.loading = false;
             }
         } else {
-            Object.keys(this.contatoForm.controls).map(control => {
+            Object.keys(this.contatoForm.controls).forEach(control => {
                 this.contatoForm.controls[control].markAsTouched();
             });
         }

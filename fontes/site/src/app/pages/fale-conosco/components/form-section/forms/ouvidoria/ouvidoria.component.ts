@@ -240,7 +240,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
                 this.ouvidoriaForm.reset();
                 this.mountForm();
 
-                Object.keys(this.ouvidoriaForm.controls).map(control => {
+                Object.keys(this.ouvidoriaForm.controls).forEach(control => {
                     this.ouvidoriaForm.controls[control].markAsUntouched();
                 });
                 this.loading = false;
@@ -253,7 +253,7 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
             }
 
         } else {
-            Object.keys(this.ouvidoriaForm.controls).map(control => {
+            Object.keys(this.ouvidoriaForm.controls).forEach(control => {
                 this.ouvidoriaForm.controls[control].markAsTouched();
             });
         }
