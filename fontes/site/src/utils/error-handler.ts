@@ -21,9 +21,9 @@ export class ErrorHandler {
             } else {
                 message = `Os campo ${fields} deve ser preenchido`;
             }
-        }
-
-        if (error instanceof DefaultErrors) {
+        } else if (error instanceof DefaultErrors) {
+            message = error.message;
+        } else {
             message = error.message;
         }
 
