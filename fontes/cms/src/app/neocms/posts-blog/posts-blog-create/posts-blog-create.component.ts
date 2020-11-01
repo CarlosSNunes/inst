@@ -82,8 +82,8 @@ export class PostsBlogCreateComponent implements OnInit {
   isPostAtivo = false;
   isPostDestaque = false;
 
-  private readonly API_ENDPOINT = environment.API
-  
+  private readonly API_ENDPOINT = environment.API;
+
   constructor(
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
@@ -98,7 +98,6 @@ export class PostsBlogCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.localeService.use('pt-br')
     this.user = this.authenticateService.state;
     this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
     this.tagService.getAll().subscribe(tags => this.tags = tags);
@@ -147,7 +146,7 @@ export class PostsBlogCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
     const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
     const dataPublicacao: Date = dataPublicacaoElement.value;
 
@@ -175,7 +174,7 @@ export class PostsBlogCreateComponent implements OnInit {
       else{
         this.postsBlogForm.controls.arquivo = [];
       }
-      
+
       const model = new PostsBlogCreateModel(this.postsBlogForm.value);
       this.postsBlogService.post(model)
         .subscribe(() =>
@@ -207,31 +206,31 @@ export class PostsBlogCreateComponent implements OnInit {
   }
 
   preview() {
-    // Show preview 
+    // Show preview
     var mimeType = this.imagemGrande.type;
     if (mimeType.match(/image\/*/) == null) {
       return;
     }
 
-    var reader = new FileReader();      
-    reader.readAsDataURL(this.imagemGrande); 
-    reader.onload = (_event) => { 
-      this.previewUrl = reader.result; 
+    var reader = new FileReader();
+    reader.readAsDataURL(this.imagemGrande);
+    reader.onload = (_event) => {
+      this.previewUrl = reader.result;
       this.imagemGrande = this.previewUrl;
     }
   }
 
   previewImagemPequena() {
-    // Show preview 
+    // Show preview
     var mimeType = this.imagemPequena.type;
     if (mimeType.match(/image\/*/) == null) {
       return;
     }
 
-    var reader = new FileReader();      
-    reader.readAsDataURL(this.imagemPequena); 
-    reader.onload = (_event) => { 
-      this.previewUrlImagemPequena = reader.result; 
+    var reader = new FileReader();
+    reader.readAsDataURL(this.imagemPequena);
+    reader.onload = (_event) => {
+      this.previewUrlImagemPequena = reader.result;
       this.imagemPequena = this.previewUrlImagemPequena;
     }
   }
@@ -317,7 +316,7 @@ export class PostsBlogCreateComponent implements OnInit {
 
   }
 
-  
+
 
   base64ToFile(data, filename) {
     const arr = data.split(',');

@@ -1,4 +1,4 @@
-import { PerfilModel } from './perfil/perfil.model';
+import { CareplusPerfilModel } from './../models/careplus-perfil/careplus-perfil.model';
 
 export class UserAuthenticateModel {
     public constructor(init?: Partial<UserAuthenticateModel>) {
@@ -6,11 +6,11 @@ export class UserAuthenticateModel {
 
         if (init) {
             this.perfis = [];
-            init.perfis.forEach(perfil => this.perfis.push(new PerfilModel(perfil)));
+            init.perfis.forEach(perfil => this.perfis.push(new CareplusPerfilModel(perfil)));
         }
     }
 
     nome: string;
     token: string;
-    perfis: PerfilModel[];
+    perfis: CareplusPerfilModel[];
 }

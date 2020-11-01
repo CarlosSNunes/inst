@@ -1,7 +1,0 @@
-[0707/112747.372:ERROR:process_info.cc(359)] UncheckedAllocate
-[0708/174404.435:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\rhenr\AppData\Local\Google\Chrome\User Data\Crashpad\reports\54dc2eda-e5b4-4ec2-bc53-4f4bd93a84e0.dmp: O arquivo já está sendo usado por outro processo. (0x20)
-[0708/174405.456:ERROR:process_info.cc(359)] UncheckedAllocate
-[0708/174406.884:ERROR:process_info.cc(359)] UncheckedAllocate
-[0708/174535.974:ERROR:process_info.cc(359)] UncheckedAllocate
-[0708/174536.671:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: O comprimento do registro de informações especificado não coincide com o comprimento necessário à classe de informações especificada. (0xc0000004)
-[0708/174549.023:ERROR:process_info.cc(359)] UncheckedAllocate

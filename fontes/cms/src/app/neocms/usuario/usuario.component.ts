@@ -9,6 +9,7 @@ import { UsuarioService } from './usuario.service';
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss']
 })
+
 export class UsuarioComponent implements OnInit {
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
@@ -28,7 +29,7 @@ export class UsuarioComponent implements OnInit {
     this.getUsuarios();
   }
 
-  openUsuarioDelete(usuario: UsuarioModel) {
+  public openUsuarioDelete(usuario: UsuarioModel) {
     this.usuario = usuario;
   }
 
@@ -36,7 +37,7 @@ export class UsuarioComponent implements OnInit {
    * @description Metodo que lista todos os usuários
    * @memberOf UsuarioComponent
    */
-  getUsuarios() {
+  public getUsuarios() {
     this.usuarioService
       .getAll()
       .subscribe(usuarios => {
@@ -44,5 +45,4 @@ export class UsuarioComponent implements OnInit {
       })
       .add(() => this.loaded = true);
   }
-
 }

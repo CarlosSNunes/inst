@@ -3,66 +3,65 @@
     Cadastro de Usuário
   </div>
   <div class="card-body">
-    <ng-wizard [config]="configUser" (stepChanged)="stepChanged($event)">
-      <ng-wizard-step [title]="'Usuário'" [description]="'Novo Usuário'">
-        <div class="row">
-          <div class="col-md-12 col-lg-4 m-auto">
-            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <ng-wizard [config]="configUser" (stepChanged)="stepChanged($event)">
+        <ng-wizard-step [title]="'Usuário'" [description]="'Novo Usuário'">
+          <div class="row">
+            <div class="col-md-12 col-lg-4 m-auto">
+              <pre>
+                {{userForm.value | json}}
+              </pre>
+            </div>
+            <div class="col-md-12 col-lg-4 m-auto">
               <div class="row">
                 <div class="form-group col-md-12">
                   <label class="label">Nome Completo</label>
                   <input formControlName="nome" class="form-control" type="text" placeholder=""
                     [ngClass]="{ 'is-success': submitted && !f.nome.errors, 'is-danger' : submitted && f.nome.errors }">
                   <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">{{error}}</p>
-                  </div>
-                </div>
-                <div class="form-group col-md-12">
-                  <label class="label">E-mail</label>
-                  <input formControlName="email" class="form-control" type="email" placeholder=""
-                    [ngClass]="{ 'is-success': submitted && !f.email.errors, 'is-danger' : submitted && f.email.errors }">
-                  <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.email)" class="help is-danger">{{error}}</p>
-                  </div>
-                </div>
-                <div class="form-group col-md-12">
-                 <label class=" label">Perfil</label>
-                  <select class="form-control my-3" name="options">
-                    <option [ngValue]="null" disabled>Selecione</option>
-                    <option *ngFor="let prf of dropdownOptions" [ngValue]="prf">
-                      {{ prf.descricao }}
-                    </option>
-                  </select>
-                  <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.perfil)" class="help is-danger">
+                    <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">
                       {{error}}
                     </p>
                   </div>
                 </div>
                 <div class="form-group col-md-12">
-                  <label class="label">Senha</label>
-                  <input formControlName="senhaHash" class="form-control" type="password" placeholder=""
-                    [ngClass]="{ 'is-success': submitted && !f.senhaHash.errors, 'is-danger' : submitted && f.senhaHash.errors }">
-                  <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.senhaHash)" class="help is-danger">{{error}}
-                    </p>
-                    <p *ngIf="senhaErro === true" class="help is-danger">
-                      As senhas devem ser iguais.
-                    </p>
+                  <label class=" label">Perfil</label>
+
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="container">
+                        <div class="tabs">
+                          <div *ngFor="let perfil of perfis">
+                            <input type="radio" (change)="chancePerfil(perfil)"/>
+                            <label class="tab">{{perfil.descricao}}</label>
+                            <span class="glider"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
                 </div>
+
                 <div class="form-group col-md-12">
-                  <label class="label">Confirme a Senha</label>
-                  <input formControlName="senhaSalt" class="form-control" type="password" placeholder=""
-                    [ngClass]="{ 'is-success': submitted && !f.senhaSalt.errors, 'is-danger' : submitted && f.senhaSalt.errors }">
+                  <label class="label">E-mail</label>
+                  <input formControlName="email" class="form-control" type="email" placeholder=""
+                    [ngClass]="{ 'is-success': submitted && !f.email.errors, 'is-danger' : submitted && f.email.errors }">
                   <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.senhaSalt)" class="help is-danger">{{error}}
-                    </p>
-                    <p *ngIf="senhaErro === true" class="help is-danger">
-                      As senhas devem ser iguais.
+                    <p *ngFor="let error of getErrors(f.email)" class="help is-danger">{{error}}</p>n
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class="label">Senha</label>
+                  <input formControlName="senha" class="form-control" type="password" placeholder=""
+                    [ngClass]="{ 'is-success': submitted && !f.senha.errors, 'is-danger' : submitted && f.senha.errors }">
+                  <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.senha)" class="help is-danger">{{error}}
                     </p>
                   </div>
                 </div>
+
               </div>
               <div class="row">
                 <div class="col-md-12 w-100 text-right">
@@ -71,12 +70,10 @@
                   </button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
-        </div>
-      </ng-wizard-step>
-    </ng-wizard>
-  </div>
-  <div class="card-footer">
+        </ng-wizard-step>
+      </ng-wizard>
+    </form>
   </div>
 </div>

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
-import { LoginModel } from 'src/models/login.model';
+import { LoginModel } from '../../../src/models/login.model';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { AuthenticationService } from '../../../src/app/authentication/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('teste');
   }
 
   get f() {
@@ -53,5 +52,7 @@ export class LoginComponent implements OnInit {
             this.error = error;
           });
     }
+
+
   }
 }

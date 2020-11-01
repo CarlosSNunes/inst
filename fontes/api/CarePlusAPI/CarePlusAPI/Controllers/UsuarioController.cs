@@ -143,7 +143,7 @@ namespace CarePlusAPI.Controllers
 
             await UserService.Criar(usuario, model.Senha);
 
-            await UserService.EnviarEmailConfirmacao(usuario);
+            //await UserService.EnviarEmailConfirmacao(usuario);
 
             return Ok();
         }

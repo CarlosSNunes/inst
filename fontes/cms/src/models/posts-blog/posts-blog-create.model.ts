@@ -1,3 +1,4 @@
+// tslint:disable:typedef-whitespace
 import { PostsTagCreateModel } from './posts-tag-create.model';
 
 export class PostsBlogCreateModel {
@@ -6,23 +7,21 @@ export class PostsBlogCreateModel {
         this.postTag = [];
 
         init.postTag.forEach(tag => this.postTag.push(new PostsTagCreateModel(tag)));
-    }
-
-    titulo: string;
-    subtitulo: string;
-    descricaoPrevia: string;
-    descricao: string;
-    dataPublicacao: string;
-    dataExpiracao?: string;
-    arquivo: File;
-    caminhoImagem: string;
-    nomeImagem: string;
-    destaque: string;
-    ativo: string;
-    vizualizacoes: number;
-    tituloPaginaSEO: string;
+  }
+    titulo            : string;
+    subtitulo         : string;
+    descricaoPrevia   : string;
+    descricao         : string;
+    dataPublicacao    : string;
+    dataExpiracao?    : string;
+    arquivo           : File;
+    caminhoImagem     : string;
+    nomeImagem        : string;
+    destaque          : string;
+    ativo             : string;
+    vizualizacoes     : number;
+    tituloPaginaSEO   : string;
     descricaoPaginaSEO: string;
-    categoriaId: number;
-
+    categoriaId       : number;
     postTag: PostsTagCreateModel[];
 }

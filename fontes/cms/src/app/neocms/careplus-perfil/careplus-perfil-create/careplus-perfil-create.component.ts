@@ -23,7 +23,6 @@ export class CareplusPerfilCreateComponent implements OnInit {
   submitted: boolean;
   usuario: UserAuthenticateModel;
   btnSubmitDisable = false;
-  //*Configuração 'ng-wizard'
   configBanner: NgWizardConfig = {
     toolbarSettings: {
       showNextButton: false,

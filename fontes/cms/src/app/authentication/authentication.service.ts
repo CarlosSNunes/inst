@@ -1,10 +1,13 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { UserAuthenticateModel } from '../../../src/models/user-authenticate.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
+
   private tokenKey = 'user_token';
   private usuario: UserAuthenticateModel = this.retrieveToken();
   usuarioChanged: EventEmitter<UserAuthenticateModel> = new EventEmitter();
@@ -22,7 +25,9 @@ export class AuthenticationService {
     }
 
     return storedUser;
+
   }
+
 
   set state(usuario: UserAuthenticateModel | null) {
     if (!usuario) {

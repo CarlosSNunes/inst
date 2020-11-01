@@ -1,5 +1,5 @@
-import { PerfilCreateModel } from '../perfil/perfil-create.model';
-import { PerfilModel } from './../perfil/perfil.model';
+import { CareplusPerfilCreateModel } from '../careplus-perfil/careplus-perfil-create.model';
+
 
 export class UsuarioUpdateModel {
   public constructor(init?: Partial<UsuarioUpdateModel>) {
@@ -8,13 +8,13 @@ export class UsuarioUpdateModel {
     this.perfil = [];
 
     if (init.perfil) {
-      init.perfil.forEach(perfil => this.perfil.push(new PerfilCreateModel(perfil)));
+      init.perfil.forEach(perfil => this.perfil.push(new CareplusPerfilCreateModel(perfil)));
     }
   }
-  nome        : string;
-  email       : string;
+  nome: string;
+  email: string;
   dataCadastro: Date;
-  SenhaHash   : string;
-  SenhaSalt   : string;
-  perfil      : PerfilModel[];
+  SenhaHash: string;
+  SenhaSalt: string;
+  perfil: CareplusPerfilCreateModel[];
 }

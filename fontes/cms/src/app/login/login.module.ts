@@ -8,6 +8,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginAuthGuard } from './login-auth.service';
 import { HttpHandlerService } from '../http-handler/http-handler.service';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -19,6 +20,7 @@ import { HttpHandlerService } from '../http-handler/http-handler.service';
     HttpClientModule
   ],
   providers: [
+    AuthenticationService,
     LoginService,
     LoginAuthGuard,
     {
