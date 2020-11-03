@@ -7,11 +7,11 @@ import { UsuarioUpdateComponent } from './usuario-update/usuario-update.componen
 import { UsuarioService } from '../usuario/usuario.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgWizardModule} from 'ng-wizard';
+import { NgWizardModule } from 'ng-wizard';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     NgWizardModule,
     NgSelectModule,
     FormsModule,
-    ButtonsModule
+    ButtonsModule,
+    AlertModule
   ],
   providers: [
     UsuarioService,

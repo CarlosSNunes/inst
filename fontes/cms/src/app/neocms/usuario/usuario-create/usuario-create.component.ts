@@ -21,11 +21,9 @@ import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class UsuarioCreateComponent implements OnInit {
-  @ViewChild('perfilModel', { static: false })
 
-  radioModel = 'Middle';
-  radioModelDisabled = 'Middle';
-  modelGroupDisabled = false;
+
+
 
   // ? --------- Configuração 'ng-wizard' ---------
   configUser: NgWizardConfig = {
@@ -54,8 +52,13 @@ export class UsuarioCreateComponent implements OnInit {
   perfisForm: FormGroup;
   perfis: CareplusPerfilModel[] = [];
   perfilCheck = false;
-
+  error;
   selectedPerfil;
+  messageError: boolean;
+
+  dismissible = true;
+  defaultAlerts: any[];
+  alerts;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -79,7 +82,22 @@ export class UsuarioCreateComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = this.authenticateService.state;
-    this.careplusPerfilService.getAll().subscribe(perfis => this.perfis = perfis);
+    this.careplusPerfilService
+      .getAll()
+      .subscribe(perfis => this.perfis = perfis),
+      error => {
+        this.messageError = true;
+        this.error = error.error.message;
+        this.defaultAlerts = [
+          {
+            type: 'danger',
+            msg: 'ERRO: ' + this.error,
+          }
+        ];
+        this.alerts = this.defaultAlerts;
+
+      }
+      ;
     this.createForm();
   }
 
@@ -118,9 +136,27 @@ export class UsuarioCreateComponent implements OnInit {
       this.usuarioService.post(model)
         .subscribe(() => {
           this.router.navigate(['/neocms/usuario']);
-        })
-        .add(() => this.btnSubmitDisable = false);
+        },
+          error => {
+            this.messageError = true;
+            this.error = error.error.message;
+            this.defaultAlerts = [
+              {
+                type: 'danger',
+                msg: 'ERRO: ' + this.error,
+              }
+            ];
+            this.alerts = this.defaultAlerts;
+
+          }
+
+        )
+
     }
+  }
+
+  onClosed(dismissedAlert: any): void {
+    this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
   }
 
   getErrors(control: AbstractControl) {

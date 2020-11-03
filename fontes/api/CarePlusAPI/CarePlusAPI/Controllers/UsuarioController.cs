@@ -61,21 +61,21 @@ namespace CarePlusAPI.Controllers
             if (model == null)
                 throw new AppException("O usuário não pode estar nulo");
 
-            //if (!UserService.ValidaUsuario(model.Email, model.Senha).Result)
-            //{
-            //    throw new AppException("O usuário não foi encontrado");
-            //}
+           if (!UserService.ValidaUsuario(model.Email, model.Senha).Result)
+           {
+               throw new AppException("O usuário não foi encontrado");
+           }
 
             Usuario usuario = await UserService.Autenticar(model.Email, model.Senha);
 
-            //if (usuario == null)
-            //{
-            //    throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
-            //    {
-            //        Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
-            //        Dados = model
-            //    }));
-            //}
+            if (usuario == null)
+            {
+                throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
+                    Dados = model
+                }));
+            }
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             byte[] key = Encoding.ASCII.GetBytes(AppSettings.Secret);
@@ -143,7 +143,7 @@ namespace CarePlusAPI.Controllers
 
             await UserService.Criar(usuario, model.Senha);
 
-            //await UserService.EnviarEmailConfirmacao(usuario);
+            await UserService.EnviarEmailConfirmacao(usuario);
 
             return Ok();
         }

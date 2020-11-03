@@ -8,24 +8,24 @@ import { UsuarioUpdateComponent } from './usuario-update/usuario-update.componen
 
 const routes: Routes = [
   {
-      path: '',
-      canActivate: [AuthGuard],
-      component: UsuarioComponent
+    path: '',
+    canActivate: [AuthGuard],
+    component: UsuarioComponent
   },
   {
-      path: 'create',
-      canActivate: [AuthGuard],
-      component: UsuarioCreateComponent
+    path: 'create',
+    canActivate: [AuthGuard],
+    component: UsuarioCreateComponent
   },
   {
-      path: 'edit/:id',
-      canActivate: [AuthGuard],
-      component: UsuarioUpdateComponent
+    path: 'edit/:id',
+    canActivate: [AuthGuard],
+    component: UsuarioUpdateComponent
   },
   {
-      path: '**',
-      canActivate: [AuthGuard],
-      component: UsuarioComponent
+    path: '**',
+    canActivate: [AuthGuard],
+    component: UsuarioComponent
   }
 ];
 

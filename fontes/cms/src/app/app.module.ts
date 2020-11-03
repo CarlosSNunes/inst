@@ -21,6 +21,7 @@ import { PostsBlogDeleteComponent } from './neocms/posts-blog/posts-blog-delete/
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.circles,
@@ -51,6 +52,7 @@ const ngWizardConfig: NgWizardConfig = {
     PaginationModule.forRoot(),
     NgSelectModule,
     FormsModule,
+    AlertModule.forRoot(),
   ],
   providers: [
     BsModalRef,

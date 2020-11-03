@@ -162,3 +162,13 @@ span.badge.badge-dark {
   line-height: 20px !important;
   padding    : 5px 5px 5px 5px !important;
 }
+
+
+.alert-danger {
+  color           : #721c24 !important;
+  background-color: #f8d7da !important;
+  border-color    : #f5c6cb !important;
+  position        : fixed !important;
+  top             : 80px !important;
+  right           : 15px !important;
+}
