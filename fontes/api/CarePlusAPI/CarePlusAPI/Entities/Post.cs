@@ -16,7 +16,9 @@ namespace CarePlusAPI.Entities
         [Column("SUBTITULO")]
         public string Subtitulo { get; set; }
         [Column("DESCRICAO_PREVIA")]
-        public string DescricaoPrevia { get; set; }        
+        public string DescricaoPrevia { get; set; }      
+        [Column("DESCRICAO")]
+        public string Descricao { get; set; }        
         [Column("DATA_PUBLICACAO")]
         public DateTime DataPublicacao { get; set; }
         [Column("DATA_EXPIRACAO")]
