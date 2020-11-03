@@ -7,7 +7,7 @@
         <img src="assets/svg/telephone-icon.svg" alt="Solicite uma Cotação">
     </span>
 </a>
-<app-simple-banner class="app-simple-banner" [simpleBannerModel]="findedPlan?.simpleBannerModel"
+<app-simple-banner class="app-simple-banner" [simpleBannerModel]="foundPlan?.simpleBannerModel"
     (goToNextSection)="goToSection('#about-plan')">
 </app-simple-banner>
 <div class="anchor-buttons">
@@ -20,34 +20,34 @@
         </div>
     </div>
 </div>
-<app-info-section class="app-info-section" id="about-plan" [sectionInfo]="findedPlan?.aboutPlan"></app-info-section>
-<app-plans-infos class="app-plans-infos" id="products" [plan]="findedPlan"
+<app-info-section class="app-info-section" id="about-plan" [sectionInfo]="foundPlan?.aboutPlan"></app-info-section>
+<app-plans-infos class="app-plans-infos" id="products" [plan]="foundPlan"
     (setSelectedOptionId)="selectedOptionId = $event" [selectedOptionId]="selectedOptionId"
     [backgroundColorClass]="'blue-background-color'">
 </app-plans-infos>
-<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.dentalSection"></app-info-section>
-<app-hospitals-list class="app-hospitals-list" [smallTitle]="findedPlan?.hospitalListSection?.smallTitle"
-    [bigTitle]="findedPlan?.hospitalListSection?.bigTitle" [tableHead]="findedPlan?.tableHead"
-    [customHospitals]="findedPlan?.hospitalList">
+<app-info-section class="app-info-section" [sectionInfo]="foundPlan?.dentalSection"></app-info-section>
+<app-hospitals-list class="app-hospitals-list" [smallTitle]="foundPlan?.hospitalListSection?.smallTitle"
+    [bigTitle]="foundPlan?.hospitalListSection?.bigTitle" [tableHead]="foundPlan?.tableHead"
+    [customHospitals]="foundPlan?.hospitalList">
 </app-hospitals-list>
-<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.plansSection"></app-info-section>
+<app-info-section class="app-info-section" [sectionInfo]="foundPlan?.plansSection"></app-info-section>
 <app-icon-cards-section class="app-icon-cards-section" id="products"
-    [iconCardsSectionModel]="findedPlan?.iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'">
+    [iconCardsSectionModel]="foundPlan?.iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'">
 </app-icon-cards-section>
-<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.clinicSection"></app-info-section>
-<section id="clinic-services" *ngIf="findedPlan?.clinicInfos">
+<app-info-section class="app-info-section" [sectionInfo]="foundPlan?.clinicSection"></app-info-section>
+<section id="clinic-services" *ngIf="foundPlan?.clinicInfos">
     <article>
         <div class="container">
             <div class="columns">
                 <div class="column">
                     <h2 class="h4 big-title">
-                        {{findedPlan?.clinicInfos?.bigTitle}}
+                        {{foundPlan?.clinicInfos?.bigTitle}}
                     </h2>
                 </div>
             </div>
 
             <div class="columns flex-wrap cards">
-                <div class="column is-3-desktop is-full" *ngFor="let item of findedPlan?.clinicInfos?.items">
+                <div class="column is-3-desktop is-full" *ngFor="let item of foundPlan?.clinicInfos?.items">
                     <app-card>
                         <div class="card-content">
                             <p class="card-description">
@@ -62,8 +62,8 @@
 </section>
 <app-accredited-network class="app-accredited-network" [backgroundColorClass]="'blue-background-color'">
 </app-accredited-network>
-<app-info-section class="app-info-section" [sectionInfo]="findedPlan?.travelSection"></app-info-section>
-<app-contact-schedule-a-visit class="app-contact-schedule-a-visit" [secondCard]="findedPlan?.secondCard"
+<app-info-section class="app-info-section" [sectionInfo]="foundPlan?.travelSection"></app-info-section>
+<app-contact-schedule-a-visit class="app-contact-schedule-a-visit" [secondCard]="foundPlan?.secondCard"
     [bigTitle]="'Entre em contato ou solicite uma cotação'" [backgroundColorClass]="'blue-background-color'">
 </app-contact-schedule-a-visit>
 <app-careplus-plus></app-careplus-plus>
