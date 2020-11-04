@@ -1,13 +1,11 @@
-
-
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Newsletter;
 using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -21,6 +19,7 @@ namespace CarePlusAPI.Controllers
         private readonly INewsletterService _newsletterService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -39,7 +38,8 @@ namespace CarePlusAPI.Controllers
         {
             _newsletterService = newsletterService;
             _mapper = mapper;
-            _appSettings = appSettings.Value;            
+            _appSettings = appSettings.Value;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
@@ -53,11 +53,25 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
-            List<Newsletter> newsletter = await _newsletterService.Listar();
+            string origem = Request.Headers["Custom"];
 
-            List<NewsletterModel> model = _mapper.Map<List<NewsletterModel>>(newsletter);
+            try
+            {
+                List<Newsletter> newsletter = await _newsletterService.Listar();
 
-            return Ok(model);
+                List<NewsletterModel> model = _mapper.Map<List<NewsletterModel>>(newsletter);
+
+                return Ok(model);
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -72,14 +86,29 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
-            if (id == 0)
-                throw new AppException("O id não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Newsletter newsletter = await _newsletterService.Buscar(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id não pode ser igual a 0");
 
-            NewsletterModel model = _mapper.Map<NewsletterModel>(newsletter);
+                Newsletter newsletter = await _newsletterService.Buscar(id);
 
-            return Ok(model);
+                NewsletterModel model = _mapper.Map<NewsletterModel>(newsletter);
+
+                return Ok(model);
+            }
+            catch (System.Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -94,11 +123,13 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromBody] NewsletterCreateModel model)
         {
-            if (model == null)
-                throw new AppException("A newsletter não pode estar nula");
+            string origem = Request.Headers["Custom"];
 
             try
             {
+                if (model == null)
+                    throw new AppException("A newsletter não pode estar nula");
+
                 Newsletter newsletter = _mapper.Map<Newsletter>(model);
 
                 await _newsletterService.Criar(newsletter);
@@ -107,9 +138,12 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
         }
@@ -126,11 +160,13 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromBody] NewsletterUpdateModel model)
         {
-            if (model == null)
-                throw new AppException("A newsletter não pode estar nula");
-           
+            string origem = Request.Headers["Custom"];
+
             try
             {
+                if (model == null)
+                    throw new AppException("A newsletter não pode estar nula");
+
                 Newsletter newsletter = await _newsletterService.Buscar(model.Id);
 
                 newsletter = _mapper.Map<Newsletter>(model);
@@ -141,7 +177,13 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest(new { message = ex.Message });
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
             }
         }
 
@@ -156,14 +198,28 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
-                throw new AppException("O id não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Newsletter newsletter = await _newsletterService.Buscar(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id não pode ser igual a 0");
 
-            await _newsletterService.Excluir(newsletter.Id);
+                Newsletter newsletter = await _newsletterService.Buscar(id);
 
-            return Ok();
+                await _newsletterService.Excluir(newsletter.Id);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
     }
 }

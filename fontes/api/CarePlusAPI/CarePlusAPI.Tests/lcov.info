@@ -1,0 +1,5653 @@
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Services\BannerService.cs
+FN:28,System.Void CarePlusAPI.Services.BannerService::.ctor(CarePlusAPI.Helpers.DataContext)
+FNDA:52,System.Void CarePlusAPI.Services.BannerService::.ctor(CarePlusAPI.Helpers.DataContext)
+DA:29,52
+DA:38,52
+DA:39,52
+DA:40,52
+DA:41,52
+FN:48,System.Void CarePlusAPI.Services.BannerService/<Listar>d__3::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.BannerService/<Listar>d__3::MoveNext()
+DA:49,2
+DA:50,2
+DA:51,2
+DA:52,2
+DA:53,2
+DA:54,2
+DA:56,2
+DA:59,2
+FN:66,System.Void CarePlusAPI.Services.BannerService/<ListarPorOrdem>d__4::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Services.BannerService/<ListarPorOrdem>d__4::MoveNext()
+DA:67,0
+DA:68,0
+DA:69,0
+DA:70,0
+DA:71,0
+DA:72,0
+DA:73,0
+DA:75,0
+DA:76,0
+FN:84,System.Void CarePlusAPI.Services.BannerService/<BuscarPorArea>d__5::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Services.BannerService/<BuscarPorArea>d__5::MoveNext()
+DA:85,0
+DA:86,0
+DA:87,0
+DA:89,0
+DA:90,0
+DA:91,0
+DA:92,0
+DA:93,0
+DA:94,0
+DA:96,0
+DA:97,0
+DA:99,0
+DA:100,0
+BRDA:86,64,0,0
+BRDA:86,64,1,0
+BRDA:96,496,0,0
+BRDA:96,496,1,0
+FN:108,System.Void CarePlusAPI.Services.BannerService/<Buscar>d__6::MoveNext()
+FNDA:11,System.Void CarePlusAPI.Services.BannerService/<Buscar>d__6::MoveNext()
+DA:109,11
+DA:111,11
+DA:112,11
+DA:113,1
+DA:115,10
+DA:117,10
+DA:118,4
+DA:120,6
+DA:122,5
+DA:123,5
+DA:125,5
+DA:127,6
+BRDA:112,71,0,1
+BRDA:112,71,1,10
+BRDA:117,349,0,4
+BRDA:117,349,1,6
+FN:135,System.Void CarePlusAPI.Services.BannerService/<Criar>d__7::MoveNext()
+FNDA:25,System.Void CarePlusAPI.Services.BannerService/<Criar>d__7::MoveNext()
+DA:136,25
+DA:137,25
+DA:138,1
+DA:140,24
+DA:141,24
+DA:142,23
+BRDA:137,37,0,1
+BRDA:137,37,1,24
+BRDA:140,103,0,0
+BRDA:140,103,1,24
+FN:150,System.Void CarePlusAPI.Services.BannerService/<Atualizar>d__8::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.BannerService/<Atualizar>d__8::MoveNext()
+DA:151,5
+DA:152,5
+DA:153,1
+DA:155,4
+DA:157,4
+DA:158,4
+BRDA:152,29,0,1
+BRDA:152,29,1,4
+FN:166,System.Void CarePlusAPI.Services.BannerService/<Excluir>d__9::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.BannerService/<Excluir>d__9::MoveNext()
+DA:167,4
+DA:168,4
+DA:169,1
+DA:171,3
+DA:173,3
+DA:174,2
+DA:175,2
+DA:177,2
+DA:178,2
+DA:180,1
+DA:181,1
+DA:183,2
+BRDA:168,73,0,1
+BRDA:168,73,1,3
+BRDA:173,343,0,2
+BRDA:173,343,1,1
+FN:191,System.Void CarePlusAPI.Services.BannerService/<SalvaImagem>d__10::MoveNext()
+FNDA:18,System.Void CarePlusAPI.Services.BannerService/<SalvaImagem>d__10::MoveNext()
+DA:192,18
+DA:193,18
+DA:194,18
+DA:195,18
+DA:198,18
+DA:199,18
+DA:201,18
+DA:202,18
+DA:204,18
+DA:205,18
+DA:206,18
+DA:207,18
+DA:209,18
+DA:210,2
+DA:212,18
+DA:213,18
+DA:214,18
+DA:215,18
+DA:216,18
+DA:218,18
+DA:220,0
+DA:221,0
+DA:222,0
+DA:223,0
+DA:225,0
+DA:227,18
+BRDA:204,123,0,18
+BRDA:209,235,0,2
+BRDA:209,235,1,18
+BRDA:204,123,1,18
+BRDA:222,479,0,0
+BRDA:222,479,1,0
+LF:97
+LH:70
+BRF:24
+BRH:17
+FNF:9
+FNH:7
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Services\CategoriasService.cs
+FN:30,System.Void CarePlusAPI.Services.CategoriasService::.ctor(CarePlusAPI.Helpers.DataContext)
+FNDA:29,System.Void CarePlusAPI.Services.CategoriasService::.ctor(CarePlusAPI.Helpers.DataContext)
+DA:31,29
+DA:32,29
+DA:33,29
+DA:34,29
+FN:41,System.Void CarePlusAPI.Services.CategoriasService/<Listar>d__2::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.CategoriasService/<Listar>d__2::MoveNext()
+DA:42,2
+DA:43,2
+DA:45,2
+DA:46,2
+DA:47,2
+DA:49,2
+DA:51,2
+DA:53,2
+DA:62,2
+FN:70,System.Void CarePlusAPI.Services.CategoriasService/<Buscar>d__3::MoveNext()
+FNDA:9,System.Void CarePlusAPI.Services.CategoriasService/<Buscar>d__3::MoveNext()
+DA:71,9
+DA:72,9
+DA:73,1
+DA:75,8
+DA:77,8
+DA:78,4
+DA:80,4
+DA:81,4
+BRDA:72,62,0,1
+BRDA:72,62,1,8
+BRDA:77,340,0,4
+BRDA:77,340,1,4
+FN:89,System.Void CarePlusAPI.Services.CategoriasService/<Criar>d__4::MoveNext()
+FNDA:22,System.Void CarePlusAPI.Services.CategoriasService/<Criar>d__4::MoveNext()
+DA:90,22
+DA:91,22
+DA:92,2
+DA:94,20
+DA:95,20
+DA:96,19
+BRDA:91,37,0,2
+BRDA:91,37,1,20
+BRDA:94,103,0,0
+BRDA:94,103,1,20
+FN:104,System.Void CarePlusAPI.Services.CategoriasService/<Atualizar>d__5::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.CategoriasService/<Atualizar>d__5::MoveNext()
+DA:105,4
+DA:106,4
+DA:107,2
+DA:109,2
+DA:111,2
+DA:112,2
+BRDA:106,29,0,2
+BRDA:106,29,1,2
+FN:120,System.Void CarePlusAPI.Services.CategoriasService/<Excluir>d__6::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.CategoriasService/<Excluir>d__6::MoveNext()
+DA:121,4
+DA:122,4
+DA:123,1
+DA:125,3
+DA:127,3
+DA:128,2
+DA:129,2
+DA:131,2
+DA:132,2
+DA:134,1
+DA:135,1
+DA:137,2
+BRDA:122,73,0,1
+BRDA:122,73,1,3
+BRDA:127,343,0,2
+BRDA:127,343,1,1
+LF:45
+LH:45
+BRF:14
+BRH:13
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Services\DashboardService.cs
+FN:29,System.Void CarePlusAPI.Services.DashboardService::.ctor(CarePlusAPI.Helpers.DataContext)
+FNDA:20,System.Void CarePlusAPI.Services.DashboardService::.ctor(CarePlusAPI.Helpers.DataContext)
+DA:30,20
+DA:31,20
+DA:32,20
+DA:33,20
+FN:42,System.Void CarePlusAPI.Services.DashboardService/<ListarPostsMaisLidos>d__2::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.DashboardService/<ListarPostsMaisLidos>d__2::MoveNext()
+DA:43,5
+DA:45,5
+DA:46,5
+DA:47,5
+DA:48,5
+DA:49,5
+DA:50,5
+DA:51,5
+DA:52,5
+DA:53,5
+DA:55,5
+DA:56,3
+DA:58,2
+DA:60,3
+DA:61,3
+DA:63,3
+DA:65,2
+BRDA:55,399,0,3
+BRDA:55,399,1,2
+FN:73,System.Void CarePlusAPI.Services.DashboardService/<TotalBannersAtivos>d__3::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.DashboardService/<TotalBannersAtivos>d__3::MoveNext()
+DA:74,5
+DA:76,5
+DA:77,5
+DA:78,5
+DA:80,5
+DA:82,5
+DA:83,3
+DA:85,2
+DA:88,2
+BRDA:82,312,0,3
+BRDA:82,312,1,2
+FN:90,System.Void CarePlusAPI.Services.DashboardService/<TotalPostsBlog>d__4::MoveNext()
+FNDA:6,System.Void CarePlusAPI.Services.DashboardService/<TotalPostsBlog>d__4::MoveNext()
+DA:91,6
+DA:93,6
+DA:94,6
+DA:95,6
+DA:96,6
+DA:97,6
+DA:98,6
+DA:100,6
+DA:102,6
+DA:103,4
+DA:105,2
+DA:107,4
+DA:108,4
+DA:110,4
+DA:112,2
+BRDA:102,393,0,4
+BRDA:102,393,1,2
+FN:114,System.Void CarePlusAPI.Services.DashboardService/<TotalUsuarios>d__5::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.DashboardService/<TotalUsuarios>d__5::MoveNext()
+DA:115,4
+DA:117,4
+DA:118,4
+DA:119,4
+DA:123,4
+DA:125,4
+DA:126,2
+DA:128,2
+DA:130,2
+DA:131,2
+DA:133,2
+DA:135,2
+BRDA:125,320,0,2
+BRDA:125,320,1,2
+LF:57
+LH:57
+BRF:8
+BRH:8
+FNF:5
+FNH:5
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Services\NewsletterService.cs
+FN:29,System.Void CarePlusAPI.Services.NewsletterService::.ctor(CarePlusAPI.Helpers.DataContext)
+FNDA:30,System.Void CarePlusAPI.Services.NewsletterService::.ctor(CarePlusAPI.Helpers.DataContext)
+DA:30,30
+DA:31,30
+DA:32,30
+DA:33,30
+FN:40,System.Void CarePlusAPI.Services.NewsletterService/<Listar>d__2::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Services.NewsletterService/<Listar>d__2::MoveNext()
+DA:41,3
+DA:42,3
+DA:43,3
+DA:44,3
+DA:45,3
+DA:46,3
+DA:48,3
+DA:49,1
+DA:51,2
+DA:52,2
+BRDA:48,255,0,1
+BRDA:48,255,1,2
+FN:60,System.Void CarePlusAPI.Services.NewsletterService/<Buscar>d__3::MoveNext()
+FNDA:9,System.Void CarePlusAPI.Services.NewsletterService/<Buscar>d__3::MoveNext()
+DA:61,9
+DA:62,9
+DA:63,1
+DA:65,8
+DA:67,8
+DA:68,4
+DA:70,4
+DA:71,4
+BRDA:62,62,0,1
+BRDA:62,62,1,8
+BRDA:67,340,0,4
+BRDA:67,340,1,4
+FN:79,System.Void CarePlusAPI.Services.NewsletterService/<Criar>d__4::MoveNext()
+FNDA:23,System.Void CarePlusAPI.Services.NewsletterService/<Criar>d__4::MoveNext()
+DA:80,23
+DA:81,23
+DA:82,2
+DA:84,21
+DA:85,21
+DA:86,20
+BRDA:81,37,0,2
+BRDA:81,37,1,21
+BRDA:84,103,0,0
+BRDA:84,103,1,21
+FN:94,System.Void CarePlusAPI.Services.NewsletterService/<Atualizar>d__5::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.NewsletterService/<Atualizar>d__5::MoveNext()
+DA:95,4
+DA:96,4
+DA:97,2
+DA:99,2
+DA:101,2
+DA:102,2
+BRDA:96,29,0,2
+BRDA:96,29,1,2
+FN:110,System.Void CarePlusAPI.Services.NewsletterService/<Excluir>d__6::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.NewsletterService/<Excluir>d__6::MoveNext()
+DA:111,4
+DA:112,4
+DA:113,1
+DA:115,3
+DA:117,3
+DA:118,2
+DA:119,2
+DA:121,2
+DA:122,2
+DA:124,1
+DA:125,1
+DA:127,2
+BRDA:112,73,0,1
+BRDA:112,73,1,3
+BRDA:117,343,0,2
+BRDA:117,343,1,1
+LF:46
+LH:46
+BRF:16
+BRH:15
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Services\PerfilService.cs
+FN:22,System.Void CarePlusAPI.Services.PerfilService::.ctor(CarePlusAPI.Helpers.DataContext)
+FNDA:28,System.Void CarePlusAPI.Services.PerfilService::.ctor(CarePlusAPI.Helpers.DataContext)
+DA:23,28
+DA:24,28
+DA:25,28
+DA:26,28
+FN:28,System.Void CarePlusAPI.Services.PerfilService/<Listar>d__2::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.PerfilService/<Listar>d__2::MoveNext()
+DA:29,2
+DA:30,2
+DA:31,2
+FN:33,System.Void CarePlusAPI.Services.PerfilService/<Buscar>d__3::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.PerfilService/<Buscar>d__3::MoveNext()
+DA:34,5
+DA:35,5
+DA:36,1
+DA:38,4
+DA:40,4
+DA:41,2
+DA:43,2
+DA:44,2
+BRDA:35,26,0,1
+BRDA:35,26,1,4
+BRDA:38,97,0,0
+BRDA:38,97,1,4
+BRDA:40,212,0,2
+BRDA:40,212,1,2
+FN:46,System.Void CarePlusAPI.Services.PerfilService/<Criar>d__4::MoveNext()
+FNDA:21,System.Void CarePlusAPI.Services.PerfilService/<Criar>d__4::MoveNext()
+DA:47,21
+DA:48,21
+DA:49,2
+DA:51,19
+DA:52,19
+DA:53,19
+BRDA:48,35,0,20
+BRDA:48,35,1,1
+BRDA:48,56,0,2
+BRDA:48,56,1,19
+FN:55,System.Void CarePlusAPI.Services.PerfilService/<Atualizar>d__5::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.PerfilService/<Atualizar>d__5::MoveNext()
+DA:56,4
+DA:57,4
+DA:58,2
+DA:60,2
+DA:62,2
+DA:63,2
+BRDA:57,24,0,3
+BRDA:57,24,1,1
+BRDA:57,45,0,2
+BRDA:57,45,1,2
+FN:65,System.Void CarePlusAPI.Services.PerfilService/<Excluir>d__6::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.PerfilService/<Excluir>d__6::MoveNext()
+DA:66,5
+DA:67,5
+DA:68,1
+DA:70,4
+DA:72,4
+DA:73,2
+DA:74,2
+DA:76,2
+DA:77,2
+DA:79,2
+DA:80,2
+DA:82,2
+BRDA:67,40,0,1
+BRDA:67,40,1,4
+BRDA:70,110,0,0
+BRDA:70,110,1,4
+BRDA:72,225,0,2
+BRDA:72,225,1,2
+LF:39
+LH:39
+BRF:20
+BRH:18
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Services\PostService.cs
+FN:297,System.Void CarePlusAPI.Services.PostService::DetachLocal(System.Func`2<CarePlusAPI.Entities.Post,System.Boolean>)
+FNDA:1,System.Void CarePlusAPI.Services.PostService::DetachLocal(System.Func`2<CarePlusAPI.Entities.Post,System.Boolean>)
+DA:298,1
+DA:299,1
+DA:301,1
+DA:302,1
+DA:303,1
+BRDA:301,41,0,1
+BRDA:301,41,1,1
+FN:346,System.String CarePlusAPI.Services.PostService::GeraSlug(System.String)
+FNDA:20,System.String CarePlusAPI.Services.PostService::GeraSlug(System.String)
+DA:347,20
+DA:348,20
+DA:350,20
+DA:352,20
+DA:354,20
+DA:355,20
+DA:357,20
+DA:358,20
+BRDA:354,62,0,0
+BRDA:354,62,1,20
+FN:360,System.String CarePlusAPI.Services.PostService::RemoveAcentuacao(System.String)
+FNDA:20,System.String CarePlusAPI.Services.PostService::RemoveAcentuacao(System.String)
+DA:361,20
+DA:362,20
+DA:363,20
+DA:364,20
+FN:37,System.Void CarePlusAPI.Services.PostService::.ctor(CarePlusAPI.Helpers.DataContext)
+FNDA:47,System.Void CarePlusAPI.Services.PostService::.ctor(CarePlusAPI.Helpers.DataContext)
+DA:38,47
+DA:39,47
+DA:40,47
+DA:41,47
+FN:48,System.Void CarePlusAPI.Services.PostService/<Listar>d__2::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.PostService/<Listar>d__2::MoveNext()
+DA:49,2
+DA:51,2
+DA:52,2
+DA:54,2
+DA:55,2
+DA:56,2
+DA:57,2
+DA:58,2
+DA:59,2
+DA:62,2
+DA:64,2
+DA:66,2
+DA:68,0
+DA:69,0
+DA:71,0
+DA:73,2
+FN:81,System.Void CarePlusAPI.Services.PostService/<BuscarPorSlug>d__3::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.PostService/<BuscarPorSlug>d__3::MoveNext()
+DA:82,5
+DA:83,5
+DA:84,1
+DA:86,4
+DA:87,4
+DA:88,4
+DA:89,4
+DA:90,4
+DA:92,4
+DA:93,1
+DA:95,3
+DA:96,3
+BRDA:83,64,0,1
+BRDA:83,64,1,4
+BRDA:92,362,0,1
+BRDA:92,362,1,3
+FN:104,System.Void CarePlusAPI.Services.PostService/<Criar>d__4::MoveNext()
+FNDA:20,System.Void CarePlusAPI.Services.PostService/<Criar>d__4::MoveNext()
+DA:105,20
+DA:106,20
+DA:107,0
+DA:109,20
+DA:110,8
+DA:111,8
+DA:113,8
+DA:114,8
+DA:116,20
+DA:118,20
+DA:119,20
+DA:120,20
+BRDA:106,63,0,0
+BRDA:106,63,1,20
+BRDA:109,93,0,8
+BRDA:109,93,1,20
+BRDA:118,427,0,0
+BRDA:118,427,1,20
+FN:128,System.Void CarePlusAPI.Services.PostService/<Atualizar>d__5::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Services.PostService/<Atualizar>d__5::MoveNext()
+DA:129,3
+DA:130,3
+DA:131,0
+DA:133,3
+DA:135,3
+DA:136,3
+BRDA:130,29,0,0
+BRDA:130,29,1,3
+FN:138,System.Void CarePlusAPI.Services.PostService/<BuscarPorCategoria>d__6::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Services.PostService/<BuscarPorCategoria>d__6::MoveNext()
+DA:139,0
+DA:140,0
+DA:141,0
+DA:143,0
+DA:146,0
+DA:147,0
+DA:148,0
+DA:149,0
+DA:150,0
+DA:153,0
+DA:154,0
+DA:156,0
+DA:158,0
+DA:160,0
+DA:161,0
+BRDA:140,90,0,0
+BRDA:140,90,1,0
+BRDA:153,489,0,0
+BRDA:153,489,1,0
+FN:163,System.Void CarePlusAPI.Services.PostService/<BuscarPorTermo>d__7::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.PostService/<BuscarPorTermo>d__7::MoveNext()
+DA:164,2
+DA:165,2
+DA:166,0
+DA:168,2
+DA:171,2
+DA:172,2
+DA:173,2
+DA:174,2
+DA:175,2
+DA:176,2
+DA:177,2
+DA:178,2
+DA:179,2
+DA:180,2
+DA:182,2
+DA:183,0
+DA:185,2
+DA:187,2
+DA:189,2
+DA:190,2
+BRDA:165,75,0,0
+BRDA:165,75,1,2
+BRDA:182,809,0,0
+BRDA:182,809,1,2
+FN:192,System.Void CarePlusAPI.Services.PostService/<BuscarMaisLidos>d__8::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.PostService/<BuscarMaisLidos>d__8::MoveNext()
+DA:193,2
+DA:194,2
+DA:197,2
+DA:198,2
+DA:199,2
+DA:200,2
+DA:201,2
+DA:202,2
+DA:204,2
+DA:205,0
+DA:207,2
+DA:209,2
+DA:211,2
+DA:212,2
+BRDA:204,341,0,0
+BRDA:204,341,1,2
+FN:214,System.Void CarePlusAPI.Services.PostService/<BuscarPorSlugHit>d__9::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Services.PostService/<BuscarPorSlugHit>d__9::MoveNext()
+DA:215,3
+DA:216,3
+DA:217,1
+DA:219,2
+DA:220,2
+DA:221,2
+DA:222,2
+DA:223,2
+DA:225,2
+DA:226,1
+DA:228,1
+DA:229,1
+DA:231,1
+DA:232,1
+BRDA:216,75,0,1
+BRDA:216,75,1,2
+BRDA:225,373,0,1
+BRDA:225,373,1,1
+FN:240,System.Void CarePlusAPI.Services.PostService/<Excluir>d__10::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Services.PostService/<Excluir>d__10::MoveNext()
+DA:241,3
+DA:242,3
+DA:243,0
+DA:245,3
+DA:246,3
+DA:248,3
+DA:250,3
+DA:251,2
+DA:252,2
+DA:254,2
+DA:255,2
+DA:256,2
+DA:258,1
+DA:259,1
+DA:261,2
+BRDA:242,89,0,0
+BRDA:242,89,1,3
+BRDA:248,353,0,1
+BRDA:248,353,1,2
+BRDA:250,387,0,2
+BRDA:250,387,1,1
+FN:269,System.Void CarePlusAPI.Services.PostService/<ExcluirTags>d__11::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.PostService/<ExcluirTags>d__11::MoveNext()
+DA:270,2
+DA:271,2
+DA:272,0
+DA:274,2
+DA:275,2
+DA:276,2
+BRDA:271,62,0,0
+BRDA:271,62,1,2
+FN:289,System.Boolean CarePlusAPI.Services.PostService/<>c__DisplayClass12_0::<RegistraHit>b__0(CarePlusAPI.Entities.Post)
+FNDA:2,System.Boolean CarePlusAPI.Services.PostService/<>c__DisplayClass12_0::<RegistraHit>b__0(CarePlusAPI.Entities.Post)
+DA:290,2
+FN:285,System.Void CarePlusAPI.Services.PostService/<RegistraHit>d__12::MoveNext()
+FNDA:1,System.Void CarePlusAPI.Services.PostService/<RegistraHit>d__12::MoveNext()
+DA:286,1
+DA:287,1
+DA:288,0
+DA:292,1
+DA:294,1
+DA:295,1
+BRDA:287,62,0,0
+BRDA:287,62,1,1
+FN:309,System.Void CarePlusAPI.Services.PostService/<VerificaDestaque>d__14::MoveNext()
+FNDA:8,System.Void CarePlusAPI.Services.PostService/<VerificaDestaque>d__14::MoveNext()
+DA:310,8
+DA:311,8
+DA:312,8
+DA:313,8
+DA:314,8
+DA:316,8
+DA:317,8
+LF:165
+LH:139
+BRF:40
+BRH:26
+FNF:17
+FNH:16
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Services\TagService.cs
+FN:30,System.Void CarePlusAPI.Services.TagService::.ctor(CarePlusAPI.Helpers.DataContext)
+FNDA:28,System.Void CarePlusAPI.Services.TagService::.ctor(CarePlusAPI.Helpers.DataContext)
+DA:31,28
+DA:32,28
+DA:33,28
+DA:34,28
+FN:41,System.Void CarePlusAPI.Services.TagService/<Listar>d__2::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Services.TagService/<Listar>d__2::MoveNext()
+DA:42,2
+DA:43,2
+DA:45,2
+DA:46,2
+DA:48,2
+DA:50,2
+DA:52,2
+DA:53,2
+FN:61,System.Void CarePlusAPI.Services.TagService/<Buscar>d__3::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.TagService/<Buscar>d__3::MoveNext()
+DA:62,5
+DA:63,5
+DA:64,1
+DA:66,4
+DA:68,4
+DA:69,2
+DA:71,2
+DA:72,2
+BRDA:63,26,0,1
+BRDA:63,26,1,4
+BRDA:66,97,0,0
+BRDA:66,97,1,4
+BRDA:68,212,0,2
+BRDA:68,212,1,2
+FN:80,System.Void CarePlusAPI.Services.TagService/<Criar>d__4::MoveNext()
+FNDA:17,System.Void CarePlusAPI.Services.TagService/<Criar>d__4::MoveNext()
+DA:81,17
+DA:82,17
+DA:83,2
+DA:85,15
+DA:86,15
+DA:87,15
+BRDA:82,35,0,16
+BRDA:82,35,1,1
+BRDA:82,56,0,2
+BRDA:82,56,1,15
+FN:95,System.Void CarePlusAPI.Services.TagService/<Atualizar>d__5::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Services.TagService/<Atualizar>d__5::MoveNext()
+DA:96,4
+DA:97,4
+DA:98,2
+DA:100,2
+DA:102,2
+DA:103,2
+BRDA:97,24,0,3
+BRDA:97,24,1,1
+BRDA:97,45,0,2
+BRDA:97,45,1,2
+FN:111,System.Void CarePlusAPI.Services.TagService/<Excluir>d__6::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Services.TagService/<Excluir>d__6::MoveNext()
+DA:112,5
+DA:113,5
+DA:114,1
+DA:116,4
+DA:118,4
+DA:119,2
+DA:120,2
+DA:122,2
+DA:123,2
+DA:125,2
+DA:126,2
+DA:128,2
+BRDA:113,40,0,1
+BRDA:113,40,1,4
+BRDA:116,110,0,0
+BRDA:116,110,1,4
+BRDA:118,225,0,2
+BRDA:118,225,1,2
+LF:44
+LH:44
+BRF:20
+BRH:18
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Controllers\BannerController.cs
+FN:33,System.Void CarePlusAPI.Controllers.BannerController::.ctor(CarePlusAPI.Services.IBannerService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+FNDA:21,System.Void CarePlusAPI.Controllers.BannerController::.ctor(CarePlusAPI.Services.IBannerService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+DA:34,21
+DA:35,21
+DA:36,21
+DA:37,21
+DA:38,21
+DA:39,21
+DA:40,21
+DA:41,21
+DA:42,21
+DA:43,21
+DA:44,21
+DA:45,21
+FN:56,System.Void CarePlusAPI.Controllers.BannerController/<Get>d__5::MoveNext()
+FNDA:1,System.Void CarePlusAPI.Controllers.BannerController/<Get>d__5::MoveNext()
+DA:57,1
+DA:58,1
+DA:60,1
+DA:61,1
+DA:63,1
+DA:65,1
+DA:67,0
+DA:68,0
+DA:69,0
+DA:71,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:76,1
+FN:88,System.Void CarePlusAPI.Controllers.BannerController/<GetById>d__6::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.BannerController/<GetById>d__6::MoveNext()
+DA:89,3
+DA:90,3
+DA:92,3
+DA:93,3
+DA:94,1
+DA:96,2
+DA:98,1
+DA:100,1
+DA:102,0
+DA:103,0
+DA:104,0
+DA:106,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:111,1
+BRDA:93,72,0,1
+BRDA:93,72,1,2
+FN:123,System.Void CarePlusAPI.Controllers.BannerController/<GetByArea>d__7::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Controllers.BannerController/<GetByArea>d__7::MoveNext()
+DA:124,0
+DA:125,0
+DA:127,0
+DA:128,0
+DA:129,0
+DA:131,0
+DA:133,0
+DA:135,0
+DA:137,0
+DA:138,0
+DA:139,0
+DA:141,0
+DA:142,0
+DA:143,0
+DA:144,0
+DA:146,0
+BRDA:128,74,0,0
+BRDA:128,74,1,0
+FN:158,System.Void CarePlusAPI.Controllers.BannerController/<Post>d__8::MoveNext()
+FNDA:8,System.Void CarePlusAPI.Controllers.BannerController/<Post>d__8::MoveNext()
+DA:159,8
+DA:160,8
+DA:162,8
+DA:163,1
+DA:165,7
+DA:166,7
+DA:168,7
+DA:170,7
+DA:172,7
+DA:175,7
+DA:176,7
+DA:177,7
+DA:178,7
+DA:179,7
+DA:180,7
+DA:182,7
+DA:183,7
+DA:184,7
+DA:185,7
+DA:186,7
+DA:189,7
+DA:191,7
+DA:193,7
+DA:195,6
+DA:197,1
+DA:198,1
+DA:199,1
+DA:201,1
+DA:202,0
+DA:203,0
+DA:204,0
+DA:206,1
+DA:207,1
+DA:208,1
+DA:209,1
+DA:211,7
+BRDA:162,67,0,1
+BRDA:162,67,1,7
+BRDA:189,722,0,0
+BRDA:189,722,1,7
+BRDA:201,967,0,0
+BRDA:201,967,1,1
+FN:223,System.Void CarePlusAPI.Controllers.BannerController/<Put>d__9::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Controllers.BannerController/<Put>d__9::MoveNext()
+DA:224,5
+DA:225,5
+DA:227,5
+DA:228,1
+DA:230,4
+DA:231,4
+DA:233,4
+DA:235,4
+DA:237,4
+DA:240,4
+DA:241,4
+DA:243,3
+DA:244,2
+DA:245,2
+DA:246,0
+DA:248,2
+DA:249,0
+DA:251,2
+DA:252,2
+DA:253,2
+DA:254,2
+DA:255,2
+DA:257,2
+DA:258,2
+DA:259,2
+DA:260,2
+DA:261,2
+DA:264,2
+DA:265,2
+DA:266,2
+DA:268,1
+DA:269,1
+DA:270,1
+DA:271,1
+DA:272,1
+DA:273,1
+DA:275,3
+DA:277,3
+DA:279,1
+DA:280,1
+DA:281,1
+DA:283,1
+DA:284,0
+DA:286,1
+DA:287,1
+DA:288,1
+DA:289,1
+DA:291,4
+BRDA:227,67,0,1
+BRDA:227,67,1,4
+BRDA:243,352,0,2
+BRDA:243,352,1,1
+BRDA:243,375,0,2
+BRDA:245,401,0,0
+BRDA:245,401,1,2
+BRDA:248,440,0,0
+BRDA:248,440,1,2
+BRDA:243,375,1,1
+BRDA:283,1410,0,0
+BRDA:283,1410,1,1
+FN:302,System.Void CarePlusAPI.Controllers.BannerController/<Delete>d__10::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.BannerController/<Delete>d__10::MoveNext()
+DA:303,3
+DA:304,3
+DA:307,3
+DA:308,3
+DA:309,1
+DA:312,2
+DA:313,2
+DA:315,1
+DA:316,0
+DA:318,1
+DA:319,0
+DA:320,1
+DA:321,0
+DA:322,0
+DA:324,0
+DA:327,1
+DA:329,1
+DA:332,0
+DA:333,0
+DA:334,0
+DA:336,0
+DA:337,0
+DA:338,0
+DA:339,0
+DA:341,1
+BRDA:308,84,0,1
+BRDA:308,84,1,2
+BRDA:315,263,0,0
+BRDA:315,263,1,1
+BRDA:318,302,0,0
+BRDA:318,302,1,1
+LF:167
+LH:119
+BRF:28
+BRH:19
+FNF:7
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Controllers\CategoriasController.cs
+FN:32,System.Void CarePlusAPI.Controllers.CategoriasController::.ctor(CarePlusAPI.Services.ICategoriasService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+FNDA:16,System.Void CarePlusAPI.Controllers.CategoriasController::.ctor(CarePlusAPI.Services.ICategoriasService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+DA:33,16
+DA:34,16
+DA:35,16
+DA:36,16
+DA:37,16
+DA:38,16
+DA:39,16
+DA:40,16
+DA:41,16
+DA:42,16
+FN:53,System.Void CarePlusAPI.Controllers.CategoriasController/<Get>d__4::MoveNext()
+FNDA:1,System.Void CarePlusAPI.Controllers.CategoriasController/<Get>d__4::MoveNext()
+DA:54,1
+DA:55,1
+DA:57,1
+DA:58,1
+DA:60,1
+DA:62,1
+DA:63,1
+DA:64,1
+DA:65,1
+DA:66,1
+DA:68,0
+DA:69,0
+DA:70,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:77,1
+FN:89,System.Void CarePlusAPI.Controllers.CategoriasController/<GetById>d__5::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.CategoriasController/<GetById>d__5::MoveNext()
+DA:90,3
+DA:91,3
+DA:93,3
+DA:94,3
+DA:95,1
+DA:97,2
+DA:99,1
+DA:101,1
+DA:103,2
+DA:104,2
+DA:105,2
+DA:107,2
+DA:108,2
+DA:109,2
+DA:110,2
+DA:112,3
+BRDA:94,72,0,1
+BRDA:94,72,1,2
+FN:124,System.Void CarePlusAPI.Controllers.CategoriasController/<Post>d__6::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Controllers.CategoriasController/<Post>d__6::MoveNext()
+DA:125,5
+DA:126,5
+DA:127,5
+DA:128,1
+DA:131,4
+DA:132,4
+DA:134,4
+DA:136,3
+DA:138,1
+DA:139,1
+DA:140,1
+DA:142,1
+DA:143,1
+DA:144,1
+DA:145,1
+DA:147,4
+BRDA:127,63,0,1
+BRDA:127,63,1,4
+FN:159,System.Void CarePlusAPI.Controllers.CategoriasController/<Put>d__7::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.CategoriasController/<Put>d__7::MoveNext()
+DA:160,3
+DA:161,3
+DA:163,3
+DA:164,1
+DA:167,2
+DA:169,2
+DA:171,1
+DA:173,1
+DA:175,1
+DA:177,1
+DA:178,1
+DA:179,1
+DA:181,1
+DA:182,1
+DA:183,1
+DA:184,1
+DA:186,2
+BRDA:163,64,0,1
+BRDA:163,64,1,2
+FN:197,System.Void CarePlusAPI.Controllers.CategoriasController/<Delete>d__8::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.CategoriasController/<Delete>d__8::MoveNext()
+DA:198,3
+DA:199,3
+DA:201,3
+DA:202,3
+DA:203,1
+DA:205,2
+DA:207,1
+DA:209,1
+DA:212,2
+DA:213,2
+DA:214,2
+DA:216,2
+DA:217,2
+DA:218,2
+DA:219,2
+DA:221,3
+BRDA:202,84,0,1
+BRDA:202,84,1,2
+LF:93
+LH:86
+BRF:8
+BRH:8
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Controllers\DashboardController.cs
+FN:30,System.Void CarePlusAPI.Controllers.DashboardController::.ctor(CarePlusAPI.Services.IDashboardService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+FNDA:12,System.Void CarePlusAPI.Controllers.DashboardController::.ctor(CarePlusAPI.Services.IDashboardService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+DA:31,12
+DA:32,12
+DA:33,12
+DA:34,12
+DA:35,12
+DA:36,12
+DA:37,12
+DA:38,12
+DA:39,12
+DA:40,12
+FN:51,System.Void CarePlusAPI.Controllers.DashboardController/<Get>d__4::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.DashboardController/<Get>d__4::MoveNext()
+DA:52,3
+DA:53,3
+DA:56,3
+DA:57,3
+DA:59,1
+DA:61,1
+DA:63,2
+DA:64,2
+DA:66,2
+DA:68,2
+DA:69,2
+DA:70,2
+DA:71,2
+DA:74,3
+FN:84,System.Void CarePlusAPI.Controllers.DashboardController/<GetBanners>d__5::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.DashboardController/<GetBanners>d__5::MoveNext()
+DA:85,3
+DA:86,3
+DA:89,3
+DA:90,3
+DA:92,1
+DA:94,2
+DA:95,2
+DA:97,2
+DA:99,2
+DA:100,2
+DA:101,2
+DA:102,2
+DA:105,3
+FN:115,System.Void CarePlusAPI.Controllers.DashboardController/<GetPosts>d__6::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Controllers.DashboardController/<GetPosts>d__6::MoveNext()
+DA:116,4
+DA:117,4
+DA:120,4
+DA:121,4
+DA:123,1
+DA:125,3
+DA:126,3
+DA:128,3
+DA:130,3
+DA:131,3
+DA:132,3
+DA:133,3
+DA:136,4
+FN:146,System.Void CarePlusAPI.Controllers.DashboardController/<GetUsuarios>d__7::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Controllers.DashboardController/<GetUsuarios>d__7::MoveNext()
+DA:147,2
+DA:148,2
+DA:151,2
+DA:152,2
+DA:154,1
+DA:156,1
+DA:157,1
+DA:159,1
+DA:161,1
+DA:162,1
+DA:163,1
+DA:164,1
+DA:166,2
+LF:63
+LH:63
+BRF:0
+BRH:0
+FNF:5
+FNH:5
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Controllers\NewsletterController.cs
+FN:32,System.Void CarePlusAPI.Controllers.NewsletterController::.ctor(CarePlusAPI.Services.INewsletterService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+FNDA:17,System.Void CarePlusAPI.Controllers.NewsletterController::.ctor(CarePlusAPI.Services.INewsletterService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+DA:33,17
+DA:34,17
+DA:35,17
+DA:36,17
+DA:37,17
+DA:38,17
+DA:39,17
+DA:40,17
+DA:41,17
+DA:42,17
+DA:43,17
+FN:54,System.Void CarePlusAPI.Controllers.NewsletterController/<Get>d__5::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Controllers.NewsletterController/<Get>d__5::MoveNext()
+DA:55,2
+DA:56,2
+DA:59,2
+DA:60,2
+DA:62,1
+DA:64,1
+DA:66,1
+DA:67,1
+DA:68,1
+DA:70,1
+DA:71,1
+DA:72,1
+DA:73,1
+DA:75,2
+FN:87,System.Void CarePlusAPI.Controllers.NewsletterController/<GetById>d__6::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.NewsletterController/<GetById>d__6::MoveNext()
+DA:88,3
+DA:89,3
+DA:92,3
+DA:93,3
+DA:94,1
+DA:96,2
+DA:98,1
+DA:100,1
+DA:102,2
+DA:103,2
+DA:105,2
+DA:107,2
+DA:108,2
+DA:109,2
+DA:110,2
+DA:112,3
+BRDA:93,72,0,1
+BRDA:93,72,1,2
+FN:124,System.Void CarePlusAPI.Controllers.NewsletterController/<Post>d__7::MoveNext()
+FNDA:5,System.Void CarePlusAPI.Controllers.NewsletterController/<Post>d__7::MoveNext()
+DA:125,5
+DA:126,5
+DA:129,5
+DA:130,5
+DA:131,1
+DA:133,4
+DA:135,4
+DA:137,3
+DA:139,2
+DA:140,2
+DA:142,2
+DA:144,2
+DA:145,2
+DA:146,2
+DA:147,2
+DA:149,5
+BRDA:130,75,0,1
+BRDA:130,75,1,4
+FN:161,System.Void CarePlusAPI.Controllers.NewsletterController/<Put>d__8::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.NewsletterController/<Put>d__8::MoveNext()
+DA:162,3
+DA:163,3
+DA:166,3
+DA:167,3
+DA:168,1
+DA:170,2
+DA:172,1
+DA:174,1
+DA:176,1
+DA:178,2
+DA:179,2
+DA:181,2
+DA:183,2
+DA:184,2
+DA:185,2
+DA:186,2
+DA:188,3
+BRDA:167,84,0,1
+BRDA:167,84,1,2
+FN:199,System.Void CarePlusAPI.Controllers.NewsletterController/<Delete>d__9::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.NewsletterController/<Delete>d__9::MoveNext()
+DA:200,3
+DA:201,3
+DA:204,3
+DA:205,3
+DA:206,1
+DA:208,2
+DA:210,1
+DA:212,1
+DA:214,2
+DA:215,2
+DA:216,2
+DA:218,2
+DA:219,2
+DA:220,2
+DA:221,2
+DA:223,3
+BRDA:205,84,0,1
+BRDA:205,84,1,2
+LF:90
+LH:90
+BRF:8
+BRH:8
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Controllers\PerfilController.cs
+FN:34,System.Void CarePlusAPI.Controllers.PerfilController::.ctor(CarePlusAPI.Services.IPerfilService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+FNDA:14,System.Void CarePlusAPI.Controllers.PerfilController::.ctor(CarePlusAPI.Services.IPerfilService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+DA:35,14
+DA:36,14
+DA:37,14
+DA:38,14
+DA:39,14
+DA:40,14
+DA:41,14
+DA:42,14
+DA:43,14
+DA:44,14
+FN:55,System.Void CarePlusAPI.Controllers.PerfilController/<Get>d__5::MoveNext()
+FNDA:1,System.Void CarePlusAPI.Controllers.PerfilController/<Get>d__5::MoveNext()
+DA:56,1
+DA:57,1
+DA:60,1
+DA:61,1
+DA:63,1
+DA:65,1
+DA:67,0
+DA:68,0
+DA:69,0
+DA:71,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:76,1
+FN:88,System.Void CarePlusAPI.Controllers.PerfilController/<GetById>d__6::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.PerfilController/<GetById>d__6::MoveNext()
+DA:89,3
+DA:90,3
+DA:93,3
+DA:94,3
+DA:95,1
+DA:97,2
+DA:99,1
+DA:101,1
+DA:103,2
+DA:104,2
+DA:105,2
+DA:107,2
+DA:108,2
+DA:109,2
+DA:110,2
+DA:112,3
+BRDA:94,72,0,1
+BRDA:94,72,1,2
+FN:124,System.Void CarePlusAPI.Controllers.PerfilController/<Post>d__7::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.PerfilController/<Post>d__7::MoveNext()
+DA:125,3
+DA:126,3
+DA:129,3
+DA:130,3
+DA:131,2
+DA:133,1
+DA:135,1
+DA:137,1
+DA:139,2
+DA:140,2
+DA:141,2
+DA:143,2
+DA:144,2
+DA:145,2
+DA:146,2
+DA:148,3
+BRDA:130,70,0,2
+BRDA:130,70,1,1
+BRDA:130,91,0,2
+BRDA:130,91,1,1
+FN:160,System.Void CarePlusAPI.Controllers.PerfilController/<Put>d__8::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.PerfilController/<Put>d__8::MoveNext()
+DA:161,3
+DA:162,3
+DA:165,3
+DA:166,3
+DA:167,2
+DA:169,1
+DA:171,1
+DA:173,1
+DA:175,2
+DA:176,2
+DA:177,2
+DA:179,2
+DA:180,2
+DA:181,2
+DA:182,2
+DA:184,3
+BRDA:166,70,0,2
+BRDA:166,70,1,1
+BRDA:166,91,0,2
+BRDA:166,91,1,1
+FN:195,System.Void CarePlusAPI.Controllers.PerfilController/<Delete>d__9::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.PerfilController/<Delete>d__9::MoveNext()
+DA:196,3
+DA:197,3
+DA:200,3
+DA:201,3
+DA:202,1
+DA:204,2
+DA:206,1
+DA:208,2
+DA:209,2
+DA:210,2
+DA:212,2
+DA:213,2
+DA:214,2
+DA:215,2
+DA:217,3
+BRDA:201,72,0,1
+BRDA:201,72,1,2
+LF:87
+LH:80
+BRF:12
+BRH:12
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Controllers\PostController.cs
+FN:36,System.Void CarePlusAPI.Controllers.PostController::.ctor(CarePlusAPI.Services.IPostService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+FNDA:12,System.Void CarePlusAPI.Controllers.PostController::.ctor(CarePlusAPI.Services.IPostService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+DA:37,12
+DA:38,12
+DA:39,12
+DA:40,12
+DA:41,12
+DA:42,12
+DA:43,12
+DA:44,12
+DA:45,12
+DA:46,12
+DA:47,12
+FN:58,System.Void CarePlusAPI.Controllers.PostController/<Get>d__5::MoveNext()
+FNDA:1,System.Void CarePlusAPI.Controllers.PostController/<Get>d__5::MoveNext()
+DA:59,1
+DA:60,1
+DA:62,1
+DA:63,1
+DA:65,1
+DA:67,1
+DA:68,1
+DA:69,1
+DA:70,1
+DA:71,1
+DA:73,0
+DA:74,0
+DA:75,0
+DA:77,0
+DA:78,0
+DA:79,0
+DA:80,0
+DA:82,1
+FN:93,System.Void CarePlusAPI.Controllers.PostController/<GetMostsRead>d__6::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Controllers.PostController/<GetMostsRead>d__6::MoveNext()
+DA:94,0
+DA:95,0
+DA:97,0
+DA:98,0
+DA:100,0
+DA:102,0
+DA:103,0
+DA:104,0
+DA:105,0
+DA:106,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:112,0
+DA:113,0
+DA:114,0
+DA:115,0
+DA:117,0
+FN:129,System.Void CarePlusAPI.Controllers.PostController/<GetBySlug>d__7::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Controllers.PostController/<GetBySlug>d__7::MoveNext()
+DA:130,0
+DA:131,0
+DA:133,0
+DA:134,0
+DA:135,0
+DA:137,0
+DA:139,0
+DA:141,0
+DA:143,0
+DA:144,0
+DA:145,0
+DA:147,0
+DA:148,0
+DA:149,0
+DA:150,0
+DA:152,0
+BRDA:134,74,0,0
+BRDA:134,74,1,0
+FN:164,System.Void CarePlusAPI.Controllers.PostController/<GetBySlugHit>d__8::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Controllers.PostController/<GetBySlugHit>d__8::MoveNext()
+DA:165,0
+DA:166,0
+DA:169,0
+DA:170,0
+DA:171,0
+DA:173,0
+DA:175,0
+DA:177,0
+DA:179,0
+DA:180,0
+DA:182,0
+DA:184,0
+DA:185,0
+DA:186,0
+DA:187,0
+DA:189,0
+BRDA:170,74,0,0
+BRDA:170,74,1,0
+FN:202,System.Void CarePlusAPI.Controllers.PostController/<GetByCategory>d__9::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Controllers.PostController/<GetByCategory>d__9::MoveNext()
+DA:203,0
+DA:204,0
+DA:207,0
+DA:208,0
+DA:209,0
+DA:211,0
+DA:213,0
+DA:215,0
+DA:216,0
+DA:217,0
+DA:218,0
+DA:219,0
+DA:221,0
+DA:222,0
+DA:223,0
+DA:225,0
+DA:226,0
+DA:227,0
+DA:228,0
+DA:230,0
+BRDA:208,72,0,0
+BRDA:208,72,1,0
+FN:242,System.Void CarePlusAPI.Controllers.PostController/<GetByTerm>d__10::MoveNext()
+FNDA:0,System.Void CarePlusAPI.Controllers.PostController/<GetByTerm>d__10::MoveNext()
+DA:243,0
+DA:244,0
+DA:247,0
+DA:248,0
+DA:249,0
+DA:251,0
+DA:253,0
+DA:254,0
+DA:255,0
+DA:256,0
+DA:257,0
+DA:259,0
+DA:260,0
+DA:261,0
+DA:263,0
+DA:264,0
+DA:265,0
+DA:266,0
+DA:268,0
+BRDA:248,74,0,0
+BRDA:248,74,1,0
+FN:280,System.Void CarePlusAPI.Controllers.PostController/<Upload>d__11::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Controllers.PostController/<Upload>d__11::MoveNext()
+DA:281,2
+DA:282,2
+DA:284,2
+DA:285,1
+DA:287,1
+DA:288,1
+DA:289,1
+DA:292,1
+DA:293,1
+DA:294,1
+DA:296,1
+DA:297,1
+DA:298,1
+DA:299,1
+DA:300,1
+DA:302,1
+DA:303,1
+DA:304,1
+DA:305,1
+DA:306,1
+DA:308,1
+DA:310,0
+DA:311,0
+DA:312,0
+DA:314,0
+DA:315,0
+DA:317,0
+DA:318,0
+DA:319,0
+DA:320,0
+DA:322,1
+BRDA:284,63,0,1
+BRDA:284,63,1,1
+BRDA:296,182,0,1
+BRDA:296,182,1,1
+BRDA:314,568,0,0
+BRDA:314,568,1,0
+FN:334,System.Void CarePlusAPI.Controllers.PostController/<Post>d__12::MoveNext()
+FNDA:4,System.Void CarePlusAPI.Controllers.PostController/<Post>d__12::MoveNext()
+DA:335,4
+DA:336,4
+DA:338,4
+DA:339,0
+DA:341,4
+DA:342,4
+DA:345,4
+DA:347,4
+DA:348,3
+DA:349,3
+DA:350,3
+DA:351,3
+DA:353,2
+DA:354,2
+DA:355,2
+DA:356,2
+DA:358,2
+DA:359,2
+DA:360,2
+DA:361,2
+DA:362,2
+DA:364,2
+DA:365,2
+DA:366,2
+DA:368,3
+DA:370,3
+DA:372,3
+DA:374,1
+DA:375,1
+DA:376,1
+DA:378,1
+DA:379,0
+DA:381,1
+DA:382,1
+DA:383,1
+DA:384,1
+DA:386,4
+BRDA:338,64,0,0
+BRDA:338,64,1,4
+BRDA:347,138,0,3
+BRDA:353,224,0,2
+BRDA:353,224,1,2
+BRDA:347,138,1,3
+BRDA:378,821,0,0
+BRDA:378,821,1,1
+FN:398,System.Void CarePlusAPI.Controllers.PostController/<Put>d__13::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.PostController/<Put>d__13::MoveNext()
+DA:399,3
+DA:400,3
+DA:402,3
+DA:403,0
+DA:405,3
+DA:406,3
+DA:409,3
+DA:410,3
+DA:412,2
+DA:413,1
+DA:414,1
+DA:415,1
+DA:416,1
+DA:418,1
+DA:419,1
+DA:420,1
+DA:421,1
+DA:423,1
+DA:424,1
+DA:425,1
+DA:426,1
+DA:427,1
+DA:429,1
+DA:430,1
+DA:431,1
+DA:433,1
+DA:434,1
+DA:435,1
+DA:436,1
+DA:438,2
+DA:440,2
+DA:442,2
+DA:444,1
+DA:445,1
+DA:446,1
+DA:448,1
+DA:449,0
+DA:451,1
+DA:452,1
+DA:453,1
+DA:454,1
+DA:456,3
+BRDA:402,64,0,0
+BRDA:402,64,1,3
+BRDA:412,293,0,1
+BRDA:418,379,0,1
+BRDA:418,379,1,1
+BRDA:412,293,1,1
+BRDA:448,1027,0,0
+BRDA:448,1027,1,1
+FN:467,System.Void CarePlusAPI.Controllers.PostController/<Delete>d__14::MoveNext()
+FNDA:2,System.Void CarePlusAPI.Controllers.PostController/<Delete>d__14::MoveNext()
+DA:468,2
+DA:469,2
+DA:471,2
+DA:472,2
+DA:473,0
+DA:475,2
+DA:477,1
+DA:478,1
+DA:480,1
+DA:482,1
+DA:484,0
+DA:485,0
+DA:486,0
+DA:488,0
+DA:489,0
+DA:490,0
+DA:491,0
+DA:493,1
+BRDA:472,86,0,0
+BRDA:472,86,1,2
+BRDA:477,256,0,1
+BRDA:477,256,1,1
+LF:246
+LH:129
+BRF:34
+BRH:19
+FNF:11
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Controllers\TagController.cs
+FN:33,System.Void CarePlusAPI.Controllers.TagController::.ctor(CarePlusAPI.Services.ITagService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+FNDA:14,System.Void CarePlusAPI.Controllers.TagController::.ctor(CarePlusAPI.Services.ITagService,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions`1<CarePlusAPI.Helpers.AppSettings>)
+DA:34,14
+DA:35,14
+DA:36,14
+DA:37,14
+DA:38,14
+DA:39,14
+DA:40,14
+DA:41,14
+DA:42,14
+DA:43,14
+DA:44,14
+FN:55,System.Void CarePlusAPI.Controllers.TagController/<Get>d__5::MoveNext()
+FNDA:1,System.Void CarePlusAPI.Controllers.TagController/<Get>d__5::MoveNext()
+DA:56,1
+DA:57,1
+DA:60,1
+DA:61,1
+DA:63,1
+DA:65,1
+DA:66,1
+DA:67,1
+DA:68,1
+DA:69,1
+DA:71,0
+DA:72,0
+DA:73,0
+DA:75,0
+DA:76,0
+DA:77,0
+DA:78,0
+DA:80,1
+FN:92,System.Void CarePlusAPI.Controllers.TagController/<GetById>d__6::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.TagController/<GetById>d__6::MoveNext()
+DA:93,3
+DA:94,3
+DA:97,3
+DA:98,3
+DA:99,1
+DA:101,2
+DA:103,1
+DA:105,1
+DA:107,2
+DA:108,2
+DA:109,2
+DA:111,2
+DA:112,2
+DA:113,2
+DA:114,2
+DA:116,3
+BRDA:98,72,0,1
+BRDA:98,72,1,2
+FN:128,System.Void CarePlusAPI.Controllers.TagController/<Post>d__7::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.TagController/<Post>d__7::MoveNext()
+DA:129,3
+DA:130,3
+DA:133,3
+DA:134,3
+DA:135,2
+DA:137,1
+DA:139,1
+DA:141,1
+DA:143,2
+DA:144,2
+DA:145,2
+DA:147,2
+DA:148,2
+DA:149,2
+DA:150,2
+DA:152,3
+BRDA:134,70,0,2
+BRDA:134,70,1,1
+BRDA:134,91,0,2
+BRDA:134,91,1,1
+FN:164,System.Void CarePlusAPI.Controllers.TagController/<Put>d__8::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.TagController/<Put>d__8::MoveNext()
+DA:165,3
+DA:166,3
+DA:169,3
+DA:170,3
+DA:171,2
+DA:173,1
+DA:175,1
+DA:177,1
+DA:179,2
+DA:180,2
+DA:181,2
+DA:183,2
+DA:184,2
+DA:185,2
+DA:186,2
+DA:188,3
+BRDA:170,70,0,2
+BRDA:170,70,1,1
+BRDA:170,91,0,2
+BRDA:170,91,1,1
+FN:199,System.Void CarePlusAPI.Controllers.TagController/<Delete>d__9::MoveNext()
+FNDA:3,System.Void CarePlusAPI.Controllers.TagController/<Delete>d__9::MoveNext()
+DA:200,3
+DA:201,3
+DA:204,3
+DA:205,3
+DA:206,1
+DA:208,2
+DA:210,1
+DA:212,2
+DA:213,2
+DA:214,2
+DA:216,2
+DA:217,2
+DA:218,2
+DA:219,2
+DA:221,3
+BRDA:205,72,0,1
+BRDA:205,72,1,2
+LF:92
+LH:85
+BRF:12
+BRH:12
+FNF:6
+FNH:6
+end_of_record
+SF:D:\Projetos\SONAR\CR-API-SonarQube\CarePlusAPI\Connected Services\CarePlusHomolog\Reference.cs
+FN:50,CarePlusHomolog.WebServiceOrigem CarePlusHomolog.WSTokenOrigem::get_Origem()
+FNDA:14,CarePlusHomolog.WebServiceOrigem CarePlusHomolog.WSTokenOrigem::get_Origem()
+DA:51,14
+DA:52,14
+DA:53,14
+FN:54,System.Void CarePlusHomolog.WSTokenOrigem::set_Origem(CarePlusHomolog.WebServiceOrigem)
+FNDA:22,System.Void CarePlusHomolog.WSTokenOrigem::set_Origem(CarePlusHomolog.WebServiceOrigem)
+DA:55,22
+DA:56,22
+DA:57,22
+FN:63,System.String CarePlusHomolog.WSTokenOrigem::get_Token()
+FNDA:14,System.String CarePlusHomolog.WSTokenOrigem::get_Token()
+DA:64,14
+DA:65,14
+DA:66,14
+FN:67,System.Void CarePlusHomolog.WSTokenOrigem::set_Token(System.String)
+FNDA:22,System.Void CarePlusHomolog.WSTokenOrigem::set_Token(System.String)
+DA:68,22
+DA:69,22
+DA:70,22
+FN:109,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSOuvidoria::get_Anexo()
+FNDA:0,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSOuvidoria::get_Anexo()
+DA:110,0
+DA:111,0
+DA:112,0
+FN:113,System.Void CarePlusHomolog.WSOuvidoria::set_Anexo(CarePlusHomolog.AnexoByte[])
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_Anexo(CarePlusHomolog.AnexoByte[])
+DA:114,0
+DA:115,0
+DA:116,0
+FN:122,System.Int64 CarePlusHomolog.WSOuvidoria::get_CPF()
+FNDA:0,System.Int64 CarePlusHomolog.WSOuvidoria::get_CPF()
+DA:123,0
+DA:124,0
+DA:125,0
+FN:126,System.Void CarePlusHomolog.WSOuvidoria::set_CPF(System.Int64)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_CPF(System.Int64)
+DA:127,0
+DA:128,0
+DA:129,0
+FN:135,System.String CarePlusHomolog.WSOuvidoria::get_Certificado()
+FNDA:0,System.String CarePlusHomolog.WSOuvidoria::get_Certificado()
+DA:136,0
+DA:137,0
+DA:138,0
+FN:139,System.Void CarePlusHomolog.WSOuvidoria::set_Certificado(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_Certificado(System.String)
+DA:140,0
+DA:141,0
+DA:142,0
+FN:148,System.Int32 CarePlusHomolog.WSOuvidoria::get_DDDTelefoneCelular()
+FNDA:0,System.Int32 CarePlusHomolog.WSOuvidoria::get_DDDTelefoneCelular()
+DA:149,0
+DA:150,0
+DA:151,0
+FN:152,System.Void CarePlusHomolog.WSOuvidoria::set_DDDTelefoneCelular(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_DDDTelefoneCelular(System.Int32)
+DA:153,0
+DA:154,0
+DA:155,0
+FN:161,System.Int32 CarePlusHomolog.WSOuvidoria::get_DDDTelefoneResidencial()
+FNDA:0,System.Int32 CarePlusHomolog.WSOuvidoria::get_DDDTelefoneResidencial()
+DA:162,0
+DA:163,0
+DA:164,0
+FN:165,System.Void CarePlusHomolog.WSOuvidoria::set_DDDTelefoneResidencial(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_DDDTelefoneResidencial(System.Int32)
+DA:166,0
+DA:167,0
+DA:168,0
+FN:174,System.String CarePlusHomolog.WSOuvidoria::get_Email()
+FNDA:0,System.String CarePlusHomolog.WSOuvidoria::get_Email()
+DA:175,0
+DA:176,0
+DA:177,0
+FN:178,System.Void CarePlusHomolog.WSOuvidoria::set_Email(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_Email(System.String)
+DA:179,0
+DA:180,0
+DA:181,0
+FN:187,System.Int32 CarePlusHomolog.WSOuvidoria::get_IdAssunto()
+FNDA:0,System.Int32 CarePlusHomolog.WSOuvidoria::get_IdAssunto()
+DA:188,0
+DA:189,0
+DA:190,0
+FN:191,System.Void CarePlusHomolog.WSOuvidoria::set_IdAssunto(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_IdAssunto(System.Int32)
+DA:192,0
+DA:193,0
+DA:194,0
+FN:200,System.Int32 CarePlusHomolog.WSOuvidoria::get_IdClassificacao()
+FNDA:0,System.Int32 CarePlusHomolog.WSOuvidoria::get_IdClassificacao()
+DA:201,0
+DA:202,0
+DA:203,0
+FN:204,System.Void CarePlusHomolog.WSOuvidoria::set_IdClassificacao(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_IdClassificacao(System.Int32)
+DA:205,0
+DA:206,0
+DA:207,0
+FN:213,System.String CarePlusHomolog.WSOuvidoria::get_Mensagem()
+FNDA:0,System.String CarePlusHomolog.WSOuvidoria::get_Mensagem()
+DA:214,0
+DA:215,0
+DA:216,0
+FN:217,System.Void CarePlusHomolog.WSOuvidoria::set_Mensagem(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_Mensagem(System.String)
+DA:218,0
+DA:219,0
+DA:220,0
+FN:226,System.String CarePlusHomolog.WSOuvidoria::get_Nome()
+FNDA:0,System.String CarePlusHomolog.WSOuvidoria::get_Nome()
+DA:227,0
+DA:228,0
+DA:229,0
+FN:230,System.Void CarePlusHomolog.WSOuvidoria::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_Nome(System.String)
+DA:231,0
+DA:232,0
+DA:233,0
+FN:239,System.String CarePlusHomolog.WSOuvidoria::get_ProtocoloAtendimento()
+FNDA:0,System.String CarePlusHomolog.WSOuvidoria::get_ProtocoloAtendimento()
+DA:240,0
+DA:241,0
+DA:242,0
+FN:243,System.Void CarePlusHomolog.WSOuvidoria::set_ProtocoloAtendimento(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_ProtocoloAtendimento(System.String)
+DA:244,0
+DA:245,0
+DA:246,0
+FN:252,System.Int32 CarePlusHomolog.WSOuvidoria::get_TelefoneCelular()
+FNDA:0,System.Int32 CarePlusHomolog.WSOuvidoria::get_TelefoneCelular()
+DA:253,0
+DA:254,0
+DA:255,0
+FN:256,System.Void CarePlusHomolog.WSOuvidoria::set_TelefoneCelular(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_TelefoneCelular(System.Int32)
+DA:257,0
+DA:258,0
+DA:259,0
+FN:265,System.Int32 CarePlusHomolog.WSOuvidoria::get_TelefoneResidencial()
+FNDA:0,System.Int32 CarePlusHomolog.WSOuvidoria::get_TelefoneResidencial()
+DA:266,0
+DA:267,0
+DA:268,0
+FN:269,System.Void CarePlusHomolog.WSOuvidoria::set_TelefoneResidencial(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSOuvidoria::set_TelefoneResidencial(System.Int32)
+DA:270,0
+DA:271,0
+DA:272,0
+FN:289,System.Boolean CarePlusHomolog.WSFiltroSalvarAtendimento::get_AtendimentoAssistenteVirtual()
+FNDA:0,System.Boolean CarePlusHomolog.WSFiltroSalvarAtendimento::get_AtendimentoAssistenteVirtual()
+DA:290,0
+DA:291,0
+DA:292,0
+FN:293,System.Void CarePlusHomolog.WSFiltroSalvarAtendimento::set_AtendimentoAssistenteVirtual(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroSalvarAtendimento::set_AtendimentoAssistenteVirtual(System.Boolean)
+DA:294,0
+DA:295,0
+DA:296,0
+FN:302,System.String CarePlusHomolog.WSFiltroSalvarAtendimento::get_XML()
+FNDA:0,System.String CarePlusHomolog.WSFiltroSalvarAtendimento::get_XML()
+DA:303,0
+DA:304,0
+DA:305,0
+FN:306,System.Void CarePlusHomolog.WSFiltroSalvarAtendimento::set_XML(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroSalvarAtendimento::set_XML(System.String)
+DA:307,0
+DA:308,0
+DA:309,0
+FN:324,System.String CarePlusHomolog.WSFiltroInfoAtendimento::get_Protocolo()
+FNDA:0,System.String CarePlusHomolog.WSFiltroInfoAtendimento::get_Protocolo()
+DA:325,0
+DA:326,0
+DA:327,0
+FN:328,System.Void CarePlusHomolog.WSFiltroInfoAtendimento::set_Protocolo(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroInfoAtendimento::set_Protocolo(System.String)
+DA:329,0
+DA:330,0
+DA:331,0
+FN:356,System.Int32 CarePlusHomolog.WSFiltroAutorizacaoChat::get_CodSeg()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroAutorizacaoChat::get_CodSeg()
+DA:357,0
+DA:358,0
+DA:359,0
+FN:360,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_CodSeg(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_CodSeg(System.Int32)
+DA:361,0
+DA:362,0
+DA:363,0
+FN:369,System.Int32 CarePlusHomolog.WSFiltroAutorizacaoChat::get_CodSeq()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroAutorizacaoChat::get_CodSeq()
+DA:370,0
+DA:371,0
+DA:372,0
+FN:373,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_CodSeq(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_CodSeq(System.Int32)
+DA:374,0
+DA:375,0
+DA:376,0
+FN:382,System.Int32 CarePlusHomolog.WSFiltroAutorizacaoChat::get_CodSub()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroAutorizacaoChat::get_CodSub()
+DA:383,0
+DA:384,0
+DA:385,0
+FN:386,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_CodSub(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_CodSub(System.Int32)
+DA:387,0
+DA:388,0
+DA:389,0
+FN:395,System.DateTime CarePlusHomolog.WSFiltroAutorizacaoChat::get_DataFinal()
+FNDA:0,System.DateTime CarePlusHomolog.WSFiltroAutorizacaoChat::get_DataFinal()
+DA:396,0
+DA:397,0
+DA:398,0
+FN:399,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_DataFinal(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_DataFinal(System.DateTime)
+DA:400,0
+DA:401,0
+DA:402,0
+FN:408,System.DateTime CarePlusHomolog.WSFiltroAutorizacaoChat::get_DataInicial()
+FNDA:0,System.DateTime CarePlusHomolog.WSFiltroAutorizacaoChat::get_DataInicial()
+DA:409,0
+DA:410,0
+DA:411,0
+FN:412,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_DataInicial(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_DataInicial(System.DateTime)
+DA:413,0
+DA:414,0
+DA:415,0
+FN:421,CarePlusHomolog.AutorizacaoChatTipo CarePlusHomolog.WSFiltroAutorizacaoChat::get_Tipo()
+FNDA:0,CarePlusHomolog.AutorizacaoChatTipo CarePlusHomolog.WSFiltroAutorizacaoChat::get_Tipo()
+DA:422,0
+DA:423,0
+DA:424,0
+FN:425,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_Tipo(CarePlusHomolog.AutorizacaoChatTipo)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoChat::set_Tipo(CarePlusHomolog.AutorizacaoChatTipo)
+DA:426,0
+DA:427,0
+DA:428,0
+FN:453,System.Int32 CarePlusHomolog.WSFiltroReembolsoChat::get_CodSeg()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroReembolsoChat::get_CodSeg()
+DA:454,0
+DA:455,0
+DA:456,0
+FN:457,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_CodSeg(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_CodSeg(System.Int32)
+DA:458,0
+DA:459,0
+DA:460,0
+FN:466,System.Int32 CarePlusHomolog.WSFiltroReembolsoChat::get_CodSeq()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroReembolsoChat::get_CodSeq()
+DA:467,0
+DA:468,0
+DA:469,0
+FN:470,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_CodSeq(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_CodSeq(System.Int32)
+DA:471,0
+DA:472,0
+DA:473,0
+FN:479,System.Int32 CarePlusHomolog.WSFiltroReembolsoChat::get_CodSub()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroReembolsoChat::get_CodSub()
+DA:480,0
+DA:481,0
+DA:482,0
+FN:483,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_CodSub(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_CodSub(System.Int32)
+DA:484,0
+DA:485,0
+DA:486,0
+FN:492,System.DateTime CarePlusHomolog.WSFiltroReembolsoChat::get_DataFinal()
+FNDA:0,System.DateTime CarePlusHomolog.WSFiltroReembolsoChat::get_DataFinal()
+DA:493,0
+DA:494,0
+DA:495,0
+FN:496,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_DataFinal(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_DataFinal(System.DateTime)
+DA:497,0
+DA:498,0
+DA:499,0
+FN:505,System.DateTime CarePlusHomolog.WSFiltroReembolsoChat::get_DataInicial()
+FNDA:0,System.DateTime CarePlusHomolog.WSFiltroReembolsoChat::get_DataInicial()
+DA:506,0
+DA:507,0
+DA:508,0
+FN:509,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_DataInicial(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_DataInicial(System.DateTime)
+DA:510,0
+DA:511,0
+DA:512,0
+FN:518,CarePlusHomolog.ReembolsoChatTipo CarePlusHomolog.WSFiltroReembolsoChat::get_Tipo()
+FNDA:0,CarePlusHomolog.ReembolsoChatTipo CarePlusHomolog.WSFiltroReembolsoChat::get_Tipo()
+DA:519,0
+DA:520,0
+DA:521,0
+FN:522,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_Tipo(CarePlusHomolog.ReembolsoChatTipo)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroReembolsoChat::set_Tipo(CarePlusHomolog.ReembolsoChatTipo)
+DA:523,0
+DA:524,0
+DA:525,0
+FN:542,System.String CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::get_Login()
+FNDA:0,System.String CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::get_Login()
+DA:543,0
+DA:544,0
+DA:545,0
+FN:546,System.Void CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::set_Login(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::set_Login(System.String)
+DA:547,0
+DA:548,0
+DA:549,0
+FN:555,System.String CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::get_Protocolo()
+FNDA:0,System.String CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::get_Protocolo()
+DA:556,0
+DA:557,0
+DA:558,0
+FN:559,System.Void CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::set_Protocolo(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAtribuirAtendimentoChat::set_Protocolo(System.String)
+DA:560,0
+DA:561,0
+DA:562,0
+FN:583,System.Int32 CarePlusHomolog.WSFiltroChat::get_CodSeg()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroChat::get_CodSeg()
+DA:584,0
+DA:585,0
+DA:586,0
+FN:587,System.Void CarePlusHomolog.WSFiltroChat::set_CodSeg(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroChat::set_CodSeg(System.Int32)
+DA:588,0
+DA:589,0
+DA:590,0
+FN:596,System.Int32 CarePlusHomolog.WSFiltroChat::get_CodSeq()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroChat::get_CodSeq()
+DA:597,0
+DA:598,0
+DA:599,0
+FN:600,System.Void CarePlusHomolog.WSFiltroChat::set_CodSeq(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroChat::set_CodSeq(System.Int32)
+DA:601,0
+DA:602,0
+DA:603,0
+FN:609,System.Int32 CarePlusHomolog.WSFiltroChat::get_CodSub()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroChat::get_CodSub()
+DA:610,0
+DA:611,0
+DA:612,0
+FN:613,System.Void CarePlusHomolog.WSFiltroChat::set_CodSub(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroChat::set_CodSub(System.Int32)
+DA:614,0
+DA:615,0
+DA:616,0
+FN:622,System.String CarePlusHomolog.WSFiltroChat::get_Protocolo()
+FNDA:0,System.String CarePlusHomolog.WSFiltroChat::get_Protocolo()
+DA:623,0
+DA:624,0
+DA:625,0
+FN:626,System.Void CarePlusHomolog.WSFiltroChat::set_Protocolo(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroChat::set_Protocolo(System.String)
+DA:627,0
+DA:628,0
+DA:629,0
+FN:654,System.Int32 CarePlusHomolog.WSFiltroPreviaChat::get_CodSeg()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroPreviaChat::get_CodSeg()
+DA:655,0
+DA:656,0
+DA:657,0
+FN:658,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_CodSeg(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_CodSeg(System.Int32)
+DA:659,0
+DA:660,0
+DA:661,0
+FN:667,System.Int32 CarePlusHomolog.WSFiltroPreviaChat::get_CodSeq()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroPreviaChat::get_CodSeq()
+DA:668,0
+DA:669,0
+DA:670,0
+FN:671,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_CodSeq(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_CodSeq(System.Int32)
+DA:672,0
+DA:673,0
+DA:674,0
+FN:680,System.Int32 CarePlusHomolog.WSFiltroPreviaChat::get_CodSub()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroPreviaChat::get_CodSub()
+DA:681,0
+DA:682,0
+DA:683,0
+FN:684,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_CodSub(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_CodSub(System.Int32)
+DA:685,0
+DA:686,0
+DA:687,0
+FN:693,System.DateTime CarePlusHomolog.WSFiltroPreviaChat::get_DataFinal()
+FNDA:0,System.DateTime CarePlusHomolog.WSFiltroPreviaChat::get_DataFinal()
+DA:694,0
+DA:695,0
+DA:696,0
+FN:697,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_DataFinal(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_DataFinal(System.DateTime)
+DA:698,0
+DA:699,0
+DA:700,0
+FN:706,System.DateTime CarePlusHomolog.WSFiltroPreviaChat::get_DataInicial()
+FNDA:0,System.DateTime CarePlusHomolog.WSFiltroPreviaChat::get_DataInicial()
+DA:707,0
+DA:708,0
+DA:709,0
+FN:710,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_DataInicial(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_DataInicial(System.DateTime)
+DA:711,0
+DA:712,0
+DA:713,0
+FN:719,CarePlusHomolog.PreviaChatTipo CarePlusHomolog.WSFiltroPreviaChat::get_Tipo()
+FNDA:0,CarePlusHomolog.PreviaChatTipo CarePlusHomolog.WSFiltroPreviaChat::get_Tipo()
+DA:720,0
+DA:721,0
+DA:722,0
+FN:723,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_Tipo(CarePlusHomolog.PreviaChatTipo)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroPreviaChat::set_Tipo(CarePlusHomolog.PreviaChatTipo)
+DA:724,0
+DA:725,0
+DA:726,0
+FN:769,System.Int32 CarePlusHomolog.WSFiltroFaleConosco::get_Assunto()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroFaleConosco::get_Assunto()
+DA:770,0
+DA:771,0
+DA:772,0
+FN:773,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Assunto(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Assunto(System.Int32)
+DA:774,0
+DA:775,0
+DA:776,0
+FN:782,System.String CarePlusHomolog.WSFiltroFaleConosco::get_CPFCNPJ()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_CPFCNPJ()
+DA:783,0
+DA:784,0
+DA:785,0
+FN:786,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_CPFCNPJ(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_CPFCNPJ(System.String)
+DA:787,0
+DA:788,0
+DA:789,0
+FN:795,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Certificado()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Certificado()
+DA:796,0
+DA:797,0
+DA:798,0
+FN:799,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Certificado(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Certificado(System.String)
+DA:800,0
+DA:801,0
+DA:802,0
+FN:808,System.Int32 CarePlusHomolog.WSFiltroFaleConosco::get_CodigoCarePlus()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroFaleConosco::get_CodigoCarePlus()
+DA:809,0
+DA:810,0
+DA:811,0
+FN:812,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_CodigoCarePlus(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_CodigoCarePlus(System.Int32)
+DA:813,0
+DA:814,0
+DA:815,0
+FN:821,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Comentario()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Comentario()
+DA:822,0
+DA:823,0
+DA:824,0
+FN:825,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Comentario(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Comentario(System.String)
+DA:826,0
+DA:827,0
+DA:828,0
+FN:834,System.String CarePlusHomolog.WSFiltroFaleConosco::get_DDDTelefone1()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_DDDTelefone1()
+DA:835,0
+DA:836,0
+DA:837,0
+FN:838,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_DDDTelefone1(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_DDDTelefone1(System.String)
+DA:839,0
+DA:840,0
+DA:841,0
+FN:847,System.String CarePlusHomolog.WSFiltroFaleConosco::get_DDDTelefone2()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_DDDTelefone2()
+DA:848,0
+DA:849,0
+DA:850,0
+FN:851,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_DDDTelefone2(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_DDDTelefone2(System.String)
+DA:852,0
+DA:853,0
+DA:854,0
+FN:860,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Email()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Email()
+DA:861,0
+DA:862,0
+DA:863,0
+FN:864,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Email(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Email(System.String)
+DA:865,0
+DA:866,0
+DA:867,0
+FN:873,System.Int32 CarePlusHomolog.WSFiltroFaleConosco::get_IdTipo()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroFaleConosco::get_IdTipo()
+DA:874,0
+DA:875,0
+DA:876,0
+FN:877,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_IdTipo(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_IdTipo(System.Int32)
+DA:878,0
+DA:879,0
+DA:880,0
+FN:886,System.String CarePlusHomolog.WSFiltroFaleConosco::get_NomeContato()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_NomeContato()
+DA:887,0
+DA:888,0
+DA:889,0
+FN:890,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_NomeContato(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_NomeContato(System.String)
+DA:891,0
+DA:892,0
+DA:893,0
+FN:899,System.String CarePlusHomolog.WSFiltroFaleConosco::get_NomeEntidade()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_NomeEntidade()
+DA:900,0
+DA:901,0
+DA:902,0
+FN:903,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_NomeEntidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_NomeEntidade(System.String)
+DA:904,0
+DA:905,0
+DA:906,0
+FN:912,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Telefone1()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Telefone1()
+DA:913,0
+DA:914,0
+DA:915,0
+FN:916,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Telefone1(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Telefone1(System.String)
+DA:917,0
+DA:918,0
+DA:919,0
+FN:925,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Telefone2()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_Telefone2()
+DA:926,0
+DA:927,0
+DA:928,0
+FN:929,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Telefone2(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_Telefone2(System.String)
+DA:930,0
+DA:931,0
+DA:932,0
+FN:938,System.String CarePlusHomolog.WSFiltroFaleConosco::get_TokenAutenticacao()
+FNDA:0,System.String CarePlusHomolog.WSFiltroFaleConosco::get_TokenAutenticacao()
+DA:939,0
+DA:940,0
+DA:941,0
+FN:942,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_TokenAutenticacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_TokenAutenticacao(System.String)
+DA:943,0
+DA:944,0
+DA:945,0
+FN:951,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSFiltroFaleConosco::get_lstAnexo()
+FNDA:0,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSFiltroFaleConosco::get_lstAnexo()
+DA:952,0
+DA:953,0
+DA:954,0
+FN:955,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_lstAnexo(CarePlusHomolog.AnexoByte[])
+FNDA:0,System.Void CarePlusHomolog.WSFiltroFaleConosco::set_lstAnexo(CarePlusHomolog.AnexoByte[])
+DA:956,0
+DA:957,0
+DA:958,0
+FN:993,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_CPFCNPJ()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_CPFCNPJ()
+DA:994,0
+DA:995,0
+DA:996,0
+FN:997,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_CPFCNPJ(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_CPFCNPJ(System.String)
+DA:998,0
+DA:999,0
+DA:1000,0
+FN:1006,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Certificado()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Certificado()
+DA:1007,0
+DA:1008,0
+DA:1009,0
+FN:1010,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Certificado(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Certificado(System.String)
+DA:1011,0
+DA:1012,0
+DA:1013,0
+FN:1019,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_DDDTelefone()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_DDDTelefone()
+DA:1020,0
+DA:1021,0
+DA:1022,0
+FN:1023,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_DDDTelefone(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_DDDTelefone(System.String)
+DA:1024,0
+DA:1025,0
+DA:1026,0
+FN:1032,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_DDDTelefoneCel()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_DDDTelefoneCel()
+DA:1033,0
+DA:1034,0
+DA:1035,0
+FN:1036,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_DDDTelefoneCel(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_DDDTelefoneCel(System.String)
+DA:1037,0
+DA:1038,0
+DA:1039,0
+FN:1045,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Email()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Email()
+DA:1046,0
+DA:1047,0
+DA:1048,0
+FN:1049,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Email(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Email(System.String)
+DA:1050,0
+DA:1051,0
+DA:1052,0
+FN:1058,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Mensagem()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Mensagem()
+DA:1059,0
+DA:1060,0
+DA:1061,0
+FN:1062,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Mensagem(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Mensagem(System.String)
+DA:1063,0
+DA:1064,0
+DA:1065,0
+FN:1071,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_NomeContato()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_NomeContato()
+DA:1072,0
+DA:1073,0
+DA:1074,0
+FN:1075,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_NomeContato(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_NomeContato(System.String)
+DA:1076,0
+DA:1077,0
+DA:1078,0
+FN:1084,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Telefone()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_Telefone()
+DA:1085,0
+DA:1086,0
+DA:1087,0
+FN:1088,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Telefone(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_Telefone(System.String)
+DA:1089,0
+DA:1090,0
+DA:1091,0
+FN:1097,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_TelefoneCel()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_TelefoneCel()
+DA:1098,0
+DA:1099,0
+DA:1100,0
+FN:1101,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_TelefoneCel(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_TelefoneCel(System.String)
+DA:1102,0
+DA:1103,0
+DA:1104,0
+FN:1110,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_TokenAutenticacao()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCanalDenuncia::get_TokenAutenticacao()
+DA:1111,0
+DA:1112,0
+DA:1113,0
+FN:1114,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_TokenAutenticacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_TokenAutenticacao(System.String)
+DA:1115,0
+DA:1116,0
+DA:1117,0
+FN:1123,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSFiltroCanalDenuncia::get_lstAnexo()
+FNDA:0,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSFiltroCanalDenuncia::get_lstAnexo()
+DA:1124,0
+DA:1125,0
+DA:1126,0
+FN:1127,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_lstAnexo(CarePlusHomolog.AnexoByte[])
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCanalDenuncia::set_lstAnexo(CarePlusHomolog.AnexoByte[])
+DA:1128,0
+DA:1129,0
+DA:1130,0
+FN:1153,System.Int32 CarePlusHomolog.WSFiltroToken::get_CodSeg()
+FNDA:4,System.Int32 CarePlusHomolog.WSFiltroToken::get_CodSeg()
+DA:1154,4
+DA:1155,4
+DA:1156,4
+FN:1157,System.Void CarePlusHomolog.WSFiltroToken::set_CodSeg(System.Int32)
+FNDA:4,System.Void CarePlusHomolog.WSFiltroToken::set_CodSeg(System.Int32)
+DA:1158,4
+DA:1159,4
+DA:1160,4
+FN:1166,System.Int32 CarePlusHomolog.WSFiltroToken::get_CodSeq()
+FNDA:4,System.Int32 CarePlusHomolog.WSFiltroToken::get_CodSeq()
+DA:1167,4
+DA:1168,4
+DA:1169,4
+FN:1170,System.Void CarePlusHomolog.WSFiltroToken::set_CodSeq(System.Int32)
+FNDA:4,System.Void CarePlusHomolog.WSFiltroToken::set_CodSeq(System.Int32)
+DA:1171,4
+DA:1172,4
+DA:1173,4
+FN:1179,System.Int32 CarePlusHomolog.WSFiltroToken::get_CodSub()
+FNDA:4,System.Int32 CarePlusHomolog.WSFiltroToken::get_CodSub()
+DA:1180,4
+DA:1181,4
+DA:1182,4
+FN:1183,System.Void CarePlusHomolog.WSFiltroToken::set_CodSub(System.Int32)
+FNDA:4,System.Void CarePlusHomolog.WSFiltroToken::set_CodSub(System.Int32)
+DA:1184,4
+DA:1185,4
+DA:1186,4
+FN:1192,System.String CarePlusHomolog.WSFiltroToken::get_Cultura()
+FNDA:4,System.String CarePlusHomolog.WSFiltroToken::get_Cultura()
+DA:1193,4
+DA:1194,4
+DA:1195,4
+FN:1196,System.Void CarePlusHomolog.WSFiltroToken::set_Cultura(System.String)
+FNDA:4,System.Void CarePlusHomolog.WSFiltroToken::set_Cultura(System.String)
+DA:1197,4
+DA:1198,4
+DA:1199,4
+FN:1205,System.String CarePlusHomolog.WSFiltroToken::get_TokenAutenticacao()
+FNDA:4,System.String CarePlusHomolog.WSFiltroToken::get_TokenAutenticacao()
+DA:1206,4
+DA:1207,4
+DA:1208,4
+FN:1209,System.Void CarePlusHomolog.WSFiltroToken::set_TokenAutenticacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroToken::set_TokenAutenticacao(System.String)
+DA:1210,0
+DA:1211,0
+DA:1212,0
+FN:1238,System.Int32 CarePlusHomolog.WSFiltro::get_CodSeg()
+FNDA:2,System.Int32 CarePlusHomolog.WSFiltro::get_CodSeg()
+DA:1239,2
+DA:1240,2
+DA:1241,2
+FN:1242,System.Void CarePlusHomolog.WSFiltro::set_CodSeg(System.Int32)
+FNDA:2,System.Void CarePlusHomolog.WSFiltro::set_CodSeg(System.Int32)
+DA:1243,2
+DA:1244,2
+DA:1245,2
+FN:1251,System.Int32 CarePlusHomolog.WSFiltro::get_CodSub()
+FNDA:2,System.Int32 CarePlusHomolog.WSFiltro::get_CodSub()
+DA:1252,2
+DA:1253,2
+DA:1254,2
+FN:1255,System.Void CarePlusHomolog.WSFiltro::set_CodSub(System.Int32)
+FNDA:2,System.Void CarePlusHomolog.WSFiltro::set_CodSub(System.Int32)
+DA:1256,2
+DA:1257,2
+DA:1258,2
+FN:1264,System.Int32 CarePlusHomolog.WSFiltro::get_Seq()
+FNDA:2,System.Int32 CarePlusHomolog.WSFiltro::get_Seq()
+DA:1265,2
+DA:1266,2
+DA:1267,2
+FN:1268,System.Void CarePlusHomolog.WSFiltro::set_Seq(System.Int32)
+FNDA:2,System.Void CarePlusHomolog.WSFiltro::set_Seq(System.Int32)
+DA:1269,2
+DA:1270,2
+DA:1271,2
+FN:1292,System.String CarePlusHomolog.WSFiltroProtocoloAtendimento::get_NumeroProtocoloDaFuncionalidade()
+FNDA:0,System.String CarePlusHomolog.WSFiltroProtocoloAtendimento::get_NumeroProtocoloDaFuncionalidade()
+DA:1293,0
+DA:1294,0
+DA:1295,0
+FN:1296,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_NumeroProtocoloDaFuncionalidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_NumeroProtocoloDaFuncionalidade(System.String)
+DA:1297,0
+DA:1298,0
+DA:1299,0
+FN:1305,System.String CarePlusHomolog.WSFiltroProtocoloAtendimento::get_Observacao()
+FNDA:0,System.String CarePlusHomolog.WSFiltroProtocoloAtendimento::get_Observacao()
+DA:1306,0
+DA:1307,0
+DA:1308,0
+FN:1309,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_Observacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_Observacao(System.String)
+DA:1310,0
+DA:1311,0
+DA:1312,0
+FN:1318,System.String CarePlusHomolog.WSFiltroProtocoloAtendimento::get_ProtocoloAtendimentoCorrente()
+FNDA:0,System.String CarePlusHomolog.WSFiltroProtocoloAtendimento::get_ProtocoloAtendimentoCorrente()
+DA:1319,0
+DA:1320,0
+DA:1321,0
+FN:1322,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_ProtocoloAtendimentoCorrente(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_ProtocoloAtendimentoCorrente(System.String)
+DA:1323,0
+DA:1324,0
+DA:1325,0
+FN:1331,CarePlusHomolog.TipoAcao CarePlusHomolog.WSFiltroProtocoloAtendimento::get_TipoAcao()
+FNDA:0,CarePlusHomolog.TipoAcao CarePlusHomolog.WSFiltroProtocoloAtendimento::get_TipoAcao()
+DA:1332,0
+DA:1333,0
+DA:1334,0
+FN:1335,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_TipoAcao(CarePlusHomolog.TipoAcao)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroProtocoloAtendimento::set_TipoAcao(CarePlusHomolog.TipoAcao)
+DA:1336,0
+DA:1337,0
+DA:1338,0
+FN:1364,System.Int32 CarePlusHomolog.WSFiltroBase::get_CodRede()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroBase::get_CodRede()
+DA:1365,0
+DA:1366,0
+DA:1367,0
+FN:1368,System.Void CarePlusHomolog.WSFiltroBase::set_CodRede(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroBase::set_CodRede(System.Int32)
+DA:1369,0
+DA:1370,0
+DA:1371,0
+FN:1377,System.Int32 CarePlusHomolog.WSFiltroBase::get_CodigoPlanoSeguroViagem()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroBase::get_CodigoPlanoSeguroViagem()
+DA:1378,0
+DA:1379,0
+DA:1380,0
+FN:1381,System.Void CarePlusHomolog.WSFiltroBase::set_CodigoPlanoSeguroViagem(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroBase::set_CodigoPlanoSeguroViagem(System.Int32)
+DA:1382,0
+DA:1383,0
+DA:1384,0
+FN:1390,System.Boolean CarePlusHomolog.WSFiltroBase::get_IsCarteirinha()
+FNDA:0,System.Boolean CarePlusHomolog.WSFiltroBase::get_IsCarteirinha()
+DA:1391,0
+DA:1392,0
+DA:1393,0
+FN:1394,System.Void CarePlusHomolog.WSFiltroBase::set_IsCarteirinha(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroBase::set_IsCarteirinha(System.Boolean)
+DA:1395,0
+DA:1396,0
+DA:1397,0
+FN:1403,CarePlusHomolog.WSTipoRedeCredenciada CarePlusHomolog.WSFiltroBase::get_TipoRedePlano()
+FNDA:0,CarePlusHomolog.WSTipoRedeCredenciada CarePlusHomolog.WSFiltroBase::get_TipoRedePlano()
+DA:1404,0
+DA:1405,0
+DA:1406,0
+FN:1407,System.Void CarePlusHomolog.WSFiltroBase::set_TipoRedePlano(CarePlusHomolog.WSTipoRedeCredenciada)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroBase::set_TipoRedePlano(CarePlusHomolog.WSTipoRedeCredenciada)
+DA:1408,0
+DA:1409,0
+DA:1410,0
+FN:1463,System.String CarePlusHomolog.WSFiltroRede::get_Bairros()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Bairros()
+DA:1464,0
+DA:1465,0
+DA:1466,0
+FN:1467,System.Void CarePlusHomolog.WSFiltroRede::set_Bairros(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Bairros(System.String)
+DA:1468,0
+DA:1469,0
+DA:1470,0
+FN:1476,System.String CarePlusHomolog.WSFiltroRede::get_Cidades()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Cidades()
+DA:1477,0
+DA:1478,0
+DA:1479,0
+FN:1480,System.Void CarePlusHomolog.WSFiltroRede::set_Cidades(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Cidades(System.String)
+DA:1481,0
+DA:1482,0
+DA:1483,0
+FN:1489,System.Int32 CarePlusHomolog.WSFiltroRede::get_CodigoPrestadorBuscador()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroRede::get_CodigoPrestadorBuscador()
+DA:1490,0
+DA:1491,0
+DA:1492,0
+FN:1493,System.Void CarePlusHomolog.WSFiltroRede::set_CodigoPrestadorBuscador(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_CodigoPrestadorBuscador(System.Int32)
+DA:1494,0
+DA:1495,0
+DA:1496,0
+FN:1502,System.String CarePlusHomolog.WSFiltroRede::get_Especialidades()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Especialidades()
+DA:1503,0
+DA:1504,0
+DA:1505,0
+FN:1506,System.Void CarePlusHomolog.WSFiltroRede::set_Especialidades(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Especialidades(System.String)
+DA:1507,0
+DA:1508,0
+DA:1509,0
+FN:1515,System.String CarePlusHomolog.WSFiltroRede::get_Idioma()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Idioma()
+DA:1516,0
+DA:1517,0
+DA:1518,0
+FN:1519,System.Void CarePlusHomolog.WSFiltroRede::set_Idioma(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Idioma(System.String)
+DA:1520,0
+DA:1521,0
+DA:1522,0
+FN:1528,System.Double CarePlusHomolog.WSFiltroRede::get_Latitude()
+FNDA:0,System.Double CarePlusHomolog.WSFiltroRede::get_Latitude()
+DA:1529,0
+DA:1530,0
+DA:1531,0
+FN:1532,System.Void CarePlusHomolog.WSFiltroRede::set_Latitude(System.Double)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Latitude(System.Double)
+DA:1533,0
+DA:1534,0
+DA:1535,0
+FN:1541,System.Double CarePlusHomolog.WSFiltroRede::get_Longitude()
+FNDA:0,System.Double CarePlusHomolog.WSFiltroRede::get_Longitude()
+DA:1542,0
+DA:1543,0
+DA:1544,0
+FN:1545,System.Void CarePlusHomolog.WSFiltroRede::set_Longitude(System.Double)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Longitude(System.Double)
+DA:1546,0
+DA:1547,0
+DA:1548,0
+FN:1554,System.String CarePlusHomolog.WSFiltroRede::get_Network()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Network()
+DA:1555,0
+DA:1556,0
+DA:1557,0
+FN:1558,System.Void CarePlusHomolog.WSFiltroRede::set_Network(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Network(System.String)
+DA:1559,0
+DA:1560,0
+DA:1561,0
+FN:1567,System.String CarePlusHomolog.WSFiltroRede::get_NomeCredenciado()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_NomeCredenciado()
+DA:1568,0
+DA:1569,0
+DA:1570,0
+FN:1571,System.Void CarePlusHomolog.WSFiltroRede::set_NomeCredenciado(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_NomeCredenciado(System.String)
+DA:1572,0
+DA:1573,0
+DA:1574,0
+FN:1580,System.String CarePlusHomolog.WSFiltroRede::get_NumANS()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_NumANS()
+DA:1581,0
+DA:1582,0
+DA:1583,0
+FN:1584,System.Void CarePlusHomolog.WSFiltroRede::set_NumANS(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_NumANS(System.String)
+DA:1585,0
+DA:1586,0
+DA:1587,0
+FN:1593,System.Boolean CarePlusHomolog.WSFiltroRede::get_OrigemBuscador()
+FNDA:0,System.Boolean CarePlusHomolog.WSFiltroRede::get_OrigemBuscador()
+DA:1594,0
+DA:1595,0
+DA:1596,0
+FN:1597,System.Void CarePlusHomolog.WSFiltroRede::set_OrigemBuscador(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_OrigemBuscador(System.Boolean)
+DA:1598,0
+DA:1599,0
+DA:1600,0
+FN:1606,CarePlusHomolog.WSOrigemRedeCredenciada CarePlusHomolog.WSFiltroRede::get_OrigemRedeCredenciada()
+FNDA:0,CarePlusHomolog.WSOrigemRedeCredenciada CarePlusHomolog.WSFiltroRede::get_OrigemRedeCredenciada()
+DA:1607,0
+DA:1608,0
+DA:1609,0
+FN:1610,System.Void CarePlusHomolog.WSFiltroRede::set_OrigemRedeCredenciada(CarePlusHomolog.WSOrigemRedeCredenciada)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_OrigemRedeCredenciada(CarePlusHomolog.WSOrigemRedeCredenciada)
+DA:1611,0
+DA:1612,0
+DA:1613,0
+FN:1619,System.Int32 CarePlusHomolog.WSFiltroRede::get_Perimetro()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroRede::get_Perimetro()
+DA:1620,0
+DA:1621,0
+DA:1622,0
+FN:1623,System.Void CarePlusHomolog.WSFiltroRede::set_Perimetro(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Perimetro(System.Int32)
+DA:1624,0
+DA:1625,0
+DA:1626,0
+FN:1632,System.String CarePlusHomolog.WSFiltroRede::get_PlanoNaoLogado()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_PlanoNaoLogado()
+DA:1633,0
+DA:1634,0
+DA:1635,0
+FN:1636,System.Void CarePlusHomolog.WSFiltroRede::set_PlanoNaoLogado(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_PlanoNaoLogado(System.String)
+DA:1637,0
+DA:1638,0
+DA:1639,0
+FN:1645,System.String CarePlusHomolog.WSFiltroRede::get_Preferencial()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Preferencial()
+DA:1646,0
+DA:1647,0
+DA:1648,0
+FN:1649,System.Void CarePlusHomolog.WSFiltroRede::set_Preferencial(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Preferencial(System.String)
+DA:1650,0
+DA:1651,0
+DA:1652,0
+FN:1658,System.Int32 CarePlusHomolog.WSFiltroRede::get_Qualificacao()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroRede::get_Qualificacao()
+DA:1659,0
+DA:1660,0
+DA:1661,0
+FN:1662,System.Void CarePlusHomolog.WSFiltroRede::set_Qualificacao(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Qualificacao(System.Int32)
+DA:1663,0
+DA:1664,0
+DA:1665,0
+FN:1671,System.String CarePlusHomolog.WSFiltroRede::get_RedePlus()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_RedePlus()
+DA:1672,0
+DA:1673,0
+DA:1674,0
+FN:1675,System.Void CarePlusHomolog.WSFiltroRede::set_RedePlus(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_RedePlus(System.String)
+DA:1676,0
+DA:1677,0
+DA:1678,0
+FN:1684,CarePlusHomolog.WSTipoRedeCredenciada CarePlusHomolog.WSFiltroRede::get_Tipo()
+FNDA:0,CarePlusHomolog.WSTipoRedeCredenciada CarePlusHomolog.WSFiltroRede::get_Tipo()
+DA:1685,0
+DA:1686,0
+DA:1687,0
+FN:1688,System.Void CarePlusHomolog.WSFiltroRede::set_Tipo(CarePlusHomolog.WSTipoRedeCredenciada)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Tipo(CarePlusHomolog.WSTipoRedeCredenciada)
+DA:1689,0
+DA:1690,0
+DA:1691,0
+FN:1697,System.String CarePlusHomolog.WSFiltroRede::get_Uf()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Uf()
+DA:1698,0
+DA:1699,0
+DA:1700,0
+FN:1701,System.Void CarePlusHomolog.WSFiltroRede::set_Uf(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Uf(System.String)
+DA:1702,0
+DA:1703,0
+DA:1704,0
+FN:1710,System.String CarePlusHomolog.WSFiltroRede::get_Zona()
+FNDA:0,System.String CarePlusHomolog.WSFiltroRede::get_Zona()
+DA:1711,0
+DA:1712,0
+DA:1713,0
+FN:1714,System.Void CarePlusHomolog.WSFiltroRede::set_Zona(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroRede::set_Zona(System.String)
+DA:1715,0
+DA:1716,0
+DA:1717,0
+FN:1742,System.String CarePlusHomolog.WSFiltroEspecialidade::get_Bairro()
+FNDA:0,System.String CarePlusHomolog.WSFiltroEspecialidade::get_Bairro()
+DA:1743,0
+DA:1744,0
+DA:1745,0
+FN:1746,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Bairro(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Bairro(System.String)
+DA:1747,0
+DA:1748,0
+DA:1749,0
+FN:1755,System.String CarePlusHomolog.WSFiltroEspecialidade::get_Cidade()
+FNDA:0,System.String CarePlusHomolog.WSFiltroEspecialidade::get_Cidade()
+DA:1756,0
+DA:1757,0
+DA:1758,0
+FN:1759,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Cidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Cidade(System.String)
+DA:1760,0
+DA:1761,0
+DA:1762,0
+FN:1768,System.Double CarePlusHomolog.WSFiltroEspecialidade::get_Latitude()
+FNDA:0,System.Double CarePlusHomolog.WSFiltroEspecialidade::get_Latitude()
+DA:1769,0
+DA:1770,0
+DA:1771,0
+FN:1772,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Latitude(System.Double)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Latitude(System.Double)
+DA:1773,0
+DA:1774,0
+DA:1775,0
+FN:1781,System.Double CarePlusHomolog.WSFiltroEspecialidade::get_Longitude()
+FNDA:0,System.Double CarePlusHomolog.WSFiltroEspecialidade::get_Longitude()
+DA:1782,0
+DA:1783,0
+DA:1784,0
+FN:1785,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Longitude(System.Double)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Longitude(System.Double)
+DA:1786,0
+DA:1787,0
+DA:1788,0
+FN:1794,System.Int32 CarePlusHomolog.WSFiltroEspecialidade::get_Perimetro()
+FNDA:0,System.Int32 CarePlusHomolog.WSFiltroEspecialidade::get_Perimetro()
+DA:1795,0
+DA:1796,0
+DA:1797,0
+FN:1798,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Perimetro(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Perimetro(System.Int32)
+DA:1799,0
+DA:1800,0
+DA:1801,0
+FN:1807,System.String CarePlusHomolog.WSFiltroEspecialidade::get_Uf()
+FNDA:0,System.String CarePlusHomolog.WSFiltroEspecialidade::get_Uf()
+DA:1808,0
+DA:1809,0
+DA:1810,0
+FN:1811,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Uf(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEspecialidade::set_Uf(System.String)
+DA:1812,0
+DA:1813,0
+DA:1814,0
+FN:1830,System.String CarePlusHomolog.WSFiltroCidade::get_Uf()
+FNDA:0,System.String CarePlusHomolog.WSFiltroCidade::get_Uf()
+DA:1831,0
+DA:1832,0
+DA:1833,0
+FN:1834,System.Void CarePlusHomolog.WSFiltroCidade::set_Uf(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroCidade::set_Uf(System.String)
+DA:1835,0
+DA:1836,0
+DA:1837,0
+FN:1852,System.String CarePlusHomolog.WSFiltroBairro::get_Cidades()
+FNDA:0,System.String CarePlusHomolog.WSFiltroBairro::get_Cidades()
+DA:1853,0
+DA:1854,0
+DA:1855,0
+FN:1856,System.Void CarePlusHomolog.WSFiltroBairro::set_Cidades(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroBairro::set_Cidades(System.String)
+DA:1857,0
+DA:1858,0
+DA:1859,0
+FN:1880,System.String CarePlusHomolog.WSFiltroEnvioPrestador::get_CodigosPrestadores()
+FNDA:0,System.String CarePlusHomolog.WSFiltroEnvioPrestador::get_CodigosPrestadores()
+DA:1881,0
+DA:1882,0
+DA:1883,0
+FN:1884,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_CodigosPrestadores(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_CodigosPrestadores(System.String)
+DA:1885,0
+DA:1886,0
+DA:1887,0
+FN:1893,System.String CarePlusHomolog.WSFiltroEnvioPrestador::get_EmailOuCelular()
+FNDA:0,System.String CarePlusHomolog.WSFiltroEnvioPrestador::get_EmailOuCelular()
+DA:1894,0
+DA:1895,0
+DA:1896,0
+FN:1897,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_EmailOuCelular(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_EmailOuCelular(System.String)
+DA:1898,0
+DA:1899,0
+DA:1900,0
+FN:1906,CarePlusHomolog.WSTipoRetornoBookDirecionamento CarePlusHomolog.WSFiltroEnvioPrestador::get_TipoBook()
+FNDA:0,CarePlusHomolog.WSTipoRetornoBookDirecionamento CarePlusHomolog.WSFiltroEnvioPrestador::get_TipoBook()
+DA:1907,0
+DA:1908,0
+DA:1909,0
+FN:1910,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_TipoBook(CarePlusHomolog.WSTipoRetornoBookDirecionamento)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_TipoBook(CarePlusHomolog.WSTipoRetornoBookDirecionamento)
+DA:1911,0
+DA:1912,0
+DA:1913,0
+FN:1919,System.String CarePlusHomolog.WSFiltroEnvioPrestador::get_TipoEnvio()
+FNDA:0,System.String CarePlusHomolog.WSFiltroEnvioPrestador::get_TipoEnvio()
+DA:1920,0
+DA:1921,0
+DA:1922,0
+FN:1923,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_TipoEnvio(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroEnvioPrestador::set_TipoEnvio(System.String)
+DA:1924,0
+DA:1925,0
+DA:1926,0
+FN:1941,System.String CarePlusHomolog.WSFiltroZona::get_Cidade()
+FNDA:0,System.String CarePlusHomolog.WSFiltroZona::get_Cidade()
+DA:1942,0
+DA:1943,0
+DA:1944,0
+FN:1945,System.Void CarePlusHomolog.WSFiltroZona::set_Cidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroZona::set_Cidade(System.String)
+DA:1946,0
+DA:1947,0
+DA:1948,0
+FN:1965,System.String CarePlusHomolog.WSFiltroLatLong::get_Cep()
+FNDA:0,System.String CarePlusHomolog.WSFiltroLatLong::get_Cep()
+DA:1966,0
+DA:1967,0
+DA:1968,0
+FN:1969,System.Void CarePlusHomolog.WSFiltroLatLong::set_Cep(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroLatLong::set_Cep(System.String)
+DA:1970,0
+DA:1971,0
+DA:1972,0
+FN:1978,System.String CarePlusHomolog.WSFiltroLatLong::get_Endereco()
+FNDA:0,System.String CarePlusHomolog.WSFiltroLatLong::get_Endereco()
+DA:1979,0
+DA:1980,0
+DA:1981,0
+FN:1982,System.Void CarePlusHomolog.WSFiltroLatLong::set_Endereco(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroLatLong::set_Endereco(System.String)
+DA:1983,0
+DA:1984,0
+DA:1985,0
+FN:2004,System.String CarePlusHomolog.LoginPartnerOut::get_Login()
+FNDA:8,System.String CarePlusHomolog.LoginPartnerOut::get_Login()
+DA:2005,8
+DA:2006,8
+DA:2007,8
+FN:2008,System.Void CarePlusHomolog.LoginPartnerOut::set_Login(System.String)
+FNDA:16,System.Void CarePlusHomolog.LoginPartnerOut::set_Login(System.String)
+DA:2009,16
+DA:2010,16
+DA:2011,16
+FN:2017,System.String CarePlusHomolog.LoginPartnerOut::get_Senha()
+FNDA:8,System.String CarePlusHomolog.LoginPartnerOut::get_Senha()
+DA:2018,8
+DA:2019,8
+DA:2020,8
+FN:2021,System.Void CarePlusHomolog.LoginPartnerOut::set_Senha(System.String)
+FNDA:16,System.Void CarePlusHomolog.LoginPartnerOut::set_Senha(System.String)
+DA:2022,16
+DA:2023,16
+DA:2024,16
+FN:2030,System.String CarePlusHomolog.LoginPartnerOut::get_TokenTransacao()
+FNDA:16,System.String CarePlusHomolog.LoginPartnerOut::get_TokenTransacao()
+DA:2031,16
+DA:2032,16
+DA:2033,16
+FN:2034,System.Void CarePlusHomolog.LoginPartnerOut::set_TokenTransacao(System.String)
+FNDA:16,System.Void CarePlusHomolog.LoginPartnerOut::set_TokenTransacao(System.String)
+DA:2035,16
+DA:2036,16
+DA:2037,16
+FN:2087,System.Byte[] CarePlusHomolog.AnexoByte::get_FileBytes()
+FNDA:0,System.Byte[] CarePlusHomolog.AnexoByte::get_FileBytes()
+DA:2088,0
+DA:2089,0
+DA:2090,0
+FN:2091,System.Void CarePlusHomolog.AnexoByte::set_FileBytes(System.Byte[])
+FNDA:0,System.Void CarePlusHomolog.AnexoByte::set_FileBytes(System.Byte[])
+DA:2092,0
+DA:2093,0
+DA:2094,0
+FN:2100,System.String CarePlusHomolog.AnexoByte::get_FileName()
+FNDA:0,System.String CarePlusHomolog.AnexoByte::get_FileName()
+DA:2101,0
+DA:2102,0
+DA:2103,0
+FN:2104,System.Void CarePlusHomolog.AnexoByte::set_FileName(System.String)
+FNDA:0,System.Void CarePlusHomolog.AnexoByte::set_FileName(System.String)
+DA:2105,0
+DA:2106,0
+DA:2107,0
+FN:2429,System.Int32 CarePlusHomolog.WSRetornoBase::get_CodigoMensagem()
+FNDA:2,System.Int32 CarePlusHomolog.WSRetornoBase::get_CodigoMensagem()
+DA:2430,2
+DA:2431,2
+DA:2432,2
+FN:2433,System.Void CarePlusHomolog.WSRetornoBase::set_CodigoMensagem(System.Int32)
+FNDA:10,System.Void CarePlusHomolog.WSRetornoBase::set_CodigoMensagem(System.Int32)
+DA:2434,10
+DA:2435,10
+DA:2436,10
+FN:2442,System.String CarePlusHomolog.WSRetornoBase::get_Mensagem()
+FNDA:2,System.String CarePlusHomolog.WSRetornoBase::get_Mensagem()
+DA:2443,2
+DA:2444,2
+DA:2445,2
+FN:2446,System.Void CarePlusHomolog.WSRetornoBase::set_Mensagem(System.String)
+FNDA:10,System.Void CarePlusHomolog.WSRetornoBase::set_Mensagem(System.String)
+DA:2447,10
+DA:2448,10
+DA:2449,10
+FN:2464,CarePlusHomolog.ConteudoChatOut[] CarePlusHomolog.WSRetornoSalvarAtendimento::get_ConteudoChat()
+FNDA:0,CarePlusHomolog.ConteudoChatOut[] CarePlusHomolog.WSRetornoSalvarAtendimento::get_ConteudoChat()
+DA:2465,0
+DA:2466,0
+DA:2467,0
+FN:2468,System.Void CarePlusHomolog.WSRetornoSalvarAtendimento::set_ConteudoChat(CarePlusHomolog.ConteudoChatOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoSalvarAtendimento::set_ConteudoChat(CarePlusHomolog.ConteudoChatOut[])
+DA:2469,0
+DA:2470,0
+DA:2471,0
+FN:2490,CarePlusHomolog.BeneficiarioOut[] CarePlusHomolog.WSRetornoInfoAtendimento::get_Beneficiarios()
+FNDA:0,CarePlusHomolog.BeneficiarioOut[] CarePlusHomolog.WSRetornoInfoAtendimento::get_Beneficiarios()
+DA:2491,0
+DA:2492,0
+DA:2493,0
+FN:2494,System.Void CarePlusHomolog.WSRetornoInfoAtendimento::set_Beneficiarios(CarePlusHomolog.BeneficiarioOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoInfoAtendimento::set_Beneficiarios(CarePlusHomolog.BeneficiarioOut[])
+DA:2495,0
+DA:2496,0
+DA:2497,0
+FN:2503,CarePlusHomolog.CredenciadoOut CarePlusHomolog.WSRetornoInfoAtendimento::get_Credenciado()
+FNDA:0,CarePlusHomolog.CredenciadoOut CarePlusHomolog.WSRetornoInfoAtendimento::get_Credenciado()
+DA:2504,0
+DA:2505,0
+DA:2506,0
+FN:2507,System.Void CarePlusHomolog.WSRetornoInfoAtendimento::set_Credenciado(CarePlusHomolog.CredenciadoOut)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoInfoAtendimento::set_Credenciado(CarePlusHomolog.CredenciadoOut)
+DA:2508,0
+DA:2509,0
+DA:2510,0
+FN:2516,CarePlusHomolog.WsRetornoTipoInfoAtendimento CarePlusHomolog.WSRetornoInfoAtendimento::get_Tipo()
+FNDA:0,CarePlusHomolog.WsRetornoTipoInfoAtendimento CarePlusHomolog.WSRetornoInfoAtendimento::get_Tipo()
+DA:2517,0
+DA:2518,0
+DA:2519,0
+FN:2520,System.Void CarePlusHomolog.WSRetornoInfoAtendimento::set_Tipo(CarePlusHomolog.WsRetornoTipoInfoAtendimento)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoInfoAtendimento::set_Tipo(CarePlusHomolog.WsRetornoTipoInfoAtendimento)
+DA:2521,0
+DA:2522,0
+DA:2523,0
+FN:2538,CarePlusHomolog.RedeOut[] CarePlusHomolog.WSRetornoRede::get_Rede()
+FNDA:0,CarePlusHomolog.RedeOut[] CarePlusHomolog.WSRetornoRede::get_Rede()
+DA:2539,0
+DA:2540,0
+DA:2541,0
+FN:2542,System.Void CarePlusHomolog.WSRetornoRede::set_Rede(CarePlusHomolog.RedeOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoRede::set_Rede(CarePlusHomolog.RedeOut[])
+DA:2543,0
+DA:2544,0
+DA:2545,0
+FN:2560,CarePlusHomolog.EspecialidadeOut[] CarePlusHomolog.WSRetornoEspecialidade::get_Especialidade()
+FNDA:0,CarePlusHomolog.EspecialidadeOut[] CarePlusHomolog.WSRetornoEspecialidade::get_Especialidade()
+DA:2561,0
+DA:2562,0
+DA:2563,0
+FN:2564,System.Void CarePlusHomolog.WSRetornoEspecialidade::set_Especialidade(CarePlusHomolog.EspecialidadeOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoEspecialidade::set_Especialidade(CarePlusHomolog.EspecialidadeOut[])
+DA:2565,0
+DA:2566,0
+DA:2567,0
+FN:2582,CarePlusHomolog.CidadeOut[] CarePlusHomolog.WSRetornoCidade::get_Cidade()
+FNDA:0,CarePlusHomolog.CidadeOut[] CarePlusHomolog.WSRetornoCidade::get_Cidade()
+DA:2583,0
+DA:2584,0
+DA:2585,0
+FN:2586,System.Void CarePlusHomolog.WSRetornoCidade::set_Cidade(CarePlusHomolog.CidadeOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoCidade::set_Cidade(CarePlusHomolog.CidadeOut[])
+DA:2587,0
+DA:2588,0
+DA:2589,0
+FN:2604,CarePlusHomolog.BairroOut[] CarePlusHomolog.WSRetornoBairro::get_Bairro()
+FNDA:0,CarePlusHomolog.BairroOut[] CarePlusHomolog.WSRetornoBairro::get_Bairro()
+DA:2605,0
+DA:2606,0
+DA:2607,0
+FN:2608,System.Void CarePlusHomolog.WSRetornoBairro::set_Bairro(CarePlusHomolog.BairroOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoBairro::set_Bairro(CarePlusHomolog.BairroOut[])
+DA:2609,0
+DA:2610,0
+DA:2611,0
+FN:2626,CarePlusHomolog.EstadoOut[] CarePlusHomolog.WSRetornoEstado::get_Estado()
+FNDA:0,CarePlusHomolog.EstadoOut[] CarePlusHomolog.WSRetornoEstado::get_Estado()
+DA:2627,0
+DA:2628,0
+DA:2629,0
+FN:2630,System.Void CarePlusHomolog.WSRetornoEstado::set_Estado(CarePlusHomolog.EstadoOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoEstado::set_Estado(CarePlusHomolog.EstadoOut[])
+DA:2631,0
+DA:2632,0
+DA:2633,0
+FN:2648,CarePlusHomolog.ZonaOut[] CarePlusHomolog.WSRetornoZona::get_Zona()
+FNDA:0,CarePlusHomolog.ZonaOut[] CarePlusHomolog.WSRetornoZona::get_Zona()
+DA:2649,0
+DA:2650,0
+DA:2651,0
+FN:2652,System.Void CarePlusHomolog.WSRetornoZona::set_Zona(CarePlusHomolog.ZonaOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoZona::set_Zona(CarePlusHomolog.ZonaOut[])
+DA:2653,0
+DA:2654,0
+DA:2655,0
+FN:2670,CarePlusHomolog.Coordenada CarePlusHomolog.WSRetornoGeoCoordenada::get_GeoCoordenada()
+FNDA:0,CarePlusHomolog.Coordenada CarePlusHomolog.WSRetornoGeoCoordenada::get_GeoCoordenada()
+DA:2671,0
+DA:2672,0
+DA:2673,0
+FN:2674,System.Void CarePlusHomolog.WSRetornoGeoCoordenada::set_GeoCoordenada(CarePlusHomolog.Coordenada)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoGeoCoordenada::set_GeoCoordenada(CarePlusHomolog.Coordenada)
+DA:2675,0
+DA:2676,0
+DA:2677,0
+FN:2692,CarePlusHomolog.AutorizacaoChatOut[] CarePlusHomolog.WSRetornoAutorizacao::get_Autorizacao()
+FNDA:0,CarePlusHomolog.AutorizacaoChatOut[] CarePlusHomolog.WSRetornoAutorizacao::get_Autorizacao()
+DA:2693,0
+DA:2694,0
+DA:2695,0
+FN:2696,System.Void CarePlusHomolog.WSRetornoAutorizacao::set_Autorizacao(CarePlusHomolog.AutorizacaoChatOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoAutorizacao::set_Autorizacao(CarePlusHomolog.AutorizacaoChatOut[])
+DA:2697,0
+DA:2698,0
+DA:2699,0
+FN:2714,CarePlusHomolog.ReembolsoChatOut[] CarePlusHomolog.WSRetornoReembolso::get_Reembolso()
+FNDA:0,CarePlusHomolog.ReembolsoChatOut[] CarePlusHomolog.WSRetornoReembolso::get_Reembolso()
+DA:2715,0
+DA:2716,0
+DA:2717,0
+FN:2718,System.Void CarePlusHomolog.WSRetornoReembolso::set_Reembolso(CarePlusHomolog.ReembolsoChatOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoReembolso::set_Reembolso(CarePlusHomolog.ReembolsoChatOut[])
+DA:2719,0
+DA:2720,0
+DA:2721,0
+FN:2736,System.Boolean CarePlusHomolog.WSRetornoAtribuirAtendimentoChat::get_Sucesso()
+FNDA:0,System.Boolean CarePlusHomolog.WSRetornoAtribuirAtendimentoChat::get_Sucesso()
+DA:2737,0
+DA:2738,0
+DA:2739,0
+FN:2740,System.Void CarePlusHomolog.WSRetornoAtribuirAtendimentoChat::set_Sucesso(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoAtribuirAtendimentoChat::set_Sucesso(System.Boolean)
+DA:2741,0
+DA:2742,0
+DA:2743,0
+FN:2758,CarePlusHomolog.CredenciadoOut[] CarePlusHomolog.WSRetornoCredenciadoMaisUtilizados::get_Credenciado()
+FNDA:0,CarePlusHomolog.CredenciadoOut[] CarePlusHomolog.WSRetornoCredenciadoMaisUtilizados::get_Credenciado()
+DA:2759,0
+DA:2760,0
+DA:2761,0
+FN:2762,System.Void CarePlusHomolog.WSRetornoCredenciadoMaisUtilizados::set_Credenciado(CarePlusHomolog.CredenciadoOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoCredenciadoMaisUtilizados::set_Credenciado(CarePlusHomolog.CredenciadoOut[])
+DA:2763,0
+DA:2764,0
+DA:2765,0
+FN:2782,System.String CarePlusHomolog.WSRetornoChat::get_Link()
+FNDA:0,System.String CarePlusHomolog.WSRetornoChat::get_Link()
+DA:2783,0
+DA:2784,0
+DA:2785,0
+FN:2786,System.Void CarePlusHomolog.WSRetornoChat::set_Link(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoChat::set_Link(System.String)
+DA:2787,0
+DA:2788,0
+DA:2789,0
+FN:2795,System.Boolean CarePlusHomolog.WSRetornoChat::get_TransfereAVI()
+FNDA:0,System.Boolean CarePlusHomolog.WSRetornoChat::get_TransfereAVI()
+DA:2796,0
+DA:2797,0
+DA:2798,0
+FN:2799,System.Void CarePlusHomolog.WSRetornoChat::set_TransfereAVI(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoChat::set_TransfereAVI(System.Boolean)
+DA:2800,0
+DA:2801,0
+DA:2802,0
+FN:2817,CarePlusHomolog.PreviaReembolsoChatOut[] CarePlusHomolog.WSRetornoPrevia::get_Previa()
+FNDA:0,CarePlusHomolog.PreviaReembolsoChatOut[] CarePlusHomolog.WSRetornoPrevia::get_Previa()
+DA:2818,0
+DA:2819,0
+DA:2820,0
+FN:2821,System.Void CarePlusHomolog.WSRetornoPrevia::set_Previa(CarePlusHomolog.PreviaReembolsoChatOut[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoPrevia::set_Previa(CarePlusHomolog.PreviaReembolsoChatOut[])
+DA:2822,0
+DA:2823,0
+DA:2824,0
+FN:2839,System.Boolean CarePlusHomolog.WSRetornoEnvioCredenciado::get_Enviado()
+FNDA:0,System.Boolean CarePlusHomolog.WSRetornoEnvioCredenciado::get_Enviado()
+DA:2840,0
+DA:2841,0
+DA:2842,0
+FN:2843,System.Void CarePlusHomolog.WSRetornoEnvioCredenciado::set_Enviado(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoEnvioCredenciado::set_Enviado(System.Boolean)
+DA:2844,0
+DA:2845,0
+DA:2846,0
+FN:2868,CarePlusHomolog.WSFaleConoscoTipoAssunto[] CarePlusHomolog.WSRetornoFaleConoscoTipo::get_TipoAssunto()
+FNDA:2,CarePlusHomolog.WSFaleConoscoTipoAssunto[] CarePlusHomolog.WSRetornoFaleConoscoTipo::get_TipoAssunto()
+DA:2869,2
+DA:2870,2
+DA:2871,2
+FN:2872,System.Void CarePlusHomolog.WSRetornoFaleConoscoTipo::set_TipoAssunto(CarePlusHomolog.WSFaleConoscoTipoAssunto[])
+FNDA:2,System.Void CarePlusHomolog.WSRetornoFaleConoscoTipo::set_TipoAssunto(CarePlusHomolog.WSFaleConoscoTipoAssunto[])
+DA:2873,2
+DA:2874,2
+DA:2875,2
+FN:2892,System.String CarePlusHomolog.WSRetornoFaleConosco::get_erros()
+FNDA:0,System.String CarePlusHomolog.WSRetornoFaleConosco::get_erros()
+DA:2893,0
+DA:2894,0
+DA:2895,0
+FN:2896,System.Void CarePlusHomolog.WSRetornoFaleConosco::set_erros(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoFaleConosco::set_erros(System.String)
+DA:2897,0
+DA:2898,0
+DA:2899,0
+FN:2905,System.Boolean CarePlusHomolog.WSRetornoFaleConosco::get_sucesso()
+FNDA:0,System.Boolean CarePlusHomolog.WSRetornoFaleConosco::get_sucesso()
+DA:2906,0
+DA:2907,0
+DA:2908,0
+FN:2909,System.Void CarePlusHomolog.WSRetornoFaleConosco::set_sucesso(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoFaleConosco::set_sucesso(System.Boolean)
+DA:2910,0
+DA:2911,0
+DA:2912,0
+FN:2929,System.String CarePlusHomolog.WSRetornoCanalDenuncia::get_erros()
+FNDA:0,System.String CarePlusHomolog.WSRetornoCanalDenuncia::get_erros()
+DA:2930,0
+DA:2931,0
+DA:2932,0
+FN:2933,System.Void CarePlusHomolog.WSRetornoCanalDenuncia::set_erros(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoCanalDenuncia::set_erros(System.String)
+DA:2934,0
+DA:2935,0
+DA:2936,0
+FN:2942,System.Boolean CarePlusHomolog.WSRetornoCanalDenuncia::get_sucesso()
+FNDA:0,System.Boolean CarePlusHomolog.WSRetornoCanalDenuncia::get_sucesso()
+DA:2943,0
+DA:2944,0
+DA:2945,0
+FN:2946,System.Void CarePlusHomolog.WSRetornoCanalDenuncia::set_sucesso(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoCanalDenuncia::set_sucesso(System.Boolean)
+DA:2947,0
+DA:2948,0
+DA:2949,0
+FN:2966,System.String CarePlusHomolog.WSRetornoCaptcha::get_Captcha()
+FNDA:0,System.String CarePlusHomolog.WSRetornoCaptcha::get_Captcha()
+DA:2967,0
+DA:2968,0
+DA:2969,0
+FN:2970,System.Void CarePlusHomolog.WSRetornoCaptcha::set_Captcha(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoCaptcha::set_Captcha(System.String)
+DA:2971,0
+DA:2972,0
+DA:2973,0
+FN:2979,System.Byte[] CarePlusHomolog.WSRetornoCaptcha::get_ImgCaptcha()
+FNDA:0,System.Byte[] CarePlusHomolog.WSRetornoCaptcha::get_ImgCaptcha()
+DA:2980,0
+DA:2981,0
+DA:2982,0
+FN:2983,System.Void CarePlusHomolog.WSRetornoCaptcha::set_ImgCaptcha(System.Byte[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoCaptcha::set_ImgCaptcha(System.Byte[])
+DA:2984,0
+DA:2985,0
+DA:2986,0
+FN:3001,System.Boolean CarePlusHomolog.WSRetornoProtocoloAtendimento::get_Valido()
+FNDA:0,System.Boolean CarePlusHomolog.WSRetornoProtocoloAtendimento::get_Valido()
+DA:3002,0
+DA:3003,0
+DA:3004,0
+FN:3005,System.Void CarePlusHomolog.WSRetornoProtocoloAtendimento::set_Valido(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoProtocoloAtendimento::set_Valido(System.Boolean)
+DA:3006,0
+DA:3007,0
+DA:3008,0
+FN:3023,CarePlusHomolog.LoginPartnerOut CarePlusHomolog.WSRetornoLoginPartner::get_LoginPartner()
+FNDA:8,CarePlusHomolog.LoginPartnerOut CarePlusHomolog.WSRetornoLoginPartner::get_LoginPartner()
+DA:3024,8
+DA:3025,8
+DA:3026,8
+FN:3027,System.Void CarePlusHomolog.WSRetornoLoginPartner::set_LoginPartner(CarePlusHomolog.LoginPartnerOut)
+FNDA:8,System.Void CarePlusHomolog.WSRetornoLoginPartner::set_LoginPartner(CarePlusHomolog.LoginPartnerOut)
+DA:3028,8
+DA:3029,8
+DA:3030,8
+FN:3057,System.String CarePlusHomolog.ConteudoChatOut::get_CodigoStatus()
+FNDA:0,System.String CarePlusHomolog.ConteudoChatOut::get_CodigoStatus()
+DA:3058,0
+DA:3059,0
+DA:3060,0
+FN:3061,System.Void CarePlusHomolog.ConteudoChatOut::set_CodigoStatus(System.String)
+FNDA:0,System.Void CarePlusHomolog.ConteudoChatOut::set_CodigoStatus(System.String)
+DA:3062,0
+DA:3063,0
+DA:3064,0
+FN:3070,System.Boolean CarePlusHomolog.ConteudoChatOut::get_ConteudoGravado()
+FNDA:0,System.Boolean CarePlusHomolog.ConteudoChatOut::get_ConteudoGravado()
+DA:3071,0
+DA:3072,0
+DA:3073,0
+FN:3074,System.Void CarePlusHomolog.ConteudoChatOut::set_ConteudoGravado(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.ConteudoChatOut::set_ConteudoGravado(System.Boolean)
+DA:3075,0
+DA:3076,0
+DA:3077,0
+FN:3083,System.DateTime CarePlusHomolog.ConteudoChatOut::get_DataEncerramento()
+FNDA:0,System.DateTime CarePlusHomolog.ConteudoChatOut::get_DataEncerramento()
+DA:3084,0
+DA:3085,0
+DA:3086,0
+FN:3087,System.Void CarePlusHomolog.ConteudoChatOut::set_DataEncerramento(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.ConteudoChatOut::set_DataEncerramento(System.DateTime)
+DA:3088,0
+DA:3089,0
+DA:3090,0
+FN:3096,System.String CarePlusHomolog.ConteudoChatOut::get_Id()
+FNDA:0,System.String CarePlusHomolog.ConteudoChatOut::get_Id()
+DA:3097,0
+DA:3098,0
+DA:3099,0
+FN:3100,System.Void CarePlusHomolog.ConteudoChatOut::set_Id(System.String)
+FNDA:0,System.Void CarePlusHomolog.ConteudoChatOut::set_Id(System.String)
+DA:3101,0
+DA:3102,0
+DA:3103,0
+FN:3109,System.String CarePlusHomolog.ConteudoChatOut::get_Login()
+FNDA:0,System.String CarePlusHomolog.ConteudoChatOut::get_Login()
+DA:3110,0
+DA:3111,0
+DA:3112,0
+FN:3113,System.Void CarePlusHomolog.ConteudoChatOut::set_Login(System.String)
+FNDA:0,System.Void CarePlusHomolog.ConteudoChatOut::set_Login(System.String)
+DA:3114,0
+DA:3115,0
+DA:3116,0
+FN:3122,System.String CarePlusHomolog.ConteudoChatOut::get_Protocolo()
+FNDA:0,System.String CarePlusHomolog.ConteudoChatOut::get_Protocolo()
+DA:3123,0
+DA:3124,0
+DA:3125,0
+FN:3126,System.Void CarePlusHomolog.ConteudoChatOut::set_Protocolo(System.String)
+FNDA:0,System.Void CarePlusHomolog.ConteudoChatOut::set_Protocolo(System.String)
+DA:3127,0
+DA:3128,0
+DA:3129,0
+FN:3135,System.String CarePlusHomolog.ConteudoChatOut::get_Status()
+FNDA:0,System.String CarePlusHomolog.ConteudoChatOut::get_Status()
+DA:3136,0
+DA:3137,0
+DA:3138,0
+FN:3139,System.Void CarePlusHomolog.ConteudoChatOut::set_Status(System.String)
+FNDA:0,System.Void CarePlusHomolog.ConteudoChatOut::set_Status(System.String)
+DA:3140,0
+DA:3141,0
+DA:3142,0
+FN:3181,System.String CarePlusHomolog.CredenciadoOut::get_Bairro()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Bairro()
+DA:3182,0
+DA:3183,0
+DA:3184,0
+FN:3185,System.Void CarePlusHomolog.CredenciadoOut::set_Bairro(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Bairro(System.String)
+DA:3186,0
+DA:3187,0
+DA:3188,0
+FN:3194,System.String CarePlusHomolog.CredenciadoOut::get_Cep()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Cep()
+DA:3195,0
+DA:3196,0
+DA:3197,0
+FN:3198,System.Void CarePlusHomolog.CredenciadoOut::set_Cep(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Cep(System.String)
+DA:3199,0
+DA:3200,0
+DA:3201,0
+FN:3207,System.String CarePlusHomolog.CredenciadoOut::get_Cidade()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Cidade()
+DA:3208,0
+DA:3209,0
+DA:3210,0
+FN:3211,System.Void CarePlusHomolog.CredenciadoOut::set_Cidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Cidade(System.String)
+DA:3212,0
+DA:3213,0
+DA:3214,0
+FN:3220,System.String CarePlusHomolog.CredenciadoOut::get_Codigo()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Codigo()
+DA:3221,0
+DA:3222,0
+DA:3223,0
+FN:3224,System.Void CarePlusHomolog.CredenciadoOut::set_Codigo(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Codigo(System.String)
+DA:3225,0
+DA:3226,0
+DA:3227,0
+FN:3233,System.String CarePlusHomolog.CredenciadoOut::get_Contato()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Contato()
+DA:3234,0
+DA:3235,0
+DA:3236,0
+FN:3237,System.Void CarePlusHomolog.CredenciadoOut::set_Contato(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Contato(System.String)
+DA:3238,0
+DA:3239,0
+DA:3240,0
+FN:3246,System.String CarePlusHomolog.CredenciadoOut::get_Ddd()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Ddd()
+DA:3247,0
+DA:3248,0
+DA:3249,0
+FN:3250,System.Void CarePlusHomolog.CredenciadoOut::set_Ddd(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Ddd(System.String)
+DA:3251,0
+DA:3252,0
+DA:3253,0
+FN:3259,System.String CarePlusHomolog.CredenciadoOut::get_Email()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Email()
+DA:3260,0
+DA:3261,0
+DA:3262,0
+FN:3263,System.Void CarePlusHomolog.CredenciadoOut::set_Email(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Email(System.String)
+DA:3264,0
+DA:3265,0
+DA:3266,0
+FN:3272,System.String CarePlusHomolog.CredenciadoOut::get_Endereco()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Endereco()
+DA:3273,0
+DA:3274,0
+DA:3275,0
+FN:3276,System.Void CarePlusHomolog.CredenciadoOut::set_Endereco(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Endereco(System.String)
+DA:3277,0
+DA:3278,0
+DA:3279,0
+FN:3285,System.String CarePlusHomolog.CredenciadoOut::get_Fax()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Fax()
+DA:3286,0
+DA:3287,0
+DA:3288,0
+FN:3289,System.Void CarePlusHomolog.CredenciadoOut::set_Fax(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Fax(System.String)
+DA:3290,0
+DA:3291,0
+DA:3292,0
+FN:3298,System.String CarePlusHomolog.CredenciadoOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Nome()
+DA:3299,0
+DA:3300,0
+DA:3301,0
+FN:3302,System.Void CarePlusHomolog.CredenciadoOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Nome(System.String)
+DA:3303,0
+DA:3304,0
+DA:3305,0
+FN:3311,System.String CarePlusHomolog.CredenciadoOut::get_Telefone()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Telefone()
+DA:3312,0
+DA:3313,0
+DA:3314,0
+FN:3315,System.Void CarePlusHomolog.CredenciadoOut::set_Telefone(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Telefone(System.String)
+DA:3316,0
+DA:3317,0
+DA:3318,0
+FN:3324,System.String CarePlusHomolog.CredenciadoOut::get_Tipo()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Tipo()
+DA:3325,0
+DA:3326,0
+DA:3327,0
+FN:3328,System.Void CarePlusHomolog.CredenciadoOut::set_Tipo(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Tipo(System.String)
+DA:3329,0
+DA:3330,0
+DA:3331,0
+FN:3337,System.String CarePlusHomolog.CredenciadoOut::get_Uf()
+FNDA:0,System.String CarePlusHomolog.CredenciadoOut::get_Uf()
+DA:3338,0
+DA:3339,0
+DA:3340,0
+FN:3341,System.Void CarePlusHomolog.CredenciadoOut::set_Uf(System.String)
+FNDA:0,System.Void CarePlusHomolog.CredenciadoOut::set_Uf(System.String)
+DA:3342,0
+DA:3343,0
+DA:3344,0
+FN:3419,System.String CarePlusHomolog.BeneficiarioOut::get_Agencia()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Agencia()
+DA:3420,0
+DA:3421,0
+DA:3422,0
+FN:3423,System.Void CarePlusHomolog.BeneficiarioOut::set_Agencia(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Agencia(System.String)
+DA:3424,0
+DA:3425,0
+DA:3426,0
+FN:3432,System.String CarePlusHomolog.BeneficiarioOut::get_AmigosID()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_AmigosID()
+DA:3433,0
+DA:3434,0
+DA:3435,0
+FN:3436,System.Void CarePlusHomolog.BeneficiarioOut::set_AmigosID(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_AmigosID(System.String)
+DA:3437,0
+DA:3438,0
+DA:3439,0
+FN:3445,System.String CarePlusHomolog.BeneficiarioOut::get_Bairro()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Bairro()
+DA:3446,0
+DA:3447,0
+DA:3448,0
+FN:3449,System.Void CarePlusHomolog.BeneficiarioOut::set_Bairro(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Bairro(System.String)
+DA:3450,0
+DA:3451,0
+DA:3452,0
+FN:3458,System.String CarePlusHomolog.BeneficiarioOut::get_Celular()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Celular()
+DA:3459,0
+DA:3460,0
+DA:3461,0
+FN:3462,System.Void CarePlusHomolog.BeneficiarioOut::set_Celular(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Celular(System.String)
+DA:3463,0
+DA:3464,0
+DA:3465,0
+FN:3471,System.String CarePlusHomolog.BeneficiarioOut::get_Certificado()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Certificado()
+DA:3472,0
+DA:3473,0
+DA:3474,0
+FN:3475,System.Void CarePlusHomolog.BeneficiarioOut::set_Certificado(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Certificado(System.String)
+DA:3476,0
+DA:3477,0
+DA:3478,0
+FN:3484,System.String CarePlusHomolog.BeneficiarioOut::get_Cidade()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Cidade()
+DA:3485,0
+DA:3486,0
+DA:3487,0
+FN:3488,System.Void CarePlusHomolog.BeneficiarioOut::set_Cidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Cidade(System.String)
+DA:3489,0
+DA:3490,0
+DA:3491,0
+FN:3497,System.String CarePlusHomolog.BeneficiarioOut::get_CodBanco()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_CodBanco()
+DA:3498,0
+DA:3499,0
+DA:3500,0
+FN:3501,System.Void CarePlusHomolog.BeneficiarioOut::set_CodBanco(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_CodBanco(System.String)
+DA:3502,0
+DA:3503,0
+DA:3504,0
+FN:3510,System.Int32 CarePlusHomolog.BeneficiarioOut::get_CodRede()
+FNDA:0,System.Int32 CarePlusHomolog.BeneficiarioOut::get_CodRede()
+DA:3511,0
+DA:3512,0
+DA:3513,0
+FN:3514,System.Void CarePlusHomolog.BeneficiarioOut::set_CodRede(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_CodRede(System.Int32)
+DA:3515,0
+DA:3516,0
+DA:3517,0
+FN:3523,System.Int32 CarePlusHomolog.BeneficiarioOut::get_CodSeg()
+FNDA:0,System.Int32 CarePlusHomolog.BeneficiarioOut::get_CodSeg()
+DA:3524,0
+DA:3525,0
+DA:3526,0
+FN:3527,System.Void CarePlusHomolog.BeneficiarioOut::set_CodSeg(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_CodSeg(System.Int32)
+DA:3528,0
+DA:3529,0
+DA:3530,0
+FN:3536,System.Int32 CarePlusHomolog.BeneficiarioOut::get_CodSub()
+FNDA:0,System.Int32 CarePlusHomolog.BeneficiarioOut::get_CodSub()
+DA:3537,0
+DA:3538,0
+DA:3539,0
+FN:3540,System.Void CarePlusHomolog.BeneficiarioOut::set_CodSub(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_CodSub(System.Int32)
+DA:3541,0
+DA:3542,0
+DA:3543,0
+FN:3549,System.String CarePlusHomolog.BeneficiarioOut::get_ContaCorrente()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_ContaCorrente()
+DA:3550,0
+DA:3551,0
+DA:3552,0
+FN:3553,System.Void CarePlusHomolog.BeneficiarioOut::set_ContaCorrente(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_ContaCorrente(System.String)
+DA:3554,0
+DA:3555,0
+DA:3556,0
+FN:3562,System.String CarePlusHomolog.BeneficiarioOut::get_Cpf()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Cpf()
+DA:3563,0
+DA:3564,0
+DA:3565,0
+FN:3566,System.Void CarePlusHomolog.BeneficiarioOut::set_Cpf(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Cpf(System.String)
+DA:3567,0
+DA:3568,0
+DA:3569,0
+FN:3575,System.String CarePlusHomolog.BeneficiarioOut::get_CpfTitularConta()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_CpfTitularConta()
+DA:3576,0
+DA:3577,0
+DA:3578,0
+FN:3579,System.Void CarePlusHomolog.BeneficiarioOut::set_CpfTitularConta(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_CpfTitularConta(System.String)
+DA:3580,0
+DA:3581,0
+DA:3582,0
+FN:3588,System.DateTime CarePlusHomolog.BeneficiarioOut::get_DataNascimento()
+FNDA:0,System.DateTime CarePlusHomolog.BeneficiarioOut::get_DataNascimento()
+DA:3589,0
+DA:3590,0
+DA:3591,0
+FN:3592,System.Void CarePlusHomolog.BeneficiarioOut::set_DataNascimento(System.DateTime)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_DataNascimento(System.DateTime)
+DA:3593,0
+DA:3594,0
+DA:3595,0
+FN:3601,System.String CarePlusHomolog.BeneficiarioOut::get_DigitoAgencia()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_DigitoAgencia()
+DA:3602,0
+DA:3603,0
+DA:3604,0
+FN:3605,System.Void CarePlusHomolog.BeneficiarioOut::set_DigitoAgencia(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_DigitoAgencia(System.String)
+DA:3606,0
+DA:3607,0
+DA:3608,0
+FN:3614,System.String CarePlusHomolog.BeneficiarioOut::get_DigitoContaCorrente()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_DigitoContaCorrente()
+DA:3615,0
+DA:3616,0
+DA:3617,0
+FN:3618,System.Void CarePlusHomolog.BeneficiarioOut::set_DigitoContaCorrente(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_DigitoContaCorrente(System.String)
+DA:3619,0
+DA:3620,0
+DA:3621,0
+FN:3627,System.String CarePlusHomolog.BeneficiarioOut::get_Email()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Email()
+DA:3628,0
+DA:3629,0
+DA:3630,0
+FN:3631,System.Void CarePlusHomolog.BeneficiarioOut::set_Email(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Email(System.String)
+DA:3632,0
+DA:3633,0
+DA:3634,0
+FN:3640,System.String CarePlusHomolog.BeneficiarioOut::get_Estado()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Estado()
+DA:3641,0
+DA:3642,0
+DA:3643,0
+FN:3644,System.Void CarePlusHomolog.BeneficiarioOut::set_Estado(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Estado(System.String)
+DA:3645,0
+DA:3646,0
+DA:3647,0
+FN:3653,System.String CarePlusHomolog.BeneficiarioOut::get_GeoBlueID()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_GeoBlueID()
+DA:3654,0
+DA:3655,0
+DA:3656,0
+FN:3657,System.Void CarePlusHomolog.BeneficiarioOut::set_GeoBlueID(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_GeoBlueID(System.String)
+DA:3658,0
+DA:3659,0
+DA:3660,0
+FN:3666,System.String CarePlusHomolog.BeneficiarioOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Nome()
+DA:3667,0
+DA:3668,0
+DA:3669,0
+FN:3670,System.Void CarePlusHomolog.BeneficiarioOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Nome(System.String)
+DA:3671,0
+DA:3672,0
+DA:3673,0
+FN:3679,System.String CarePlusHomolog.BeneficiarioOut::get_NomeBanco()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_NomeBanco()
+DA:3680,0
+DA:3681,0
+DA:3682,0
+FN:3683,System.Void CarePlusHomolog.BeneficiarioOut::set_NomeBanco(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_NomeBanco(System.String)
+DA:3684,0
+DA:3685,0
+DA:3686,0
+FN:3692,System.String CarePlusHomolog.BeneficiarioOut::get_NomeTitulaContaCorrente()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_NomeTitulaContaCorrente()
+DA:3693,0
+DA:3694,0
+DA:3695,0
+FN:3696,System.Void CarePlusHomolog.BeneficiarioOut::set_NomeTitulaContaCorrente(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_NomeTitulaContaCorrente(System.String)
+DA:3697,0
+DA:3698,0
+DA:3699,0
+FN:3705,System.String CarePlusHomolog.BeneficiarioOut::get_Parentesco()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Parentesco()
+DA:3706,0
+DA:3707,0
+DA:3708,0
+FN:3709,System.Void CarePlusHomolog.BeneficiarioOut::set_Parentesco(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Parentesco(System.String)
+DA:3710,0
+DA:3711,0
+DA:3712,0
+FN:3718,System.String CarePlusHomolog.BeneficiarioOut::get_Passaporte()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Passaporte()
+DA:3719,0
+DA:3720,0
+DA:3721,0
+FN:3722,System.Void CarePlusHomolog.BeneficiarioOut::set_Passaporte(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Passaporte(System.String)
+DA:3723,0
+DA:3724,0
+DA:3725,0
+FN:3731,System.String CarePlusHomolog.BeneficiarioOut::get_Rede()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Rede()
+DA:3732,0
+DA:3733,0
+DA:3734,0
+FN:3735,System.Void CarePlusHomolog.BeneficiarioOut::set_Rede(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Rede(System.String)
+DA:3736,0
+DA:3737,0
+DA:3738,0
+FN:3744,System.String CarePlusHomolog.BeneficiarioOut::get_Rg()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Rg()
+DA:3745,0
+DA:3746,0
+DA:3747,0
+FN:3748,System.Void CarePlusHomolog.BeneficiarioOut::set_Rg(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Rg(System.String)
+DA:3749,0
+DA:3750,0
+DA:3751,0
+FN:3757,System.Int32 CarePlusHomolog.BeneficiarioOut::get_Seq()
+FNDA:0,System.Int32 CarePlusHomolog.BeneficiarioOut::get_Seq()
+DA:3758,0
+DA:3759,0
+DA:3760,0
+FN:3761,System.Void CarePlusHomolog.BeneficiarioOut::set_Seq(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Seq(System.Int32)
+DA:3762,0
+DA:3763,0
+DA:3764,0
+FN:3770,System.String CarePlusHomolog.BeneficiarioOut::get_Sexo()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_Sexo()
+DA:3771,0
+DA:3772,0
+DA:3773,0
+FN:3774,System.Void CarePlusHomolog.BeneficiarioOut::set_Sexo(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_Sexo(System.String)
+DA:3775,0
+DA:3776,0
+DA:3777,0
+FN:3783,System.String CarePlusHomolog.BeneficiarioOut::get_TelefoneResidencial()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_TelefoneResidencial()
+DA:3784,0
+DA:3785,0
+DA:3786,0
+FN:3787,System.Void CarePlusHomolog.BeneficiarioOut::set_TelefoneResidencial(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_TelefoneResidencial(System.String)
+DA:3788,0
+DA:3789,0
+DA:3790,0
+FN:3796,System.Boolean CarePlusHomolog.BeneficiarioOut::get_TemCarencia()
+FNDA:0,System.Boolean CarePlusHomolog.BeneficiarioOut::get_TemCarencia()
+DA:3797,0
+DA:3798,0
+DA:3799,0
+FN:3800,System.Void CarePlusHomolog.BeneficiarioOut::set_TemCarencia(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_TemCarencia(System.Boolean)
+DA:3801,0
+DA:3802,0
+DA:3803,0
+FN:3809,System.String CarePlusHomolog.BeneficiarioOut::get_TemPlanoInternacional()
+FNDA:0,System.String CarePlusHomolog.BeneficiarioOut::get_TemPlanoInternacional()
+DA:3810,0
+DA:3811,0
+DA:3812,0
+FN:3813,System.Void CarePlusHomolog.BeneficiarioOut::set_TemPlanoInternacional(System.String)
+FNDA:0,System.Void CarePlusHomolog.BeneficiarioOut::set_TemPlanoInternacional(System.String)
+DA:3814,0
+DA:3815,0
+DA:3816,0
+FN:3928,System.String CarePlusHomolog.RedeOut::get_Bairro()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Bairro()
+DA:3929,0
+DA:3930,0
+DA:3931,0
+FN:3932,System.Void CarePlusHomolog.RedeOut::set_Bairro(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Bairro(System.String)
+DA:3933,0
+DA:3934,0
+DA:3935,0
+FN:3941,System.String CarePlusHomolog.RedeOut::get_BairroZona()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_BairroZona()
+DA:3942,0
+DA:3943,0
+DA:3944,0
+FN:3945,System.Void CarePlusHomolog.RedeOut::set_BairroZona(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_BairroZona(System.String)
+DA:3946,0
+DA:3947,0
+DA:3948,0
+FN:3954,System.String CarePlusHomolog.RedeOut::get_Bandeira()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Bandeira()
+DA:3955,0
+DA:3956,0
+DA:3957,0
+FN:3958,System.Void CarePlusHomolog.RedeOut::set_Bandeira(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Bandeira(System.String)
+DA:3959,0
+DA:3960,0
+DA:3961,0
+FN:3967,System.String CarePlusHomolog.RedeOut::get_Cep()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Cep()
+DA:3968,0
+DA:3969,0
+DA:3970,0
+FN:3971,System.Void CarePlusHomolog.RedeOut::set_Cep(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Cep(System.String)
+DA:3972,0
+DA:3973,0
+DA:3974,0
+FN:3980,System.String CarePlusHomolog.RedeOut::get_Cidade()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Cidade()
+DA:3981,0
+DA:3982,0
+DA:3983,0
+FN:3984,System.Void CarePlusHomolog.RedeOut::set_Cidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Cidade(System.String)
+DA:3985,0
+DA:3986,0
+DA:3987,0
+FN:3993,System.String CarePlusHomolog.RedeOut::get_Cnpj()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Cnpj()
+DA:3994,0
+DA:3995,0
+DA:3996,0
+FN:3997,System.Void CarePlusHomolog.RedeOut::set_Cnpj(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Cnpj(System.String)
+DA:3998,0
+DA:3999,0
+DA:4000,0
+FN:4006,System.Int32 CarePlusHomolog.RedeOut::get_CodEspecialidade()
+FNDA:0,System.Int32 CarePlusHomolog.RedeOut::get_CodEspecialidade()
+DA:4007,0
+DA:4008,0
+DA:4009,0
+FN:4010,System.Void CarePlusHomolog.RedeOut::set_CodEspecialidade(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_CodEspecialidade(System.Int32)
+DA:4011,0
+DA:4012,0
+DA:4013,0
+FN:4019,System.Int32 CarePlusHomolog.RedeOut::get_Codigo()
+FNDA:0,System.Int32 CarePlusHomolog.RedeOut::get_Codigo()
+DA:4020,0
+DA:4021,0
+DA:4022,0
+FN:4023,System.Void CarePlusHomolog.RedeOut::set_Codigo(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Codigo(System.Int32)
+DA:4024,0
+DA:4025,0
+DA:4026,0
+FN:4032,System.String CarePlusHomolog.RedeOut::get_Conselho()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Conselho()
+DA:4033,0
+DA:4034,0
+DA:4035,0
+FN:4036,System.Void CarePlusHomolog.RedeOut::set_Conselho(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Conselho(System.String)
+DA:4037,0
+DA:4038,0
+DA:4039,0
+FN:4045,System.String CarePlusHomolog.RedeOut::get_Descricao()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Descricao()
+DA:4046,0
+DA:4047,0
+DA:4048,0
+FN:4049,System.Void CarePlusHomolog.RedeOut::set_Descricao(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Descricao(System.String)
+DA:4050,0
+DA:4051,0
+DA:4052,0
+FN:4058,System.Nullable`1<System.Double> CarePlusHomolog.RedeOut::get_Distancia()
+FNDA:0,System.Nullable`1<System.Double> CarePlusHomolog.RedeOut::get_Distancia()
+DA:4059,0
+DA:4060,0
+DA:4061,0
+FN:4062,System.Void CarePlusHomolog.RedeOut::set_Distancia(System.Nullable`1<System.Double>)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Distancia(System.Nullable`1<System.Double>)
+DA:4063,0
+DA:4064,0
+DA:4065,0
+FN:4071,System.Boolean CarePlusHomolog.RedeOut::get_DivulgarPrestador()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_DivulgarPrestador()
+DA:4072,0
+DA:4073,0
+DA:4074,0
+FN:4075,System.Void CarePlusHomolog.RedeOut::set_DivulgarPrestador(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_DivulgarPrestador(System.Boolean)
+DA:4076,0
+DA:4077,0
+DA:4078,0
+FN:4084,System.String CarePlusHomolog.RedeOut::get_Endereco()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Endereco()
+DA:4085,0
+DA:4086,0
+DA:4087,0
+FN:4088,System.Void CarePlusHomolog.RedeOut::set_Endereco(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Endereco(System.String)
+DA:4089,0
+DA:4090,0
+DA:4091,0
+FN:4097,System.String CarePlusHomolog.RedeOut::get_Especialidade()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Especialidade()
+DA:4098,0
+DA:4099,0
+DA:4100,0
+FN:4101,System.Void CarePlusHomolog.RedeOut::set_Especialidade(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Especialidade(System.String)
+DA:4102,0
+DA:4103,0
+DA:4104,0
+FN:4110,System.String CarePlusHomolog.RedeOut::get_Horarios()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Horarios()
+DA:4111,0
+DA:4112,0
+DA:4113,0
+FN:4114,System.Void CarePlusHomolog.RedeOut::set_Horarios(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Horarios(System.String)
+DA:4115,0
+DA:4116,0
+DA:4117,0
+FN:4123,System.Boolean CarePlusHomolog.RedeOut::get_Indicacao()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_Indicacao()
+DA:4124,0
+DA:4125,0
+DA:4126,0
+FN:4127,System.Void CarePlusHomolog.RedeOut::set_Indicacao(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Indicacao(System.Boolean)
+DA:4128,0
+DA:4129,0
+DA:4130,0
+FN:4136,System.Boolean CarePlusHomolog.RedeOut::get_IsPreferencialOuNetwork()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_IsPreferencialOuNetwork()
+DA:4137,0
+DA:4138,0
+DA:4139,0
+FN:4140,System.Void CarePlusHomolog.RedeOut::set_IsPreferencialOuNetwork(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_IsPreferencialOuNetwork(System.Boolean)
+DA:4141,0
+DA:4142,0
+DA:4143,0
+FN:4149,System.Nullable`1<System.Double> CarePlusHomolog.RedeOut::get_Latitude()
+FNDA:0,System.Nullable`1<System.Double> CarePlusHomolog.RedeOut::get_Latitude()
+DA:4150,0
+DA:4151,0
+DA:4152,0
+FN:4153,System.Void CarePlusHomolog.RedeOut::set_Latitude(System.Nullable`1<System.Double>)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Latitude(System.Nullable`1<System.Double>)
+DA:4154,0
+DA:4155,0
+DA:4156,0
+FN:4162,System.Nullable`1<System.Double> CarePlusHomolog.RedeOut::get_Longitude()
+FNDA:0,System.Nullable`1<System.Double> CarePlusHomolog.RedeOut::get_Longitude()
+DA:4163,0
+DA:4164,0
+DA:4165,0
+FN:4166,System.Void CarePlusHomolog.RedeOut::set_Longitude(System.Nullable`1<System.Double>)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Longitude(System.Nullable`1<System.Double>)
+DA:4167,0
+DA:4168,0
+DA:4169,0
+FN:4175,System.Boolean CarePlusHomolog.RedeOut::get_MaisUtilizado()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_MaisUtilizado()
+DA:4176,0
+DA:4177,0
+DA:4178,0
+FN:4179,System.Void CarePlusHomolog.RedeOut::set_MaisUtilizado(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_MaisUtilizado(System.Boolean)
+DA:4180,0
+DA:4181,0
+DA:4182,0
+FN:4188,System.Boolean CarePlusHomolog.RedeOut::get_Network()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_Network()
+DA:4189,0
+DA:4190,0
+DA:4191,0
+FN:4192,System.Void CarePlusHomolog.RedeOut::set_Network(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Network(System.Boolean)
+DA:4193,0
+DA:4194,0
+DA:4195,0
+FN:4201,System.String CarePlusHomolog.RedeOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Nome()
+DA:4202,0
+DA:4203,0
+DA:4204,0
+FN:4205,System.Void CarePlusHomolog.RedeOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Nome(System.String)
+DA:4206,0
+DA:4207,0
+DA:4208,0
+FN:4214,System.String CarePlusHomolog.RedeOut::get_NomeComercialPlano()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_NomeComercialPlano()
+DA:4215,0
+DA:4216,0
+DA:4217,0
+FN:4218,System.Void CarePlusHomolog.RedeOut::set_NomeComercialPlano(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_NomeComercialPlano(System.String)
+DA:4219,0
+DA:4220,0
+DA:4221,0
+FN:4227,System.String CarePlusHomolog.RedeOut::get_NomeFantasia()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_NomeFantasia()
+DA:4228,0
+DA:4229,0
+DA:4230,0
+FN:4231,System.Void CarePlusHomolog.RedeOut::set_NomeFantasia(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_NomeFantasia(System.String)
+DA:4232,0
+DA:4233,0
+DA:4234,0
+FN:4240,System.String CarePlusHomolog.RedeOut::get_NomesRedes()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_NomesRedes()
+DA:4241,0
+DA:4242,0
+DA:4243,0
+FN:4244,System.Void CarePlusHomolog.RedeOut::set_NomesRedes(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_NomesRedes(System.String)
+DA:4245,0
+DA:4246,0
+DA:4247,0
+FN:4253,System.Boolean CarePlusHomolog.RedeOut::get_Preferencial()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_Preferencial()
+DA:4254,0
+DA:4255,0
+DA:4256,0
+FN:4257,System.Void CarePlusHomolog.RedeOut::set_Preferencial(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Preferencial(System.Boolean)
+DA:4258,0
+DA:4259,0
+DA:4260,0
+FN:4266,System.Boolean CarePlusHomolog.RedeOut::get_PrestadorFavorito()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_PrestadorFavorito()
+DA:4267,0
+DA:4268,0
+DA:4269,0
+FN:4270,System.Void CarePlusHomolog.RedeOut::set_PrestadorFavorito(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_PrestadorFavorito(System.Boolean)
+DA:4271,0
+DA:4272,0
+DA:4273,0
+FN:4279,CarePlusHomolog.QualificacaoPrestador[] CarePlusHomolog.RedeOut::get_Qualificacoes()
+FNDA:0,CarePlusHomolog.QualificacaoPrestador[] CarePlusHomolog.RedeOut::get_Qualificacoes()
+DA:4280,0
+DA:4281,0
+DA:4282,0
+FN:4283,System.Void CarePlusHomolog.RedeOut::set_Qualificacoes(CarePlusHomolog.QualificacaoPrestador[])
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Qualificacoes(CarePlusHomolog.QualificacaoPrestador[])
+DA:4284,0
+DA:4285,0
+DA:4286,0
+FN:4292,System.String CarePlusHomolog.RedeOut::get_RazaoSocial()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_RazaoSocial()
+DA:4293,0
+DA:4294,0
+DA:4295,0
+FN:4296,System.Void CarePlusHomolog.RedeOut::set_RazaoSocial(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_RazaoSocial(System.String)
+DA:4297,0
+DA:4298,0
+DA:4299,0
+FN:4305,System.String CarePlusHomolog.RedeOut::get_RegistroANS()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_RegistroANS()
+DA:4306,0
+DA:4307,0
+DA:4308,0
+FN:4309,System.Void CarePlusHomolog.RedeOut::set_RegistroANS(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_RegistroANS(System.String)
+DA:4310,0
+DA:4311,0
+DA:4312,0
+FN:4318,System.String CarePlusHomolog.RedeOut::get_Site()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Site()
+DA:4319,0
+DA:4320,0
+DA:4321,0
+FN:4322,System.Void CarePlusHomolog.RedeOut::set_Site(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Site(System.String)
+DA:4323,0
+DA:4324,0
+DA:4325,0
+FN:4331,System.String CarePlusHomolog.RedeOut::get_Telefone()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Telefone()
+DA:4332,0
+DA:4333,0
+DA:4334,0
+FN:4335,System.Void CarePlusHomolog.RedeOut::set_Telefone(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Telefone(System.String)
+DA:4336,0
+DA:4337,0
+DA:4338,0
+FN:4344,System.Boolean CarePlusHomolog.RedeOut::get_TemDivulgacaoPrestador()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_TemDivulgacaoPrestador()
+DA:4345,0
+DA:4346,0
+DA:4347,0
+FN:4348,System.Void CarePlusHomolog.RedeOut::set_TemDivulgacaoPrestador(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_TemDivulgacaoPrestador(System.Boolean)
+DA:4349,0
+DA:4350,0
+DA:4351,0
+FN:4357,System.Boolean CarePlusHomolog.RedeOut::get_TemLogo()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_TemLogo()
+DA:4358,0
+DA:4359,0
+DA:4360,0
+FN:4361,System.Void CarePlusHomolog.RedeOut::set_TemLogo(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_TemLogo(System.Boolean)
+DA:4362,0
+DA:4363,0
+DA:4364,0
+FN:4370,System.Boolean CarePlusHomolog.RedeOut::get_TemRedePlus()
+FNDA:0,System.Boolean CarePlusHomolog.RedeOut::get_TemRedePlus()
+DA:4371,0
+DA:4372,0
+DA:4373,0
+FN:4374,System.Void CarePlusHomolog.RedeOut::set_TemRedePlus(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_TemRedePlus(System.Boolean)
+DA:4375,0
+DA:4376,0
+DA:4377,0
+FN:4383,System.String CarePlusHomolog.RedeOut::get_Tipo()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Tipo()
+DA:4384,0
+DA:4385,0
+DA:4386,0
+FN:4387,System.Void CarePlusHomolog.RedeOut::set_Tipo(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Tipo(System.String)
+DA:4388,0
+DA:4389,0
+DA:4390,0
+FN:4396,System.String CarePlusHomolog.RedeOut::get_TipoConselho()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_TipoConselho()
+DA:4397,0
+DA:4398,0
+DA:4399,0
+FN:4400,System.Void CarePlusHomolog.RedeOut::set_TipoConselho(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_TipoConselho(System.String)
+DA:4401,0
+DA:4402,0
+DA:4403,0
+FN:4409,System.String CarePlusHomolog.RedeOut::get_TipoEstabelecimento()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_TipoEstabelecimento()
+DA:4410,0
+DA:4411,0
+DA:4412,0
+FN:4413,System.Void CarePlusHomolog.RedeOut::set_TipoEstabelecimento(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_TipoEstabelecimento(System.String)
+DA:4414,0
+DA:4415,0
+DA:4416,0
+FN:4422,System.String CarePlusHomolog.RedeOut::get_TipoPessoa()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_TipoPessoa()
+DA:4423,0
+DA:4424,0
+DA:4425,0
+FN:4426,System.Void CarePlusHomolog.RedeOut::set_TipoPessoa(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_TipoPessoa(System.String)
+DA:4427,0
+DA:4428,0
+DA:4429,0
+FN:4435,System.String CarePlusHomolog.RedeOut::get_Uf()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_Uf()
+DA:4436,0
+DA:4437,0
+DA:4438,0
+FN:4439,System.Void CarePlusHomolog.RedeOut::set_Uf(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_Uf(System.String)
+DA:4440,0
+DA:4441,0
+DA:4442,0
+FN:4448,System.String CarePlusHomolog.RedeOut::get_UfConselho()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_UfConselho()
+DA:4449,0
+DA:4450,0
+DA:4451,0
+FN:4452,System.Void CarePlusHomolog.RedeOut::set_UfConselho(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_UfConselho(System.String)
+DA:4453,0
+DA:4454,0
+DA:4455,0
+FN:4461,System.String CarePlusHomolog.RedeOut::get_UrlAgendaPrestador()
+FNDA:0,System.String CarePlusHomolog.RedeOut::get_UrlAgendaPrestador()
+DA:4462,0
+DA:4463,0
+DA:4464,0
+FN:4465,System.Void CarePlusHomolog.RedeOut::set_UrlAgendaPrestador(System.String)
+FNDA:0,System.Void CarePlusHomolog.RedeOut::set_UrlAgendaPrestador(System.String)
+DA:4466,0
+DA:4467,0
+DA:4468,0
+FN:4539,System.Int32 CarePlusHomolog.EspecialidadeOut::get_Codigo()
+FNDA:0,System.Int32 CarePlusHomolog.EspecialidadeOut::get_Codigo()
+DA:4540,0
+DA:4541,0
+DA:4542,0
+FN:4543,System.Void CarePlusHomolog.EspecialidadeOut::set_Codigo(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.EspecialidadeOut::set_Codigo(System.Int32)
+DA:4544,0
+DA:4545,0
+DA:4546,0
+FN:4552,System.String CarePlusHomolog.EspecialidadeOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.EspecialidadeOut::get_Nome()
+DA:4553,0
+DA:4554,0
+DA:4555,0
+FN:4556,System.Void CarePlusHomolog.EspecialidadeOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.EspecialidadeOut::set_Nome(System.String)
+DA:4557,0
+DA:4558,0
+DA:4559,0
+FN:4576,System.Int32 CarePlusHomolog.CidadeOut::get_Codigo()
+FNDA:0,System.Int32 CarePlusHomolog.CidadeOut::get_Codigo()
+DA:4577,0
+DA:4578,0
+DA:4579,0
+FN:4580,System.Void CarePlusHomolog.CidadeOut::set_Codigo(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.CidadeOut::set_Codigo(System.Int32)
+DA:4581,0
+DA:4582,0
+DA:4583,0
+FN:4589,System.String CarePlusHomolog.CidadeOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.CidadeOut::get_Nome()
+DA:4590,0
+DA:4591,0
+DA:4592,0
+FN:4593,System.Void CarePlusHomolog.CidadeOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.CidadeOut::set_Nome(System.String)
+DA:4594,0
+DA:4595,0
+DA:4596,0
+FN:4611,System.String CarePlusHomolog.BairroOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.BairroOut::get_Nome()
+DA:4612,0
+DA:4613,0
+DA:4614,0
+FN:4615,System.Void CarePlusHomolog.BairroOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.BairroOut::set_Nome(System.String)
+DA:4616,0
+DA:4617,0
+DA:4618,0
+FN:4635,System.String CarePlusHomolog.EstadoOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.EstadoOut::get_Nome()
+DA:4636,0
+DA:4637,0
+DA:4638,0
+FN:4639,System.Void CarePlusHomolog.EstadoOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.EstadoOut::set_Nome(System.String)
+DA:4640,0
+DA:4641,0
+DA:4642,0
+FN:4648,System.String CarePlusHomolog.EstadoOut::get_Uf()
+FNDA:0,System.String CarePlusHomolog.EstadoOut::get_Uf()
+DA:4649,0
+DA:4650,0
+DA:4651,0
+FN:4652,System.Void CarePlusHomolog.EstadoOut::set_Uf(System.String)
+FNDA:0,System.Void CarePlusHomolog.EstadoOut::set_Uf(System.String)
+DA:4653,0
+DA:4654,0
+DA:4655,0
+FN:4670,System.String CarePlusHomolog.ZonaOut::get_Nome()
+FNDA:0,System.String CarePlusHomolog.ZonaOut::get_Nome()
+DA:4671,0
+DA:4672,0
+DA:4673,0
+FN:4674,System.Void CarePlusHomolog.ZonaOut::set_Nome(System.String)
+FNDA:0,System.Void CarePlusHomolog.ZonaOut::set_Nome(System.String)
+DA:4675,0
+DA:4676,0
+DA:4677,0
+FN:4700,System.String CarePlusHomolog.Coordenada::get_Cep()
+FNDA:0,System.String CarePlusHomolog.Coordenada::get_Cep()
+DA:4701,0
+DA:4702,0
+DA:4703,0
+FN:4704,System.Void CarePlusHomolog.Coordenada::set_Cep(System.String)
+FNDA:0,System.Void CarePlusHomolog.Coordenada::set_Cep(System.String)
+DA:4705,0
+DA:4706,0
+DA:4707,0
+FN:4713,System.String CarePlusHomolog.Coordenada::get_Endereco()
+FNDA:0,System.String CarePlusHomolog.Coordenada::get_Endereco()
+DA:4714,0
+DA:4715,0
+DA:4716,0
+FN:4717,System.Void CarePlusHomolog.Coordenada::set_Endereco(System.String)
+FNDA:0,System.Void CarePlusHomolog.Coordenada::set_Endereco(System.String)
+DA:4718,0
+DA:4719,0
+DA:4720,0
+FN:4726,System.String CarePlusHomolog.Coordenada::get_Estado()
+FNDA:0,System.String CarePlusHomolog.Coordenada::get_Estado()
+DA:4727,0
+DA:4728,0
+DA:4729,0
+FN:4730,System.Void CarePlusHomolog.Coordenada::set_Estado(System.String)
+FNDA:0,System.Void CarePlusHomolog.Coordenada::set_Estado(System.String)
+DA:4731,0
+DA:4732,0
+DA:4733,0
+FN:4739,System.Double CarePlusHomolog.Coordenada::get_Latitude()
+FNDA:0,System.Double CarePlusHomolog.Coordenada::get_Latitude()
+DA:4740,0
+DA:4741,0
+DA:4742,0
+FN:4743,System.Void CarePlusHomolog.Coordenada::set_Latitude(System.Double)
+FNDA:0,System.Void CarePlusHomolog.Coordenada::set_Latitude(System.Double)
+DA:4744,0
+DA:4745,0
+DA:4746,0
+FN:4752,System.Double CarePlusHomolog.Coordenada::get_Longitude()
+FNDA:0,System.Double CarePlusHomolog.Coordenada::get_Longitude()
+DA:4753,0
+DA:4754,0
+DA:4755,0
+FN:4756,System.Void CarePlusHomolog.Coordenada::set_Longitude(System.Double)
+FNDA:0,System.Void CarePlusHomolog.Coordenada::set_Longitude(System.Double)
+DA:4757,0
+DA:4758,0
+DA:4759,0
+FN:4814,System.String CarePlusHomolog.AutorizacaoChatOut::get_Cobertura()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Cobertura()
+DA:4815,0
+DA:4816,0
+DA:4817,0
+FN:4818,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Cobertura(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Cobertura(System.String)
+DA:4819,0
+DA:4820,0
+DA:4821,0
+FN:4827,System.String CarePlusHomolog.AutorizacaoChatOut::get_DataRealizacao()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_DataRealizacao()
+DA:4828,0
+DA:4829,0
+DA:4830,0
+FN:4831,System.Void CarePlusHomolog.AutorizacaoChatOut::set_DataRealizacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_DataRealizacao(System.String)
+DA:4832,0
+DA:4833,0
+DA:4834,0
+FN:4840,System.String CarePlusHomolog.AutorizacaoChatOut::get_DataSolicitacao()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_DataSolicitacao()
+DA:4841,0
+DA:4842,0
+DA:4843,0
+FN:4844,System.Void CarePlusHomolog.AutorizacaoChatOut::set_DataSolicitacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_DataSolicitacao(System.String)
+DA:4845,0
+DA:4846,0
+DA:4847,0
+FN:4853,System.String CarePlusHomolog.AutorizacaoChatOut::get_DiasInternacao()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_DiasInternacao()
+DA:4854,0
+DA:4855,0
+DA:4856,0
+FN:4857,System.Void CarePlusHomolog.AutorizacaoChatOut::set_DiasInternacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_DiasInternacao(System.String)
+DA:4858,0
+DA:4859,0
+DA:4860,0
+FN:4866,System.String CarePlusHomolog.AutorizacaoChatOut::get_Local()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Local()
+DA:4867,0
+DA:4868,0
+DA:4869,0
+FN:4870,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Local(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Local(System.String)
+DA:4871,0
+DA:4872,0
+DA:4873,0
+FN:4879,System.String CarePlusHomolog.AutorizacaoChatOut::get_MensagemSegOp()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_MensagemSegOp()
+DA:4880,0
+DA:4881,0
+DA:4882,0
+FN:4883,System.Void CarePlusHomolog.AutorizacaoChatOut::set_MensagemSegOp(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_MensagemSegOp(System.String)
+DA:4884,0
+DA:4885,0
+DA:4886,0
+FN:4892,System.String CarePlusHomolog.AutorizacaoChatOut::get_Motivo()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Motivo()
+DA:4893,0
+DA:4894,0
+DA:4895,0
+FN:4896,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Motivo(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Motivo(System.String)
+DA:4897,0
+DA:4898,0
+DA:4899,0
+FN:4905,System.String CarePlusHomolog.AutorizacaoChatOut::get_NomeBeneficiario()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_NomeBeneficiario()
+DA:4906,0
+DA:4907,0
+DA:4908,0
+FN:4909,System.Void CarePlusHomolog.AutorizacaoChatOut::set_NomeBeneficiario(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_NomeBeneficiario(System.String)
+DA:4910,0
+DA:4911,0
+DA:4912,0
+FN:4918,System.String CarePlusHomolog.AutorizacaoChatOut::get_NumProcesso()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_NumProcesso()
+DA:4919,0
+DA:4920,0
+DA:4921,0
+FN:4922,System.Void CarePlusHomolog.AutorizacaoChatOut::set_NumProcesso(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_NumProcesso(System.String)
+DA:4923,0
+DA:4924,0
+DA:4925,0
+FN:4931,System.String CarePlusHomolog.AutorizacaoChatOut::get_NumSessoes()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_NumSessoes()
+DA:4932,0
+DA:4933,0
+DA:4934,0
+FN:4935,System.Void CarePlusHomolog.AutorizacaoChatOut::set_NumSessoes(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_NumSessoes(System.String)
+DA:4936,0
+DA:4937,0
+DA:4938,0
+FN:4944,System.String CarePlusHomolog.AutorizacaoChatOut::get_Observacao()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Observacao()
+DA:4945,0
+DA:4946,0
+DA:4947,0
+FN:4948,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Observacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Observacao(System.String)
+DA:4949,0
+DA:4950,0
+DA:4951,0
+FN:4957,System.String CarePlusHomolog.AutorizacaoChatOut::get_Procedimento()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Procedimento()
+DA:4958,0
+DA:4959,0
+DA:4960,0
+FN:4961,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Procedimento(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Procedimento(System.String)
+DA:4962,0
+DA:4963,0
+DA:4964,0
+FN:4970,System.String CarePlusHomolog.AutorizacaoChatOut::get_Profissional()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Profissional()
+DA:4971,0
+DA:4972,0
+DA:4973,0
+FN:4974,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Profissional(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Profissional(System.String)
+DA:4975,0
+DA:4976,0
+DA:4977,0
+FN:4983,System.String CarePlusHomolog.AutorizacaoChatOut::get_QtdProcedimentos()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_QtdProcedimentos()
+DA:4984,0
+DA:4985,0
+DA:4986,0
+FN:4987,System.Void CarePlusHomolog.AutorizacaoChatOut::set_QtdProcedimentos(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_QtdProcedimentos(System.String)
+DA:4988,0
+DA:4989,0
+DA:4990,0
+FN:4996,System.String CarePlusHomolog.AutorizacaoChatOut::get_Regime()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Regime()
+DA:4997,0
+DA:4998,0
+DA:4999,0
+FN:5000,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Regime(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Regime(System.String)
+DA:5001,0
+DA:5002,0
+DA:5003,0
+FN:5009,System.String CarePlusHomolog.AutorizacaoChatOut::get_SenhaCarePlus()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_SenhaCarePlus()
+DA:5010,0
+DA:5011,0
+DA:5012,0
+FN:5013,System.Void CarePlusHomolog.AutorizacaoChatOut::set_SenhaCarePlus(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_SenhaCarePlus(System.String)
+DA:5014,0
+DA:5015,0
+DA:5016,0
+FN:5022,System.String CarePlusHomolog.AutorizacaoChatOut::get_SenhaGama()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_SenhaGama()
+DA:5023,0
+DA:5024,0
+DA:5025,0
+FN:5026,System.Void CarePlusHomolog.AutorizacaoChatOut::set_SenhaGama(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_SenhaGama(System.String)
+DA:5027,0
+DA:5028,0
+DA:5029,0
+FN:5035,System.String CarePlusHomolog.AutorizacaoChatOut::get_SenhaMediservice()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_SenhaMediservice()
+DA:5036,0
+DA:5037,0
+DA:5038,0
+FN:5039,System.Void CarePlusHomolog.AutorizacaoChatOut::set_SenhaMediservice(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_SenhaMediservice(System.String)
+DA:5040,0
+DA:5041,0
+DA:5042,0
+FN:5048,System.String CarePlusHomolog.AutorizacaoChatOut::get_Situacao()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Situacao()
+DA:5049,0
+DA:5050,0
+DA:5051,0
+FN:5052,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Situacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Situacao(System.String)
+DA:5053,0
+DA:5054,0
+DA:5055,0
+FN:5061,System.String CarePlusHomolog.AutorizacaoChatOut::get_Solicitante()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Solicitante()
+DA:5062,0
+DA:5063,0
+DA:5064,0
+FN:5065,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Solicitante(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Solicitante(System.String)
+DA:5066,0
+DA:5067,0
+DA:5068,0
+FN:5074,System.String CarePlusHomolog.AutorizacaoChatOut::get_Validade()
+FNDA:0,System.String CarePlusHomolog.AutorizacaoChatOut::get_Validade()
+DA:5075,0
+DA:5076,0
+DA:5077,0
+FN:5078,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Validade(System.String)
+FNDA:0,System.Void CarePlusHomolog.AutorizacaoChatOut::set_Validade(System.String)
+DA:5079,0
+DA:5080,0
+DA:5081,0
+FN:5126,System.String CarePlusHomolog.ReembolsoChatOut::get_CNPJ()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_CNPJ()
+DA:5127,0
+DA:5128,0
+DA:5129,0
+FN:5130,System.Void CarePlusHomolog.ReembolsoChatOut::set_CNPJ(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_CNPJ(System.String)
+DA:5131,0
+DA:5132,0
+DA:5133,0
+FN:5139,System.String CarePlusHomolog.ReembolsoChatOut::get_Cobertura()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_Cobertura()
+DA:5140,0
+DA:5141,0
+DA:5142,0
+FN:5143,System.Void CarePlusHomolog.ReembolsoChatOut::set_Cobertura(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_Cobertura(System.String)
+DA:5144,0
+DA:5145,0
+DA:5146,0
+FN:5152,System.String CarePlusHomolog.ReembolsoChatOut::get_Comentario()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_Comentario()
+DA:5153,0
+DA:5154,0
+DA:5155,0
+FN:5156,System.Void CarePlusHomolog.ReembolsoChatOut::set_Comentario(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_Comentario(System.String)
+DA:5157,0
+DA:5158,0
+DA:5159,0
+FN:5165,System.String CarePlusHomolog.ReembolsoChatOut::get_DataEvento()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_DataEvento()
+DA:5166,0
+DA:5167,0
+DA:5168,0
+FN:5169,System.Void CarePlusHomolog.ReembolsoChatOut::set_DataEvento(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_DataEvento(System.String)
+DA:5170,0
+DA:5171,0
+DA:5172,0
+FN:5178,System.String CarePlusHomolog.ReembolsoChatOut::get_DataPagamento()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_DataPagamento()
+DA:5179,0
+DA:5180,0
+DA:5181,0
+FN:5182,System.Void CarePlusHomolog.ReembolsoChatOut::set_DataPagamento(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_DataPagamento(System.String)
+DA:5183,0
+DA:5184,0
+DA:5185,0
+FN:5191,System.String CarePlusHomolog.ReembolsoChatOut::get_DataProtocoloCP()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_DataProtocoloCP()
+DA:5192,0
+DA:5193,0
+DA:5194,0
+FN:5195,System.Void CarePlusHomolog.ReembolsoChatOut::set_DataProtocoloCP(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_DataProtocoloCP(System.String)
+DA:5196,0
+DA:5197,0
+DA:5198,0
+FN:5204,System.String CarePlusHomolog.ReembolsoChatOut::get_Descricao()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_Descricao()
+DA:5205,0
+DA:5206,0
+DA:5207,0
+FN:5208,System.Void CarePlusHomolog.ReembolsoChatOut::set_Descricao(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_Descricao(System.String)
+DA:5209,0
+DA:5210,0
+DA:5211,0
+FN:5217,System.String CarePlusHomolog.ReembolsoChatOut::get_FormaPgto()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_FormaPgto()
+DA:5218,0
+DA:5219,0
+DA:5220,0
+FN:5221,System.Void CarePlusHomolog.ReembolsoChatOut::set_FormaPgto(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_FormaPgto(System.String)
+DA:5222,0
+DA:5223,0
+DA:5224,0
+FN:5230,System.String CarePlusHomolog.ReembolsoChatOut::get_NomeBeneficiario()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_NomeBeneficiario()
+DA:5231,0
+DA:5232,0
+DA:5233,0
+FN:5234,System.Void CarePlusHomolog.ReembolsoChatOut::set_NomeBeneficiario(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_NomeBeneficiario(System.String)
+DA:5235,0
+DA:5236,0
+DA:5237,0
+FN:5243,System.String CarePlusHomolog.ReembolsoChatOut::get_NomePrestador()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_NomePrestador()
+DA:5244,0
+DA:5245,0
+DA:5246,0
+FN:5247,System.Void CarePlusHomolog.ReembolsoChatOut::set_NomePrestador(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_NomePrestador(System.String)
+DA:5248,0
+DA:5249,0
+DA:5250,0
+FN:5256,System.String CarePlusHomolog.ReembolsoChatOut::get_Origem()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_Origem()
+DA:5257,0
+DA:5258,0
+DA:5259,0
+FN:5260,System.Void CarePlusHomolog.ReembolsoChatOut::set_Origem(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_Origem(System.String)
+DA:5261,0
+DA:5262,0
+DA:5263,0
+FN:5269,System.String CarePlusHomolog.ReembolsoChatOut::get_Sinistro()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_Sinistro()
+DA:5270,0
+DA:5271,0
+DA:5272,0
+FN:5273,System.Void CarePlusHomolog.ReembolsoChatOut::set_Sinistro(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_Sinistro(System.String)
+DA:5274,0
+DA:5275,0
+DA:5276,0
+FN:5282,System.String CarePlusHomolog.ReembolsoChatOut::get_Status()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_Status()
+DA:5283,0
+DA:5284,0
+DA:5285,0
+FN:5286,System.Void CarePlusHomolog.ReembolsoChatOut::set_Status(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_Status(System.String)
+DA:5287,0
+DA:5288,0
+DA:5289,0
+FN:5295,System.String CarePlusHomolog.ReembolsoChatOut::get_ValorCoParticipacao()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_ValorCoParticipacao()
+DA:5296,0
+DA:5297,0
+DA:5298,0
+FN:5299,System.Void CarePlusHomolog.ReembolsoChatOut::set_ValorCoParticipacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_ValorCoParticipacao(System.String)
+DA:5300,0
+DA:5301,0
+DA:5302,0
+FN:5308,System.String CarePlusHomolog.ReembolsoChatOut::get_ValorPago()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_ValorPago()
+DA:5309,0
+DA:5310,0
+DA:5311,0
+FN:5312,System.Void CarePlusHomolog.ReembolsoChatOut::set_ValorPago(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_ValorPago(System.String)
+DA:5313,0
+DA:5314,0
+DA:5315,0
+FN:5321,System.String CarePlusHomolog.ReembolsoChatOut::get_ValorSolicitado()
+FNDA:0,System.String CarePlusHomolog.ReembolsoChatOut::get_ValorSolicitado()
+DA:5322,0
+DA:5323,0
+DA:5324,0
+FN:5325,System.Void CarePlusHomolog.ReembolsoChatOut::set_ValorSolicitado(System.String)
+FNDA:0,System.Void CarePlusHomolog.ReembolsoChatOut::set_ValorSolicitado(System.String)
+DA:5326,0
+DA:5327,0
+DA:5328,0
+FN:5359,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Cobertura()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Cobertura()
+DA:5360,0
+DA:5361,0
+DA:5362,0
+FN:5363,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Cobertura(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Cobertura(System.String)
+DA:5364,0
+DA:5365,0
+DA:5366,0
+FN:5372,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_DataEvento()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_DataEvento()
+DA:5373,0
+DA:5374,0
+DA:5375,0
+FN:5376,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_DataEvento(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_DataEvento(System.String)
+DA:5377,0
+DA:5378,0
+DA:5379,0
+FN:5385,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_DescricaoProcedimento()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_DescricaoProcedimento()
+DA:5386,0
+DA:5387,0
+DA:5388,0
+FN:5389,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_DescricaoProcedimento(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_DescricaoProcedimento(System.String)
+DA:5390,0
+DA:5391,0
+DA:5392,0
+FN:5398,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Diaria()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Diaria()
+DA:5399,0
+DA:5400,0
+DA:5401,0
+FN:5402,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Diaria(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Diaria(System.String)
+DA:5403,0
+DA:5404,0
+DA:5405,0
+FN:5411,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Paciente()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Paciente()
+DA:5412,0
+DA:5413,0
+DA:5414,0
+FN:5415,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Paciente(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Paciente(System.String)
+DA:5416,0
+DA:5417,0
+DA:5418,0
+FN:5424,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Procedimento()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Procedimento()
+DA:5425,0
+DA:5426,0
+DA:5427,0
+FN:5428,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Procedimento(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Procedimento(System.String)
+DA:5429,0
+DA:5430,0
+DA:5431,0
+FN:5437,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Protocolo()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Protocolo()
+DA:5438,0
+DA:5439,0
+DA:5440,0
+FN:5441,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Protocolo(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Protocolo(System.String)
+DA:5442,0
+DA:5443,0
+DA:5444,0
+FN:5450,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Status()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_Status()
+DA:5451,0
+DA:5452,0
+DA:5453,0
+FN:5454,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Status(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_Status(System.String)
+DA:5455,0
+DA:5456,0
+DA:5457,0
+FN:5463,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_ValorPrevio()
+FNDA:0,System.String CarePlusHomolog.PreviaReembolsoChatOut::get_ValorPrevio()
+DA:5464,0
+DA:5465,0
+DA:5466,0
+FN:5467,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_ValorPrevio(System.String)
+FNDA:0,System.Void CarePlusHomolog.PreviaReembolsoChatOut::set_ValorPrevio(System.String)
+DA:5468,0
+DA:5469,0
+DA:5470,0
+FN:5489,CarePlusHomolog.WSAssuntoFaleConosco[] CarePlusHomolog.WSFaleConoscoTipoAssunto::get_Assunto()
+FNDA:14,CarePlusHomolog.WSAssuntoFaleConosco[] CarePlusHomolog.WSFaleConoscoTipoAssunto::get_Assunto()
+DA:5490,14
+DA:5491,14
+DA:5492,14
+FN:5493,System.Void CarePlusHomolog.WSFaleConoscoTipoAssunto::set_Assunto(CarePlusHomolog.WSAssuntoFaleConosco[])
+FNDA:14,System.Void CarePlusHomolog.WSFaleConoscoTipoAssunto::set_Assunto(CarePlusHomolog.WSAssuntoFaleConosco[])
+DA:5494,14
+DA:5495,14
+DA:5496,14
+FN:5502,System.String CarePlusHomolog.WSFaleConoscoTipoAssunto::get_Descricao()
+FNDA:14,System.String CarePlusHomolog.WSFaleConoscoTipoAssunto::get_Descricao()
+DA:5503,14
+DA:5504,14
+DA:5505,14
+FN:5506,System.Void CarePlusHomolog.WSFaleConoscoTipoAssunto::set_Descricao(System.String)
+FNDA:14,System.Void CarePlusHomolog.WSFaleConoscoTipoAssunto::set_Descricao(System.String)
+DA:5507,14
+DA:5508,14
+DA:5509,14
+FN:5515,System.Int32 CarePlusHomolog.WSFaleConoscoTipoAssunto::get_Id()
+FNDA:14,System.Int32 CarePlusHomolog.WSFaleConoscoTipoAssunto::get_Id()
+DA:5516,14
+DA:5517,14
+DA:5518,14
+FN:5519,System.Void CarePlusHomolog.WSFaleConoscoTipoAssunto::set_Id(System.Int32)
+FNDA:14,System.Void CarePlusHomolog.WSFaleConoscoTipoAssunto::set_Id(System.Int32)
+DA:5520,14
+DA:5521,14
+DA:5522,14
+FN:5539,System.Int32 CarePlusHomolog.WSAssuntoFaleConosco::get_Id()
+FNDA:70,System.Int32 CarePlusHomolog.WSAssuntoFaleConosco::get_Id()
+DA:5540,70
+DA:5541,70
+DA:5542,70
+FN:5543,System.Void CarePlusHomolog.WSAssuntoFaleConosco::set_Id(System.Int32)
+FNDA:70,System.Void CarePlusHomolog.WSAssuntoFaleConosco::set_Id(System.Int32)
+DA:5544,70
+DA:5545,70
+DA:5546,70
+FN:5552,System.String CarePlusHomolog.WSAssuntoFaleConosco::get_Titulo()
+FNDA:70,System.String CarePlusHomolog.WSAssuntoFaleConosco::get_Titulo()
+DA:5553,70
+DA:5554,70
+DA:5555,70
+FN:5556,System.Void CarePlusHomolog.WSAssuntoFaleConosco::set_Titulo(System.String)
+FNDA:70,System.Void CarePlusHomolog.WSAssuntoFaleConosco::set_Titulo(System.String)
+DA:5557,70
+DA:5558,70
+DA:5559,70
+FN:5576,System.String CarePlusHomolog.WSParametroPdf::get_Html()
+FNDA:0,System.String CarePlusHomolog.WSParametroPdf::get_Html()
+DA:5577,0
+DA:5578,0
+DA:5579,0
+FN:5580,System.Void CarePlusHomolog.WSParametroPdf::set_Html(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroPdf::set_Html(System.String)
+DA:5581,0
+DA:5582,0
+DA:5583,0
+FN:5589,System.String CarePlusHomolog.WSParametroPdf::get_Token()
+FNDA:0,System.String CarePlusHomolog.WSParametroPdf::get_Token()
+DA:5590,0
+DA:5591,0
+DA:5592,0
+FN:5593,System.Void CarePlusHomolog.WSParametroPdf::set_Token(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroPdf::set_Token(System.String)
+DA:5594,0
+DA:5595,0
+DA:5596,0
+FN:5613,System.String CarePlusHomolog.WSRetornoPdf::get_Mensagem()
+FNDA:0,System.String CarePlusHomolog.WSRetornoPdf::get_Mensagem()
+DA:5614,0
+DA:5615,0
+DA:5616,0
+FN:5617,System.Void CarePlusHomolog.WSRetornoPdf::set_Mensagem(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoPdf::set_Mensagem(System.String)
+DA:5618,0
+DA:5619,0
+DA:5620,0
+FN:5626,System.Byte[] CarePlusHomolog.WSRetornoPdf::get_retPDF()
+FNDA:0,System.Byte[] CarePlusHomolog.WSRetornoPdf::get_retPDF()
+DA:5627,0
+DA:5628,0
+DA:5629,0
+FN:5630,System.Void CarePlusHomolog.WSRetornoPdf::set_retPDF(System.Byte[])
+FNDA:0,System.Void CarePlusHomolog.WSRetornoPdf::set_retPDF(System.Byte[])
+DA:5631,0
+DA:5632,0
+DA:5633,0
+FN:5650,System.String CarePlusHomolog.LoginADOut::get_Email()
+FNDA:0,System.String CarePlusHomolog.LoginADOut::get_Email()
+DA:5651,0
+DA:5652,0
+DA:5653,0
+FN:5654,System.Void CarePlusHomolog.LoginADOut::set_Email(System.String)
+FNDA:0,System.Void CarePlusHomolog.LoginADOut::set_Email(System.String)
+DA:5655,0
+DA:5656,0
+DA:5657,0
+FN:5663,System.String CarePlusHomolog.LoginADOut::get_Senha()
+FNDA:0,System.String CarePlusHomolog.LoginADOut::get_Senha()
+DA:5664,0
+DA:5665,0
+DA:5666,0
+FN:5667,System.Void CarePlusHomolog.LoginADOut::set_Senha(System.String)
+FNDA:0,System.Void CarePlusHomolog.LoginADOut::set_Senha(System.String)
+DA:5668,0
+DA:5669,0
+DA:5670,0
+FN:5699,System.String CarePlusHomolog.WSParametroEmail::get_Assunto()
+FNDA:0,System.String CarePlusHomolog.WSParametroEmail::get_Assunto()
+DA:5700,0
+DA:5701,0
+DA:5702,0
+FN:5703,System.Void CarePlusHomolog.WSParametroEmail::set_Assunto(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_Assunto(System.String)
+DA:5704,0
+DA:5705,0
+DA:5706,0
+FN:5712,System.Int32 CarePlusHomolog.WSParametroEmail::get_CodigoTipoEmail()
+FNDA:0,System.Int32 CarePlusHomolog.WSParametroEmail::get_CodigoTipoEmail()
+DA:5713,0
+DA:5714,0
+DA:5715,0
+FN:5716,System.Void CarePlusHomolog.WSParametroEmail::set_CodigoTipoEmail(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_CodigoTipoEmail(System.Int32)
+DA:5717,0
+DA:5718,0
+DA:5719,0
+FN:5725,System.String CarePlusHomolog.WSParametroEmail::get_Copia()
+FNDA:0,System.String CarePlusHomolog.WSParametroEmail::get_Copia()
+DA:5726,0
+DA:5727,0
+DA:5728,0
+FN:5729,System.Void CarePlusHomolog.WSParametroEmail::set_Copia(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_Copia(System.String)
+DA:5730,0
+DA:5731,0
+DA:5732,0
+FN:5738,System.String CarePlusHomolog.WSParametroEmail::get_CopiaOculta()
+FNDA:0,System.String CarePlusHomolog.WSParametroEmail::get_CopiaOculta()
+DA:5739,0
+DA:5740,0
+DA:5741,0
+FN:5742,System.Void CarePlusHomolog.WSParametroEmail::set_CopiaOculta(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_CopiaOculta(System.String)
+DA:5743,0
+DA:5744,0
+DA:5745,0
+FN:5751,System.String CarePlusHomolog.WSParametroEmail::get_Corpo()
+FNDA:0,System.String CarePlusHomolog.WSParametroEmail::get_Corpo()
+DA:5752,0
+DA:5753,0
+DA:5754,0
+FN:5755,System.Void CarePlusHomolog.WSParametroEmail::set_Corpo(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_Corpo(System.String)
+DA:5756,0
+DA:5757,0
+DA:5758,0
+FN:5764,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSParametroEmail::get_ListaAnexosPorByte()
+FNDA:0,CarePlusHomolog.AnexoByte[] CarePlusHomolog.WSParametroEmail::get_ListaAnexosPorByte()
+DA:5765,0
+DA:5766,0
+DA:5767,0
+FN:5768,System.Void CarePlusHomolog.WSParametroEmail::set_ListaAnexosPorByte(CarePlusHomolog.AnexoByte[])
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_ListaAnexosPorByte(CarePlusHomolog.AnexoByte[])
+DA:5769,0
+DA:5770,0
+DA:5771,0
+FN:5777,System.String CarePlusHomolog.WSParametroEmail::get_Para()
+FNDA:0,System.String CarePlusHomolog.WSParametroEmail::get_Para()
+DA:5778,0
+DA:5779,0
+DA:5780,0
+FN:5781,System.Void CarePlusHomolog.WSParametroEmail::set_Para(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_Para(System.String)
+DA:5782,0
+DA:5783,0
+DA:5784,0
+FN:5790,System.String CarePlusHomolog.WSParametroEmail::get_Token()
+FNDA:0,System.String CarePlusHomolog.WSParametroEmail::get_Token()
+DA:5791,0
+DA:5792,0
+DA:5793,0
+FN:5794,System.Void CarePlusHomolog.WSParametroEmail::set_Token(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSParametroEmail::set_Token(System.String)
+DA:5795,0
+DA:5796,0
+DA:5797,0
+FN:5814,System.String CarePlusHomolog.WSRetornoEnvioEmail::get_Erro()
+FNDA:0,System.String CarePlusHomolog.WSRetornoEnvioEmail::get_Erro()
+DA:5815,0
+DA:5816,0
+DA:5817,0
+FN:5818,System.Void CarePlusHomolog.WSRetornoEnvioEmail::set_Erro(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoEnvioEmail::set_Erro(System.String)
+DA:5819,0
+DA:5820,0
+DA:5821,0
+FN:5827,System.Boolean CarePlusHomolog.WSRetornoEnvioEmail::get_Sucesso()
+FNDA:0,System.Boolean CarePlusHomolog.WSRetornoEnvioEmail::get_Sucesso()
+DA:5828,0
+DA:5829,0
+DA:5830,0
+FN:5831,System.Void CarePlusHomolog.WSRetornoEnvioEmail::set_Sucesso(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoEnvioEmail::set_Sucesso(System.Boolean)
+DA:5832,0
+DA:5833,0
+DA:5834,0
+FN:5853,CarePlusHomolog.Assunto[] CarePlusHomolog.AssuntoOut::get_Dados()
+FNDA:2,CarePlusHomolog.Assunto[] CarePlusHomolog.AssuntoOut::get_Dados()
+DA:5854,2
+DA:5855,2
+DA:5856,2
+FN:5857,System.Void CarePlusHomolog.AssuntoOut::set_Dados(CarePlusHomolog.Assunto[])
+FNDA:2,System.Void CarePlusHomolog.AssuntoOut::set_Dados(CarePlusHomolog.Assunto[])
+DA:5858,2
+DA:5859,2
+DA:5860,2
+FN:5866,System.String CarePlusHomolog.AssuntoOut::get_Erros()
+FNDA:2,System.String CarePlusHomolog.AssuntoOut::get_Erros()
+DA:5867,2
+DA:5868,2
+DA:5869,2
+FN:5870,System.Void CarePlusHomolog.AssuntoOut::set_Erros(System.String)
+FNDA:2,System.Void CarePlusHomolog.AssuntoOut::set_Erros(System.String)
+DA:5871,2
+DA:5872,2
+DA:5873,2
+FN:5879,System.Boolean CarePlusHomolog.AssuntoOut::get_Sucesso()
+FNDA:2,System.Boolean CarePlusHomolog.AssuntoOut::get_Sucesso()
+DA:5880,2
+DA:5881,2
+DA:5882,2
+FN:5883,System.Void CarePlusHomolog.AssuntoOut::set_Sucesso(System.Boolean)
+FNDA:2,System.Void CarePlusHomolog.AssuntoOut::set_Sucesso(System.Boolean)
+DA:5884,2
+DA:5885,2
+DA:5886,2
+FN:5903,System.Int32 CarePlusHomolog.Assunto::get_Id()
+FNDA:16,System.Int32 CarePlusHomolog.Assunto::get_Id()
+DA:5904,16
+DA:5905,16
+DA:5906,16
+FN:5907,System.Void CarePlusHomolog.Assunto::set_Id(System.Int32)
+FNDA:16,System.Void CarePlusHomolog.Assunto::set_Id(System.Int32)
+DA:5908,16
+DA:5909,16
+DA:5910,16
+FN:5916,System.String CarePlusHomolog.Assunto::get_TextoAssunto()
+FNDA:16,System.String CarePlusHomolog.Assunto::get_TextoAssunto()
+DA:5917,16
+DA:5918,16
+DA:5919,16
+FN:5920,System.Void CarePlusHomolog.Assunto::set_TextoAssunto(System.String)
+FNDA:16,System.Void CarePlusHomolog.Assunto::set_TextoAssunto(System.String)
+DA:5921,16
+DA:5922,16
+DA:5923,16
+FN:5942,CarePlusHomolog.Classificacao[] CarePlusHomolog.ClassificacaoOut::get_Dados()
+FNDA:2,CarePlusHomolog.Classificacao[] CarePlusHomolog.ClassificacaoOut::get_Dados()
+DA:5943,2
+DA:5944,2
+DA:5945,2
+FN:5946,System.Void CarePlusHomolog.ClassificacaoOut::set_Dados(CarePlusHomolog.Classificacao[])
+FNDA:2,System.Void CarePlusHomolog.ClassificacaoOut::set_Dados(CarePlusHomolog.Classificacao[])
+DA:5947,2
+DA:5948,2
+DA:5949,2
+FN:5955,System.String CarePlusHomolog.ClassificacaoOut::get_Erros()
+FNDA:2,System.String CarePlusHomolog.ClassificacaoOut::get_Erros()
+DA:5956,2
+DA:5957,2
+DA:5958,2
+FN:5959,System.Void CarePlusHomolog.ClassificacaoOut::set_Erros(System.String)
+FNDA:2,System.Void CarePlusHomolog.ClassificacaoOut::set_Erros(System.String)
+DA:5960,2
+DA:5961,2
+DA:5962,2
+FN:5968,System.Boolean CarePlusHomolog.ClassificacaoOut::get_Sucesso()
+FNDA:2,System.Boolean CarePlusHomolog.ClassificacaoOut::get_Sucesso()
+DA:5969,2
+DA:5970,2
+DA:5971,2
+FN:5972,System.Void CarePlusHomolog.ClassificacaoOut::set_Sucesso(System.Boolean)
+FNDA:2,System.Void CarePlusHomolog.ClassificacaoOut::set_Sucesso(System.Boolean)
+DA:5973,2
+DA:5974,2
+DA:5975,2
+FN:5992,System.Int32 CarePlusHomolog.Classificacao::get_Id()
+FNDA:6,System.Int32 CarePlusHomolog.Classificacao::get_Id()
+DA:5993,6
+DA:5994,6
+DA:5995,6
+FN:5996,System.Void CarePlusHomolog.Classificacao::set_Id(System.Int32)
+FNDA:6,System.Void CarePlusHomolog.Classificacao::set_Id(System.Int32)
+DA:5997,6
+DA:5998,6
+DA:5999,6
+FN:6005,System.String CarePlusHomolog.Classificacao::get_TextoClassificacao()
+FNDA:6,System.String CarePlusHomolog.Classificacao::get_TextoClassificacao()
+DA:6006,6
+DA:6007,6
+DA:6008,6
+FN:6009,System.Void CarePlusHomolog.Classificacao::set_TextoClassificacao(System.String)
+FNDA:6,System.Void CarePlusHomolog.Classificacao::set_TextoClassificacao(System.String)
+DA:6010,6
+DA:6011,6
+DA:6012,6
+FN:6031,System.String CarePlusHomolog.OuvidoriaOut::get_Erros()
+FNDA:0,System.String CarePlusHomolog.OuvidoriaOut::get_Erros()
+DA:6032,0
+DA:6033,0
+DA:6034,0
+FN:6035,System.Void CarePlusHomolog.OuvidoriaOut::set_Erros(System.String)
+FNDA:0,System.Void CarePlusHomolog.OuvidoriaOut::set_Erros(System.String)
+DA:6036,0
+DA:6037,0
+DA:6038,0
+FN:6044,System.String CarePlusHomolog.OuvidoriaOut::get_Protocolo()
+FNDA:0,System.String CarePlusHomolog.OuvidoriaOut::get_Protocolo()
+DA:6045,0
+DA:6046,0
+DA:6047,0
+FN:6048,System.Void CarePlusHomolog.OuvidoriaOut::set_Protocolo(System.String)
+FNDA:0,System.Void CarePlusHomolog.OuvidoriaOut::set_Protocolo(System.String)
+DA:6049,0
+DA:6050,0
+DA:6051,0
+FN:6057,System.Boolean CarePlusHomolog.OuvidoriaOut::get_Sucesso()
+FNDA:0,System.Boolean CarePlusHomolog.OuvidoriaOut::get_Sucesso()
+DA:6058,0
+DA:6059,0
+DA:6060,0
+FN:6061,System.Void CarePlusHomolog.OuvidoriaOut::set_Sucesso(System.Boolean)
+FNDA:0,System.Void CarePlusHomolog.OuvidoriaOut::set_Sucesso(System.Boolean)
+DA:6062,0
+DA:6063,0
+DA:6064,0
+FN:6083,System.String CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::get_Certificado()
+FNDA:0,System.String CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::get_Certificado()
+DA:6084,0
+DA:6085,0
+DA:6086,0
+FN:6087,System.Void CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::set_Certificado(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::set_Certificado(System.String)
+DA:6088,0
+DA:6089,0
+DA:6090,0
+FN:6096,System.String CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::get_CodPrestador()
+FNDA:0,System.String CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::get_CodPrestador()
+DA:6097,0
+DA:6098,0
+DA:6099,0
+FN:6100,System.Void CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::set_CodPrestador(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::set_CodPrestador(System.String)
+DA:6101,0
+DA:6102,0
+DA:6103,0
+FN:6109,System.String CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::get_Token()
+FNDA:0,System.String CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::get_Token()
+DA:6110,0
+DA:6111,0
+DA:6112,0
+FN:6113,System.Void CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::set_Token(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe::set_Token(System.String)
+DA:6114,0
+DA:6115,0
+DA:6116,0
+FN:6135,System.String CarePlusHomolog.WSRetornoAutorizacaoVacina::get_CodigoAutorizacao()
+FNDA:0,System.String CarePlusHomolog.WSRetornoAutorizacaoVacina::get_CodigoAutorizacao()
+DA:6136,0
+DA:6137,0
+DA:6138,0
+FN:6139,System.Void CarePlusHomolog.WSRetornoAutorizacaoVacina::set_CodigoAutorizacao(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoAutorizacaoVacina::set_CodigoAutorizacao(System.String)
+DA:6140,0
+DA:6141,0
+DA:6142,0
+FN:6148,System.Int32 CarePlusHomolog.WSRetornoAutorizacaoVacina::get_CodigoGlosa()
+FNDA:0,System.Int32 CarePlusHomolog.WSRetornoAutorizacaoVacina::get_CodigoGlosa()
+DA:6149,0
+DA:6150,0
+DA:6151,0
+FN:6152,System.Void CarePlusHomolog.WSRetornoAutorizacaoVacina::set_CodigoGlosa(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoAutorizacaoVacina::set_CodigoGlosa(System.Int32)
+DA:6153,0
+DA:6154,0
+DA:6155,0
+FN:6161,System.String CarePlusHomolog.WSRetornoAutorizacaoVacina::get_Mensagem()
+FNDA:0,System.String CarePlusHomolog.WSRetornoAutorizacaoVacina::get_Mensagem()
+DA:6162,0
+DA:6163,0
+DA:6164,0
+FN:6165,System.Void CarePlusHomolog.WSRetornoAutorizacaoVacina::set_Mensagem(System.String)
+FNDA:0,System.Void CarePlusHomolog.WSRetornoAutorizacaoVacina::set_Mensagem(System.String)
+DA:6166,0
+DA:6167,0
+DA:6168,0
+FN:6193,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_AnoSin()
+FNDA:0,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_AnoSin()
+DA:6194,0
+DA:6195,0
+DA:6196,0
+FN:6197,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_AnoSin(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_AnoSin(System.Int32)
+DA:6198,0
+DA:6199,0
+DA:6200,0
+FN:6206,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_CodSeg()
+FNDA:0,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_CodSeg()
+DA:6207,0
+DA:6208,0
+DA:6209,0
+FN:6210,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_CodSeg(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_CodSeg(System.Int32)
+DA:6211,0
+DA:6212,0
+DA:6213,0
+FN:6219,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_CodSin()
+FNDA:0,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_CodSin()
+DA:6220,0
+DA:6221,0
+DA:6222,0
+FN:6223,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_CodSin(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_CodSin(System.Int32)
+DA:6224,0
+DA:6225,0
+DA:6226,0
+FN:6232,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_CodSub()
+FNDA:0,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_CodSub()
+DA:6233,0
+DA:6234,0
+DA:6235,0
+FN:6236,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_CodSub(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_CodSub(System.Int32)
+DA:6237,0
+DA:6238,0
+DA:6239,0
+FN:6245,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_DigSin()
+FNDA:0,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_DigSin()
+DA:6246,0
+DA:6247,0
+DA:6248,0
+FN:6249,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_DigSin(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_DigSin(System.Int32)
+DA:6250,0
+DA:6251,0
+DA:6252,0
+FN:6258,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_Sequen()
+FNDA:0,System.Int32 CarePlusHomolog.WSParametrosAutorizacao::get_Sequen()
+DA:6259,0
+DA:6260,0
+DA:6261,0
+FN:6262,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_Sequen(System.Int32)
+FNDA:0,System.Void CarePlusHomolog.WSParametrosAutorizacao::set_Sequen(System.Int32)
+DA:6263,0
+DA:6264,0
+DA:6265,0
+FN:6414,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoLoginPartner> CarePlusHomolog.PartnerServiceClient::LogarAsync(CarePlusHomolog.LoginPartnerOut)
+FNDA:8,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoLoginPartner> CarePlusHomolog.PartnerServiceClient::LogarAsync(CarePlusHomolog.LoginPartnerOut)
+DA:6415,8
+DA:6416,8
+DA:6417,8
+FN:6419,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoSalvarAtendimento> CarePlusHomolog.PartnerServiceClient::SalvarAtendimentoAsync(CarePlusHomolog.WSFiltroSalvarAtendimento)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoSalvarAtendimento> CarePlusHomolog.PartnerServiceClient::SalvarAtendimentoAsync(CarePlusHomolog.WSFiltroSalvarAtendimento)
+DA:6420,0
+DA:6421,0
+DA:6422,0
+FN:6424,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoInfoAtendimento> CarePlusHomolog.PartnerServiceClient::RetornarInfoAtendimentoAsync(CarePlusHomolog.WSFiltroInfoAtendimento)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoInfoAtendimento> CarePlusHomolog.PartnerServiceClient::RetornarInfoAtendimentoAsync(CarePlusHomolog.WSFiltroInfoAtendimento)
+DA:6425,0
+DA:6426,0
+DA:6427,0
+FN:6429,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoPdf> CarePlusHomolog.PartnerServiceClient::GerarPdfFromHtmlAsync(CarePlusHomolog.WSParametroPdf)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoPdf> CarePlusHomolog.PartnerServiceClient::GerarPdfFromHtmlAsync(CarePlusHomolog.WSParametroPdf)
+DA:6430,0
+DA:6431,0
+DA:6432,0
+FN:6434,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoRede> CarePlusHomolog.PartnerServiceClient::ListarRedesAsync(CarePlusHomolog.WSFiltroRede)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoRede> CarePlusHomolog.PartnerServiceClient::ListarRedesAsync(CarePlusHomolog.WSFiltroRede)
+DA:6435,0
+DA:6436,0
+DA:6437,0
+FN:6439,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoRede> CarePlusHomolog.PartnerServiceClient::ListarRedesGeoLocalizacaoAsync(CarePlusHomolog.WSFiltroRede)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoRede> CarePlusHomolog.PartnerServiceClient::ListarRedesGeoLocalizacaoAsync(CarePlusHomolog.WSFiltroRede)
+DA:6440,0
+DA:6441,0
+DA:6442,0
+FN:6444,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEspecialidade> CarePlusHomolog.PartnerServiceClient::ListarEspecialidadesAsync(CarePlusHomolog.WSFiltroEspecialidade)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEspecialidade> CarePlusHomolog.PartnerServiceClient::ListarEspecialidadesAsync(CarePlusHomolog.WSFiltroEspecialidade)
+DA:6445,0
+DA:6446,0
+DA:6447,0
+FN:6449,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEspecialidade> CarePlusHomolog.PartnerServiceClient::ListarEspecialidadesGeoAsync(CarePlusHomolog.WSFiltroEspecialidade)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEspecialidade> CarePlusHomolog.PartnerServiceClient::ListarEspecialidadesGeoAsync(CarePlusHomolog.WSFiltroEspecialidade)
+DA:6450,0
+DA:6451,0
+DA:6452,0
+FN:6454,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCidade> CarePlusHomolog.PartnerServiceClient::ListarCidadesAsync(CarePlusHomolog.WSFiltroCidade)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCidade> CarePlusHomolog.PartnerServiceClient::ListarCidadesAsync(CarePlusHomolog.WSFiltroCidade)
+DA:6455,0
+DA:6456,0
+DA:6457,0
+FN:6459,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoBairro> CarePlusHomolog.PartnerServiceClient::ListarBairrosAsync(CarePlusHomolog.WSFiltroBairro)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoBairro> CarePlusHomolog.PartnerServiceClient::ListarBairrosAsync(CarePlusHomolog.WSFiltroBairro)
+DA:6460,0
+DA:6461,0
+DA:6462,0
+FN:6464,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEstado> CarePlusHomolog.PartnerServiceClient::ListarEstadosAsync(CarePlusHomolog.WSFiltroBase)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEstado> CarePlusHomolog.PartnerServiceClient::ListarEstadosAsync(CarePlusHomolog.WSFiltroBase)
+DA:6465,0
+DA:6466,0
+DA:6467,0
+FN:6469,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoZona> CarePlusHomolog.PartnerServiceClient::ListarZonasAsync(CarePlusHomolog.WSFiltroZona)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoZona> CarePlusHomolog.PartnerServiceClient::ListarZonasAsync(CarePlusHomolog.WSFiltroZona)
+DA:6470,0
+DA:6471,0
+DA:6472,0
+FN:6474,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoGeoCoordenada> CarePlusHomolog.PartnerServiceClient::BuscarEnderecoAsync(CarePlusHomolog.WSFiltroLatLong)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoGeoCoordenada> CarePlusHomolog.PartnerServiceClient::BuscarEnderecoAsync(CarePlusHomolog.WSFiltroLatLong)
+DA:6475,0
+DA:6476,0
+DA:6477,0
+FN:6479,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoAutorizacao> CarePlusHomolog.PartnerServiceClient::ListarAutorizacoesAsync(CarePlusHomolog.WSFiltroAutorizacaoChat)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoAutorizacao> CarePlusHomolog.PartnerServiceClient::ListarAutorizacoesAsync(CarePlusHomolog.WSFiltroAutorizacaoChat)
+DA:6480,0
+DA:6481,0
+DA:6482,0
+FN:6484,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoReembolso> CarePlusHomolog.PartnerServiceClient::ListarReembolsosAsync(CarePlusHomolog.WSFiltroReembolsoChat)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoReembolso> CarePlusHomolog.PartnerServiceClient::ListarReembolsosAsync(CarePlusHomolog.WSFiltroReembolsoChat)
+DA:6485,0
+DA:6486,0
+DA:6487,0
+FN:6489,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoAtribuirAtendimentoChat> CarePlusHomolog.PartnerServiceClient::AtribuirAtendimentoChatAsync(CarePlusHomolog.WSFiltroAtribuirAtendimentoChat)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoAtribuirAtendimentoChat> CarePlusHomolog.PartnerServiceClient::AtribuirAtendimentoChatAsync(CarePlusHomolog.WSFiltroAtribuirAtendimentoChat)
+DA:6490,0
+DA:6491,0
+DA:6492,0
+FN:6494,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCredenciadoMaisUtilizados> CarePlusHomolog.PartnerServiceClient::ListarCredenciadosMaisUtilizadosAsync(CarePlusHomolog.WSFiltro)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCredenciadoMaisUtilizados> CarePlusHomolog.PartnerServiceClient::ListarCredenciadosMaisUtilizadosAsync(CarePlusHomolog.WSFiltro)
+DA:6495,0
+DA:6496,0
+DA:6497,0
+FN:6499,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoChat> CarePlusHomolog.PartnerServiceClient::TransfereAVIAsync(CarePlusHomolog.WSFiltroChat)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoChat> CarePlusHomolog.PartnerServiceClient::TransfereAVIAsync(CarePlusHomolog.WSFiltroChat)
+DA:6500,0
+DA:6501,0
+DA:6502,0
+FN:6504,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoPrevia> CarePlusHomolog.PartnerServiceClient::ListarPreviasAsync(CarePlusHomolog.WSFiltroPreviaChat)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoPrevia> CarePlusHomolog.PartnerServiceClient::ListarPreviasAsync(CarePlusHomolog.WSFiltroPreviaChat)
+DA:6505,0
+DA:6506,0
+DA:6507,0
+FN:6509,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEnvioCredenciado> CarePlusHomolog.PartnerServiceClient::EnviarPrestadoresAsync(CarePlusHomolog.WSFiltroEnvioPrestador)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEnvioCredenciado> CarePlusHomolog.PartnerServiceClient::EnviarPrestadoresAsync(CarePlusHomolog.WSFiltroEnvioPrestador)
+DA:6510,0
+DA:6511,0
+DA:6512,0
+FN:6514,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoLoginAD> CarePlusHomolog.PartnerServiceClient::ValidarLoginADAsync(CarePlusHomolog.LoginADOut,System.Int32)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoLoginAD> CarePlusHomolog.PartnerServiceClient::ValidarLoginADAsync(CarePlusHomolog.LoginADOut,System.Int32)
+DA:6515,0
+DA:6516,0
+DA:6517,0
+FN:6519,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEnvioEmail> CarePlusHomolog.PartnerServiceClient::EnviarEmailAsync(CarePlusHomolog.WSParametroEmail)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoEnvioEmail> CarePlusHomolog.PartnerServiceClient::EnviarEmailAsync(CarePlusHomolog.WSParametroEmail)
+DA:6520,0
+DA:6521,0
+DA:6522,0
+FN:6524,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoFaleConoscoTipo> CarePlusHomolog.PartnerServiceClient::ListarTipoAssuntoFaleConoscoAsync(CarePlusHomolog.WSFiltro)
+FNDA:2,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoFaleConoscoTipo> CarePlusHomolog.PartnerServiceClient::ListarTipoAssuntoFaleConoscoAsync(CarePlusHomolog.WSFiltro)
+DA:6525,2
+DA:6526,2
+DA:6527,2
+FN:6529,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoFaleConosco> CarePlusHomolog.PartnerServiceClient::GravarFaleConoscoAsync(CarePlusHomolog.WSFiltroFaleConosco)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoFaleConosco> CarePlusHomolog.PartnerServiceClient::GravarFaleConoscoAsync(CarePlusHomolog.WSFiltroFaleConosco)
+DA:6530,0
+DA:6531,0
+DA:6532,0
+FN:6534,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCanalDenuncia> CarePlusHomolog.PartnerServiceClient::GravarCanalDenunciaAsync(CarePlusHomolog.WSFiltroCanalDenuncia)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCanalDenuncia> CarePlusHomolog.PartnerServiceClient::GravarCanalDenunciaAsync(CarePlusHomolog.WSFiltroCanalDenuncia)
+DA:6535,0
+DA:6536,0
+DA:6537,0
+FN:6539,System.Threading.Tasks.Task`1<CarePlusHomolog.AssuntoOut> CarePlusHomolog.PartnerServiceClient::BuscarAssuntoOuvidoriaAsync(CarePlusHomolog.WSFiltroToken)
+FNDA:2,System.Threading.Tasks.Task`1<CarePlusHomolog.AssuntoOut> CarePlusHomolog.PartnerServiceClient::BuscarAssuntoOuvidoriaAsync(CarePlusHomolog.WSFiltroToken)
+DA:6540,2
+DA:6541,2
+DA:6542,2
+FN:6544,System.Threading.Tasks.Task`1<CarePlusHomolog.ClassificacaoOut> CarePlusHomolog.PartnerServiceClient::BuscarClassificacaoOuvidoriaAsync(CarePlusHomolog.WSFiltroToken)
+FNDA:2,System.Threading.Tasks.Task`1<CarePlusHomolog.ClassificacaoOut> CarePlusHomolog.PartnerServiceClient::BuscarClassificacaoOuvidoriaAsync(CarePlusHomolog.WSFiltroToken)
+DA:6545,2
+DA:6546,2
+DA:6547,2
+FN:6549,System.Threading.Tasks.Task`1<CarePlusHomolog.OuvidoriaOut> CarePlusHomolog.PartnerServiceClient::GravarOuvidoriaAsync(CarePlusHomolog.WSOuvidoria)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.OuvidoriaOut> CarePlusHomolog.PartnerServiceClient::GravarOuvidoriaAsync(CarePlusHomolog.WSOuvidoria)
+DA:6550,0
+DA:6551,0
+DA:6552,0
+FN:6554,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCaptcha> CarePlusHomolog.PartnerServiceClient::CaptchaAsync(CarePlusHomolog.WSFiltroToken)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoCaptcha> CarePlusHomolog.PartnerServiceClient::CaptchaAsync(CarePlusHomolog.WSFiltroToken)
+DA:6555,0
+DA:6556,0
+DA:6557,0
+FN:6559,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoProtocoloAtendimento> CarePlusHomolog.PartnerServiceClient::ProtocoloAtendimentoValidoAsync(CarePlusHomolog.WSFiltroProtocoloAtendimento)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoProtocoloAtendimento> CarePlusHomolog.PartnerServiceClient::ProtocoloAtendimentoValidoAsync(CarePlusHomolog.WSFiltroProtocoloAtendimento)
+DA:6560,0
+DA:6561,0
+DA:6562,0
+FN:6564,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoAutorizacaoVacina> CarePlusHomolog.PartnerServiceClient::AutorizarVacinaGripeAsync(CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe)
+FNDA:0,System.Threading.Tasks.Task`1<CarePlusHomolog.WSRetornoAutorizacaoVacina> CarePlusHomolog.PartnerServiceClient::AutorizarVacinaGripeAsync(CarePlusHomolog.WSFiltroAutorizacaoVacinaGripe)
+DA:6565,0
+DA:6566,0
+DA:6567,0
+FN:6569,System.Threading.Tasks.Task`1<System.Boolean> CarePlusHomolog.PartnerServiceClient::EnviarEmailVacinaGripeAsync(CarePlusHomolog.WSParametrosAutorizacao)
+FNDA:0,System.Threading.Tasks.Task`1<System.Boolean> CarePlusHomolog.PartnerServiceClient::EnviarEmailVacinaGripeAsync(CarePlusHomolog.WSParametrosAutorizacao)
+DA:6570,0
+DA:6571,0
+DA:6572,0
+FN:6574,System.Threading.Tasks.Task CarePlusHomolog.PartnerServiceClient::OpenAsync()
+FNDA:0,System.Threading.Tasks.Task CarePlusHomolog.PartnerServiceClient::OpenAsync()
+DA:6575,0
+DA:6576,0
+DA:6577,0
+FN:6579,System.Threading.Tasks.Task CarePlusHomolog.PartnerServiceClient::CloseAsync()
+FNDA:0,System.Threading.Tasks.Task CarePlusHomolog.PartnerServiceClient::CloseAsync()
+DA:6580,0
+DA:6581,0
+DA:6582,0
+FN:6584,System.ServiceModel.Channels.Binding CarePlusHomolog.PartnerServiceClient::GetBindingForEndpoint(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration)
+FNDA:70,System.ServiceModel.Channels.Binding CarePlusHomolog.PartnerServiceClient::GetBindingForEndpoint(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration)
+DA:6585,70
+DA:6586,70
+DA:6587,0
+DA:6588,0
+DA:6589,0
+DA:6590,0
+DA:6591,0
+DA:6592,0
+DA:6593,0
+DA:6594,0
+DA:6596,70
+DA:6597,70
+DA:6598,70
+DA:6599,70
+DA:6600,70
+DA:6601,70
+DA:6602,70
+DA:6603,70
+DA:6605,0
+DA:6606,70
+BRDA:6586,7,0,0
+BRDA:6586,7,1,70
+BRDA:6596,84,0,70
+BRDA:6596,84,1,0
+FN:6608,System.ServiceModel.EndpointAddress CarePlusHomolog.PartnerServiceClient::GetEndpointAddress(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration)
+FNDA:70,System.ServiceModel.EndpointAddress CarePlusHomolog.PartnerServiceClient::GetEndpointAddress(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration)
+DA:6609,70
+DA:6610,70
+DA:6611,0
+DA:6612,0
+DA:6614,70
+DA:6615,70
+DA:6616,70
+DA:6618,0
+DA:6619,70
+BRDA:6610,7,0,0
+BRDA:6610,7,1,70
+BRDA:6614,29,0,70
+BRDA:6614,29,1,0
+FN:6388,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration)
+FNDA:70,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration)
+DA:6389,70
+DA:6390,70
+DA:6391,70
+DA:6393,70
+FN:6395,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration,System.String)
+FNDA:0,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration,System.String)
+DA:6396,0
+DA:6397,0
+DA:6398,0
+DA:6400,0
+FN:6402,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration,System.ServiceModel.EndpointAddress)
+FNDA:0,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(CarePlusHomolog.PartnerServiceClient/EndpointConfiguration,System.ServiceModel.EndpointAddress)
+DA:6403,0
+DA:6404,0
+DA:6405,0
+DA:6407,0
+FN:6409,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)
+FNDA:0,System.Void CarePlusHomolog.PartnerServiceClient::.ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)
+DA:6410,0
+DA:6411,0
+DA:6412,0
+LF:2258
+LH:222
+BRF:8
+BRH:4
+FNF:744
+FNH:70
+end_of_record

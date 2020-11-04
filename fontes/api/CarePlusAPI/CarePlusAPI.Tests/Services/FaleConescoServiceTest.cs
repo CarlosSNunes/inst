@@ -66,7 +66,7 @@ namespace CarePlusAPI.Tests.Services
 
         [Fact]
         public async Task BuscarAssuntoOuvidoriaSucesso()
-         {
+        {
             var result = await _faleConoscoService.BuscarAssuntoOuvidoria();
             Assert.NotNull(result);
         }
@@ -93,7 +93,7 @@ namespace CarePlusAPI.Tests.Services
             var result = await _faleConoscoService.BuscarClassificacaoOuvidoria();
             result = null;
             Assert.Null(result);
-        }   
+        }
 
         public void Dispose()
         {

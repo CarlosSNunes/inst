@@ -1,10 +1,11 @@
-
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Post;
 using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace CarePlusAPI.Controllers
     {
         private readonly IDashboardService _dashboardService;
         private readonly IMapper _mapper;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -28,11 +30,13 @@ namespace CarePlusAPI.Controllers
         ///<param name="mapper">Mapeador de objetos</param>        
         public DashboardController(
             IDashboardService dashboardService,
-            IMapper mapper
+            IMapper mapper,
+            IOptions<AppSettings> appSettings
         )
         {
             _dashboardService = dashboardService;
             _mapper = mapper;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
@@ -46,6 +50,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
+            string origem = Request.Headers["Custom"];
+
             try
             {
                 List<Post> maisLidos = await _dashboardService.ListarPostsMaisLidos();
@@ -57,9 +63,11 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
 
@@ -75,6 +83,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetBanners()
         {
+            string origem = Request.Headers["Custom"];
+
             try
             {
                 var banners = await _dashboardService.TotalBannersAtivos();
@@ -84,9 +94,11 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
 
@@ -102,6 +114,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetPosts()
         {
+            string origem = Request.Headers["Custom"];
+
             try
             {
                 var posts = await _dashboardService.TotalPostsBlog();
@@ -111,9 +125,11 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
 
@@ -129,6 +145,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetUsuarios()
         {
+            string origem = Request.Headers["Custom"];
+
             try
             {
                 var usuarios = await _dashboardService.TotalUsuarios();
@@ -138,14 +156,13 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
-
         }
-
-
     }
 }

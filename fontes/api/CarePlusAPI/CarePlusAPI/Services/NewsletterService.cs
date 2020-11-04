@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -45,9 +45,10 @@ namespace CarePlusAPI.Services
                 .Take(4)
                 .ToListAsync();
 
-            return filtroData;
+            if (filtroData.Count == 0)
+                throw new AppException("newsletter não encontrado");
 
-            //return await Db.Set<Banner>().ToListAsync();
+            return filtroData;
         }
 
         ///<summary>
@@ -124,6 +125,6 @@ namespace CarePlusAPI.Services
                 throw new AppException("newsletter não encontrado");
             }
         }
-        
+
     }
 }

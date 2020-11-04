@@ -1,14 +1,15 @@
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using CarePlusAPI.Controllers;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Newsletter;
 using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.IO;
 using Xunit;
@@ -83,16 +84,34 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public void ConstrutorSucesso()
         {
-            var result = new NewsletterController(_newsletterService, _mapper, _appSettings);
-            Assert.NotNull(result);
+            var controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            Assert.NotNull(controller);
         }
 
         [Fact]
         public async void ListarSucesso()
         {
+            await _newsletterService.Criar(_newsletter);
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             var result = await controller.Get();
             Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async void ListarErro()
+        {
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            var result = await controller.Get();
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -100,6 +119,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _newsletterService.Criar(_newsletter);
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.GetById(1);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -109,7 +131,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _newsletterService.Criar(_newsletter);
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -117,13 +143,20 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _newsletterService.Criar(_newsletter);
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void CriarSucesso()
         {
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(_newsletterCreateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -139,6 +172,9 @@ namespace CarePlusAPI.Tests.Controllers
             var newsletterService = new NewsletterService(new DataContext(dbOptions));
 
             NewsletterController controller = new NewsletterController(newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(_newsletterCreateModel);
             Assert.IsType<BadRequestObjectResult>(result);
         }
@@ -147,19 +183,29 @@ namespace CarePlusAPI.Tests.Controllers
         public async void CriarErroNulo()
         {
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Post(null);
+            Assert.IsType<BadRequestObjectResult>(result);            
         }
 
         [Fact]
         public async void AtualizarSucesso()
         {
             var c = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            c.ControllerContext = new ControllerContext();
+            c.ControllerContext.HttpContext = new DefaultHttpContext();
+            c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_newsletterCreateModel);
 
             using (DataContext context = new DataContext(_dbOptions))
             {
                 NewsletterService service = new NewsletterService(context);
                 NewsletterController controller = new NewsletterController(service, _mapper, _appSettings);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(_newsletterUpdateModel);
                 Assert.IsType<OkResult>(result);
             }
@@ -169,6 +215,9 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarErro()
         {
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Put(_newsletterUpdateModel);
             Assert.IsType<BadRequestObjectResult>(result);
         }
@@ -177,16 +226,26 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarErroNulo()
         {
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void ExcluirSucesso()
         {
             var c = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            c.ControllerContext = new ControllerContext();
+            c.ControllerContext.HttpContext = new DefaultHttpContext();
+            c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_newsletterCreateModel);
 
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Delete(1);
             Assert.IsType<OkResult>(result);
         }
@@ -196,7 +255,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _newsletterService.Criar(_newsletter);
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -204,7 +267,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _newsletterService.Criar(_newsletter);
             NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         public void Dispose()

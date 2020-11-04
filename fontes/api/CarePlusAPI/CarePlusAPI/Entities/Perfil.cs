@@ -16,4 +16,4 @@ namespace CarePlusAPI.Entities
         public int Prioridade { get; set; }
         public virtual List<UsuarioPerfil> UsuarioPerfil { get; set; }
     }
-}       
+}

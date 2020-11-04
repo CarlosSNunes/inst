@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Models.FaleConosco
 {
+    [ExcludeFromCodeCoverage]
     public class BuscarAssuntoOuvidoriaModel
     {
         public bool Sucesso { get; set; }

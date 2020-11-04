@@ -1,16 +1,14 @@
-
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Banner;
 using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TinifyAPI;
-using Microsoft.AspNetCore.Http;
 
 namespace CarePlusAPI.Controllers
 {
@@ -22,6 +20,7 @@ namespace CarePlusAPI.Controllers
         private readonly IBannerService _bannerService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -29,7 +28,7 @@ namespace CarePlusAPI.Controllers
         ///e atribuir aos objetos da classe.
         ///
         ///</summary>
-        ///<param name="bannerService">Serviço de homeBanner para consumo do banco de dados</param>
+        ///<param name="bannerService">Serviço de Banner para consumo do banco de dados</param>
         ///<param name="mapper">Mapeador de objetos</param>
         ///<param name="appSettings">Configurações da aplicação</param>
         public BannerController(
@@ -42,11 +41,12 @@ namespace CarePlusAPI.Controllers
             _mapper = mapper;
             _appSettings = appSettings.Value;
             Tinify.Key = _appSettings.TinyPngKey;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
         ///
-        ///Esse método serve para listar todos homeBanners do banco de dados e
+        ///Esse método serve para listar todos Banners do banco de dados e
         ///mapear esse objeto para um objeto de retorno mais simples.
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
@@ -55,76 +55,117 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
-            List<Banner> banners = await _bannerService.Listar();
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                List<Banner> banners = await _bannerService.Listar();
 
-            List<BannerModel> model = _mapper.Map<List<BannerModel>>(banners);
+                List<BannerModel> model = _mapper.Map<List<BannerModel>>(banners);
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
         ///
-        ///Esse método serve para buscar um homeBanner através do Id e
+        ///Esse método serve para buscar um Banner através do Id e
         ///mapear esse objeto para um objeto de retorno mais simples.
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        ///<param name="id">Id do homeBanner</param>
+        ///<param name="id">Id do Banner</param>
         [HttpGet("{id}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
-            if (id == 0)
-                throw new AppException("O id não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id não pode ser igual a 0");
 
-            Banner banner = await _bannerService.Buscar(id);
+                Banner banner = await _bannerService.Buscar(id);
 
-            BannerModel model = _mapper.Map<BannerModel>(banner);
+                BannerModel model = _mapper.Map<BannerModel>(banner);
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
         ///
-        ///Esse método serve para buscar um homeBanner através da Area e
+        ///Esse método serve para buscar um Banner através da Area e
         ///mapear esse objeto para um objeto de retorno mais simples.
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        ///<param name="area">Id do homeBanner</param>
+        ///<param name="area">Id do Banner</param>
         [HttpGet("getByArea/{area}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByArea(string area, int offset, int limit)
+        public async Task<IActionResult> GetByArea(string area)
         {
-            if (string.IsNullOrEmpty(area))
-                throw new AppException("O area não pode ser igual a null ou empty");
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (string.IsNullOrEmpty(area))
+                    throw new AppException("O area não pode ser igual a null ou empty");
 
-            List<Banner> banner = await _bannerService.BuscarPorArea(area, offset, limit);
+                List<Banner> banner = await _bannerService.BuscarPorArea(area);
 
-            List<BannerModel> model = _mapper.Map<List<BannerModel>>(banner);
+                List<BannerModel> model = _mapper.Map<List<BannerModel>>(banner);
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
         ///
-        ///Esse método serve para inserir um homeBanner na base, primeiro mapeando
+        ///Esse método serve para inserir um Banner na base, primeiro mapeando
         ///o objeto recebido para o objeto esperado na base.
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão POST.
         ///
         ///</summary>
-        ///<param name="model">Model de criação de um homeBanner</param>
+        ///<param name="model">Model de criação de um Banner</param>
         [HttpPost]
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] BannerCreateModel model)
         {
+            string origem = Request.Headers["Custom"];
+
             if (model == null)
                 throw new AppException("O banner não pode estar nulo");
 
             string path = "";
             var Arquivo = model.Arquivo;
 
-            string pathMobile = ""; 
+            string pathMobile = "";
             string directoryNameMobile;
             var ArquivoMobile = model.ArquivoMobile;
 
@@ -144,7 +185,7 @@ namespace CarePlusAPI.Controllers
                 model.NomeImagemMobile = fileName;
                 model.CaminhoMobile = pathMobile.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
 
-               
+
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
 
                 Banner banner = _mapper.Map<Banner>(model);
@@ -155,6 +196,8 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 if (System.IO.File.Exists(path))
                 {
                     System.IO.File.Delete(path);
@@ -169,19 +212,21 @@ namespace CarePlusAPI.Controllers
 
         ///<summary>
         ///
-        ///Esse método serve para atualizar um homeBanner na base, primeiro mapeando
+        ///Esse método serve para atualizar um Banner na base, primeiro mapeando
         ///o objeto recebido para o objeto esperado na base.
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão PUT.
         ///
         ///</summary>
-        ///<param name="model">Model de atualização de um homeBanner</param>
+        ///<param name="model">Model de atualização de um Banner</param>
         [HttpPut]
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromForm] BannerUpdateModel model)
         {
+            string origem = Request.Headers["Custom"];
+
             if (model == null)
-                throw new AppException("O homeBanner não pode estar nulo");           
-            
+                throw new AppException("O Banner não pode estar nulo");
+
             string path = "";
             var Arquivo = model.Arquivo;
 
@@ -215,7 +260,7 @@ namespace CarePlusAPI.Controllers
                     model.NomeImagemMobile = fileName;
                     model.CaminhoMobile = pathMobile.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
 
-                    
+
                     model.CaminhoDesktop = path.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
                     model.CaminhoMobile = path.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
                 }
@@ -227,46 +272,72 @@ namespace CarePlusAPI.Controllers
                     model.NomeImagemMobile = banner.NomeImagemMobile;
                 }
 
-                banner = _mapper.Map<Banner>(model);
-
                 await _bannerService.Atualizar(banner);
 
                 return Ok();
             }
             catch (System.Exception ex)
             {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 if (System.IO.File.Exists(path))
                     System.IO.File.Delete(path);
 
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
         ///<summary>
         ///
-        ///Esse método serve para excluir um homeBanner na base.
+        ///Esse método serve para excluir um Banner na base.
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão DELETE.
         ///
         ///</summary>
-        ///<param name="id">Id do homeBanner</param>
+        ///<param name="id">Id do Banner</param>
         [HttpDelete("{id}")]
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
-                throw new AppException("O id não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Banner banner = await _bannerService.Buscar(id);            
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id não pode ser igual a 0");
 
-            if (System.IO.File.Exists(banner.CaminhoDesktop))
-                System.IO.File.Delete(banner.CaminhoDesktop);
+                try
+                {
+                    Banner banner = await _bannerService.Buscar(id);
 
-            if (System.IO.File.Exists(banner.CaminhoMobile))
-                System.IO.File.Delete(banner.CaminhoMobile);
+                    if (System.IO.File.Exists(banner.CaminhoDesktop))
+                        System.IO.File.Delete(banner.CaminhoDesktop);
 
-            await _bannerService.Excluir(id);
+                    if (System.IO.File.Exists(banner.CaminhoMobile))
+                        System.IO.File.Delete(banner.CaminhoMobile);
+                }
+                catch (Exception ex)
+                {
 
-            return Ok();
+                    throw ex;
+                }
+
+                await _bannerService.Excluir(id);
+
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
     }
 }

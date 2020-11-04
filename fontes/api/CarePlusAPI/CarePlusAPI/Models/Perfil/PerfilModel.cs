@@ -7,7 +7,6 @@ namespace CarePlusAPI.Models.Perfil
     public class PerfilModel
     {
         public int? Id { get; set; }
-        public int perfilId { get; set; }
         public string Descricao { get; set; }
     }
 }

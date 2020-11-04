@@ -15,16 +15,16 @@ namespace CarePlusAPI.Entities
         public string Titulo { get; set; }
         [Column("SUBTITULO")]
         public string Subtitulo { get; set; }
-        [Column("DESCRICAO_PREVIA")]
-        public string DescricaoPrevia { get; set; }      
         [Column("DESCRICAO")]
-        public string Descricao { get; set; }        
+        public string Descricao { get; set; }
+        [Column("DESCRICAO_PREVIA")]
+        public string DescricaoPrevia { get; set; }
         [Column("DATA_PUBLICACAO")]
         public DateTime DataPublicacao { get; set; }
         [Column("DATA_EXPIRACAO")]
         public DateTime? DataExpiracao { get; set; }
         [Column("DATA_CADASTRO")]
-        public DateTime DataCadastro { get; set; }        
+        public DateTime DataCadastro { get; set; }
         [Column("CAMINHO_IMAGEM")]
         public string CaminhoImagem { get; set; }
         [Column("NOME_IMAGEM")]

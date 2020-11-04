@@ -1,5 +1,8 @@
-﻿namespace CarePlusAPI.Models.FaleConosco
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace CarePlusAPI.Models.FaleConosco
 {
+    [ExcludeFromCodeCoverage]
     public class GravarFaleConoscoSaidaModel
     {
         public int CodigoMensagem { get; set; }

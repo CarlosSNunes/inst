@@ -24,6 +24,8 @@ namespace CarePlusAPI.Entities
         public char LinkExterno { get; set; }
         [Column("LINK")]
         public string Link { get; set; }
+        [Column("NOME_LINK")]
+        public string NomeLink { get; set; }
         [Column("CAMINHO_DESKTOP")]
         public string CaminhoDesktop { get; set; }
         [Column("NOME_IMAGEM_DESKTOP")]

@@ -1,16 +1,14 @@
-
-
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using CarePlusAPI.Services;
 using AutoMapper;
-using CarePlusAPI.Helpers;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Authorization;
 using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Tag;
+using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CarePlusAPI.Controllers
 {
@@ -19,9 +17,10 @@ namespace CarePlusAPI.Controllers
     [Route("[controller]")]
     public class TagController : ControllerBase
     {
-        private readonly ITagService TagService;
-        private readonly IMapper Mapper;
-        private readonly AppSettings AppSettings;
+        private readonly ITagService _tagService;
+        private readonly IMapper _mapper;
+        private readonly AppSettings _appSettings;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -38,9 +37,10 @@ namespace CarePlusAPI.Controllers
             IOptions<AppSettings> appSettings
         )
         {
-            TagService = tagService;
-            Mapper = mapper;
-            AppSettings = appSettings.Value;
+            _tagService = tagService;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
@@ -50,15 +50,33 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet]
+        [HttpGet("{page}/{pageSize}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(int page, int pageSize)
         {
-            List<Tag> result = await TagService.Listar();
+            string origem = Request.Headers["Custom"];
 
-            List<TagModel> model = Mapper.Map<List<TagModel>>(result);
+            try
+            {
+                var result = await _tagService.Listar(page, pageSize);
 
-            return Ok(model);
+                List<TagModel> model = _mapper.Map<List<TagModel>>(result.Item2);
+
+                return Ok(new
+                {
+                    count = result.Item1,
+                    result = model
+                });
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -73,14 +91,28 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
-            if (id == 0)
-                throw new AppException("O id da tag não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Tag result = await TagService.Buscar(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id da tag não pode ser igual a 0");
 
-            TagModel model = Mapper.Map<TagModel>(result);
+                Tag result = await _tagService.Buscar(id);
 
-            return Ok(model);
+                TagModel model = _mapper.Map<TagModel>(result);
+
+                return Ok(model);
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -95,14 +127,28 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post(List<TagCreateModel> models)
         {
-            if (models == null || !models.Any())
-                throw new AppException("Deve-se ter ao menos um tag");
+            string origem = Request.Headers["Custom"];
 
-            List<Tag> tags = Mapper.Map<List<Tag>>(models);
+            try
+            {
+                if (models == null || !models.Any())
+                    throw new AppException("Deve-se ter ao menos um tag");
 
-            await TagService.Criar(tags);
+                List<Tag> tags = _mapper.Map<List<Tag>>(models);
 
-            return Ok();
+                await _tagService.Criar(tags);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -117,14 +163,28 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put(List<TagUpdateModel> models)
         {
-            if (models == null || !models.Any())
-                throw new AppException("Deve-se ter ao menos um tag");
+            string origem = Request.Headers["Custom"];
 
-            List<Tag> tags = Mapper.Map<List<Tag>>(models);
+            try
+            {
+                if (models == null || !models.Any())
+                    throw new AppException("Deve-se ter ao menos um tag");
 
-            await TagService.Atualizar(tags);
+                List<Tag> tags = _mapper.Map<List<Tag>>(models);
 
-            return Ok();
+                await _tagService.Atualizar(tags);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -138,12 +198,26 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
-                throw new AppException("O id da tag não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            await TagService.Excluir(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id da tag não pode ser igual a 0");
 
-            return Ok();
+                await _tagService.Excluir(id);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ nupkg/
 *.user
 *.userosscache
 *.sln.docstates
+.sonarqube
 
 # Build results
 [Dd]ebug/
@@ -35,3 +36,4 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+.vs

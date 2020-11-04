@@ -24,5 +24,6 @@ namespace CarePlusAPI.Entities
         [Column("ATIVO")]
         public char Ativo { get; set; }
         public List<UsuarioPerfil> UsuarioPerfil { get; set; }
+
     }
 }

@@ -74,7 +74,8 @@ namespace CarePlusAPI.Tests.Controllers
             CaminhoImagem = "",
             Subtitulo = "Subtitulo teste",
             Titulo = "Titulo teste",
-            CategoriaId = 1
+            CategoriaId = 1,
+            Slug = "titulo-teste"
         };
 
         public PostControllerTest()
@@ -92,7 +93,7 @@ namespace CarePlusAPI.Tests.Controllers
 
             using (DataContext context = new DataContext(_dbOptions))
             {
-                context.Categoria.Add(new Categoria { Id = 1, Descricao = "Saúde" });
+                context.Categoria.Add(new Categoria { Id = 1, Titulo = "Saúde" });
                 context.Tag.Add(new Tag { Id = 1, Descricao = "Saúde" });
 
                 context.SaveChanges();
@@ -121,7 +122,7 @@ namespace CarePlusAPI.Tests.Controllers
 
             _mapper = config.CreateMapper();
 
-            _stream = File.OpenRead("Src/Post/cerebro.jpg");
+            _stream = File.OpenRead("Src/Post/post.jpg");
 
             _postCreateModel.Arquivo = CreateFile();
 
@@ -140,9 +141,9 @@ namespace CarePlusAPI.Tests.Controllers
             writer.Write(_stream);
             writer.Flush();
             ms.Position = 0;
-            var fileName = "cerebro.jpg";
+            var fileName = "post.jpg";
             var Length = 300;
-            var contentDisposition = "form-data; name=\"Arquivo\"; filename=\"cerebro.jpg\"";
+            var contentDisposition = "form-data; name=\"Arquivo\"; filename=\"post.jpg\"";
             var contentType = "image/png";
             var headers = new HeaderDictionary();
             file.Setup(f => f.ContentDisposition).Returns(contentDisposition).Verifiable();
@@ -169,8 +170,14 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListarSucesso()
         {
+            await _postService.Criar(_post);
             PostController controller = new PostController(_postService, _mapper, _appSettings);
-            var result = await controller.Get();
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            var page = 1; 
+            var pageSize = 5;
+            var result = await controller.Get(page, pageSize);
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -178,6 +185,9 @@ namespace CarePlusAPI.Tests.Controllers
         public async void UploadSucesso()
         {
             PostController controller = new PostController(_postService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Upload(_postUpdateModel.Arquivo);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -187,6 +197,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             _appSettings.Value.PathToSave = null;
             PostController controller = new PostController(_postService, _mapper, _appSettings);            
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await Assert.ThrowsAsync<AppException>(() => controller.Upload(null));
         }
 
@@ -194,6 +207,9 @@ namespace CarePlusAPI.Tests.Controllers
         public async void CriarSucesso()
         {
             PostController controller = new PostController(_postService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(_postCreateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -203,6 +219,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             _postCreateModel.Arquivo = null;
             PostController controller = new PostController(_postService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(_postCreateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -212,6 +231,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             _appSettings.Value.PathToSave = null;
             PostController controller = new PostController(_postService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(_postCreateModel);
             Assert.IsType<BadRequestObjectResult>(result);
         }
@@ -225,6 +247,9 @@ namespace CarePlusAPI.Tests.Controllers
             {
                 PostService service = new PostService(context);
                 PostController controller = new PostController(service, _mapper, _appSettings);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(_postUpdateModel);
                 Assert.IsType<OkResult>(result);
             }
@@ -240,6 +265,9 @@ namespace CarePlusAPI.Tests.Controllers
                 _postUpdateModel.Arquivo = null;
                 PostService service = new PostService(context);
                 PostController controller = new PostController(service, _mapper, _appSettings);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(_postUpdateModel);
                 Assert.IsType<OkResult>(result);
             }
@@ -255,9 +283,13 @@ namespace CarePlusAPI.Tests.Controllers
                 _postUpdateModel.Id = null;
                 _postUpdateModel.DescricaoPrevia = null;
                 _postUpdateModel.Titulo = null;
+                _postUpdateModel.Slug = string.Empty;
 
                 PostService service = new PostService(context);
                 PostController controller = new PostController(service, _mapper, _appSettings);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(_postUpdateModel);
                 Assert.IsType<BadRequestObjectResult>(result);
             }
@@ -267,8 +299,11 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirSucesso()
         {
             PostController controller = new PostController(_postService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await controller.Post(_postCreateModel);
-            IActionResult result = await controller.Delete(1);
+            IActionResult result = await controller.Delete("titulo-teste");
             Assert.IsType<OkResult>(result);
         }
 
@@ -277,7 +312,10 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post);
             PostController controller = new PostController(_postService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            await Assert.ThrowsAsync<AppException>(() => controller.Delete("titulo"));
         }
 
         public void Dispose()

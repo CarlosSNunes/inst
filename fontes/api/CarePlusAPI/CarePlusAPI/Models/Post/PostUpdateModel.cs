@@ -1,6 +1,6 @@
 
-using Microsoft.AspNetCore.Http;
 using CarePlusAPI.Models.PostTag;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +22,9 @@ namespace CarePlusAPI.Models.Post
         [StringLength(255)]
         public string DescricaoPrevia { get; set; }
         [Required]
+        [StringLength(255)]
+        public string Descricao { get; set; }
+        [Required]
         public DateTime DataPublicacao { get; set; }
         public DateTime? DataExpiracao { get; set; }
         public IFormFile Arquivo { get; set; }
@@ -40,6 +43,7 @@ namespace CarePlusAPI.Models.Post
         [Required]
         [StringLength(150)]
         public string DescricaoPaginaSEO { get; set; }
+        public string Slug { get; set; }
         public int CategoriaId { get; set; }
         [Required]
         public List<PostTagUpdateModel> PostTag { get; set; }
