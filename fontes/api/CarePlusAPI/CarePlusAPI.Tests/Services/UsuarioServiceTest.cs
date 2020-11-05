@@ -118,15 +118,6 @@ namespace CarePlusAPI.Tests.Services
         }
 
         [Fact]
-        public async Task ListaNaoVazia()
-        {
-            await UsuarioService.Criar(Usuario, "123");
-
-            var result = await UsuarioService.Listar();
-            Assert.NotEmpty(result);
-        }
-
-        [Fact]
         public async Task BuscaErro()
         {
             await UsuarioService.Criar(Usuario, "123");

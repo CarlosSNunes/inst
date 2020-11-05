@@ -12,6 +12,8 @@ using CarePlusAPI.Services;
 using System;
 using System.IO;
 using Xunit;
+using Microsoft.AspNetCore.Http;
+using TinifyAPI;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -29,8 +31,6 @@ namespace CarePlusAPI.Tests.Controllers
             Titulo = "TituloTeste",
             Descricao = "DescricaoTeste",
             DataCadastro = DateTime.Now
-           
-
         };
 
         private readonly CategoriasCreateModel _categoriasCreateModel = new CategoriasCreateModel
@@ -92,7 +92,12 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ListarSucesso()
         {
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
-            var result = await controller.Get();
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            int page = 1;
+            int pageSize = 5;
+            var result = await controller.Get(page, pageSize);
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -101,6 +106,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _categoriasService.Criar(_categorias);
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.GetById(1);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -110,7 +118,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _categoriasService.Criar(_categorias);
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -118,13 +130,20 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _categoriasService.Criar(_categorias);
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void CriarSucesso()
         {
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(_categoriasCreateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -140,6 +159,9 @@ namespace CarePlusAPI.Tests.Controllers
             var categoriasService = new CategoriasService(new DataContext(dbOptions));
 
             CategoriasController controller = new CategoriasController(categoriasService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(_categoriasCreateModel);
             Assert.IsType<BadRequestObjectResult>(result);
         }
@@ -148,6 +170,9 @@ namespace CarePlusAPI.Tests.Controllers
         public async void CriarErroNulo()
         {
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await Assert.ThrowsAsync<AppException>(() => controller.Post(null));
         }
 
@@ -155,12 +180,18 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarSucesso()
         {
             var c = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            c.ControllerContext = new ControllerContext();
+            c.ControllerContext.HttpContext = new DefaultHttpContext();
+            c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_categoriasCreateModel);
 
             using (DataContext context = new DataContext(_dbOptions))
             {
                 CategoriasService service = new CategoriasService(context);
                 CategoriasController controller = new CategoriasController(service, _mapper, _appSettings);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(_categoriasUpdateModel);
                 Assert.IsType<OkResult>(result);
             }
@@ -170,6 +201,9 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarErro()
         {
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Put(_categoriasUpdateModel);
             Assert.IsType<BadRequestObjectResult>(result);
         }
@@ -178,6 +212,9 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarErroNulo()
         {
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await Assert.ThrowsAsync<AppException>(() => controller.Put(null));
         }
 
@@ -185,9 +222,15 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirSucesso()
         {
             var c = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            c.ControllerContext = new ControllerContext();
+            c.ControllerContext.HttpContext = new DefaultHttpContext();
+            c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_categoriasCreateModel);
 
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Delete(1);
             Assert.IsType<OkResult>(result);
         }
@@ -197,7 +240,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _categoriasService.Criar(_categorias);
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(999);
+            Assert.IsType<BadRequestObjectResult>(result);            
         }
 
         [Fact]
@@ -205,7 +252,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _categoriasService.Criar(_categorias);
             CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         public void Dispose()

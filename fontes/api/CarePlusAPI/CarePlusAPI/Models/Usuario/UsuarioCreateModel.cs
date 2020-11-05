@@ -9,7 +9,7 @@ namespace CarePlusAPI.Models.Usuario
     public class UsuarioCreateModel
     {
         [StringLength(100)]
-        [Required]  
+        [Required]
         public string Nome { get; set; }
 
         [Required]

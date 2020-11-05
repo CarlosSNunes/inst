@@ -15,7 +15,7 @@ namespace CarePlusAPI.Models.Banner
 {
     [ExcludeFromCodeCoverage]
     public class BannerCreateModel
-    {        
+    {
         [StringLength(100)]
         [Required]
         public string Titulo { get; set; }
@@ -49,7 +49,7 @@ namespace CarePlusAPI.Models.Banner
         [StringLength(255)]
         public string NomeImagemMobile { get; set; }
         public int Ordem { get; set; }
-       
+
 
     }
 }

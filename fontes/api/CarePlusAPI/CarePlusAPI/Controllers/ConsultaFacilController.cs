@@ -1,15 +1,14 @@
-
-
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.ConsultaFacil;
 using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace CarePlusAPI.Controllers
@@ -17,11 +16,13 @@ namespace CarePlusAPI.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
+    [ExcludeFromCodeCoverage]
     public class ConsultaFacilController : ControllerBase
     {
         private readonly IConsultaFacilService _consultaFacilService;
-        private readonly IMapper Mapper;
-        private readonly AppSettings AppSettings;
+        private readonly IMapper _mapper;
+        private readonly AppSettings _appSettings;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -38,8 +39,9 @@ namespace CarePlusAPI.Controllers
             IOptions<AppSettings> appSettings)
         {
             _consultaFacilService = consultaFacilService;
-            Mapper = mapper;
-            AppSettings = appSettings.Value;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
@@ -53,11 +55,26 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Colaborador, Administrador")]
         public async Task<IActionResult> Get()
         {
-            List<Clinica> result = await _consultaFacilService.Listar();
+            string origem = Request.Headers["Custom"];
 
-            List<ConsultaFacilModel> model = Mapper.Map<List<ConsultaFacilModel>>(result);
+            try
+            {
+                List<Clinica> result = await _consultaFacilService.Listar();
 
-            return Ok(model);
+                List<ConsultaFacilModel> model = _mapper.Map<List<ConsultaFacilModel>>(result);
+
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -72,14 +89,29 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Colaborador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
-            if (id == 0)
-                throw new AppException("O id da Clinica não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Clinica result = await _consultaFacilService.BuscarPorId(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id da Clinica não pode ser igual a 0");
 
-            ConsultaFacilModel model = Mapper.Map<ConsultaFacilModel>(result);
+                Clinica result = await _consultaFacilService.BuscarPorId(id);
 
-            return Ok(model);
+                ConsultaFacilModel model = _mapper.Map<ConsultaFacilModel>(result);
+
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -94,14 +126,29 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Colaborador, Administrador")]
         public async Task<IActionResult> GetByDate(DateTime data)
         {
-            if (data.Equals(null))
-                throw new AppException("A data não pode ser null");
+            string origem = Request.Headers["Custom"];
 
-            List<Clinica> result = await _consultaFacilService.BuscarPorData(data);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(data.ToString()))
+                    throw new AppException("A data não pode ser null");
 
-            List<ConsultaFacilModel> model = Mapper.Map<List<ConsultaFacilModel>>(result);
+                List<Clinica> result = await _consultaFacilService.BuscarPorData(data);
 
-            return Ok(model);
+                List<ConsultaFacilModel> model = _mapper.Map<List<ConsultaFacilModel>>(result);
+
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -116,12 +163,14 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Colaborador, Administrador")]
         public async Task<IActionResult> Post([FromForm] ConsultaFacilCreateModel model)
         {
+            string origem = Request.Headers["Custom"];
+
             if (model == null)
                 throw new AppException("Model não pode estar nulo");
 
             try
             {
-                Clinica clinica = Mapper.Map<Clinica>(model);
+                Clinica clinica = _mapper.Map<Clinica>(model);
 
                 await _consultaFacilService.Criar(clinica);
 
@@ -129,9 +178,12 @@ namespace CarePlusAPI.Controllers
             }
             catch (Exception ex)
             {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
         }
@@ -148,6 +200,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Colaborador, Administrador")]
         public async Task<IActionResult> Put([FromForm] ConsultaFacilUpdateModel model)
         {
+            string origem = Request.Headers["Custom"];
+
             if (model == null)
                 throw new AppException("Model não pode estar nulo");
 
@@ -155,7 +209,7 @@ namespace CarePlusAPI.Controllers
             {
                 Clinica clinica = await _consultaFacilService.BuscarPorId(model.Id.Value);
 
-                clinica = Mapper.Map<Clinica>(model);
+                clinica = _mapper.Map<Clinica>(model);
 
                 await _consultaFacilService.Atualizar(clinica);
 
@@ -163,9 +217,12 @@ namespace CarePlusAPI.Controllers
             }
             catch (Exception ex)
             {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
         }
@@ -181,14 +238,29 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Colaborador, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
-                throw new AppException("O id da Clinica não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Clinica clinica = await _consultaFacilService.BuscarPorId(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id da Clinica não pode ser igual a 0");
 
-            await _consultaFacilService.Excluir(clinica.Id);
+                Clinica clinica = await _consultaFacilService.BuscarPorId(id);
 
-            return Ok();
+                await _consultaFacilService.Excluir(clinica.Id);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
     }
 }

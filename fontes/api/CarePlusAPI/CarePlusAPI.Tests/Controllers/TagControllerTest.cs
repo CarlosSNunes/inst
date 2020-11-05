@@ -13,6 +13,7 @@ using CarePlusAPI.Entities;
 using CarePlusAPI.Models.Tag;
 using CarePlusAPI.Services;
 using CarePlusAPI.Controllers;
+using Microsoft.AspNetCore.Http;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -103,8 +104,14 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void GetSucesso()
         {
+            await TagService.Criar(Tags);
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            var result = await controller.Get();
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            int page = 1;
+            int pageSize = 5;
+            var result = await controller.Get(page, pageSize);
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -113,6 +120,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await TagService.Criar(Tags);
             TagController controller = new TagController(TagService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.GetById(1);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -122,7 +132,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await TagService.Criar(Tags);
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -130,13 +144,20 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await TagService.Criar(Tags);
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void PostSucesso()
         {
             TagController controller = new TagController(TagService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(TagsCreateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -145,14 +166,22 @@ namespace CarePlusAPI.Tests.Controllers
         public async void PostErroNulo()
         {
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Post(null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void PostErroVazio()
         {
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(new List<TagCreateModel>()));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Post(new List<TagCreateModel>());
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -164,6 +193,9 @@ namespace CarePlusAPI.Tests.Controllers
             {
                 TagService service = new TagService(context);
                 TagController controller = new TagController(service, Mapper, AppSettings);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(TagsUpdateModel);
                 Assert.IsType<OkResult>(result);
             }
@@ -173,14 +205,22 @@ namespace CarePlusAPI.Tests.Controllers
         public async void PutErroNulo()
         {
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void PutErroVazio()
         {
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(new List<TagUpdateModel>()));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(new List<TagUpdateModel>());
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -188,6 +228,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await TagService.Criar(Tags);
             TagController controller = new TagController(TagService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Delete(1);
             Assert.IsType<OkResult>(result);
         }
@@ -195,15 +238,23 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void DeleteErro()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(999));
+            TagController controller = new TagController(TagService, Mapper, AppSettings); 
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void DeleteErroZero()
         {
             TagController controller = new TagController(TagService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         public void Dispose()

@@ -18,10 +18,9 @@ namespace CarePlusAPI.Tests.Services
         private readonly SqliteConnection Connection;
         private readonly Post _post = new Post
         {
-            Id = 1,
             PostTag = new List<PostTag> {
                 new PostTag{
-                    TagId = 1
+                    TagId = 3
                 }
             },
             DataCadastro = DateTime.Now,
@@ -31,7 +30,10 @@ namespace CarePlusAPI.Tests.Services
             CaminhoImagem = "",
             Subtitulo = "Subtitulo teste",
             Titulo = "Titulo teste",
-            CategoriaId = 1
+            CategoriaId = 2,
+            Ativo = '1',
+            Slug = "post-teste",
+            Destaque = '1' 
         };
 
         public PostServiceTest()
@@ -50,8 +52,10 @@ namespace CarePlusAPI.Tests.Services
 
             using (DataContext context = new DataContext(Options))
             {
-                context.Categoria.Add(new Categoria { Id = 1, Descricao = "Saúde" });
-                context.Tag.Add(new Tag { Id = 1, Descricao = "Saúde" });
+                context.Categoria.Add(new Categoria { Id = 2, Descricao = "Saúde" });
+                context.Tag.Add(new Tag { Id = 3, Descricao = "Saúde" });
+                // context.Entry(new Categoria { Id = 2, CategoriaDescricao = "Saúde" }).State = EntityState.Detached;
+                // context.Entry(new Tag { Id = 1, Descricao = "Saúde" }).State = EntityState.Detached;
 
                 context.SaveChanges();
             }
@@ -64,8 +68,99 @@ namespace CarePlusAPI.Tests.Services
         {
             await _postService.Criar(_post);
 
-            var result = await _postService.Listar();
-            Assert.NotEmpty(result);
+            var page = 1;
+            var pageSize = 5;
+
+            var result = await _postService.Listar(page, pageSize);
+            Assert.NotEmpty(result.Item2);
+        }
+
+        [Fact]
+        public async Task BuscarMaisLidos()
+        {
+            await _postService.Criar(_post);
+
+            var page = 1;
+            var pageSize = 5;
+
+            var result = await _postService.BuscarMaisLidos(page, pageSize);
+            Assert.NotEmpty(result.Item2);
+        }
+
+        [Fact]
+        public async Task BuscarMaisLidosErro()
+        {
+            try
+            {
+
+                var page = 1;
+                var pageSize = 5;
+
+                var result = await _postService.BuscarMaisLidos(page, pageSize);
+
+            }
+            catch (Exception ex)
+            {
+
+                Assert.Null(ex.Message);
+            }
+        }
+
+        [Fact]
+        public async Task ListaPorTermoSucesso()
+        {
+            await _postService.Criar(_post);
+            var page = 1;
+            var pageSize = 5;
+
+            string termo = "teste";
+
+            var result = await _postService.BuscarPorTermo(termo, page, pageSize);
+            Assert.NotEmpty(result.Item2);
+        }
+
+        [Fact]
+        public async Task ListaPorTermoErro()
+        {
+            try
+            {
+                var page = 1;
+                var pageSize = 5;
+
+                string termo = "teste";
+
+                var result = await _postService.BuscarPorTermo(termo, page, pageSize);
+            }
+            catch (Exception ex)
+            {
+
+                Assert.Null(ex.Message);
+            }
+        }
+
+        [Fact]
+        public async Task BuscarPorSlugHitSucesso()
+        {
+            await _postService.Criar(_post);
+
+            string slug = "titulo-teste";
+
+            var result = await _postService.BuscarPorSlugHit(slug);
+            Assert.NotNull(result);
+        }
+
+        [Fact]
+        public async Task BuscarPorSlugHitErroPostNull()
+        {
+            string slug = "titulo-teste";
+            await Assert.ThrowsAsync<AppException>(() => _postService.BuscarPorSlugHit(slug));
+        }
+
+        [Fact]
+        public async Task BuscarPorSlugHitNull()
+        {
+            string slug = "";
+            await Assert.ThrowsAsync<AppException>(() => _postService.BuscarPorSlugHit(slug));
         }
 
         [Fact]
@@ -104,7 +199,7 @@ namespace CarePlusAPI.Tests.Services
             try
             {
                 await _postService.Criar(_post);
-                await _postService.Excluir(1);
+                await _postService.Excluir("titulo-teste");
                 return;
             }
             catch (Exception ex)
@@ -117,7 +212,7 @@ namespace CarePlusAPI.Tests.Services
         public async Task ExcluirErro()
         {
             await _postService.Criar(_post);
-            await Assert.ThrowsAsync<AppException>(() => _postService.Excluir(999));
+            await Assert.ThrowsAsync<AppException>(() => _postService.Excluir("test"));
         }
 
         public void Dispose()

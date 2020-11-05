@@ -1,7 +1,9 @@
-using Microsoft.EntityFrameworkCore;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -10,16 +12,16 @@ namespace CarePlusAPI.Services
 {
     public interface IPostService
     {
-        Task<List<Post>> Listar();
-        Task<List<Post>> BuscarMaisLidos();
-        Task<List<Post>> BuscarPorCategoria(int id);
-        Task<Post> BuscarPorId(int id);
-        Task<Post> BuscarPorIdHit(int id);
+        Task<Tuple<int, List<Post>>> Listar(int page, int pageSize);
+        Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize);
+        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug);
+        Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize);
+        Task<Post> BuscarPorSlug(string slug);
+        Task<Post> BuscarPorSlugHit(string slug);
 
         Task Criar(Post model);
         Task Atualizar(Post model);
-        Task Excluir(int id);
-        //Task ExcluirTags(int id);
+        Task Excluir(string slug);
     }
 
     public class PostService : IPostService
@@ -43,15 +45,31 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todos os Post da base.
         ///
         ///</summary>
-        public async Task<List<Post>> Listar()
+        public async Task<Tuple<int, List<Post>>> Listar(int page, int pageSize)
         {
-            return await Db.Set<Post>()
-                                   .AsNoTracking()
-                                   .Include(c => c.Categoria)
-                                   .Include("PostTag.Tag")
-                                   .OrderByDescending(p => p.Destaque)
-                                   .ThenBy(p => p.DataCadastro)
-                                   .ToListAsync();
+            try
+            {
+                IQueryable<Post> query = Db.Post.AsQueryable();
+
+                query = query
+                           .AsNoTracking()
+                           .Include("Categoria")
+                           .Include("PostTag.Tag")
+                           .OrderByDescending(p => p.Destaque)
+                           .ThenBy(p => p.DataCadastro);
+
+
+                var count = await query.CountAsync();
+
+                var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+
+                return new Tuple<int, List<Post>>(count, result.Results);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         ///<summary>
@@ -60,14 +78,16 @@ namespace CarePlusAPI.Services
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>
-        public async Task<Post> BuscarPorId(int id)
+        public async Task<Post> BuscarPorSlug(string slug)
         {
-            if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
+            if (string.IsNullOrWhiteSpace(slug))
+                throw new AppException("O slug do Post não pode ser estar vazio");
 
             Post post = await Db.Set<Post>()
                                         .AsNoTracking()
-                                        .FirstOrDefaultAsync(n => n.Id == id);
+                                        .Include("Categoria")
+                                        .Include("PostTag.Tag")
+                                        .FirstOrDefaultAsync(n => n.Slug == slug);
 
             if (post == null)
                 throw new AppException("Post não localizado");
@@ -115,74 +135,92 @@ namespace CarePlusAPI.Services
             await Db.SaveChangesAsync();
         }
 
-        ///<summary>
-        ///
-        ///Esse método serve para excluir um Post na base.
-        ///
-        ///</summary>
-        ///<param name="id">Id do Post a ser excluído</param>
-        public async Task Excluir(int id)
+        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug)
         {
             if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
-
-            Post entity = await Db.Set<Post>()
-                                        .FirstOrDefaultAsync(n => n.Id == id);
-
-            if (entity != null)
-            {
-                Db.Set<Post>().Remove(entity);
-
-                await Db.SaveChangesAsync();
-            }
-            else
-            {
-                throw new AppException("Post não encontrado");
-            }
-        }
-
-        public async Task<List<Post>> BuscarPorCategoria(int id)
-        {
-            if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
+                throw new AppException("O id da categoria não pode ser igual a 0");
 
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
 
             query = query.AsNoTracking()
-                                    .OrderBy(c => c.DataCadastro)
-                                    .Where(p => p.CategoriaId == id && p.Ativo.Equals('1'));
+                                    .Where(p => p.CategoriaId == id && p.Ativo.Equals('1') && p.Slug != slug)
+                                    .Include("Categoria")
+                                    .Include("PostTag.Tag")
+                                    .OrderBy(c => c.DataCadastro);
+                                    
 
             if (query == null)
                 throw new AppException("Posts não localizados");
 
-            return await query.ToListAsync();
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+
+            return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<List<Post>> BuscarMaisLidos()
+        public async Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                throw new AppException("O termo não pode estar vazio");
+
+            IQueryable<Post> query = Db.Set<Post>().AsQueryable();
+
+
+            query = query.AsNoTracking()
+                                    .Where(x => x.Titulo.Contains(term)
+                                    || x.Subtitulo.Contains(term)
+                                    || x.DescricaoPaginaSEO.Contains(term)
+                                    || x.TituloPaginaSEO.Contains(term)
+                                    || x.DescricaoPrevia.Contains(term)
+                                    || x.Slug.Contains(term))
+                                    .Include("Categoria")
+                                    .Include("PostTag.Tag")
+                                    .OrderBy(c => c.DataCadastro);
+
+            if (query == null)
+                throw new AppException("Posts não localizados");
+
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+
+            return new Tuple<int, List<Post>>(count, result.Results);
+        }
+
+        public async Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize)
         {
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
 
             query = query.AsNoTracking()
+                                    .Where(p => p.Ativo.Equals('1'))
+                                    .Include("Categoria")
+                                    .Include("PostTag.Tag")
                                     .OrderByDescending(p => p.Vizualizacoes)
-                                    .ThenBy(p => p.DataCadastro)
-                                    .Where(p => p.Ativo.Equals('1'));
+                                    .ThenBy(p => p.DataCadastro);
 
             if (query == null)
                 throw new AppException("Posts não localizados");
 
-            return await query.ToListAsync();
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+
+            return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Post> BuscarPorIdHit(int id)
+        public async Task<Post> BuscarPorSlugHit(string slug)
         {
-            if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
+            if (string.IsNullOrWhiteSpace(slug))
+                throw new AppException("O slug do Post não pode estar vazio.");
 
             Post post = await Db.Set<Post>()
                                         .AsNoTracking()
-                                        .FirstOrDefaultAsync(n => n.Id == id);
+                                        .Include("Categoria")
+                                        .Include("PostTag.Tag")
+                                        .FirstOrDefaultAsync(n => n.Slug == slug);
 
             if (post == null)
                 throw new AppException("Post não localizado");
@@ -195,18 +233,73 @@ namespace CarePlusAPI.Services
 
         ///<summary>
         ///
+        ///Esse método serve para excluir um Post na base.
+        ///
+        ///</summary>
+        ///<param name="id">Id do Post a ser excluído</param>
+        public async Task Excluir(string slug)
+        {
+            if (string.IsNullOrWhiteSpace(slug))
+                throw new AppException("O slug do Post não pode ser estar vazio");
+
+            Post entity = await Db.Set<Post>()
+                                        .FirstOrDefaultAsync(n => n.Slug == slug);
+
+            int id = entity != null ? entity.Id : 0;
+
+            if (entity != null)
+            {
+                Db.Set<Post>().Remove(entity);
+
+                await ExcluirTags(id);
+                await Db.SaveChangesAsync();
+            }
+            else
+            {
+                throw new AppException("Post não encontrado");
+            }
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para excluir as tags de um post na base.
+        ///
+        ///</summary>
+        ///<param name="id">Id do post a ser excluído</param>
+        private async Task ExcluirTags(int id)
+        {
+            if (id == 0)
+                throw new AppException("O id do post não pode ser igual a 0");
+
+            List<PostTag> tags = await Db.PostTag.Where(b => b.PostId == id).ToListAsync();
+            Db.RemoveRange(tags);
+        }
+
+        ///<summary>
+        ///
         ///Esse método serve para registrar as vizualizaões um Post na base.
         ///
         ///</summary>
         ///<param name="post">Model de Post para ser atualizado</param>
+       
         private async Task RegistraHit(Post post)
         {
             if (post == null)
                 throw new AppException("O Post não pode estar nulo");
 
+            DetachLocal(x => x.Id == post.Id);
+
             Db.Set<Post>().Update(post).Property(x => x.Vizualizacoes).IsModified = true;
 
             await Db.SaveChangesAsync();
+        }
+
+        private void DetachLocal(Func<Post, bool> func)
+        {
+            var local = Db.Set<Post>().Local.Where(func).FirstOrDefault();
+
+            if (!local.Equals(null))
+                Db.Entry(local).State = EntityState.Detached;
         }
 
         /// <summary>
@@ -229,6 +322,7 @@ namespace CarePlusAPI.Services
         ///
         ///</summary>
         ///<param name="posts">Model de Post para ser atualizado</param>
+        [ExcludeFromCodeCoverage]
         private async Task AtualizaDestaque(IList<Post> posts)
         {
             if (posts == null)
@@ -262,26 +356,12 @@ namespace CarePlusAPI.Services
 
             return str;
         }
-
+       
         private static string RemoveAcentuacao(string txt)
         {
             byte[] bytes = System.Text.Encoding.GetEncoding("Cyrillic").GetBytes(txt);
             return System.Text.Encoding.ASCII.GetString(bytes);
         }
-
-        ///<summary>
-        ///
-        ///Esse método serve para excluir um post na base.
-        ///
-        ///</summary>
-        ///<param name="id">Id do post a ser excluído</param>
-        public async Task ExcluirTags(int id)
-        {
-            if (id == 0)
-                throw new AppException("O id do post não pode ser igual a 0");
-
-            List<PostTag> tags = await Db.PostTag.Where(b => b.PostId == id).ToListAsync();
-            Db.RemoveRange(tags);
-        }
+       
     }
 }

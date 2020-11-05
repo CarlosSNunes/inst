@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using static CarePlusHomolog.PartnerServiceClient;
@@ -29,8 +30,10 @@ namespace CarePlusAPI.Services
         Task<RequisicaoUsuario> ValidateTokenRequisition(string token);
         Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastro();
         Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastroPendente();
+        Task<IList<LogUsuarioDesativado>> ListarAcoesDesativacaoUsuarios();
+        Task InativarUsuario(string userEmail, int idUserRequest);
     }
-
+    [ExcludeFromCodeCoverage]
     public class UsuarioService : IUsuarioService
     {
         private readonly DataContext Context;
@@ -171,6 +174,7 @@ namespace CarePlusAPI.Services
 
             model.SenhaHash = senhaHash;
             model.SenhaSalt = senhaSalt;
+            model.Ativo = '1';
 
             await Context.Usuario.AddAsync(model);
             await Context.SaveChangesAsync();
@@ -268,6 +272,7 @@ namespace CarePlusAPI.Services
         ///<param name="senha">Senha a ser verificada</param>
         ///<param name="senhaHash">Array de byte do hash da senha a ser verificada</param>
         ///<param name="senhaSalt">Array de byte do salt da senha a ser verificada</param>
+        [ExcludeFromCodeCoverage]
         private static bool VerificarSenha(string senha, byte[] senhaHash, byte[] senhaSalt)
         {
             using (System.Security.Cryptography.HMACSHA512 hmac = new System.Security.Cryptography.HMACSHA512(senhaSalt))
@@ -332,6 +337,7 @@ namespace CarePlusAPI.Services
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
+        [ExcludeFromCodeCoverage]
         private async Task<string> Logar()
         {
             try
@@ -376,7 +382,6 @@ namespace CarePlusAPI.Services
 
                 var result = await _partnerServiceClient.ValidarLoginADAsync(loginADOut, 0);
 
-                //TODO validar o retorno para finalizar o metodo
                 if (result.CodigoMensagem == 0)
                 {
                     return false;
@@ -384,7 +389,6 @@ namespace CarePlusAPI.Services
 
                 return true;
             }
-            
             catch (Exception ex)
             {
 
@@ -484,5 +488,52 @@ namespace CarePlusAPI.Services
             }
         }
 
+        ///<summary>
+        ///
+        ///Esse método serve para listar Log de inativação de usuário
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
+        ///
+        ///</summary>
+        public async Task<IList<LogUsuarioDesativado>> ListarAcoesDesativacaoUsuarios()
+        {
+            IList<LogUsuarioDesativado> listaRequisicoes = await Context.LogUsuarioDesativado.ToListAsync();
+
+            if (listaRequisicoes == null)
+                throw new AppException("Requisicoes de desativação não encontradas");
+
+
+            return listaRequisicoes;
+        }
+
+        /// <summary>
+        /// Esse método serve para inativar um usuário
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
+        public async Task InativarUsuario(string userEmail, int idUserRequest)
+        {
+            if (string.IsNullOrWhiteSpace(userEmail))
+                throw new AppException("O e-mail do usuário não pode estar vazio.");
+
+            Usuario usuario = await Context.Usuario.Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(u => u.Email == userEmail);
+
+            if (usuario == null)
+                throw new AppException("Usuario não encontrado");
+
+            usuario.Ativo = '0';
+
+            Context.Usuario.Update(usuario).Property(x => x.Ativo).IsModified = true;
+
+            LogUsuarioDesativado logUsr = new LogUsuarioDesativado()
+            {        
+                Id_Requisitante = idUserRequest,
+                Email = userEmail,
+                DataCadastro = DateTime.Now
+            };
+
+            await Context.LogUsuarioDesativado.AddAsync(logUsr);
+            await Context.SaveChangesAsync();
+
+        }
     }
 }

@@ -1,17 +1,10 @@
-﻿//===============================================================================
-//Web API
-//
-//===============================================================================
-//Copyright (C) 2020-2020 Neotix
-//Todos direitos reservados.
-//Web API para uso do NEOCMS
-//==============================================================================
-
-using CarePlusAPI.Entities;
+﻿using CarePlusAPI.Entities;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Models.ConsultaFacil
 {
+    [ExcludeFromCodeCoverage]
     public class ConsultaFacilModel
     {
         public int Id { get; set; }

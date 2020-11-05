@@ -1,8 +1,9 @@
-using Microsoft.EntityFrameworkCore;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace CarePlusAPI.Services
         Task Atualizar(Clinica model);
         Task Excluir(int id);
     }
-
+    [ExcludeFromCodeCoverage]
     public class ConsultaFacilService : IConsultaFacilService
     {
         private readonly DataContext Db;
@@ -140,8 +141,8 @@ namespace CarePlusAPI.Services
         /// <returns></returns>
         public async Task<List<Clinica>> BuscarPorData(DateTime data)
         {
-            if (data.Equals(null))
-                throw new AppException("O data não pode ser null");
+            if (string.IsNullOrWhiteSpace(data.ToString()))
+                throw new AppException("A data não pode ser null");
 
             IQueryable<Clinica> query = Db.Set<Clinica>().AsQueryable();
 

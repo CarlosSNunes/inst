@@ -1,6 +1,3 @@
-
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using AutoMapper;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Models.Banner;
@@ -12,6 +9,8 @@ using CarePlusAPI.Models.Post;
 using CarePlusAPI.Models.PostTag;
 using CarePlusAPI.Models.Tag;
 using CarePlusAPI.Models.Usuario;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace CarePlusAPI.Helpers
 {

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading.Tasks;
 using static CarePlusHomolog.PartnerServiceClient;
@@ -23,6 +24,7 @@ namespace CarePlusAPI.Services
         Task<OuvidoriaOut> GravarOuvidoria(GravarOuvidoriaEntradaModel model);
     }
 
+    [ExcludeFromCodeCoverage]
     public class FaleConoscoService : IFaleConoscoService
     {
         private readonly EndpointConfiguration _endpointConfiguration;
@@ -217,7 +219,7 @@ namespace CarePlusAPI.Services
                     Token = token.ToString(),
                     Assunto = model.Assunto,
                     CPFCNPJ = model.CPFCNPJ,
-                    Certificado = model.Certificado,
+                    Certificado = _appSettings.WSPartnerCertificado,
                     CodigoCarePlus = model.CodigoCarePlus,
                     Comentario = model.Comentario,
                     DDDTelefone1 = model.DDDTelefone1,
@@ -279,7 +281,7 @@ namespace CarePlusAPI.Services
                     Origem = WebServiceOrigem.Partner,
                     Token = token.ToString(),
                     CPFCNPJ = model.CPFCNPJ,
-                    Certificado = model.Certificado,
+                    Certificado = _appSettings.WSPartnerCertificado,
                     Mensagem = model.Mensagem,
                     DDDTelefone = model.DDDTelefone,
                     Telefone = model.Telefone,
@@ -316,19 +318,22 @@ namespace CarePlusAPI.Services
 
                 List<AnexoByte> lstAnexoBytes = new List<AnexoByte>();
 
-                var files = model.Anexo.Arquivo;
-
-                foreach (var file in files)
+                if (model.Anexo != null)
                 {
-                    var bytes = await GetBytes(file);
+                    var files = model.Anexo.Arquivo;
 
-                    AnexoByte anexoByte = new AnexoByte()
+                    foreach (var file in files)
                     {
-                        FileBytes = bytes,
-                        FileName = file.FileName
-                    };
+                        var bytes = await GetBytes(file);
 
-                    lstAnexoBytes.Add(anexoByte);
+                        AnexoByte anexoByte = new AnexoByte()
+                        {
+                            FileBytes = bytes,
+                            FileName = file.FileName
+                        };
+
+                        lstAnexoBytes.Add(anexoByte);
+                    }
                 }
 
                 AnexoByte[] anexoBytes = lstAnexoBytes.ToArray();
@@ -337,7 +342,7 @@ namespace CarePlusAPI.Services
                 {
                     Origem = WebServiceOrigem.Partner,
                     Token = token.ToString(),
-                    Certificado = model.Certificado,
+                    Certificado = _appSettings.WSPartnerCertificado,
                     DDDTelefoneCelular = model.DDDTelefoneCelular,
                     TelefoneCelular = model.TelefoneCelular,
                     DDDTelefoneResidencial = model.DDDTelefoneResidencial,
