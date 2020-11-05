@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, PLATFORM_ID, Inject, HostListener, Input } from '@angular/core';
 import { BannerModel } from 'src/app/models';
-import { BannerService } from 'src/app/services';
 import BannersJSON from './data/banners';
 import { Subscription, interval, fromEvent } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -32,7 +31,6 @@ export class PlusNetworkComponent implements OnInit {
     mobileElement: HTMLElement;
 
     constructor(
-        private bannerService: BannerService,
         private cdRef: ChangeDetectorRef,
         private elementRef: ElementRef,
         @Inject(PLATFORM_ID) private plataformId,
@@ -79,14 +77,6 @@ export class PlusNetworkComponent implements OnInit {
     @HostListener('window: resize', ['$event']) onResize(event) {
         if (this.isBrowser) {
             this.width = event.target.innerWidth;
-        }
-    }
-
-    async getBanners() {
-        try {
-            this.banners = await this.bannerService.getByArea('plus-network')
-        } catch (error) {
-            console.log(error)
         }
     }
 
