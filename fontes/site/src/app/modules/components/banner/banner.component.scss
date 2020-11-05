@@ -26,7 +26,7 @@ section.home-banner {
                     position: relative;
                     &::before {
                         content: "";
-                        background-image: getSvg('desktop-banner-play-button.svg');
+                        background-image: getSvg("desktop-banner-play-button.svg");
                         background-size: contain;
                         background-repeat: no-repeat;
                         background-position: center;
@@ -40,7 +40,7 @@ section.home-banner {
                     }
                     &.stopped {
                         &::before {
-                            background-image: getSvg('desktop-banner-stop-button.svg') !important;
+                            background-image: getSvg("desktop-banner-stop-button.svg") !important;
                         }
                     }
                     #svg {
@@ -154,9 +154,9 @@ section.home-banner {
 
 @media (max-width: 1023px) {
     section.home-banner {
-        height: calc(100vh - 156px);
+        height: calc(100vh - 195px);
         #carousel-banner {
-            height: calc(100vh - (156px + 224px));
+            height: calc(100vh - (195px + 224px));
 
             .stepper {
                 left: 7.83px;
@@ -171,13 +171,13 @@ section.home-banner {
 
                         &::before {
                             content: "";
-                            background-image: getSvg('mobile-banner-play-button.svg');
+                            background-image: getSvg("mobile-banner-play-button.svg");
                         }
                         &.stopped {
                             &::before {
                                 content: "";
                                 background-position-x: 1px;
-                                background-image: getSvg('mobile-banner-stop-button.svg') !important;
+                                background-image: getSvg("mobile-banner-stop-button.svg") !important;
                             }
                         }
                         #svg {
@@ -204,7 +204,7 @@ section.home-banner {
             }
         }
         .item {
-            height: calc(100vh - (156px + 224px));
+            height: calc(100vh - (195px + 224px));
             position: absolute;
             box-shadow: unset;
             .container:not(.breadcrumb-container) {
@@ -213,12 +213,18 @@ section.home-banner {
                 bottom: -224px;
                 height: 224px;
                 background-color: getColor(_bupa, _digital-cian);
+                display: flex;
+                .columns {
+                    align-self: center;
+                    width: 100%;
+                }
                 .banner-home-description {
                     padding-left: 64px;
                     padding-top: 0;
                     padding-right: 32px;
+                    padding-bottom: 0;
                     .banner-title {
-                        margin-top: 16px;
+                        margin-top: 0;
                         font-size: getSize("mbt");
                         line-height: 120%;
                         color: getColor(_bupa, _white);

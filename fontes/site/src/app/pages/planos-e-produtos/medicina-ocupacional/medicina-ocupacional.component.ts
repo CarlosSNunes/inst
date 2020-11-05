@@ -24,6 +24,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
         button: new ButtonModel({
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
+            target: '_self',
             queryParams: {
                 medicinaOcupacional: true
             }

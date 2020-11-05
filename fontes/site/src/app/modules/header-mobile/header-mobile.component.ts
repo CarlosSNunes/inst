@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject } from '@angular/core';
 import { Router, NavigationEnd, Params } from '@angular/router';
-import { RouteModel } from 'src/app/models';
+import { RouteModel, SubMenu } from 'src/app/models';
 import { routes } from 'src/utils/route-names';
 import { faAngleDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { ResizedEvent } from 'angular-resize-event';
@@ -9,6 +9,7 @@ import { DOCUMENT } from '@angular/common';
 import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { SimuladoresService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
+import SubMenus from './data/menus';
 
 @Component({
     selector: 'app-header-mobile',
@@ -33,6 +34,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     static params: Params = {};
     actualRoute: string = '';
     careplusUrl = environment.CAREPLUS_URL;
+    subMenu: SubMenu = SubMenus[0];
 
     constructor(
         private router: Router,
@@ -45,6 +47,9 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
             this.selectedPage = initialRoute.description;
         }
 
+        const route = this.router.url;
+        this.mountMenu(route);
+
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 let routeToCompare = event.urlAfterRedirects;
@@ -54,6 +59,8 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
                 if (routeToCompare.includes('#')) {
                     routeToCompare = routeToCompare.substring(0, routeToCompare.indexOf('#'))
                 }
+
+                this.mountMenu(event.url);
 
                 this.actualRoute = routeToCompare;
 
@@ -92,6 +99,28 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
 
     @HostListener('window: resize') onResize() {
         this.positionFooterOnBottom()
+    }
+
+    mountMenu(url: string) {
+        switch (url) {
+            case '/sou-beneficiario':
+                this.subMenu = SubMenus.find(sub => sub.id == 'beneficiario')
+                break;
+
+            case '/sou-rh':
+                this.subMenu = SubMenus.find(sub => sub.id == 'rh')
+                break;
+            case '/sou-corretor':
+                this.subMenu = SubMenus.find(sub => sub.id == 'corretor')
+                break;
+            case '/sou-credenciado':
+                this.subMenu = SubMenus.find(sub => sub.id == 'credenciado')
+                break;
+
+            default:
+                this.subMenu = SubMenus.find(sub => sub.id == 'default')
+                break;
+        }
     }
 
     toggleDropDown(drop = undefined) {
@@ -156,7 +185,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         } else {
             height = evt.newHeight;
         }
-        if (height <= (this.windowRef.nativeWindow.innerHeight - 167)) {
+        if (height <= (this.windowRef.nativeWindow.innerHeight - 126)) {
             this.bottom.nativeElement.style.width = 'calc(100% - 64px)';
             this.bottom.nativeElement.style.position = 'absolute';
             this.bottom.nativeElement.style.bottom = '15px';

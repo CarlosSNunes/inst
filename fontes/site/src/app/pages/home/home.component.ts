@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/home`,
+            content: `${environment.SELF_URL}/`,
         });
 
         /* 
@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/home`,
+            content: `${environment.SELF_URL}/`,
         });
     }
 }

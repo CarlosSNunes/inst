@@ -38,7 +38,7 @@ import { environment } from 'src/environments/environment';
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home'
+                link: '/'
             }),
             new BreadcrumbModel({
                 name: 'A Care Plus',
@@ -123,7 +123,7 @@ import { environment } from 'src/environments/environment';
 
     animate(pageY: number) {
 
-        this.elements.map(element => {
+        this.elements.forEach(element => {
             const elementPositions = element.getBoundingClientRect();
             const winPositions = element.ownerDocument.defaultView;
             const top = elementPositions.top + winPositions.pageYOffset;

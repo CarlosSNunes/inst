@@ -77,6 +77,10 @@ export class PlansInfosComponent implements OnInit {
         if (changes.cardPlan) {
             this.cardPlan = changes.cardPlan.currentValue;
         }
+        if (changes.plan) {
+            this.plan = changes.plan.currentValue;
+            this.cards = this.plan.plansTypes[0].plans;
+        }
     }
 
 }

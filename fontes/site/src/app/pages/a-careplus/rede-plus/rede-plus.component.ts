@@ -17,7 +17,7 @@ export class RedePlusComponent implements OnInit {
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'A Care Plus',

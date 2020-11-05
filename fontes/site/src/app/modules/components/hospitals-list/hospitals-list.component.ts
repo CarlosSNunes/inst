@@ -1,36 +1,71 @@
-import { Component, OnInit, Input } from '@angular/core';
-import Hospitals from './dropdown-data/hospitals-list';
-import { DropDownItem } from 'src/app/models';
-
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import Hospitals from './data/hospitals-list';
+import { DropDownItem, Hospital, HospitalList } from 'src/app/models';
+import TableHeadItems from './data/table-head-itens';
 
 @Component({
     selector: 'app-hospitals-list',
     templateUrl: './hospitals-list.component.html',
     styleUrls: ['./hospitals-list.component.scss']
 })
-export class HospitalsListComponent implements OnInit {
+export class HospitalsListComponent implements OnInit, OnChanges {
     @Input() bigTitle: string = 'Veja todos os hospitais e laboratórios de cada plano';
     @Input() smallTitle: string = 'HOSPITAIS DA REDE CLUB CARE PLUS';
+    @Input() customHospitals: HospitalList;
+    @Input() tableHead: { id: string, title: string }[] = [];
     allStates: DropDownItem[] = [];
     allHospitals: DropDownItem[] = [];
     allPlans: DropDownItem[] = [];
     menuStyle: string = "list";
-    gridList: {}[] = [];
+    gridList: Hospital[] = [];
     hiddenGrid: boolean = true;
     hiddenList: boolean = true;
     selectedState: DropDownItem = new DropDownItem({ title: '', value: '' });
     selectedType: DropDownItem = new DropDownItem({ title: '', value: '' });
     selectedPlan: DropDownItem = new DropDownItem({ title: '', value: '' });
 
-    constructor() {
-        this.mountStateDropdown(Hospitals)
-        this.mountTypesDropdown(Hospitals)
-        this.mountPlansDropdown(Hospitals)
-        this.mountHospitalsList()
-    }
+    constructor() { }
 
 
     ngOnInit() {
+        this.mountList();
+    }
+
+    private mountList() {
+        if (!this.tableHead || this.tableHead.length == 0) {
+            this.tableHead = TableHeadItems;
+        }
+        if (!this.customHospitals) {
+            this.mountStateDropdown(Hospitals)
+            this.mountTypesDropdown(Hospitals)
+            this.mountPlansDropdown(Hospitals)
+            this.mountHospitalsList(Hospitals)
+        } else {
+            this.mountStateDropdown(this.customHospitals)
+            this.mountTypesDropdown(this.customHospitals)
+            this.mountPlansDropdown(this.customHospitals)
+            this.mountHospitalsList(this.customHospitals)
+        }
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.bigTitle) {
+            this.bigTitle = changes.bigTitle.currentValue;
+        }
+
+        if (changes.smallTitle) {
+            this.smallTitle = changes.smallTitle.currentValue;
+        }
+
+        if (changes.customHospitals) {
+            this.customHospitals = changes.customHospitals.currentValue;
+        }
+
+        if (changes.tableHead) {
+            this.tableHead = changes.tableHead.currentValue;
+        }
+
+        this.mountList();
     }
 
     changeMenuStyle(style) {
@@ -111,12 +146,19 @@ export class HospitalsListComponent implements OnInit {
         }
     }
 
+    filter() {
+        if (this.customHospitals) {
+            this.mountHospitalsList(this.customHospitals);
+        } else {
+            this.mountHospitalsList(Hospitals);
+        }
+    }
 
-    mountHospitalsList() {
+    mountHospitalsList(hospitals) {
         this.gridList = []
 
         if (this.selectedState.value != "" && this.selectedType.value != "" && this.selectedPlan.value != "") {
-            for (let state of Hospitals.states) {
+            for (let state of hospitals.states) {
                 if (state.state == this.selectedState.value) {
                     for (let hospital of state.unities) {
                         if (hospital.type == this.selectedType.value) {
@@ -132,7 +174,7 @@ export class HospitalsListComponent implements OnInit {
         } else if (this.selectedState.value != "") {
             if (this.selectedType.value != "" || this.selectedPlan.value != "") {
                 if (this.selectedType.value != "") {
-                    for (let state of Hospitals.states) {
+                    for (let state of hospitals.states) {
                         if (state.state == this.selectedState.value) {
                             for (let hospital of state.unities) {
                                 if (hospital.type == this.selectedType.value) {
@@ -143,7 +185,7 @@ export class HospitalsListComponent implements OnInit {
                     }
                 }
                 else {
-                    for (let state of Hospitals.states) {
+                    for (let state of hospitals.states) {
                         if (state.state == this.selectedState.value) {
                             for (let hospital of state.unities) {
                                 for (let plan of hospital.plans) {
@@ -156,7 +198,7 @@ export class HospitalsListComponent implements OnInit {
                     }
                 }
             } else {
-                for (let state of Hospitals.states) {
+                for (let state of hospitals.states) {
                     if (state.state == this.selectedState.value) {
                         for (let hospital of state.unities) {
                             this.gridList.push(hospital)
@@ -166,7 +208,7 @@ export class HospitalsListComponent implements OnInit {
             }
         } else if (this.selectedType.value != "") {
             if (this.selectedPlan.value != "") {
-                for (let state of Hospitals.states) {
+                for (let state of hospitals.states) {
                     for (let hospital of state.unities) {
                         if (hospital.type == this.selectedType.value) {
                             for (let plan of hospital.plans) {
@@ -178,7 +220,7 @@ export class HospitalsListComponent implements OnInit {
                     }
                 }
             } else {
-                for (let state of Hospitals.states) {
+                for (let state of hospitals.states) {
                     for (let hospital of state.unities) {
                         if (hospital.type == this.selectedType.value) {
                             this.gridList.push(hospital)
@@ -187,7 +229,7 @@ export class HospitalsListComponent implements OnInit {
                 }
             }
         } else if (this.selectedPlan.value != "") {
-            for (let state of Hospitals.states) {
+            for (let state of hospitals.states) {
                 for (let hospital of state.unities) {
                     for (let plan of hospital.plans) {
                         if (plan.plan == this.selectedPlan.value && plan.included) {
@@ -198,7 +240,7 @@ export class HospitalsListComponent implements OnInit {
             }
         }
         else {
-            for (let state of Hospitals.states) {
+            for (let state of hospitals.states) {
                 for (let hospital of state.unities) {
                     this.gridList.push(hospital)
                 }

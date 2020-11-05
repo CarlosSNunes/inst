@@ -7,7 +7,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
     breadcrumbs: [
         new BreadcrumbModel({
             name: 'Home',
-            link: '/home',
+            link: '/',
         }),
         new BreadcrumbModel({
             name: 'Planos e Produtos',
@@ -124,7 +124,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     bigTitleMaxWidth: 386,
     subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
     button: new ButtonModel({
-        text: 'Veja Todos os Programas',
+        text: 'Veja todos os Programas de Saúde',
         routerLink: '/planos-e-produtos/gestao-de-saude'
     }),
     cards: PersonalizedSectionCards,

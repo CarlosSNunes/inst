@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IconCardModel, ButtonModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 
@@ -28,12 +29,13 @@ export class ContactScheduleAVisitComponent implements OnInit {
         button: new ButtonModel({
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             text: 'Clique e solicite uma cotação',
-            target: '_blank',
+            target: '_self',
         }),
         backgroundColorClass: this.backgroundColorClass
     })
     constructor(
-        private windowRef: WindowRef
+        private windowRef: WindowRef,
+        private router: Router
     ) { }
 
     ngOnInit() {
@@ -43,8 +45,13 @@ export class ContactScheduleAVisitComponent implements OnInit {
 
     open(card: IconCardModel) {
         if (this.windowRef.nativeWindow.innerWidth < 1024) {
-            this.windowRef.nativeWindow.open(card.button.link, '_blank');
-
+            if (card.button.link) {
+                this.windowRef.nativeWindow.open(card.button.link, card.button.target);
+            } else if (card.button.routerLink) {
+                this.router.navigate([card.button.routerLink], {
+                    queryParams: card.button.queryParams
+                });
+            }
         }
     }
 

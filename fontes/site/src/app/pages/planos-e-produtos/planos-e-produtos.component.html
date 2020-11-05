@@ -1,15 +1,20 @@
 <app-hero-banner class="app-hero-banner" [heroBannerModel]="heroBannerModel"></app-hero-banner>
-<div class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao">
+<a class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao">
     <p class="text">
-        SOLICITE UMA COTAÇÃO
+        Solicite uma Cotação
     </p>
-    <img src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
-</div>
+    <img class="girl" src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
+    <span class="icon">
+        <img src="assets/svg/telephone-icon.svg" alt="Solicite uma Cotação">
+    </span>
+</a>
 <div class="anchor-buttons">
     <div class="container">
         <div class="buttons-box">
-            <a (click)="goToSection('#planos')" tabindex="0" (keyup.enter)="goToSection('#planos')" class="anchor-button" title="Planos">Planos</a>
-            <a (click)="goToSection('#produtos')" tabindex="0" (keyup.enter)="goToSection('#produtos')" class="anchor-button" title="Produtos">Produtos</a>
+            <a (click)="goToSection('#planos')" tabindex="0" (keyup.enter)="goToSection('#planos')"
+                class="anchor-button" title="Planos">Planos</a>
+            <a (click)="goToSection('#produtos')" tabindex="0" (keyup.enter)="goToSection('#produtos')"
+                class="anchor-button" title="Produtos">Produtos</a>
         </div>
     </div>
 </div>
@@ -29,20 +34,29 @@
         </div>
         <div class="background">
             <div class="container">
-                <div class="info-card">
-                    <p class="info-card-title">
-                        Em poucos passos você simula o seu plano ideal
-                    </p>
-                    <p class="sub-description">
-                        Siga o passo a passo do nosso simulador, e em poucas perguntas com alguns dados nós conseguiremos indicar o melhor produto e planos para sua empresa. Faça a simulação e descubra.
-                    </p>
-                    <button (click)="openSimulator()" class="btn btn-digital-cian secondary medium is-hidden-touch" title="Simular agora">
-                        Simular Agora
-                    </button>
+                <div class="columns">
+                    <div class="column">
+                        <div class="info-card">
+                            <p class="info-card-title">
+                                Em poucos passos você simula o seu plano ideal
+                            </p>
+                            <p class="sub-description">
+                                Siga o passo a passo do nosso simulador, e em poucas perguntas com alguns dados nós
+                                conseguiremos indicar o melhor produto e planos para sua empresa. Faça a simulação e
+                                descubra.
+                            </p>
+                            <button (click)="openSimulator()"
+                                class="btn btn-digital-cian secondary medium is-hidden-touch" title="Simular agora">
+                                Simular Agora
+                            </button>
 
-                    <button (click)="openSimulator()" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" title="Simular agora">
-                        Simular Agora
-                    </button>
+                            <button (click)="openSimulator()"
+                                class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
+                                title="Simular agora">
+                                Simular Agora
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,7 +74,8 @@
                         Conheça nossos planos de saúde empresariais
                     </h2>
                     <div class="sub-description">
-                        Ao lado listamos nossos produtos de saúde, eles são destinados de acordo com número de vidas da sua empresa, podendo ser customizáveis ou não de acordo com a necessidade
+                        Ao lado listamos nossos produtos de saúde, eles são destinados de acordo com número de vidas da
+                        sua empresa, podendo ser customizáveis ou não de acordo com a necessidade
                     </div>
                 </div>
             </div>
@@ -74,7 +89,9 @@
     </article>
 </section>
 <app-info-section class="app-info-section" [sectionInfo]="ocupationalSection"></app-info-section>
-<app-icon-cards-section class="app-icon-cards-section" id="produtos" [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
-<app-contact-schedule-a-visit class="app-contact-schedule-a-visit" [secondCard]="secondCard" [bigTitle]="'Entre em contato ou solicite uma cotação'">
+<app-icon-cards-section class="app-icon-cards-section" id="produtos" [iconCardsSectionModel]="iconCardsSectionModel"
+    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
+<app-contact-schedule-a-visit class="app-contact-schedule-a-visit" [secondCard]="secondCard"
+    [bigTitle]="'Entre em contato ou solicite uma cotação'">
 </app-contact-schedule-a-visit>
 <app-commom-questions class="app-commom-questions"></app-commom-questions>
