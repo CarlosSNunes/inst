@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { BreadcrumbModel, NoticiaModel, IconCardsSectionModel, PostCardModel, RouteModel } from 'src/app/models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import RelatedPosts from './data/related-posts';
-import { isPlatformServer, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
-import { BlogService, NotificationService, EventEmitterService } from 'src/app/services';
+import { BlogService, EventEmitterService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
+import { ErrorHandler } from 'src/utils/error-handler';
 
 @Component({
     selector: 'app-detalhe-do-post',
@@ -29,7 +29,7 @@ export class DetalheDoPostComponent implements OnInit {
     iconCardsSectionModel: IconCardsSectionModel<PostCardModel> = new IconCardsSectionModel<PostCardModel>({
         smallTitle: 'Artigos  Relacionados',
         bigTitle: 'Fique por dentro dos conteúdos mais recentes',
-        cards: RelatedPosts,
+        cards: [],
         columnClass: 'is-3-desktop',
         cendered: false
     });
@@ -41,8 +41,9 @@ export class DetalheDoPostComponent implements OnInit {
         @Inject(PLATFORM_ID) private platformId: Object,
         private windowRef: WindowRef,
         private blogService: BlogService,
-        private notificationService: NotificationService,
-        private cdr: ChangeDetectorRef
+        private cdr: ChangeDetectorRef,
+        private errorHandler: ErrorHandler,
+        private router: Router
     ) {
         this.activatedRoute.params.subscribe(async params => {
             this.slug = params.slug;
@@ -72,9 +73,26 @@ export class DetalheDoPostComponent implements OnInit {
                 ...apiPost,
                 getDateDifferences: true,
             });
+            this.getRelatedPosts(apiPost);
             this.cdr.detectChanges();
         } catch (error) {
-            this.notificationService.addNotification('error', error.message);
+            this.errorHandler.ShowError(error.error);
+            this.router.navigate(['/404'])
+        }
+    }
+
+    async getRelatedPosts(post: NoticiaModel) {
+        try {
+            const paginatedPosts = await this.blogService.getRelatedPosts(post, 1, 4);
+            paginatedPosts.result.forEach(post => {
+                this.iconCardsSectionModel.cards.push(new PostCardModel(
+                    {
+                        post
+                    }
+                ));
+            });
+        } catch (error) {
+            this.errorHandler.ShowError(error.error)
         }
     }
 
