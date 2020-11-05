@@ -17,8 +17,8 @@
                 </a>
             </div>
             <div style="align-content: flex-end;">
-                <button class="btn btn-primary is-primary" type="button" 
-                routerLink="/neocms/posts-blog/tag/create" routerLinkActive="active">
+                <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/tag/create"
+                    routerLinkActive="active">
                     Criar Nova Tag &nbsp;
                     <fa-icon [icon]="faPlus"></fa-icon>
                 </button>
@@ -48,7 +48,7 @@
                             Não há tags cadastradas
                         </td>
                     </tr>
-                    <tr *ngFor="let tag of tags">
+                    <tr *ngFor="let tag of result">
                         <td>{{tag.id}}</td>
                         <td>{{tag.descricao}}</td>
                         <td>
@@ -65,12 +65,4 @@
             </table>
         </div>
     </div>
-    <!-- <footer class="card-footer">
-        <a routerLink="/neocms/posts-blog/tag/create" routerLinkActive="active" class="card-footer-item">
-            Criar novas tags &nbsp;
-            <fa-icon [icon]="faPlus"></fa-icon>
-        </a>
-    </footer> -->
 </div>
-
-<app-tag-delete *ngIf="showTagDelete" [tag]="tag" (onClose)="getTags()"></app-tag-delete>

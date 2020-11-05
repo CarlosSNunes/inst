@@ -67,10 +67,9 @@ export class PostsBlogComponent implements OnInit {
     this.usuario = this.authenticationService.state;
 
     this.usuario.perfis.forEach(perfil => {
-        if(perfil.descricao == 'Editor' || perfil.descricao == 'Administrador')
-        {
-          this.podeEscrever = true;
-        }
+      if (perfil.descricao == 'Editor' || perfil.descricao == 'Administrador') {
+        this.podeEscrever = true;
+      }
     });
 
     this.getPosts();
@@ -97,11 +96,11 @@ export class PostsBlogComponent implements OnInit {
   getPosts() {
     //this.showPostsDelete = false;
     this.postsBlogService
-      .getAll()
+      .getAll(1, 100)
       .subscribe(postsBlog => {
         this.loaded = true;
-        this.postsBlog = postsBlog;
-        
+        this.postsBlog = postsBlog['result'];
+
       },
         error => {
           this.loaded = true;
@@ -109,40 +108,35 @@ export class PostsBlogComponent implements OnInit {
 
   }
 
-  filterPosts(input)
-  {
-    if(input.value != '')
-    {
-      this.postsBlog = this.postsBlog.filter(x => x.titulo.includes(input.value));
+  filterPosts(input) {
+    if (input.value != '') {
+      this.postsBlog = this.postsBlog['result'].filter(x => x.titulo.includes(input.value));
     }
   }
 
-  filterPostByCategory(select)
-  {
-    if(select.value > 0)
-    {
-       this.getPosts();
-        setTimeout(() => {
-        this.postsBlog = this.postsBlog.filter(x => x.categoriaId == select.value);
-       }, 500);
+  filterPostByCategory(select) {
+    if (select.value > 0) {
+      this.getPosts();
+      setTimeout(() => {
+        this.postsBlog = this.postsBlog['result'].filter(x => x.categoriaId == select.value);
+      }, 500);
     }
   }
-  salvarAlteracoes(){}
+  salvarAlteracoes() { }
 
-  buscarCategoriaDescricao(categoriaId){
+  buscarCategoriaDescricao(categoriaId) {
 
     this.categorias.forEach(cat => {
 
-      if(cat.id == categoriaId)
-      {
-        return cat.descricao;
+      if (cat['result'].id == categoriaId) {
+        return cat['result'].descricao;
       }
     });
   }
 
-  getPostsBySearch(): any{
+  getPostsBySearch(): any {
     this.postsBlogService
-      .getAll()
+      .getAll(1, 100)
       .subscribe(postsBlog => {
         this.loaded = true;
         this.postsBlog = postsBlog;
@@ -151,27 +145,26 @@ export class PostsBlogComponent implements OnInit {
           this.loaded = true;
         });
 
-        return this.postBlog;
+    return this.postBlog;
   }
 
   getCategorias() {
-  this.categoriasService
-    .getAll()
-    .subscribe(result => {
-      this.loaded = true;
-      this.categorias = result;
-      console.log(result);
-    },
-      error => {
+    this.categoriasService
+      .getAll(1, 100)
+      .subscribe(result => {
         this.loaded = true;
-      });
+        this.categorias = result['result'];
+        console.log(result);
+      },
+        error => {
+          this.loaded = true;
+        });
   }
 
-  duplicarPost(post: PostsBlogModel)
-  {
+  duplicarPost(post: PostsBlogModel) {
 
     this.postsBlogForm = this.fb.group({
-      titulo: [ post.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      titulo: [post['result'].titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       subtitulo: [post.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       descricaoPrevia: [post.descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       dataPublicacao: [post.dataPublicacao, [Validators.required]],
@@ -184,26 +177,26 @@ export class PostsBlogComponent implements OnInit {
       postTag: this.fb.array(post.postTag),
       descricao: [post.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [[]],
-      caminhoImagem: [this.API_ENDPOINT +'/Src/Images/Banner/'],
+      caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Banner/'],
       nomeImagem: [post.nomeImagem]
     });
 
-        this.postsBlogForm.controls.titulo.setValue('[Duplicado] - ' + post.titulo);
-        this.postsBlogForm.controls.dataPublicacao = formatDate(new Date().toString(), 'dd/MM/yyyy', 'en');
-        this.postsBlogForm.controls.descricao.setValue("descrição");
+    this.postsBlogForm.controls.titulo.setValue('[Duplicado] - ' + post.titulo);
+    this.postsBlogForm.controls.dataPublicacao = formatDate(new Date().toString(), 'dd/MM/yyyy', 'en');
+    this.postsBlogForm.controls.descricao.setValue("descrição");
 
-        const newPost = new PostsBlogCreateModel(this.postsBlogForm.value);
-        this.postsBlogService.post(newPost)
-          .subscribe(() =>
-            this.getPosts()
-        );
+    const newPost = new PostsBlogCreateModel(this.postsBlogForm.value);
+    this.postsBlogService.post(newPost)
+      .subscribe(() =>
+        this.getPosts()
+      );
   }
 
 
 
   openModalDuplicarPost(template: TemplateRef<PostsBlogModel>) {
 
-    this.bsModalRef = this.modalService.show(template, {class: 'modal-md'});
+    this.bsModalRef = this.modalService.show(template, { class: 'modal-md' });
 
   }
 
@@ -214,8 +207,7 @@ export class PostsBlogComponent implements OnInit {
 
   confirmExcluir(post): void {
     this.postsBlogService.delete(post.id)
-      .subscribe(()=>
-      {
+      .subscribe(() => {
         this.getPosts();
       });
     this.bsModalRef.hide();

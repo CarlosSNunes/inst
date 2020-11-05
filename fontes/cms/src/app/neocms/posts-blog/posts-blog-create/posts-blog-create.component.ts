@@ -84,6 +84,8 @@ export class PostsBlogCreateComponent implements OnInit {
   isPostDestaque = false;
 
   private readonly API_ENDPOINT = environment.API;
+  resultCat: any;
+  resultTag: any;
 
   constructor(
     private authenticateService: AuthenticationService,
@@ -100,8 +102,19 @@ export class PostsBlogCreateComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authenticateService.state;
-    this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
-    this.tagService.getAll().subscribe(tags => this.tags = tags);
+    this.categoriasService
+      .getAll(1, 100)
+      .subscribe(categorias => {
+        this.categorias = categorias;
+        this.resultCat = categorias['result'];
+      });
+    this.tagService
+      .getAll(1, 10)
+      .subscribe(tags => {
+        this.tags = tags;
+        this.resultTag = tags['result'];
+
+      });
 
     this.createForm();
   }
@@ -253,10 +266,10 @@ export class PostsBlogCreateComponent implements OnInit {
     }
   }
 
-  toggleTag(tag: TagModel) {
-    const index = this.tags.findIndex(x => x.id === tag.id);
-    this.tags[index].selected = !this.tags[index].selected;
-    this.manageTag(this.tags[index].id);
+  toggleTag(tag: TagModel['result']) {
+    const index = this.resultTag.findIndex(x => x.id === tag.id);
+    this.resultTag[index].selected = !this.resultTag[index].selected;
+    this.manageTag(this.resultTag[index].id);
   }
 
   manageTag(id: number) {
@@ -285,7 +298,7 @@ export class PostsBlogCreateComponent implements OnInit {
 
 
   changeCategoria(categoria) {
-    if (categoria.value == 'Administrar') {
+    if (categoria.titulo == 'Administrar') {
       this.router.navigate(['/neocms/posts-blog/categorias/index']);
     }
   }

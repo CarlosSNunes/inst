@@ -50,7 +50,7 @@ export class PostsBlogEditComponent implements OnInit {
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
   private readonly API_ENDPOINT = environment.API
-  
+
   constructor(
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
@@ -66,7 +66,7 @@ export class PostsBlogEditComponent implements OnInit {
   ngOnInit() {
     this.localeService.use('pt-br')
     this.user = this.authenticateService.state;
-    this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
+    this.categoriasService.getAll(1, 100).subscribe(categorias => this.categorias = categorias);
     this.tagService.getAll().subscribe(tags => this.tags = tags);
     this.getPost()
 
@@ -98,10 +98,10 @@ export class PostsBlogEditComponent implements OnInit {
       .getById(id)
       .subscribe(postBlog => {
         this.postBlog = postBlog;
-        this.previewUrl = postBlog.caminhoImagem +'/'+ postBlog.nomeImagem;
+        // this.previewUrl = postBlog.caminhoImagem + '/' + postBlog.nomeImagem;
 
         const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-        this.postsBlogForm.controls.dataPublicacao.setValue(this.datepipe.transform(postBlog.dataPublicacao,'dd/MM/yyyy', 'en'));
+        this.postsBlogForm.controls.dataPublicacao.setValue(this.datepipe.transform(postBlog.dataPublicacao, 'dd/MM/yyyy', 'en'));
 
         const dataPExpiracaoElement: any = document.querySelector('#dataExpiracao');
         dataPExpiracaoElement.value = postBlog.dataExpiracao;
@@ -121,21 +121,21 @@ export class PostsBlogEditComponent implements OnInit {
   }
 
   getCategorias() {
-    this.categoriasService.getAll().subscribe(categorias => {
+    this.categoriasService.getAll(1, 100).subscribe(categorias => {
       this.categorias = categorias;
     });
   }
 
   changeCategoria(categoria) {
-    if(categoria.value == 'Administrar' ){
-       this.router.navigate(['/neocms/posts-blog/categorias/index']);
+    if (categoria.value == 'Administrar') {
+      this.router.navigate(['/neocms/posts-blog/categorias/index']);
     }
-   }
+  }
 
   createForm() {
 
     this.postsBlogForm = this.fb.group({
-      id:[''],
+      id: [''],
       titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
@@ -144,12 +144,12 @@ export class PostsBlogEditComponent implements OnInit {
       destaque: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
       ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
       tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
-      descricaoPaginaSEO : ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
+      descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
       categoriaId: ['', Validators.required],
-      postTag: this.fb.array([]), 
-      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],     
+      postTag: this.fb.array([]),
+      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [''],
-      caminhoImagem:[''],
+      caminhoImagem: [''],
       nomeImagem: [''],
     });
 
@@ -168,12 +168,12 @@ export class PostsBlogEditComponent implements OnInit {
       destaque: [postBlog.destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
       ativo: [postBlog.ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
       tituloPaginaSEO: [postBlog.tituloPaginaSEO],
-      descricaoPaginaSEO : [postBlog.descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
+      descricaoPaginaSEO: [postBlog.descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
       categoriaId: [postBlog.categoriaId, Validators.required],
       postTag: this.fb.array(postBlog.postTag),
       descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [''],
-      caminhoImagem: [this.API_ENDPOINT +'/Src/Images/Post/'],
+      caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Post/'],
       nomeImagem: [postBlog.nomeImagem]
     });
 
@@ -233,17 +233,17 @@ export class PostsBlogEditComponent implements OnInit {
         this.postsBlogForm.controls.dataExpiracao.setValue('');
       }
 
-      if(this.arquivo != undefined){
+      if (this.arquivo != undefined) {
         this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
         this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
       }
-      else{
+      else {
         this.postsBlogForm.controls.arquivo.setValue([]);
         this.postsBlogForm.controls.caminhoImagem.setValue('');
         this.postsBlogForm.controls.nomeImagem.setValue('');
 
       }
-     
+
       const model = new PostBlogUpdateModel(this.postsBlogForm.value);
       this.postsBlogService.put(model)
         .subscribe(() =>

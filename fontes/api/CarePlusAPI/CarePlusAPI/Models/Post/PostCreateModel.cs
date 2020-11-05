@@ -41,7 +41,6 @@ namespace CarePlusAPI.Models.Post
         [StringLength(200)]
         public string DescricaoPaginaSEO { get; set; }
         public int CategoriaId { get; set; }
-
         public List<PostTagCreateModel> PostTag { get; set; }
     }
 }

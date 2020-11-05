@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TagService } from './tag.service';
-import { TagModel } from 'src/models/tag/tag.model';
+import { TagModel } from './../../../../../src/models/tag/tag.model';
 import { faPencilAlt, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -16,6 +16,8 @@ export class TagComponent implements OnInit {
   loaded: boolean;
   showTagDelete: boolean;
   tag: TagModel;
+  result: any;
+
 
   constructor(
     private tagService: TagService
@@ -33,10 +35,13 @@ export class TagComponent implements OnInit {
   getTags() {
     this.showTagDelete = false;
     this.tagService
-      .getAll()
+      .getAll(1, 20)
       .subscribe(tags => {
         this.loaded = true;
         this.tags = tags;
+        this.result = tags['result'];
+
+        console.log(this.tags);
       },
         error => {
           this.loaded = true;
