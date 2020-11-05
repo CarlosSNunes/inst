@@ -255,6 +255,7 @@ Segue [link](https://www.codeinwp.com/blog/bootstrap-vs-foundation-vs-bulma-vs-s
 * [typeface-montserrat](https://www.npmjs.com/package/typeface-montserrat) - Biblioteca para utilização da fonte montserrat.
 * [angular-validate-br](https://www.npmjs.com/package/angular-validate-br) - Biblioteca para validação de cpf e cnpj com form reativo.
 * [remove-accents](https://www.npmjs.com/package/remove-accents) - Biblioteca para remover acentos das palavras, utilizamos para filtrar texto.
+* [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll) - Biblioteca para utilizar funcionalidade de infinite-scroll no angular.
 
 ## Autores
 

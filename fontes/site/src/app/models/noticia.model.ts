@@ -58,3 +58,19 @@ export class NoticiaModel {
     noticiaTipo: NoticiaTipoModel;
     bloco: BlocoModel[];
 }
+
+
+export class NoticiasPaginadas {
+    constructor(init?: Partial<NoticiasPaginadas>) {
+        Object.assign(this, init);
+        if (init && init.result && init.result.length > 0) {
+            this.result = new Array<NoticiaModel>();
+            init.result.forEach(noticia => {
+                this.result.push(new NoticiaModel(noticia));
+            });
+        }
+    }
+
+    count: number = 0;
+    result: Array<NoticiaModel> = [];
+}

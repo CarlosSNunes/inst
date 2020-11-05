@@ -20,6 +20,10 @@ export class BuscaPorCategoriaComponent implements OnInit {
     category: CategoryModel;
     categories: CategoryModel[] = [];
     loading: boolean = false;
+    page: number = 1;
+    pageSize: number = 20;
+    slug: string = '';
+    canFindMore: boolean = true;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -30,7 +34,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
         private windowRef: WindowRef,
         private categoriasService: CategoriasService,
         private blogService: BlogService,
-        private cdr: ChangeDetectorRef
+        private cdr: ChangeDetectorRef,
     ) {
         this.activatedRoute.params.subscribe(async params => {
             this.resetData();
@@ -74,10 +78,10 @@ export class BuscaPorCategoriaComponent implements OnInit {
         ];
         this.categoryId = params.categoryId;
         await this.getCategoryById(params.categoryId)
-        await this.getPostsByCaregoryId();
+        await this.getPostsByCategoryId();
         await this.getCategories();
-        this.loading = false;
         this.cdr.detectChanges();
+        this.loading = false;
     }
 
     private async getCategoryById(categoryId: number) {
@@ -91,23 +95,45 @@ export class BuscaPorCategoriaComponent implements OnInit {
 
     private async getCategories() {
         try {
-            this.categories = await this.categoriasService.getAll();
+            const categoriesPaginated = await this.categoriasService.getAll();
+            categoriesPaginated.result.forEach(category => {
+                this.categories.push(new CategoryModel(category));
+            });
         } catch (error) {
             this.notificationService.addNotification('error', error.message);
         }
     }
 
-    private async getPostsByCaregoryId() {
+    private async getPostsByCategoryId() {
+        this.loading = true;
+        this.cdr.detectChanges();
         try {
-            this.posts = await this.blogService.getByCategoryId(this.categoryId);
-            this.count = this.posts.length;
-            if (this.posts.length > 0) {
+            const { result, count } = await this.blogService.getByCategoryId(this.categoryId, this.page, this.pageSize, this.slug);
+            this.count = count;
+            if (count == 0 || result.length < this.pageSize) {
+                this.canFindMore = false;
+            }
+            result.forEach(post => {
+                this.posts.push(new NoticiaModel(post))
+            });
+            if (this.count > 0) {
                 this.resultsCountMessage = `Encontramos ${this.count} resultados para esta categoria`;
             } else {
                 this.resultsCountMessage = 'Não encontramos resultados para esta categoria';
             }
+            this.loading = false;
+            this.cdr.detectChanges();
         } catch (error) {
+            this.loading = false;
             this.notificationService.addNotification('error', error.message);
+            this.cdr.detectChanges();
+        }
+    }
+
+    onScroll() {
+        if (this.canFindMore) {
+            this.pageSize++;
+            this.getPostsByCategoryId()
         }
     }
 
@@ -122,8 +148,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
     goToPostMobile(post: NoticiaModel) {
         if (this.windowRef.nativeWindow.innerWidth < 1024) {
 
-            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
-            this.router.navigate(['/careplus-mais', post.id])
+            this.router.navigate(['/careplus-mais', post.slug])
         }
     }
 

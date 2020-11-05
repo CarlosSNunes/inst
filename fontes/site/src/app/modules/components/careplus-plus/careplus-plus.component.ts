@@ -22,13 +22,13 @@ export class CareplusPlusComponent implements OnInit {
 
     private async getLastPosts() {
         try {
-            const posts = await this.blogService.getLastPosts();
-            posts.slice(0, 4).forEach(post => {
+            const { result } = await this.blogService.getAllPostsPaginated(1, 4);
+            result.forEach(post => {
                 this.posts.push(
                     new PostCardModel({
                         post: new NoticiaModel(post),
                         button: new ButtonModel({
-                            routerLink: `/careplus-mais/${post.id}`,
+                            routerLink: `/careplus-mais/${post.slug}`,
                             text: 'Ler artigo'
                         })
                     }))

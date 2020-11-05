@@ -3,8 +3,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-full is-6-desktop image-col" [ngClass]="[post?.tipoImagem]">
-                    <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
-                    <a [routerLink]="['/careplus-mais/' + post?.id]" [attr.title]="post?.titulo">
+                    <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo">
                         <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem">
                     </a>
                 </div>
@@ -35,14 +34,12 @@
                         {{post?.descricaoPrevia}}
                     </p>
 
-                    <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
-                    <a [routerLink]="['/careplus-mais/' + post?.id]" [attr.title]="post?.titulo"
+                    <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo"
                         class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
                         Leia agora
                     </a>
 
-                    <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
-                    <a [routerLink]="['/careplus-mais/' + post?.id]" [attr.title]="post?.titulo"
+                    <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo"
                         class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop">
                         Leia agora
                     </a>

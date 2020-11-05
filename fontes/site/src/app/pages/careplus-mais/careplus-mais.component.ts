@@ -52,8 +52,8 @@ export class CareplusMaisComponent implements OnInit {
     private async getLastPosts() {
         try {
             const lastPosts = await this.blogService.getLastPosts();
-            this.filterHighlightPost(lastPosts);
-            this.filterRecentPosts(lastPosts);
+            this.filterHighlightPost(lastPosts.result);
+            this.filterRecentPosts(lastPosts.result);
         } catch (error) {
             this.errorHandler.ShowError(error.error);
         }
@@ -72,12 +72,11 @@ export class CareplusMaisComponent implements OnInit {
     private filterRecentPosts(lastPosts: NoticiaModel[]) {
         this.recentPosts = lastPosts.map(post => {
             if (post.destaque == 0) {
-                // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
                 return new PostCardModel({
                     post: new NoticiaModel(post),
                     button: new ButtonModel({
                         text: 'Ler artigo',
-                        routerLink: `/careplus-mais/${post.id}`
+                        routerLink: `/careplus-mais/${post.slug}`
                     })
                 })
             } else {
@@ -87,10 +86,12 @@ export class CareplusMaisComponent implements OnInit {
     }
 
     private async getAllCategories() {
-        this.categories = [];
+        this.categories = []
         try {
-            const categories = await this.categoriasService.getAll();
-            categories.forEach(category => this.categories.push(category));
+            const paginatedCategories = await this.categoriasService.getAll();
+            paginatedCategories.result.forEach(category => {
+                this.categories.push(new CategoryModel(category));
+            })
         } catch (error) {
             this.errorHandler.ShowError(error.error);
         }
@@ -105,7 +106,9 @@ export class CareplusMaisComponent implements OnInit {
     }
 
     filter() {
-        this.router.navigate(['/careplus-mais/busca', this.filterForm.value.search])
+        if (this.filterForm.value.search && this.filterForm.value.search != null && this.filterForm.value.search.length > 0) {
+            this.router.navigate(['/careplus-mais/busca', this.filterForm.value.search])
+        }
     }
 
     setSEOInfos() {

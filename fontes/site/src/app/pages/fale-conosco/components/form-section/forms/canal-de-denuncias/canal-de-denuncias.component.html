@@ -7,10 +7,10 @@
                     <input
                         [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.touched && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
                         class="input" formControlName="NomeContato" type="text">
-                    <label class="label">Nome</label>
+                    <label class="label">Nome *</label>
                 </p>
                 <div *ngIf="form.NomeContato.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.NomeContato)" class="help is-danger">
+                    <p *ngFor="let error of getErrors(form.NomeContato, 'Nome')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>
@@ -23,10 +23,10 @@
                     <input
                         [ngClass]="{ 'is-valid': !form?.Email?.errors && form?.Email?.touched, 'is-invalid' : form.Email?.touched && form?.Email?.errors, 'is-touched': form?.Email?.value?.length > 0 }"
                         class="input" formControlName="Email" type="text">
-                    <label class="label">E-mail</label>
+                    <label class="label">E-mail *</label>
                 </p>
                 <div *ngIf="form?.Email?.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.Email)" class="help is-danger">
+                    <p *ngFor="let error of getErrors(form.Email, 'E-mail')" class="help is-danger">
                         {{error}}
                     </p>
                 </div>
@@ -41,10 +41,10 @@
                             <input
                                 [ngClass]="{ 'is-valid': !form?.DDDTelefone?.errors && form?.DDDTelefone?.touched, 'is-invalid' : form.DDDTelefone?.touched && form?.DDDTelefone?.errors, 'is-touched': form?.DDDTelefone?.value?.length > 0 }"
                                 class="input" formControlName="DDDTelefone" type="tel">
-                            <label class="label">DDD</label>
+                            <label class="label">DDD *</label>
                         </p>
                         <div *ngIf="form?.DDDTelefone?.touched" class="errors">
-                            <p *ngFor="let error of getErrors(form.DDDTelefone)" class="help is-danger">
+                            <p *ngFor="let error of getErrors(form.DDDTelefone, 'DDD')" class="help is-danger">
                                 {{error}}
                             </p>
                         </div>
@@ -59,10 +59,10 @@
                                 class="input" formControlName="Telefone" type="tel"
                                 [mask]="form.Telefone?.value?.length > 8 ? '00000-0000' : '0000-00000'"
                                 [validation]="false">
-                            <label class="label">Telefone</label>
+                            <label class="label">Telefone *</label>
                         </p>
                         <div *ngIf="form?.Telefone?.touched" class="errors">
-                            <p *ngFor="let error of getErrors(form.Telefone)" class="help is-danger">
+                            <p *ngFor="let error of getErrors(form.Telefone, 'Telefone')" class="help is-danger">
                                 {{error}}
                             </p>
                         </div>
@@ -77,7 +77,7 @@
                     <input
                         [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.touched && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
                         mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="tel">
-                    <label class="label">CPF</label>
+                    <label class="label">CPF *</label>
                 </p>
                 <div *ngIf="form.CPFCNPJ.touched" class="errors">
                     <p *ngFor="let error of getErrors(form.CPFCNPJ, 'CPF')" class="help is-danger">

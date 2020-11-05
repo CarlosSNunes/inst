@@ -21,7 +21,6 @@ export class ObrigadoComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private router: Router
     ) {
-        this.setSEOInfos();
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
             description: 'Obrigado'
         }));
@@ -34,8 +33,8 @@ export class ObrigadoComponent implements OnInit {
     ngOnInit() {
     }
 
-    private setSEOInfos() {
-        this.title.setTitle('Obrigado | Care Plus');
+    private setSEOInfos(infos) {
+        this.title.setTitle(infos.title);
         this.meta.updateTag({
             name: 'description',
             content: 'Obrigado pelo interesse em contar com o plano líder no Brasil! Em breve entraremos em contato.'
@@ -46,6 +45,7 @@ export class ObrigadoComponent implements OnInit {
         const origin = origins.find(origin => origin.id == id);
         if (origin) {
             this.selectedOrigin = origin
+            this.setSEOInfos(origin);
         } else {
             this.router.navigate(['/error'])
         }

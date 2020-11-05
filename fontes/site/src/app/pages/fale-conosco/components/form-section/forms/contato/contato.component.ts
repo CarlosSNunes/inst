@@ -97,7 +97,6 @@ export class ContatoComponent implements OnInit {
     }
 
     selectType(type: DropDownItem<number>) {
-        console.log(type)
         this.formFields = filterFormFields(type.value);
         this.subjects = [];
         this.defaultSubject = new DropDownItem<number>({
@@ -250,6 +249,12 @@ export class ContatoComponent implements OnInit {
 
             if (!formValue.Telefone2) {
                 formValue.Telefone2 = 0;
+            }
+
+            if (this.files.length > 0) {
+                formValue.LstAnexo = {
+                    Arquivo: this.files
+                }
             }
 
             delete formValue['validCaptcha'];

@@ -104,15 +104,12 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
         this.canalDeDenunciasForm = this.fb.group({
             Origem: ['Partner', Validators.compose([Validators.required])],
             // Token será preenchido pelo backend.
-            CPFCNPJ: [, Validators.compose([this.validateBrService.cpf])],
-            // Certificado: [,], // Verificar a utilização disto pois no site oficial não tem.
+            CPFCNPJ: [, Validators.compose([Validators.required, this.validateBrService.cpf])],
             Mensagem: [, Validators.compose([Validators.required, Validators.maxLength(4000)])],
-            DDDTelefone: [, Validators.compose([Validators.minLength(1)])],
-            Telefone: [, Validators.compose([Validators.minLength(8)])],
-            // DDDTelefoneCel: [,], // Verificar a utilização disto pois no site oficial não tem.
-            // TelefoneCel: [,], // Verificar a utilização disto pois no site oficial não tem.
-            Email: [, Validators.compose([Validators.email])],
-            NomeContato: [,],
+            DDDTelefone: [, Validators.compose([Validators.required, Validators.minLength(1)])],
+            Telefone: [, Validators.compose([Validators.required, Validators.minLength(8)])],
+            Email: [, Validators.compose([Validators.required, Validators.email])],
+            NomeContato: [, Validators.compose([Validators.required])],
             validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
             aceiteDeTermos: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
             Authorization: [false, Validators.compose([Validators.required, Validators.requiredTrue])]
@@ -158,6 +155,11 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
             delete formValue['aceiteDeTermos'];
             delete formValue['Authorization'];
 
+            if (this.files.length > 0) {
+                formValue.LstAnexo = {
+                    Arquivo: this.files
+                }
+            }
 
             // Remove unused keys.
             Object.keys(formValue).forEach(objectKey => {

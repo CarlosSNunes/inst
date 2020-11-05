@@ -1,17 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { BreadcrumbModel, RouteModel, NoticiaModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NotificationService, EventEmitterService } from 'src/app/services';
+import { NotificationService, EventEmitterService, BlogService } from 'src/app/services';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
+import { Platform } from '@angular/cdk/platform';
+import { isPlatformBrowser } from '@angular/common';
+import { fromEvent } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
     selector: 'app-busca',
     templateUrl: './busca.component.html',
     styleUrls: ['./busca.component.scss']
 })
-export class BuscaComponent implements OnInit {
+export class BuscaComponent implements OnInit, AfterViewInit {
+    @ViewChild('searchInput', { static: false }) searchInput: ElementRef<HTMLInputElement>;
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
             name: 'Home',
@@ -27,6 +32,11 @@ export class BuscaComponent implements OnInit {
     count: number = 0;
     posts: NoticiaModel[] = [];
     filterForm: FormGroup;
+    page: number = 0;
+    pageSize: number = 20;
+    canFindMore: boolean = false;
+    isBrowser: boolean = false;
+    loading: boolean = false;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -35,11 +45,12 @@ export class BuscaComponent implements OnInit {
         private title: Title,
         private meta: Meta,
         private router: Router,
-        private windowRef: WindowRef
+        private windowRef: WindowRef,
+        private blogService: BlogService,
+        private cdr: ChangeDetectorRef,
+        @Inject(PLATFORM_ID) private platformId: Platform
     ) {
-        this.activatedRoute.params.subscribe(params => {
-            this.filterPosts(params);
-        });
+        this.isBrowser = isPlatformBrowser(this.platformId);
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
             description: 'Resultado de busca - Care Plus +'
         }));
@@ -47,13 +58,23 @@ export class BuscaComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.activatedRoute.params.subscribe(params => {
+            this.filterPosts(params);
+        });
+    }
+
+    ngAfterViewInit() {
+        if (this.isBrowser) {
+            fromEvent(this.searchInput.nativeElement, 'keyup').pipe(debounceTime(200)).subscribe(() => {
+                this.filter();
+            })
+        }
     }
 
     private filterPosts(params) {
         this.term = params.term;
         this.filterForm = this.fb.group({
             search: [this.term,],
-            categoryId: [0,]
         });
         this.breadcrumbs.push(
             new BreadcrumbModel({
@@ -63,7 +84,7 @@ export class BuscaComponent implements OnInit {
             })
         );
 
-        this.getPostsByTerm();
+        this.getPostsByTerm(true);
     }
 
 
@@ -71,20 +92,32 @@ export class BuscaComponent implements OnInit {
         return this.filterForm.controls;
     }
 
-    async getPostsByTerm() {
+    async getPostsByTerm(newRequest: boolean = false) {
+        this.loading = true;
+        if (newRequest) {
+            this.posts = [];
+        }
+
         try {
-            this.count = this.posts.length;
+            this.cdr.detectChanges();
+            const { count, result } = await this.blogService.getPaginatedByTerm(this.page, this.pageSize, this.term);
+            this.count = count;
+            result.forEach(post => this.posts.push(new NoticiaModel(post)));
             if (this.posts.length > 0) {
-                this.resultsCountMessage = `Encontramos ${this.posts.length} termos de resultados para a sua busca`;
+                this.resultsCountMessage = `Encontramos ${this.count} termos de resultados para a sua busca`;
             } else {
                 this.resultsCountMessage = 'Não encontramos resultados para a sua busca';
             }
+            this.loading = false;
+            this.cdr.detectChanges();
         } catch (error) {
+            this.loading = false;
             this.notificationService.addNotification('error', error.message);
+            this.cdr.detectChanges();
         }
     }
-
-    setSEOInfos() {
+    // TODO falta meta description
+    private setSEOInfos() {
         this.title.setTitle('Resultado de busca | Care Plus +');
         this.meta.updateTag({
             name: 'description',
@@ -93,14 +126,23 @@ export class BuscaComponent implements OnInit {
     }
 
     filter() {
+        this.page = 0
+        this.term = this.filterForm.value.search;
+        if (this.term && this.term != null && this.term.length > 0) {
+            this.getPostsByTerm(true);
+        }
+    }
 
+    onScroll() {
+        if (this.canFindMore) {
+            this.pageSize++;
+            this.getPostsByTerm();
+        }
     }
 
     goToPostMobile(post: NoticiaModel) {
         if (this.windowRef.nativeWindow.innerWidth < 1024) {
-
-            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
-            this.router.navigate(['/careplus-mais', post.id])
+            this.router.navigate(['/careplus-mais', post.slug])
         }
     }
 

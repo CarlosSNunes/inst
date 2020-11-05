@@ -2,8 +2,7 @@
     <p class="title">Mais lidas</p>
     <p class="description">Veja as matérias preferidas dos leitores</p>
 
-    <!-- TODO está sem slug atualmente, não foi contemplado nas tarefas do backend -->
-    <a [routerLink]="['/careplus-mais', post.id]" [attr.title]="post.titulo" target="_blank" *ngFor="let post of posts">
+    <a [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo" target="_blank" *ngFor="let post of posts">
         <div class="post">
             <img [src]="post.caminhoImagem" [alt]="post.titulo">
             <div class="title">

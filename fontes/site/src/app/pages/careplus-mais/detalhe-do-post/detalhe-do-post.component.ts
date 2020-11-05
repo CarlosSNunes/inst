@@ -48,11 +48,10 @@ export class DetalheDoPostComponent implements OnInit {
             this.slug = params.slug;
             await this.getPostBySlug();
 
-            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
             this.breadcrumbs.push(
                 new BreadcrumbModel({
                     name: this.post.titulo,
-                    link: `/careplus-mais/${this.post.id}`,
+                    link: `/careplus-mais/${this.post.slug}`,
                     active: true
                 })
             );
@@ -92,30 +91,26 @@ export class DetalheDoPostComponent implements OnInit {
             description: `${this.post.titulo} - Care Plus +`
         }))
 
-        if (isPlatformServer(this.platformId)) {
-            // Twitter
-            this.meta.updateTag({ name: 'twitter:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
-            this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+        // Twitter
+        this.meta.updateTag({ name: 'twitter:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
+        this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
 
-            this.meta.updateTag({ name: 'twitter:image', content: `${this.post.caminhoImagem}?${new Date().getTime()}` });
-            this.meta.updateTag({ name: 'twitter:description', content: this.post.descricaoPrevia });
+        this.meta.updateTag({ name: 'twitter:image', content: `${this.post.caminhoImagem}?${new Date().getTime()}` });
+        this.meta.updateTag({ name: 'twitter:description', content: this.post.descricaoPrevia });
 
-            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
-            this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}careplus-mais/${this.post.id}` });
+        this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
 
-            // Facebook e demais redes sociais
-            this.meta.updateTag({ property: 'og:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
-            this.meta.updateTag({ property: 'og:type', content: 'website' });
-            this.meta.updateTag({ property: 'og:image', content: this.post.caminhoImagem });
-            this.meta.updateTag({ property: 'og:description', content: this.post.descricaoPrevia });
+        // Facebook e demais redes sociais
+        this.meta.updateTag({ property: 'og:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
+        this.meta.updateTag({ property: 'og:type', content: 'website' });
+        this.meta.updateTag({ property: 'og:image', content: this.post.caminhoImagem });
+        this.meta.updateTag({ property: 'og:description', content: this.post.descricaoPrevia });
 
-            // TODO está sem slug atualmente, não foi contemplado nas tarefas do backend
-            this.meta.updateTag({ property: 'og:url', content: `${environment.SELF_URL}careplus-mais/${this.post.id}` });
+        this.meta.updateTag({ property: 'og:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
 
-            // Imagem linkedin
-            this.meta.updateTag({ name: 'image', property: 'og:image', content: this.post.caminhoImagem });
+        // Imagem linkedin
+        this.meta.updateTag({ name: 'image', property: 'og:image', content: this.post.caminhoImagem });
 
-        }
     }
 
 }

@@ -9,6 +9,8 @@ import { NoticiaModel } from 'src/app/models';
 })
 export class MostReadComponent implements OnInit {
     posts: NoticiaModel[] = [];
+    page: number = 0;
+    pageSize: number = 10;
     constructor(
         private blogService: BlogService,
         private errorHandler: ErrorHandler,
@@ -21,7 +23,7 @@ export class MostReadComponent implements OnInit {
 
     async getMostReadPosts() {
         try {
-            this.posts = (await this.blogService.getMostRead()).map(post => new NoticiaModel(post));
+            this.posts = (await this.blogService.getMostRead(this.page, this.pageSize)).result.map(post => new NoticiaModel(post));
             this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.handleError(error);
