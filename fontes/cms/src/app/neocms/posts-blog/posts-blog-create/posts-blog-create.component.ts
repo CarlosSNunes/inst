@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft, faCheckCircle, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft, faCheckCircle, faCog, faTag } from '@fortawesome/free-solid-svg-icons';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
@@ -37,6 +37,7 @@ export class PostsBlogCreateComponent implements OnInit {
   faUpload = faUpload;
   faPlus = faPlus;
   faCog = faCog;
+  faTag = faTag;
   faArrowCircleLeft = faArrowCircleLeft;
   faCheckCircle = faCheckCircle;
   optionsDate = {

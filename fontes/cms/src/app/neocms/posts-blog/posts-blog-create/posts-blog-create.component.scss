@@ -246,27 +246,6 @@ h4.titulo-visualizacao-mobile {
   color: #073457 !important;
 }
 
-.btn-outline-primary:hover {
-  border-color: #073457 !important;
-  color       : #fff;
-}
-
-.btn-outline-primary.dropdown-toggle {
-  background-color: #073457 !important;
-  color           : #fff;
-}
-
-.btn-outline-primary:hover:not(.disabled).active,
-.show>.btn-outline-primary.dropdown-toggle {
-  background-color: #073457 !important;
-  color           : #fff;
-}
-
-.btn-outline-primary:not(:disabled):not(.disabled).active,
-.show>.btn-outline-primary.dropdown-toggle {
-  background-color: #073457 !important;
-  color           : #fff;
-}
 
 
 .is-danger {
@@ -299,4 +278,60 @@ button.btn.btn-primary.btn-salvar {
 .link-title {
   position: absolute;
   width   : -webkit-fill-available;
+}
+
+img.image-preview.card.shadow {
+  width : 50%;
+  border: 11px solid #fff;
+  margin: 50px auto;
+}
+
+button.btn.btn-outline-primary.btn-tag {
+  margin          : 5px 20px;
+  border          : 0px solid #fff !important;
+  border-radius   : 7px;
+  text-transform  : lowercase !important;
+  background-color: #fff;
+  box-shadow      : 0 0px 0px rgb(0 0 0 / 16%), 0 2px 3px rgb(0 0 0 / 23%);
+  font-weight     : 600;
+}
+
+button.btn.btn-outline-primary.btn-tag.active {
+  margin          : 5px 20px;
+  border          : 0px solid #073457 !important;
+  border-radius   : 7px;
+  text-transform  : lowercase !important;
+  background-color: #073457;
+  box-shadow      : 0 0px 0px rgb(0 0 0 / 16%),
+    0 2px 3px rgb(0 0 0 / 23%);
+  font-weight: 600;
+}
+
+fa-icon.gold.ng-fa-icon {
+  color: #feb500;
+}
+
+.tags-container {
+  display        : inline;
+  justify-content: center;
+  margin         : auto;
+  position       : sticky;
+}
+
+button.btn.btn-outline-primary.new-tag {
+  position   : absolute;
+  right      : 20px;
+  padding    : 5px 10px 5px 15px;
+  margin     : 0;
+  font-weight: 700;
+}
+
+button.btn.btn-outline-primary.new-tag:hover {
+  background-color: #073457;
+  color           : white;
+}
+
+button.btn.btn-outline-primary.ml-2:hover {
+  background-color: #073457;
+  color           : white;
 }
