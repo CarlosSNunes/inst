@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
 
     setSEOInfos() {
         this.title.setTitle("Care Plus | Planos de Saúde e Odontológicos Premium, Clínicas e Medicina Ocupacional");
+
         this.meta.updateTag({
             name: "description",
             content:

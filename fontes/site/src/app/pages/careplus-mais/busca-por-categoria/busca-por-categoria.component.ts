@@ -22,7 +22,6 @@ export class BuscaPorCategoriaComponent implements OnInit {
     loading: boolean = false;
     page: number = 1;
     pageSize: number = 20;
-    slug: string = '';
     canFindMore: boolean = true;
 
     constructor(
@@ -108,7 +107,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
         this.loading = true;
         this.cdr.detectChanges();
         try {
-            const { result, count } = await this.blogService.getByCategoryId(this.categoryId, this.page, this.pageSize, this.slug);
+            const { result, count } = await this.blogService.getByCategoryId(this.categoryId, this.page, this.pageSize);
             this.count = count;
             if (count == 0 || result.length < this.pageSize) {
                 this.canFindMore = false;
