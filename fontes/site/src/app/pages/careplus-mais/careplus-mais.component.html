@@ -1,4 +1,5 @@
-<app-banner class="blog-banners" [banners]="banners" [hasAnchor]="false" [breadcrumbs]="breadcrumbs" [area]="'blog'"></app-banner>
+<app-banner class="blog-banners" [banners]="banners" [hasAnchor]="false" [breadcrumbs]="breadcrumbs" [area]="'blog'">
+</app-banner>
 <section id="careplus-plus-filters" class="is-paddingless">
     <article>
         <div class="container">
@@ -21,11 +22,12 @@
                                 <div class="column is-3-desktop is-full">
                                     <div class="field">
                                         <p class="control has-icons-right">
-                                            <input
-                                                class="input" formControlName="search" name="search" type="text"
+                                            <input class="input" formControlName="search" name="search" type="text"
                                                 (keyup.enter)="filter()">
                                             <label class="label">Buscar</label>
-                                            <span [style.cursor]="filterForm.value.search && filterForm.value.search !+ null && filterForm.value.search.length > 0 ? 'pointer' : 'not-allowed'" (click)="filter()" class="icon is-small is-right is-search">
+                                            <span
+                                                [style.cursor]="filterForm.value.search && filterForm.value.search !+ null && filterForm.value.search.length > 0 ? 'pointer' : 'not-allowed'"
+                                                (click)="filter()" class="icon is-small is-right is-search">
                                                 <img src="assets/svg/search.svg" alt="Buscar">
                                             </span>
                                         </p>
@@ -40,8 +42,9 @@
     </article>
 </section>
 <app-highlight-post [post]="highLightPost" *ngIf="highLightPost"></app-highlight-post>
-<app-last-posts [posts]="recentPosts" *ngIf="recentPosts.length > 0"></app-last-posts>
-<app-cross-content-section class="blog-cross-content" [style.paddingTop.px]="recentPosts.length > 0 ? 0 : 60" [crossContentModel]="crossContentModel"></app-cross-content-section>
-<app-all-posts *ngIf="allPosts.length > 0" [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
+<app-last-posts [posts]="recentPosts"></app-last-posts>
+<app-cross-content-section class="blog-cross-content" [style.paddingTop.px]="recentPosts.length > 0 ? 0 : 60"
+    [crossContentModel]="crossContentModel"></app-cross-content-section>
+<app-all-posts [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
 
 <app-social-posts></app-social-posts>

@@ -31,6 +31,12 @@ section#all-posts {
                     }
                 }
 
+                .no-posts-found{
+                    color: getColor(_bupa, _navy);
+                    text-align: center;
+                    margin-top: 60px;
+                }
+
                 a {
                     display: block;
                     margin-top: 40px;

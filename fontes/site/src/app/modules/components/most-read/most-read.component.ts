@@ -23,7 +23,10 @@ export class MostReadComponent implements OnInit {
 
     async getMostReadPosts() {
         try {
-            this.posts = (await this.blogService.getMostRead(this.page, this.pageSize)).result.map(post => new NoticiaModel(post));
+            const mostReadPosts = (await this.blogService.getMostRead(this.page, this.pageSize));
+            mostReadPosts.result.forEach(post => {
+                this.posts.push(new NoticiaModel(post))
+            });
             this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.handleError(error);

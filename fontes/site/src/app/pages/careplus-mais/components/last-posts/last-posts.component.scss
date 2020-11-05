@@ -5,6 +5,12 @@ section#last-posts {
                 .big-title {
                     max-width: 100%;
                 }
+
+                .no-posts-found{
+                    color: getColor(_bupa, _navy);
+                    text-align: center;
+                    margin-top: 60px;
+                }
             }
         }
     }

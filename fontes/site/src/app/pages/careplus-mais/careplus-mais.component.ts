@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
 import Banners from './data/banner';
-import { extra } from './data/all-posts';
 import { crossContentModel, breadcrumbs } from './data/mock';
 import { BlogService, CategoriasService } from 'src/app/services';
 import { Router } from '@angular/router';
@@ -27,6 +26,8 @@ export class CareplusMaisComponent implements OnInit {
     allPosts: PostCardModel[] = [];
     crossContentModel = crossContentModel;
     allPostsLoaded: boolean = false;
+    page: number = 2;
+    pageSize: number = 7;
 
     constructor(
         private fb: FormBuilder,
@@ -47,6 +48,7 @@ export class CareplusMaisComponent implements OnInit {
     ngOnInit() {
         this.getAllCategories();
         this.getLastPosts();
+        this.getAllPosts();
     }
 
     private async getLastPosts() {
@@ -55,7 +57,7 @@ export class CareplusMaisComponent implements OnInit {
             this.filterHighlightPost(lastPosts.result);
             this.filterRecentPosts(lastPosts.result);
         } catch (error) {
-            this.errorHandler.ShowError(error.error);
+            this.errorHandler.ShowError(error);
         }
     }
 
@@ -85,6 +87,26 @@ export class CareplusMaisComponent implements OnInit {
         }).filter(post => post != null)
     }
 
+    private async getAllPosts(newRequest: boolean = false) {
+        try {
+            const allPostsPaginated = await this.blogService.getAllPostsPaginated(this.page, this.pageSize);
+            allPostsPaginated.result.forEach(post => {
+                let postCardObj = new PostCardModel({
+                    post
+                });
+                if (newRequest) {
+                    postCardObj.isNewRequest = true;
+                }
+                this.allPosts.push(postCardObj);
+            });
+            if (this.allPosts.length === allPostsPaginated.count) {
+                this.allPostsLoaded = true;
+            }
+        } catch (error) {
+            this.errorHandler.ShowError(error);
+        }
+    }
+
     private async getAllCategories() {
         this.categories = []
         try {
@@ -93,7 +115,7 @@ export class CareplusMaisComponent implements OnInit {
                 this.categories.push(new CategoryModel(category));
             })
         } catch (error) {
-            this.errorHandler.ShowError(error.error);
+            this.errorHandler.ShowError(error);
         }
     }
 
@@ -121,11 +143,7 @@ export class CareplusMaisComponent implements OnInit {
 
     loadMore() {
         if (!this.allPostsLoaded) {
-            extra.forEach(ex => {
-                ex.isNewRequest = true;
-                this.allPosts.push(ex)
-            });
-            this.allPostsLoaded = true;
+            this.getAllPosts(true);
         }
     }
 

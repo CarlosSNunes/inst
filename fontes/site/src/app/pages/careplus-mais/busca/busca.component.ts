@@ -84,7 +84,11 @@ export class BuscaComponent implements OnInit, AfterViewInit {
             })
         );
 
-        this.getPostsByTerm(true);
+        if (this.term) {
+            this.getPostsByTerm(true);
+        } else {
+            this.getAllPosts(true);
+        }
     }
 
 
@@ -116,6 +120,32 @@ export class BuscaComponent implements OnInit, AfterViewInit {
             this.cdr.detectChanges();
         }
     }
+
+    private async getAllPosts(newRequest: boolean = false) {
+        this.loading = true;
+        if (newRequest) {
+            this.posts = [];
+        }
+
+        try {
+            this.cdr.detectChanges();
+            const { count, result } = await this.blogService.getAllPostsPaginated(this.page, this.pageSize);
+            this.count = count;
+            result.forEach(post => this.posts.push(new NoticiaModel(post)));
+            if (this.posts.length > 0) {
+                this.resultsCountMessage = `Encontramos ${this.count} resultados.`;
+            } else {
+                this.resultsCountMessage = 'Não encontramos resultados.';
+            }
+            this.loading = false;
+            this.cdr.detectChanges();
+        } catch (error) {
+            this.loading = false;
+            this.notificationService.addNotification('error', error.message);
+            this.cdr.detectChanges();
+        }
+    }
+    
     // TODO falta meta description
     private setSEOInfos() {
         this.title.setTitle('Resultado de busca | Care Plus +');
@@ -126,17 +156,22 @@ export class BuscaComponent implements OnInit, AfterViewInit {
     }
 
     filter() {
-        this.page = 0
+        this.page = 0;
         this.term = this.filterForm.value.search;
+        this.canFindMore = true;
         if (this.term && this.term != null && this.term.length > 0) {
             this.getPostsByTerm(true);
+        } else {
+            this.getAllPosts(true);
         }
     }
 
     onScroll() {
-        if (this.canFindMore) {
+        if (this.canFindMore && this.term) {
             this.pageSize++;
             this.getPostsByTerm();
+        } else if (this.canFindMore) {
+            this.getAllPosts()
         }
     }
 
