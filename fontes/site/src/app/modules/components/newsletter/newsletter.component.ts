@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { NewsletterService, NotificationService } from 'src/app/services';
@@ -10,12 +10,14 @@ import { NewsletterService, NotificationService } from 'src/app/services';
 })
 export class NewsletterComponent implements OnInit {
     newsLetterForm: FormGroup;
+    loading: boolean = false;
 
     constructor(
         private fb: FormBuilder,
         private notificationService: NotificationService,
         public viewContainerRef: ViewContainerRef,
-        private newsLetterService: NewsletterService
+        private newsLetterService: NewsletterService,
+        private cdr: ChangeDetectorRef
     ) {
         this.createForm()
     }
@@ -40,13 +42,18 @@ export class NewsletterComponent implements OnInit {
 
     async onSubmit() {
         if (this.newsLetterForm.valid) {
+            this.loading = true;
             try {
                 await this.newsLetterService.create(this.newsLetterForm.value);
                 this.newsLetterForm.reset();
                 this.createForm();
                 this.notificationService.addNotification('success', 'Dados enviados com sucesso!');
+                this.loading = false;
+                this.cdr.detectChanges();
             } catch (err) {
-                this.notificationService.addNotification('error', err.message)
+                this.loading = false
+                this.notificationService.addNotification('error', err.message);
+                this.cdr.detectChanges();
             }
         } else {
             this.notificationService.addNotification('error', 'Preencha os campos faltantes no formulário.');

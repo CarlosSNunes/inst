@@ -31,12 +31,12 @@
         </div>
 
         <button class="btn btn-digital-cian secondary arrow-right small is-hidden-touch"
-            [disabled]="!newsLetterForm.valid">
+            [disabled]="!newsLetterForm.valid || loading" [class.loading]="loading">
             Cadastrar
         </button>
 
         <button class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-            [disabled]="!newsLetterForm.valid">
+            [disabled]="!newsLetterForm.valid || loading" [class.loading]="loading">
             Cadastrar
         </button>
 
