@@ -74,17 +74,18 @@ export class BannerComponent implements OnInit {
         if (this.area) {
             await this.verifyBanners();
         }
+
+        this.banners.forEach((banner, i) => {
+            banner.slideAtual = true
+            if (i != 0) {
+                banner.slideAtual = false;
+                banner.bannerState = 'initialState'
+            } else {
+                banner.bannerState = 'default';
+            }
+        });
+
         if (this.isBrowser) {
-            this.banners.forEach((banner, i) => {
-                banner.slideAtual = true
-                if (i != 0) {
-                    banner.slideAtual = false;
-                    banner.bannerState = 'initialState'
-                } else {
-                    banner.bannerState = 'default';
-                }
-                return banner
-            });
             this.banners[0].firstInteraction = true;
             this.cdRef.detectChanges();
             this.time = this.banners[0].tempoExibicao
@@ -131,12 +132,14 @@ export class BannerComponent implements OnInit {
     async getBannersFromApi() {
         this.loading = true;
         try {
-            const banners = await (await this.bannerService.getByArea(this.area)).map((banner, i) => {
+            const banners = await this.bannerService.getByArea(this.area);
+            banners.forEach((banner, i) => {
                 if (i === 0) {
                     banner.slideAtual = true;
                 }
-                return new BannerModel(banner)
+                banner = new BannerModel(banner)
             });
+
             this.loading = false;
             return banners;
         } catch (error) {
