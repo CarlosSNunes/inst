@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { NoticiaModel } from 'src/models/noticia/noticia.model';
+import { NoticiaModel } from './../../../../../src/models/noticia/noticia.model';
 import { NoticiaService } from '../noticia.service';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
+import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
 
 @Component({
   selector: 'app-noticia-delete',
@@ -10,11 +10,9 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
   styleUrls: ['./noticia-delete.component.scss']
 })
 export class NoticiaDeleteComponent implements OnInit {
-  @Output()
-  onClose = new EventEmitter();
 
-  @Input()
-  noticia: NoticiaModel;
+  @Output() onClose = new EventEmitter();
+  @Input() noticia: NoticiaModel;
 
   usuario: UserAuthenticateModel;
 

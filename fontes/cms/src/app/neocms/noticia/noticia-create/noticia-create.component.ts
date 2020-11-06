@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { UploadAdapter } from 'src/plugins/upload-adapter';
+import { UploadAdapter } from './../../../../../src/plugins/upload-adapter';
 import { NoticiaService } from '../noticia.service';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { NoticiaTipoModel } from 'src/models/noticia-tipo/noticia-tipo.model';
-import { NoticiaCreateModel } from 'src/models/noticia/noticia-create.model';
+import { NoticiaTipoModel } from './../../../../../src/models/noticia-tipo/noticia-tipo.model';
+import { NoticiaCreateModel } from './../../../../../src/models/noticia/noticia-create.model';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
+import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
 import { TagService } from '../tag/tag.service';
-import { TagModel } from 'src/models/tag/tag.model';
-import { FormControlError } from 'src/utils/form-control-error';
+import { TagModel } from './../../../../../src/models/tag/tag.model';
+import { FormControlError } from './../../../../../src/utils/form-control-error';
 import { TipoService } from '../tipo/tipo.service';
 
 @Component({
@@ -46,6 +46,8 @@ export class NoticiaCreateComponent implements OnInit {
   arquivo: File;
   submitted: boolean;
   user: UserAuthenticateModel;
+  resultTipo: any;
+  resultTags: any;
 
   constructor(
     private noticiaService: NoticiaService,
@@ -58,8 +60,22 @@ export class NoticiaCreateComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authenticateService.state;
-    this.noticiaTipoService.getAll().subscribe(tipos => this.tipos = tipos);
-    this.tagService.getAll().subscribe(tags => this.tags = tags);
+
+    /*//? Carregar todas as notícias com paginator  */
+    this.noticiaTipoService
+      .getAll(1, 100)
+      .subscribe(tipos => {
+        this.tipos = tipos
+        this.resultTipo = tipos['result'];
+      });
+
+    /*//? Carregar todas as Tags com paginator  */
+    this.tagService.
+      getAll()
+      .subscribe(tags => {
+        this.tags = tags;
+        this.resultTags = tags['result'];
+      });
 
     this.createForm();
   }
@@ -105,10 +121,10 @@ export class NoticiaCreateComponent implements OnInit {
     return this.noticiaForm.get('noticiaTag') as FormArray;
   }
 
-  toggleTag(tag: TagModel) {
-    const index = this.tags.findIndex(x => x.id === tag.id);
-    this.tags[index].selected = !this.tags[index].selected;
-    this.manageTag(this.tags[index].id);
+  toggleTag(tag: TagModel['result']) {
+    const index = this.resultTags.findIndex(x => x.id === tag.id);
+    this.resultTags[index].selected = !this.resultTags[index].selected;
+    this.manageTag(this.resultTags[index].id);
   }
 
   addBloco() {

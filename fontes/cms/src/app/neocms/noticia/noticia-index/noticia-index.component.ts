@@ -10,6 +10,7 @@ import { NoticiaService } from '../noticia.service';
   styleUrls: ['./noticia-index.component.scss']
 })
 export class NoticiaIndexComponent implements OnInit {
+
   noticias: NoticiaModel[] = [];
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
@@ -35,7 +36,7 @@ export class NoticiaIndexComponent implements OnInit {
   getNoticias() {
     this.showNoticiaDelete = false;
     this.noticiaService
-      .getAll()
+      .getAll(1, 100)
       .subscribe(noticias => {
         this.loaded = true;
         this.noticias = noticias;
