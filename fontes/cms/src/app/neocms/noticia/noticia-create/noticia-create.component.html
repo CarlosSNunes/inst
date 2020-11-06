@@ -136,7 +136,7 @@
                             Tags
                         </h2>
                         <div class="tags are-medium">
-                            <span (click)="toggleTag(tag)" *ngFor="let tag of tags" class="tag is-clickable"
+                            <span (click)="toggleTag(tag)" *ngFor="let tag of resultTags" class="tag is-clickable"
                                 [ngClass]="{'is-success' : tag.selected, 'is-danger' : !tag.selected}">
                                 {{tag.descricao}}
                             </span>

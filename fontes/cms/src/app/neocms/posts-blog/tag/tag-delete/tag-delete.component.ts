@@ -10,11 +10,9 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
   styleUrls: ['./tag-delete.component.scss']
 })
 export class TagDeleteComponent implements OnInit {
-  @Output()
-  onClose = new EventEmitter();
 
-  @Input()
-  tag: TagModel;
+  @Output() onClose = new EventEmitter();
+  @Input() tag: TagModel;
 
   usuario: UserAuthenticateModel;
 
@@ -33,7 +31,7 @@ export class TagDeleteComponent implements OnInit {
 
   deleteTag() {
     this.tagService
-      .delete(this.tag.id)
+      .delete(this.tag[0].id)
       .subscribe(result => this.closeModal());
   }
 

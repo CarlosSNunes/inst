@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NoticiaModel } from 'src/models/noticia/noticia.model';
-import { NoticiaCreateModel } from 'src/models/noticia/noticia-create.model';
-import { ClassHelper } from 'src/utils/class-helper';
+import { HttpClient } from '@angular/common/http';
+import { NoticiaModel } from './../../../models/noticia/noticia.model';
+import { NoticiaCreateModel } from './../../../models/noticia/noticia-create.model';
+import { ClassHelper } from './../../..//utils/class-helper';
 import { Observable } from 'rxjs';
-import { NoticiaUpdateModel } from 'src/models/noticia/noticia-update-model';
+import { NoticiaUpdateModel } from './../../../models/noticia/noticia-update-model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,8 @@ export class NoticiaService {
     return this.http.post(this.url + '/DeleteImage', fileName);
   }
 
-  getAll() {
-    return this.http.get<NoticiaModel[]>(this.url);
+  getAll(page: number, pageSize: number) {
+    return this.http.get<NoticiaModel[]>(this.url + '/' + page + '/' + pageSize);
   }
 
   getById(id: string): Observable<NoticiaModel> {

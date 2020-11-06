@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NoticiaTipoModel } from 'src/models/noticia-tipo/noticia-tipo.model';
+import { NoticiaTipoModel } from './../../../../../src/models/noticia-tipo/noticia-tipo.model';
 import { faPencilAlt, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TipoService } from './tipo.service';
 
@@ -9,6 +9,7 @@ import { TipoService } from './tipo.service';
   styleUrls: ['./tipo.component.scss']
 })
 export class TipoComponent implements OnInit {
+
   noticiaTipos: NoticiaTipoModel[] = [];
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
@@ -33,7 +34,7 @@ export class TipoComponent implements OnInit {
   getNoticiaTipos() {
     this.showNoticiaTipoDelete = false;
     this.noticiaTipoService
-      .getAll()
+      .getAll(1, 100)
       .subscribe(tipos => {
         this.loaded = true;
         this.noticiaTipos = tipos;
