@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
 import { PostsBlogService } from '../posts-blog.service';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -11,14 +11,14 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ['./posts-blog-delete.component.scss']
 })
 export class PostsBlogDeleteComponent implements OnInit {
-  @Output()
-  onClose = new EventEmitter();
+
+  @Output() onClose = new EventEmitter();
+  @Input() post: PostsBlogModel;
+
   title: string;
   closeBtnName: string;
   list: any[] = [];
-  
-  @Input()
-  post: PostsBlogModel;
+
 
   usuario: UserAuthenticateModel;
   constructor(
@@ -37,7 +37,7 @@ export class PostsBlogDeleteComponent implements OnInit {
 
   deleteBanner() {
     this.postsBlogService
-      .delete(this.post.id)
+      .delete(this.post[0].id)
       .subscribe(result => this.closeModal());
   }
 }

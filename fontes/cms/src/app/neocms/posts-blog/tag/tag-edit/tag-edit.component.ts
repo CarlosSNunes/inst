@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { UserAuthenticateModel } from './../../../../../../src/models/user-authenticate.model';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TagService } from '../tag.service';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { AuthenticationService } from './../../../../../../src/app/authentication/authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { FormControlError } from 'src/utils/form-control-error';
-import { TagCreateModel } from 'src/models/tag/tag-create.model';
-import { TagModel } from 'src/models/tag/tag.model';
+import { FormControlError } from './../../../../../../src/utils/form-control-error';
+import { TagCreateModel } from './../../../../../../src/models/tag/tag-create.model';
+import { TagModel } from './../../../../../../src/models/tag/tag.model';
 
 @Component({
   selector: 'app-tag-edit',
@@ -59,8 +59,8 @@ export class TagEditComponent implements OnInit {
 
   updateForm() {
     this.tagForm = this.fb.group({
-      id: [this.tag.id, [Validators.required]],
-      descricao: [this.tag.descricao, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      id: [this.tag[0].id, [Validators.required]],
+      descricao: [this.tag[0].descricao, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
     });
   }
 

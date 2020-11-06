@@ -8,23 +8,24 @@ export class PostsBlogModel {
             init.result['postTag'].forEach(tag => this.result['postTag'].push(new TagModel(tag)));
         }
     }
+    count: number;
     result: [{
-        ativo: string; //? ok
-        categoriaId: number; //? ok
-        dataCadastro: string; //? ok
-        dataExpiracao: string | null; //? ok
-        dataPublicacao: string; //? ok
-        descricao: string; //? ok
-        descricaoPaginaSEO: string; //? ok
-        descricaoPrevia: string; //? ok
-        destaque: string; //? ok
-        id: number; //? ok
-        nomeImagem: string; //? ok
-        postTag: TagModel[]; //? ok
-        subtitulo: string; //? ok
-        titulo: string; //? ok
-        tituloPaginaSEO: string; //? ok
-        vizualizacoes: number; //? ok
+        id: number;
+        ativo: string;
+        categoriaId: number;
+        dataCadastro: string;
+        dataExpiracao: string | null;
+        dataPublicacao: string;
+        descricao: string;
+        descricaoPaginaSEO: string;
+        descricaoPrevia: string;
+        destaque: string;
+        nomeImagem: string;
+        postTag: TagModel[];
+        subtitulo: string;
+        titulo: string;
+        tituloPaginaSEO: string;
+        vizualizacoes: number;
 
         CaminhoImagem: string;
         CaminhoCompleto: string;
