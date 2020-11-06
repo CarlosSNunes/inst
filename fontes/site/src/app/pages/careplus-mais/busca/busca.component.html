@@ -9,9 +9,15 @@
 
             <div class="columns">
                 <div class="column">
-                    <h1 class="h3 big-title">
+                    <h1 class="h3 big-title" *ngIf="!loading">
                         {{resultsCountMessage}}
                     </h1>
+
+                    <div class="loading m-t-30" *ngIf="loading">
+                        <div class="loading__circle"></div>
+                        <div class="loading__circle"></div>
+                        <div class="loading__circle"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,7 +57,8 @@
                         {{count}} resultados encontrados para “{{form.search.value}}”
                     </p>
 
-                    <a routerLink="/careplus-mais" class="btn btn-digital-cian tertiary arrow-right small reverse" title="Voltar à navegação">
+                    <a routerLink="/careplus-mais" class="btn btn-digital-cian tertiary arrow-right small reverse"
+                        title="Voltar à navegação">
                         VOLTAR À NAVEGAÇÃO
                     </a>
 
@@ -64,7 +71,7 @@
                             <p class="post-description">
                                 {{post.descricaoPrevia}}
                             </p>
-                            
+
                             <a class="next" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
                                 <img src="assets/svg/arrow-left.svg" alt="Próximo">
                             </a>
