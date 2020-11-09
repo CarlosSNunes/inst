@@ -123,6 +123,8 @@ export class BuscaPorCategoriaComponent implements OnInit {
             this.loading = false;
             this.cdr.detectChanges();
         } catch (error) {
+            this.count = 0;
+            this.posts = [];
             this.resultsCountMessage = 'Não encontramos resultados para esta categoria';
             this.loading = false;
             this.notificationService.addNotification('error', error.message);

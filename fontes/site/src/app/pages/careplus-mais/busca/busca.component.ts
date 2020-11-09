@@ -120,6 +120,9 @@ export class BuscaComponent implements OnInit, AfterViewInit {
             this.loading = false;
             this.cdr.detectChanges();
         } catch (error) {
+            this.count = 0;
+            this.posts = [];
+            this.resultsCountMessage = 'Não encontramos resultados para a sua busca';
             this.loading = false;
             this.notificationService.addNotification('error', error.message);
             this.cdr.detectChanges();
@@ -150,6 +153,9 @@ export class BuscaComponent implements OnInit, AfterViewInit {
             this.loading = false;
             this.cdr.detectChanges();
         } catch (error) {
+            this.count = 0;
+            this.posts = [];
+            this.resultsCountMessage = 'Não encontramos resultados.';
             this.loading = false;
             this.notificationService.addNotification('error', error.message);
             this.cdr.detectChanges();
