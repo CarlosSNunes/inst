@@ -1,6 +1,7 @@
-using Microsoft.EntityFrameworkCore;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,19 +41,27 @@ namespace CarePlusAPI.Services
         ///</summary>
         public async Task<List<Post>> ListarPostsMaisLidos()
         {
-            List<Post> maisLidos = await Db.Set<Post>()
-                                                .AsNoTracking()
-                                                .Include(c => c.Categoria)
-                                                .Include("PostTag.Tag")
-                                                .OrderByDescending(p => p.Vizualizacoes)
-                                                .ThenBy(p => p.DataCadastro)
-                                                .Take(10)
-                                                .ToListAsync();
+            try
+            {
+                List<Post> maisLidos = await Db.Set<Post>()
+                                                  .AsNoTracking()
+                                                  .Include(c => c.Categoria)
+                                                  .Include("PostTag.Tag")
+                                                  .OrderByDescending(p => p.Vizualizacoes)
+                                                  .ThenBy(p => p.DataCadastro)
+                                                  .Take(10)
+                                                  .ToListAsync();
 
-            if (maisLidos == null)
-                throw new AppException("Mais Lidos não encontrados");
+                if (maisLidos.Count == 0)
+                    throw new AppException("Mais Lidos não encontrados");
 
-            return maisLidos;
+                return maisLidos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         ///<summary>
@@ -63,47 +72,66 @@ namespace CarePlusAPI.Services
         ///</summary>
         public async Task<int> TotalBannersAtivos()
         {
+
             IQueryable<Banner> query = Db.Set<Banner>()
                                                 .AsNoTracking()
                                                 .Where(p => p.Ativo.Equals('1'));
 
             var totalBanner = await query.ToListAsync();
 
-            if (totalBanner == null)
+            if (totalBanner.Count == 0)
                 throw new AppException("Banners não encontrados");
 
             return totalBanner.Count;
+
+
         }
 
         public async Task<int> TotalPostsBlog()
         {
-            IQueryable<Post> query = Db.Set<Post>()
-                                                .AsNoTracking()
-                                                .Include(c => c.Categoria)
-                                                .Include("PostTag.Tag")
-                                                .Where(p => p.Ativo.Equals('1'));
+            try
+            {
+                IQueryable<Post> query = Db.Set<Post>()
+                                                    .AsNoTracking()
+                                                    .Include(c => c.Categoria)
+                                                    .Include("PostTag.Tag")
+                                                    .Where(p => p.Ativo.Equals('1'));
 
-            var totalPostsBlog = await query.ToListAsync();
+                var totalPostsBlog = await query.ToListAsync();
 
-            if (totalPostsBlog == null)
-                throw new AppException("Posts não encontrados");
+                if (totalPostsBlog.Count == 0)
+                    throw new AppException("Posts não encontrados");
 
-            return totalPostsBlog.Count;
+                return totalPostsBlog.Count;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public async Task<int> TotalUsuarios()
         {
-            IQueryable<Usuario> query = Db.Set<Usuario>().AsNoTracking()
-                                                .Where(p => !p.Email.Equals(null));
+            try
+            {
+                IQueryable<Usuario> query = Db.Set<Usuario>().AsNoTracking()
+                                                    .Where(p => !p.Email.Equals(null));
 
 
 
-            var totalUsuarios = await query.ToListAsync();
+                var totalUsuarios = await query.ToListAsync();
 
-            if (totalUsuarios == null)
-                throw new AppException("Usuários não encontrados");
+                if (totalUsuarios.Count == 0)
+                    throw new AppException("Usuários não encontrados");
 
-            return totalUsuarios.Count;
+                return totalUsuarios.Count;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

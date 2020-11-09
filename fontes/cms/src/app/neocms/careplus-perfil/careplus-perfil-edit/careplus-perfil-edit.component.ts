@@ -5,7 +5,7 @@ import { CareplusPerfilModel } from './../../../../../src/models/careplus-perfil
 import { CareplusPerfilService } from '../careplus-perfil.service';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
+// import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
 import { FormControlError } from './../../../../../src/utils/form-control-error';
 import { CareplusPerfilUpdateModel } from './../../../../../src/models/careplus-perfil/careplus-perfil-update.model';
 
@@ -29,12 +29,13 @@ export class CareplusPerfilEditComponent implements OnInit {
     private careplusPerfilService: CareplusPerfilService,
     private fb: FormBuilder,
     private router: Router,
-    private authenticateService: AuthenticationService,
+    // private authenticateService: AuthenticationService,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.usuario = this.authenticateService.state;
+    //TODO:
+    // this.usuario = this.authenticateService.state;
     this.createForm();
     this.getCareplusPerfil();
   }
@@ -52,8 +53,8 @@ export class CareplusPerfilEditComponent implements OnInit {
   updateForm() {
     this.careplusPerfilForm = this.fb.group({
       id: [this.careplusPerfil.id,],
-      descricao: [this.careplusPerfil.descricao,[Validators.required,Validators.maxLength(255), FormControlError.noWhitespaceValidator ]],
-      perfilId:[this.careplusPerfil.id,]
+      descricao: [this.careplusPerfil.descricao, [Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      perfilId: [this.careplusPerfil.id,]
     });
   }
 

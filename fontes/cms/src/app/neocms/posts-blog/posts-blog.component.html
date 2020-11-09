@@ -1,180 +1,164 @@
-<style type="css/text">
-    div.card.m-5.position-fixed.shadow {
-        z-index: 99999 !important;
-        right: 0 !important;
-        padding: 20px !important;
-        overflow:auto;
-        width:300px
-    }
-</style>
-
-    <div class="card shadow my-2 " id="card-header">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-10">
-                    <a [routerLink]="['/neocms']">
-                        <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-                        <span class="title-banner">Blog Post Careplus +</span>
-                    </a>
-                </div>
-                <div style="align-content: flex-end; vertical-align:inherit">
-                    <button type="button" class="btn btn-primary ml-2" routerLink="/neocms/posts-blog/create"
-                        routerLinkActive="active">
-                        Novo Post &nbsp;
-                        <fa-icon [icon]="faPlus"></fa-icon>
-                    </button>
-                </div>
+<div class="card my-2" id="card-header">
+    <div class="card-body">
+        <div class="row">
+            <div class="link-title">
+                <a [routerLink]="['/neocms']">
+                    <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+                    <span class="title-banner">Blog Post Careplus +</span>
+                </a>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary btn-novo-post" routerLink="/neocms/posts-blog/create"
+                    routerLinkActive="active">Novo Post</button>
             </div>
         </div>
     </div>
-    <div class="content col-md-12">
-        <div class="row mb-3 mt-3" style="display: -webkit-inline-box; float:right;">
-            <!-- <ngx-select-dropdown tabindex="0" (change)="filterPostByCategory($event)"
-                [config]="configSelect" [options]="categorias" [multiple]="false"
-                value="0">
-            </ngx-select-dropdown> -->
-                <!-- <input formControlName="categoriaId" type="hidden"> -->
-                <!-- <div class="my-4" *ngFor="let cat of categorias">
-                    <h5>{{cat.descricao }}</h5>
-                </div>
-                <div *ngIf="submitted" class="errors">
-                    <p *ngFor="let error of getErrors(f.area)" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div> -->
-          
-          
-            <select class="custom-select" id="categorias" style="margin-left: 15px; width: 200px;"
-                (change)="filterPostByCategory($event.target)">
-                <option value="0">Categorias...</option>
-                <option *ngFor="let cat of categorias" value="{{cat.id}}">{{cat.descricao}}</option>
-                <!-- <option>Administrar categorias
-                    <fa-icon [icon]="faCog">
-                    </fa-icon>
-                </option> -->
-            </select>
-            <input type="search" class="form-control" style="margin-left: 15px; width: 300px;"
-                placeholder="Pesquisar por titulo" (change)="filterPosts($event.target)"
-                (enter)="filterPosts($event.target)" (blur)="filterPosts($event.target)" (focus)="filterPosts($event.target)" />
-            
-            <button type="button" class="btn btn-primary" style="margin-left: 10px;" (click)="getPosts()">
-                Ver todos
-            </button>
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <h5>Filtros</h5>
+        <div class="row">
+            <div class="col-md-4">
+                <select class="custom-select" id="categorias" (change)="filterPostByCategory($event.target)">
+                    <option value="0">Categorias...</option>
+                    <option *ngFor="let cat of categorias" value="{{cat.id}}">{{cat.descricao}}</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <input type="search" class="form-control" placeholder="Pesquisar por titulo"
+                    (change)="filterPosts($event.target)" (enter)="filterPosts($event.target)"
+                    (blur)="filterPosts($event.target)" (focus)="filterPosts($event.target)" />
+
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary" (click)="getPosts()">
+                    Ver todos
+                </button>
+            </div>
         </div>
     </div>
-  
+</div>
 
-    <div class="content marging-box mb-5">
-            <div class="col-md-12 pl-0 pr-0">
-                <div class="marging-box">
-                    <div class="card shadow table-responsive">
-                        <table class="table table-hover text-nowrap">
-                            <thead style="text-align-last:center; ">
-                                <th>Favorito</th>
-                                <th>Imagem</th>
-                                <th style="text-align-last:left">Titulo</th>
-                                <th>Data Publicação</th>
-                                <th>Categoria</th>
-                                <th>Ações</th>
-                            </thead>
-                            <tbody style="text-align-last:center;">
-                                <tr>
-                                    <td *ngIf="postsBlog.length == 0 && !loaded" colspan="6">
-                                        <progress class="progress is-large is-info" max="100">60%</progress>
-                                    </td>
-                                    <td class="has-text-centered" *ngIf="postsBlog.length == 0 && loaded" colspan="6">
-                                        Não há posts cadastrados
-                                    </td>
-                                </tr>
-                                <tr *ngFor="let post of postsBlog" >
-                                    <td style="vertical-align:inherit">
-                                        <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == '1'}">
-                                        </fa-icon>
-                                    </td>
-                                    <td style="vertical-align:inherit">
-                                        <img src="{{ post.caminhoImagem + '/' + post.nomeImagem}} "
-                                            [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem">
-                                    </td>
-                                    <td style="vertical-align:inherit; text-align-last:left; max-width:250px; content-visibility: auto;" >{{post.titulo}}</td>
-                                    <td style="vertical-align:inherit">
-                                        {{post.dataPublicacao | date:'dd/MM/yyyy'}}
-                                    </td>
-                                    <td style="vertical-align:inherit; width:inherit">
-                                        {{post.categoria}}
-                                    </td>
-                                    <td style="vertical-align:inherit; align-content: flex-end;">
-                                        <button type="button" class="btn btn-primary" style="float: right;"
-                                            *ngIf="!podeEscrever" (click)="salvarAlteracoes()">
-                                            Revisar e autorizar
-                                        </button>
-                                        <div *ngIf="post.status != 'pendente'" style="float: right;">
-                                            <a [routerLink]="['./', post.id]" routerLinkActive="active"
-                                                class="info-icon" alt="Visualizar post">
-                                                <fa-icon [icon]="faEye"></fa-icon>
-                                                <span>preview</span>
-                                            </a>
-                                            <a [routerLink]="['/neocms/posts-blog/edit', post.id]"
-                                                routerLinkActive="active" class="info-icon" alt="Editar post">
-                                                <fa-icon [icon]="faEdit"></fa-icon>
-                                                <span>editar</span>
-                                            </a>
-                                            <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon" alt="Excluir post">
-                                                <fa-icon [icon]="faTrashAlt"></fa-icon>
-                                                <span>excluir</span>
-                                            </a>
-                                            <a (click)="openModalDuplicarPost(templateDuplicar)"  type="button" class="info-icon" alt="Duplicar post">
-                                                <fa-icon [icon]="faClone"></fa-icon>
-                                                <span>duplicar</span>
-                                            </a>
-                                            <ng-template #templateDuplicar >
-                                                <div class="modal-body text-center  modal-md">
-                                                    <header class="modal-card-head">
-                                                        <p class="modal-card-title">Tem certeza que deseja duplicar esse post?</p>
-                                                    </header>
-                                                    <section class="modal-card-body">
-                                                        <p>
-                                                            <strong>Título:</strong> {{ post?.titulo }}
-                                                        </p>
-                                                    </section>
-                                                  <button type="button" class="btn btn-default ml-3" (click)="confirmDuplicar(post)" >Sim</button>
-                                                  <button type="button" class="btn btn-primary ml-3" (click)="decline()" >Não</button>
-                                                </div>
-                                              </ng-template>
-                                              <ng-template #templateDelete >
-                                                <div class="modal-body text-center  modal-md">
-                                                    <header class="modal-card-head">
-                                                        <p class="modal-card-title">Tem certeza que deseja excluir esse post?</p>
-                                                    </header>
-                                                    <section class="modal-card-body">
-                                                        <p>
-                                                            <strong>Título:</strong> {{ post?.titulo }}
-                                                        </p>
-                                                    </section>
-                                                  <button type="button" class="btn btn-default ml-3" (click)="confirmExcluir(post)" >Sim</button>
-                                                  <button type="button" class="btn btn-primary ml-3" (click)="decline()" >Não</button>
-                                                </div>
-                                              </ng-template>
+
+<div class="content marging-box my-5">
+    <div class="col-md-12 pl-0 pr-0">
+        <div class="marging-box">
+            <div class="card table-responsive">
+                <table class="table table-hover text-nowrap">
+                    <thead style="text-align-last:center; ">
+                        <th>Favorito</th>
+                        <th>Imagem</th>
+                        <th style="text-align-last:left">Titulo</th>
+                        <th>Data Publicação</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </thead>
+                    <tbody style="text-align-last:center;">
+                        <tr>
+                            <td *ngIf="postsBlog.length == 0 && !loaded" colspan="6">
+                                <progress class="progress is-large is-info" max="100">60%</progress>
+                            </td>
+                            <td class="has-text-centered" *ngIf="postsBlog.length == 0 && loaded" colspan="6">
+                                Não há posts cadastrados
+                            </td>
+                        </tr>
+                        <tr *ngFor="let post of postsBlog">
+                            <td style="vertical-align:inherit">
+                                <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == '1'}">
+                                </fa-icon>
+                            </td>
+                            <td style="vertical-align:inherit">
+                                <img src="{{ post.caminhoImagem + '/' + post.nomeImagem}} "
+                                    [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem">
+                            </td>
+                            <td
+                                style="vertical-align:inherit; text-align-last:left; max-width:250px; content-visibility: auto;">
+                                {{post.titulo}}</td>
+                            <td style="vertical-align:inherit">
+                                {{post.dataPublicacao | date:'dd/MM/yyyy'}}
+                            </td>
+                            <td style="vertical-align:inherit; width:inherit">
+                                {{post.categoria}}
+                            </td>
+                            <td style="vertical-align:inherit; align-content: flex-end;">
+                                <button type="button" class="btn btn-primary" style="float: right;"
+                                    *ngIf="!podeEscrever" (click)="salvarAlteracoes()">
+                                    Revisar e autorizar
+                                </button>
+                                <div *ngIf="post.status != 'pendente'" style="float: right;">
+                                    <a [routerLink]="['./', post.id]" routerLinkActive="active" class="info-icon"
+                                        alt="Visualizar post">
+                                        <fa-icon [icon]="faEye"></fa-icon>
+                                        <span>preview</span>
+                                    </a>
+                                    <a [routerLink]="['/neocms/posts-blog/edit', post.id]" routerLinkActive="active"
+                                        class="info-icon" alt="Editar post">
+                                        <fa-icon [icon]="faEdit"></fa-icon>
+                                        <span>editar</span>
+                                    </a>
+                                    <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon"
+                                        alt="Excluir post">
+                                        <fa-icon [icon]="faTrashAlt"></fa-icon>
+                                        <span>excluir</span>
+                                    </a>
+                                    <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon"
+                                        alt="Duplicar post">
+                                        <fa-icon [icon]="faClone"></fa-icon>
+                                        <span>duplicar</span>
+                                    </a>
+                                    <ng-template #templateDuplicar>
+                                        <div class="modal-body text-center  modal-md">
+                                            <header class="modal-card-head">
+                                                <p class="modal-card-title">Tem certeza que deseja duplicar esse post?
+                                                </p>
+                                            </header>
+                                            <section class="modal-card-body">
+                                                <p>
+                                                    <strong>Título:</strong> {{ post?.titulo }}
+                                                </p>
+                                            </section>
+                                            <button type="button" class="btn btn-default ml-3"
+                                                (click)="confirmDuplicar(post)">Sim</button>
+                                            <button type="button" class="btn btn-primary ml-3"
+                                                (click)="decline()">Não</button>
                                         </div>
-                                    </td>
-                                </tr>
-                               
-                            </tbody>
-                        </table>
-                        
-                    </div>
-                    
-                   
-                    <!-- <div class="mb-5" style="float: right;">
+                                    </ng-template>
+                                    <ng-template #templateDelete>
+                                        <div class="modal-body text-center  modal-md">
+                                            <header class="modal-card-head">
+                                                <p class="modal-card-title">Tem certeza que deseja excluir esse post?
+                                                </p>
+                                            </header>
+                                            <section class="modal-card-body">
+                                                <p>
+                                                    <strong>Título:</strong> {{ post?.titulo }}
+                                                </p>
+                                            </section>
+                                            <button type="button" class="btn btn-default ml-3"
+                                                (click)="confirmExcluir(post)">Sim</button>
+                                            <button type="button" class="btn btn-primary ml-3"
+                                                (click)="decline()">Não</button>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+            <!-- <div class="mb-5" style="float: right;">
                         <pagination [boundaryLinks]="true" [totalItems]="postsBlog.length"
                         previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
                     </pagination>
                     </div> -->
-                </div>
-            </div>
+        </div>
     </div>
-    
+</div>
+
 <app-posts-blog-delete *ngIf="showPostsDelete" [post]="postBlog" (onClose)="getPosts()"></app-posts-blog-delete>
-
-
-
-

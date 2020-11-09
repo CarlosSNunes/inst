@@ -1,6 +1,7 @@
-using Microsoft.EntityFrameworkCore;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace CarePlusAPI.Services
 {
     public interface ICategoriasService
     {
-        Task<List<Categoria>> Listar();
+        Task<Tuple<int, List<Categoria>>> Listar(int page, int pageSize);
         Task<Categoria> Buscar(int id);
         Task Criar(Categoria model);
         Task Atualizar(Categoria model);
@@ -37,15 +38,27 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todas as Categorias por data, da base.
         ///
         ///</summary>
-        public async Task<List<Categoria>> Listar()
+        public async Task<Tuple<int, List<Categoria>>> Listar(int page, int pageSize)
         {
-            List<Categoria> filtro = await Db.Set<Categoria>()
-                .AsNoTracking()
-                .OrderByDescending(x => x.DataCadastro)
-                .Take(4)
-                .ToListAsync();
+            IQueryable<Categoria> query = Db.Categoria.AsQueryable();
 
-            return filtro;            
+            query = query
+                       .AsNoTracking()
+                       .OrderByDescending(x => x.DataCadastro);
+
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Categoria>(query, page, pageSize);
+
+            return new Tuple<int, List<Categoria>>(count, result.Results);
+
+            //List<Categoria> filtro = await Db.Set<Categoria>()
+            //    .AsNoTracking()
+            //    .OrderByDescending(x => x.DataCadastro)
+            //    .Take(4)
+            //    .ToListAsync();
+
+            //return filtro;
         }
 
         ///<summary>
@@ -122,6 +135,6 @@ namespace CarePlusAPI.Services
                 throw new AppException("Categoria não encontrada");
             }
         }
-        
+
     }
 }

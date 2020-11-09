@@ -1,12 +1,12 @@
-
 using AutoMapper;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.FaleConosco;
+using CarePlusAPI.Services;
 using CarePlusHomolog;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using CarePlusAPI.Helpers;
-using CarePlusAPI.Models.FaleConosco;
-using CarePlusAPI.Services;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace CarePlusAPI.Controllers
@@ -14,10 +14,12 @@ namespace CarePlusAPI.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
+    [ExcludeFromCodeCoverage]
     public class FaleConoscoController : ControllerBase
     {
         private readonly IFaleConoscoService _faleConoscoService;
         private readonly IMapper _mapper;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -36,7 +38,8 @@ namespace CarePlusAPI.Controllers
         {
             _faleConoscoService = faleConoscoService;
             _mapper = mapper;
-        }        
+            _seriLog = new SeriLog(appSettings);
+        }
 
         ///<summary>
         ///
@@ -48,6 +51,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetTipoAssuntoFaleConosco()
         {
+            string origem = Request.Headers["Custom"];
+
             try
             {
                 TipoAssuntoFaleConoscoModel obj = await _faleConoscoService.ListarTipoAssuntoFaleConosco();
@@ -57,12 +62,13 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
-
         }
 
         ///<summary>
@@ -75,6 +81,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetAssuntoOuvidoria()
         {
+            string origem = Request.Headers["Custom"];
+
             try
             {
                 BuscarAssuntoOuvidoriaModel obj = await _faleConoscoService.BuscarAssuntoOuvidoria();
@@ -84,12 +92,13 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
-
         }
 
         ///<summary>
@@ -102,6 +111,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetClassificacaoOuvidoria()
         {
+            string origem = Request.Headers["Custom"];
+
             try
             {
                 BuscarClassificacaoOuvidoriaModel obj = await _faleConoscoService.BuscarClassificacaoOuvidoria();
@@ -111,12 +122,13 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
-
         }
 
 
@@ -131,11 +143,12 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] GravarFaleConoscoEntradaModel model)
         {
-            if (model == null)
-                throw new AppException("Model não pode estar nula");
+            string origem = Request.Headers["Custom"];
 
             try
             {
+                if (model == null)
+                    throw new AppException("Model não pode estar nula");
 
                 WSRetornoFaleConosco obj = await _faleConoscoService.GravarFaleConosco(model);
 
@@ -144,9 +157,11 @@ namespace CarePlusAPI.Controllers
             catch (System.Exception ex)
             {
 
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
         }
@@ -162,11 +177,12 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] GravarCanalDenunciaEntradaModel model)
         {
-            if (model == null)
-                throw new AppException("Model não pode estar nulo");
+            string origem = Request.Headers["Custom"];
 
             try
             {
+                if (model == null)
+                    throw new AppException("Model não pode estar nulo");
 
                 WSRetornoCanalDenuncia obj = await _faleConoscoService.GravarCanalDenuncia(model);
 
@@ -174,10 +190,11 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
         }
@@ -190,14 +207,16 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação Fale conosco</param>
         [HttpPost("gravar-ouvidoria")]
+        [AllowAnonymous]
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] GravarOuvidoriaEntradaModel model)
         {
-            if (model == null)
-                throw new AppException("Model não pode estar nulo");
+            string origem = Request.Headers["Custom"];
 
             try
             {
+                if (model == null)
+                    throw new AppException("Model não pode estar nulo");
 
                 OuvidoriaOut obj = await _faleConoscoService.GravarOuvidoria(model);
 
@@ -205,10 +224,11 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
                 return BadRequest(new
                 {
-                    message = ex.Message
+                    ex.Message
                 });
             }
         }

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { TagModel } from 'src/models/tag/tag.model';
+import { UserAuthenticateModel } from './../../../../../../src/models/user-authenticate.model';
+import { TagModel } from './../../../../../../src/models/tag/tag.model';
 import { TagService } from '../tag.service';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { AuthenticationService } from './../../../../../../src/app/authentication/authentication.service';
 
 @Component({
   selector: 'app-tag-delete',
@@ -10,11 +10,9 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
   styleUrls: ['./tag-delete.component.scss']
 })
 export class TagDeleteComponent implements OnInit {
-  @Output()
-  onClose = new EventEmitter();
 
-  @Input()
-  tag: TagModel;
+  @Output() onClose = new EventEmitter();
+  @Input() tag: TagModel;
 
   usuario: UserAuthenticateModel;
 
@@ -33,7 +31,7 @@ export class TagDeleteComponent implements OnInit {
 
   deleteTag() {
     this.tagService
-      .delete(this.tag.id)
+      .delete(this.tag['result'].id)
       .subscribe(result => this.closeModal());
   }
 

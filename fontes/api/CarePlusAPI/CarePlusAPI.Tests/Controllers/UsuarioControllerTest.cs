@@ -14,6 +14,7 @@ using CarePlusAPI.Models.Usuario;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using CarePlusAPI.Models.Perfil;
+using Microsoft.AspNetCore.Http;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -124,6 +125,9 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ListaSucesso()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             var result = await controller.Get();
             Assert.IsType<OkObjectResult>(result);
         }
@@ -133,6 +137,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.GetById(1);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -142,20 +149,31 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(2));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(2);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void BuscarErroZero()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void CriarSucesso()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(UsuarioCreateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -164,15 +182,23 @@ namespace CarePlusAPI.Tests.Controllers
         public async void CriarErro()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             UsuarioCreateModel.Senha = "     ";
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(UsuarioCreateModel));
+            IActionResult result = await controller.Post(UsuarioCreateModel);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void CriarErroNulo()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Post(null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -180,6 +206,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Put(1, UsuarioUpdateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -189,21 +218,33 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(2, UsuarioUpdateModel));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(2, UsuarioUpdateModel);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void AtualizarErroZero()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(0, UsuarioUpdateModel));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(0, UsuarioUpdateModel);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void AtualizarErroNulo()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(1, null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(1, null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -211,6 +252,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Delete(1);
             Assert.IsType<OkResult>(result);
         }
@@ -220,14 +264,22 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(2));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(2);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void ExcluirErroZero()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -235,6 +287,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Autenticar(UsuarioAutenticadoModel);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -244,15 +299,23 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await UsuarioService.Criar(Usuario, "123");
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             UsuarioAutenticadoModel.Senha = "12345645665";
-            await Assert.ThrowsAsync<AppException>(() => controller.Autenticar(UsuarioAutenticadoModel));
+            IActionResult result = await controller.Autenticar(UsuarioAutenticadoModel);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void AutenticarErroNulo()
         {
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Autenticar(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Autenticar(null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         public void Dispose()

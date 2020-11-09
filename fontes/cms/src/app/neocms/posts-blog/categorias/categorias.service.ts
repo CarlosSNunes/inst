@@ -15,26 +15,26 @@ export class CategoriasService {
 
   constructor(
     private http: HttpClient
-    ) { }
+  ) { }
 
-    getAll() {
-      return this.http.get<CategoriasModel[]>(this.API_ENDPOINT);
-    }
-
-    getById(id: string) {
-      return this.http.get<CategoriasModel>(this.API_ENDPOINT + '/' + id);
-    }
-
-    post(banner: CategoriasCreateModel) {
-      return this.http.post(this.API_ENDPOINT, banner);
-    }
-
-    put(banner: CategoriasUpdateModel) {
-      return this.http.put(this.API_ENDPOINT, banner);
-    }
-
-    delete(id: number) {
-      return this.http.delete(this.API_ENDPOINT + '/' + id);
-    }
-
+  getAll(page: number, pageSize: number) {
+    return this.http.get<CategoriasModel[]>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
   }
+
+  getById(id: string) {
+    return this.http.get<CategoriasModel>(this.API_ENDPOINT + '/' + id);
+  }
+
+  post(banner: CategoriasCreateModel) {
+    return this.http.post(this.API_ENDPOINT, banner);
+  }
+
+  put(banner: CategoriasUpdateModel) {
+    return this.http.put(this.API_ENDPOINT, banner);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.API_ENDPOINT + '/' + id);
+  }
+
+}

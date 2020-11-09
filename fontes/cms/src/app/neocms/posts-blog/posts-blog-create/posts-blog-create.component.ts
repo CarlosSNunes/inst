@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft, faCheckCircle, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft, faCheckCircle, faCog, faTag } from '@fortawesome/free-solid-svg-icons';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { FormControlError } from 'src/utils/form-control-error';
+import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
+import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
+import { FormControlError } from './../../../../../src/utils/form-control-error';
 import { PostsBlogService } from '../posts-blog.service';
-import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
-import { CategoriasModel } from 'src/models/categorias/categorias.model';
+import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 import { CategoriasService } from '../categorias/categorias.service';
-import { PostsBlogCreateModel } from 'src/models/posts-blog/posts-blog-create.model';
-import { TagModel } from 'src/models/tag/tag.model';
+import { PostsBlogCreateModel } from './../../../../../src/models/posts-blog/posts-blog-create.model';
+import { TagModel } from './../../../../../src/models/tag/tag.model';
 import { TagService } from '../tag/tag.service';
-import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
+import { PostsUploadAdapter } from './../../../../../src/plugins/posts-upload-adapter';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { DatePipe, formatDate } from '@angular/common';
 import { format } from 'util';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
-import { environment } from 'src/environments/environment';
+import { environment } from './../../../../../src/environments/environment';
 
 
 
@@ -37,6 +37,7 @@ export class PostsBlogCreateComponent implements OnInit {
   faUpload = faUpload;
   faPlus = faPlus;
   faCog = faCog;
+  faTag = faTag;
   faArrowCircleLeft = faArrowCircleLeft;
   faCheckCircle = faCheckCircle;
   optionsDate = {
@@ -82,8 +83,10 @@ export class PostsBlogCreateComponent implements OnInit {
   isPostAtivo = false;
   isPostDestaque = false;
 
-  private readonly API_ENDPOINT = environment.API
-  
+  private readonly API_ENDPOINT = environment.API;
+  resultCat: any;
+  resultTag: any;
+
   constructor(
     private authenticateService: AuthenticationService,
     private categoriasService: CategoriasService,
@@ -98,10 +101,20 @@ export class PostsBlogCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.localeService.use('pt-br')
     this.user = this.authenticateService.state;
-    this.categoriasService.getAll().subscribe(categorias => this.categorias = categorias);
-    this.tagService.getAll().subscribe(tags => this.tags = tags);
+    this.categoriasService
+      .getAll(1, 100)
+      .subscribe(categorias => {
+        this.categorias = categorias;
+        this.resultCat = categorias['result'];
+      });
+    this.tagService
+      .getAll(1, 10)
+      .subscribe(tags => {
+        this.tags = tags;
+        this.resultTag = tags['result'];
+
+      });
 
     this.createForm();
   }
@@ -138,16 +151,28 @@ export class PostsBlogCreateComponent implements OnInit {
     };
   }
 
+  /**
+  * @memberof: PostsBlogCreateComponent
+  * @description: Método para gerar o formControl
+  */
   get f() {
     return this.postsBlogForm.controls;
   }
 
+  /**
+  * @memberof: PostsBlogCreateComponent
+  * @description: Método para gerar o formArray
+  */
   get tagControls() {
     return this.postsBlogForm.get('postTag') as FormArray;
   }
 
+  /**
+  * @memberof: PostsBlogCreateComponent
+  * @description: Método que submete o formdata.
+  */
   onSubmit() {
-    
+
     const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
     const dataPublicacao: Date = dataPublicacaoElement.value;
 
@@ -167,15 +192,14 @@ export class PostsBlogCreateComponent implements OnInit {
         this.postsBlogForm.controls.dataExpiracao.setValue('');
       }
 
-      if(this.imagemGrande != undefined)
-      {
+      if (this.imagemGrande != undefined) {
         this.postsBlogForm.controls.arquivo.setValue(this.imagemGrande);
         this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
       }
-      else{
+      else {
         this.postsBlogForm.controls.arquivo = [];
       }
-      
+
       const model = new PostsBlogCreateModel(this.postsBlogForm.value);
       this.postsBlogService.post(model)
         .subscribe(() =>
@@ -184,6 +208,10 @@ export class PostsBlogCreateComponent implements OnInit {
     }
   }
 
+  /**
+  * @memberof: PostsBlogCreateComponent
+  * @description: Metodo que atualiza o nome do arquivo.
+  */
   updateFileName(arquivo: any) {
     this.arquivoNome = '';
     if (arquivo.length > 0) {
@@ -193,45 +221,41 @@ export class PostsBlogCreateComponent implements OnInit {
   }
 
   fileProgress(arquivo: any) {
-    //this.arquivo = <File>fileInput.target.files[0];
     this.imagemGrande = arquivo[0];
     this.arquivoNome = this.imagemGrande.name;
     this.preview();
   }
 
   fileProgressImagemPequena(arquivo: any) {
-    //this.arquivo = <File>fileInput.target.files[0];
     this.imagemPequena = arquivo[0];
     this.arquivoNomeImagemPequena = this.imagemPequena.name;
     this.previewImagemPequena();
   }
 
   preview() {
-    // Show preview 
     var mimeType = this.imagemGrande.type;
     if (mimeType.match(/image\/*/) == null) {
       return;
     }
 
-    var reader = new FileReader();      
-    reader.readAsDataURL(this.imagemGrande); 
-    reader.onload = (_event) => { 
-      this.previewUrl = reader.result; 
+    var reader = new FileReader();
+    reader.readAsDataURL(this.imagemGrande);
+    reader.onload = (_event) => {
+      this.previewUrl = reader.result;
       this.imagemGrande = this.previewUrl;
     }
   }
 
   previewImagemPequena() {
-    // Show preview 
     var mimeType = this.imagemPequena.type;
     if (mimeType.match(/image\/*/) == null) {
       return;
     }
 
-    var reader = new FileReader();      
-    reader.readAsDataURL(this.imagemPequena); 
-    reader.onload = (_event) => { 
-      this.previewUrlImagemPequena = reader.result; 
+    var reader = new FileReader();
+    reader.readAsDataURL(this.imagemPequena);
+    reader.onload = (_event) => {
+      this.previewUrlImagemPequena = reader.result;
       this.imagemPequena = this.previewUrlImagemPequena;
     }
   }
@@ -242,10 +266,10 @@ export class PostsBlogCreateComponent implements OnInit {
     }
   }
 
-  toggleTag(tag: TagModel) {
-    const index = this.tags.findIndex(x => x.id === tag.id);
-    this.tags[index].selected = !this.tags[index].selected;
-    this.manageTag(this.tags[index].id);
+  toggleTag(tag: TagModel['result']) {
+    const index = this.resultTag.findIndex(x => x.id === tag.id);
+    this.resultTag[index].selected = !this.resultTag[index].selected;
+    this.manageTag(this.resultTag[index].id);
   }
 
   manageTag(id: number) {
@@ -274,9 +298,9 @@ export class PostsBlogCreateComponent implements OnInit {
 
 
   changeCategoria(categoria) {
-   if(categoria.value == 'Administrar' ){
+    if (categoria.titulo == 'Administrar') {
       this.router.navigate(['/neocms/posts-blog/categorias/index']);
-   }
+    }
   }
 
   changeStatusPost(value: string, selected: boolean) {
@@ -310,14 +334,10 @@ export class PostsBlogCreateComponent implements OnInit {
     )
     console.log(file)
 
-   let areaNome = JSON.stringify(file).replace(/['"]+/g, '');
-  //  console.log(areaNome.toString().)
-  //  this.bannerForm.get('arquivo').setValue(areaNome);
-  //  console.log(this.bannerForm.get('arquivo').setValue(areaNome));
-
+    let areaNome = JSON.stringify(file).replace(/['"]+/g, '');
   }
 
-  
+
 
   base64ToFile(data, filename) {
     const arr = data.split(',');

@@ -1,32 +1,33 @@
-
+using AutoMapper;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.Usuario;
+using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using CarePlusAPI.Entities;
-using CarePlusAPI.Helpers;
-using CarePlusAPI.Models.Usuario;
-using CarePlusAPI.Services;
 
 namespace CarePlusAPI.Controllers
 {
     [Authorize]
-    [AllowAnonymous]
     [ApiController]
     [Route("[controller]")]
+    [ExcludeFromCodeCoverage]
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioService UserService;
-        private readonly IMapper Mapper;
-        private readonly AppSettings AppSettings;
+        private readonly IUsuarioService _userService;
+        private readonly IMapper _mapper;
+        private readonly AppSettings _appSettings;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -42,9 +43,10 @@ namespace CarePlusAPI.Controllers
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
-            UserService = userService;
-            Mapper = mapper;
-            AppSettings = appSettings.Value;
+            _userService = userService;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
@@ -58,46 +60,64 @@ namespace CarePlusAPI.Controllers
         [HttpPost("Autenticar")]
         public async Task<IActionResult> Autenticar(UsuarioAutenticadoModel model)
         {
-            if (model == null)
-                throw new AppException("O usuário não pode estar nulo");
+            string origem = Request.Headers["Custom"];
 
-            //if (!UserService.ValidaUsuario(model.Email, model.Senha).Result)
-            //{
-            //    throw new AppException("O usuário não foi encontrado");
-            //}
-
-            Usuario usuario = await UserService.Autenticar(model.Email, model.Senha);
-
-            //if (usuario == null)
-            //{
-            //    throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
-            //    {
-            //        Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
-            //        Dados = model
-            //    }));
-            //}
-
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-            byte[] key = Encoding.ASCII.GetBytes(AppSettings.Secret);
-            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+            try
             {
-                Subject = new ClaimsIdentity(new Claim[] {
+
+
+                if (model == null)
+                    throw new AppException("O usuário não pode estar nulo");
+
+                //if (!_userService.ValidaUsuario(model.Email, model.Senha).Result)
+                //{
+                //    throw new AppException("O usuário não foi encontrado");
+                //}
+
+                Usuario usuario = await _userService.Autenticar(model.Email, model.Senha);
+
+                if (usuario == null)
+                {
+                    throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
+                        Dados = model
+                    }));
+                }
+
+                JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+                byte[] key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+                SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new Claim[] {
                 new Claim (ClaimTypes.Name, usuario.Id.ToString ()),
                 new Claim (ClaimTypes.Role, usuario.UsuarioPerfil.OrderBy (x => x.Perfil.Prioridade).FirstOrDefault ().Perfil.Descricao)
                 }),
 
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
-            string tokenString = tokenHandler.WriteToken(token);
+                    Expires = DateTime.UtcNow.AddDays(7),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                };
+                SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+                string tokenString = tokenHandler.WriteToken(token);
 
-            return Ok(new
+                return Ok(new
+                {
+                    usuario.Nome,
+                    Token = tokenString,
+                    Perfis = usuario.UsuarioPerfil.Select(p => new { p.Perfil.Descricao, Id = p.PerfilId })
+                });
+            }
+            catch (Exception ex)
             {
-                usuario.Nome,
-                Token = tokenString,
-                Perfis = usuario.UsuarioPerfil.Select(p => new { p.Perfil.Descricao, Id = p.PerfilId })
-            });
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+
+            }
         }
 
         ///<summary>
@@ -109,18 +129,33 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost("gera-requisicao")]
-        [AllowAnonymous]
-        //[Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> GenerateUserRequisition(UsuarioCreateModel model)
         {
-            if (model == null)
-                throw new AppException("O usuário não pode estar nulo");
+            string origem = Request.Headers["Custom"];
 
-            var token = UserService.SalvarRequisicao(model).Result;
+            try
+            {
 
-            await UserService.EnviarEmail(model, token);
+                if (model == null)
+                    throw new AppException("O usuário não pode estar nulo");
 
-            return Ok();
+                var token = _userService.SalvarRequisicao(model).Result;
+
+                await _userService.EnviarEmail(model, token);
+
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -133,19 +168,33 @@ namespace CarePlusAPI.Controllers
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost]
         [AllowAnonymous]
-        //[Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Post(UsuarioCreateModel model)
         {
-            if (model == null)
-                throw new AppException("O usuário não pode estar nulo");
+            string origem = Request.Headers["Custom"];
 
-            Usuario usuario = Mapper.Map<Usuario>(model);
+            try
+            {
+                if (model == null)
+                    throw new AppException("O usuário não pode estar nulo");
 
-            await UserService.Criar(usuario, model.Senha);
+                Usuario usuario = _mapper.Map<Usuario>(model);
 
-            await UserService.EnviarEmailConfirmacao(usuario);
+                await _userService.Criar(usuario, model.Senha);
 
-            return Ok();
+                //await _userService.EnviarEmailConfirmacao(usuario);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -156,13 +205,25 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet]
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Get()
         {
-            IEnumerable<Usuario> users = await UserService.Listar();
-            IList<UsuarioModel> model = Mapper.Map<IList<UsuarioModel>>(users);
-            return Ok(model);
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                IEnumerable<Usuario> users = await _userService.Listar();
+                IList<UsuarioModel> model = _mapper.Map<IList<UsuarioModel>>(users);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -174,16 +235,30 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="Id">Id do usuário</param>
         [HttpGet("{id}")]
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
-            if (id == 0)
-                throw new AppException("O id do usuário não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do usuário não pode ser igual a 0");
 
-            Usuario usuario = await UserService.Buscar(id);
-            UsuarioModel model = Mapper.Map<UsuarioModel>(usuario);
-            return Ok(model);
+                Usuario usuario = await _userService.Buscar(id);
+                UsuarioModel model = _mapper.Map<UsuarioModel>(usuario);
+                return Ok(model);
+
+            }
+            catch (Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -196,21 +271,33 @@ namespace CarePlusAPI.Controllers
         ///<param name="id">Id do usuário a ser atualizado</param>
         ///<param name="model">Model de atualização de um usuário</param>
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Put(int id, [FromBody] UsuarioUpdateModel model)
         {
-            if (id == 0)
-                throw new AppException("O id do usuário não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do usuário não pode ser igual a 0");
 
-            if (model == null)
-                throw new AppException("O usuário não pode estar nulo");
+                if (model == null)
+                    throw new AppException("O usuário não pode estar nulo");
 
-            Usuario usuario = Mapper.Map<Usuario>(model);
-            usuario.Id = id;
+                Usuario usuario = _mapper.Map<Usuario>(model);
+                usuario.Id = id;
 
-            await UserService.Atualizar(usuario, model.Senha);
-            return Ok();
+                await _userService.Atualizar(usuario, model.Senha);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -221,15 +308,28 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do usuário</param>
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
-                throw new AppException("O id do usuário não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do usuário não pode ser igual a 0");
 
-            await UserService.Excluir(id);
-            return Ok();
+                await _userService.Excluir(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
+
         }
 
         ///<summary>
@@ -240,14 +340,14 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do usuário</param>
         [HttpGet("valida-requisicao/{token}")]
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> ValidateRequisition(string token)
         {
+            string origem = Request.Headers["Custom"];
 
             try
             {
-                var requisicaoValidada = UserService.ValidateTokenRequisition(token).Result;
+                var requisicaoValidada = _userService.ValidateTokenRequisition(token).Result;
 
                 Usuario novoUsuario = new Usuario()
                 {
@@ -255,13 +355,18 @@ namespace CarePlusAPI.Controllers
                     Email = requisicaoValidada.UsuarioEmail
                 };
 
-                await UserService.Criar(novoUsuario, requisicaoValidada.UsuarioSenha);
+                await _userService.Criar(novoUsuario, requisicaoValidada.UsuarioSenha);
 
                 return Ok("Cadastro com sucesso!");
             }
-            catch (System.Exception e)
+            catch (Exception ex)
             {
-                return BadRequest(e);
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
             }
 
         }
@@ -271,20 +376,23 @@ namespace CarePlusAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("listar-requisicoes")]
-
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> ListarRequisicoes()
         {
-
+            string origem = Request.Headers["Custom"];
             try
             {
-                var listaRequisicoes = await UserService.BuscarRequisicoesCadastro();
+                var listaRequisicoes = await _userService.BuscarRequisicoesCadastro();
                 return Ok(listaRequisicoes);
             }
-            catch (System.Exception e)
+            catch (Exception ex)
             {
-                return BadRequest(e);
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
             }
 
         }
@@ -294,23 +402,69 @@ namespace CarePlusAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("requisicoes-pendentes")]
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
-
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> ListarRequisicoesPendentes()
         {
-
+            string origem = Request.Headers["Custom"];
             try
             {
-                var listaRequisicoes = await UserService.BuscarRequisicoesCadastroPendente();
+                var listaRequisicoes = await _userService.BuscarRequisicoesCadastroPendente();
                 return Ok(listaRequisicoes);
             }
-            catch (System.Exception e)
+            catch (Exception ex)
             {
-                return BadRequest(e);
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
             }
 
         }
 
+        [HttpPost("inativar-usuario")]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> InativarUsuario([FromBody] string userEmail)
+        {
+            string origem = Request.Headers["Custom"];
+            try
+            {                
+                int userId = int.Parse(this.User.Claims.First(i => i.Type == "UserId").Value);
+                await _userService.InativarUsuario(userEmail, userId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
+
+        }
+
+        [HttpGet("usuarios-inativos")]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> ListarAcoesDesativacaoUsuarios()
+        {
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                var listaAcoes = await _userService.ListarAcoesDesativacaoUsuarios();
+                return Ok(listaAcoes);
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
+        }
     }
 }

@@ -1,21 +1,21 @@
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Services;
-using AutoMapper;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CarePlusAPI
 {
@@ -76,8 +76,8 @@ namespace CarePlusAPI
                         int userId = int.Parse(context.Principal.Identity.Name);
                         HttpUser.UsuarioId = userId;
 
-                        //if (!userService.Validar(userId))
-                        //    context.Fail("Unauthorized");
+                        if (!userService.Validar(userId))
+                            context.Fail("Unauthorized");
 
                         return Task.CompletedTask;
                     }
@@ -92,7 +92,7 @@ namespace CarePlusAPI
                     ValidateAudience = false
                 };
             });
-                        
+
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IPerfilService, PerfilService>();
             services.AddScoped<IBannerService, BannerService>();
@@ -102,7 +102,7 @@ namespace CarePlusAPI
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IFaleConoscoService, FaleConoscoService>();
             services.AddScoped<IDashboardService, DashboardService>();
-           
+
             services.AddSwaggerGen(c =>
             {
 
@@ -118,7 +118,7 @@ namespace CarePlusAPI
                             Url = new Uri("https://github.com/neotix")
                         }
                     });
-            });            
+            });
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }

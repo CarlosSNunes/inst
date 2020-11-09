@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { UserAuthenticateModel } from './../../../../../../src/models/user-authenticate.model';
+import { AuthenticationService } from './../../../../../../src/app/authentication/authentication.service';
 import { CategoriasService } from '../categorias.service';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormControlError } from 'src/utils/form-control-error';
-import { CategoriasModel } from 'src/models/categorias/categorias.model';
-import { CategoriasUpdateModel } from 'src/models/categorias/categorias-update.model';
+import { FormControlError } from './../../../../../../src/utils/form-control-error';
+import { CategoriasModel } from './../../../../../../src/models/categorias/categorias.model';
+import { CategoriasUpdateModel } from './../../../../../../src/models/categorias/categorias-update.model';
 import { NgWizardConfig, THEME } from 'ng-wizard';
 
 @Component({
@@ -16,6 +16,7 @@ import { NgWizardConfig, THEME } from 'ng-wizard';
   styleUrls: ['./categorias-edit.component.scss']
 })
 export class CategoriasEditComponent implements OnInit {
+
   categoriasForm;
   faTimes = faTimes;
   faCheck = faCheck;
@@ -83,9 +84,9 @@ export class CategoriasEditComponent implements OnInit {
 
   updateForm() {
     this.categoriasForm = this.fb.group({
-      id: [this.categoria.id, [Validators.required]],
+      id: [this.categoria['result'].id, [Validators.required]],
       titulo: [
-        this.categoria.titulo,
+        this.categoria['result'].titulo,
         [
           Validators.required,
           Validators.maxLength(100),
@@ -93,7 +94,7 @@ export class CategoriasEditComponent implements OnInit {
         ]
       ],
       descricao: [
-        this.categoria.descricao,
+        this.categoria['result'].descricao,
         [
           Validators.required,
           Validators.maxLength(1000),

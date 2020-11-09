@@ -1,7 +1,7 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 /* Mandatory */
 @import '~ng-wizard/themes/ng_wizard.min.css';
-
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 /* Optional */
 /* If a theme other than default is used, the css file for that theme is required. */
@@ -161,4 +161,14 @@ span.badge.badge-dark {
   height     : 30px !important;
   line-height: 20px !important;
   padding    : 5px 5px 5px 5px !important;
+}
+
+
+.alert-danger {
+  color           : #721c24 !important;
+  background-color: #f8d7da !important;
+  border-color    : #f5c6cb !important;
+  position        : fixed !important;
+  top             : 80px !important;
+  right           : 15px !important;
 }

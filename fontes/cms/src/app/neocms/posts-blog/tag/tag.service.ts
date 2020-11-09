@@ -18,8 +18,8 @@ export class TagService {
     private http: HttpClient
   ) { }
 
-  getAll() {
-    return this.http.get<TagModel[]>(this.API_ENDPOINT);
+  getAll(page: number, pageSize: number) {
+    return this.http.get<TagModel[]>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
   }
 
   getById(id: string) {

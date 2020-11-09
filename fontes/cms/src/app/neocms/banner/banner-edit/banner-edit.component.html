@@ -52,20 +52,20 @@
                                         <small>Dimensões: 1920 x 720 px</small>
                                         <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper 
+                                            <image-cropper
                                                 [imageChangedEvent]="imageChangedEvent"
-                                                [maintainAspectRatio]="true" 
+                                                [maintainAspectRatio]="true"
                                                 [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" 
+                                                [autoCrop]="true"
                                                 [onlyScaleDown]="false"
                                                 [aspectRatio]="8/3"
-                                                [resizeToWidth]="1920" 
-                                                [cropperMinWidth]="1920" 
+                                                [resizeToWidth]="1920"
+                                                [cropperMinWidth]="1920"
                                                 [resizeToHeight]="720"
                                                 [cropperMinHeight]="720" format="png"
-                                                (imageCropped)="imageCropped($event)" 
+                                                (imageCropped)="imageCropped($event)"
                                                 (imageLoaded)="imageLoaded()"
-                                                (cropperReady)="cropperReady()" 
+                                                (cropperReady)="cropperReady()"
                                                 (loadImageFailed)="loadImageFailed()">
                                             </image-cropper>
                                         </div>
@@ -84,23 +84,20 @@
                                         <input type="file" class="text-truncate"
                                             (change)="fileChangeEventMobile($event)" />
                                         <div class="shadow p-0 m-auto">
-                                            <image-cropper 
+                                            <image-cropper
                                                 [imageChangedEvent]="imageChangedEventMobile"
-                                                [maintainAspectRatio]="true" 
+                                                [maintainAspectRatio]="true"
                                                 [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" 
-                                                [onlyScaleDown]="false" 
+                                                [autoCrop]="true"
+                                                [onlyScaleDown]="false"
                                                 [aspectRatio]="4/3"
-                                                [imageFile]="bannerMobile" 
-                                                [resizeToWidth]="200" 
+                                                [imageFile]="bannerMobile"
+                                                [resizeToWidth]="200"
                                                 [cropperMinWidth]="200"
-                                                [resizeToHeight]="150" 
-                                                [cropperMinHeight]="150" 
+                                                [resizeToHeight]="150"
+                                                [cropperMinHeight]="150"
                                                 format="png"
-                                                (imageCropped)="imageCroppedMobile($event)"
-                                                (imageLoaded)="imageLoaded()" 
-                                                (cropperReady)="cropperReady()"
-                                                (loadImageFailed)="loadImageFailed()">
+                                                (imageCropped)="imageCroppedMobile($event)">
                                             </image-cropper>
                                         </div>
                                         <div *ngIf="croppedImageMobile" class="shadow thumbnail-image-box-mobile">
@@ -259,7 +256,7 @@
 </div>
 
 
-<!-- 
+<!--
 <section class="hero is-dark is-small">
     <div class="hero-body">
         <div class="container">
@@ -386,10 +383,10 @@
                                 </div>
                             </div>
                         </div>
-        
+
                     </div>
 
-                </div>               
+                </div>
             </div>
 
             <div class="field">
@@ -473,7 +470,7 @@
                             </p>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
 

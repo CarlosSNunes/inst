@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { FormControlError } from './../../../../src/utils/form-control-error';
 import { FormBuilder, Validators } from '@angular/forms';
-import { environment } from 'src/environments/environment';
+import { environment } from './../../../../src/environments/environment';
 
 @Component({
   selector: 'app-posts-blog',
@@ -22,6 +22,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./posts-blog.component.scss']
 })
 export class PostsBlogComponent implements OnInit {
+
   postsBlog: PostsBlogModel[] = [];
   tagsModel: TagModel[] = [];
   arquivo: File;
@@ -67,10 +68,9 @@ export class PostsBlogComponent implements OnInit {
     this.usuario = this.authenticationService.state;
 
     this.usuario.perfis.forEach(perfil => {
-        if(perfil.descricao == 'Editor' || perfil.descricao == 'Administrador')
-        {
-          this.podeEscrever = true;
-        }
+      if (perfil.descricao == 'Editor' || perfil.descricao == 'Administrador') {
+        this.podeEscrever = true;
+      }
     });
 
     this.getPosts();
@@ -97,11 +97,11 @@ export class PostsBlogComponent implements OnInit {
   getPosts() {
     //this.showPostsDelete = false;
     this.postsBlogService
-      .getAll()
+      .getAll(1, 100)
       .subscribe(postsBlog => {
         this.loaded = true;
-        this.postsBlog = postsBlog;
-        
+        this.postsBlog = postsBlog['result'];
+
       },
         error => {
           this.loaded = true;
@@ -109,40 +109,35 @@ export class PostsBlogComponent implements OnInit {
 
   }
 
-  filterPosts(input)
-  {
-    if(input.value != '')
-    {
-      this.postsBlog = this.postsBlog.filter(x => x.titulo.includes(input.value));
+  filterPosts(input) {
+    if (input.value != '') {
+      this.postsBlog = this.postsBlog['result'].filter(x => x.titulo.includes(input.value));
     }
   }
 
-  filterPostByCategory(select)
-  {
-    if(select.value > 0)
-    {
-       this.getPosts();
-        setTimeout(() => {
-        this.postsBlog = this.postsBlog.filter(x => x.categoriaId == select.value);
-       }, 500);
+  filterPostByCategory(select) {
+    if (select.value > 0) {
+      this.getPosts();
+      setTimeout(() => {
+        this.postsBlog = this.postsBlog['result'].filter(x => x.categoriaId == select.value);
+      }, 500);
     }
   }
-  salvarAlteracoes(){}
+  salvarAlteracoes() { }
 
-  buscarCategoriaDescricao(categoriaId){
+  buscarCategoriaDescricao(categoriaId) {
 
     this.categorias.forEach(cat => {
 
-      if(cat.id == categoriaId)
-      {
-        return cat.descricao;
+      if (cat['result'].id == categoriaId) {
+        return cat['result'].descricao;
       }
     });
   }
 
-  getPostsBySearch(): any{
+  getPostsBySearch(): any {
     this.postsBlogService
-      .getAll()
+      .getAll(1, 100)
       .subscribe(postsBlog => {
         this.loaded = true;
         this.postsBlog = postsBlog;
@@ -151,60 +146,54 @@ export class PostsBlogComponent implements OnInit {
           this.loaded = true;
         });
 
-        return this.postBlog;
+    return this.postBlog;
   }
 
   getCategorias() {
-  this.categoriasService
-    .getAll()
-    .subscribe(result => {
-      this.loaded = true;
-      this.categorias = result;
-      console.log(result);
-    },
-      error => {
+    this.categoriasService
+      .getAll(1, 100)
+      .subscribe(result => {
         this.loaded = true;
-      });
+        this.categorias = result['result'];
+        console.log(result);
+      },
+        error => {
+          this.loaded = true;
+        });
   }
 
-  duplicarPost(post: PostsBlogModel)
-  {
-
+  duplicarPost(post: PostsBlogModel) {
     this.postsBlogForm = this.fb.group({
-      titulo: [ post.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo: [post.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricaoPrevia: [post.descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      dataPublicacao: [post.dataPublicacao, [Validators.required]],
-      dataExpiracao: [post.dataExpiracao],
-      destaque: [post.destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
-      ativo: [post.ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
-      tituloPaginaSEO: [post.tituloPaginaSEO, [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
-      descricaoPaginaSEO: [post.descricaoPaginaSEO, [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
-      categoriaId: [post.categoriaId, Validators.required],
-      postTag: this.fb.array(post.postTag),
-      descricao: [post.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+      titulo: [post[0].titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      subtitulo: [post[0].subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      descricaoPrevia: [post[0].descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      dataPublicacao: [post[0].dataPublicacao, [Validators.required]],
+      dataExpiracao: [post[0].dataExpiracao],
+      destaque: [post[0].destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
+      ativo: [post[0].ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
+      tituloPaginaSEO: [post[0].tituloPaginaSEO, [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
+      descricaoPaginaSEO: [post[0].descricaoPaginaSEO, [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
+      categoriaId: [post[0].categoriaId, Validators.required],
+      postTag: this.fb.array(post[0].postTag),
+      descricao: [post[0].descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
       arquivo: [[]],
-      caminhoImagem: [this.API_ENDPOINT +'/Src/Images/Banner/'],
-      nomeImagem: [post.nomeImagem]
+      caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Banner/'],
+      nomeImagem: [post[0].nomeImagem]
     });
 
-        this.postsBlogForm.controls.titulo.setValue('[Duplicado] - ' + post.titulo);
-        this.postsBlogForm.controls.dataPublicacao = formatDate(new Date().toString(), 'dd/MM/yyyy', 'en');
-        this.postsBlogForm.controls.descricao.setValue("descrição");
+    this.postsBlogForm.controls.titulo.setValue('[Duplicado] - ' + post[0].titulo);
+    this.postsBlogForm.controls.dataPublicacao = formatDate(new Date().toString(), 'dd/MM/yyyy', 'en');
+    this.postsBlogForm.controls.descricao.setValue("descrição");
 
-        const newPost = new PostsBlogCreateModel(this.postsBlogForm.value);
-        this.postsBlogService.post(newPost)
-          .subscribe(() =>
-            this.getPosts()
-        );
+    const newPost = new PostsBlogCreateModel(this.postsBlogForm.value);
+    this.postsBlogService.post(newPost)
+      .subscribe(() =>
+        this.getPosts()
+      );
   }
 
-
-
   openModalDuplicarPost(template: TemplateRef<PostsBlogModel>) {
-
-    this.bsModalRef = this.modalService.show(template, {class: 'modal-md'});
-
+    this.bsModalRef = this.modalService.show(template, { class: 'modal-md' });
   }
 
   confirmDuplicar(post): void {
@@ -214,8 +203,7 @@ export class PostsBlogComponent implements OnInit {
 
   confirmExcluir(post): void {
     this.postsBlogService.delete(post.id)
-      .subscribe(()=>
-      {
+      .subscribe(() => {
         this.getPosts();
       });
     this.bsModalRef.hide();

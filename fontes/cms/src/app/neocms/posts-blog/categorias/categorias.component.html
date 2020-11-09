@@ -10,9 +10,9 @@
                 <table id="bannerTable" class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center">Id</th>
                             <th scope="col" class="text-center">Categoria</th>
                             <th scope="col" class="text-center">Descrição</th>
+                            <th scope="col" class="text-center">Data Cadastro</th>
                             <th scope="col" class="text-center">Ação</th>
                         </tr>
                     </thead>
@@ -23,23 +23,22 @@
                         <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
                             Não há banners cadastrados
                         </td>
-                        <tr *ngFor="let categoria of categorias" class="table-cell text-center">
-                            <td class="py-1 align-middle text-center">
-                                <span class="p-1">{{categoria.id}}</span>
+                        <tr *ngFor="let r of result" class="
+                            table-cell text-center">
+
+                            <td class="py-3 align-middle text-center">
+                                <span class="p-2">{{r.titulo}}</span>
                             </td>
                             <td class="py-3 align-middle text-center">
-                                <span class="p-2">{{categoria.titulo}}</span>
+                                <span class="p-2">{{r.descricao}}</span>
                             </td>
                             <td class="py-3 align-middle text-center">
-                                <span class="p-2">{{categoria.descricao}}</span>
+                                <span class="p-2">{{r.dataCadastro}}</span>
                             </td>
                             <td class="py-3 align-middle text-center">
-                                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', categoria.id]" routerLinkActive="active">
+                                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', result.id]"
+                                    routerLinkActive="active">
                                     <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
-                                </a>
-                                &nbsp;
-                                <a (click)="openCategoriaDelete(categoria)">
-                                    <fa-icon class="icon-action" [icon]="faTrash"></fa-icon>
                                 </a>
                             </td>
                         </tr>
@@ -49,5 +48,3 @@
         </div>
     </div>
 </div>
-<!-- <app-categorias-delete *ngIf="showCategoriaDelete " [categoria]="categoria" (onClose)="getCategorias()">
-</app-categorias-delete> -->

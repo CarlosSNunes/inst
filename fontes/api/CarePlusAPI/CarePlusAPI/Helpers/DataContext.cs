@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using CarePlusAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -92,6 +92,7 @@ namespace CarePlusAPI.Helpers
         public DbSet<EnderecoClinica> EnderecoClinica { get; set; }
         public DbSet<HorarioClinica> HorarioClinica { get; set; }
         public DbSet<RequisicaoUsuario> RequisicaoUsuario { get; set; }
+        public DbSet<LogUsuarioDesativado> LogUsuarioDesativado { get; set; }
 
         public override int SaveChanges()
         {

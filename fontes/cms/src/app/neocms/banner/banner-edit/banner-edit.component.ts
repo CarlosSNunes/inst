@@ -8,7 +8,6 @@ import { AuthenticationService } from './../../../../../src/app/authentication/a
 import { Router, ActivatedRoute } from '@angular/router';
 import { BannerService } from '../banner.service';
 import { BannerModel } from './../../../../../src/models/banner/banner.model';
-import { parse } from 'querystring';
 import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 
@@ -19,7 +18,7 @@ import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 })
 export class BannerEditComponent implements OnInit {
 
-  //? --------- Configuração 'ng-wizard' ---------
+  // ?--------- Configuração 'ng-wizard' ---------
   configBannerEdit: NgWizardConfig = {
     selected: 0,
     theme: THEME.dots,
@@ -27,7 +26,7 @@ export class BannerEditComponent implements OnInit {
   };
   ngWizardService: any;
 
-  //? --------- Configuração 'DropDown' ---------
+  // ?--------- Configuração 'DropDown' ---------
   dropdownOptions = [
     { nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
     { nome: 'Home RH', descricao: 'Banner da home do RH' },
@@ -35,36 +34,34 @@ export class BannerEditComponent implements OnInit {
     { nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
     { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
   ];
-
-  bannerForm: FormGroup;
-  faTimes = faTimes;
-  faCheck = faCheck;
-  faUpload = faUpload;
-  faPlus = faPlus;
-  arquivoNome = 'Selecione um arquivo';
-  arquivoNomeMobile = 'Selecione um arquivo';
-  arquivo: File;
-  arquivoMobile: File;
-  submitted: boolean;
-  usuario: UserAuthenticateModel;
-  isLinkExternoSelected = false;
+  areaSelectedObject: [{
+    nome: string,
+    descricao: string
+  }];
+  arquivo: any = File;
+  arquivoMobile: any = File;
+  arquivoNome: any = 'Selecione um arquivo';
+  arquivoNomeMobile: any = 'Selecione um arquivo';
   banner: BannerModel;
-  btnSubmitDisable = false;
-  isBannerAtivo = false;
-  imageChangedEventMobile: any;
-  imageChangedEvent: any;
+  bannerForm: FormGroup;
+  bannerGrande: File;
+  bannerMobile: File;
+  btnSubmitDisable: any = false;
+  croppedImage: string;
+  croppedImageMobile: string;
+  faCheck = faCheck;
+  faPlus = faPlus;
+  faTimes = faTimes;
+  faUpload = faUpload;
   fileName: any;
   fileNameMobile: string;
-  croppedImageMobile: string;
-  croppedImage: string;
-  areaSelectedObject: [{ nome: string, descricao: string }];
+  imageChangedEvent: any;
+  imageChangedEventMobile: any;
+  isBannerAtivo: any = false;
+  isLinkExternoSelected: any = false;
   nomeDaImagem: any;
-  bannerMobile: File;
-  bannerGrande: File;
-
-
-
-
+  submitted: boolean;
+  usuario: UserAuthenticateModel;
   constructor(
     private bannerService: BannerService,
     private fb: FormBuilder,
@@ -79,6 +76,13 @@ export class BannerEditComponent implements OnInit {
     this.getBanner();
   }
 
+  imageLoaded() { }
+  cropperReady() { }
+  loadImageFailed() {}
+  /**
+   * @description Metodo retorna a consula de banner por Id.
+   * @memberOf BannerEditComponent
+   */
   getBanner() {
     const id = this.route.snapshot.paramMap.get('id');
 
@@ -94,6 +98,10 @@ export class BannerEditComponent implements OnInit {
       });
   }
 
+  /**
+   * @description Metodo que cria formulário para GET do Banner
+   * @memberOf BannerEditComponent
+   */
   createForm() {
     this.bannerForm = this.fb.group({
       id: [],
@@ -105,12 +113,16 @@ export class BannerEditComponent implements OnInit {
       descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
       linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
+      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
       arquivo: [''],
       arquivoMobile: ['']
     });
   }
 
+  /**
+   * @description Metodo que cria formulário para PUT do Banner
+   * @memberOf BannerEditComponent
+   */
   updateForm() {
     this.bannerForm = this.fb.group({
       id: [this.banner.id, [Validators.required]],
@@ -122,7 +134,7 @@ export class BannerEditComponent implements OnInit {
       descricao: [this.banner.descricao, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       rota: [this.banner.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
       linkExterno: [this.banner.linkExterno, [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
+      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
       arquivo: [''],
       arquivoMobile: ['']
     });
@@ -132,6 +144,10 @@ export class BannerEditComponent implements OnInit {
     return this.bannerForm.controls;
   }
 
+  /**
+   * @description Evento que submete o formGroup
+   * @memberOf BannerEditComponent
+   */
   onSubmit() {
     this.submitted = true;
     if (this.bannerForm.valid) {
@@ -145,6 +161,11 @@ export class BannerEditComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Evento disparado ao escolher um arquivo da entrada arquivo pelo input de upload
+   * @param {arquivos}
+   * @memberOf BannerEditComponent
+   */
   updateFileName(arquivos: any) {
     this.arquivoNome = 'Selecione um arquivo';
     this.arquivo = null;
@@ -157,8 +178,12 @@ export class BannerEditComponent implements OnInit {
     this.bannerForm.controls.arquivo.setValue(this.arquivo);
   }
 
+  /**
+   * @description Evento disparado ao escolher um arquivo da entrada arquivo pelo input de upload
+   * @param {arquivos}
+   * @memberOf BannerEditComponent
+   */
   updateFileNameMobile(arquivos: any) {
-    this.arquivoNomeMobile = 'Selecione um arquivo';
     this.arquivoMobile = null;
 
     if (arquivos.length > 0) {
@@ -169,74 +194,106 @@ export class BannerEditComponent implements OnInit {
     this.bannerForm.controls.arquivoMobile.setValue(this.arquivoMobile);
   }
 
+  /**
+   * @description Metodo captura o estado do radiobutton de link externo do banner
+   * @param {value}, {selected}
+   * @memberOf BannerEditComponent
+   */
   changeLinkExterno(value: string, selected: boolean) {
     this.f.linkExterno.setValue(value);
     this.isLinkExternoSelected = selected;
   }
 
+  /**
+   * @description Metodo captura o estado do radiobutton de status de ativacao do banner
+   * @param {value}, {selected}
+   * @memberOf BannerEditComponent
+   */
   changeStatusBanner(value: string, selected: boolean) {
     this.f.ativo.setValue(value);
     this.isBannerAtivo = selected;
   }
 
+  /**
+   * @param {event}
+   * @memberOf BannerEditComponent
+   */
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.fileName = event.target.files[0].name;
   }
 
+  /**
+   * @param {event}
+   * @memberOf BannerEditComponent
+   */
   fileChangeEventMobile(event): void {
     this.imageChangedEventMobile = event;
     console.log(this.imageChangedEventMobile.target.files[0]);
     this.fileNameMobile = 'small-' + event.target.files[0].name;
   }
 
-
+/**
+ * @param {control} control
+ * @returns
+ * @memberOf BannerEditComponent
+ */
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }
+
+/**
+ * @description Metodo que captuea a ação de selecionar etapa do wizard.
+ * @param {StepChangedArgs}
+ * @memberOf BannerEditComponent
+ */
 
   setTheme(theme: THEME) {
     this.ngWizardService.theme(theme);
   }
 
+  /**
+   * @description Metodo que captuea a ação de avançar do wizard.
+   * @param {StepChangedArgs}
+   * @memberOf BannerEditComponent
+   */
   stepChanged(args: StepChangedArgs) {
     console.log(args.step);
   }
 
-/**
- *  Usando o 'ngx-image-cropper'
- *  Quando você escolhe um arquivo da entrada do arquivo, ele será acionado @fileChangeEvent
- *  Esse evento é então passado para o cortador de imagens, por meio do @imageChangedEvent qual
- *  carregará a imagem no cortador. Sempre que você soltar o mouse, o @imageCropped evento será
- *  disparado com a imagem cortada como uma string Base64 em sua carga útil.
- */
-
+  /**
+   *  Usando o 'ngx-image-cropper'
+   *  Quando você escolhe um arquivo da entrada do arquivo, ele será acionado @fileChangeEvent
+   *  Esse evento é então passado para o cortador de imagens, por meio do @imageChangedEvent qual
+   *  carregará a imagem no cortador. Sempre que você soltar o mouse, o @imageCropped evento será
+   *  disparado com a imagem cortada como uma string Base64 em sua carga útil.
+   */
 
   /**
-* @description:Método para Converter
-* @method: blobToFile
-* @memberOf BannerCreateComponent
-*/
+   * @description:Método para Converter
+   * @method: blobToFile
+   * @memberOf BannerCreateComponent
+   */
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-    let img = base64ToFile(event.base64);
-    let contentType = 'image/png';
-    var blob = new Blob([img], { type: contentType });
-    var file = new File([blob], this.fileName, { type: contentType, lastModified: Date.now() });
+    const img = base64ToFile(event.base64);
+    const contentType = 'image/png';
+    const blob = new Blob([img], { type: contentType });
+    const file = new File([blob], this.fileName, { type: contentType, lastModified: Date.now() });
     this.bannerForm.controls.arquivo.setValue(file);
   }
 
   /**
- * @description:Método para Converter arquivo Blob gerado no @imageCropped no tipo File
- * @method: blobToFile
- * @memberOf BannerCreateComponent
- */
+   * @description:Método para Converter arquivo Blob gerado no @imageCropped no tipo File
+   * @method: blobToFile
+   * @memberOf BannerCreateComponent
+   */
   imageCroppedMobile(event: ImageCroppedEvent) {
     this.croppedImageMobile = event.base64;
-    let img = base64ToFile(event.base64);
-    let contentType = 'image/png';
-    var blob = new Blob([img], { type: contentType });
-    var file = new File([blob], this.fileNameMobile, { type: contentType, lastModified: Date.now() });
+    const img = base64ToFile(event.base64);
+    const contentType = 'image/png';
+    const blob = new Blob([img], { type: contentType });
+    const file = new File([blob], this.fileNameMobile, { type: contentType, lastModified: Date.now() });
     this.bannerForm.controls.arquivoMobile.setValue(file);
   }
 
@@ -246,22 +303,9 @@ export class BannerEditComponent implements OnInit {
    * @memberOf BannerCreateComponent
    */
   public blobToFile = (theBlob: Blob, fileName: string): File => {
-    var b: any = theBlob;
+    const b: any = theBlob;
     b.lastModifiedDate = new Date();
     b.name = fileName;
-    return <File>theBlob;
+    return theBlob as File;
   }
-
-  imageLoaded() {
-    // show cropper
-  }
-
-  cropperReady() {
-  }
-
-  loadImageFailed() {
-  }
-
-
-
 }

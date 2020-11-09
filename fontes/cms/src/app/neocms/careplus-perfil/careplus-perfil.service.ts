@@ -20,12 +20,16 @@ export class CareplusPerfilService {
     return this.http.get<CareplusPerfilModel[]>(this.API_ENDPOINT);
   }
 
+  getAllCreate() {
+    return this.http.get<CareplusPerfilCreateModel[]>(this.API_ENDPOINT);
+  }
+
   getById(id: string) {
     return this.http.get<CareplusPerfilModel>(this.API_ENDPOINT + '/' + id);
   }
 
   post(careplusPerfil: CareplusPerfilCreateModel) {
-    return this.http.post(this.API_ENDPOINT, [careplusPerfil]);
+    return this.http.post(this.API_ENDPOINT, careplusPerfil);
   }
 
   put(careplusPerfil: CareplusPerfilUpdateModel) {

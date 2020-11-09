@@ -1,6 +1,5 @@
-
-using Microsoft.AspNetCore.Http;
 using CarePlusAPI.Models.PostTag;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -42,7 +41,6 @@ namespace CarePlusAPI.Models.Post
         [StringLength(200)]
         public string DescricaoPaginaSEO { get; set; }
         public int CategoriaId { get; set; }
-
         public List<PostTagCreateModel> PostTag { get; set; }
     }
 }

@@ -1,13 +1,12 @@
-
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Post;
 using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
@@ -22,8 +21,9 @@ namespace CarePlusAPI.Controllers
     public class PostController : ControllerBase
     {
         private readonly IPostService _postService;
-        private readonly IMapper Mapper;
-        private readonly AppSettings AppSettings;
+        private readonly IMapper _mapper;
+        private readonly AppSettings _appSettings;
+        private readonly SeriLog _seriLog;
 
         ///<summary>
         ///
@@ -40,9 +40,10 @@ namespace CarePlusAPI.Controllers
             IOptions<AppSettings> appSettings)
         {
             _postService = noticiaService;
-            Mapper = mapper;
-            AppSettings = appSettings.Value;
-            Tinify.Key = AppSettings.TinyPngKey;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
+            Tinify.Key = _appSettings.TinyPngKey;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
@@ -52,15 +53,33 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>        
-        [HttpGet]
+        [HttpGet("{page}/{pageSize}")]
+        [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(int page, int pageSize)
         {
-            List<Post> result = await _postService.Listar();
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                var result = await _postService.Listar(page, pageSize);
 
-            List<PostModel> model = Mapper.Map<List<PostModel>>(result);
+                List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
-            return Ok(model);
+                return Ok(new
+                {
+                    count = result.Item1,
+                    result = model
+                });
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -70,15 +89,32 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet("maisLidos")]
+        [HttpGet("maisLidos/{page}/{pageSize}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetMostsRead()
+        public async Task<IActionResult> GetMostsRead(int page, int pageSize)
         {
-            List<Post> result = await _postService.BuscarMaisLidos();
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                var result = await _postService.BuscarMaisLidos(page, pageSize);
 
-            List<PostModel> model = Mapper.Map<List<PostModel>>(result);
+                List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
-            return Ok(model);
+                return Ok(new
+                {
+                    count = result.Item1,
+                    result = model
+                });
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -89,18 +125,31 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>        
-        [HttpGet("{id}")]
+        [HttpGet("{slug}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetBySlug(string slug)
         {
-            if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (string.IsNullOrWhiteSpace(slug))
+                    throw new AppException("O slug do Post não pode estar vazio");
 
-            Post result = await _postService.BuscarPorId(id);
+                Post result = await _postService.BuscarPorSlug(slug);
 
-            PostModel model = Mapper.Map<PostModel>(result);
+                PostModel model = _mapper.Map<PostModel>(result);
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -111,18 +160,33 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>
-        [HttpGet("hit/{id}")]
+        [HttpGet("hit/{slug}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByIdHit(int id)
+        public async Task<IActionResult> GetBySlugHit(string slug)
         {
-            if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Post result = await _postService.BuscarPorIdHit(id);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(slug))
+                    throw new AppException("O slug do Post não pode estar vazio");
 
-            PostModel model = Mapper.Map<PostModel>(result);
+                Post result = await _postService.BuscarPorSlugHit(slug);
 
-            return Ok(model);
+                PostModel model = _mapper.Map<PostModel>(result);
+
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -133,18 +197,75 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>
-        [HttpGet("categoria/{id}")]
+        [HttpGet("categoria/{id}/{page}/{pageSize}/{slug}")]
+        [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByCategory(int id)
+        public async Task<IActionResult> GetByCategory(int id, int page, int pageSize, string slug)
         {
-            if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            List<Post> result = await _postService.BuscarPorCategoria(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do Post não pode ser igual a 0");
 
-            List<PostModel> model = Mapper.Map<List<PostModel>>(result);
+               var result = await _postService.BuscarPorCategoria(id, page, pageSize, slug);
 
-            return Ok(model);
+                List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
+
+                return Ok(new
+                {
+                    count = result.Item1,
+                    result = model
+                });
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para buscar e gravar uma vizualização em um Post através do Id e
+        ///mapear esse objeto para um objeto de retorno mais simples.
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
+        ///
+        ///</summary>
+        ///<param name="id">Id do Post</param>
+        [HttpGet("term/{term}/{page}/{pageSize}")]        
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        public async Task<IActionResult> GetByTerm(string term, int page, int pageSize)
+        {
+            string origem = Request.Headers["Custom"];
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(term))
+                    throw new AppException("O termo não estar vazio");
+
+                var result = await _postService.BuscarPorTermo(term, page, pageSize);
+
+                return Ok(new
+                {
+                    counts = result.Item1,
+                    result = result.Item2
+                });
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -159,6 +280,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Upload([FromForm] IFormFile file)
         {
+            string origem = Request.Headers["Custom"];
+
             if (file == null)
                 throw new AppException("O Arquivo não pode estar nulo");
 
@@ -168,7 +291,7 @@ namespace CarePlusAPI.Controllers
 
             try
             {
-                var folderName = AppSettings.PathToSave;
+                var folderName = _appSettings.PathToSave;
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                 if (file.Length > 0)
@@ -187,10 +310,15 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 if (System.IO.File.Exists(directoryName))
                     System.IO.File.Delete(directoryName);
 
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -202,10 +330,12 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="model">Model de criação de um Post</param>
-        [HttpPost]
+        [HttpPost]        
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post([FromForm] PostCreateModel model)
         {
+            string origem = Request.Headers["Custom"];
+
             if (model == null)
                 throw new AppException("O Post não pode estar nulo");
 
@@ -214,10 +344,11 @@ namespace CarePlusAPI.Controllers
 
             try
             {
+
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var folderName = AppSettings.PathToSave;
+                    var folderName = _appSettings.PathToSave;
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                     if (file.Length > 0)
@@ -232,10 +363,10 @@ namespace CarePlusAPI.Controllers
                     }
 
                     model.NomeImagem = fileName;
-                    model.CaminhoImagem = directoryName.Replace(AppSettings.PathToSave, AppSettings.PathToGet);
+                    model.CaminhoImagem = directoryName.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
                 }
 
-                Post post = Mapper.Map<Post>(model);
+                Post post = _mapper.Map<Post>(model);
 
                 await _postService.Criar(post);
 
@@ -243,10 +374,15 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 if (System.IO.File.Exists(directoryName))
                     System.IO.File.Delete(directoryName);
 
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -262,6 +398,8 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromForm] PostUpdateModel model)
         {
+            string origem = Request.Headers["Custom"];
+
             if (model == null)
                 throw new AppException("O Post não pode estar nulo");
 
@@ -270,13 +408,12 @@ namespace CarePlusAPI.Controllers
 
             try
             {
-                Post post = await _postService.BuscarPorId(model.Id.Value);
-
+                Post post = await _postService.BuscarPorSlug(model.Slug);
 
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var folderName = AppSettings.PathToSave;
+                    var folderName = _appSettings.PathToSave;
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                     if (file.Length > 0)
@@ -291,7 +428,7 @@ namespace CarePlusAPI.Controllers
                     }
 
                     model.NomeImagem = fileName;
-                    model.CaminhoImagem = directoryName.Replace(AppSettings.PathToSave, AppSettings.PathToGet);
+                    model.CaminhoImagem = directoryName.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
                 }
                 else
                 {
@@ -299,7 +436,7 @@ namespace CarePlusAPI.Controllers
                     model.NomeImagem = post.NomeImagem;
                 }
 
-                post = Mapper.Map<Post>(model);
+                post = _mapper.Map<Post>(model);
 
                 await _postService.Atualizar(post);
 
@@ -307,10 +444,15 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
                 if (System.IO.File.Exists(directoryName))
                     System.IO.File.Delete(directoryName);
 
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -321,21 +463,34 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>
-        [HttpDelete("{id}")]
+        [HttpDelete("{slug}")]
         [Authorize(Roles = "Editor, Administrador")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string slug)
         {
-            if (id == 0)
-                throw new AppException("O id do Post não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (string.IsNullOrWhiteSpace(slug))
+                    throw new AppException("O slug do Post não pode estar vazio");
 
-            Post post = await _postService.BuscarPorId(id);
+                Post post = await _postService.BuscarPorSlug(slug);
 
-            if (System.IO.File.Exists(post.CaminhoImagem))
-                System.IO.File.Delete(post.CaminhoImagem);
+                if (System.IO.File.Exists(post.CaminhoImagem))
+                    System.IO.File.Delete(post.CaminhoImagem);
 
-            await _postService.Excluir(post.Id);
+                await _postService.Excluir(post.Slug);
 
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
     }
 }

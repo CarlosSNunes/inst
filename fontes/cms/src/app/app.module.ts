@@ -14,13 +14,14 @@ import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 import { PostsBlogModule } from './neocms/posts-blog/posts-blog.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PostsBlogDeleteComponent } from './neocms/posts-blog/posts-blog-delete/posts-blog-delete.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.circles,
@@ -29,7 +30,7 @@ const ngWizardConfig: NgWizardConfig = {
   declarations: [
     AppComponent,
   ],
-  entryComponents:[
+  entryComponents: [
     PostsBlogDeleteComponent
   ],
   imports: [
@@ -42,7 +43,6 @@ const ngWizardConfig: NgWizardConfig = {
     ErrorHandlerModule,
     HttpClientModule,
     NgWizardModule.forRoot(ngWizardConfig),
-    
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BrowserAnimationsModule,
@@ -50,6 +50,9 @@ const ngWizardConfig: NgWizardConfig = {
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     PaginationModule.forRoot(),
+    NgSelectModule,
+    FormsModule,
+    AlertModule.forRoot(),
   ],
   providers: [
     BsModalRef,

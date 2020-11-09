@@ -1,18 +1,19 @@
-using Xunit;
-using System;
+using AutoMapper;
+using CarePlusAPI.Controllers;
+using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
+using CarePlusAPI.Models.Perfil;
+using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 using Microsoft.Extensions.Options;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using CarePlusAPI.Helpers;
-using CarePlusAPI.Entities;
-using CarePlusAPI.Models.Perfil;
-using CarePlusAPI.Services;
-using CarePlusAPI.Controllers;
+using System.IO;
+using Xunit;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -96,14 +97,20 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public void Contrutor()
         {
-            var result = new PerfilController(PerfilService, Mapper, AppSettings);
-            Assert.NotNull(result);
+            var controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            Assert.NotNull(controller);
         }
 
         [Fact]
         public async void GetSucesso()
         {
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             var result = await controller.Get();
             Assert.IsType<OkObjectResult>(result);
         }
@@ -113,6 +120,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await PerfilService.Criar(Perfis);
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.GetById(1);
             Assert.IsType<OkObjectResult>(result);
         }
@@ -122,7 +132,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await PerfilService.Criar(Perfis);
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -130,13 +144,20 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await PerfilService.Criar(Perfis);
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void PostSucesso()
         {
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Post(PerfisCreateModel);
             Assert.IsType<OkResult>(result);
         }
@@ -145,14 +166,22 @@ namespace CarePlusAPI.Tests.Controllers
         public async void PostErro()
         {
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(new List<PerfilCreateModel>()));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Post(new List<PerfilCreateModel>());
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void PostErroNulo()
         {
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Post(null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -164,6 +193,9 @@ namespace CarePlusAPI.Tests.Controllers
             {
                 PerfilService service = new PerfilService(context);
                 PerfilController controller = new PerfilController(service, Mapper, AppSettings);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(PerfisUpdateModel);
                 Assert.IsType<OkResult>(result);
             }
@@ -173,14 +205,22 @@ namespace CarePlusAPI.Tests.Controllers
         public async void PutErro()
         {
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(new List<PerfilUpdateModel>()));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(new List<PerfilUpdateModel>());
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void PutErroNulo()
         {
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Put(null));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Put(null);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -188,6 +228,9 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await PerfilService.Criar(Perfis);
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             IActionResult result = await controller.Delete(1);
             Assert.IsType<OkResult>(result);
         }
@@ -197,7 +240,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await PerfilService.Criar(Perfis);
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(999));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
@@ -205,7 +252,11 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await PerfilService.Criar(Perfis);
             PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(0));
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Delete(0);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         public void Dispose()

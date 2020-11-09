@@ -24,9 +24,10 @@ export class HttpHandlerService implements HttpInterceptor {
     }
 
     return next.handle(req).pipe(
-      catchError((error) => {
-        console.log(error);
-        return throwError(error);
-      }));
+      // catchError((error) => {
+      //   console.log(error);
+      //   return throwError(error);
+      // })
+    );
   }
 }

@@ -2,31 +2,35 @@ import { TagModel } from '../tag/tag.model';
 
 export class PostsBlogModel {
     public constructor(init?: Partial<PostsBlogModel>) {
-        Object.assign(this, init); 
-        
-        this.postTag = [];
-
+        Object.assign(this, init);
+        this.result['postTag'] = [];
         if (init) {
-            init.postTag.forEach(tag => this.postTag.push(new TagModel(tag)));
+            init.result['postTag'].forEach(tag => this.result['postTag'].push(new TagModel(tag)));
         }
     }
+    count: number;
+    result: [{
+        id: number;
+        ativo: string;
+        categoriaId: number;
+        dataCadastro: string;
+        dataExpiracao: string | null;
+        dataPublicacao: string;
+        descricao: string;
+        descricaoPaginaSEO: string;
+        descricaoPrevia: string;
+        destaque: string;
+        nomeImagem: string;
+        postTag: TagModel[];
+        subtitulo: string;
+        titulo: string;
+        tituloPaginaSEO: string;
+        vizualizacoes: number;
 
-    id: number;
-    titulo: string;
-    subtitulo: string;
-    descricaoPrevia: string;
-    descricao: string;
-    dataPublicacao: string;
-    dataExpiracao: string | null;    
-    dataCadastro: string;
-    caminhoImagem: string;
-    nomeImagem: string;
-    destaque: string;
-    ativo: string;
-    vizualizacoes: number;
-    tituloPaginaSEO: string;
-    descricaoPaginaSEO: string;
-    categoriaId: number;
-
-    postTag: TagModel[];
+        CaminhoImagem: string;
+        CaminhoCompleto: string;
+        CaminhoCompleto_build: string;
+        slug: string;
+    }]
 }
+/*//* CONFERIDO ÚLTIMA INTEGRAÇÃO BACKEND - 05/11/2020  */

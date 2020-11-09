@@ -1,318 +1,234 @@
-<style type="css/text">
-    div.card.m-5.position-fixed.shadow {
-        z-index: 99999 !important;
-        right: 0 !important;
-        padding: 20px !important;
-        overflow:auto;
-        width:300px
-    }
-</style>
-<div class="content">
-    <form [formGroup]="postsBlogForm" (ngSubmit)="onSubmit()">
-        <div class="card shadow my-2" id="card-header">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-10">
-                        <a [routerLink]="['neocms/post-blog/index']">
-                            <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-                            <span class="title-banner">Criar Novo Post</span>
-                        </a>
-                    </div>
-                    <div style="align-content: flex-end;">
-                        <button class="btn btn-primary is-primary" type="submit">
-                            Salvar Post &nbsp;
-                            <fa-icon [icon]="faCheck"></fa-icon>
-                        </button>
-                    </div>
+<form [formGroup]="postsBlogForm" (ngSubmit)="onSubmit()">
+  <div class="card my-2" id="card-header">
+    <div class="card-body">
+      <div class="row">
+        <div class="link-title">
+          <a [routerLink]="['neocms/post-blog/index']">
+            <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+            <span class="title-banner">Criar Novo Post</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="card my-5 py-5">
+    <div class="card-body">
+      <div class="container w-100 mb-5">
+        <section class="mb-5">
+          <h5 class="">1 - Conteúdo</h5>
+          <hr>
+        </section>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <label class="label">Título</label>
+            <input formControlName="titulo" class="form-control input" type="text" placeholder=""
+              [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="label">Subtítulo</label>
+            <input
+              [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }"
+              formControlName="subtitulo" class="form-control input" type="text" placeholder="">
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="label">Qual é a categoria?</label>
+            <div class="select"
+              [ngClass]="{ 'is-success': submitted && !f.categoriaId.errors, 'is-danger' : submitted && f.categoriaId.errors }">
+              <select formControlName="categoriaId" (change)="changeCategoria($event.target)"
+                class="custom-select form-group">
+                <option value="">Selecione uma categoria..</option>
+                <option *ngFor="let cat of resultCat" [value]="cat.id">
+                  {{cat.descricao}}</option>
+                <option value="Administrar">Administrar categorias...
+                  <fa-icon [icon]="faCog"></fa-icon>
+                </option>
+              </select>
+            </div>
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.categoriaId)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="label">Destacar postagem na Home?</label>
+                <div class="buttons has-addons">
+                  <button type="button" class="btn btn-outline-primary " [ngClass]="{'isSelected': !isPostDestaque}"
+                    (click)="changeStatusDestaque('0', false)">
+                    Não
+                  </button>
+                  <button type="button" class="btn btn-outline-primary ml-2" [ngClass]="{'isSelected': isPostDestaque}"
+                    (click)="changeStatusDestaque('1', true)">
+                    Sim
+                  </button>
                 </div>
+              </div>
+              <div class="col-md-6">
+                <label class="label">Ativar Post?</label>
+                <div class="buttons has-addons">
+                  <button type="button" class="btn btn-outline-primary " [ngClass]="{'isSelected': !isPostAtivo}"
+                    (click)="changeStatusPost('0', false)">
+                    Não
+                  </button>
+                  <button type="button" class="btn btn-outline-primary ml-2" [ngClass]="{'isSelected': isPostAtivo}"
+                    (click)="changeStatusPost('1', true)">
+                    Sim
+                  </button>
+                </div>
+              </div>
             </div>
-        </div>
-        <div class="marging-box">
-            <div class="content">
-                <tabset>
-                    <tab heading="Conteudo" id="tabConteudo" class="card shadow mb-5">
-                        <div class="container marging-input">
-                            <div class="column ">
-                                <div class="field">
-                                    <label class="label">Título</label>
-                                    <div class="control">
-                                        <input formControlName="titulo" class="form-control input" type="text"
-                                            placeholder=""
-                                            [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
-                                    </div>
-                                    <div *ngIf="submitted" class="errors">
-                                        <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
-                                            {{error}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column marging-input">
-                                <div class="field">
-                                    <label class="label">Subtítulo</label>
-                                    <div class="control">
-                                        <input
-                                            [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }"
-                                            formControlName="subtitulo" class="form-control input" type="text"
-                                            placeholder="">
-                                    </div>
-                                    <div *ngIf="submitted" class="errors">
-                                        <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
-                                            {{error}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="field marging-input">
-                                <label class="label">Descrição Prévia</label>
-                                <div class="control">
-                                    <textarea formControlName="descricaoPrevia"
-                                        [ngClass]="{ 'is-success': submitted && !f.descricaoPrevia.errors, 'is-danger' : submitted && f.descricaoPrevia.errors }"
-                                        class="form-control textarea" placeholder="" rows="3"></textarea>
-                                </div>
-                                <div *ngIf="submitted" class="errors">
-                                    <p *ngFor="let error of getErrors(f.descricaoPrevia)" class="help is-danger">
-                                        {{error}}
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- <div class="field marging-input">
-                                <label class="label">Descrição</label>
-                                <ckeditor formControlName="descricao" class="card shadow"
-                                    [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
-                                    [editor]="editor" rows="3">
-                                </ckeditor>
-                                <div *ngIf="submitted" class="errors">
-                                    <p *ngFor="let error of getErrors(f.descricao.errors)" class="help is-danger">
-                                        {{error}}
-                                    </p>
-                                </div>
-                            </div> -->
-                            <div class="field mt-3">
-                                <label class="label">Descrição</label>
-                                <ckeditor formControlName="descricao" class="card shadow"
-                                    [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
-                                    [editor]="editor" (ready)="onReady($event)">
-                                </ckeditor>
-                                <!-- <div *ngIf="submitted" class="errors">
-                                    <p *ngFor="let error of getErrors(f.descricao.errors)" class="help is-danger">
-                                        {{error}}
-                                    </p>
-                                </div> -->
-                            </div>
-
-                            <div class="mt-5">
-                                <div class="field">
-                                    <label class="label">Qual é a categoria?</label>
-                                    <div class="control">
-                                        <div class="select"
-                                            [ngClass]="{ 'is-success': submitted && !f.categoriaId.errors, 'is-danger' : submitted && f.categoriaId.errors }">
-                                            <select formControlName="categoriaId" (change)="changeCategoria($event.target)"
-                                                class="custom-select custom-select-md col-xs-12 col-12 col-md-4 form-group">
-                                                <option value="">Selecione uma categoria..</option>
-                                                <option *ngFor="let categoria of categorias" [value]="categoria.id"  >
-                                                    {{categoria.descricao}}</option>
-                                                <option value="Administrar"  >Administrar categorias...
-                                                    <fa-icon [icon]="faCog"></fa-icon>
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div *ngIf="submitted" class="errors">
-                                        <p *ngFor="let error of getErrors(f.categoriaId)" class="help is-danger">
-                                            {{error}}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="marging-input is-four-fifths">
-                                    <label class="label">Destacar postagem na Home?</label>
-                                    <div class="buttons has-addons">
-                                        <button type="button" class="btn btn-outline-primary "
-                                            [ngClass]="{'isSelected': !isPostDestaque}"
-                                            (click)="changeStatusDestaque('0', false)">
-                                            Não
-                                        </button>
-                                        <button type="button" class="btn btn-outline-primary ml-2"
-                                            [ngClass]="{'isSelected': isPostDestaque}"
-                                            (click)="changeStatusDestaque('1', true)">
-                                            Sim
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="columns">
-                                    <div class="marging-input">
-                                        <label class="label">Ativar Post?</label>
-                                        <div class="buttons has-addons">
-                                            <button type="button" class="btn btn-outline-primary "
-                                                [ngClass]="{'isSelected': !isPostAtivo}"
-                                                (click)="changeStatusPost('0', false)">
-                                                Não
-                                            </button>
-                                            <button type="button" class="btn btn-outline-primary ml-2"
-                                                [ngClass]="{'isSelected': isPostAtivo}"
-                                                (click)="changeStatusPost('1', true)">
-                                                Sim
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                    </tab>
-
-                    <tab heading="Opções" id="tabOpcoes" class="card shadow mb-5 p-3">
-                        <div class="container  mb-3"  >
-                            <div class="card shadow p-3">
-                                <label class="label">Imagem</label>
-                                <div class="col-md-6 d-inline marging-input">
-                                    <div class="form-group ml-3">
-                                        <input type="file" class="" name="image"
-                                            (change)="fileProgress($event.srcElement.files)" />
-                                    </div>
-                                    <div *ngIf="fileUploadProgress">
-                                        Upload progress: {{ fileUploadProgress }}
-                                    </div>
-                                    <div class="mb-3" *ngIf="uploadedFilePath">
-                                        {{uploadedFilePath}}
-                                    </div>
-                                </div>
-                                <div class="image-preview mb-3 d-inline card shadow m-3 p-3" style="width: inherit;"
-                                    *ngIf="previewUrl">
-                                    <img [src]="previewUrl" height="300" />
-                                </div>
-                            </div>
-                            <!-- <div class="card shadow col-md-5 mt-3" style="float: left;" >
-                                <label class="label mt-2">Imagem Grande</label>
-                                <div class="d-inline marging-input">
-                                    <div class="form-group ">
-                                        <input type="file" formControlName="arquivos" class="" name="image"
-                                            (change)="fileProgress($event.srcElement.files)" />
-                                    </div>
-                                    <div *ngIf="fileUploadProgress">
-                                        Upload progress: {{ fileUploadProgress }}
-                                    </div>
-                                    <div class="mb-3" *ngIf="uploadedFilePath">
-                                        {{uploadedFilePath}}
-                                    </div>
-
-                                </div>
-                                <div class="image-preview mb-3 d-inline card shadow" style="width: 335px;" *ngIf="previewUrl">
-                                    <img [src]="previewUrl" height="300" width="335px" />
-                                </div>
-                            </div> -->
-
-                            <!-- <div class="card shadow col-md-5 mt-3 mr-3 " style="float: right;" >
-                                <label class="label mt-2">Imagem Pequena</label>
-                                <div class="d-inline marging-input">
-                                    <div class="form-group ">
-                                        <input type="file" class="" name="imagePequena"
-                                            (change)="fileProgressImagemPequena($event.srcElement.files)" />
-                                    </div>
-                                    <div *ngIf="fileUploadProgress">
-                                        Upload progress: {{ fileUploadProgress }}
-                                    </div>
-                                    <div class="mb-3" *ngIf="uploadedFilePath">
-                                        {{uploadedFilePath}}
-                                    </div>
-
-                                </div>
-                                <div class="image-preview mb-3 d-inline card shadow" style="width: 350px;" *ngIf="previewUrlImagemPequena">
-                                    <img [src]="previewUrlImagemPequena" height="300" width="350px" />
-                                </div>
-                            </div> -->
-                        </div>
-
-                        <div class="mb-3 mt-3">
-                            <label class="label labelTeste mt-5">Quando será publicado?</label>
-                            <div class="col-xs-12 col-12 col-md-3 form-group">
-                                <input type="date" id="dataPublicacao" formControlName="dataPublicacao"
-                                    [ngClass]="{ 'is-success': submitted && !f.dataPublicacao.errors, 'is-danger' : submitted && f.dataPublicacao.errors }"
-                                    placeholder="Selecione uma data" class="form-control data">
-                            </div>
-                            <div *ngIf="submitted" class="errors">
-                                <p *ngFor="let error of getErrors(f.dataPublicacao)" class="help is-danger">
-                                    {{error}}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="d-inline">
-                            <label class="label">Quando deverá ser removido?</label>
-                            <div class="col-xs-12 col-12 col-md-3 form-group">
-                                <input type="date"  id="dataExpiracao" formControlName="dataExpiracao"
-                                    [ngClass]="{ 'is-success': submitted && !f.dataExpiracao.errors, 'is-danger' : submitted && f.dataExpiracao.errors }"
-                                    class=" form-control input" placeholder="Selecione uma data">
-                            </div>
-                            <div *ngIf="submitted" class="errors">
-                                <p *ngFor="let error of getErrors(f.dataExpiracao)" class="help is-danger">
-                                    {{error}}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="mt-5">
-                            <div style="align-content: flex-end; vertical-align:inherit">
-                            <h4 class="label d-inline">
-                                Tags
-                            </h4>
-
-                            <button type="button" class="btn btn-link ml-2 d-inline float-right" [routerLink]="['/neocms/posts-blog/tag/']"
-                                routerLinkActive="active">
-                                Nova Tag &nbsp;
-                                <fa-icon [icon]="faPlus"></fa-icon>
-                            </button>
-                            </div>
-                            <div class="card shadow p-3 mt-3 are-medium d-block">
-                                <button type="button" (click)="toggleTag(tag)" class="btn btn-outline-primary btn-sm col-md-* m-2"
-                                    btnCheckbox *ngFor="let tag of tags" 
-                                    btnCheckboxTrue="1" btnCheckboxFalse="0">
-                                    {{tag.descricao}}
-                                </button>
-                            </div>
-                        </div>
-                    </tab>
-
-                    <tab heading="SEO" id="tabSeo" class="card shadow mb-5">
-                        <div class="container marging-input">
-                            <div class="column">
-                                <div class="field">
-                                    <label class="label">Título para SEO</label>
-                                    <div class="control">
-                                        <input formControlName="tituloPaginaSEO" class="form-control input" type="text"
-                                            placeholder=""
-                                            [ngClass]="{ 'is-success': submitted && !f.tituloPaginaSEO.errors, 'is-danger' : submitted && f.tituloPaginaSEO.errors }">
-                                    </div>
-                                    <div *ngIf="submitted" class="errors">
-                                        <p *ngFor="let error of getErrors(f.tituloPaginaSEO)" class="help is-danger">
-                                            {{error}}
-                                        </p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="column">
-                                <div class="marging-input field">
-                                    <label class="label">Descrição para SEO</label>
-                                    <div class="control">
-                                        <textarea formControlName="descricaoPaginaSEO"
-                                            [ngClass]="{ 'is-success': submitted && !f.descricaoPaginaSEO.errors, 'is-danger' : submitted && f.descricaoPaginaSEO.errors }"
-                                            class="form-control textarea" placeholder="" rows="4"></textarea>
-                                    </div>
-                                    <div *ngIf="submitted" class="errors">
-                                        <p *ngFor="let error of getErrors(f.descricaoPaginaSEO)" class="help is-danger">
-                                            {{error}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                    </tab>
-                </tabset>
+          </div>
+          <div class="col-md-12">
+            <label class="label">Descrição Prévia</label>
+            <textarea formControlName="descricaoPrevia"
+              [ngClass]="{ 'is-success': submitted && !f.descricaoPrevia.errors, 'is-danger' : submitted && f.descricaoPrevia.errors }"
+              class="form-control textarea" placeholder="" rows="3">
+                                    </textarea>
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.descricaoPrevia)" class="help is-danger">
+                {{error}}
+              </p>
             </div>
+          </div>
+          <div class="col-md-12">
+            <label class="label">Descrição</label>
+            <ckeditor formControlName="descricao" class="card h-75"
+              [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
+              [editor]="editor" (ready)="onReady($event)">
+            </ckeditor>
+          </div>
         </div>
-    </form>
-</div>
+      </div>
+      <div class="container w-100 my-5">
+        <section class="my-5">
+          <h5 class="">2 - Opções</h5>
+          <hr>
+        </section>
+      </div>
+      <div class="container">
+        <div class="col-md-12">
+          <div class="form-group">
+            <input type="file" class="text-truncate input-img" (change)="fileProgress($event.srcElement.files)" />
+          </div>
+          <div *ngIf="fileUploadProgress">
+            Upload progress: {{ fileUploadProgress }}
+          </div>
+          <div class="my-2" *ngIf="uploadedFilePath">
+            {{uploadedFilePath}}
+          </div>
+          <div class="" *ngIf="previewUrl">
+            <img [src]="previewUrl" class="image-preview card shadow" />
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <label class="label">Quando será publicado?</label>
+            <input type="date" id="dataPublicacao" formControlName="dataPublicacao"
+              [ngClass]="{ 'is-success': submitted && !f.dataPublicacao.errors, 'is-danger' : submitted && f.dataPublicacao.errors }"
+              placeholder="Selecione uma data" class="form-control data">
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.dataPublicacao)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="label">Quando deverá ser removido?</label>
+            <input type="date" id="dataExpiracao" formControlName="dataExpiracao"
+              [ngClass]="{ 'is-success': submitted && !f.dataExpiracao.errors, 'is-danger' : submitted && f.dataExpiracao.errors }"
+              class=" form-control input" placeholder="Selecione uma data">
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.dataExpiracao)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="container">
+        <label class="label">Tags</label>
+        <div class="card">
+          <div class="card-body my-2">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="tags-container" *ngFor="let t of resultTag">
+                  <button type="button" (click)="toggleTag(t)" class="btn btn-outline-primary btn-tag" btnCheckbox
+                    btnCheckboxTrue="1" btnCheckboxFalse="0">
+                    <fa-icon class="gold" [icon]="faTag"></fa-icon>
+                    {{t.descricao}}
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <button type="button" class="btn btn-outline-primary new-tag" [routerLink]="['/neocms/posts-blog/tag/']"
+                  routerLinkActive="active">
+                  Nova Tag &nbsp;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container w-100 my-5">
+        <section class="my-5">
+          <h5 class="">3 - SEO</h5>
+          <hr>
+        </section>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <label class="label">Título para SEO</label>
+            <input formControlName="tituloPaginaSEO" class="form-control input" type="text" placeholder=""
+              [ngClass]="{ 'is-success': submitted && !f.tituloPaginaSEO.errors, 'is-danger' : submitted && f.tituloPaginaSEO.errors }">
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.tituloPaginaSEO)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label class="label">Descrição para SEO</label>
+            <textarea formControlName="descricaoPaginaSEO"
+              [ngClass]="{ 'is-success': submitted && !f.descricaoPaginaSEO.errors, 'is-danger' : submitted && f.descricaoPaginaSEO.errors }"
+              class="form-control textarea" placeholder="" rows="4"></textarea>
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.descricaoPaginaSEO)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container my-5">
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-primary btn-salvar" type="submit">
+              Salvar Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

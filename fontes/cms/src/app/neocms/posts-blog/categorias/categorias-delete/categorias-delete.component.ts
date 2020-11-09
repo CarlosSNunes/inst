@@ -1,9 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { BannerModel } from 'src/models/banner/banner.model';
-import { CategoriasModel } from 'src/models/categorias/categorias.model';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { CategoriasModel } from './../../../../../../src/models/categorias/categorias.model';
+import { UserAuthenticateModel } from './../../../../../../src/models/user-authenticate.model';
 import { CategoriasService } from '../categorias.service';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { AuthenticationService } from './../../../../../../src/app/authentication/authentication.service';
 
 @Component({
   selector: 'app-categorias-delete',
@@ -11,11 +10,8 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
   styleUrls: ['./categorias-delete.component.scss']
 })
 export class CategoriasDeleteComponent implements OnInit {
-  @Output()
-  onClose = new EventEmitter();
-
-  @Input()
-  categoria: CategoriasModel;
+  @Output() onClose = new EventEmitter();
+  @Input() categoria: CategoriasModel;
 
   usuario: UserAuthenticateModel;
 
@@ -34,7 +30,7 @@ export class CategoriasDeleteComponent implements OnInit {
 
   deleteCategoria() {
     this.categoriasService
-      .delete(this.categoria.id)
+      .delete(this.categoria['result'].id)
       .subscribe(result => this.closeModal());
   }
 }

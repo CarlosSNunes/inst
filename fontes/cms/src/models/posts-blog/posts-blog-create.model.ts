@@ -1,3 +1,4 @@
+// tslint:disable:typedef-whitespace
 import { PostsTagCreateModel } from './posts-tag-create.model';
 
 export class PostsBlogCreateModel {
@@ -7,7 +8,6 @@ export class PostsBlogCreateModel {
 
         init.postTag.forEach(tag => this.postTag.push(new PostsTagCreateModel(tag)));
     }
-
     titulo: string;
     subtitulo: string;
     descricaoPrevia: string;
@@ -23,6 +23,7 @@ export class PostsBlogCreateModel {
     tituloPaginaSEO: string;
     descricaoPaginaSEO: string;
     categoriaId: number;
-
     postTag: PostsTagCreateModel[];
+
 }
+/*//! CONFERIDO ÚLTIMA INTEGRAÇÃO BACKEND - 05/11/2020  */

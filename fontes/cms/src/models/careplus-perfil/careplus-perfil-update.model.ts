@@ -1,9 +1,8 @@
 export class CareplusPerfilUpdateModel {
-    public constructor(init?: Partial<CareplusPerfilUpdateModel>) {
-        Object.assign(this, init);
-    }
+  public constructor(init?: Partial<CareplusPerfilUpdateModel>) {
+    Object.assign(this, init);
+  }
 
-    id       : number;
-    descricao: string;
-    perfilId : number;
+  descricao: string;
+  perfilId: number;
 }

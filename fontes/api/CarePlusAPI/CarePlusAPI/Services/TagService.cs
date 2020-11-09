@@ -1,6 +1,7 @@
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace CarePlusAPI.Services
 {
     public interface ITagService
     {
-        Task<List<Tag>> Listar();
+        Task<Tuple<int, List<Tag>>> Listar(int page, int pageSize);
         Task<Tag> Buscar(int id);
         Task Criar(List<Tag> model);
         Task Atualizar(List<Tag> model);
@@ -37,9 +38,18 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todas as tags da base.
         ///
         ///</summary>
-        public async Task<List<Tag>> Listar()
+        public async Task<Tuple<int, List<Tag>>> Listar(int page, int pageSize)
         {
-            return await Db.Set<Tag>().ToListAsync();
+            IQueryable<Tag> query = Db.Tag.AsQueryable();
+
+            query = query
+                       .AsNoTracking();
+
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Tag>(query, page, pageSize);
+
+            return new Tuple<int, List<Tag>>(count, result.Results);
         }
 
         ///<summary>

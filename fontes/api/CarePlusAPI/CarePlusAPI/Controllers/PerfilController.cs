@@ -1,15 +1,14 @@
-
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using CarePlusAPI.Services;
 using AutoMapper;
-using CarePlusAPI.Helpers;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Authorization;
 using CarePlusAPI.Entities;
+using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Perfil;
+using CarePlusAPI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CarePlusAPI.Controllers
 {
@@ -18,9 +17,11 @@ namespace CarePlusAPI.Controllers
     [Route("[controller]")]
     public class PerfilController : ControllerBase
     {
-        private readonly IPerfilService PerfilService;
-        private readonly IMapper Mapper;
-        private readonly AppSettings AppSettings;
+        private readonly IPerfilService _perfilService;
+        private readonly IMapper _mapper;
+        private readonly AppSettings _appSettings;
+        private readonly SeriLog _seriLog;
+
 
         ///<summary>
         ///
@@ -36,9 +37,10 @@ namespace CarePlusAPI.Controllers
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
-            PerfilService = perfilService;
-            Mapper = mapper;
-            AppSettings = appSettings.Value;
+            _perfilService = perfilService;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
+            _seriLog = new SeriLog(appSettings);
         }
 
         ///<summary>
@@ -52,11 +54,25 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
-            List<Perfil> perfil = await PerfilService.Listar();
+            string origem = Request.Headers["Custom"];
 
-            List<PerfilModel> model = Mapper.Map<List<PerfilModel>>(perfil);
+            try
+            {
+                List<Perfil> perfil = await _perfilService.Listar();
 
-            return Ok(model);
+                List<PerfilModel> model = _mapper.Map<List<PerfilModel>>(perfil);
+
+                return Ok(model);
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -71,14 +87,28 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
-            if (id == 0)
-                throw new AppException("O id do perfil não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            Perfil perfil = await PerfilService.Buscar(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do perfil não pode ser igual a 0");
 
-            PerfilModel model = Mapper.Map<PerfilModel>(perfil);
+                Perfil perfil = await _perfilService.Buscar(id);
 
-            return Ok(model);
+                PerfilModel model = _mapper.Map<PerfilModel>(perfil);
+
+                return Ok(model);
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -93,14 +123,28 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Post(List<PerfilCreateModel> models)
         {
-            if (models == null || !models.Any())
-                throw new AppException("Deve-se ter ao menos um perfil");
+            string origem = Request.Headers["Custom"];
 
-            List<Perfil> perfis = Mapper.Map<List<Perfil>>(models);
+            try
+            {
+                if (models == null || !models.Any())
+                    throw new AppException("Deve-se ter ao menos um perfil");
 
-            await PerfilService.Criar(perfis);
+                List<Perfil> perfis = _mapper.Map<List<Perfil>>(models);
 
-            return Ok();
+                await _perfilService.Criar(perfis);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -115,14 +159,28 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put(List<PerfilUpdateModel> models)
         {
-            if (models == null || !models.Any())
-                throw new AppException("Deve-se ter ao menos um perfil");
+            string origem = Request.Headers["Custom"];
 
-            List<Perfil> perfis = Mapper.Map<List<Perfil>>(models);
+            try
+            {
+                if (models == null || !models.Any())
+                    throw new AppException("Deve-se ter ao menos um perfil");
 
-            await PerfilService.Atualizar(perfis);
+                List<Perfil> perfis = _mapper.Map<List<Perfil>>(models);
 
-            return Ok();
+                await _perfilService.Atualizar(perfis);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
 
         ///<summary>
@@ -136,12 +194,26 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
-                throw new AppException("O id do perfil não pode ser igual a 0");
+            string origem = Request.Headers["Custom"];
 
-            await PerfilService.Excluir(id);
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do perfil não pode ser igual a 0");
 
-            return Ok();
+                await _perfilService.Excluir(id);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
         }
     }
 }
