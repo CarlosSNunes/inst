@@ -8,6 +8,7 @@ import { crossContentModel, breadcrumbs } from './data/mock';
 import { BlogService, CategoriasService } from 'src/app/services';
 import { Router } from '@angular/router';
 import { ErrorHandler } from 'src/utils/error-handler';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -26,8 +27,8 @@ export class CareplusMaisComponent implements OnInit {
     allPosts: PostCardModel[] = [];
     crossContentModel = crossContentModel;
     allPostsLoaded: boolean = false;
-    page: number = 2;
-    pageSize: number = 7;
+    allPostsSkip: number = 7;
+    allPostsTake: number = 9;
 
     constructor(
         private fb: FormBuilder,
@@ -89,7 +90,7 @@ export class CareplusMaisComponent implements OnInit {
 
     private async getAllPosts(newRequest: boolean = false) {
         try {
-            const allPostsPaginated = await this.blogService.getAllPostsPaginated(this.page, this.pageSize);
+            const allPostsPaginated = await this.blogService.getAllPostsPaginated(this.allPostsSkip, this.allPostsTake);
             allPostsPaginated.result.forEach(post => {
                 let postCardObj = new PostCardModel({
                     post
@@ -99,7 +100,7 @@ export class CareplusMaisComponent implements OnInit {
                 }
                 this.allPosts.push(postCardObj);
             });
-            if (this.allPosts.length === allPostsPaginated.count) {
+            if (this.allPosts.length === allPostsPaginated.count || allPostsPaginated.result.length < this.allPostsTake) {
                 this.allPostsLoaded = true;
             }
         } catch (error) {
@@ -139,10 +140,66 @@ export class CareplusMaisComponent implements OnInit {
             name: 'description',
             content: 'O seu canal de notícias e conteúdos exclusivos no site da Care Plus.'
         });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'Care Plus +',
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // Observação, a meta tag og:image é preenchida no componente de banner.
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'O seu canal de notícias e conteúdos exclusivos no site da Care Plus.',
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/careplus-mais`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'Care Plus +',
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // Observação, a meta tag twitter:image é preenchida no componente de banner.
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'O seu canal de notícias e conteúdos exclusivos no site da Care Plus.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/careplus-mais`,
+        });
     }
 
     loadMore() {
         if (!this.allPostsLoaded) {
+            this.allPostsSkip += this.allPostsTake;
             this.getAllPosts(true);
         }
     }

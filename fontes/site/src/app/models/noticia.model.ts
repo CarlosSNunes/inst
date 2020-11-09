@@ -17,8 +17,6 @@ export class NoticiaModel {
                 this.dateDifferences = GetDifferences(new Date(), init.dataCadastro);
             }
         }
-
-        this.caminhoImagem = `${this.caminhoImagem}/${this.nomeImagem}`;
     }
 
     slug: string;
@@ -26,10 +24,11 @@ export class NoticiaModel {
     titulo: string;
     subtitulo: string;
     descricaoPrevia: string;
-    corpoDescricao: string;
+    descricao: string;
     dataPublicacao: Date;
     dataExpiracao: Date;
     dataCadastro: Date;
+    caminhoCompleto: string;
     caminhoImagem: string;
     nomeImagem: string;
     destaque: number = 0;

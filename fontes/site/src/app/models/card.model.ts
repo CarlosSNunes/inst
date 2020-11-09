@@ -27,7 +27,7 @@ export class IconCardModel extends CardModel {
 }
 
 
-export class PostCardModel extends CardModel {
+export class PostCardModel<T = any> extends CardModel {
     public constructor(init?: Partial<PostCardModel>) {
         super(init)
         Object.assign(this, init);
@@ -36,6 +36,7 @@ export class PostCardModel extends CardModel {
 
     post: NoticiaModel;
     isNewRequest?: boolean = false;
+    modalContent: T;
 }
 
 

@@ -110,14 +110,7 @@ export class CredenciadoComponent implements OnInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
-        this.meta.updateTag({
-            name: "og:image",
-            content: `${environment.SELF_URL}/${this.banners[0].caminhoImagem}`,
-        });
+        // Observação, a meta tag og:image é preenchida no componente de banner.
 
         this.meta.updateTag({
             name: "og:description",
@@ -146,14 +139,7 @@ export class CredenciadoComponent implements OnInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
-        this.meta.updateTag({
-            name: "twitter:image",
-            content: `${environment.SELF_URL}/${this.banners[0].caminhoImagem}`,
-        });
+        // Observação, a meta tag twitter:image é preenchida no componente de banner.
 
         this.meta.updateTag({
             name: "twitter:description",

@@ -71,11 +71,8 @@
                             {{post?.descricaoPrevia}}
                         </p>
 
-                        <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem" class="post-image">
-                        <p class="observation">
-                            Lorem ipsum dolor sit amet, consect adi elit. Scelerisque eu sit egestas am dorime
-                        </p>
-                        <div class="post-content" [innerHTML]="post?.corpoDescricao"></div>
+                        <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo" class="post-image">
+                        <div class="post-content" [innerHTML]="post?.descricao"></div>
                     </div>
 
                     <div class="post-footer">

@@ -20,8 +20,8 @@ export class BuscaPorCategoriaComponent implements OnInit {
     category: CategoryModel;
     categories: CategoryModel[] = [];
     loading: boolean = false;
-    page: number = 1;
-    pageSize: number = 20;
+    skip: number = 0;
+    take: number = 20;
     canFindMore: boolean = true;
 
     constructor(
@@ -107,9 +107,9 @@ export class BuscaPorCategoriaComponent implements OnInit {
         this.loading = true;
         this.cdr.detectChanges();
         try {
-            const { result, count } = await this.blogService.getByCategoryId(this.categoryId, this.page, this.pageSize);
+            const { result, count } = await this.blogService.getByCategoryId(this.categoryId, this.skip, this.take);
             this.count = count;
-            if (count == 0 || result.length < this.pageSize) {
+            if (count == 0 || result.length < this.take) {
                 this.canFindMore = false;
             }
             result.forEach(post => {
@@ -132,11 +132,12 @@ export class BuscaPorCategoriaComponent implements OnInit {
 
     onScroll() {
         if (this.canFindMore) {
-            this.pageSize++;
+            this.skip += this.take;
             this.getPostsByCategoryId()
         }
     }
 
+    // TODO falta meta description
     setSEOInfos(category: CategoryModel) {
         this.title.setTitle(`Caregoria | ${category.titulo} | Care Plus +`);
         this.meta.updateTag({

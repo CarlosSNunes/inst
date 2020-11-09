@@ -32,8 +32,8 @@ export class BuscaComponent implements OnInit, AfterViewInit {
     count: number = 0;
     posts: NoticiaModel[] = [];
     filterForm: FormGroup;
-    page: number = 0;
-    pageSize: number = 20;
+    skip: number = 0;
+    take: number = 20;
     canFindMore: boolean = false;
     isBrowser: boolean = false;
     loading: boolean = false;
@@ -104,8 +104,13 @@ export class BuscaComponent implements OnInit, AfterViewInit {
 
         try {
             this.cdr.detectChanges();
-            const { count, result } = await this.blogService.getPaginatedByTerm(this.page, this.pageSize, this.term);
+            const { count, result } = await this.blogService.getPaginatedByTerm(this.skip, this.take, this.term);
             this.count = count;
+
+            if (result.length < this.take) {
+                this.canFindMore = false
+            }
+
             result.forEach(post => this.posts.push(new NoticiaModel(post)));
             if (this.posts.length > 0) {
                 this.resultsCountMessage = `Encontramos ${this.count} termos de resultados para a sua busca`;
@@ -129,7 +134,12 @@ export class BuscaComponent implements OnInit, AfterViewInit {
 
         try {
             this.cdr.detectChanges();
-            const { count, result } = await this.blogService.getAllPostsPaginated(this.page, this.pageSize);
+            const { count, result } = await this.blogService.getAllPostsPaginated(this.skip, this.take);
+
+            if (result.length < this.take) {
+                this.canFindMore = false
+            }
+
             this.count = count;
             result.forEach(post => this.posts.push(new NoticiaModel(post)));
             if (this.posts.length > 0) {
@@ -145,7 +155,7 @@ export class BuscaComponent implements OnInit, AfterViewInit {
             this.cdr.detectChanges();
         }
     }
-    
+
     // TODO falta meta description
     private setSEOInfos() {
         this.title.setTitle('Resultado de busca | Care Plus +');
@@ -156,7 +166,7 @@ export class BuscaComponent implements OnInit, AfterViewInit {
     }
 
     filter() {
-        this.page = 0;
+        this.skip = 0;
         this.term = this.filterForm.value.search;
         this.canFindMore = true;
         if (this.term && this.term != null && this.term.length > 0) {
@@ -168,7 +178,7 @@ export class BuscaComponent implements OnInit, AfterViewInit {
 
     onScroll() {
         if (this.canFindMore && this.term) {
-            this.pageSize++;
+            this.skip += this.take;
             this.getPostsByTerm();
         } else if (this.canFindMore) {
             this.getAllPosts()

@@ -9,14 +9,14 @@ import Cards from './data/cards';
 })
 export class MaterialsComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
-    cards: Array<CardModel> = Cards as Array<CardModel>;
+    cards: Array<CardModel> = Cards;
     constructor() { }
 
     ngOnInit() {
         this.cards = this.cards.map(card => {
             card.backgroundColorClass = this.backgroundColorClass;
-            return card
-        })
+            return card;
+        });
     }
 
 }

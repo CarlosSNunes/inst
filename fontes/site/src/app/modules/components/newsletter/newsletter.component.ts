@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { NewsletterService, NotificationService } from 'src/app/services';
@@ -15,7 +15,6 @@ export class NewsletterComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private notificationService: NotificationService,
-        public viewContainerRef: ViewContainerRef,
         private newsLetterService: NewsletterService,
         private cdr: ChangeDetectorRef
     ) {

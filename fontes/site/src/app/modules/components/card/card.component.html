@@ -82,7 +82,7 @@
     <a [routerLink]="[card?.button?.routerLink]" *ngIf="card.type === 'post'" [attr.title]="card.post.titulo">
         <div class="card image-card">
 
-            <div class="img" [style.background]="'url(' + card.post.caminhoImagem + ')'"
+            <div class="img" [style.background]="'url(' + card?.post?.caminhoCompleto + ')'"
                 [style.background-position]="'center'">
             </div>
             <div class="tags" *ngIf="card.post.postTag">

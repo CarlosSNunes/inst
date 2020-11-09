@@ -9,8 +9,8 @@ import { NoticiaModel } from 'src/app/models';
 })
 export class MostReadComponent implements OnInit {
     posts: NoticiaModel[] = [];
-    page: number = 0;
-    pageSize: number = 10;
+    skip: number = 0;
+    take: number = 10;
     constructor(
         private blogService: BlogService,
         private errorHandler: ErrorHandler,
@@ -23,7 +23,7 @@ export class MostReadComponent implements OnInit {
 
     async getMostReadPosts() {
         try {
-            const mostReadPosts = (await this.blogService.getMostRead(this.page, this.pageSize));
+            const mostReadPosts = (await this.blogService.getMostRead(this.skip, this.take));
             mostReadPosts.result.forEach(post => {
                 this.posts.push(new NoticiaModel(post))
             });

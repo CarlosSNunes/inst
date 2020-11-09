@@ -4,7 +4,7 @@
 
     <a [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo" target="_blank" *ngFor="let post of posts">
         <div class="post">
-            <img [src]="post.caminhoImagem" [alt]="post.titulo">
+            <img [src]="post?.caminhoCompleto" [alt]="post.titulo">
             <div class="title">
                 <p>{{post.titulo}}</p>
 

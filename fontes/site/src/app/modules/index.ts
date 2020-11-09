@@ -34,7 +34,6 @@ export * from './components/plan-card/plan-card.module';
 export * from './components/plus-network/plus-network.module';
 export * from './components/product/product.module';
 export * from './components/profile/profile.module';
-export * from './components/related-posts/related-posts.module';
 export * from './components/sidebar/sidebar.module';
 export * from './components/simple-banner/simple-banner.module';
 export * from './components/simuladores/simuladores.module';

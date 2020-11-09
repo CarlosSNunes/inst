@@ -14,7 +14,7 @@
             </div>
             <div class="columns cards flex-wrap">
                 <div class="column is-3-desktop is-full" *ngFor="let card of cards">
-                    <app-card [card]="card" (click)="openModal(); $event.preventDefault();"></app-card>
+                    <app-card [card]="card" (click)="openModal(card.modalContent); $event.preventDefault();"></app-card>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="columns cards flex-wrap">
                 <div class="column is-3-desktop is-full" *ngFor="let card of cards">
-                    <app-card [card]="card" (click)="openModal(); $event.preventDefault();"></app-card>
+                    <app-card [card]="card" (click)="openModal(card.modalContent); $event.preventDefault();"></app-card>
                 </div>
             </div>
         </div>

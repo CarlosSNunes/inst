@@ -4,7 +4,7 @@
             <div class="columns">
                 <div class="column is-full is-6-desktop image-col" [ngClass]="[post?.tipoImagem]">
                     <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo">
-                        <img [src]="post?.caminhoImagem" [attr.alt]="post?.nomeImagem">
+                        <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo">
                     </a>
                 </div>
                 <div class="column is-full is-6-desktop info-col">

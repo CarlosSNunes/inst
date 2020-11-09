@@ -155,7 +155,6 @@ export class OuvidoriaComponent implements OnInit, AfterViewInit {
     private mountForm() {
         this.ouvidoriaForm = this.fb.group({
             Origem: ['Partner', Validators.compose([Validators.required])],
-            // Certificado: [, Validators.compose([Validators.required])], // TODO ver com o cliente pois no site não há este campo mas ele é requisitado na documentação word e no xml
             DDDTelefoneCelular: [, Validators.compose([Validators.required])],
             TelefoneCelular: [, Validators.compose([Validators.required, Validators.minLength(8)])],
             DDDTelefoneResidencial: [,],

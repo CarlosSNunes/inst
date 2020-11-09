@@ -54,7 +54,7 @@
                 <div class="column">
 
                     <p class="description" *ngIf="count > 0">
-                        {{count}} resultados encontrados para “{{form.search.value}}”
+                        {{ form.search.value ? count + ' resultados encontrados para "' + form.search.value + '”': count + ' resultados encontrados' }}
                     </p>
 
                     <a routerLink="/careplus-mais" class="btn btn-digital-cian tertiary arrow-right small reverse"

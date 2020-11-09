@@ -5,6 +5,8 @@ import { interval, Subscription } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 import { ErrorHandler } from 'src/utils/error-handler';
+import { Meta } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-banner',
@@ -58,7 +60,8 @@ export class BannerComponent implements OnInit {
         private bannerService: BannerService,
         private cdRef: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private plataformId,
-        private errorHandler: ErrorHandler
+        private errorHandler: ErrorHandler,
+        private meta: Meta
     ) {
         this.isBrowser = isPlatformBrowser(this.plataformId)
     }
@@ -73,6 +76,8 @@ export class BannerComponent implements OnInit {
         */
         if (this.area) {
             await this.verifyBanners();
+        } else {
+            this.setImageTagsForSEO(`${environment.SELF_URL}/${this.banners[0].caminhoImagem}`);
         }
 
         this.banners.forEach((banner, i) => {
@@ -117,6 +122,7 @@ export class BannerComponent implements OnInit {
         if (apiBanners.length > 0) {
             this.banners = apiBanners;
             this.cdRef.detectChanges();
+            this.setImageTagsForSEO(this.banners[0].caminhoImagem);
             if (!staticBanners) {
                 BannerComponent.staticBanners.push({
                     area: this.area,
@@ -126,6 +132,8 @@ export class BannerComponent implements OnInit {
                 const index = BannerComponent.staticBanners.findIndex(stBanner => stBanner.area == this.area);
                 BannerComponent.staticBanners[index].banners = apiBanners;
             }
+        } else {
+            this.setImageTagsForSEO(`${environment.SELF_URL}/${this.banners[0].caminhoImagem}`);
         }
     }
 
@@ -139,7 +147,6 @@ export class BannerComponent implements OnInit {
                 }
                 banner = new BannerModel(banner)
             });
-
             this.loading = false;
             return banners;
         } catch (error) {
@@ -239,6 +246,18 @@ export class BannerComponent implements OnInit {
 
             this.banners[index].bannerState = 'initialState';
         }
+    }
+
+    setImageTagsForSEO(url) {
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${url}?${new Date().getTime()}`,
+        });
+
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${url}`,
+        });
     }
 
     ngOnDestroy() {
