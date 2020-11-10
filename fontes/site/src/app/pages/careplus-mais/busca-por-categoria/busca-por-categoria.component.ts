@@ -116,7 +116,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
                 this.posts.push(new NoticiaModel(post))
             });
             if (this.count > 0) {
-                this.resultsCountMessage = `Encontramos ${this.count} resultados para esta categoria`;
+                this.resultsCountMessage = `Encontramos ${this.count} resultado(s) para esta categoria`;
             } else {
                 this.resultsCountMessage = 'Não encontramos resultados para esta categoria';
             }

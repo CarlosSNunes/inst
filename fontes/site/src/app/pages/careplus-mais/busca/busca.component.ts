@@ -113,7 +113,7 @@ export class BuscaComponent implements OnInit, AfterViewInit {
 
             result.forEach(post => this.posts.push(new NoticiaModel(post)));
             if (this.posts.length > 0) {
-                this.resultsCountMessage = `Encontramos ${this.count} termos de resultados para a sua busca`;
+                this.resultsCountMessage = `Encontramos ${this.count} termos de resultado(s) para a sua busca`;
             } else {
                 this.resultsCountMessage = 'Não encontramos resultados para a sua busca';
             }
@@ -146,7 +146,7 @@ export class BuscaComponent implements OnInit, AfterViewInit {
             this.count = count;
             result.forEach(post => this.posts.push(new NoticiaModel(post)));
             if (this.posts.length > 0) {
-                this.resultsCountMessage = `Encontramos ${this.count} resultados.`;
+                this.resultsCountMessage = `Encontramos ${this.count} resultado(s).`;
             } else {
                 this.resultsCountMessage = 'Não encontramos resultados.';
             }
