@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BannerModel, CategoryModel, PostCardModel, NoticiaModel, ButtonModel } from 'src/app/models';
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
@@ -37,7 +37,8 @@ export class CareplusMaisComponent implements OnInit {
         private blogService: BlogService,
         private router: Router,
         private categoriasService: CategoriasService,
-        private errorHandler: ErrorHandler
+        private errorHandler: ErrorHandler,
+        private cdr: ChangeDetectorRef
     ) {
         this.setSEOInfos();
         this.filterForm = this.fb.group({
@@ -57,6 +58,7 @@ export class CareplusMaisComponent implements OnInit {
             const lastPosts = await this.blogService.getLastPosts();
             this.filterHighlightPost(lastPosts.result);
             this.filterRecentPosts(lastPosts.result);
+            this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.ShowError(error);
         }
@@ -69,6 +71,7 @@ export class CareplusMaisComponent implements OnInit {
                 ...highlight,
                 getDateDifferences: true,
             });
+            this.cdr.detectChanges();
         }
     }
 
@@ -86,6 +89,7 @@ export class CareplusMaisComponent implements OnInit {
                 return null
             }
         }).filter(post => post != null)
+        this.cdr.detectChanges();
     }
 
     private async getAllPosts(newRequest: boolean = false) {
@@ -93,7 +97,11 @@ export class CareplusMaisComponent implements OnInit {
             const allPostsPaginated = await this.blogService.getAllPostsPaginated(this.allPostsSkip, this.allPostsTake);
             allPostsPaginated.result.forEach(post => {
                 let postCardObj = new PostCardModel({
-                    post
+                    post,
+                    button: new ButtonModel({
+                        text: 'Ler artigo',
+                        routerLink: `/careplus-mais/${post.slug}`
+                    })
                 });
                 if (newRequest) {
                     postCardObj.isNewRequest = true;
@@ -103,6 +111,7 @@ export class CareplusMaisComponent implements OnInit {
             if (this.allPosts.length === allPostsPaginated.count || allPostsPaginated.result.length < this.allPostsTake) {
                 this.allPostsLoaded = true;
             }
+            this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.ShowError(error);
         }
@@ -115,6 +124,7 @@ export class CareplusMaisComponent implements OnInit {
             paginatedCategories.result.forEach(category => {
                 this.categories.push(new CategoryModel(category));
             })
+            this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.ShowError(error);
         }

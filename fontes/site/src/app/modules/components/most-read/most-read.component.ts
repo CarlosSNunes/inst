@@ -23,7 +23,7 @@ export class MostReadComponent implements OnInit {
 
     async getMostReadPosts() {
         try {
-            const mostReadPosts = (await this.blogService.getMostRead(this.skip, this.take));
+            const mostReadPosts = await this.blogService.getMostRead(this.skip, this.take);
             mostReadPosts.result.forEach(post => {
                 this.posts.push(new NoticiaModel(post))
             });
