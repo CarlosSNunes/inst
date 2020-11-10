@@ -6,8 +6,13 @@
 
           <h5 class="card-subtitle title-color">
             Posts no Blog Care Plus+</h5>
-          <h1 class="card-title title-color">
-            {{blogCount}}</h1>
+          <ng-container *ngIf="blogCount <= 0; else elseTemplate">
+            <h1 class="card-title title-color">0</h1>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <h1 class="card-title title-color">
+              {{blogCount}}</h1>
+          </ng-template>
 
           <div class="row">
             <fa-icon [icon]="faColumns" class="icon-card"></fa-icon>
@@ -20,8 +25,16 @@
         <div class="card-body">
           <h5 class="card-subtitle title-color">
             Banners ativos</h5>
-          <h1 class="card-title title-color">
-            {{bannerCount}}</h1>
+
+          <ng-container *ngIf="bannerCount <= 0; else elseTemplate0">
+            <h1 class="card-title title-color">0</h1>
+          </ng-container>
+          <ng-template #elseTemplate0>
+            <h1 class="card-title title-color">
+              {{bannerCount}}</h1>
+          </ng-template>
+
+
 
           <div class="row">
             <fa-icon [icon]="faImages" class="icon-card"></fa-icon>
@@ -37,7 +50,15 @@
           <h5 class="card-subtitle title-color">
             Usuários
           </h5>
-          <h1 class="card-title title-color">{{userCount}}</h1>
+
+          <ng-container *ngIf="userCount <= 0; else elseTemplate1">
+            <h1 class="card-title title-color">0</h1>
+          </ng-container>
+          <ng-template #elseTemplate1>
+            <h1 class="card-title title-color">
+              {{userCount}}</h1>
+          </ng-template>
+
 
           <div class="row">
             <fa-icon [icon]="faUsers" class="icon-card"></fa-icon>
@@ -72,8 +93,10 @@
           <div class="col-md-6">
             <div class="card shadow-sm">
               <div class="card-body car-post">
+
                 <img class="card-img-top"
-                  src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
+                  src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : './../../../assets/img/image-placeholder.png'}}"
+                  alt="">
 
                 <h5 class="card-color title-color card-details">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
               </div>

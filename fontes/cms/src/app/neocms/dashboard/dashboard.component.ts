@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
   faColumns = faColumns;
   faDotCircle = faDotCircle;
   faMedal = faMedal;
+  postResult: any;
 
 
   constructor(
@@ -42,10 +43,8 @@ export class DashboardComponent implements OnInit {
     this.getUsers();
     this.getBanners();
     this.getPosts();
-    ////this.getUsuariosAtivos();
     this.getPostsMaisLidos();
-    ////this.getPostsAtivos();
-    ////this.getBannersAtivos();
+    this.loaded = true;
   }
 
 
@@ -79,17 +78,16 @@ export class DashboardComponent implements OnInit {
       .getAll(1, 100)
       .subscribe(res => {
         this.loaded = true;
+        this.postResult = res['result'];
         this.blogCount = res['count'];
-        console.log(this.blogCount)
+        console.log(this.postResult);
       },
         error => {
           this.loaded = true;
         });
   }
 
-
   getUsuariosAtivos() {
-
     this.dashboardService
       .getUsuariosAtivos()
       .subscribe(resp => {
@@ -102,21 +100,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getPostsMaisLidos() {
-
-    // const posts = [
-    //   { id: 1, titulo: 'Titulo 01', subtitulo:'Noticia 01 ...', imagem:'assets/img/careplus_logo.svg' },
-    //   { id: 2, titulo: 'Mr. Nice', subtitulo:'subtitulo 02 ...' , imagem:'assets/img/careplus_logo.svg'},
-    //   { id: 3, titulo: 'Narco', subtitulo:'subtitulo 03 ...', imagem:'assets/img/careplus_logo.svg'  },
-    //   { id: 4, titulo: 'Bombasto', subtitulo:'subtitulo 04 ...', imagem:'assets/img/careplus_logo.svg' },
-    //   { id: 5, titulo: 'Celeritas', subtitulo:'subtitulo 05 ...', imagem:'assets/img/careplus_logo.svg' },
-    //   { id: 6, titulo: 'Magneta', subtitulo:'subtitulo 06 ...', imagem:'assets/img/careplus_logo.svg' },
-    //   { id: 7, titulo: 'RubberMan', subtitulo:'subtitulo 07 ...' , imagem:'assets/img/careplus_logo.svg'},
-    //   { id: 8, titulo: 'Dynama', subtitulo:'subtitulo 08 ...', imagem:'assets/img/careplus_logo.svg' },
-    //   { id: 9, titulo: 'Dr IQ', subtitulo:'subtitulo 09 ...', imagem:'assets/img/careplus_logo.svg' },
-    //   { id: 10, titulo: 'Magma', subtitulo:'subtitulo 10 ...', imagem:'assets/img/careplus_logo.svg' },
-
-    // ];
-
     this.dashboardService
       .getPostsMaisLidos()
       .subscribe(resp => {
@@ -132,7 +115,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getPostsAtivos() {
-
     this.dashboardService
       .getPostsAtivos()
       .subscribe(resp => {

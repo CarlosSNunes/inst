@@ -51,7 +51,6 @@ export class BannerComponent implements OnInit {
   }
 
   getBanners() {
-
     this.showBannerDelete = false;
     this.bannerService
       .getAll()
@@ -59,7 +58,6 @@ export class BannerComponent implements OnInit {
         this.loaded = true;
         this.banners = banners;
         this.result = banners['result'];
-
       },
         error => {
           this.loaded = true;
