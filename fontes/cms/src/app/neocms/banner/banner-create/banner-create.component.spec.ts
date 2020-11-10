@@ -51,24 +51,24 @@ describe('BannerCreateComponent', () => {
     expect(result).not.toBeNull();
   });
 
-  it('updateFileName', () => {
-    const arquivos = [{ name: 'arquivo.png' }];
-    component.updateFileName(arquivos);
-    expect(component.arquivoNome).toEqual('arquivo.png');
-  });
+  // it('updateFileName', () => {
+  //   const arquivos = [{ name: 'arquivo.png' }];
+  //   component.updateFileName(arquivos);
+  //   expect(component.arquivoNome).toEqual('arquivo.png');
+  // });
 
-  it('updateFileName empty', () => {
-    const arquivos = [];
-    component.updateFileName(arquivos);
-    expect(component.arquivo).toBeNull();
-  });
+  // it('updateFileName empty', () => {
+  //   const arquivos = [];
+  //   component.updateFileName(arquivos);
+  //   expect(component.arquivo).toBeNull();
+  // });
 
-  it('changeLinkExterno', () => {
-    const value = '0';
-    const selected = true;
-    component.changeLinkExterno(value, selected);
-    expect(component.isLinkExternoSelected).toEqual(selected);
-  });
+  // it('changeLinkExterno', () => {
+  //   const value = '0';
+  //   const selected = true;
+  //   component.changeLinkExterno(value, selected);
+  //   expect(component.isLinkExternoSelected).toEqual(selected);
+  // });
 
   it('onSubmit', () => {
     component.onSubmit();
