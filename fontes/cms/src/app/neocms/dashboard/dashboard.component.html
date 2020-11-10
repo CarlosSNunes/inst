@@ -1,66 +1,84 @@
-<div class="row" style="margin-bottom: 25px;">
-    <div class="col-sm-5" style="margin: 0px;">
-        <div class="card shadow-sm  bg-white rounded" style="height: 218px; ">
-            <div class="card-body">
-                <h1 class="card-title title-color">
-                    {{postsAtivos}}</h1>
-                <h5 class="card-subtitle title-color">
-                    Posts no Blog Care Plus+</h5>
-                <p class="card-text"></p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow-sm  bg-white rounded">
+        <div class="card-body">
 
-    <div class="col-sm-4">
-        <div class="card shadow-sm bg-white rounded" style="height: 218px;">
-            <div class="card-body">
-                <h1 class="card-title title-color">
-                    {{bannersAtivos}}</h1>
-                <h5 class="card-subtitle title-color">
-                    Banners ativos</h5>
-                <p class="card-text"></p>
-            </div>
-        </div>
+          <h5 class="card-subtitle title-color">
+            Posts no Blog Care Plus+</h5>
+          <h1 class="card-title title-color">
+            {{blogCount}}</h1>
 
-    </div>
-    <div class="col-sm-3">
-        <div class="card shadow-sm bg-white rounded" style="height: 218px;">
-            <div class="card-body">
-                <h1 class="card-title title-color">
-                    {{usuariosAtivos}}</h1>
-                <h5 class="card-subtitle title-color">
-                    Usuários</h5>
-                <p class="card-text"></p>
-            </div>
+          <div class="row">
+            <fa-icon [icon]="faColumns" class="icon-card"></fa-icon>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm bg-white rounded">
+        <div class="card-body">
+          <h5 class="card-subtitle title-color">
+            Banners ativos</h5>
+          <h1 class="card-title title-color">
+            {{bannerCount}}</h1>
+
+          <div class="row">
+            <fa-icon [icon]="faImages" class="icon-card"></fa-icon>
+          </div>
+
+        </div>
+      </div>
 
     </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm bg-white rounded">
+        <div class="card-body">
+          <h5 class="card-subtitle title-color">
+            Usuários
+          </h5>
+          <h1 class="card-title title-color">{{userCount}}</h1>
+
+          <div class="row">
+            <fa-icon [icon]="faUsers" class="icon-card"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
 </div>
 
-<div class="row" style="margin-bottom: 25px;">
+<!-- <div class="row">
 
-    <div class="col-sm-12">
-        <div class="card shadow-sm bg-white rounded" style="height: 472px; ">
-            <div class="card-body">
-                <h5 class="card-title-post title-color">
-                    Posts mais lidos no Blog</h5>
-                <div class="d-flex justify-content-start" style="margin-top: 80px;">
-                    <ul class="list-group list-group-flush" style="line-height: 2.0ch; max-width: 300px;">
-                        <li class="list-group-item title-color list-group-item-action" role="button" *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
-                            {{post.id}}- {{post.titulo}}</li>
-                    </ul>
-                    <div class="d-flex justify-content-end" class="post ml-9" style="width: 600px; margin-left: 130px; z-index: 2;">
-                        <div class="card" style="width:inherit; height: 350px;">
-                            <img class="card-img-top" style="height: inherit;" src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
-                            <div class="card-body">
-                                <h5 class="card-color title-color">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
-                                <p class="card-text title-color">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
-                                <!-- <a *ngIf="postSelecionado !== null" href="#" class="btn btn-primary">Ir para o Post</a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="col-sm-12">
+    <div class="card shadow-sm bg-white rounded">
+      <div class="card-body">
+        <h5 class="card-title-post title-color">
+          Posts mais lidos no Blog</h5>
+        <div class="d-flex justify-content-start">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item title-color list-group-item-action" role="button"
+              *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
+              {{post.id}}- {{post.titulo}}</li>
+          </ul>
+          <div class="d-flex justify-content-end" class="post ml-9">
+            <div class="card">
+              <img class="card-img-top"
+                src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
+              <div class="card-body">
+                <h5 class="card-color title-color">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
+                <p class="card-text title-color">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> -->

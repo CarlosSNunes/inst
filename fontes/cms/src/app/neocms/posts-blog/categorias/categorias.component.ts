@@ -17,10 +17,23 @@ export class CategoriasComponent implements OnInit {
   loaded: boolean;
   showCategoriaDelete: boolean;
   result;
+  count: number;
+
+  /**
+   * 
+   * @param pagination
+   * itemsPerPage
+   */
+
+  itemsPerPage: number = 5;
 
   constructor(
     private categoriasService: CategoriasService
   ) { }
+
+  pageChanged(event: any): void {
+    this.pageChanged = event.page;
+  }
 
   ngOnInit() {
     this.getCategorias();
@@ -33,11 +46,12 @@ export class CategoriasComponent implements OnInit {
   getCategorias() {
     this.showCategoriaDelete = false;
     this.categoriasService
-      .getAll(1, 100)
+      .getAll(1, this.itemsPerPage)
       .subscribe(categorias => {
         this.loaded = true;
         this.categorias = categorias;
         this.result = categorias['result'];
+        this.count = categorias['count'];
         console.log(this.result);
       },
         error => {

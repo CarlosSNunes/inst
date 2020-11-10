@@ -1,50 +1,53 @@
 <div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="title">Categorias</h1>
-                <a routerLink="/neocms/posts-blog/categorias/create" routerLinkActive="active"
-                    class="badge badge-dark p-3">
-                    Nova Categoria
-                </a>
-                <table id="bannerTable" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center">Categoria</th>
-                            <th scope="col" class="text-center">Descrição</th>
-                            <th scope="col" class="text-center">Data Cadastro</th>
-                            <th scope="col" class="text-center">Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td *ngIf="categorias.length == 0 && !loaded" colspan="6">
-                            <progress class="progress is-large is-info" max="100">60%</progress>
-                        </td>
-                        <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
-                            Não há banners cadastrados
-                        </td>
-                        <tr *ngFor="let r of result" class="
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="title">Categorias</h1>
+        <a routerLink="/neocms/posts-blog/categorias/create" routerLinkActive="active" class="badge badge-dark p-3">
+          Nova Categoria
+        </a>
+        <table id="bannerTable" class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">Categoria</th>
+              <th scope="col" class="text-center">Descrição</th>
+              <th scope="col" class="text-center">Data Cadastro</th>
+              <th scope="col" class="text-center">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td *ngIf="categorias.length == 0 && !loaded" colspan="6">
+              <progress class="progress is-large is-info" max="100">60%</progress>
+            </td>
+            <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
+              Não há banners cadastrados
+            </td>
+            <tr *ngFor="let r of result" class="
                             table-cell text-center">
 
-                            <td class="py-3 align-middle text-center">
-                                <span class="p-2">{{r.titulo}}</span>
-                            </td>
-                            <td class="py-3 align-middle text-center">
-                                <span class="p-2">{{r.descricao}}</span>
-                            </td>
-                            <td class="py-3 align-middle text-center">
-                                <span class="p-2">{{r.dataCadastro}}</span>
-                            </td>
-                            <td class="py-3 align-middle text-center">
-                                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', result.id]"
-                                    routerLinkActive="active">
-                                    <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+              <td class="py-3 align-middle text-center">
+                <span class="p-2">{{r.titulo}}</span>
+              </td>
+              <td class="py-3 align-middle text-center">
+                <span class="p-2">{{r.descricao}}</span>
+              </td>
+              <td class="py-3 align-middle text-center">
+                <span class="p-2">{{r.dataCadastro}}</span>
+              </td>
+              <td class="py-3 align-middle text-center">
+                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', result.id]" routerLinkActive="active">
+                  <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <pagination [boundaryLinks]="true" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"
+              [totalItems]="count" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+            </pagination>
+          </tfoot>
+        </table>
+      </div>
     </div>
+  </div>
 </div>

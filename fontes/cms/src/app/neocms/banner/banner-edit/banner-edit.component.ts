@@ -78,14 +78,13 @@ export class BannerEditComponent implements OnInit {
 
   imageLoaded() { }
   cropperReady() { }
-  loadImageFailed() {}
+  loadImageFailed() { }
   /**
    * @description Metodo retorna a consula de banner por Id.
    * @memberOf BannerEditComponent
    */
   getBanner() {
     const id = this.route.snapshot.paramMap.get('id');
-
     this.bannerService.getById(id)
       .subscribe(banner => {
         this.banner = banner;
@@ -93,6 +92,7 @@ export class BannerEditComponent implements OnInit {
         this.arquivoNomeMobile = banner.nomeImagem;
         this.isLinkExternoSelected = this.banner.linkExterno === '0' ? false : true;
         this.isBannerAtivo = this.banner.ativo === Boolean(JSON.parse("0")) ? false : true;
+        this.croppedImage = banner.caminhoDesktop + "/" + banner.nomeImagem;
         this.bannerForm.patchValue(this.banner);
         this.updateForm();
       });
@@ -126,7 +126,7 @@ export class BannerEditComponent implements OnInit {
   updateForm() {
     this.bannerForm = this.fb.group({
       id: [this.banner.id, [Validators.required]],
-      nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      nomeImagem: [this.banner.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       titulo: [this.banner.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       subtitulo: [this.banner.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
@@ -135,7 +135,7 @@ export class BannerEditComponent implements OnInit {
       rota: [this.banner.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
       linkExterno: [this.banner.linkExterno, [Validators.required, FormControlError.noWhitespaceValidator]],
       ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      arquivo: [''],
+      arquivo: [],
       arquivoMobile: ['']
     });
   }
@@ -233,20 +233,20 @@ export class BannerEditComponent implements OnInit {
     this.fileNameMobile = 'small-' + event.target.files[0].name;
   }
 
-/**
- * @param {control} control
- * @returns
- * @memberOf BannerEditComponent
- */
+  /**
+   * @param {control} control
+   * @returns
+   * @memberOf BannerEditComponent
+   */
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }
 
-/**
- * @description Metodo que captuea a ação de selecionar etapa do wizard.
- * @param {StepChangedArgs}
- * @memberOf BannerEditComponent
- */
+  /**
+   * @description Metodo que captuea a ação de selecionar etapa do wizard.
+   * @param {StepChangedArgs}
+   * @memberOf BannerEditComponent
+   */
 
   setTheme(theme: THEME) {
     this.ngWizardService.theme(theme);

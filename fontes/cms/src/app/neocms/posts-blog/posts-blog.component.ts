@@ -16,6 +16,7 @@ import { FormControlError } from './../../../../src/utils/form-control-error';
 import { FormBuilder, Validators } from '@angular/forms';
 import { environment } from './../../../../src/environments/environment';
 
+
 @Component({
   selector: 'app-posts-blog',
   templateUrl: './posts-blog.component.html',
@@ -48,7 +49,12 @@ export class PostsBlogComponent implements OnInit {
   bsModalRef: BsModalRef;
   message: string;
 
+  totalItems: number;
+  currentPage: number;
+  smallnumPages = 0;
+
   private readonly API_ENDPOINT = environment.API;
+  postCount: any;
 
   constructor(
     private postsBlogService: PostsBlogService,
@@ -64,15 +70,17 @@ export class PostsBlogComponent implements OnInit {
     );
   }
 
+  setPage(pageNo: number): void {
+    this.currentPage = pageNo;
+  }
+
   ngOnInit() {
     this.usuario = this.authenticationService.state;
-
     this.usuario.perfis.forEach(perfil => {
       if (perfil.descricao == 'Editor' || perfil.descricao == 'Administrador') {
         this.podeEscrever = true;
       }
     });
-
     this.getPosts();
     this.getCategorias();
   }
@@ -84,29 +92,25 @@ export class PostsBlogComponent implements OnInit {
 
   openModalDelete(post: PostsBlogModel) {
     this.showPostsDelete = true;
-
     const initialState = {
-      //post: post,
       title: 'Deletar Post?'
     };
     this.bsModalRef = this.modalService.show(PostsBlogDeleteComponent);
-    //this.bsModalRef.content.closeBtnName = 'Fechar';
   }
-
 
   getPosts() {
     //this.showPostsDelete = false;
     this.postsBlogService
-      .getAll(1, 100)
+      .getAll(1, 5)
       .subscribe(postsBlog => {
         this.loaded = true;
         this.postsBlog = postsBlog['result'];
-
+        this.postCount = postsBlog['count'];
+        this.totalItems = this.postCount;
       },
         error => {
           this.loaded = true;
         });
-
   }
 
   filterPosts(input) {
@@ -123,12 +127,11 @@ export class PostsBlogComponent implements OnInit {
       }, 500);
     }
   }
+
   salvarAlteracoes() { }
 
   buscarCategoriaDescricao(categoriaId) {
-
     this.categorias.forEach(cat => {
-
       if (cat['result'].id == categoriaId) {
         return cat['result'].descricao;
       }
@@ -151,7 +154,7 @@ export class PostsBlogComponent implements OnInit {
 
   getCategorias() {
     this.categoriasService
-      .getAll(1, 100)
+      .getAll(1, 10)
       .subscribe(result => {
         this.loaded = true;
         this.categorias = result['result'];

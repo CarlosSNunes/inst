@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import { environment } from '../../../environments/environment';
 
@@ -20,15 +21,14 @@ export class DashboardService {
   }
 
   getBannerAtivos() {
-    return this.http.get<string>(this.API_ENDPOINT + 'banner-ativo') ;
+    return this.http.get<string>(this.API_ENDPOINT + 'banner-ativo');
   }
 
   getPostsAtivos() {
-    return this.http.get<string>(this.API_ENDPOINT  + 'post-ativo');
+    return this.http.get<string>(this.API_ENDPOINT + 'post-ativo');
   }
 
-  getPostsMaisLidos()
-  {
+  getPostsMaisLidos() {
     return this.http.get<any[]>(this.API_ENDPOINT + 'posts-mais-lidos');
   }
 
