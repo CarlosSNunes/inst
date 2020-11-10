@@ -46,39 +46,44 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
 </div>
 
-<!-- <div class="row">
+<div class="container my-5 h-100">
+  <div class="row">
 
-  <div class="col-sm-12">
-    <div class="card shadow-sm bg-white rounded">
-      <div class="card-body">
-        <h5 class="card-title-post title-color">
-          Posts mais lidos no Blog</h5>
-        <div class="d-flex justify-content-start">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item title-color list-group-item-action" role="button"
-              *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
-              {{post.id}}- {{post.titulo}}</li>
-          </ul>
-          <div class="d-flex justify-content-end" class="post ml-9">
-            <div class="card">
-              <img class="card-img-top"
-                src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
+
+    <div class="col-sm-12">
+
+      <div class="card p-3 shadow-sm">
+        <div class="row">
+          <h5 class="card-subtitle-top title-color">
+            Posts mais lidos no Blog
+          </h5>
+          <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+
+              <li class="list-group-item title-color list-group-item-action" role="button"
+                *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
+                <fa-icon [icon]="faMedal" class="text-success"></fa-icon>
+                <span class="text-item">{{post.titulo}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="card shadow-sm">
               <div class="card-body">
-                <h5 class="card-color title-color">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
-                <p class="card-text title-color">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
+                <div class="card-body">
+                  <img class="card-img-top"
+                    src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
+
+                  <h5 class="card-color title-color">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
+                  <p class="card-text title-color">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div> -->

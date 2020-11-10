@@ -35,10 +35,11 @@
                 <span class="p-2">{{r.dataCadastro}}</span>
               </td>
               <td class="py-3 align-middle text-center">
-                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', result.id]" routerLinkActive="active">
+                <a [routerLink]="[ 'nn'-/categorias/edit', categorias['result'].id]" routerLinkActive="active">
                   <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
                 </a>
               </td>
+              {{result.id | json}}
             </tr>
           </tbody>
           <tfoot>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faColumns, faImages, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faColumns, faDotCircle, faImages, faMedal, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { filter } from 'rxjs/operators';
 import { BannerService } from '../banner/banner.service';
 import { PostsBlogService } from '../posts-blog/posts-blog.service';
@@ -27,6 +27,8 @@ export class DashboardComponent implements OnInit {
   faUsers = faUsers;
   faImages = faImages;
   faColumns = faColumns;
+  faDotCircle = faDotCircle;
+  faMedal = faMedal;
 
 
   constructor(

@@ -1,11 +1,24 @@
+<div class="card my-2" id="card-header">
+  <div class="card-body">
+    <div class="row">
+      <div class="link-title">
+        <a [routerLink]="['/neocms']">
+          <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+          <span class="title-banner">Banners</span>
+        </a>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary btn-novo-post" routerLink="/neocms/banner/create"
+          routerLinkActive="active">Novo Banner</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="title my-2">Banners</h1>
-        <a routerLink="/neocms/banner/create" routerLinkActive="active" class="badge badge-dark shadow p-3">
-          Adicionar Banner
-        </a>
         <table id="bannerTable" class="table table-hover">
           <thead>
             <tr>

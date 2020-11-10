@@ -62,6 +62,9 @@ export class BannerEditComponent implements OnInit {
   nomeDaImagem: any;
   submitted: boolean;
   usuario: UserAuthenticateModel;
+  bannerResult: BannerModel;
+  fileUpDesk: File;
+  fileUpMobile: any;
   constructor(
     private bannerService: BannerService,
     private fb: FormBuilder,
@@ -87,13 +90,8 @@ export class BannerEditComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.bannerService.getById(id)
       .subscribe(banner => {
-        this.banner = banner;
-        this.arquivoNome = banner.nomeImagem;
-        this.arquivoNomeMobile = banner.nomeImagem;
-        this.isLinkExternoSelected = this.banner.linkExterno === '0' ? false : true;
-        this.isBannerAtivo = this.banner.ativo === Boolean(JSON.parse("0")) ? false : true;
-        this.croppedImage = banner.caminhoDesktop + "/" + banner.nomeImagem;
-        this.bannerForm.patchValue(this.banner);
+        this.bannerResult = banner;
+        this.bannerForm.patchValue(this.bannerResult);
         this.updateForm();
       });
   }
@@ -125,18 +123,18 @@ export class BannerEditComponent implements OnInit {
    */
   updateForm() {
     this.bannerForm = this.fb.group({
-      id: [this.banner.id, [Validators.required]],
-      nomeImagem: [this.banner.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      titulo: [this.banner.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo: [this.banner.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricao: [this.banner.descricao, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      rota: [this.banner.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
-      linkExterno: [this.banner.linkExterno, [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      arquivo: [],
-      arquivoMobile: ['']
+      id: [this.bannerResult.id, [Validators.required]],
+      nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      titulo: [this.bannerResult.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      subtitulo: [this.bannerResult.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      area: [this.bannerResult.area, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      tempoExibicao: [this.bannerResult.tempoExibicao, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      descricao: [this.bannerResult.descricao, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      rota: [this.bannerResult.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
+      linkExterno: [this.bannerResult.linkExterno, [Validators.required, FormControlError.noWhitespaceValidator]],
+      ativo: [this.bannerResult.ativo, [Validators.required, FormControlError.noWhitespaceValidator]],
+      arquivo: this.fileUpDesk[0],
+      arquivoMobile: [this.fileUpMobile[0]]
     });
   }
 
@@ -150,6 +148,8 @@ export class BannerEditComponent implements OnInit {
    */
   onSubmit() {
     this.submitted = true;
+
+    console.log(this.bannerForm);
     if (this.bannerForm.valid) {
       this.btnSubmitDisable = true;
       const model = new BannerUpdateModel(this.bannerForm.value);
@@ -176,10 +176,11 @@ export class BannerEditComponent implements OnInit {
     }
 
     this.bannerForm.controls.arquivo.setValue(this.arquivo);
+    this.bannerForm.controls.nome.setValue(this.arquivoNome);
+
   }
 
   /**
-   * @description Evento disparado ao escolher um arquivo da entrada arquivo pelo input de upload
    * @param {arquivos}
    * @memberOf BannerEditComponent
    */
@@ -190,7 +191,6 @@ export class BannerEditComponent implements OnInit {
       this.arquivoNomeMobile = arquivos[0].name;
       this.arquivoMobile = arquivos[0];
     }
-
     this.bannerForm.controls.arquivoMobile.setValue(this.arquivoMobile);
   }
 
@@ -221,6 +221,8 @@ export class BannerEditComponent implements OnInit {
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.fileName = event.target.files[0].name;
+    this.bannerForm.controls.nomeImagem.setValue(this.fileName)
+
   }
 
   /**
@@ -229,7 +231,6 @@ export class BannerEditComponent implements OnInit {
    */
   fileChangeEventMobile(event): void {
     this.imageChangedEventMobile = event;
-    console.log(this.imageChangedEventMobile.target.files[0]);
     this.fileNameMobile = 'small-' + event.target.files[0].name;
   }
 
@@ -279,8 +280,8 @@ export class BannerEditComponent implements OnInit {
     const img = base64ToFile(event.base64);
     const contentType = 'image/png';
     const blob = new Blob([img], { type: contentType });
-    const file = new File([blob], this.fileName, { type: contentType, lastModified: Date.now() });
-    this.bannerForm.controls.arquivo.setValue(file);
+    this.fileUpDesk = new File([blob], this.fileName, { type: contentType, lastModified: Date.now() });
+    this.bannerForm.controls.arquivo.setValue(this.fileUpDesk);
   }
 
   /**
@@ -293,8 +294,8 @@ export class BannerEditComponent implements OnInit {
     const img = base64ToFile(event.base64);
     const contentType = 'image/png';
     const blob = new Blob([img], { type: contentType });
-    const file = new File([blob], this.fileNameMobile, { type: contentType, lastModified: Date.now() });
-    this.bannerForm.controls.arquivoMobile.setValue(file);
+    this.fileUpMobile = new File([blob], this.fileNameMobile, { type: contentType, lastModified: Date.now() });
+    this.bannerForm.controls.arquivoMobile.setValue(this.fileUpMobile);
   }
 
   /**

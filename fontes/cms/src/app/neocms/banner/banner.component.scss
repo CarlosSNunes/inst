@@ -1,3 +1,26 @@
+@import './../../../assets/sass/animations.scss';
+
+img.arrow-return {
+  width   : 35px;
+  position: absolute;
+  left    : 15px;
+  top     : 0px;
+}
+
+h4.card-title {
+  padding    : 2px 0px 0px 40px;
+  font-weight: 600;
+}
+
+
+span.title-banner {
+  position   : absolute;
+  left       : 60px;
+  top        : 0px;
+  color      : #073457;
+  font-weight: bolder;
+  font-size  : 20px;
+}
 .hidden {
     display: none;
 }
@@ -27,4 +50,29 @@ a.badge.badge-dark.shadow.p-3 {
 
 .icon-action{
     cursor: pointer;
+}
+div#card-header {
+  height: 75px;
+}
+button.btn.btn-primary.btn-novo-post {
+  position: absolute;
+  right   : 20px;
+}
+
+.btn-primary {
+  background-color: #073457 !important;
+}
+
+.btn-outline-primary {
+  color: #073457 !important;
+}
+
+button.btn.btn-primary.btn-novo-post {
+  position: absolute;
+  right   : 20px;
+}
+
+.link-title {
+  position: absolute;
+  width   : 100%;
 }

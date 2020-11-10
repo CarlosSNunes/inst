@@ -18,6 +18,14 @@
     font-weight: 700;
 }
 
+.list-group-flush {
+    border-radius: 0;
+    position: absolute;
+    top: 45px;
+    left: 35px;
+    right: 0px;
+}
+
 .card-subtitle {
    left: 35px;
     right: 10px;
@@ -28,7 +36,14 @@
     font-weight: 700;
     text-transform: math-auto;
 }
-
+.card-subtitle-top {
+       left: 35px;
+    right: 10px;
+    position: absolute;
+    top: 20px;
+    font-weight: 700;
+    text-transform: math-auto;
+}
 .card-title-post {
     line-height: 1.2ch;
     width: 150px;
@@ -69,4 +84,10 @@
     top: 15px;
     font-size: 40px;
     color: #9e7819;
+}
+
+.text-item{
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-left: 20px;
 }
