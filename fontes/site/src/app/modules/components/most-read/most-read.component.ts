@@ -10,7 +10,7 @@ import { NoticiaModel } from 'src/app/models';
 export class MostReadComponent implements OnInit {
     posts: NoticiaModel[] = [];
     skip: number = 0;
-    take: number = 10;
+    take: number = 4;
     constructor(
         private blogService: BlogService,
         private errorHandler: ErrorHandler,
