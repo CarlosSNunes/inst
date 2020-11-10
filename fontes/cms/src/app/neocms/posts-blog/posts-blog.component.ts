@@ -24,7 +24,7 @@ import { environment } from './../../../../src/environments/environment';
 })
 export class PostsBlogComponent implements OnInit {
 
-  postsBlog: PostsBlogModel[] = [];
+  postsBlog;
   tagsModel: TagModel[] = [];
   arquivo: File;
   postsBlogForm;
@@ -48,6 +48,7 @@ export class PostsBlogComponent implements OnInit {
   imagemMargem = 2;
   bsModalRef: BsModalRef;
   message: string;
+  pathDivision = '/';
 
   totalItems: number;
   currentPage: number;
@@ -101,7 +102,7 @@ export class PostsBlogComponent implements OnInit {
   getPosts() {
     //this.showPostsDelete = false;
     this.postsBlogService
-      .getAll(1, 5)
+      .getAll(0, 100)
       .subscribe(postsBlog => {
         this.loaded = true;
         this.postsBlog = postsBlog['result'];
@@ -140,7 +141,7 @@ export class PostsBlogComponent implements OnInit {
 
   getPostsBySearch(): any {
     this.postsBlogService
-      .getAll(1, 100)
+      .getAll(0, 100)
       .subscribe(postsBlog => {
         this.loaded = true;
         this.postsBlog = postsBlog;
@@ -154,7 +155,7 @@ export class PostsBlogComponent implements OnInit {
 
   getCategorias() {
     this.categoriasService
-      .getAll(1, 10)
+      .getAll(0, 100)
       .subscribe(result => {
         this.loaded = true;
         this.categorias = result['result'];

@@ -22,6 +22,10 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { HttpRequestInterceptor } from './app.interceptor';
+import { WindowRef } from 'src/utils/window-ref';
+
+
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.circles,
@@ -55,6 +59,13 @@ const ngWizardConfig: NgWizardConfig = {
     AlertModule.forRoot(),
   ],
   providers: [
+    WindowRef,
+    { provide: 'locationObject', useValue: location },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true
+    },
     BsModalRef,
     {
       provide: HTTP_INTERCEPTORS,

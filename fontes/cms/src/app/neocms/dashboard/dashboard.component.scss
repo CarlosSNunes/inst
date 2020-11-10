@@ -91,3 +91,18 @@
     font-weight: 700;
     padding-left: 20px;
 }
+
+div.card-body.car-post{
+    height: auto;
+    min-height: 200px;
+}
+
+h5.card-color.title-color.card-details {
+    color: #fff !important;
+    font-weight: 900 !important;
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    background-color: #0000007d;
+    padding: 5px 10px;
+}

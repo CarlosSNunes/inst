@@ -63,7 +63,7 @@
             <ul class="list-group list-group-flush">
 
               <li class="list-group-item title-color list-group-item-action" role="button"
-                *ngFor="let post of postsMaisLidos; index as i;" (click)="changePost(post.id)">
+                *ngFor="let post of postsMaisLidos | slice:0:3; index as i;" (click)="changePost(post.id)">
                 <fa-icon [icon]="faMedal" class="text-success"></fa-icon>
                 <span class="text-item">{{post.titulo}}</span>
               </li>
@@ -71,14 +71,11 @@
           </div>
           <div class="col-md-6">
             <div class="card shadow-sm">
-              <div class="card-body">
-                <div class="card-body">
-                  <img class="card-img-top"
-                    src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
+              <div class="card-body car-post">
+                <img class="card-img-top"
+                  src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : ''}}" alt="">
 
-                  <h5 class="card-color title-color">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
-                  <p class="card-text title-color">{{postSelecionado? postSelecionado.subtitulo : ''}}</p>
-                </div>
+                <h5 class="card-color title-color card-details">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
               </div>
             </div>
           </div>

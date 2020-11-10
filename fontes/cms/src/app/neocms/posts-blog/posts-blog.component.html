@@ -68,7 +68,7 @@
                 </fa-icon>
               </td>
               <td style="vertical-align:inherit">
-                <img src="{{ post.caminhoImagem + '/' + post.nomeImagem}} " [style.width.px]="imagemLargura"
+                <img src="{{ post.caminhoImagem + post.nomeImagem}} " [style.width.px]="imagemLargura"
                   [style.margin.px]="imagemMargem">
               </td>
               <td style="vertical-align:inherit; text-align-last:left; max-width:250px; content-visibility: auto;">
@@ -139,18 +139,10 @@
 
           </tbody>
           <tfoot>
-            <pagination [totalItems]="postCount" (numPages)="smallnumPages = $event"></pagination>
-            <pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{smallnumPages}}</pre>
+            <!-- <pagination [totalItems]="postCount" (numPages)="smallnumPages = $event"></pagination>
+            <pre class="card card-block card-header mb-3">The selected page no: {{currentPage}}/{{smallnumPages}}</pre> -->
           </tfoot>
         </table>
-
-      </div>
-
-
-      <div class="mb-5" style="float: right;">
-        <pagination [boundaryLinks]="true" [totalItems]="postCount['count']" previousText="&lsaquo;" nextText="&rsaquo;"
-          firstText="&laquo;" lastText="&raquo;">
-        </pagination>
       </div>
     </div>
   </div>
