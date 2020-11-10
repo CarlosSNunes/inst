@@ -20,7 +20,7 @@ import 'zone.js/dist/zone-node';
 import * as compression from 'compression';
 import * as express from 'express';
 import { join } from 'path';
-import spdy from 'spdy'
+import https from 'https'
 
 // Express server
 const app = express();
@@ -98,14 +98,7 @@ if (env.HAS_SSL_CERTIFIED) {
         options.ca = fs.readFileSync(env.CERT_PATH.ca)
     }
 
-    spdy.createServer(options, app).listen(443, (error) => {
-        if (error) {
-            console.error(error)
-            return process.exit(1)
-        } else {
-            console.log('Listening on port: ' + 443 + '.')
-        }
-    });
+    https.createServer(options, app).listen(443);
 } else {
     app.listen(PORT, () => {
         console.log(`Node Express server listening on http://localhost:${PORT}`);
