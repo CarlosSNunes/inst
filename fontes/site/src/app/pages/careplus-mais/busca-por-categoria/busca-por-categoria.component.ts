@@ -39,12 +39,12 @@ export class BuscaPorCategoriaComponent implements OnInit {
             this.resetData();
             this.filterPosts(params);
         });
-        EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
-            description: 'Resultado de busca - Care Plus +'
-        }));
     }
 
     ngOnInit() {
+        EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
+            description: 'Resultado de busca - Care Plus +'
+        }));
     }
 
     private resetData() {
@@ -55,7 +55,6 @@ export class BuscaPorCategoriaComponent implements OnInit {
         this.count = 0;
         this.posts = [];
         this.category = undefined;
-        this.categories = [];
     }
 
     private async filterPosts(params) {
@@ -78,7 +77,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
         this.categoryId = params.categoryId;
         await this.getCategoryById(params.categoryId)
         await this.getPostsByCategoryId();
-        await this.getCategories();
+        await this.getAllCategoriesPaginated();
         this.cdr.detectChanges();
         this.loading = false;
     }
@@ -92,9 +91,10 @@ export class BuscaPorCategoriaComponent implements OnInit {
         }
     }
 
-    private async getCategories() {
+    private async getAllCategoriesPaginated() {
         try {
-            const categoriesPaginated = await this.categoriasService.getAll();
+            const categoriesPaginated = await this.categoriasService.getAllPaginated(0, 1000);
+            this.categories = [];
             categoriesPaginated.result.forEach(category => {
                 this.categories.push(new CategoryModel(category));
             });
@@ -141,7 +141,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
 
     // TODO falta meta description
     setSEOInfos(category: CategoryModel) {
-        this.title.setTitle(`Caregoria | ${category.titulo} | Care Plus +`);
+        this.title.setTitle(`Categoria | ${category.titulo} | Care Plus +`);
         this.meta.updateTag({
             name: 'description',
             content: ''

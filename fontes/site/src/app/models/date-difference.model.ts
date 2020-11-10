@@ -3,6 +3,8 @@ export class DateDifference {
         Object.assign(this, init);
     }
 
+    seconds: number;
+    minutes: number;
     hours: number;
     days: number;
     months: number;

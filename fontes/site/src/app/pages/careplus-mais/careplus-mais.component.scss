@@ -57,17 +57,11 @@ section {
                                             width: 100%;
                                             flex: 0 0 100%;
                                             display: flex;
+                                            flex-wrap: wrap;
+                                            margin: 0 -15px;
                                             li {
                                                 display: inline;
-                                                padding: 0 15px;
-
-                                                &:first-child {
-                                                    padding-left: 0;
-                                                }
-
-                                                &:last-child {
-                                                    padding-right: 0;
-                                                }
+                                                padding: 10px 15px;
 
                                                 a {
                                                     font-weight: normal;

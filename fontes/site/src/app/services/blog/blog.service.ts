@@ -33,7 +33,7 @@ export class BlogService {
     }
 
     async getByCategoryId(id: number, skip: number, take: number): Promise<NoticiasPaginadas> {
-        return this.http.get<NoticiasPaginadas>(`${this.url}/categoria/${id}/${skip}/${take}`).toPromise();
+        return this.http.get<NoticiasPaginadas>(`${this.url}/categoria-id/${id}/${skip}/${take}`).toPromise();
     }
 
     async getAllPostsPaginated(skip: number, take: number): Promise<NoticiasPaginadas> {

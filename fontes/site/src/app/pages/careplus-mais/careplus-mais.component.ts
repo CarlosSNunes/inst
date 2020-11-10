@@ -47,7 +47,7 @@ export class CareplusMaisComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getAllCategories();
+        this.getAllCategoriesPaginated();
         this.getLastPosts();
         this.getAllPosts();
     }
@@ -108,10 +108,10 @@ export class CareplusMaisComponent implements OnInit {
         }
     }
 
-    private async getAllCategories() {
+    private async getAllCategoriesPaginated() {
         this.categories = []
         try {
-            const paginatedCategories = await this.categoriasService.getAll();
+            const paginatedCategories = await this.categoriasService.getAllPaginated(0, 6);
             paginatedCategories.result.forEach(category => {
                 this.categories.push(new CategoryModel(category));
             })

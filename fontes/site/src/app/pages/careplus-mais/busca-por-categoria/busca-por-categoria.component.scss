@@ -35,24 +35,18 @@ section {
                                 width: 100%;
                                 flex: 0 0 100%;
                                 display: flex;
+                                flex-wrap: wrap;
+                                margin: 0 -15px;
                                 li {
                                     display: inline;
-                                    padding: 0 15px;
+                                    padding: 10px 15px;
 
                                     &.title {
                                         color: getColor(_bupa, _navy);
-                                        font-size: getSize('p');
-                                        line-height: getLineHeight('p');
+                                        font-size: getSize("p");
+                                        line-height: getLineHeight("p");
                                         font-weight: 600;
                                         margin-bottom: 0;
-                                    }
-
-                                    &:first-child {
-                                        padding-left: 0;
-                                    }
-
-                                    &:last-child {
-                                        padding-right: 0;
                                     }
 
                                     a {
@@ -233,7 +227,6 @@ section {
     }
 }
 
-
 .loading {
     width: 120px;
     height: auto;
@@ -241,7 +234,6 @@ section {
     justify-content: space-between;
     margin: 0 auto;
     align-self: center;
-
 
     &.m-t-30 {
         margin-top: 30px;
