@@ -20,7 +20,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     private token: string = '';
     private retried: boolean = false;
     private retryTimes: number = 2;
-    private timeout: number = 3000;
+    private timeout: number = 5000;
     private isServer: boolean = false;
     constructor(
         private usuarioService: UsuarioService,

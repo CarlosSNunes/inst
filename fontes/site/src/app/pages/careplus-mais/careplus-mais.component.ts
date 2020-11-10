@@ -3,7 +3,7 @@ import { BannerModel, CategoryModel, PostCardModel, NoticiaModel, ButtonModel } 
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import { Title, Meta } from '@angular/platform-browser';
-import Banners from './data/banner';
+import Banners from './data/banners';
 import { crossContentModel, breadcrumbs } from './data/mock';
 import { BlogService, CategoriasService } from 'src/app/services';
 import { Router } from '@angular/router';

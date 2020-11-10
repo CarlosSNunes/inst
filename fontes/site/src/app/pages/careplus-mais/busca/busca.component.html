@@ -62,7 +62,7 @@
                         VOLTAR À NAVEGAÇÃO
                     </a>
 
-                    <ul class="posts" *ngIf="!loading && count > 0" infiniteScroll [infiniteScrollDistance]="2"
+                    <ul class="posts" *ngIf="count > 0" infiniteScroll [infiniteScrollDistance]="2"
                         [infiniteScrollThrottle]="20" (scrolled)="onScroll()">
                         <li class="post" *ngFor="let post of posts" (click)="goToPostMobile(post)">
                             <p class="post-title">

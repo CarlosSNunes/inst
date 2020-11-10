@@ -21,7 +21,7 @@
             </div>
         </div>
         <div *ngFor="let banner of banners; let i = index;" class="item"
-            [ngStyle]="{ 'background-image': 'url(' + (width > 1023 ? banner?.caminhoDesktop : banner?.caminhoMobile) + ') '}"
+            [ngStyle]="{ 'background-image': 'url(' + (width > 1023 ? banner?.caminhoCompletoDesktop : banner?.caminhoCompletoMobile) + ') '}"
             [ngClass]="[banner?.firstInteraction ? 'firstInteraction' :  '', banner?.slideAtual ? 'active' : '']"
             [@slider]="banner.bannerState" (@slider.done)="captureDoneEvent($event)" [attr.index]="i">
 
