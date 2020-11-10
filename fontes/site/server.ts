@@ -21,6 +21,7 @@ import * as compression from 'compression';
 import * as express from 'express';
 import { join } from 'path';
 import https from 'https'
+import { RESPONSE, REQUEST } from '@nguniversal/express-engine/tokens';
 
 // Express server
 const app = express();
@@ -65,12 +66,24 @@ function getMockMutationObserver() {
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap, env } = require('./dist/server/main');
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-app.engine('html', ngExpressEngine({
-    bootstrap: AppServerModuleNgFactory,
-    providers: [
-        provideModuleMap(LAZY_MODULE_MAP)
-    ]
-}));
+app.engine('html', (_, options, callback) => {
+    let engine = ngExpressEngine({
+        bootstrap: AppServerModuleNgFactory,
+        providers: [
+            provideModuleMap(LAZY_MODULE_MAP),
+            {
+                provide: REQUEST,
+                useValue: options['req'],
+            },
+            {
+                provide: RESPONSE,
+                useValue: options['req'].res,
+            },
+        ]
+    });
+
+    engine(_, options, callback)
+});
 
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);

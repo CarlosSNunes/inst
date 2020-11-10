@@ -113,6 +113,6 @@
         </div>
     </article>
 </section>
-<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
+<app-icon-cards-section *ngIf="iconCardsSectionModel?.cards?.length > 0" [iconCardsSectionModel]="iconCardsSectionModel"
     [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
 <app-social-posts></app-social-posts>

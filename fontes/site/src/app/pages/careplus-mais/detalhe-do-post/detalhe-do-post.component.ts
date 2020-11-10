@@ -1,12 +1,14 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
-import { BreadcrumbModel, NoticiaModel, IconCardsSectionModel, PostCardModel, RouteModel } from 'src/app/models';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef, Optional } from '@angular/core';
+import { BreadcrumbModel, NoticiaModel, IconCardsSectionModel, PostCardModel, RouteModel, ButtonModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
 import { BlogService, EventEmitterService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
 import { ErrorHandler } from 'src/utils/error-handler';
+import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { Response } from 'express';
 
 @Component({
     selector: 'app-detalhe-do-post',
@@ -43,7 +45,8 @@ export class DetalheDoPostComponent implements OnInit {
         private blogService: BlogService,
         private cdr: ChangeDetectorRef,
         private errorHandler: ErrorHandler,
-        private router: Router
+        private router: Router,
+        @Optional() @Inject(RESPONSE) private response: Response,
     ) {
         this.activatedRoute.params.subscribe(async params => {
             this.slug = params.slug;
@@ -76,8 +79,13 @@ export class DetalheDoPostComponent implements OnInit {
             this.getRelatedPosts(apiPost);
             this.cdr.detectChanges();
         } catch (error) {
-            this.errorHandler.ShowError(error.error);
-            this.router.navigate(['/404'])
+            if (isPlatformBrowser(this.platformId)) {
+                this.errorHandler.ShowError(error.error);
+                this.router.navigate(['/404'])
+            } else if (isPlatformServer(this.platformId)) {
+                console.log(this.response)
+                // this.response.redirect('/404', 301);
+            }
         }
     }
 
@@ -87,7 +95,11 @@ export class DetalheDoPostComponent implements OnInit {
             paginatedPosts.result.forEach(post => {
                 this.iconCardsSectionModel.cards.push(new PostCardModel(
                     {
-                        post
+                        post,
+                        button: new ButtonModel({
+                            text: 'Ler artigo',
+                            routerLink: `/careplus-mais/${post.slug}`
+                        })
                     }
                 ));
             });
