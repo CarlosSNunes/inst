@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { faColumns, faImages, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { filter } from 'rxjs/operators';
+import { BannerService } from '../banner/banner.service';
+import { PostsBlogService } from '../posts-blog/posts-blog.service';
+import { UsuarioService } from '../usuario/usuario.service';
 import { DashboardService } from './dashboard.service';
 
 @Component({
@@ -14,19 +18,73 @@ export class DashboardComponent implements OnInit {
   postsMaisLidos: any[] = [];
   postSelecionado: any = null;
   loaded: boolean;
-  
+  userResposta: any;
+  userCount: number;
+  bannerCount: number;
+  blogCount: number;
 
-  constructor(private dashboardService: DashboardService) {
 
-   }
+  faUsers = faUsers;
+  faImages = faImages;
+  faColumns = faColumns;
+
+
+  constructor(
+    private dashboardService: DashboardService,
+    private usuarioService: UsuarioService,
+    private bannerServices: BannerService,
+    private blogService: PostsBlogService,
+  ) { }
 
   ngOnInit() {
-    
-    this.getUsuariosAtivos();
+    this.getUsers();
+    this.getBanners();
+    this.getPosts();
+    ////this.getUsuariosAtivos();
     this.getPostsMaisLidos();
-    this.getPostsAtivos();
-    this.getBannersAtivos();
+    ////this.getPostsAtivos();
+    ////this.getBannersAtivos();
   }
+
+
+  getUsers() {
+    this.usuarioService
+      .getAll()
+      .subscribe(res => {
+        this.loaded = true;
+        this.userCount = res.length;
+        console.log(this.userCount);
+      },
+        error => {
+          this.loaded = true;
+        });
+  }
+
+  getBanners() {
+    this.bannerServices
+      .getAll()
+      .subscribe(res => {
+        this.loaded = true;
+        this.bannerCount = res.length;
+      },
+        error => {
+          this.loaded = true;
+        });
+  }
+
+  getPosts() {
+    this.blogService
+      .getAll(1, 100)
+      .subscribe(res => {
+        this.loaded = true;
+        this.blogCount = res['count'];
+        console.log(this.blogCount)
+      },
+        error => {
+          this.loaded = true;
+        });
+  }
+
 
   getUsuariosAtivos() {
 
@@ -41,7 +99,7 @@ export class DashboardComponent implements OnInit {
         });
   }
 
-  getPostsMaisLidos(){
+  getPostsMaisLidos() {
 
     // const posts = [
     //   { id: 1, titulo: 'Titulo 01', subtitulo:'Noticia 01 ...', imagem:'assets/img/careplus_logo.svg' },
@@ -54,7 +112,7 @@ export class DashboardComponent implements OnInit {
     //   { id: 8, titulo: 'Dynama', subtitulo:'subtitulo 08 ...', imagem:'assets/img/careplus_logo.svg' },
     //   { id: 9, titulo: 'Dr IQ', subtitulo:'subtitulo 09 ...', imagem:'assets/img/careplus_logo.svg' },
     //   { id: 10, titulo: 'Magma', subtitulo:'subtitulo 10 ...', imagem:'assets/img/careplus_logo.svg' },
-     
+
     // ];
 
     this.dashboardService
@@ -71,20 +129,21 @@ export class DashboardComponent implements OnInit {
     this.postSelecionado = this.postsMaisLidos[0];
   }
 
-  getPostsAtivos(){
+  getPostsAtivos() {
 
     this.dashboardService
-    .getPostsAtivos()
-    .subscribe(resp => {
-      this.loaded = true;
-      this.postsAtivos = resp;
-    },
-      error => {
+      .getPostsAtivos()
+      .subscribe(resp => {
         this.loaded = true;
-      });
+        this.postsAtivos = resp;
+        console.log(resp)
+      },
+        error => {
+          this.loaded = true;
+        });
   }
 
-  getBannersAtivos(){
+  getBannersAtivos() {
 
     this.dashboardService
       .getBannerAtivos()
@@ -98,7 +157,7 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  changePost(index){
+  changePost(index) {
 
     let filterPost = this.postsMaisLidos.filter(x => x.id == index);
     return this.postSelecionado = filterPost[0];

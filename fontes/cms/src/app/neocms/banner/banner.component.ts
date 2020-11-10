@@ -26,6 +26,7 @@ export class BannerComponent implements OnInit {
   imagemMargem = 2;
   pathDivision: string = "/";
   nomeImagemDesktop;
+  result: any;
   constructor(
     private bannerService: BannerService,
     private router: Router
@@ -35,6 +36,9 @@ export class BannerComponent implements OnInit {
 
     this.getBanners();
     console.log(this.banner.ativo)
+
+  }
+  deleteBanner() {
 
   }
 
@@ -51,6 +55,7 @@ export class BannerComponent implements OnInit {
       .subscribe(banners => {
         this.loaded = true;
         this.banners = banners;
+        this.result = banners['result'];
 
       },
         error => {

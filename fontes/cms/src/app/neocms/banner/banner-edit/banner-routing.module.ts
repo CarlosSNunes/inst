@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/authentication/auth.service';
-import { BannerComponent } from './banner.component';
-import { BannerCreateComponent } from './banner-create/banner-create.component';
-import { BannerEditComponent } from './banner-edit/banner-edit.component';
+import { BannerCreateComponent } from '../banner-create/banner-create.component';
+import { BannerComponent } from '../banner.component';
+import { BannerEditComponent } from './banner-edit.component';
 
 const routes: Routes = [
     {
@@ -21,6 +21,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         component: BannerEditComponent
     },
+
     {
         path: '**',
         canActivate: [AuthGuard],

@@ -8,10 +8,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BannerCreateComponent } from './banner-create/banner-create.component';
 import { BannerEditComponent } from './banner-edit/banner-edit.component';
 import { BannerDeleteComponent } from './banner-delete/banner-delete.component';
-import { BannerRoutingModule } from './banner-routing.module';
 import { HttpHandlerService } from './../../../../src/app/http-handler/http-handler.service';
 import { NgWizardModule } from 'ng-wizard';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { BannerRoutingModule } from './banner-edit/banner-routing.module';
 
 
 @NgModule({

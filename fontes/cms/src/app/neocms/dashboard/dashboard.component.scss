@@ -5,23 +5,28 @@
 }
 
 .card-body {
-    padding: 1.0rem;
+    height: 230px;
+    width: 100%;
+    margin: auto;
 }
 
 .card-title {
-    font-size: 111px;
-    top: 82px;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 130px;
+    font-size: 8rem;
+    position: absolute;
+    left: 30px;
+    top: 45px;
+    font-weight: 700;
 }
 
 .card-subtitle {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 28px;
+   left: 35px;
+    right: 10px;
     position: absolute;
+    bottom: 20px;
+    text-align: justify;
+    text-justify: auto;
+    font-weight: 700;
+    text-transform: math-auto;
 }
 
 .card-title-post {
@@ -56,4 +61,12 @@
 
 .posts-ul {
     line-height: 1.0ch;
+}
+
+.icon-card{
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    font-size: 40px;
+    color: #9e7819;
 }
