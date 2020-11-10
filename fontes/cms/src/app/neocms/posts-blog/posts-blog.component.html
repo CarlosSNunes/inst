@@ -8,8 +8,7 @@
                 </a>
             </div>
             <div>
-                <button type="button" class="btn btn-primary btn-novo-post" routerLink="/neocms/posts-blog/create"
-                    routerLinkActive="active">Novo Post</button>
+                <button type="button" class="btn btn-primary btn-novo-post" routerLink="/neocms/posts-blog/create" routerLinkActive="active">Novo Post</button>
             </div>
         </div>
     </div>
@@ -27,9 +26,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <input type="search" class="form-control" placeholder="Pesquisar por titulo"
-                    (change)="filterPosts($event.target)" (enter)="filterPosts($event.target)"
-                    (blur)="filterPosts($event.target)" (focus)="filterPosts($event.target)" />
+                <input type="search" class="form-control" placeholder="Pesquisar por titulo" (change)="filterPosts($event.target)" (enter)="filterPosts($event.target)" (blur)="filterPosts($event.target)" (focus)="filterPosts($event.target)" />
 
             </div>
             <div class="col-md-4">
@@ -48,7 +45,7 @@
             <div class="card table-responsive">
                 <table class="table table-hover text-nowrap">
                     <thead style="text-align-last:center; ">
-                        <th>Favorito</th>
+                        <th>Destaque</th>
                         <th>Imagem</th>
                         <th style="text-align-last:left">Titulo</th>
                         <th>Data Publicação</th>
@@ -70,11 +67,9 @@
                                 </fa-icon>
                             </td>
                             <td style="vertical-align:inherit">
-                                <img src="{{ post.caminhoImagem + '/' + post.nomeImagem}} "
-                                    [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem">
+                                <img src="{{ post.caminhoImagem + '/' + post.nomeImagem}} " [style.width.px]="imagemLargura" [style.margin.px]="imagemMargem">
                             </td>
-                            <td
-                                style="vertical-align:inherit; text-align-last:left; max-width:250px; content-visibility: auto;">
+                            <td style="vertical-align:inherit; text-align-last:left; max-width:250px; content-visibility: auto;">
                                 {{post.titulo}}</td>
                             <td style="vertical-align:inherit">
                                 {{post.dataPublicacao | date:'dd/MM/yyyy'}}
@@ -83,28 +78,23 @@
                                 {{post.categoria}}
                             </td>
                             <td style="vertical-align:inherit; align-content: flex-end;">
-                                <button type="button" class="btn btn-primary" style="float: right;"
-                                    *ngIf="!podeEscrever" (click)="salvarAlteracoes()">
+                                <button type="button" class="btn btn-primary" style="float: right;" *ngIf="!podeEscrever" (click)="salvarAlteracoes()">
                                     Revisar e autorizar
                                 </button>
                                 <div *ngIf="post.status != 'pendente'" style="float: right;">
-                                    <a [routerLink]="['./', post.id]" routerLinkActive="active" class="info-icon"
-                                        alt="Visualizar post">
+                                    <a [routerLink]="['./', post.id]" routerLinkActive="active" class="info-icon" alt="Visualizar post">
                                         <fa-icon [icon]="faEye"></fa-icon>
                                         <span>preview</span>
                                     </a>
-                                    <a [routerLink]="['/neocms/posts-blog/edit', post.id]" routerLinkActive="active"
-                                        class="info-icon" alt="Editar post">
+                                    <a [routerLink]="['/neocms/posts-blog/edit', post.id]" routerLinkActive="active" class="info-icon" alt="Editar post">
                                         <fa-icon [icon]="faEdit"></fa-icon>
                                         <span>editar</span>
                                     </a>
-                                    <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon"
-                                        alt="Excluir post">
+                                    <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon" alt="Excluir post">
                                         <fa-icon [icon]="faTrashAlt"></fa-icon>
                                         <span>excluir</span>
                                     </a>
-                                    <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon"
-                                        alt="Duplicar post">
+                                    <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon" alt="Duplicar post">
                                         <fa-icon [icon]="faClone"></fa-icon>
                                         <span>duplicar</span>
                                     </a>
@@ -119,10 +109,8 @@
                                                     <strong>Título:</strong> {{ post?.titulo }}
                                                 </p>
                                             </section>
-                                            <button type="button" class="btn btn-default ml-3"
-                                                (click)="confirmDuplicar(post)">Sim</button>
-                                            <button type="button" class="btn btn-primary ml-3"
-                                                (click)="decline()">Não</button>
+                                            <button type="button" class="btn btn-default ml-3" (click)="confirmDuplicar(post)">Sim</button>
+                                            <button type="button" class="btn btn-primary ml-3" (click)="decline()">Não</button>
                                         </div>
                                     </ng-template>
                                     <ng-template #templateDelete>
@@ -136,10 +124,8 @@
                                                     <strong>Título:</strong> {{ post?.titulo }}
                                                 </p>
                                             </section>
-                                            <button type="button" class="btn btn-default ml-3"
-                                                (click)="confirmExcluir(post)">Sim</button>
-                                            <button type="button" class="btn btn-primary ml-3"
-                                                (click)="decline()">Não</button>
+                                            <button type="button" class="btn btn-default ml-3" (click)="confirmExcluir(post)">Sim</button>
+                                            <button type="button" class="btn btn-primary ml-3" (click)="decline()">Não</button>
                                         </div>
                                     </ng-template>
                                 </div>
