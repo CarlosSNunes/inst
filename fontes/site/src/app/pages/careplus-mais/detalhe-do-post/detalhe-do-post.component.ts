@@ -130,12 +130,12 @@ export class DetalheDoPostComponent implements OnInit {
         this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
 
         // Facebook e demais redes sociais
-        this.meta.updateTag({ property: 'og:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
-        this.meta.updateTag({ property: 'og:type', content: 'website' });
-        this.meta.updateTag({ property: 'og:image', content: this.post.caminhoCompleto });
-        this.meta.updateTag({ property: 'og:description', content: this.post.descricaoPrevia });
+        this.meta.updateTag({ name: 'og:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
+        this.meta.updateTag({ name: 'og:type', content: 'website' });
+        this.meta.updateTag({ name: 'og:image', content: this.post.caminhoCompleto });
+        this.meta.updateTag({ name: 'og:description', content: this.post.descricaoPrevia });
 
-        this.meta.updateTag({ property: 'og:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
+        this.meta.updateTag({ name: 'og:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
 
         // Imagem linkedin
         this.meta.updateTag({ name: 'image', property: 'og:image', content: this.post.caminhoCompleto });

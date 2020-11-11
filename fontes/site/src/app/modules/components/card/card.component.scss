@@ -307,6 +307,9 @@
                 position: absolute;
                 left: 8px;
                 top: 140px;
+                overflow: hidden;
+                max-width: calc(100% - 28px);
+
                 p {
                     font-size: getSize("sbm");
                     line-height: getLineHeight("sbm");
@@ -315,6 +318,8 @@
                     margin-left: 8px;
                     font-weight: 500;
                     margin-bottom: 1em;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
                 p:first-child {
                     color: getColor(_bupa, _digital-cian);

@@ -144,7 +144,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
         this.title.setTitle(`Categoria | ${category.titulo} | Care Plus +`);
         this.meta.updateTag({
             name: 'description',
-            content: ''
+            content: 'A Care Plus é uma operadora premium de saúde que oferece Planos de Saúde e Odontológicos, Clínicas Odontológicas e Médicas, além de Medicina Ocupacional.'
         })
     }
 
