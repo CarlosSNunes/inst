@@ -22,7 +22,7 @@ export class CareplusPlusComponent implements OnInit {
 
     private async getLastPosts() {
         try {
-            const { result } = await this.blogService.getAllPostsPaginated(1, 4);
+            const { result } = await this.blogService.getAllPostsPaginated(0, 4);
             result.forEach(post => {
                 this.posts.push(
                     new PostCardModel({

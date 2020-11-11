@@ -55,7 +55,7 @@ export class CareplusMaisComponent implements OnInit {
 
     private async getLastPosts() {
         try {
-            const lastPosts = await this.blogService.getLastPosts();
+            const lastPosts = await this.blogService.getAllPostsPaginated(0, 7);
             this.filterHighlightPost(lastPosts.result);
             this.filterRecentPosts(lastPosts.result);
             this.cdr.detectChanges();

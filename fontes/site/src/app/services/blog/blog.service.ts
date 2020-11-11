@@ -16,10 +16,6 @@ export class BlogService {
         return this.http.get<NoticiasPaginadas>(`${this.url}/categoria/${post.categoriaId}/${skip}/${take}/${post.slug}`).toPromise();
     }
 
-    async getLastPosts(): Promise<NoticiasPaginadas> {
-        return this.http.get<NoticiasPaginadas>(`${this.url}/0/7`).toPromise();
-    }
-
     async getPaginatedByTerm(skip: number, take: number, term: string): Promise<NoticiasPaginadas> {
         return this.http.get<NoticiasPaginadas>(`${this.url}/term/${term}/${skip}/${take}`).toPromise();
     }
