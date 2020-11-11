@@ -72,7 +72,7 @@ export class GravarOuvidoriaSaida {
         Object.assign(this, init);
     }
 
-    Protocolo: number;
-    Erros: any;
-    Sucesso: boolean;
+    protocolo: number;
+    erros: any;
+    sucesso: boolean;
 }

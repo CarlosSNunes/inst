@@ -4,6 +4,9 @@
             <div class="columns">
                 <div class="column is-paddingless-vertical is-6-desktop is-full">
                     <app-breadcrumb [breadcrumbs]="selectedOrigin?.breadcrumbs"></app-breadcrumb>
+                    <h3 class="h4 big-title" *ngIf="protocol">
+                        Seu protocolo é: {{protocol}}
+                    </h3>
                     <h1 class="h4 big-title">
                         {{selectedOrigin?.message}}
                     </h1>

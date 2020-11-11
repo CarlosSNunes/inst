@@ -8,6 +8,8 @@ import { filterFormFields } from './utils/mount-form';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 declare var grecaptcha: any;
 
 @Component({
@@ -46,8 +48,11 @@ export class ContatoComponent implements OnInit {
         private scriptLoaderService: ScriptLoaderService,
         @Inject(DOCUMENT) private document: Document,
         private faleConoscoService: FaleConoscoService,
-        private router: Router
+        private router: Router,
+        private meta: Meta,
+        private title: Title
     ) {
+        this.setSEOInfos();
         this.isBrowser = isPlatformBrowser(this.platformId)
         this.mountForm();
         this.formFields = filterFormFields(1);
@@ -286,6 +291,75 @@ export class ContatoComponent implements OnInit {
                 this.contatoForm.controls[control].markAsTouched();
             });
         }
+    }
+
+    private setSEOInfos() {
+        this.title.setTitle('Contato | Fale Conosco | Care Plus');
+        this.meta.updateTag({
+            name: 'description',
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'Contato | Fale Conosco | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/fale-conosco/contato`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'Contato | Fale Conosco | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/fale-conosco/contato`,
+        });
     }
 
     /*

@@ -8,6 +8,8 @@ import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { GravarCanalDenunciaEntrada, ErrorModalModel } from 'src/app/models';
 import { Router } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 declare var grecaptcha: any;
 
 
@@ -33,8 +35,11 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
         private scriptLoaderService: ScriptLoaderService,
         @Inject(DOCUMENT) private document: Document,
         private faleConoscoService: FaleConoscoService,
-        private router: Router
+        private router: Router,
+        private meta: Meta,
+        private title: Title
     ) {
+        this.setSEOInfos();
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.mountForm();
     }
@@ -106,8 +111,10 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
             // Token será preenchido pelo backend.
             CPFCNPJ: [, Validators.compose([Validators.required, this.validateBrService.cpf])],
             Mensagem: [, Validators.compose([Validators.required, Validators.maxLength(4000)])],
-            DDDTelefone: [, Validators.compose([Validators.required, Validators.minLength(1)])],
-            Telefone: [, Validators.compose([Validators.required, Validators.minLength(8)])],
+            DDDTelefoneCel: [, Validators.compose([Validators.required, Validators.minLength(1)])],
+            TelefoneCel: [, Validators.compose([Validators.required, Validators.minLength(8)])],
+            DDDTelefone: [0,],
+            Telefone: [0,],
             Email: [, Validators.compose([Validators.required, Validators.email])],
             NomeContato: [, Validators.compose([Validators.required])],
             validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
@@ -206,6 +213,75 @@ export class CanalDeDenunciasComponent implements OnInit, AfterViewInit {
 
     getCaptchaCallback(event) {
         this.canalDeDenunciasForm.controls.validCaptcha.setValue(true)
+    }
+
+    private setSEOInfos() {
+        this.title.setTitle('Canal de Denúncia | Fale Conosco | Care Plus');
+        this.meta.updateTag({
+            name: 'description',
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'Canal de Denúncia | Fale Conosco | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/fale-conosco/canal-de-denuncias`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'Canal de Denúncia | Fale Conosco | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/fale-conosco/canal-de-denuncias`,
+        });
     }
 
 }

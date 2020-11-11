@@ -8,6 +8,10 @@ const routes: Routes = [
         component: ObrigadoComponent
     },
     {
+        path: ':protocol',
+        component: ObrigadoComponent
+    },
+    {
         path: '**',
         loadChildren: () => import('src/app/pages/erro/erro.module').then(m => m.ErroModule)
     }

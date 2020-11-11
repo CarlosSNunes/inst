@@ -15,6 +15,7 @@ export class ObrigadoComponent implements OnInit {
     faHome = faHome;
     origins = origins;
     selectedOrigin = origins[0];
+    protocol: number;
     constructor(
         private title: Title,
         private meta: Meta,
@@ -27,6 +28,9 @@ export class ObrigadoComponent implements OnInit {
 
         this.activatedRoute.params.subscribe(params => {
             this.setSelectedOrigin(params.id)
+            if (params.protocol) {
+                this.protocol = params.protocol;
+            }
         })
     }
 
