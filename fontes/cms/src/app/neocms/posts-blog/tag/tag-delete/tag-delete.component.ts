@@ -30,9 +30,7 @@ export class TagDeleteComponent implements OnInit {
   }
 
   deleteTag() {
-    this.tagService
-      .delete(this.tag[0].id)
-      .subscribe(result => this.closeModal());
+
   }
 
 }

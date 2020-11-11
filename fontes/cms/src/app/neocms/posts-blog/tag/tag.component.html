@@ -1,68 +1,74 @@
-<style type="css/text">
-    div.card.m-5.position-fixed.shadow {
-        z-index: 99999 !important;
-        right: 0 !important;
-        padding: 20px !important;
-        overflow:auto;
-        width:300px
-    }
-</style>
-<div class="card shadow my-2" id="card-header">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-10">
-                <a [routerLink]="['/neocms/posts-blog/index']">
-                    <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-                    <span class="title-banner">Tags</span>
-                </a>
-            </div>
-            <div style="align-content: flex-end;">
-                <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/tag/create"
-                    routerLinkActive="active">
-                    Criar Nova Tag &nbsp;
-                    <fa-icon [icon]="faPlus"></fa-icon>
-                </button>
-            </div>
-        </div>
+<div class="card my-2" id="card-header">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+        <a [routerLink]="['/neocms/posts-blog/index']">
+          <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+          <span class="title-banner">Tags</span>
+        </a>
+      </div>
+      <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/tag/create"
+        routerLinkActive="active">
+        Nova Tag
+      </button>
     </div>
+  </div>
 </div>
 
-<div class="card shadow">
-    <div class="card-content">
-        <div class="content">
-            <table id="tagTable" class="table">
-                <caption></caption>
-                <thead>
-                    <tr>
-                        <th id="">Id</th>
-                        <th id="">Descrição</th>
-                        <th id="">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td *ngIf="tags.length == 0 && !loaded" colspan="3">
-                            <progress class="progress is-large is-info" max="100">60%</progress>
-                        </td>
-                        <td class="has-text-centered" *ngIf="tags.length == 0 && loaded" colspan="3">
-                            Não há tags cadastradas
-                        </td>
-                    </tr>
-                    <tr *ngFor="let tag of result">
-                        <td>{{tag.id}}</td>
-                        <td>{{tag.descricao}}</td>
-                        <td>
-                            <a [routerLink]="['/neocms/posts-blog/tag', tag.id]" routerLinkActive="active">
-                                <fa-icon [icon]="faPencilAlt"></fa-icon>
-                            </a>
-                            &nbsp;
-                            <a (click)="openTagDelete(tag)">
-                                <fa-icon [icon]="faTrash"></fa-icon>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      <table id="tagTable" class="table tb-cat">
+        <thead>
+          <tr>
+            <th id="">Id</th>
+            <th id="">Descrição</th>
+            <th id="">Ação</th>
+          </tr>
+        </thead>
+
+        <tbody class="p-3">
+
+          <tr>
+            <td *ngIf="tags.length == 0 && !loaded" colspan="3">
+              <progress class="progress is-large is-info" max="100">60%</progress>
+            </td>
+            <td class="has-text-centered" *ngIf="tags.length == 0 && loaded" colspan="3">
+              Não há tags cadastradas
+            </td>
+          </tr>
+          <tr *ngFor="let tag of result | paginate: { itemsPerPage: contador, currentPage: paginaAtual }">
+            <td>{{tag.id}}</td>
+            <td>{{tag.descricao}}</td>
+            <td>
+              <a [routerLink]="['/neocms/posts-blog/tag', tag.id]" routerLinkActive="active">
+                <fa-icon [icon]="faPencilAlt"></fa-icon>
+              </a>
+              &nbsp;
+              <a (click)="openTagDelete(tag)" (click)="openModal(template, tag.id)">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </a>
+              <ng-template #template>
+                <div class="modal-body text-center">
+                  <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
+                  <p>Deseja exluir a Tag: <span class="tag-descricao-del">{{tag.descricao}}</span>?</p>
+                  <button type="button" class="btn btn-default" (click)="confirm(tag.id)">Sim</button>
+                  <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
+                </div>
+              </ng-template>
+            </td>
+          </tr>
+
+        </tbody>
+
+        <tfoot>
+          <div class="text-right">
+            <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo">
+            </pagination-controls>
+          </div>
+        </tfoot>
+
+      </table>
     </div>
+  </div>
 </div>

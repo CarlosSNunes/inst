@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TagService } from './tag.service';
 import { TagModel } from './../../../../../src/models/tag/tag.model';
 import { faPencilAlt, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 @Component({
   selector: 'app-tag',
@@ -17,10 +19,14 @@ export class TagComponent implements OnInit {
   showTagDelete: boolean;
   tag: TagModel;
   result: any;
-
+  modalRef: BsModalRef;
+  message: string;
+  paginaAtual: Number = 1;
+  contador: Number = 5;
 
   constructor(
-    private tagService: TagService
+    private tagService: TagService,
+    private modalService: BsModalService,
   ) { }
 
   ngOnInit() {
@@ -35,7 +41,7 @@ export class TagComponent implements OnInit {
   getTags() {
     this.showTagDelete = false;
     this.tagService
-      .getAll(1, 20)
+      .getAll(0, 20)
       .subscribe(tags => {
         this.loaded = true;
         this.tags = tags;
@@ -46,6 +52,25 @@ export class TagComponent implements OnInit {
         error => {
           this.loaded = true;
         });
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  confirm(id: number): void {
+    this.tagService
+      .delete(id)
+      .subscribe(result => {
+        this.message = 'Tag:' + id + ' deletada com sucesso!';
+        this.modalRef.hide();
+      });
+
+  }
+
+  decline(): void {
+    this.message = 'Declined!';
+    this.modalRef.hide();
   }
 
 }

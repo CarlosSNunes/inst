@@ -12,6 +12,11 @@ h4.card-title {
   font-weight: 600;
 }
 
+table#tagTable {
+    width: -webkit-fill-available;
+    margin: 30px 30px 30px 30px;
+}
+
 div.card.card-bg {
   background-color: #f9f9f9;
   box-shadow      : inset 0px 0px 20px 0px rgb(0 0 0 / 16%)
@@ -86,4 +91,15 @@ h4.titulo-visualizacao-mobile {
 
 .btn-primary{
   background-color: #073457 !important;
+}
+
+span.tag-descricao-del {
+    font-weight: 700;
+    color: #d00000;
+    font-family: ui-monospace;
+}
+
+fa-icon.trash-icon.ng-fa-icon {
+    color: #d00000;
+    font-size: 1.5rem;
 }
