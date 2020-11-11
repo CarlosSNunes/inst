@@ -21,7 +21,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
     categories: CategoryModel[] = [];
     loading: boolean = false;
     skip: number = 0;
-    take: number = 20;
+    take: number = 4;
     canFindMore: boolean = true;
 
     constructor(

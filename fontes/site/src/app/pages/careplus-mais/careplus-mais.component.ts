@@ -138,6 +138,12 @@ export class CareplusMaisComponent implements OnInit {
         return this.filterForm.controls;
     }
 
+    omitSpecialCharacters(event) {
+        var k;
+        k = event.charCode;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+
     filter() {
         if (this.filterForm.value.search && this.filterForm.value.search != null && this.filterForm.value.search.length > 0) {
             this.router.navigate(['/careplus-mais/busca', this.filterForm.value.search])

@@ -31,7 +31,7 @@ section#all-posts {
                     }
                 }
 
-                .no-posts-found{
+                .no-posts-found {
                     color: getColor(_bupa, _navy);
                     text-align: center;
                     margin-top: 60px;
@@ -48,6 +48,27 @@ section#all-posts {
 
                     img {
                         width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+    section#all-posts {
+        .container {
+            .columns {
+                &.is-flex-between-tablet {
+                    display: flex;
+                    width: 100%;
+                    flex: 0 0 100%;
+                }
+                .column {
+                    &:not(.is-anounce):not(.is-button).is-6-between-tablet {
+                        order: 1;
+                        flex: 0 0 50%;
+                        width: 50%;
                     }
                 }
             }

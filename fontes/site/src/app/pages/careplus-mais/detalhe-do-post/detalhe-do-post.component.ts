@@ -1,14 +1,12 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef, Optional } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { BreadcrumbModel, NoticiaModel, IconCardsSectionModel, PostCardModel, RouteModel, ButtonModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
 import { BlogService, EventEmitterService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
 import { ErrorHandler } from 'src/utils/error-handler';
-import { RESPONSE } from '@nguniversal/express-engine/tokens';
-import { Response } from 'express';
 
 @Component({
     selector: 'app-detalhe-do-post',
@@ -16,16 +14,7 @@ import { Response } from 'express';
     styleUrls: ['./detalhe-do-post.component.scss']
 })
 export class DetalheDoPostComponent implements OnInit {
-    breadcrumbs: BreadcrumbModel[] = [
-        new BreadcrumbModel({
-            name: 'Home',
-            link: '/home'
-        }),
-        new BreadcrumbModel({
-            name: 'Care Plus +',
-            link: '/careplus-mais'
-        }),
-    ];
+    breadcrumbs: BreadcrumbModel[] = [];
     slug: string = '';
     post: NoticiaModel = new NoticiaModel({});
     iconCardsSectionModel: IconCardsSectionModel<PostCardModel> = new IconCardsSectionModel<PostCardModel>({
@@ -45,11 +34,32 @@ export class DetalheDoPostComponent implements OnInit {
         private blogService: BlogService,
         private cdr: ChangeDetectorRef,
         private errorHandler: ErrorHandler,
-        private router: Router,
-        @Optional() @Inject(RESPONSE) private response: Response,
+        private router: Router
     ) {
-        this.activatedRoute.params.subscribe(async params => {
-            this.slug = params.slug;
+        if (isPlatformBrowser(this.platformId)) {
+            this.pageURL = this.windowRef.nativeWindow.location.href;
+        }
+        this.activatedRoute.params.subscribe(params => this.refreshData(params.slug));
+    }
+
+    async ngOnInit() {
+        const slug = this.activatedRoute.snapshot.paramMap.get('slug')
+        await this.refreshData(slug);
+    }
+
+    private async refreshData(slug?: string) {
+        if (this.slug != slug) {
+            this.slug = slug
+            this.breadcrumbs = [
+                new BreadcrumbModel({
+                    name: 'Home',
+                    link: '/home'
+                }),
+                new BreadcrumbModel({
+                    name: 'Care Plus +',
+                    link: '/careplus-mais'
+                }),
+            ];
             await this.getPostBySlug();
 
             this.breadcrumbs.push(
@@ -60,13 +70,7 @@ export class DetalheDoPostComponent implements OnInit {
                 })
             );
             this.setSEOInfos();
-        });
-        if (isPlatformBrowser(this.platformId)) {
-            this.pageURL = this.windowRef.nativeWindow.location.href;
         }
-    }
-
-    ngOnInit() {
     }
 
     private async getPostBySlug() {
@@ -79,13 +83,8 @@ export class DetalheDoPostComponent implements OnInit {
             this.getRelatedPosts(apiPost);
             this.cdr.detectChanges();
         } catch (error) {
-            if (isPlatformBrowser(this.platformId)) {
-                this.errorHandler.ShowError(error.error);
-                this.router.navigate(['/404'])
-            } else if (isPlatformServer(this.platformId)) {
-                console.log(this.response)
-                // this.response.redirect('/404', 301);
-            }
+            this.errorHandler.ShowError(error.error);
+            this.router.navigate(['/404'])
         }
     }
 

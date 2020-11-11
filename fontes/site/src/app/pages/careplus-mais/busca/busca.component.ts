@@ -50,11 +50,14 @@ export class BuscaComponent implements OnInit, AfterViewInit {
         private cdr: ChangeDetectorRef,
         @Inject(PLATFORM_ID) private platformId: Platform
     ) {
-        this.isBrowser = isPlatformBrowser(this.platformId);
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
             description: 'Resultado de busca - Care Plus +'
         }));
+        this.isBrowser = isPlatformBrowser(this.platformId);
         this.setSEOInfos();
+        String.prototype['replaceAt'] = function (index, char) {
+            return this.substr(0, index) + char + this.substr(index + char.length);
+        }
     }
 
     ngOnInit() {
@@ -66,16 +69,43 @@ export class BuscaComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         if (this.isBrowser) {
             fromEvent(this.searchInput.nativeElement, 'keyup').pipe(debounceTime(200)).subscribe(() => {
-                this.filter();
+                if (this.filterForm.controls.search.value != this.term) {
+                    this.filter();
+                }
             })
         }
     }
 
+    omitSpecialCharacters(event) {
+        var k;
+        k = event.charCode;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+
+    removeSpecialCharacters(characters) {
+        for (let i = 0; i <= characters.length; i++) {
+            const k = characters.charCodeAt(i);
+            const invalid = ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57))
+            if (invalid) {
+                characters.replaceAt(i, '');
+            }
+        }
+        return characters
+    }
+
     private filterPosts(params) {
-        this.term = params.term;
+        if (!params.term || params.term == null) {
+            this.term = ''
+        } else {
+            this.term = this.removeSpecialCharacters(params.term);
+        }
+
         this.filterForm = this.fb.group({
             search: [this.term,],
         });
+
+        this.filterForm.controls.search.setValue(this.term);
+
         this.breadcrumbs.push(
             new BreadcrumbModel({
                 name: 'Resultado de busca',
@@ -168,12 +198,12 @@ export class BuscaComponent implements OnInit, AfterViewInit {
         this.meta.updateTag({
             name: 'description',
             content: ''
-        })
+        });
     }
 
     filter() {
         this.skip = 0;
-        this.term = this.filterForm.value.search;
+        this.term = this.filterForm.controls.search.value;
         this.canFindMore = true;
         if (this.term && this.term != null && this.term.length > 0) {
             this.getPostsByTerm(true);

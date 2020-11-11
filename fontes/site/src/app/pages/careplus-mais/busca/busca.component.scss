@@ -169,6 +169,28 @@ section {
 
 @media (max-width: 1023px) {
     section {
+        &#results-section {
+            display: flex;
+            padding-bottom: 60px;
+            article {
+                align-self: center;
+                width: 100%;
+                flex: 0 0 100%;
+                .container {
+                    width: 100%;
+                    .columns {
+                        width: 100%;
+                        .column {
+                            width: 100%;
+                            display: block;
+                            .loading {
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         &#results {
             .container {
                 .posts {

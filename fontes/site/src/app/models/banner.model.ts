@@ -1,6 +1,7 @@
 export class BannerModel {
     public constructor(init?: Partial<BannerModel>) {
         Object.assign(this, init);
+        this.splitAnchor(init);
     }
 
     id: number;
@@ -28,4 +29,12 @@ export class BannerModel {
     action: string = '';
     firstInteraction: boolean = false;
     bannerState: string;
+
+    private splitAnchor(init: Partial<BannerModel>) {
+        if (init && init.rota && init.rota.indexOf('#') > -1) {
+            const index = init.rota.indexOf('#');
+            this.ancora = init.rota.substring(index + 1, init.rota.length);
+            this.rota = this.rota.replace(init.rota.substring(index, init.rota.length), '');
+        }
+    }
 }

@@ -27,9 +27,8 @@ export const bannersMock = [
         descricao: "Oferecemos um canal de acolhimento para crianças portadoras de Transtorno do Espectro Autista, Síndrome de Down e/ou outras condições específicas",
         tempoExibicao: 5000,
         linkExterno: '0',
-        rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
+        rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos#cuidado-da-familia',
         nomeLink: 'Conheça o Cuidado da Família',
-        ancora: 'cuidado-da-familia'
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home2.png",

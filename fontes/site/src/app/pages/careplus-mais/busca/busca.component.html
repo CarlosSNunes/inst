@@ -1,7 +1,7 @@
 <section id="results-section" class="blue-background-color">
     <article>
         <div class="container">
-            <div class="columns">
+            <div class="columns is-hidden-touch">
                 <div class="column is-paddingless-vertical">
                     <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
                 </div>
@@ -33,7 +33,8 @@
                             <div class="field">
                                 <p class="control has-icons-right">
                                     <input [ngClass]="{ 'is-touched': form?.search?.value?.length > 0 }" class="input"
-                                        formControlName="search" name="search" type="text" #searchInput>
+                                        formControlName="search" name="search" (keypress)="omitSpecialCharacters($event)"
+                                        type="text" #searchInput>
                                     <label class="label">Buscar</label>
                                     <span (click)="filter()" class="icon is-small is-right is-search">
                                         <img src="assets/svg/search.svg" alt="Buscar">

@@ -23,6 +23,7 @@
                                     <div class="field">
                                         <p class="control has-icons-right">
                                             <input class="input" formControlName="search" name="search" type="text"
+                                                (keypress)="omitSpecialCharacters($event)"
                                                 (keyup.enter)="filter()">
                                             <label class="label">Buscar</label>
                                             <span

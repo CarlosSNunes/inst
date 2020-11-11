@@ -11,8 +11,8 @@
                     </h2>
                 </div>
                 <div class="column is-full is-9-desktop is-paddingless">
-                    <div class="columns flex-wrap">
-                        <div class="column is-4-desktop is-full" *ngFor="let post of posts">
+                    <div class="columns flex-wrap is-flex-between-tablet">
+                        <div class="column is-4-desktop is-full is-6-between-tablet" *ngFor="let post of posts">
                             <app-card [card]="post"></app-card>
                         </div>
                         <div class="column is-full" *ngIf="posts.length == 0">
@@ -24,9 +24,14 @@
                 </div>
 
                 <div class="column is-full is-3-desktop">
-                    <app-most-read></app-most-read>
-
-                    <app-newsletter></app-newsletter>
+                    <div class="columns flex-wrap is-flex-between-tablet">
+                        <div class="column is-paddingless is-full is-6-between-tablet is-offset-3-between-tablet">
+                            <app-most-read></app-most-read>
+                        </div>
+                        <div class="column is-paddingless is-full">
+                            <app-newsletter></app-newsletter>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

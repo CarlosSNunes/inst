@@ -1,7 +1,7 @@
 <section id="all-posts">
     <article>
         <div class="container">
-            <div class="columns flex-wrap">
+            <div class="columns flex-wrap is-mobile">
                 <div class="column is-full">
                     <p class="small-title">
                         todas as publicações
@@ -11,8 +11,8 @@
                     </h2>
                 </div>
                 <div class="column is-full is-paddingless">
-                    <div class="columns flex-wrap">
-                        <div class="column is-4-desktop is-full" [class.is-new]="post?.isNewRequest"
+                    <div class="columns flex-wrap is-flex-between-tablet">
+                        <div class="column is-4-desktop is-full is-6-between-tablet" [class.is-new]="post?.isNewRequest"
                             *ngFor="let post of posts">
                             <app-card [card]="post"></app-card>
                         </div>
