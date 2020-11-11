@@ -21,8 +21,8 @@ export class TagComponent implements OnInit {
   result: any;
   modalRef: BsModalRef;
   message: string;
-  paginaAtual: Number = 1;
-  contador: Number = 5;
+  paginaAtual = 1;
+  contador = 5;
 
   constructor(
     private tagService: TagService,
