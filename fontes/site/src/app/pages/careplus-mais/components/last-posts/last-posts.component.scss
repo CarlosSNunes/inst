@@ -1,3 +1,5 @@
+@import "~src/scss/_variables";
+
 section#last-posts {
     .container {
         .columns {
@@ -38,6 +40,10 @@ section#last-posts {
                     &:not(.is-6-between-tablet).is-full {
                         width: 100%;
                         flex: 0 0 100%;
+                    }
+
+                    .no-posts-found {
+                        font-size: getSize("mbt");
                     }
                 }
             }
