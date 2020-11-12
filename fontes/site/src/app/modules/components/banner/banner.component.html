@@ -36,36 +36,40 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-6 banner-home-description">
-                        <h1 *ngIf="banner?.titulo && banner.slideAtual" class="h3 banner-title">
+                        <h1 *ngIf="banner?.titulo && banner.slideAtual"
+                            class="h3 banner-title">
                             {{ banner.titulo }}
                         </h1>
-                        <h2 *ngIf="banner?.titulo && !banner.slideAtual" class="h3 banner-title">
+                        <h2 *ngIf="banner?.titulo && !banner.slideAtual"
+                            class="h3 banner-title">
                             {{ banner.titulo }}
                         </h2>
-                        <p *ngIf="banner?.descricao" class="banner-content">
-                            {{ banner.descricao }}
+                        <p *ngIf="banner?.subtitulo" class="banner-content">
+                            {{ banner.subtitulo }}
                         </p>
 
                         <!-- Button with routerLink -->
-                        <a *ngIf="banner?.rota && banner?.linkExterno == '0'" [routerLink]="banner?.rota" [fragment]="banner?.ancora"
-                            [attr.title]="banner?.nomeLink" class="btn btn-digital-cian primary medium is-hidden-touch">
+                        <a *ngIf="banner?.rota && banner?.linkExterno == '0'"
+                            [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
+                            class="btn btn-digital-cian primary medium is-hidden-touch">
                             {{banner?.nomeLink}}
                         </a>
 
-                        <a *ngIf="banner?.rota && banner?.linkExterno == '0'" [routerLink]="banner?.rota" [fragment]="banner?.ancora"
-                            [attr.title]="banner?.nomeLink"
+                        <a *ngIf="banner?.rota && banner?.linkExterno == '0'"
+                            [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
                             class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
                             {{banner?.nomeLink}}
                         </a>
 
                         <!-- Button with  -->
-                        <a *ngIf="banner?.linkExterno == '1'" [href]="banner?.link" target="_blank"
-                            [attr.title]="banner?.nomeLink" class="btn btn-digital-cian primary medium is-hidden-touch">
+                        <a *ngIf="banner?.linkExterno == '1' && banner?.link"
+                            [href]="banner?.link" target="_blank" [attr.title]="banner?.nomeLink"
+                            class="btn btn-digital-cian primary medium is-hidden-touch">
                             {{banner?.nomeLink}}
                         </a>
 
-                        <a *ngIf="banner?.linkExterno == '1'" [href]="banner?.linkExterno" target="_blank"
-                            [attr.title]="banner?.nomeLink"
+                        <a *ngIf="banner?.linkExterno == '1' && banner?.link"
+                            [href]="banner?.linkExterno" target="_blank" [attr.title]="banner?.nomeLink"
                             class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
                             {{banner?.nomeLink}}
                         </a>

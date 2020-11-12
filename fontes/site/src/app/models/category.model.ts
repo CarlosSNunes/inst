@@ -1,5 +1,14 @@
 export class CategoryModel {
     constructor(init?: Partial<CategoryModel>) {
+        // TODO Isso deverá ser tratado no backend futuramente.
+        if (init) {
+            Object.keys(init).forEach(title => {
+                if (init[title] == null) {
+                    delete init[title];
+                }
+            });
+        }
+
         Object.assign(this, init)
     }
 

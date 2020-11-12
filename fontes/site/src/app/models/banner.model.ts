@@ -1,5 +1,18 @@
 export class BannerModel {
     public constructor(init?: Partial<BannerModel>) {
+        // TODO Isso deverá ser tratado no backend futuramente.
+        if (init) {
+            Object.keys(init).forEach(title => {
+                if (init[title] == null) {
+                    delete init[title];
+                }
+
+                if (title == 'nomeLink' && !init[title] == null) {
+                    init[title] = 'Saiba Mais';
+                }
+            });
+        }
+
         Object.assign(this, init);
         this.splitAnchor(init);
     }

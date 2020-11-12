@@ -4,6 +4,15 @@ import GetDifferences from 'src/utils/date-difference';
 
 export class NoticiaModel {
     public constructor(init?: Partial<NoticiaModel>) {
+        // TODO Isso deverá ser tratado no backend futuramente.
+        if (init) {
+            Object.keys(init).forEach(title => {
+                if (init[title] == null) {
+                    delete init[title];
+                }
+            });
+        }
+
         Object.assign(this, init);
 
         this.postTag = [];
