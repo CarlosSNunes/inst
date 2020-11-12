@@ -2113,6 +2113,521 @@
     }
 
     /*
+        pt - Botão Purple
+        en - Purple button
+    */
+
+    &.btn-purple {
+        &.primary {
+            border: 3px solid getColor(_bupa, _purple);
+            box-sizing: border-box;
+            background-color: getColor(_bupa, _purple);
+            color: getColor(_bupa, _white);
+            position: relative;
+            display: flex;
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid #4a1f70;
+                    background-color: #4a1f70;
+                }
+            }
+
+            &:focus {
+                border: 3px solid #4a1f70;
+                background-color: #4a1f70;
+                box-shadow: 0px 0px 10px #4a1f70;
+            }
+
+            &:active {
+                border: 3px solid rgba(#4a1f70, 0.3);
+                background-color: #4a1f70;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.loading {
+                position: relative;
+                cursor: not-allowed;
+                opacity: 1 !important;
+
+                @keyframes spinner {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                &:after {
+                    content: "";
+                    box-sizing: border-box;
+                    position: absolute;
+                    top: 50%;
+                    z-index: 2;
+                    left: 50%;
+                    width: 20px;
+                    height: 20px;
+                    margin-top: -10px;
+                    margin-left: -10px;
+                    border-radius: 50%;
+                    border: 2px solid getColor(_bupa, _purple);
+                    border-top-color: getColor(_bupa, _white);
+                    animation: spinner 0.6s linear infinite;
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    left: -3px;
+                    top: -3px !important;
+                    width: calc(100% + 6px);
+                    height: calc(100% + 6px);
+                    border: none !important;
+                    transform: rotate(0) !important;
+                    border-radius: 6px;
+                    background-color: rgba(getColor(_bupa, _white), 0.7);
+                }
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    display: -ms-inline-flexbox;
+                    -ms-flex-pack: center;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _white);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão digital orange primário mobile.
+                En - Mobile digital orange primary button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        border: 3px solid getColor(_bupa, _purple);
+                        background-color: getColor(_bupa, _purple);
+                    }
+                }
+
+                &:focus {
+                    border: 3px solid getColor(_bupa, _purple);
+                    background-color: getColor(_bupa, _purple);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _purple);
+                    background-color: getColor(_bupa, _purple);
+                }
+            }
+        }
+
+        &.secondary {
+            border: 3px solid getColor(_bupa, _purple);
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _purple);
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid getColor(_bupa, _purple);
+                    background-color: getColor(_bupa, _purple);
+                    color: getColor(_bupa, _white);
+                }
+            }
+
+            &:focus {
+                border: 3px solid getColor(_bupa, _purple);
+                background-color: getColor(_bupa, _purple);
+                box-shadow: 0px 0px 10px getColor(_bupa, _purple);
+                color: getColor(_bupa, _white);
+            }
+
+            &:active {
+                border: 3px solid rgba(#4a1f70, 0.3);
+                background-color: #4a1f70;
+                color: getColor(_bupa, _white);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.loading {
+                position: relative;
+                cursor: not-allowed;
+                opacity: 1 !important;
+
+                @keyframes spinner {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                &:after {
+                    content: "";
+                    box-sizing: border-box;
+                    position: absolute;
+                    top: 50%;
+                    z-index: 2;
+                    left: 50%;
+                    width: 20px;
+                    height: 20px;
+                    margin-top: -10px;
+                    margin-left: -10px;
+                    border-radius: 50%;
+                    border: 2px solid getColor(_bupa, _purple);
+                    border-top-color: getColor(_bupa, _white);
+                    animation: spinner 0.6s linear infinite;
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    left: -3px;
+                    top: -3px !important;
+                    width: calc(100% + 6px);
+                    height: calc(100% + 6px);
+                    border: none !important;
+                    transform: rotate(0) !important;
+                    border-radius: 6px;
+                    background-color: rgba(getColor(_bupa, _white), 0.7);
+                }
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    display: -ms-inline-flexbox;
+                    -ms-flex-pack: center;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _purple);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid getColor(_bupa, _white);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid getColor(_bupa, _white);
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid getColor(_bupa, _purple);
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão digital orange secudário mobile.
+                En - Mobile digital orange secondary button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        border: 3px solid getColor(_bupa, _purple);
+                        color: getColor(_bupa, _purple);
+                        background-color: transparent;
+                    }
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _purple);
+                    background-color: transparent;
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    border: 3px solid getColor(_bupa, _purple);
+                    color: getColor(_bupa, _purple);
+                    background-color: transparent;
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _purple);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _purple);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _purple);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.tertiary {
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: getColor(_bupa, _purple);
+
+            &:not(:disabled) {
+                &:hover {
+                    border: 3px solid transparent;
+                    background-color: transparent;
+                    color: #4a1f70;
+                }
+            }
+
+            &:focus {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #4a1f70;
+            }
+
+            &:active {
+                border: 3px solid transparent;
+                background-color: transparent;
+                color: #4a1f70;
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                color: #4a1f70;
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &.loading {
+                position: relative;
+                cursor: not-allowed;
+                opacity: 1 !important;
+
+                @keyframes spinner {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                &:after {
+                    content: "";
+                    box-sizing: border-box;
+                    position: absolute;
+                    top: 50%;
+                    z-index: 2;
+                    right: 24px;
+                    width: 10px;
+                    height: 10px;
+                    margin-top: -5px;
+                    border-radius: 50%;
+                    border: 2px solid getColor(_bupa, _purple);
+                    border-top-color: getColor(_bupa, _white);
+                    animation: spinner 0.6s linear infinite;
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    left: -3px;
+                    top: -3px !important;
+                    width: calc(100% + 6px);
+                    height: calc(100% + 6px);
+                    border: none !important;
+                    transform: none !important;
+                    transform: rotate(0) !important;
+                    border-radius: 6px;
+                    background-color: rgba(getColor(_bupa, _white), 0.7);
+                }
+            }
+
+            &.arrow {
+                &-right {
+                    display: inline-flex;
+                    display: -ms-inline-flexbox;
+                    -ms-flex-pack: center;
+                    position: relative;
+                    padding-right: 42px;
+                    padding-left: 24px;
+
+                    &:before {
+                        border: solid getColor(_bupa, _purple);
+                        @include arrowElement(-45deg);
+                    }
+
+                    &:not(:disabled) {
+                        &:hover {
+                            &:before {
+                                border: solid #4a1f70;
+                                @include arrowElement(-45deg);
+                                right: 15px;
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        &:before {
+                            border: solid #4a1f70;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+
+                    &:active {
+                        &:before {
+                            border: solid #4a1f70;
+                            @include arrowElement(-45deg);
+                            -webkit-transform: scale(0.95), rotate(-45deg);
+                            transform: scale(0.95), rotate(-45deg);
+                        }
+                    }
+
+                    &:disabled {
+                        &:before {
+                            border: solid #4a1f70;
+                            @include arrowElement(-45deg);
+                        }
+                    }
+                }
+            }
+
+            /*
+                Pt - Botão digital orange terciário mobile.
+                En - Mobile tertiary digital orange button.
+            */
+
+            @media (max-width: 991px) {
+                &:not(:disabled) {
+                    &:hover {
+                        color: getColor(_bupa, _purple);
+                    }
+                }
+
+                &:focus {
+                    color: getColor(_bupa, _purple);
+                    box-shadow: unset;
+                }
+
+                &:active {
+                    color: getColor(_bupa, _purple);
+                }
+
+                &.arrow {
+                    &-right {
+                        &:not(:disabled) {
+                            &:hover {
+                                &:before {
+                                    border: solid getColor(_bupa, _purple);
+                                    @include arrowElement(-45deg);
+                                }
+                            }
+                        }
+
+                        &:focus {
+                            &:before {
+                                border: solid getColor(_bupa, _purple);
+                                @include arrowElement(-45deg);
+                            }
+                        }
+
+                        &:active {
+                            &:before {
+                                border: solid getColor(_bupa, _purple);
+                                @include arrowElement(-45deg);
+                                -webkit-transform: scale(0.95), rotate(-45deg);
+                                transform: scale(0.95), rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
         pt - Botão White to digital cian
         en - White to digital cian button
     */
