@@ -12,7 +12,8 @@ import { CategoriasService } from './categorias.service';
 import { CategoriasDeleteComponent } from './categorias-delete/categorias-delete.component';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     CategoriasComponent,
@@ -28,6 +29,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     HttpClientModule,
     NgWizardModule,
     PaginationModule,
+    NgxPaginationModule,
+    ModalModule
   ],
   providers: [
     CategoriasService,
