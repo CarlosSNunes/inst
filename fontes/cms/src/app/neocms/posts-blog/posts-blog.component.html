@@ -66,8 +66,8 @@
               <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == '1'}">
               </fa-icon>
             </td>
-            <td class="col-md-2 w-25 text-center text-truncate">
-              <img src="{{ post.caminhoImagem + post.nomeImagem}}">
+            <td class="col-md-2 w-25 text-center text-truncate img-post">
+              <img class="w-25 shadow" src="{{ post.caminhoImagem + post.nomeImagem}}">
             </td>
             <td class="col-md-2 w-25 text-center">
               {{post.titulo}}</td>
