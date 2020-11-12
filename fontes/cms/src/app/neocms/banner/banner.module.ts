@@ -12,6 +12,9 @@ import { HttpHandlerService } from './../../../../src/app/http-handler/http-hand
 import { NgWizardModule } from 'ng-wizard';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { BannerRoutingModule } from './banner-edit/banner-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { BannerRoutingModule } from './banner-edit/banner-routing.module';
     BannerRoutingModule,
     NgWizardModule,
     ImageCropperModule,
-
+    NgxPaginationModule,
+    ModalModule,
   ],
   providers: [
     BannerService,

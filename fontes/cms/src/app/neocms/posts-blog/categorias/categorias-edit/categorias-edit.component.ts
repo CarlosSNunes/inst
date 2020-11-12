@@ -53,7 +53,8 @@ export class CategoriasEditComponent implements OnInit {
   getCategoria() {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.categoriasService.getById(id)
+    this.categoriasService
+      .getById(id)
       .subscribe(categoria => {
         this.categoria = categoria;
         this.categoriasForm.patchValue(this.categoria);

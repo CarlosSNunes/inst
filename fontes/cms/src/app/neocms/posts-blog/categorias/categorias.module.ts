@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
+import { HttpHandlerService } from './../../../../../src/app/http-handler/http-handler.service';
 import { CategoriasComponent } from './categorias.component';
 import { CategoriasCreateComponent } from './categorias-create/categorias-create.component';
 import { CategoriasEditComponent } from './categorias-edit/categorias-edit.component';
@@ -27,7 +27,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     ReactiveFormsModule,
     HttpClientModule,
     NgWizardModule,
-    PaginationModule
+    PaginationModule,
   ],
   providers: [
     CategoriasService,

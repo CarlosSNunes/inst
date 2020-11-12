@@ -9,7 +9,7 @@ import { TagRoutingModule } from './tag-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
+import { HttpHandlerService } from './../../../../../src/app/http-handler/http-handler.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
 

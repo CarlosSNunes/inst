@@ -46,7 +46,7 @@ export class CategoriasComponent implements OnInit {
   getCategorias() {
     this.showCategoriaDelete = false;
     this.categoriasService
-      .getAll(1, this.itemsPerPage)
+      .getAll(0, this.itemsPerPage)
       .subscribe(categorias => {
         this.loaded = true;
         this.categorias = categorias;

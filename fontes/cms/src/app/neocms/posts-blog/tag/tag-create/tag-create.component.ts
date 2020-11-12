@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
+import { UserAuthenticateModel } from './../../../../../../src/models/user-authenticate.model';
 import { faTimes, faCheck, faUpload, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TagService } from '../tag.service';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { AuthenticationService } from './../../../../../../src/app/authentication/authentication.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { FormControlError } from 'src/utils/form-control-error';
-import { TagCreateModel } from 'src/models/tag/tag-create.model';
+import { FormControlError } from './../../../../../../src/utils/form-control-error';
+import { TagCreateModel } from './../../../../../../src/models/tag/tag-create.model';
 
 @Component({
   selector: 'app-tag-create',

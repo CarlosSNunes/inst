@@ -41,7 +41,7 @@
             <td>{{tag.id}}</td>
             <td class="text-truncate text-left">{{tag.descricao}}</td>
             <td class="text-right text-dark">
-              <a class="" [routerLink]="['/neocms/posts-blog/tag']" routerLinkActive="active">
+              <a class="" [routerLink]="['/neocms/posts-blog/tag/edit', tag.id]" routerLinkActive="active">
                 <fa-icon class="text-dark" [icon]="faPencilAlt"></fa-icon>
               </a>
               &nbsp;

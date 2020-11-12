@@ -2,9 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BannerModel } from './../../../../src/models/banner/banner.model';
 import { BannerService } from './banner.service';
 import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
-import { WindowRef } from 'src/utils/window-ref';
-
 
 @Component({
   selector: 'app-banner',
@@ -31,9 +28,9 @@ export class BannerComponent implements OnInit {
   result: any;
   constructor(
     private bannerService: BannerService,
-    private router: Router,
-    private windowRef: WindowRef,
   ) { }
+  paginaAtual = 0;
+  contador = 5;
 
   ngOnInit() {
 

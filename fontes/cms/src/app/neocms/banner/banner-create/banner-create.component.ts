@@ -100,16 +100,16 @@ export class BannerCreateComponent implements OnInit {
    */
   createForm() {
     this.bannerForm = this.fb.group({
-      nomeImagem   : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      titulo       : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo    : ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      area         : ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricao    : ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      rota         : ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-      linkExterno  : ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo        : ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-      arquivo      : ['', [Validators.required]],
+      descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+      rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
+      linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      arquivo: ['', [Validators.required]],
       arquivoMobile: ['', [Validators.required]],
     });
   }
@@ -218,7 +218,7 @@ export class BannerCreateComponent implements OnInit {
   }
 
   imageLoaded() {
-    // show cropper
+
   }
 
   cropperReady() {

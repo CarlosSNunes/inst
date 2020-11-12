@@ -49,10 +49,14 @@ export class PostsBlogComponent implements OnInit {
   bsModalRef: BsModalRef;
   message: string;
   pathDivision = '/';
+  categoriaResult: any;
 
   totalItems: number;
   currentPage: number;
   smallnumPages = 0;
+
+  paginaAtual = 1;
+  contador = 5;
 
   private readonly API_ENDPOINT = environment.API;
   postCount: any;
@@ -159,6 +163,7 @@ export class PostsBlogComponent implements OnInit {
       .subscribe(result => {
         this.loaded = true;
         this.categorias = result['result'];
+        this.categoriaResult = result['result'];
         console.log(result);
       },
         error => {

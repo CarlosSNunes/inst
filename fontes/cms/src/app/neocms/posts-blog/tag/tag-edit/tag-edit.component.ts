@@ -14,6 +14,7 @@ import { TagModel } from './../../../../../../src/models/tag/tag.model';
   templateUrl: './tag-edit.component.html',
   styleUrls: ['./tag-edit.component.scss']
 })
+
 export class TagEditComponent implements OnInit {
   tagForm;
   faTimes = faTimes;
@@ -23,6 +24,7 @@ export class TagEditComponent implements OnInit {
   submitted: boolean;
   usuario: UserAuthenticateModel;
   tag: TagModel;
+  tagResult: { id: number; descricao: string; dataCadastro: Date; usuarioId: number; selected: boolean; };
 
   constructor(
     private tagService: TagService,
@@ -40,11 +42,11 @@ export class TagEditComponent implements OnInit {
 
   getTag() {
     const id = this.route.snapshot.paramMap.get('id');
-
     this.tagService
       .getById(id)
       .subscribe(tag => {
         this.tag = tag;
+        this.tagForm.patchValue(this.tag);
         this.updateForm();
       });
 
@@ -59,8 +61,8 @@ export class TagEditComponent implements OnInit {
 
   updateForm() {
     this.tagForm = this.fb.group({
-      id: [this.tag[0].id, [Validators.required]],
-      descricao: [this.tag[0].descricao, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      id: [this.tag['result'].id, [Validators.required]],
+      descricao: [this.tag['result'].descricao, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
     });
   }
 
@@ -73,7 +75,6 @@ export class TagEditComponent implements OnInit {
     if (this.tagForm.valid) {
       const tagsToUpdate = [];
       tagsToUpdate.push(new TagCreateModel(this.tagForm.value));
-
       this.tagService.put(tagsToUpdate)
         .subscribe(() =>
           this.router.navigate(['/neocms/posts-blog/tag'])
@@ -84,4 +85,5 @@ export class TagEditComponent implements OnInit {
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }
+
 }

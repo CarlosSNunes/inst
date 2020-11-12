@@ -318,7 +318,7 @@ fa-icon.gold.ng-fa-icon {
   position       : sticky;
 }
 
-button.btn.btn-outline-primary.new-tag {
+a.btn.btn-outline-primary.new-tag {
   position   : absolute;
   right      : 20px;
   padding    : 5px 10px 5px 15px;
@@ -326,7 +326,7 @@ button.btn.btn-outline-primary.new-tag {
   font-weight: 700;
 }
 
-button.btn.btn-outline-primary.new-tag:hover {
+a.btn.btn-outline-primary.new-tag:hover {
   background-color: #073457;
   color           : white;
 }
@@ -337,8 +337,8 @@ button.btn.btn-outline-primary.ml-2:hover {
 }
 
 input.text-truncate.input-img {
-    margin: 0px 0px 50px !important;
-    width: 50% !important;
-    position: absolute;
-    left: -16px;
+  margin  : 0px 0px 50px !important;
+  width   : 50% !important;
+  position: absolute;
+  left    : -16px;
 }

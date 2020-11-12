@@ -16,9 +16,6 @@ import { TagService } from '../tag/tag.service';
 import { PostsUploadAdapter } from './../../../../../src/plugins/posts-upload-adapter';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { DatePipe, formatDate } from '@angular/common';
-import { format } from 'util';
-import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { environment } from './../../../../../src/environments/environment';
 
 
@@ -94,10 +91,9 @@ export class PostsBlogCreateComponent implements OnInit {
     private tagService: TagService,
     private fb: FormBuilder,
     private router: Router,
-    private localeService: BsLocaleService,
-    private datepipe: DatePipe
+    private bsLocaleService: BsLocaleService,
   ) {
-    this.localeService.use(this.locale);
+    this.bsLocaleService.use(this.locale);
   }
 
   ngOnInit() {

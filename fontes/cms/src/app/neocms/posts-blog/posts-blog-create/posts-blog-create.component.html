@@ -52,9 +52,6 @@
                 <option value="">Selecione uma categoria..</option>
                 <option *ngFor="let cat of resultCat" [value]="cat.id">
                   {{cat.descricao}}</option>
-                <option value="Administrar">Administrar categorias...
-                  <fa-icon [icon]="faCog"></fa-icon>
-                </option>
               </select>
             </div>
             <div *ngIf="submitted" class="errors">
@@ -178,10 +175,10 @@
                 </div>
               </div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-outline-primary new-tag" [routerLink]="['/neocms/posts-blog/tag/']"
-                  routerLinkActive="active">
+                <a target="blank" type="button" class="btn btn-outline-primary new-tag"
+                  [routerLink]="['/neocms/posts-blog/tag/']" routerLinkActive="active">
                   Nova Tag &nbsp;
-                </button>
+                </a>
               </div>
             </div>
           </div>

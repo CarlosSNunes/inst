@@ -7,26 +7,22 @@ import { PostsBlogRoutingModule } from './posts-blog-routing.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { MaisLidosModule } from './mais-lidos/mais-lidos.module';
 import { TagModule } from './tag/tag.module';
-
-
-import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
+import { HttpHandlerService } from './../../../../src/app/http-handler/http-handler.service';
 import { PostsBlogService } from './posts-blog.service';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
-
+import { AuthenticationService } from './../../../../src/app/authentication/authentication.service';
 import { PostsBlogComponent } from './posts-blog.component';
 import { PostsBlogCreateComponent } from './posts-blog-create/posts-blog-create.component';
 import { PostsBlogEditComponent } from './posts-blog-edit/posts-blog-edit.component';
 import { PostsBlogDeleteComponent } from './posts-blog-delete/posts-blog-delete.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDropdownConfig, BsDropdownDirective, BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -36,9 +32,8 @@ defineLocale('pt-br', ptBrLocale);
     PostsBlogCreateComponent,
     PostsBlogEditComponent,
     PostsBlogDeleteComponent,
-
   ],
-  entryComponents:[
+  entryComponents: [
     PostsBlogDeleteComponent
   ],
   imports: [
@@ -47,14 +42,14 @@ defineLocale('pt-br', ptBrLocale);
     CKEditorModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    HttpClientModule,    
+    HttpClientModule,
     CategoriasModule,
     MaisLidosModule,
     TagModule,
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    PaginationModule.forRoot(),
+    NgxPaginationModule,
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
   ],
@@ -64,10 +59,12 @@ defineLocale('pt-br', ptBrLocale);
     BsModalRef,
     DatePipe,
     {
+      useValue: 'pt',
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHandlerService,
       multi: true,
-    }
+    },
+
   ]
 })
 export class PostsBlogModule { }
