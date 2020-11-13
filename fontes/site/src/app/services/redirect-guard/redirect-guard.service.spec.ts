@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RegirectGuardService } from './regirect-guard.service';
+import { RedirectGuardService } from './redirect-guard.service';
 
-describe('RegirectGuardService', () => {
+describe('RedirectGuardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: RegirectGuardService = TestBed.get(RegirectGuardService);
+    const service: RedirectGuardService = TestBed.get(RedirectGuardService);
     expect(service).toBeTruthy();
   });
 });

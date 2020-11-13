@@ -34,7 +34,7 @@ export class BuscaComponent implements OnInit, AfterViewInit {
     filterForm: FormGroup;
     skip: number = 0;
     take: number = 20;
-    canFindMore: boolean = false;
+    canFindMore: boolean = true;
     isBrowser: boolean = false;
     loading: boolean = false;
 
@@ -213,10 +213,11 @@ export class BuscaComponent implements OnInit, AfterViewInit {
     }
 
     onScroll() {
-        if (this.canFindMore && this.term) {
+        if (this.canFindMore && this.term && !this.loading) {
             this.skip += this.take;
             this.getPostsByTerm();
-        } else if (this.canFindMore) {
+        } else if (this.canFindMore && !this.loading) {
+            this.skip += this.take;
             this.getAllPosts()
         }
     }

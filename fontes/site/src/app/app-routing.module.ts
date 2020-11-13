@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
-import { RedirectGuard } from './services/redirect-guard/regirect-guard.service';
+import { RedirectGuardService } from './services/redirect-guard/redirect-guard.service';
 
 const routes: Routes = [
     {
@@ -113,152 +113,152 @@ const routes: Routes = [
     { path: 'planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2016.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
     {
         path: 'canaldenuncias',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'https://www8.careplus.com.br/portal/portal/modulos/home/canalDenuncias.aspx'
         }
     },
     {
         path: 'comercial',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/comercial'
         }
     },
     {
         path: 'contrato',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/contrato'
         }
     },
     {
         path: 'funcionarios',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/funcionarios'
         }
     },
     {
         path: 'intcp',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www8.careplus.com.br/portal/intcp/default.aspx'
         }
     },
     {
         path: 'intranet/indicador',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/intranet/indicador'
         }
     },
     {
         path: 'mgm',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/mgm'
         }
     },
     {
         path: 'microsoft',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/microsoft'
         }
     },
     {
         path: 'opcionais-cp',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/opcionais-cp'
         }
     },
     {
         path: 'opcionais-p',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/opcionais-p'
         }
     },
     {
         path: 'pa',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www8.careplus.com.br/relacionamento/'
         }
     },
     {
         path: 'pd',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/pd/md/'
         }
     },
     {
         path: 'pd/md',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.careplus.com.br/pd/md/'
         }
     },
     {
         path: 'personalsystem',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www9.personalsystem.med.br/personalsystem/index.aspx'
         }
     },
     {
         path: 'personalsystem/personalsystem/psystem',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www4.personalsystem.med.br/personalsystem/psystem/'
         }
     },
     {
         path: 'relacionamento',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www8.careplus.com.br/relacionamento'
         }
     },
     {
         path: 'soho',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www8.careplus.com.br/soho/'
         }
     },
     {
         path: 'soho/corretor',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www8.careplus.com.br/soho/'
         }
     },
     {
         path: 'soho/admin',
-        canActivate: [RedirectGuard],
-        component: RedirectGuard,
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
         data: {
             externalUrl: 'http://www8.careplus.com.br/soho/admin/login.aspx'
         }

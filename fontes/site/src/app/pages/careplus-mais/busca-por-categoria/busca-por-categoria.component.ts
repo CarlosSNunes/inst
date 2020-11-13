@@ -133,7 +133,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
     }
 
     onScroll() {
-        if (this.canFindMore) {
+        if (this.canFindMore && !this.loading) {
             this.skip += this.take;
             this.getPostsByCategoryId()
         }

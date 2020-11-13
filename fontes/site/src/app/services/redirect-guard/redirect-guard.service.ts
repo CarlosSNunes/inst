@@ -5,10 +5,9 @@ import { CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from
 @Injectable({
     providedIn: 'root'
 })
-export class RedirectGuard implements CanActivate {
+export class RedirectGuardService implements CanActivate {
     isBrowser: boolean = false;
     constructor(
-        private router: Router,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
