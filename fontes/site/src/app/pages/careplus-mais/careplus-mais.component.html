@@ -46,6 +46,6 @@
 <app-last-posts [posts]="recentPosts"></app-last-posts>
 <app-cross-content-section class="blog-cross-content" [style.paddingTop.px]="recentPosts.length > 0 ? 0 : 60"
     [crossContentModel]="crossContentModel"></app-cross-content-section>
-<app-all-posts [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" (loadMore)="loadMore()"></app-all-posts>
+<app-all-posts [posts]="allPosts" [allPostsLoaded]="allPostsLoaded" [loading]="loadingAllPosts" (loadMore)="loadMore()"></app-all-posts>
 
 <app-social-posts></app-social-posts>

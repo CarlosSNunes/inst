@@ -9,6 +9,7 @@ import { PostCardModel } from 'src/app/models';
 export class AllPostsComponent implements OnInit, OnChanges {
     @Input() posts: PostCardModel[] = [];
     @Input() allPostsLoaded: boolean = false;
+    @Input() loading: boolean = false;
     @Output() loadMore: EventEmitter<void> = new EventEmitter<void>();
     constructor() { }
 
@@ -22,6 +23,10 @@ export class AllPostsComponent implements OnInit, OnChanges {
 
         if (changes.allPostsLoaded) {
             this.allPostsLoaded = changes.allPostsLoaded.currentValue;
+        }
+
+        if (changes.loading) {
+            this.loading = changes.loading.currentValue;
         }
     }
 

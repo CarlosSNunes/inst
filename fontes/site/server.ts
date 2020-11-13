@@ -158,7 +158,7 @@ app.get('/nossos-diferenciais.aspx', (req, res) => {
 });
 
 app.get('/planos-de-saude/dl/RN_389anexo.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/biblioteca-da-saude/alimentacao.aspx', (req, res) => {
@@ -166,7 +166,7 @@ app.get('/biblioteca-da-saude/alimentacao.aspx', (req, res) => {
 });
 
 app.get('/DL/Atendimento-Presencial-Care-Plus.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/resultados-financeiros.aspx', (req, res) => {
@@ -174,11 +174,11 @@ app.get('/resultados-financeiros.aspx', (req, res) => {
 });
 
 app.get('/DL/H1N1_INFO_V02 - CI.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/coronavirus/files/guia-de-vigilancia-2020.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/biblioteca-da-saude/atividade-fisica.aspx', (req, res) => {
@@ -190,7 +190,7 @@ app.get('/fale-conosco/visita.aspx', (req, res) => {
 });
 
 app.get('/planos-de-saude/DL/Contratos-reajuste-coletivo_Pool-RN-309_052014-a-042015.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/politica-privacidade.aspx', (req, res) => {
@@ -206,40 +206,39 @@ app.get('/pesquisa-satisfacao.aspx', (req, res) => {
 });
 
 app.get('/planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2019.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/coronavirus/files/BE6-Boletim-Especial-do-COE.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/planos-de-saude/DL/Contratos-reajuste-coletivo_Pool-RN-309_052013-a-042014.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2018.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
-// Enquanto não há blog irá para a home
 app.get('/biblioteca-da-saude/doencas.aspx', (req, res) => {
-    res.redirect(301, '/');
+    res.redirect(301, '/careplus-mais');
 });
 
 app.get('/planos-de-saude/DL/Reajuste-Pool-RN309-de-052015-a-042016_site.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/DL/Pesquisa_de_Satisfação_ANS_Care_Plus_IDSS_2020_Base_2019_v2.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2017.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/DL/Cuco.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/biblioteca-da-saude/ferramentas.aspx', (req, res) => {
@@ -247,7 +246,7 @@ app.get('/biblioteca-da-saude/ferramentas.aspx', (req, res) => {
 });
 
 app.get('/DL/Pesquisa_de_Satisfação_ANS_Care_Plus-2020_(Base_2019).pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/d-b.aspx', (req, res) => {
@@ -255,19 +254,19 @@ app.get('/d-b.aspx', (req, res) => {
 });
 
 app.get('/planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2020.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/DL/FJB_20-CARE_PLUS-Parecer_de_Auditoria_170.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/DL/20160505-comunicado-interno.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2016.pdf', (req, res) => {
-    res.redirect(301, '/a-careplus/materiais');
+    res.redirect(301, '/a-careplus/materiais-de-saude');
 });
 
 app.get('/canaldenuncias', (req, res) => {

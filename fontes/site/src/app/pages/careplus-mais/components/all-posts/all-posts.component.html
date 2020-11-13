@@ -24,14 +24,16 @@
                     </div>
                 </div>
 
-                <div class="column is-full is-button buttons-column" *ngIf="!allPostsLoaded">
+                <div class="column is-full is-button buttons-column" *ngIf="!allPostsLoaded && posts.length > 0">
                     <button (click)="loadMore.emit()"
-                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
+                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [disabled]="loading"
+                        [class.loading]="loading">
                         Carregar mais
                     </button>
 
                     <button (click)="loadMore.emit()"
-                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop">
+                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [disabled]="loading"
+                        [class.loading]="loading">
                         Carregar mais
                     </button>
                 </div>

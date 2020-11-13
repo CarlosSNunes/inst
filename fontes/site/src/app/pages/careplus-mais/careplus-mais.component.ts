@@ -29,6 +29,7 @@ export class CareplusMaisComponent implements OnInit {
     allPostsLoaded: boolean = false;
     allPostsSkip: number = 7;
     allPostsTake: number = 9;
+    loadingAllPosts: boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -93,6 +94,7 @@ export class CareplusMaisComponent implements OnInit {
     }
 
     private async getAllPosts(newRequest: boolean = false) {
+        this.loadingAllPosts = true;
         try {
             const allPostsPaginated = await this.blogService.getAllPostsPaginated(this.allPostsSkip, this.allPostsTake);
             allPostsPaginated.result.forEach(post => {
@@ -111,8 +113,10 @@ export class CareplusMaisComponent implements OnInit {
             if (this.allPosts.length === allPostsPaginated.count || allPostsPaginated.result.length < this.allPostsTake) {
                 this.allPostsLoaded = true;
             }
+            this.loadingAllPosts = false;
             this.cdr.detectChanges();
         } catch (error) {
+            this.loadingAllPosts = false;
             this.errorHandler.ShowError(error);
         }
     }
