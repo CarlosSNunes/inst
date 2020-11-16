@@ -61,6 +61,10 @@ const routes: Routes = [
         path: 'carreiras',
         loadChildren: () => import('./pages/carreiras/carreiras.module').then(m => m.CarreirasModule),
     },
+    {
+        path: '404',
+        loadChildren: () => import('./pages/erro/erro.module').then(m => m.ErroModule)
+    },
 
     // Redirects
     { path: 'planos-de-saude/care-plus-empresarial.aspx', redirectTo: '/planos-e-produtos/careplus-empresarial' },
@@ -265,7 +269,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        loadChildren: () => import('./pages/erro/erro.module').then(m => m.ErroModule)
+        redirectTo: '/404'
     }
 ];
 

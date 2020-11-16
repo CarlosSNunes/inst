@@ -13,7 +13,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        loadChildren: () => import('src/app/pages/erro/erro.module').then(m => m.ErroModule)
+        redirectTo: '/404'
     }
 ];
 
