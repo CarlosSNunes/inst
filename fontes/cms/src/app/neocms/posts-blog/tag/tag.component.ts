@@ -44,8 +44,8 @@ export class TagComponent implements OnInit {
       .getAll(0, 20)
       .subscribe(tags => {
         this.loaded = true;
-        this.tags = tags;
-        this.result = tags['result'];
+        this.tags = tags.result;
+        this.result = tags.result;
 
         console.log(this.tags);
       },

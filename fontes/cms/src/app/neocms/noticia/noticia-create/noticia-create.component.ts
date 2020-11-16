@@ -121,7 +121,7 @@ export class NoticiaCreateComponent implements OnInit {
     return this.noticiaForm.get('noticiaTag') as FormArray;
   }
 
-  toggleTag(tag: TagModel['result']) {
+  toggleTag(tag: TagModel) {
     const index = this.resultTags.findIndex(x => x.id === tag.id);
     this.resultTags[index].selected = !this.resultTags[index].selected;
     this.manageTag(this.resultTags[index].id);
