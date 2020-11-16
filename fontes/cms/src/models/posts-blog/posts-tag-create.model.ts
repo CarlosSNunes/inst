@@ -4,4 +4,5 @@ export class PostsTagCreateModel {
     }
 
     tagId: number;
+    id: number;
 }

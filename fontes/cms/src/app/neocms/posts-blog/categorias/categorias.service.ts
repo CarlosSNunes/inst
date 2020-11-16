@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoriasUpdateModel } from './../../../../../src/models/categorias/categorias-update.model';
 import { CategoriasCreateModel } from './../../../../../src/models/categorias/categorias-create.model';
-import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
+import { CategoriasListModel, CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 
 import { environment } from '../../../../environments/environment';
 
@@ -18,7 +18,7 @@ export class CategoriasService {
   ) { }
 
   getAll(page: number, pageSize: number) {
-    return this.http.get<CategoriasModel[]>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
+    return this.http.get<CategoriasListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
   }
 
   getById(id: string) {

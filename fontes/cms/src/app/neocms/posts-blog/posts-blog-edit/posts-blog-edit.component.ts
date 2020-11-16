@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, AbstractControl, FormGroup } from '@angular/forms';
 import { faTimes, faCheck, faUpload, faPlus, faCog, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,313 +10,361 @@ import { PostsBlogService } from '../posts-blog.service';
 import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
 import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 import { CategoriasService } from '../categorias/categorias.service';
-import { TagModel } from './../../../../../src/models/tag/tag.model';
+import { TagModel, TagModelList } from './../../../../../src/models/tag/tag.model';
 import { TagService } from '../tag/tag.service';
 import { PostsUploadAdapter } from './../../../../../src/plugins/posts-upload-adapter';
 import { PostBlogUpdateModel } from './../../../../../src/models/posts-blog/posts-blog-update-model';
-import { DatePipe, formatCurrency, formatDate } from '@angular/common';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { environment } from './../../../../../src/environments/environment';
+import { PostsTagCreateModel } from 'src/models/posts-blog/posts-tag-create.model';
 
 @Component({
-  selector: 'app-posts-blog-edit',
-  templateUrl: './posts-blog-edit.component.html',
-  styleUrls: ['./posts-blog-edit.component.scss']
+    selector: 'app-posts-blog-edit',
+    templateUrl: './posts-blog-edit.component.html',
+    styleUrls: ['./posts-blog-edit.component.scss']
 })
 
 export class PostsBlogEditComponent implements OnInit {
-  editor = DecoupledEditor;
-  dataPublicacao;
-  postsBlogForm;
-  faTimes = faTimes;
-  faCheck = faCheck;
-  faUpload = faUpload;
-  faPlus = faPlus;
-  faCog = faCog;
-  faArrowCircleLeft = faArrowCircleLeft;
-  postsBlog: PostsBlogModel[] = [];
-  tags: TagModel[] = [];
-  categorias: CategoriasModel[] = [];
-  arquivoNome = 'Selecione um arquivo';
-  arquivo: File;
-  submitted: boolean;
-  user: UserAuthenticateModel;
-  postBlog: PostsBlogModel;
-  isPostAtivo = false;
-  isPostDestaque = false;
+    editor = DecoupledEditor;
+    dataPublicacao;
+    postsBlogForm: FormGroup;
+    faTimes = faTimes;
+    faCheck = faCheck;
+    faUpload = faUpload;
+    faPlus = faPlus;
+    faCog = faCog;
+    faArrowCircleLeft = faArrowCircleLeft;
+    postsBlog: PostsBlogModel[] = [];
+    tags: TagModel[] = [];
+    categorias: CategoriasModel[] = [];
+    arquivoNome = 'Selecione um arquivo';
+    arquivo: File;
+    submitted: boolean;
+    user: UserAuthenticateModel;
+    postBlog: PostBlogUpdateModel;
+    isPostAtivo = false;
+    isPostDestaque = false;
 
-  fileData: File = null;
-  previewUrl: any = null;
-  fileUploadProgress: string = null;
-  uploadedFilePath: string = null;
-  private readonly API_ENDPOINT = environment.API;
+    fileData: File = null;
+    previewUrl: any = null;
+    fileUploadProgress: string = null;
+    uploadedFilePath: string = null;
+    private readonly API_ENDPOINT = environment.API;
 
-  resultPostBlog;
-  resultTags;
-  resultCategoria: any;
+    resultPostBlog: PostBlogUpdateModel;
+    resultTags: TagModelList;
+    resultCategoria: CategoriasModel[];
 
-  constructor(
-    private authenticateService: AuthenticationService,
-    private categoriasService: CategoriasService,
-    private postsBlogService: PostsBlogService,
-    private tagService: TagService,
-    private fb: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
-    private datepipe: DatePipe,
-    private localeService: BsLocaleService
-  ) { }
-
-  ngOnInit() {
-    this.localeService.use('pt-br')
-    this.user = this.authenticateService.state;
-
-
-
-    this.categoriasService
-      .getAll(1, 100)
-      .subscribe(categorias => {
-        this.categorias = categorias;
-        this.resultCategoria = categorias['result'];
-      });
-
-
-    this.tagService
-      .getAll(1, 100)
-      .subscribe(tags => {
-        this.tags = tags;
-        this.resultTags = tags['result'];
-      });
-
-    this.getPost()
-
-    this.createForm();
-  }
-
-  get f() {
-    return this.postsBlogForm.controls;
-  }
-
-  get tagControls() {
-    return this.postsBlogForm.get('postTag') as FormArray;
-  }
-
-  onReady(eventData: any) {
-    eventData.ui.getEditableElement().parentElement.insertBefore(
-      eventData.ui.view.toolbar.element,
-      eventData.ui.getEditableElement()
-    );
-
-    eventData.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
-      return new PostsUploadAdapter(loader, this.postsBlogService);
-    };
-  }
-
-  getPost() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.postsBlogService
-      .getById(id)
-      .subscribe(postBlog => {
-        this.postBlog = postBlog;
-        this.resultPostBlog = postBlog['result'];
-
-        const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-        this.postsBlogForm.controls.dataPublicacao.setValue(this.datepipe.transform(this.resultPostBlog.dataPublicacao, 'dd/MM/yyyy', 'en'));
-
-        const dataPExpiracaoElement: any = document.querySelector('#dataExpiracao');
-        dataPExpiracaoElement.value = this.resultPostBlog.dataExpiracao;
-        this.postsBlogForm.controls.dataExpiracao.setValue(this.resultPostBlog.dataExpiracao);
-
-        this.changeStatusPost(this.resultPostBlog.ativo, this.resultPostBlog.ativo == '1' ? true : false);
-        this.changeStatusDestaque(this.resultPostBlog.destaque, this.resultPostBlog.destaque == '1' ? true : false);
-        this.updateForm(this.resultPostBlog);
-      });
-  }
-
-  getTags() {
-    this.tagService
-      .getAll(1, 100)
-      .subscribe(tags => {
-        this.tags = tags;
-        this.resultTags = tags;
-        this.updateTags();
-      });
-  }
-
-  getCategorias() {
-    this.categoriasService
-      .getAll(1, 100)
-      .subscribe(categorias => {
-        this.categorias = categorias;
-        this.resultCategoria = categorias['result'];
-      });
-  }
-
-  changeCategoria(categoria) {
-    if (categoria.value == 'Administrar') {
-      this.router.navigate(['/neocms/posts-blog/categorias/index']);
+    constructor(
+        private authenticateService: AuthenticationService,
+        private categoriasService: CategoriasService,
+        private postsBlogService: PostsBlogService,
+        private tagService: TagService,
+        private fb: FormBuilder,
+        private router: Router,
+        private localeService: BsLocaleService,
+        private activatedRoute: ActivatedRoute
+    ) {
+        this.createForm();
     }
-  }
 
-  createForm() {
+    ngOnInit() {
+        this.localeService.use('pt-br')
+        this.user = this.authenticateService.state;
 
-    this.postsBlogForm = this.fb.group({
-      id: [''],
-      titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      dataPublicacao: ['', [Validators.required]],
-      dataExpiracao: [''],
-      destaque: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
-      ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
-      tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
-      descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
-      categoriaId: ['', Validators.required],
-      postTag: this.fb.array([]),
-      descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
-      arquivo: [''],
-      caminhoImagem: [''],
-      nomeImagem: [''],
-    });
-
-    //this.getTags();
-    this.getCategorias();
-  }
-
-  updateForm(postBlog: PostsBlogModel['result']) {
-    this.postsBlogForm = this.fb.group({
-      id: [postBlog['0'].id],
-      titulo: [postBlog['0'].titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      subtitulo: [postBlog['0'].subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      descricaoPrevia: [postBlog['0'].descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-      dataPublicacao: [postBlog['0'].dataPublicacao, [Validators.required]],
-      dataExpiracao: [postBlog['0'].dataExpiracao],
-      destaque: [postBlog['0'].destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
-      ativo: [postBlog['0'].ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
-      tituloPaginaSEO: [postBlog['0'].tituloPaginaSEO],
-      descricaoPaginaSEO: [postBlog['0'].descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
-      categoriaId: [postBlog['0'].categoriaId, Validators.required],
-      postTag: this.fb.array(postBlog['0'].postTag),
-      descricao: [postBlog['0'].descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
-      arquivo: [''],
-      caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Post/'],
-      nomeImagem: [postBlog['0'].nomeImagem]
-    });
-
-  }
-
-  updateTags() {
-    this.resultPostBlog.postTag.forEach(tag => {
-      this.toggleTag(tag);
-    });
-  }
-
-  toggleTag(tag: TagModel) {
-    const index = this.resultTags.findIndex(x => x.id === tag['result'].id);
-    this.resultTags[index].selected = !this.resultTags[index].selected;
-    this.manageTag(this.resultTags[index].id);
-  }
-
-  manageTag(id: number) {
-    const index = this.tagControls.controls.findIndex((item, idx) => {
-      return item.get('tagId').value === id;
-    });
-
-    if (index >= 0) {
-      this.removeTag(index);
-    } else {
-      this.addTag(id);
+        this.activatedRoute.params.subscribe(async params => {
+            if (params.slug) {
+                await this.getTags();
+                await this.getCategories();
+                await this.getPost(params.slug);
+            }
+        });
     }
-  }
 
-  addTag(id: number) {
-    this.tagControls.push(
-      this.fb.group({
-        tagId: [id, [Validators.required]]
-      })
-    );
-  }
+    /*  ////////////////////
+    //  Create form method
+    */  ///////////////////
+    createForm() {
+        this.postsBlogForm = this.fb.group({
+            id: [''],
+            titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            dataPublicacao: [new Date().toISOString().substring(0, 10), [Validators.required]],
+            dataExpiracao: [''],
+            destaque: [false, [Validators.required, FormControlError.noWhitespaceValidator],],
+            ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+            tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
+            descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
+            categoriaId: ['', Validators.required],
+            postTag: this.fb.array([], Validators.compose([Validators.minLength(1)])),
+            descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+            arquivo: [''],
+            caminhoImagem: [''],
+            nomeImagem: [''],
+        });
+    }
 
-  removeTag(index: number) {
-    this.tagControls.removeAt(index);
-  }
+    /*  ////////////////////
+    //  Update form method
+    */  ///////////////////
+    updateForm(postBlog: PostBlogUpdateModel) {
+        const postTags = postBlog.postTag.map(postTag => ({ tagId: postTag.id }));
 
-  onSubmit() {
-    const dataPublicacaoElement: any = document.querySelector('#dataPublicacao');
-    const dataPublicacao: Date = dataPublicacaoElement.value;
+        this.postsBlogForm = this.fb.group({
+            id: [postBlog.id],
+            titulo: [postBlog.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            subtitulo: [postBlog.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            descricaoPrevia: [postBlog.descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            dataPublicacao: [new Date(this.resultPostBlog.dataPublicacao).toISOString().substring(0, 10), [Validators.required]],
+            dataExpiracao: [new Date(this.resultPostBlog.dataExpiracao).toISOString().substring(0, 10),],
+            destaque: [postBlog.destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
+            ativo: [postBlog.ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
+            tituloPaginaSEO: [postBlog.tituloPaginaSEO],
+            descricaoPaginaSEO: [postBlog.descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
+            categoriaId: [postBlog.categoriaId, Validators.required],
+            postTag: this.fb.array(postTags, Validators.compose([Validators.minLength(1)])),
+            descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+            arquivo: [''],
+            caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Post/'],
+            nomeImagem: [postBlog.nomeImagem]
+        });
 
-    this.validateDate(dataPublicacao);
+        this.postsBlogForm.value.postTag.forEach(postTag => {
+            this.verifyTag(postTag);
+        });
+    }
 
-    this.submitted = true;
-    if (this.postsBlogForm.valid) {
-      const dataExpiracaoElement: any = document.querySelector('#dataExpiracao');
-      const dataExpiracao: Date = dataExpiracaoElement.value;
-      this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao);
+    /*  ////////////////////
+    //  Get post method
+    */  ///////////////////
+    private async getPost(slug: string) {
+        try {
+            const postBlog = await this.postsBlogService
+                .getBySlug(slug).toPromise()
 
-      if (dataExpiracao) {
-        this.postsBlogForm.controls.dataExpiracao.setValue(dataExpiracao);
-      } else {
-        this.postsBlogForm.controls.dataExpiracao.setValue('');
-      }
+            this.postBlog = postBlog;
+            this.resultPostBlog = postBlog;
 
-      if (this.arquivo != undefined) {
-        this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
-        this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
-      }
-      else {
-        this.postsBlogForm.controls.arquivo.setValue([]);
-        this.postsBlogForm.controls.caminhoImagem.setValue('');
-        this.postsBlogForm.controls.nomeImagem.setValue('');
+            this.updateForm(this.resultPostBlog);
+            this.changeStatusPost(this.resultPostBlog.ativo, this.resultPostBlog.ativo == '1' ? true : false);
+            this.changeStatusDestaque(this.resultPostBlog.destaque, this.resultPostBlog.destaque == '1' ? true : false);
+            this.preview()
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-      }
+    /*  ////////////////////
+    //  Get categories method
+    */  ///////////////////
+    private async getCategories() {
+        try {
+            const categorias = await this.categoriasService
+                .getAll(0, 100)
+                .toPromise();
+            this.categorias = categorias.result;
+            this.resultCategoria = categorias.result;
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-      const model = new PostBlogUpdateModel(this.postsBlogForm.value);
-      this.postsBlogService.put(model)
-        .subscribe(() =>
-          this.router.navigate(['/neocms/posts-blog/index'])
+    /*  ////////////////////
+    //  Manage categories method
+    */  ///////////////////
+    manageCategories(categoria) {
+        if (categoria.value == 'Administrar') {
+            this.router.navigate(['/neocms/posts-blog/categorias/index']);
+        }
+    }
+
+    /*  ////////////////////
+    //  Get form controls
+    */  ///////////////////
+    get f() {
+        return this.postsBlogForm.controls;
+    }
+
+    /*  ////////////////////
+    //  Get form post tag controls
+    */  ///////////////////
+    get tagControls() {
+        return this.postsBlogForm.get('postTag') as FormArray;
+    }
+
+    /*  ////////////////////
+    //  CkEditor onReady event callback handler.
+    */  ///////////////////
+    onReady(eventData: any) {
+        eventData.ui.getEditableElement().parentElement.insertBefore(
+            eventData.ui.view.toolbar.element,
+            eventData.ui.getEditableElement()
+        );
+
+        eventData.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
+            return new PostsUploadAdapter(loader, this.postsBlogService);
+        };
+    }
+
+    /*  ////////////////////
+    //  Get last 1000 tags from API.
+    */  ///////////////////
+    private async getTags() {
+        try {
+            const tags = await this.tagService
+                .getAll(0, 1000).toPromise();
+            this.tags = tags.result;
+            this.resultTags = tags;
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    /*  ////////////////////
+    //  Verify the post tags with the returned last 1000 tags returned from the API.
+    */  ///////////////////
+    private verifyTag(postTag) {
+        const tagIndex = this.resultTags.result.findIndex(tag => tag.id == postTag.tagId);
+        if (tagIndex > -1) {
+            this.resultTags.result[tagIndex].selected = true;
+        } else {
+            this.resultTags.result[tagIndex].selected = false;
+        }
+    }
+
+    /*  ////////////////////
+    //  Add or remove a tag from the post.
+    */  ///////////////////
+    toggleTag(tag: PostsTagCreateModel) {
+        const index = this.resultTags.result.findIndex(x => x.id === tag.id);
+        if (index > -1) {
+            this.resultTags.result[index].selected = !this.resultTags.result[index].selected;
+            this.manageTag(this.resultTags.result[index].id);
+        }
+    }
+
+    /*  ////////////////////
+    //  Add or remove a tag from the post form.
+    */  ///////////////////
+    private manageTag(id: number) {
+        const index = this.tagControls.controls.findIndex((item) => {
+            return item.value.tagId === id;
+        });
+        if (index >= 0) {
+            this.removeTag(index);
+        } else {
+            this.addTag(id);
+        }
+    }
+
+    /*  ////////////////////
+    //  Add a tag to the post
+    */  ///////////////////
+    private addTag(id: number) {
+        this.tagControls.push(
+            this.fb.group({
+                tagId: [id, [Validators.required]]
+            })
         );
     }
-  }
 
-  fileProgress(arquivos: any) {
-    //this.arquivo = <File>fileInput.target.files[0];
-    this.arquivo = arquivos[0];
-    this.arquivoNome = this.arquivo.name;
-    this.preview();
-  }
-
-  preview() {
-    // Show preview
-    var mimeType = this.arquivo.type;
-    if (mimeType.match(/image\/*/) == null) {
-      return;
+    /*  ////////////////////
+    //  remove a tag from the post
+    */  ///////////////////
+    private removeTag(index: number) {
+        this.tagControls.removeAt(index);
     }
 
-    var reader = new FileReader();
-    reader.readAsDataURL(this.arquivo);
-    reader.onload = (_event) => {
-      this.previewUrl = reader.result;
-      this.arquivo = this.previewUrl;
+
+    /*  ////////////////////
+    //  Form submit
+    */  ///////////////////
+    onSubmit() {
+        this.submitted = true;
+
+        if (this.postsBlogForm.valid) {
+
+            if (this.arquivo != undefined) {
+                this.postsBlogForm.controls.arquivo.setValue(this.arquivo);
+                this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
+            }
+            else {
+                this.postsBlogForm.controls.arquivo.setValue([]);
+                this.postsBlogForm.controls.caminhoImagem.setValue('');
+                this.postsBlogForm.controls.nomeImagem.setValue('');
+            }
+
+            let model = new PostBlogUpdateModel(this.postsBlogForm.value);
+
+            model = {
+                ...this.resultPostBlog,
+                ...model,
+            }
+
+            this.postsBlogService.put(model)
+                .subscribe(() =>
+                    this.router.navigate(['/neocms/posts-blog/index'])
+                );
+        }
     }
-  }
 
-  validateDate(data: Date) {
-    if (!data) {
-      this.f.dataPublicacao.setErrors(null);
+    /*  ////////////////////
+        //  Image Change
+    */  ///////////////////
+    fileProgress(arquivos: FileList) {
+        if (arquivos.length > 0) {
+            this.arquivo = arquivos[0];
+            this.arquivoNome = this.arquivo.name;
+        } else {
+            this.arquivo = undefined;
+            this.arquivoNome = '';
+        }
+        this.preview();
     }
-  }
 
-  changeStatusPost(value: string, selected: boolean) {
-    this.f.ativo.setValue(value);
-    this.isPostAtivo = selected;
-  }
+    /*  ////////////////////
+        //  Preview Image
+    */  ///////////////////
+    preview() {
+        // Show preview
+        if (this.arquivo != undefined && this.arquivo != null) {
+            var mimeType = this.arquivo.type;
+            if (mimeType.match(/image\/*/) == null) {
+                return;
+            }
 
-  changeStatusDestaque(value: string, selected: boolean) {
-    this.f.destaque.setValue(value);
-    this.isPostDestaque = selected;
-  }
+            var reader = new FileReader();
+            reader.readAsDataURL(this.arquivo);
+            reader.onload = (_event) => {
+                this.previewUrl = reader.result;
+            }
+        } else {
+            this.previewUrl = this.resultPostBlog.caminhoCompleto;
+        }
+    }
 
-  getErrors(control: AbstractControl) {
-    return FormControlError.GetErrors(control);
-  }
+    /*  ////////////////////
+        //  Change post status, to actived or deactived.
+    */  ///////////////////
+    changeStatusPost(value: string, selected: boolean) {
+        this.f.ativo.setValue(value);
+        this.isPostAtivo = selected;
+    }
+
+    /*  ////////////////////
+        //  Change post highlight status, to actived or deactived.
+    */  ///////////////////
+    changeStatusDestaque(value: string, selected: boolean) {
+        this.f.destaque.setValue(value);
+        this.isPostDestaque = selected;
+    }
+
+    /*  ////////////////////
+        //  Change form control errors
+    */  ///////////////////
+    getErrors(control: AbstractControl) {
+        return FormControlError.GetErrors(control);
+    }
 }

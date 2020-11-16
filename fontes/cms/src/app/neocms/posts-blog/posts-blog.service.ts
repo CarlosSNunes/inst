@@ -31,8 +31,8 @@ export class PostsBlogService {
     return this.http.get<PostsBlogModel[]>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
   }
 
-  getById(id: string): Observable<PostsBlogModel> {
-    return this.http.get<PostsBlogModel>(this.API_ENDPOINT + '/' + id);
+  getBySlug(slug: string): Observable<PostBlogUpdateModel> {
+    return this.http.get<PostBlogUpdateModel>(this.API_ENDPOINT + '/' + slug);
   }
 
   getByCategoryId(id: string): Observable<PostsBlogModel> {

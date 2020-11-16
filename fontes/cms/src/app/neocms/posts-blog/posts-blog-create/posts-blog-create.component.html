@@ -47,10 +47,10 @@
             <label class="label">Qual é a categoria?</label>
             <div class="select"
               [ngClass]="{ 'is-success': submitted && !f.categoriaId.errors, 'is-danger' : submitted && f.categoriaId.errors }">
-              <select formControlName="categoriaId" (change)="changeCategoria($event.target)"
+              <select formControlName="categoriaId" (change)="manageCategories($event.target)"
                 class="custom-select form-group">
                 <option value="">Selecione uma categoria..</option>
-                <option *ngFor="let cat of resultCat" [value]="cat.id">
+                <option *ngFor="let cat of categorias" [value]="cat.id">
                   {{cat.descricao}}</option>
               </select>
             </div>
@@ -166,7 +166,7 @@
           <div class="card-body my-2">
             <div class="row">
               <div class="col-md-10">
-                <div class="tags-container" *ngFor="let t of resultTag">
+                <div class="tags-container" *ngFor="let t of resultTag.result">
                   <button type="button" (click)="toggleTag(t)" class="btn btn-outline-primary btn-tag" btnCheckbox
                     btnCheckboxTrue="1" btnCheckboxFalse="0">
                     <fa-icon class="gold" [icon]="faTag"></fa-icon>

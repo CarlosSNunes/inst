@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TagModel } from './../../../../../src/models/tag/tag.model';
+import { HttpClient } from '@angular/common/http';
+import { TagModel, TagModelList } from './../../../../../src/models/tag/tag.model';
 import { TagCreateModel } from './../../../../../src/models/tag/tag-create.model';
 import { ClassHelper } from './../../../../../src/utils/class-helper';
 import { TagUpdateModel } from './../../../../../src/models/tag/tag-update.model';
@@ -12,14 +12,13 @@ import { environment } from '../../../../environments/environment';
 })
 export class TagService {
   private readonly API_ENDPOINT = environment.API + '/Tag';
-  private classHelper = ClassHelper;
 
   constructor(
     private http: HttpClient
   ) { }
 
   getAll(page: number, pageSize: number) {
-    return this.http.get<TagModel[]>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
+    return this.http.get<TagModelList>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
   }
 
   getById(id: string) {

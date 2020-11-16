@@ -38,7 +38,7 @@ const routes: Routes = [
         loadChildren: () => import('./mais-lidos/mais-lidos.module').then(m => m.MaisLidosModule)
     },        
     {
-        path: 'edit/:id',
+        path: 'edit/:slug',
         canActivate: [AuthGuard],
         component: PostsBlogEditComponent
     },
