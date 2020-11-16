@@ -2,7 +2,7 @@ export class BannerCreateModel {
     public constructor(init?: Partial<BannerCreateModel>) {
         Object.assign(this, init);
     }
-    
+
     nomeImagem: string;
     titulo: string;
     subtitulo: string;
@@ -13,8 +13,9 @@ export class BannerCreateModel {
     linkExterno: string;
     arquivo: File;
     arquivoMobile: File;
+    nomeLink: string;
     caminhoDesktop: string;
-    caminhoMobile: string;    
-    ativo: string;   
-    ordem: number;    
+    caminhoMobile: string;
+    ativo: string;
+    ordem: number;
 }

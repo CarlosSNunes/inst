@@ -330,10 +330,9 @@ export class PostsBlogCreateComponent implements OnInit {
     )
     console.log(file)
 
+
     let areaNome = JSON.stringify(file).replace(/['"]+/g, '');
   }
-
-
 
   base64ToFile(data, filename) {
     const arr = data.split(',');

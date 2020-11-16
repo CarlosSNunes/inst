@@ -28,11 +28,13 @@ export class BannerEditComponent implements OnInit {
 
   // ?--------- Configuração 'DropDown' ---------
   dropdownOptions = [
-    { nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
-    { nome: 'Home RH', descricao: 'Banner da home do RH' },
-    { nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
-    { nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
-    { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
+    { nome: 'beneficiario', descricao: 'Beneficiario' },
+    { nome: 'blog', descricao: 'Blog' },
+    { nome: 'corretor', descricao: 'Corretor' },
+    { nome: 'credenciado', descricao: 'Credenciado' },
+    { nome: 'diferenciais', descricao: 'Diferenciais' },
+    { nome: 'home', descricao: 'Home' },
+    { nome: 'rh', descricao: 'RH' },
   ];
   areaSelectedObject: [{
     nome: string,

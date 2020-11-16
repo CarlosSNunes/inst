@@ -35,6 +35,7 @@ export class CategoriasEditComponent implements OnInit {
       showPreviousButton: false
     }
   };
+  catId: string;
 
   constructor(
     private authenticateService: AuthenticationService,
@@ -52,11 +53,12 @@ export class CategoriasEditComponent implements OnInit {
 
   getCategoria() {
     const id = this.route.snapshot.paramMap.get('id');
-
+    this.catId = this.route.snapshot.paramMap.get('id');
     this.categoriasService
       .getById(id)
       .subscribe(categoria => {
         this.categoria = categoria;
+        console.log(this.catId);
         this.categoriasForm.patchValue(this.categoria);
         this.updateForm();
       });
@@ -64,44 +66,17 @@ export class CategoriasEditComponent implements OnInit {
 
   createForm() {
     this.categoriasForm = this.fb.group({
-      titulo: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(100),
-          FormControlError.noWhitespaceValidator
-        ]
-      ],
-      descricao: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(100),
-          FormControlError.noWhitespaceValidator
-        ]
-      ]
+      id: ['', [Validators.required]],
+      titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      descricao: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]]
     });
   }
 
   updateForm() {
     this.categoriasForm = this.fb.group({
       id: [this.categoria['result'].id, [Validators.required]],
-      titulo: [
-        this.categoria['result'].titulo,
-        [
-          Validators.required,
-          Validators.maxLength(100),
-          FormControlError.noWhitespaceValidator
-        ]
-      ],
-      descricao: [
-        this.categoria['result'].descricao,
-        [
-          Validators.required,
-          Validators.maxLength(1000),
-          FormControlError.noWhitespaceValidator
-        ]
-      ],
+      titulo: [this.categoria['result'].titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+      descricao: [this.categoria['result'].descricao, [Validators.required, Validators.maxLength(1000), FormControlError.noWhitespaceValidator]],
     });
   }
 
@@ -119,7 +94,6 @@ export class CategoriasEditComponent implements OnInit {
         .subscribe(() => {
           this.router.navigate(['/neocms/posts-blog/categorias/index']);
         })
-        .add(() => this.btnSubmitDisable = false);
     }
   }
 

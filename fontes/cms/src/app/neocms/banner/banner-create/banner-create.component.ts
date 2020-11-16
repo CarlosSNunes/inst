@@ -31,11 +31,13 @@ export class BannerCreateComponent implements OnInit {
 
   // ?--------- Configuração 'DropDown' ---------
   dropdownOptions = [
-    { nome: 'Home Padrão', descricao: 'Banner superior da home princial' },
-    { nome: 'Home RH', descricao: 'Banner da home do RH' },
-    { nome: 'Home Credenciado', descricao: 'Banner da home de credenciamento' },
-    { nome: 'Home Corretor', descricao: 'Banner da home do corretor' },
-    { nome: 'Home Beneficiário', descricao: 'Banner da home de beneficiário' },
+    { nome: 'beneficiario', descricao: 'Beneficiario' },
+    { nome: 'blog', descricao: 'Blog' },
+    { nome: 'corretor', descricao: 'Corretor' },
+    { nome: 'credenciado', descricao: 'Credenciado' },
+    { nome: 'diferenciais', descricao: 'Diferenciais' },
+    { nome: 'home', descricao: 'Home' },
+    { nome: 'rh', descricao: 'RH' },
   ];
 
   areaDescricao: any;
@@ -49,8 +51,6 @@ export class BannerCreateComponent implements OnInit {
   arquivo: File;
   arquivoMobile: File;
   bannerForm: any;
-  bannerGrande: File;
-  bannerMobile: File;
   blob: File;
   btnSubmitDisable: any = false;
   croppedImage: any;
@@ -62,7 +62,6 @@ export class BannerCreateComponent implements OnInit {
   faTimes: any = faTimes;
   faUpload: any = faUpload;
   file: ImageData;
-  fileMobile: Blob;
   fileName: string;
   fileNameMobile: string;
   filestring: string;
@@ -86,18 +85,9 @@ export class BannerCreateComponent implements OnInit {
   }
 
   /**
-   * @description: Metodo de inicialização do componente
-   * @memberOf   : BannerCreateComponent
-   */
-  ngOnInit() {
-    this.usuario = this.authenticateService.state;
-    this.createForm();
-  }
-
-  /**
-   * @description: Criação do FormGroup
-   * @memberOf   : BannerCreateComponent
-   */
+ * @description Criação do FormGroup
+ * @memberOf BannerCreateComponent
+ */
   createForm() {
     this.bannerForm = this.fb.group({
       nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
@@ -108,6 +98,7 @@ export class BannerCreateComponent implements OnInit {
       descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
       rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
       linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+      nomeLink: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
       arquivo: ['', [Validators.required]],
       arquivoMobile: ['', [Validators.required]],
@@ -115,17 +106,26 @@ export class BannerCreateComponent implements OnInit {
   }
 
   /**
-   * @description :Retorna o FormControl
-   * @memberOf    :BannerCreateComponent
-   * @returns:    {f} Form.Control
-   */
+  * @description Retorna o FormControl
+  * @memberOf BannerCreateComponent
+  * @returns {f} Form.Control
+  */
   get f() {
     return this.bannerForm.controls;
   }
 
   /**
-   * @description: Metodo que submete o formulário de cadastro de Banners
-   * @memberOf   : BannerCreateComponent
+   * @description Metodo de inicialização do componente
+   * @memberOf BannerCreateComponent
+   */
+  ngOnInit() {
+    this.usuario = this.authenticateService.state;
+    this.createForm();
+  }
+
+  /**
+   * @description Metodo que submete o formulário de cadastro de Banners
+   * @memberOf BannerCreateComponent
    */
   onSubmit(): void {
     this.submitted = true;
@@ -140,30 +140,57 @@ export class BannerCreateComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Define o tipo do link (Externo ou Interno)
+   * @param value 
+   * @param selected 
+   * @memberOf BannerCreateComponent
+   */
   changeLinkExterno(value: string, selected: boolean) {
     this.f.linkExterno.setValue(value);
     this.isLinkExternoSelected = selected;
   }
 
+  /**
+   * @description Define o status do banner (Ativo ou Inativo)
+   * @param value 
+   * @param selected 
+   * @memberOf BannerCreateComponent
+   */
   changeStatusBanner(value: string, selected: boolean) {
     this.f.ativo.setValue(value);
     this.isBannerAtivo = selected;
   }
 
+  /**
+   * @description Esse metodo dispara o erro de validação no form
+   * @param control 
+   * @memberOf BannerCreateComponent
+   */
   getErrors(control: AbstractControl) {
     return FormControlError.GetErrors(control);
   }
 
+  /**
+   * @description Esse metodo define o tema que é usado no component wirzard de navegação
+   * @param theme 
+   * @memberOf BannerCreateComponent
+   */
   setTheme(theme: THEME) {
     this.ngWizardService.theme(theme);
   }
 
+  /**
+   * @description Se necessário emite um evento ao avançar uma etapa do Wizard.
+   * @param args 
+   * @memberOf BannerCreateComponent
+   */
   stepChanged(args: StepChangedArgs) {
     console.log(args.step);
   }
 
   /**
-   * *Usando o 'ngx-image-cropper'
+   ** Instruções para usar o 'ngx-image-cropper'
    *  Quando você escolhe um arquivo da entrada do arquivo, ele será acionado @fileChangeEvent
    *  Esse evento é então passado para o cortador de imagens, por meio do @imageChangedEvent qual
    *  carregará a imagem no cortador. Sempre que você soltar o mouse, o @imageCropped evento será
@@ -171,8 +198,8 @@ export class BannerCreateComponent implements OnInit {
    */
 
   /**
-   * @param: {*} event
    * @description: Metodo que captura o evento, quando escolhe um arquivo da entrada do arquivo
+   * @param {*} event
    * @memberOf BannerCreateComponent
    */
   fileChangeEvent(event: any): void {
@@ -181,7 +208,8 @@ export class BannerCreateComponent implements OnInit {
   }
 
   /**
-   * @param: {any} event
+   * @description: Metodo que captura o evento, quando escolhe um arquivo da entrada do arquivo
+   * @param {any} event
    * @memberOf BannerCreateComponent
    */
   fileChangeEventMobile(event): void {
@@ -191,7 +219,8 @@ export class BannerCreateComponent implements OnInit {
   }
 
   /**
-   * @param: {any} event
+   * @description Evento que será disparado com a imagem cortada como uma string Base64 em sua carga útil.
+   * @param {any} event
    * @memberOf BannerCreateComponent
    */
   imageCropped(event: ImageCroppedEvent) {
@@ -205,7 +234,7 @@ export class BannerCreateComponent implements OnInit {
 
   /**
    * @description Método para Converter arquivo Blob gerado no @imageCropped no tipo File
-   * @method: blobToFile
+   * @method blobToFile
    * @memberOf BannerCreateComponent
    */
   imageCroppedMobile(event: ImageCroppedEvent) {
@@ -217,15 +246,12 @@ export class BannerCreateComponent implements OnInit {
     this.bannerForm.controls.arquivoMobile.setValue(file);
   }
 
-  imageLoaded() {
+  imageLoaded() { }
 
-  }
+  cropperReady() { }
 
-  cropperReady() {
-  }
+  loadImageFailed() { }
 
-  loadImageFailed() {
-  }
 }
 
 

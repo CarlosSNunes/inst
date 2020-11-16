@@ -24,7 +24,7 @@
                     <select formControlName="area" class="form-control my-3">
                       <option [ngValue]="null" disabled>Selecione</option>
                       <option *ngFor="let prf of dropdownOptions" [ngValue]="prf['nome']">
-                        {{ prf.nome }}
+                        Home - {{ prf.descricao }}
                       </option>
                     </select>
 
@@ -59,7 +59,7 @@
                         (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
                       </image-cropper>
                     </div>
-                    <div *ngIf="croppedImage" class="shadow thumbnail-image-box">
+                    <div class="shadow thumbnail-image-box">
                       <h4 class="titulo-visualizacao">visualização</h4>
                       <img class="thumbnail-image" [src]="croppedImage" />
                     </div>
@@ -79,7 +79,7 @@
                         [cropperMinHeight]="150" format="png" (imageCropped)="imageCroppedMobile($event)">
                       </image-cropper>
                     </div>
-                    <div *ngIf="croppedImageMobile" class="shadow thumbnail-image-box-mobile">
+                    <div class="shadow thumbnail-image-box-mobile">
                       <h4 class="titulo-visualizacao-mobile">visualização</h4>
                       <img class="thumbnail-image-mobile" [src]="croppedImageMobile" />
                     </div>
@@ -110,11 +110,22 @@
                   </div>
                   <div class="col-md-12 col-lg-6">
                     <div class="form-group">
+                      <label for="my-input">Texto do Botão</label>
+                      <input formControlName="nomeLink" class="form-control" type="text" placeholder="Texto do Botão"
+                        [ngClass]="{ 'is-success': submitted && !f.nomeLink.errors, 'is-danger' : submitted && f.nomeLink.errors }">
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of getErrors(f.nomeLink)" class="help is-danger">
+                          {{error}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
                       <label for="my-input">Subtítulo</label>
                       <input formControlName="subtitulo" class="form-control" type="text"
-                        placeholder="Subtítulo do Banner" [ngClass]="{ 'is-success': submitted &&
-                                                                !f.subtitulo.errors, 'is-danger' :
-                                                                submitted && f.subtitulo.errors }">
+                        placeholder="Subtítulo do Banner"
+                        [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }">
                       <div *ngIf="submitted" class="errors">
                         <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
                           {{error}}</p>
