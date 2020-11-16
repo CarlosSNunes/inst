@@ -223,7 +223,7 @@ export class PostsBlogEditComponent implements OnInit {
     }
 
     /*  ////////////////////
-    //  Verify the post tags with the returned last 1000 tags returned from the API.
+    //  Verify the post tags with the last 1000 tags returned from the API.
     */  ///////////////////
     private verifyTag(postTag) {
         const tagIndex = this.resultTags.result.findIndex(tag => tag.id == postTag.tagId);
