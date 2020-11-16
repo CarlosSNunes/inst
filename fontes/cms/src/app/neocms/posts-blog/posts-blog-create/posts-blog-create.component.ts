@@ -206,6 +206,8 @@ export class PostsBlogCreateComponent implements OnInit {
                 this.postsBlogForm.controls.arquivo = [];
             }
 
+            console.log(this.postsBlogForm.value)
+
             const model = new PostsBlogCreateModel(this.postsBlogForm.value);
             this.postsBlogService.post(model)
                 .subscribe(() =>
@@ -265,16 +267,16 @@ export class PostsBlogCreateComponent implements OnInit {
     */  ///////////////////
     toggleTag(tag: TagModel) {
         const index = this.resultTag.result.findIndex(x => x.id === tag.id);
-        this.resultTag[index].selected = !this.resultTag.result[index].selected;
-        this.manageTag(this.resultTag[index].id);
+        this.resultTag.result[index].selected = !this.resultTag.result[index].selected;
+        this.manageTag(this.resultTag.result[index].id);
     }
 
     /*  ////////////////////
     //  Add or remove a tag from the post form.
     */  ///////////////////
-    manageTag(id: number) {
-        const index = this.tagControls.controls.findIndex((item, idx) => {
-            return item.get('tagId').value === id;
+    private manageTag(id: number) {
+        const index = this.tagControls.controls.findIndex((item) => {
+            return item.value.tagId === id;
         });
 
         if (index >= 0) {
@@ -283,7 +285,6 @@ export class PostsBlogCreateComponent implements OnInit {
             this.addTag(id);
         }
     }
-
     /*  ////////////////////
     //  Add a tag to the post
     */  ///////////////////
