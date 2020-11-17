@@ -38,6 +38,7 @@ export class PostBlogUpdateModel {
     dataPublicacao: Date;
     dataExpiracao?: Date;
     arquivo: File;
+    categoria: string;
     caminhoImagem: string;
     caminhoCompleto: string;
     nomeImagem: string;
