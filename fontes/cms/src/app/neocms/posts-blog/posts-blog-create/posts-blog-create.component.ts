@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-import { faTimes, faCheck, faUpload, faPlus, faArrowCircleLeft, faCheckCircle, faCog, faTag } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, Validators, FormArray, AbstractControl, FormGroup } from '@angular/forms';
+import { faTag } from '@fortawesome/free-solid-svg-icons';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
@@ -27,29 +27,8 @@ import { environment } from 'src/environments/environment';
 export class PostsBlogCreateComponent implements OnInit {
     locale = 'pt-br';
     editor = DecoupledEditor;
-    postsBlogForm;
-    faTimes = faTimes;
-    faCheck = faCheck;
-    faUpload = faUpload;
-    faPlus = faPlus;
-    faCog = faCog;
+    postsBlogForm: FormGroup;
     faTag = faTag;
-    faArrowCircleLeft = faArrowCircleLeft;
-    faCheckCircle = faCheckCircle;
-    optionsDate = {
-        type: 'date',
-        dateFormat: 'DD/MM/YYYY',
-        displayMode: 'default',
-        lang: 'pt',
-        cancelLabel: 'Cancelar',
-        clearLabel: 'Limpar',
-        todayLabel: 'Hoje',
-        nowLabel: 'Agora',
-        validateLabel: 'Validar',
-        minDate: new Date(),
-        startDate: new Date(),
-        color: 'dark'
-    };
     postsBlog: PostsBlogModel[] = [];
     categorias: CategoriasModel[] = [];
     arquivoNome = '';
@@ -103,7 +82,7 @@ export class PostsBlogCreateComponent implements OnInit {
     /*  ////////////////////
     //  Create form method
     */  ///////////////////
-    createForm() {
+    private createForm() {
         this.postsBlogForm = this.fb.group({
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
@@ -203,10 +182,8 @@ export class PostsBlogCreateComponent implements OnInit {
                 this.postsBlogForm.controls.nomeImagem.setValue(this.arquivoNome);
             }
             else {
-                this.postsBlogForm.controls.arquivo = [];
+                this.postsBlogForm.controls.arquivo.setValue([]);
             }
-
-            console.log(this.postsBlogForm.value)
 
             const model = new PostsBlogCreateModel(this.postsBlogForm.value);
             this.postsBlogService.post(model)
@@ -216,22 +193,10 @@ export class PostsBlogCreateComponent implements OnInit {
         }
     }
 
-    /**
-    * @memberof: PostsBlogCreateComponent
-    * @description: Metodo que atualiza o nome do arquivo.
-    */
-    updateFileName(arquivo: any) {
-        this.arquivoNome = '';
-        if (arquivo.length > 0) {
-            this.arquivoNome = arquivo[0].name;
-            this.arquivos.push(arquivo[0]);
-        }
-    }
-
     /*  ////////////////////
         //  Image Change
     */  ///////////////////
-    fileProgress(arquivo: any) {
+    fileProgress(arquivo: FileList) {
         this.imagemGrande = arquivo[0];
         this.arquivoNome = this.imagemGrande.name;
         this.preview();
@@ -240,7 +205,7 @@ export class PostsBlogCreateComponent implements OnInit {
     /*  ////////////////////
         //  Preview Image
     */  ///////////////////
-    preview() {
+    private preview() {
         var mimeType = this.imagemGrande.type;
         if (mimeType.match(/image\/*/) == null) {
             return;
@@ -256,9 +221,11 @@ export class PostsBlogCreateComponent implements OnInit {
     /*  ////////////////////
         //  Preview Image
     */  ///////////////////
-    validateDate(data: Date) {
+    private validateDate(data: Date) {
         if (!data) {
-            this.f.dataPublicacao.setErrors('Data inválida!');
+            this.f.dataPublicacao.setErrors({
+                invalidDate: true
+            });
         }
     }
 
@@ -288,7 +255,7 @@ export class PostsBlogCreateComponent implements OnInit {
     /*  ////////////////////
     //  Add a tag to the post
     */  ///////////////////
-    addTag(id: number) {
+    private addTag(id: number) {
         this.tagControls.push(
             this.fb.group({
                 tagId: [id, [Validators.required]]
@@ -299,7 +266,7 @@ export class PostsBlogCreateComponent implements OnInit {
     /*  ////////////////////
     //  Remove a tag to the post
     */  ///////////////////
-    removeTag(index: number) {
+    private removeTag(index: number) {
         this.tagControls.removeAt(index);
     }
 
@@ -332,7 +299,7 @@ export class PostsBlogCreateComponent implements OnInit {
     /*  ////////////////////
         //  Change form control errors
     */  ///////////////////
-    getErrors(control: AbstractControl) {
-        return FormControlError.GetErrors(control);
+    getErrors(control: AbstractControl, controlName?: string) {
+        return FormControlError.GetErrors(control, controlName);
     }
 }

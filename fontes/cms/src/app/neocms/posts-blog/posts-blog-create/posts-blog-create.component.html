@@ -141,7 +141,7 @@
               [ngClass]="{ 'is-success': submitted && !f.dataPublicacao.errors, 'is-danger' : submitted && f.dataPublicacao.errors }"
               placeholder="Selecione uma data" class="form-control data">
             <div *ngIf="submitted" class="errors">
-              <p *ngFor="let error of getErrors(f.dataPublicacao)" class="help is-danger">
+              <p *ngFor="let error of getErrors(f.dataPublicacao, 'Data de Publicação')" class="help is-danger">
                 {{error}}
               </p>
             </div>

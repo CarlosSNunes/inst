@@ -84,7 +84,7 @@ export class PostsBlogEditComponent implements OnInit {
     /*  ////////////////////
     //  Create form method
     */  ///////////////////
-    createForm() {
+    private createForm() {
         this.postsBlogForm = this.fb.group({
             id: [''],
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
@@ -108,7 +108,7 @@ export class PostsBlogEditComponent implements OnInit {
     /*  ////////////////////
     //  Update form method
     */  ///////////////////
-    updateForm(postBlog: PostBlogUpdateModel) {
+    private updateForm(postBlog: PostBlogUpdateModel) {
         const postTags = postBlog.postTag.map(postTag => ({ tagId: postTag.id }));
 
         this.postsBlogForm = this.fb.group({
@@ -327,7 +327,7 @@ export class PostsBlogEditComponent implements OnInit {
     /*  ////////////////////
         //  Preview Image
     */  ///////////////////
-    preview() {
+    private preview() {
         // Show preview
         if (this.arquivo != undefined && this.arquivo != null) {
             var mimeType = this.arquivo.type;
@@ -364,7 +364,7 @@ export class PostsBlogEditComponent implements OnInit {
     /*  ////////////////////
         //  Change form control errors
     */  ///////////////////
-    getErrors(control: AbstractControl) {
-        return FormControlError.GetErrors(control);
+    getErrors(control: AbstractControl, controlName?: string) {
+        return FormControlError.GetErrors(control, controlName);
     }
 }
