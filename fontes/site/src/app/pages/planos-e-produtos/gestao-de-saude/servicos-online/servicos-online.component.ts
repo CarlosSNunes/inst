@@ -61,10 +61,10 @@ export class ServicosOnlineComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Serviços On-line | Gestão de Saúde | Produtos e Planos | Care Plus');
+        this.title.setTitle('Serviços Online | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Para você ter mais tempo e se dedicar ao que importa, a Care Plus investe em praticidade, oferecendo serviços a distância. Confira!'
+            content: 'O mundo é digital, e a Care Plus também. Investimos em tecnologia, disponibilizando serviços online, para que os nossos beneficiários, empresas e parceiros tenham toda a facilidade e comodidade que merecem. '
         });
     }
 

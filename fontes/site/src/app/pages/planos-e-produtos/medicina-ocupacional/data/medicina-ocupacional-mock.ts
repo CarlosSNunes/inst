@@ -6,7 +6,7 @@ export const simpleBannerModel: SimpleBannerModel = {
     breadcrumbs: [
         new BreadcrumbModel({
             name: 'Home',
-            link: '/home'
+            link: '/'
         }),
         new BreadcrumbModel({
             name: 'Planos e Produtos',
@@ -24,8 +24,8 @@ export const simpleBannerModel: SimpleBannerModel = {
 };
 
 export const eSocialSection: InfoSectionModel = new InfoSectionModel({
-    smallTitle: 'E-SOCIAL',
-    bigTitle: 'Conheça o E-Social e entenda como ele unificou todas as bases de saúde ocupacional',
+    smallTitle: 'eSOCIAL',
+    bigTitle: 'Conheça o eSocial e entenda como ele unificou todas as bases de saúde ocupacional',
     subDescriptions: [
         'O Decreto nº 8373/2014 instituiu o Sistema de Escrituração Digital das Obrigações Fiscais, Previdenciárias e Trabalhistas (eSocial). Por meio desse sistema, os empregadores passarão a comunicar ao Governo, de forma unificada, as informações relativas aos trabalhadores, como vínculos, contribuições previdenciárias, folha de pagamento, comunicações de acidente de trabalho, aviso prévio, escriturações fiscais e informações sobre o FGTS.',
         'Esse novo modelo traz outras vantagens, como: '
@@ -68,8 +68,8 @@ export const firstCard: IconCardModel = new IconCardModel({
     title: 'Central de Atendimento',
     type: 'icon',
     button: new ButtonModel({
-        link: 'tel: 11 4063-0083',
-        text: '(11) 4063-0083',
+        link: 'tel: 11 4197-9070',
+        text: '(11) 4197-9070',
         target: '_self',
     }),
     imagePath: 'assets/svg/phone.svg',
@@ -81,6 +81,7 @@ export const secondCard: IconCardModel = new IconCardModel({
     button: new ButtonModel({
         text: 'Clique e solicite cotação',
         routerLink: '/fale-conosco/solicite-uma-cotacao',
+        target: '_self',
         queryParams: {
             medicinaOcupacional: true
         }

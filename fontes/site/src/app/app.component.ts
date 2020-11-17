@@ -7,7 +7,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { CanonicalService } from './services/caninical/canonical.service';
+import { CanonicalService } from './services';
 
 @Component({
     selector: 'app-root',
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             this.width = this.windowRef.nativeWindow.innerWidth;
 
             if (this.windowRef.nativeWindow.innerWidth <= 1024) {
-                localStorage.setItem('elementOffset', '72')
+                localStorage.setItem('elementOffset', '111')
             } else {
                 localStorage.setItem('elementOffset', '0')
             }
@@ -143,7 +143,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             this.width = event.target.innerWidth;
 
             if (this.width < 1024) {
-                localStorage.setItem('elementOffset', '72');
+                localStorage.setItem('elementOffset', '111');
 
             } else {
                 localStorage.setItem('elementOffset', '0');

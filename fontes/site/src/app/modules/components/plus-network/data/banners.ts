@@ -1,31 +1,57 @@
+import { BannerModel } from 'src/app/models';
+
 export default [
-    {
-        "caminhoImagem": "assets/img/medicos-referencia.png",
-        "tag": "Médicos Referência",
-        "titulo": "Experiência técnica e Currículo de excelência",
-        "descricao": "Nossa rede é composta por um time de médicos referência em suas especialidades, para garantir a melhor experiência médica. Sua saúde como prioridade.",
-        "slideAtual": true,
-        "tempo": 10000
-    },
-    {
-        "caminhoImagem": "assets/img/clinicas-tecnologicas.png",
-        "tag": "Clinicas Tecnológicas",
-        "titulo": "Clinicas modernas e diferenciadas",
-        "descricao": "Selecionamos as melhores estruturas clinicas dentro da Rede Plus. Pois queremos oferecer o melhor serviço, os melhores programas e o melhor atendimento de modo humanizado e acolhedor.",
-        "tempo": 5000
-    },
-    {
-        "caminhoImagem": "assets/img/cobertura-total.jpg",
-        "tag": "Cobertura Total",
-        "titulo": "Os melhores médicos do Brasil em nossa Rede Plus",
-        "descricao": "Faça sua consulta com nosso time exclusivos de médicos que são referência dentro de suas especialidades. Experiência alto padrão com nível máximo de satisfação dentro do plano.",
-        "tempo": 5000
-    },
-    {
-        "caminhoImagem": "assets/img/atendimento-personalizado.jpg",
-        "tag": "Atendimento Personalizado",
-        "titulo": "Tenha a melhor experiência em saúde do mercado",
-        "descricao": "Com nossa rede credenciada exclusiva que visa garantir satisfação elevada e experiência única. Vamos cuidar de seu bem mais precioso? Sua vida, sua saúde, seu bem-estar.",
-        "tempo": 5000
-    }
+    new BannerModel({
+        caminhoImagem: "assets/img/medicos-referencia.png",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'medicos-referencia.png',
+        caminhoCompletoDesktop: 'assets/img/medicos-referencia.png',
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'medicos-referencia.png',
+        caminhoCompletoMobile: 'assets/img/medicos-referencia.png',
+        tag: "Médicos Referência",
+        titulo: "Experiência técnica e Currículo de excelência",
+        descricao: "Nossa rede é composta por um time de médicos referência em suas especialidades, para garantir a melhor experiência médica. Sua saúde como prioridade.",
+        slideAtual: true,
+        tempoExibicao: 5000
+    }),
+    new BannerModel({
+        caminhoImagem: "assets/img/clinicas-tecnologicas.png",
+        caminhoDesktop: "assets/img",
+        caminhoCompletoDesktop: 'assets/img/medicos-referencia.png',
+        nomeImagemDesktop: 'clinicas-tecnologicas.png',
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'clinicas-tecnologicas.png',
+        caminhoCompletoMobile: 'assets/img/medicos-referencia.png',
+        tag: "Clinicas Tecnológicas",
+        titulo: "Clinicas modernas e diferenciadas",
+        descricao: "Selecionamos as melhores estruturas clinicas dentro da Rede Plus. Pois queremos oferecer o melhor serviço, os melhores programas e o melhor atendimento de modo humanizado e acolhedor.",
+        tempoExibicao: 5000
+    }),
+    new BannerModel({
+        caminhoImagem: "assets/img/cobertura-total.jpg",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'cobertura-total.jpg',
+        caminhoCompletoDesktop: 'assets/img/cobertura-total.jpg',
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'cobertura-total.jpg',
+        caminhoCompletoMobile: 'assets/img/cobertura-total.jpg',
+        tag: "Cobertura Total",
+        titulo: "Os melhores médicos do Brasil em nossa Rede Plus",
+        descricao: "Faça sua consulta com nosso time exclusivos de médicos que são referência dentro de suas especialidades. Experiência alto padrão com nível máximo de satisfação dentro do plano.",
+        tempoExibicao: 5000
+    }),
+    new BannerModel({
+        caminhoImagem: "assets/img/atendimento-personalizado.jpg",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'atendimento-personalizado.jpg',
+        caminhoCompletoDesktop: "assets/img/atendimento-personalizado.jpg",
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'atendimento-personalizado.jpg',
+        caminhoCompletoMobile: "assets/img/atendimento-personalizado.jpg",
+        tag: "Atendimento Personalizado",
+        titulo: "Tenha a melhor experiência em saúde do mercado",
+        descricao: "Com nossa rede credenciada exclusiva que visa garantir satisfação elevada e experiência única. Vamos cuidar de seu bem mais precioso? Sua vida, sua saúde, seu bem-estar.",
+        tempoExibicao: 5000
+    })
 ]

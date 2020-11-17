@@ -1,7 +1,7 @@
 <nav class="navbar background bupa-navy" role="navigation" aria-label="main navigation">
     <div id="navbar-perfil-careplus" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item logo" [routerLink]="['/home']" routerLinkActive="has-background-white"
+            <a class="navbar-item logo" [routerLink]="['/']" routerLinkActive="has-background-white"
                 [routerLinkActiveOptions]="{exact: true}" title="Home">
                 <span class="item-label">
                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,25 +11,25 @@
                     </svg>
                 </span>
             </a>
-            <a class="navbar-item is-home-link" [routerLink]="['/home/beneficiario']" title="Sou Beneficiário"
+            <a class="navbar-item is-home-link" [routerLink]="['/sou-beneficiario']" title="Sou Beneficiário"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
                     Sou Beneficiário
                 </span>
             </a>
-            <a class="navbar-item is-home-link" title="Sou RH" [routerLink]="['/home/rh']"
+            <a class="navbar-item is-home-link" title="Sou RH" [routerLink]="['/sou-rh']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
                     Sou RH
                 </span>
             </a>
-            <a class="navbar-item is-home-link" title="Sou Corretor" [routerLink]="['/home/corretor']"
+            <a class="navbar-item is-home-link" title="Sou Corretor" [routerLink]="['/sou-corretor']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
                     Sou Corretor
                 </span>
             </a>
-            <a class="navbar-item is-home-link" title="Sou Credenciado" [routerLink]="['/home/credenciado']"
+            <a class="navbar-item is-home-link" title="Sou Credenciado" [routerLink]="['/sou-credenciado']"
                 routerLinkActive="has-background-white" [routerLinkActiveOptions]="{exact: true}">
                 <span class="item-label">
                     Sou Credenciado
@@ -64,7 +64,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-navbar-button is-telefone" href="tel:0800-13-2992" title="Contato">
+                    <a class="button is-navbar-button is-telefone" href="tel:0800-013-2992" title="Contato">
                         <span class="item-label">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -75,12 +75,11 @@
                         </span>
                         &nbsp;
                         <span class="item-label phone">
-                            0800-13-2992
+                            0800-013-2992
                         </span>
                     </a>
                     <a class="button is-navbar-button login bupa-digital-cyan" rel="noopener noreferrer"
-                        href="https://www8.careplus.com.br/portal/LoginBeneficiario.aspx" title="Entrar"
-                        target="_blank">
+                        [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
                         <span class="item-label">
                             Entrar
                         </span>
@@ -92,7 +91,7 @@
 </nav>
 <nav class="navbar is-home" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" [routerLink]="['/']" title="Home">
+        <a class="navbar-item logo" [routerLink]="['/']" title="Home">
             <img class="img-careplus" src="assets/svg/logo-careplus.svg" alt="Careplus">
         </a>
     </div>
@@ -107,8 +106,20 @@
                     <div class="column is-6">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:0:5">
-                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title"
-                                    [fragment]="subItem.fragment" class="sub-menu-items">
+
+                                <!--
+                                    Itens com routerLink
+                                -->
+                                <a *ngIf="subItem.routerLink" [routerLink]="[subItem.routerLink]"
+                                    [attr.title]="subItem.title" [fragment]="subItem.fragment" class="sub-menu-items">
+                                    {{subItem.title}}
+                                </a>
+
+                                <!--
+                                    Itens com href
+                                -->
+                                <a *ngIf="subItem.href" [href]="[subItem.href]" [attr.title]="subItem.title"
+                                    [target]="subItem.target" rel="noopener noreferrer" class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>
                             </li>
@@ -117,8 +128,20 @@
                     <div class="column is-6" *ngIf="subMenuItem.subItems.length > 5">
                         <ul class="items">
                             <li *ngFor="let subItem of subMenuItem.subItems | slice:5:10">
-                                <a [routerLink]="[subItem.routerLink]" [attr.title]="subItem.title"
-                                    [fragment]="subItem.fragment" class="sub-menu-items">
+
+                                <!--
+                                    Itens com routerLink
+                                -->
+                                <a *ngIf="subItem.routerLink" [routerLink]="[subItem.routerLink]"
+                                    [attr.title]="subItem.title" [fragment]="subItem.fragment" class="sub-menu-items">
+                                    {{subItem.title}}
+                                </a>
+
+                                <!--
+                                    Itens com href
+                                -->
+                                <a *ngIf="subItem.href" [href]="[subItem.href]" [attr.title]="subItem.title"
+                                    [target]="subItem.target" rel="noopener noreferrer" class="sub-menu-items">
                                     {{subItem.title}}
                                 </a>
                             </li>
@@ -130,34 +153,31 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a *ngIf="subMenu.id == 'default'" class="btn btn-digital-orange primary small"
+                    <a *ngIf="subMenu.id == 'default'" class="btn btn-purple primary small"
                         (click)="openSimulator()">
                         Simule Planos e Produtos
                     </a>
 
-                    <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-digital-orange primary small"
+                    <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-purple primary small"
                         rel="noopener noreferrer"
-                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
-                        target="_blank">
+                        [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Entre em Contato
                     </a>
 
-                    <a *ngIf="subMenu.id == 'rh'" class="btn btn-digital-orange primary small"
+                    <a *ngIf="subMenu.id == 'rh'" class="btn btn-purple primary small"
                         routerLink="/fale-conosco/solicite-uma-cotacao">
                         Solicite uma Cotação
                     </a>
 
-                    <a *ngIf="subMenu.id == 'corretor'" class="btn btn-digital-orange primary small"
+                    <a *ngIf="subMenu.id == 'corretor'" class="btn btn-purple primary small"
                         rel="noopener noreferrer"
-                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
-                        target="_blank">
+                        [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Seja um Corretor
                     </a>
 
-                    <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-digital-orange primary small"
+                    <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-purple primary small"
                         rel="noopener noreferrer"
-                        href="https://www8.careplus.com.br/portal/portal/modulos/atendimento/inclusaoDemandaContato.aspx"
-                        target="_blank">
+                        [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Seja um Credenciado
                     </a>
                 </div>

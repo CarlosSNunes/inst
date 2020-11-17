@@ -31,10 +31,10 @@ export class ProgramasPreventivosComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Programas Preventivos | Gestão de Saúde | Produtos e Planos | Care Plus');
+        this.title.setTitle('Programas Preventivos | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'A hora de cuidar da sua saúde é agora. Conheça os programas preventivos Care Plus e descubra o ideal para você.'
+            content: 'A Care Plus oferece programas preventivos para você começar a cuidar da saúde, desta forma, além de reduzir o risco de patologias, você pode levar uma vida mais saudável e segura.'
         });
     }
 

@@ -3,6 +3,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { BreadcrumbModel, CareplusVideoModel, InfoSectionModel, SimpleBannerModel } from 'src/app/models';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { Cards } from './data/mock';
 
 @Component({
     selector: 'app-carreiras',
@@ -12,12 +13,12 @@ import { environment } from 'src/environments/environment';
 export class CarreirasComponent implements OnInit {
     @ViewChild('aboutPlusNetwork', { static: false }) aboutPlusNetwork: ElementRef<HTMLElement>;
     simpleBannerModel: SimpleBannerModel = {
-        title: 'Faça Parte de um time que gosta de sonhar grande!',
-        description: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você',
+        title: 'Faça parte de um time apaixonado em cuidar de pessoas!',
+        description: 'Nosso objetivo é acompanhar o colaborador em sua carreira e juntos criarmos uma história sólida, de muito aprendizado.',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'Carreiras',
@@ -36,12 +37,13 @@ export class CarreirasComponent implements OnInit {
         new InfoSectionModel({
             smallTitle: 'nossos colaboradores',
             bigTitle: 'Veja como é trabalhar na Care Plus',
-            description: 'Assista ao lado depoimentos dos nossos colaboradores e entenda mais do nosso mundo',
-            subDescription: 'Fizemos esse vídeo com os nossos colaboradores para que mais pessoas conheçam o trabalho institucional da Care Plus garantindo cuidado, carinho e o melhor ambiente de trabalho para todos.',
+            description: 'Assista aos depoimentos dos nossos colaboradores e entenda mais do nosso mundo',
+            subDescription: 'Fizemos esse vídeo com os nossos colaboradores para que mais pessoas conheçam este trabalho institucional, que garante cuidado, carinho e o melhor ambiente de trabalho para todos.',
             imageSrc: 'assets/img/section-our-colaborators.jpg',
             hasModal: true,
         })
-    ]
+    ];
+    cards = Cards;
     constructor(
         private windowRef: WindowRef,
         private title: Title,
@@ -65,7 +67,7 @@ export class CarreirasComponent implements OnInit {
         this.title.setTitle('Carreiras | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+            content: 'Faça Parte de um time que gosta de sonhar grande! A Care Plus tem como objetivo de acompanhar sua carreira e criar um futuro junto com você.'
         });
 
         /* 
@@ -83,10 +85,6 @@ export class CarreirasComponent implements OnInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
             content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
@@ -94,7 +92,7 @@ export class CarreirasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+            content: 'Faça Parte de um time que gosta de sonhar grande! A Care Plus tem como objetivo de acompanhar sua carreira e criar um futuro junto com você.'
         });
 
         this.meta.updateTag({
@@ -118,10 +116,6 @@ export class CarreirasComponent implements OnInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
             content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
@@ -129,7 +123,7 @@ export class CarreirasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você.'
+            content: 'Faça Parte de um time que gosta de sonhar grande! A Care Plus tem como objetivo de acompanhar sua carreira e criar um futuro junto com você.'
         });
 
         this.meta.updateTag({

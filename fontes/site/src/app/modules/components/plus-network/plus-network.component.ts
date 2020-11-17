@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, PLATFORM_ID, Inject, HostListener, Input } from '@angular/core';
 import { BannerModel } from 'src/app/models';
-import { BannerService } from 'src/app/services';
 import BannersJSON from './data/banners';
 import { Subscription, interval, fromEvent } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -16,7 +15,7 @@ import { WindowRef } from 'src/utils/window-ref';
 export class PlusNetworkComponent implements OnInit {
     @ViewChild('circlePercentage', { static: false }) circlePercentage: ElementRef<HTMLElement>;
     @ViewChild('bannerSection', { static: false }) bannerSection: ElementRef<HTMLElement>;
-    banners: BannerModel[] = BannersJSON as BannerModel[];
+    banners: BannerModel[] = BannersJSON;
     private bannerPercentageSubscription: Subscription;
     selectedBanner = 0;
     percentage: number = 0;
@@ -32,7 +31,6 @@ export class PlusNetworkComponent implements OnInit {
     mobileElement: HTMLElement;
 
     constructor(
-        private bannerService: BannerService,
         private cdRef: ChangeDetectorRef,
         private elementRef: ElementRef,
         @Inject(PLATFORM_ID) private plataformId,
@@ -53,7 +51,7 @@ export class PlusNetworkComponent implements OnInit {
                 return banner
             });
             this.cdRef.detectChanges();
-            this.time = this.banners[0].tempo
+            this.time = this.banners[0].tempoExibicao
             this.startBannerPercentage(this.time / 100, this.time)
 
             const hammerConfig = new HammerGestureConfig()
@@ -79,14 +77,6 @@ export class PlusNetworkComponent implements OnInit {
     @HostListener('window: resize', ['$event']) onResize(event) {
         if (this.isBrowser) {
             this.width = event.target.innerWidth;
-        }
-    }
-
-    async getBanners() {
-        try {
-            this.banners = await this.bannerService.getByArea('plus-network')
-        } catch (error) {
-            console.log(error)
         }
     }
 
@@ -151,7 +141,7 @@ export class PlusNetworkComponent implements OnInit {
             this.percentageStoped = 0
             this.percentage = 0
             this.stopBannerPercentage()
-            this.time = this.banners[i].tempo;
+            this.time = this.banners[i].tempoExibicao;
             this.startBannerPercentage(this.time / 100, this.time)
             this.banners = this.banners.map((banner, index) => {
                 if (i != index) {
@@ -192,7 +182,7 @@ export class PlusNetworkComponent implements OnInit {
                 mobilePercentage = (18 / 5) * val - 270
             }
             if (this.mobileElement) {
-                this.mobileElement.style.background = `linear-gradient(var(--bupa_white), var(--bupa_white)) padding-box, linear-gradient(${mobilePercentage}deg, var(--bupa_white) 50%, transparent 0) center/calc(${s} * 100%) border-box,linear-gradient(${mobilePercentage}deg, var(--bupa_grey-3) 50%, transparent 0) center/calc(100% - ${s} * 100%) border-box, linear-gradient( to right, var(--bupa_white) 50%, var(--bupa_grey-3) 0 ) border-box`;
+                this.mobileElement.style.background = `linear-gradient(#FFF, #fff) padding-box, linear-gradient(${mobilePercentage}deg, #fff 50%, transparent 0) center/calc(${s} * 100%) border-box,linear-gradient(${mobilePercentage}deg,  #c9c9c9 50%, transparent 0) center/calc(100% - ${s} * 100%) border-box, linear-gradient( to right, #fff 50%,  #c9c9c9 0 ) border-box`;
             }
         }
     }

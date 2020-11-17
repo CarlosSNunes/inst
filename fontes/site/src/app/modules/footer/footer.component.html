@@ -7,20 +7,31 @@
                 </a>
             </div>
             <div class="column is-6">
-                <a href="#" title="Atendimento presencial">
+                <a title="Atendimento presencial">
                     <app-card class="app-card" [card]="atendimentoPresencialCard"></app-card>
                 </a>
             </div>
 
         </div>
-        <div class="certifications is-hidden-up-tablet">
+        <div class="certifications is-hidden-up-tablet" *ngIf="width < 1023">
             <p>Certificações</p>
             <div class="certifications-images">
-                <img src="assets/svg/secureSite.svg" alt="Site seguro">
-                <img src="assets/svg/dunAndBradstreet.svg" alt="Site seguro">
-                <img class="trust-sign" src="assets/svg/trustSign.svg" alt="Certificado de segurança">
+                <a title="Site Blindado">
+                    <div id="armored_website">
+                        <param id="aw_preload" value="true" />                           
+                        <param id="aw_use_cdn" value="true" />
+                    </div>
+                </a>
+                <a title="dun & brandstreet" id="dun-and-brandstreet-button">
+                </a>
+                <a title="Go Daddy">
+                    <span id="siteseal">
+                    </span>
+                </a>
                 <img src="assets/svg/ans.svg" alt="Ans">
-                <img src="assets/svg/ansNumber.svg" alt="Ans">
+                <a class="btn-ans" title="ANS Nº 37995-6">
+                    ANS Nº 37995-6
+                </a>
             </div>
         </div>
         <div class="columns is-hidden-down-tablet">
@@ -35,8 +46,8 @@
                             fill="#FFF" />
                     </svg> &nbsp; Atendimento 24h ao Beneficiário
                 </p>
-                <a href="tel:0800132992" title="Atendimento 24h ao Beneficiário" class="telefone">
-                    0800-13-2992
+                <a href="tel:08000132992" title="Atendimento 24h ao Beneficiário" class="telefone">
+                    0800-013-2992
                 </a>
             </div>
             <div class="column is-paddingless-vertical">
@@ -87,19 +98,19 @@
                 <h5 class="subtitle">
                     Nossos Parceiros
                 </h5>
-                <a routerLink="/home/beneficiario" title="Para o Beneficiário">
+                <a routerLink="/sou-beneficiario" title="Para o Beneficiário">
                     Para o Beneficiário
                 </a>
                 <br>
-                <a routerLink="/home/rh" title="Para o RHs">
+                <a routerLink="/sou-rh" title="Para o RHs">
                     Para o RH
                 </a>
                 <br>
-                <a routerLink="/home/corretor" title="Para o Corretor">
+                <a routerLink="/sou-corretor" title="Para o Corretor">
                     Para o Corretor
                 </a>
                 <br>
-                <a routerLink="/home/credenciado" title="Para o Credenciado">
+                <a routerLink="/sou-credenciado" title="Para o Credenciado">
                     Para o Credenciado
                 </a>
             </div>
@@ -147,16 +158,16 @@
                 <h5 class="subtitle">
                     Planos
                 </h5>
-                <a routerLink="/planos-e-produtos" fragment="soho" title="Care Plus Soho">
-                    Care Plus SoHo (de 2 a 29 vidas)
+                <a routerLink="/planos-e-produtos" fragment="careplus-soho" title="Care Plus Soho">
+                    Care Plus SoHo
                 </a>
                 <br>
-                <a routerLink="/planos-e-produtos" title="Clube Care Plus" fragment="clube-care-plus">
-                    Clube Care Plus (de 30 a 200 vidas)
+                <a routerLink="/planos-e-produtos" title="Clube Care Plus" fragment="clube-careplus">
+                    Clube Care Plus
                 </a>
                 <br>
-                <a routerLink="/planos-e-produtos" title="Care Plus Empresarial" fragment="empresarial">
-                    Care Plus Empresarial (mais de 200 vidas)
+                <a routerLink="/planos-e-produtos" title="Care Plus Empresarial" fragment="careplus-empresarial">
+                    Care Plus Empresarial
                 </a>
                 <br>
             </div>
@@ -171,27 +182,6 @@
                 <a routerLink="/planos-e-produtos/gestao-de-saude" title="Gestão de Saúde">
                     Gestão de Saúde
                 </a>
-                <br>
-                <a routerLink="/planos-e-produtos/gestao-de-saude/programas-preventivos" title="Programas Preventivos">
-                    Programas Preventivos
-                </a>
-                <br>
-                <a routerLink="/planos-e-produtos/gestao-de-saude/servicos-online" title="Serviços On-line">
-                    Serviços On-line
-                </a>
-                <br>
-                <a routerLink="/planos-e-produtos/gestao-de-saude/personal-system" title="Personal System">
-                    Personal System
-                </a>
-                <br>
-                <a routerLink="/planos-e-produtos/gestao-de-saude/programas-empresariais"
-                    title="Programas Empresariais">
-                    Programas Empresariais
-                </a>
-                <br>
-                <a routerLink="/planos-e-produtos/gestao-de-saude/nossas-parcerias" title="Nossas Parcerias">
-                    Nossas Parcerias
-                </a>
             </div>
             <div class="column">
                 <h5 class="subtitle">
@@ -203,6 +193,20 @@
                 <br>
                 <a routerLink="/carreiras/vagas" title="Vagas">
                     Vagas
+                </a>
+                <h5 class="subtitle m-t-30">
+                    Documentos
+                </h5>
+                <a routerLink="/compliance" title="Compliance">
+                    Compliance
+                </a>
+                <br>
+                <a routerLink="/idss" title="IDSS">
+                    IDSS
+                </a>
+                <br>
+                <a routerLink="/pesquisa-satisfacao" title="Pesquisa de Satisfação">
+                    Pesquisa de Satisfação
                 </a>
             </div>
             <div class="column">
@@ -217,8 +221,8 @@
                     Contato
                 </a>
                 <br>
-                <a routerLink="/fale-conosco/canal-de-denuncias" title="Canal De Denúncias">
-                    Canal De Denúncias
+                <a routerLink="/fale-conosco/canal-de-denuncias" title="Canal de Denúncias">
+                    Canal de Denúncias
                 </a>
                 <br>
                 <a routerLink="/fale-conosco/ouvidoria" title="Ouvidoria">
@@ -229,10 +233,20 @@
                     Simule Planos e Produtos
                 </a>
                 <br />
+                <a href="https://www8.careplus.com.br/portal/portal/modulos/rede/pesquisaRedeCP.aspx" target="_blank"
+                    rel="noopener noreferrer" title="Rede Credenciada">
+                    Rede Credenciada
+                </a>
+                <br>
+                <a href="https://www8.careplus.com.br/portal/substituicaorede.aspx" target="_blank"
+                    rel="noopener noreferrer" title="Substituição de Rede">
+                    Substituição de Rede
+                </a>
+                <br>
             </div>
         </div>
         <hr class="is-hidden-down-tablet">
-        <div class="columns site-map is-hidden-down-tablet">
+        <div class="columns site-map is-hidden-down-tablet" *ngIf="width > 1023">
             <div class="column is-5 certificacoes">
                 <p>
                     Certificações
@@ -244,12 +258,10 @@
                     </div>
                 </a>
                 <a title="dun & brandstreet" id="dun-and-brandstreet-button">
-                    
                 </a>
-                <a title="Trust Sign">
-                    <div id="ssltrust">
-                        <param id="ssltrust_preload" value="true" />
-                    </div>
+                <a title="Go Daddy">
+                    <span id="siteseal">
+                    </span>
                 </a>
             </div>
             <div class="column is-3 stores">
@@ -267,14 +279,20 @@
                 </a>
             </div>
             <div class="column is-2 ans">
+                <p>
+                    ANS
+                </p>
                 <a title="ANS">
                     <img src="assets/svg/ans.svg" alt="ANS" />
                 </a>
-                <a title="ANS Nº 37995-6">
-                    <img src="assets/svg/ansNumber.svg" alt="ANS Nº 37995-6" />
+                <a class="btn-ans" title="ANS Nº 37995-6">
+                    ANS Nº 37995-6
                 </a>
             </div>
             <div class="column is-2 social-media">
+                <p>
+                    Redes Sociais
+                </p>
                 <a rel="noopener noreferrer" href="https://br.linkedin.com/company/care-plus" title="Linkedin"
                     target="_blank">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -324,9 +342,10 @@
         <div class="columns careplus-dados-rodape">
             <div class="column is-nowrap careplus is-6 is-hidden-down-tablet">
                 <p>
-                    © Care Plus Medicina Assistencial LTDA | Todos os direitos reservados - CNPJ:
-                    02.725.347/0001-27<br /> Endereço: Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP -
-                    CEP: 06454-040
+                    © {{actualYear}} - Care Plus Medicina Assistencial LTDA | Todos os direitos reservados - CNPJ:
+                    02.725.347/0001-27
+                    <br />
+                    Endereço: Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040
                 </p>
 
             </div>

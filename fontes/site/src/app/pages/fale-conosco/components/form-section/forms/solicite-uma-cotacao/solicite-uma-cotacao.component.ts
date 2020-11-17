@@ -6,11 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
+import { ScriptLoaderService } from 'src/app/services';
 declare var grecaptcha: any;
 import { requireAtLeastOne } from '../utils/validators';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-solicite-uma-cotacao',
@@ -37,7 +38,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
     formValueChangesSubscription: Subscription;
-    retURL: string = `${environment.SELF_URL}/obrigado`;
+    retURL: string = `${environment.SELF_URL}fale-conosco/solicite-uma-cotacao/obrigado`;
 
     constructor(
         private fb: FormBuilder,
@@ -46,8 +47,11 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
         private validateBrService: ValidateBrService,
         @Inject(PLATFORM_ID) private platformId: Platform,
         private scriptLoaderService: ScriptLoaderService,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        private title: Title,
+        private meta: Meta
     ) {
+        this.setSEOInfos();
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.soliciteUmaCotacaoForm = this.fb.group({
             plano: ['',],
@@ -88,6 +92,75 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             }
             this.initRecaptchaScript();
         }
+    }
+
+    private setSEOInfos() {
+        this.title.setTitle('Solicite uma Cotação | Fale Conosco | Care Plus');
+        this.meta.updateTag({
+            name: 'description',
+            content: 'Solicite uma cotação com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'Fale Conosco | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        this.meta.updateTag({
+            name: "og:image",
+            content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/fale-conosco/solicite-uma-cotacao`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'Fale Conosco | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:image",
+            content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'Entre em contato com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/fale-conosco/solicite-uma-cotacao`,
+        });
     }
 
     checkboxChange(event, controlName) {
@@ -166,12 +239,9 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
             event.target.submit();
 
-            // const modal: FeedbackModalModel = new FeedbackModalModel();
-
-            // this.modalService.openModal(modal)
         } else {
             event.preventDefault();
-            Object.keys(this.soliciteUmaCotacaoForm.controls).map(control => {
+            Object.keys(this.soliciteUmaCotacaoForm.controls).forEach(control => {
                 this.soliciteUmaCotacaoForm.controls[control].markAsTouched();
             });
             return false;

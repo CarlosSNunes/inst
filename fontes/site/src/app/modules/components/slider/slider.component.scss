@@ -43,6 +43,7 @@
                 line-height: getLineHeight("mbt") !important;
                 color: getColor(_bupa, _grey) !important;
                 padding: 32px 24px !important;
+                height: 172px;
             }
         }
     }
@@ -160,6 +161,10 @@
             .img-div {
                 .caption {
                     line-height: 120%;
+                    font-size: 1.2em !important;
+                    top: 20px;
+                    left: 20px;
+                    width: calc(100% - 40px) !important;
                 }
             }
         }

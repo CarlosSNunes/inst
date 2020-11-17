@@ -74,7 +74,7 @@ export class PoliticaDePrivacidadeComponent implements OnInit {
     }
 
     setSEOinfos() {
-        this.title.setTitle('Política de Privacidade | A Care Plus | Care Plus');
+        this.title.setTitle('Política de Privacidade | Uso de Cookies | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'A Care Plus protegerá todas as informações recebidas e que possam identificar os seus clientes e visitantes, inclusive aquelas coletadas por qualquer outro meio que não o eletrônico, tais como cadastros preenchidos em papel ou telefônico.'

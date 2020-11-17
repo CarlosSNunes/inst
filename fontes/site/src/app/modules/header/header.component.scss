@@ -329,13 +329,23 @@ nav.is-home {
     background: getColor(_bupa, _white);
     border-bottom: 1px solid getColor(_bupa, _grey-2);
     z-index: unset;
-    .img-careplus {
-        width     : 142px;
-        height    : 54px;
-        max-height: unset;
-        box-shadow: none;
-        cursor    : pointer;
+
+    .logo {
+        width: 57px;
+        height: 72px;
+        max-width: 57px;
+        padding: .5rem 0;
+        margin-left: 16px;
+
+        .img-careplus {
+            width: 57px;
+            height: 72px;
+            max-height: 72px;
+            box-shadow: none;
+            cursor: pointer;
+        }
     }
+
     .navbar-start {
         justify-content: flex-end;
         -webkit-box-pack: end;
@@ -347,6 +357,7 @@ nav.is-home {
             cursor: unset;
             position: relative;
             z-index: 999;
+            
             &:hover {
                 background-color: unset;
                 .sub-menu,
@@ -398,7 +409,7 @@ nav.is-home {
                     outline: unset;
                 }
                 @media (min-width: 1200px) {
-                    font-size: 1.25em;
+                    font-size: 1.125em;
                 }
             }
             .sub-menu,

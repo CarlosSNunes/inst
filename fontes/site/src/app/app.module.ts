@@ -1,4 +1,5 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -6,17 +7,11 @@ import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import { APP_BASE_HREF, registerLocaleData } from '@angular/common';
 import { WindowRef } from 'src/utils/window-ref';
-import { HeaderModule } from 'src/app/modules/header/header.module';
-import { FooterModule } from 'src/app/modules/footer/footer.module';
-import { HeaderMobileModule } from './modules/header-mobile/header-mobile.module';
+import { HeaderModule, FooterModule, HeaderMobileModule, NotificationModule, ModalModule, SimuladoresModule, CookieNoticeModule } from 'src/app/modules';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpRequestInterceptor } from './app.interceptor';
-import { NotificationModule } from './modules/components/notification/notification.module';
 import { GestureConfig } from '@angular/material';
-import { ModalModule } from './modules/components/modal/modal.module';
-import { SimuladoresModule } from './modules/components/simuladores/simuladores.module';
-import { CookieNoticeModule } from './modules/components/cookie-notice/cookie-notice.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 registerLocaleData(localePt, 'pt', localePtExtra);
@@ -27,6 +22,7 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        TransferHttpCacheModule,
         AppRoutingModule,
         HeaderModule,
         HeaderMobileModule,
@@ -41,8 +37,8 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },
-        { provide: APP_BASE_HREF, useValue: '/institucional/' },
         WindowRef,
+        { provide: APP_BASE_HREF, useValue: environment.BASE_HREF },
         { provide: 'locationObject', useValue: location },
         {
             provide: HTTP_INTERCEPTORS,

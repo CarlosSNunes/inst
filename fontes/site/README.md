@@ -4,7 +4,8 @@ Refatoramento do website [Care Plus](https://www.careplus.com.br)
 
 ## Informações de arquitetura do projeto
 
-- Diretório raiz do projeto: `/fontes/site`
+* Diretório raiz do projeto: `/fontes/site`
+
   
 **Institucional:**  
 
@@ -13,21 +14,24 @@ Refatoramento do website [Care Plus](https://www.careplus.com.br)
 3. Todos itens do styleguide foram criados usando classes CSS para facilitar seu reuso.  
 4. Foram utilizados alguns plugins cmo datepicker e carousel, porém modificado seus estilos para atender o design criado.  
 5. Dentro da pasta src/utils foram criados alguns arquivos para auxiliar no desenvolvimento, sendo eles:  
-    - "class-helper.ts" - Com métodos para ajudar a montar o formdata, em casos de upload de arquivo.  
-    - "form-control-error.ts" - Com métodos para pegar os erros existentes em um controle de um reactive form.  
-    - "file-helper.ts" - Com métodos para pegar string de tamanho de dados através de um arquivo.  
-    - "image-helper.ts" - Com métodos para pode consumir uma imagem no frontend.  
-    - "window-ref.ts" - Com a ideia de poder usar a variavel "window", mas sem precisar javascript puro.
-    - "route-names.ts" - Exporta um array do tipo RouteModel que está localizada em "src/app/models/rota.model.ts" com todas as rotas do projeto
-6. Dentro da pasta src/plugins foi criado um arquivo com intuito de usar o CMKEditor e fazer upload de imagens.  
+    - [class-helper.ts](src/utils/class-helper.ts) - Com métodos para ajudar a montar o formdata, em casos de upload de arquivo.  
+    - [form-control-error.ts](src/utils/form-control-error.ts) - Com métodos para pegar os erros existentes em um controle de um reactive form.  
+    - [file-helper.ts](src/utils/file-helper.ts) - Com métodos para pegar string de tamanho de dados através de um arquivo.  
+    - [image-helper.ts](src/utils/image-helper.ts) - Com métodos para pode consumir uma imagem no frontend.  
+    - [window-ref.ts](src/utils/window-ref.ts) - Com a ideia de poder usar a variavel "window", mas sem precisar javascript puro.
+    - [route-names.ts](src/utils/route-names.ts) - Exporta um array do tipo RouteModel que está localizada em "src/app/models/rota.model.ts" com todas as rotas do projeto
+    - [error-handler](src/utils/error-handler) - Exporta uma class ErrorHandler que possuí um método publico chamado "ShowError" onde ele verifica o erro retornado pela api chama a service de notificação para mostrar o erro na tela ao usuário final.
+    - [local-storage](src/utils/local-storage) - Uma classe que simula o localStorage no server side rendering. 
 7. Dentro da pasta src/models estão as models mapeadas do backend.
+8. O arquivo [app.interceptor.ts](src/app/app.interceptor.ts) intercepta todas as requisições http que partem da aplicação angular, automaticamente se autentica na api, preenche o token antes de enviar uma requisição e também renova o token quando necessário.
 
 ### Pré-requisitos
 
 Ter uma IDE instalada que suporte NodeJS, Angular instalado git para clonar o repositório
 
 ``` 
-git clone https://github.com/CareplusBR/inst.git
+
+    git clone https://github.com/CareplusBR/inst.git
 ```
 
 ### Instalação
@@ -35,38 +39,46 @@ git clone https://github.com/CareplusBR/inst.git
  Execute o comando abaixo na pasta `/fontes/site` para baixar os pacotes necessários para realizar o build do projeto
 
 ``` 
-npm i
+
+    npm i
 ```
 
 Para executar o servidor local a fim de utilizar o projeto execute o comando:
 
 ``` 
-ng serve
+
+    ng serve
 ```
 
 ### Build
 
 Para rodar o build execute o comando:
 
-```
+``` 
+
     ng build
 ```
 
-
 Para rodar o build apontando para produção execute o comando:
+
     
-```
+
+``` 
+
     ng build --prod
 ```
 
 Para rodar o build apontando para um ambiente customizado basta rodar o comando:
 
-```
+``` 
+
     ng build --configuration="ambiente"
 ```
+
 ex:
 
-```
+``` 
+
     ng build --configuration=homolog
 ```
 
@@ -79,14 +91,21 @@ Segue um link da documentação onde é explicado como se configura ambientes cu
 Para rodar o build apontando para produção com server side rendering execute o comando:
 
 Obs: O comando de build com server side rendering sempre apontará para produção, caso quera apontar para outro ambiente, um comando customizado deve ser criado no arquivo package.json em scripts, como o comando `npm run build:ssr-hml` que aponta para homolog.
+
     
-```
+
+``` 
+
     npm run build:ssr
 ```
+
 Para executar os arquivos gerados pelo build com server side rendering executar o comando:
 Obs: ele irá servir o projeto na porta 4001
+
     
-```
+
+``` 
+
     npm run serve:ssr
 ```
 
@@ -94,13 +113,108 @@ Outra alternativa é utilizar o pacote Pm2, com ele é possivel servir o build c
 
 [Link de download do PM2](https://www.npmjs.com/package/pm2) para instalar ele no servidor.
 
-Para rodar o build com o pm2 basta após a instalação e geração do build com server side rendering, entrar no diretório raiz do projeto do site institucional, atualmente é `/fontes/site`, e rodar o comando `pm2 start dist/server.js --name careplus-institucional`;
+Para rodar o build com o pm2 basta após a instalação e geração do build com server side rendering, entrar no diretório raiz do projeto do site institucional, atualmente é `/fontes/site` , e rodar o comando `pm2 start dist/server.js --name careplus-institucional` ; 
 
 A opção --name do pm2 é opcional, ela server para dar um nome ao processo que está sendo executado.
 
 ### Variáveis de ambiente
 
-As variáveis de ambiente estão localizadas nos arquivos localizados dentro do diretório: `src/environments`, o arquivo [environment](src/environments/environment.ts) possui as configurações de desenvolvimento do projeto, o [environment.homolog](src/environments/environment.homolog.ts) possuí as configurações de homologação, e o [environment.prod](src/environments/environment.prod.ts) possui as configurações de produção.
+As variáveis de ambiente estão localizadas nos arquivos localizados dentro do diretório: `src/environments` .
+
+**Parâmetros dos arquivos:**
+
+* `Production` - Quando true remove qualquer log da aplicacão que não seja de erro.
+* `API_URL` - Url da api, atualizar conforme for necessário.
+* `SELF_URL` - Url do proprio site, utilizada para setar as meta tags de redes sociais.
+* `CAREPLUS_URL` - Url do portal da Care Plus.
+* `BASE_HREF` - Url base do projeto.
+* `HAS_SSL_CERTIFIED` - Recebe um boolean,    `true` ou `false` , caso `true` ele irá executar a aplicação na porta 443 no server side rendering, porém é necessário que o caminho correto dos arquivos do certificado estejam preenchidos nas variáveis abaixo:
+* `API_USER` - Usuário de autenticação para o projeto institucional consumir a api.
+* `API_PASSWORD` - Senha de autenticação para o projeto institucional consumir a api.
+* `CERT_PATH` - Objeto com os caminhos dos arquivos necessários do certificado. (necessário somente em ambiente de produção por hora, em outros ambientes as propriedades do objeto devem ser preenchidas com uma string vazia "").
+* `CERT_PATH.key` - Caminho para o arquivo com extensão .key do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
+* `CERT_PATH.cert` - Caminho para o arquivo com extensão .cert do certificado. (necessário somente em ambiente de produção por hora, preencher com "" em ambientes que não são o de produção).
+* `CERT_PATH.ca` - Caminho para o arquivo com extensão .ca do certificado. (opcional, preencher com "" quando o certificado não possuir esta informação).
+
+* O arquivo [environment](src/environments/environment.ts) possui as configurações de desenvolvimento do projeto.
+
+``` json
+{
+    "production": false,
+    "API_URL": "http://ip-c6136b09.corp.amazonworkspaces.com:8081",
+    "SELF_URL": "http://localhost:4300",
+    "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
+    "BASE_HREF": "/",
+    "API_USER": "admin@admin.com",
+    "API_PASSWORD": "123",
+    "HAS_SSL_CERTIFIED": false,
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
+}
+```
+
+* O [environment.homolog](src/environments/environment.homolog.ts) possuí as configurações de homologação do projeto.
+
+``` json
+{
+    "production": false,
+    "API_URL": "http://ip-c6136b09.corp.amazonworkspaces.com:8081",
+    "SELF_URL": "https://careplus.homolog.neotix.com.br",
+    "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
+    "BASE_HREF": "/",
+    "API_USER": "admin@admin.com",
+    "API_PASSWORD": "123",
+    "HAS_SSL_CERTIFIED": false,
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
+}
+```
+
+* O [environment.staging](src/environments/environment.staging.ts) possuí as configurações de staging do projeto.
+
+``` json
+{
+    "production": false,
+    "API_URL": "http://52.3.44.106:8081",
+    "SELF_URL": "https://uatp.careplus.com.br/institucional",
+    "CAREPLUS_URL": "https://hml.careplus.com.br/homolog23/",
+    "BASE_HREF": "/institucional/",
+    "API_USER": "admin@admin.com",
+    "API_PASSWORD": "123",
+    "HAS_SSL_CERTIFIED": false,
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
+}
+```
+
+* O [environment.prod](src/environments/environment.prod.ts) possui as configurações de produção.
+
+``` json
+{
+    "production": true,
+    "API_URL": "http://52.3.44.106:8081",
+    "SELF_URL": "https://www.careplus.com.br",
+    "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
+    "BASE_HREF": "/",
+    "API_USER": "admin@admin.com",
+    "API_PASSWORD": "123",
+    "HAS_SSL_CERTIFIED": true,
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
+}
+```
 
 Para altera alguma variavel de ambiente do projeto basta alterar nestes arquivos.
 
@@ -111,6 +225,28 @@ Também é possível criar novas variáveis de ambiente no arquivo [angular.json
 Na imagem acima vemos o exemplo de configuração da variavel de ambiente de homologação, para criar uma de staging por exemplo, basta adicionar uma chave chamada staging contendo um objeto a esta estrutura json ex: `staging: {objeto}`
 
 A chave fileReplacements contém array de objetos aonde você aponta qual será o arquivo a ser substituido na hora do build, no caso do homolog ele substitui o environment.ts pelo environment.homolog.ts, assim as configurações de homolog estarão presentes no novo build.
+
+### Scripts da aplicação
+
+No arquivo [package.json](package.json) estão há a chave "scripts" que é um objeto contendo todos os script que você pode rodar na aplicação, ao rodar um script é como se você estivesse rodando ele no terminal de seu computador.
+
+Para rodar um script basta rodar o comando `npm run "nome do script"`
+
+Exemplo: `npm run build` , este comando irá executar a instrucão no seu terminal `ng build --prod` , ela irá gerar um build da aplicação apontando para o ambiente de produção.
+
+**Scripts Utilizados:**
+
+* `npm start` ( `ng serve` ) - Roda o projeto localmente, utilizado para fins de desenvolvimento.
+* `npm run build` ( `ng build --prod` ) - Gera um build da aplicação apontando para o ambiente de produção.
+* `npm run build-hml` ( `ng build --configuration=homolog` ) - Gera um build da aplicação apontando para o ambiente de homologação.
+* `npm run build-staging` ( `ng build --configuration=staging --base-href=/institucional/` ) - Gera um build da aplicação apontando para o ambiente de staging, observação: a flag --base-href utilizada neste build troca a tag `<base href="/">` para `<base href="/institucional/">` no ambiente de staging estamos utilizando desta forma por uma questão de padronização de url, o arquivo [web.config](src/web.config) utilizado no IIS redireciona as requisições das urls que contém o path `/institucional/` para a url correta, caso no server você não possua uma configuração que realize estes redirecionamentos, a flag não é necessária, e caso utilizada o seu site não encontrará os arquivos se não houver esta configuração de redirecionamento.
+* `npm run build:ssr` : ( `npm run build:client-and-server-bundles && npm run compile:server` ) - Gera o build com Server Side Rendering com as variáveis de ambiente de produção.
+* `npm run build:ssr-hml` : ( `npm run build:client-and-server-bundles-hml && npm run compile:server` ) - Gera o build com Server Side Rendering com as variáveis de ambiente de homologação.
+* `npm run build:ssr-staging` : ( `npm run build:client-and-server-bundles-staging && npm run compile:server` ) - Gera o build com Server Side Rendering com as variáveis de ambiente de staging.
+* `npm run serve:ssr` : ( `node dist/server` ) - Após gerar o build com Server Side Rendering este comando pode ser executado para servir localmente o build.
+* `npm run bs` : ( `npm run build:ssr && npm run serve:ssr` ) - Gera o build com as variáveis de ambiente de produção e logo em seguida o executa localmente.
+* `npm run bs-hml` : ( `npm run build:ssr-hml && npm run serve:ssr` ) - Gera o build com as variáveis de ambiente de homologação e logo em seguida o executa localmente.
+* `npm run bs-staging` : ( `npm run build:ssr-staging && npm run serve:ssr` ) - Gera o build com as variáveis de ambiente de staging e logo em seguida o executa localmente.
 
 ### Estilos
 
@@ -141,6 +277,9 @@ Segue [link](https://www.codeinwp.com/blog/bootstrap-vs-foundation-vs-bulma-vs-s
 * [typeface-montserrat](https://www.npmjs.com/package/typeface-montserrat) - Biblioteca para utilização da fonte montserrat.
 * [angular-validate-br](https://www.npmjs.com/package/angular-validate-br) - Biblioteca para validação de cpf e cnpj com form reativo.
 * [remove-accents](https://www.npmjs.com/package/remove-accents) - Biblioteca para remover acentos das palavras, utilizamos para filtrar texto.
+* [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll) - Biblioteca para utilizar funcionalidade de infinite-scroll no angular.
+* [compression](https://www.npmjs.com/package/compression) - Biblioteca para comprimir o response do server, este recurso é utilizado apenas com Server Side Rendering.
+* [express](https://www.npmjs.com/package/express) - Biblioteca para receber as requisições e disponibilizar os endpoints/ realizar os redirects, este recurso é utilizado apenas com Server Side Rendering.
 
 ## Autores
 

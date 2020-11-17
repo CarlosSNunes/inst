@@ -17,7 +17,7 @@ export class RedePlusComponent implements OnInit {
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'A Care Plus',
@@ -67,10 +67,10 @@ export class RedePlusComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Rede Plus | A Care Plus | Care Plus');
+        this.title.setTitle('Rede Plus | Rede Credenciada Premium | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'A Rede Plus é a rede de médicos exclusiva Care Plus composto pelos melhores e mais capacitados profissionais de saúde do mercado.'
+            content: 'A Rede Plus é a rede credenciada exclusiva e premium da Care Plus, composta pelos melhores profissionais e clínicas de saúde do mercado brasileiro na atualidade.'
         });
     }
 

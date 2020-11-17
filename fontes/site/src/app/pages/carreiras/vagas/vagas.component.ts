@@ -11,12 +11,12 @@ import { environment } from 'src/environments/environment';
 })
 export class VagasComponent implements OnInit {
     simpleBannerModel: SimpleBannerModel = {
-        title: 'Saiba mais sobre os nossos programas e vagas em aberto',
-        description: 'A Care Plus tem o objetivo de acompanhar você para a sua carreira e criar esse futuro junto com você',
+        title: 'Venha fazer parte de um time apaixonado em cuidar de pessoas!',
+        description: 'Nosso objetivo é acompanhar o colaborador em sua carreira e, juntos, criarmos uma história sólida e de muito aprendizado.',
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'Carreiras',
@@ -32,7 +32,7 @@ export class VagasComponent implements OnInit {
         image: 'assets/img/section-a-careplus-jobs.jpg'
     };
     crossContentModel: CrossContentModel = new CrossContentModel({
-        bigTitle: 'Mais do que trabalhar com líderes inspiradores, nós queremos que você seja um',
+        bigTitle: 'Mais do que trabalhar com líderes inspiradores, nós queremos que você seja um!',
         firstImage: {
             src: 'assets/img/Carreira_Vagas_1.png',
             alt: 'Banco de dados imagem 1'
@@ -42,8 +42,8 @@ export class VagasComponent implements OnInit {
             alt: 'Banco de dados imagem 2'
         },
         boxContent: {
-            title: 'Cadastre-se para integrar nosso banco de talentos',
-            description: 'Estamos compondo um time repleto de talentos, envie para nós os seus dados pessoais e profissionais e entraremos em contato para futuras oportunidades.',
+            title: 'Cadastre-se para fazer parte do nosso banco de talentos, ver todas as vagas ou saber de oportunidades futuras',
+            description: 'Para fazer parte deste time de talentos, envie seus dados. Se não houver vagas para o seu perfil, fique tranquilo, seu currículo ficará guardado em nosso banco de dados para futuras oportunidades.',
             button: new ButtonModel({
                 text: 'Saiba mais',
                 link: 'https://careplus.gupy.io/'
@@ -75,10 +75,10 @@ export class VagasComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Vagas | Carreiras | Care Plus');
+        this.title.setTitle('Vagas e Oportunidades | Carreiras | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+            content: 'Conheça os nossos programas, vagas e oportunidades em aberto. A Care Plus é uma das melhores empresas no Brasil para se trabalhar.'
         });
 
         /* 
@@ -87,7 +87,7 @@ export class VagasComponent implements OnInit {
         this.meta.updateTag({
             name: "og:title",
             content:
-                'Vagas | Carreiras | Care Plus'
+                'Vagas e Oportunidades | Carreiras | Care Plus'
         });
 
         this.meta.updateTag({
@@ -96,10 +96,6 @@ export class VagasComponent implements OnInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
             content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
@@ -107,7 +103,7 @@ export class VagasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:description",
-            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+            content: 'Conheça os nossos programas, vagas e oportunidades em aberto. A Care Plus é uma das melhores empresas no Brasil para se trabalhar.'
         });
 
         this.meta.updateTag({
@@ -122,7 +118,7 @@ export class VagasComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                'Vagas | Carreiras | Care Plus'
+                'Vagas e Oportunidades | Carreiras | Care Plus'
         });
 
         this.meta.updateTag({
@@ -131,10 +127,6 @@ export class VagasComponent implements OnInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
             content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
@@ -142,7 +134,7 @@ export class VagasComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Saiba mais sobre os nossos programas e oportunidades de trabalho!'
+            content: 'Conheça os nossos programas, vagas e oportunidades em aberto. A Care Plus é uma das melhores empresas no Brasil para se trabalhar.'
         });
 
         this.meta.updateTag({

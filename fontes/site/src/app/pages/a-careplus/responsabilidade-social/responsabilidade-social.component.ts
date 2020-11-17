@@ -18,7 +18,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home',
+                link: '/',
             }),
             new BreadcrumbModel({
                 name: 'A Care Plus',
@@ -155,10 +155,10 @@ export class ResponsabilidadeSocialComponent implements OnInit {
 
 
     setSEOinfos() {
-        this.title.setTitle('Responsabilidade Social | A Care Plus | Care Plus');
+        this.title.setTitle('Responsabilidade Social | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Aqui você pode conferir as ações de responsabilidade social da Care Plus para um mundo melhor.'
+            content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
         });
     }
 

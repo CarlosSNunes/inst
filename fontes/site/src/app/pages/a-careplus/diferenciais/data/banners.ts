@@ -4,23 +4,41 @@ export const bannersMock = [
     new BannerModel({
         caminhoImagem:
             'assets/img/Benner_Diferenciais_Acolhimento.png',
+        caminhoDesktop: 'assets/img',
+        nomeImagemDesktop: 'Benner_Diferenciais_Acolhimento.png',
+        caminhoCompletoDesktop:
+            'assets/img/Benner_Diferenciais_Acolhimento.png',
+        caminhoMobile: 'assets/img',
+        nomeImagemMobile: 'Benner_Diferenciais_Acolhimento.png',
+        caminhoCompletoMobile:
+            'assets/img/Benner_Diferenciais_Acolhimento.png',
         titulo: 'Entregar um Atendimento 360 e gerar muita confiança entre os Beneficiários é a chave do sucesso',
         descricao: 'Para a Care Plus, atender bem é muito mais do que ser cordial. Ter honestidade e tratar o próximo com educação é um dever',
         slideAtual: true,
-        tempo: 10000
+        tempoExibicao: 5000
     }),
     new BannerModel({
-        caminhoImagem:
-            'assets/img/Benner_Diferenciais_Atendimento.png',
+        caminhoImagem: 'assets/img/Benner_Diferenciais_Atendimento.png',
+        caminhoDesktop: 'assets/img',
+        nomeImagemDesktop: 'Benner_Diferenciais_Atendimento.png',
+        caminhoCompletoDesktop: 'assets/img/Benner_Diferenciais_Atendimento.png',
+        caminhoMobile: 'assets/img',
+        nomeImagemMobile: 'Benner_Diferenciais_Atendimento.png',
+        caminhoCompletoMobile: 'assets/img/Benner_Diferenciais_Atendimento.png',
         titulo: 'Estar sempre próximo aos beneficiários e parceiros é um dos valores mais importantes para nós',
         descricao: 'O acolhimento faz parte da nossa essência e assumimos a responsabilidade de cuidar da sua saúde e de quem você ama. Aqui, você nunca estará sozinho',
-        tempo: 5000
+        tempoExibicao: 5000
     }),
     new BannerModel({
-        caminhoImagem:
-            'assets/img/Benner_Diferenciais_Humanizacao.png',
+        caminhoImagem: 'assets/img/Benner_Diferenciais_Humanizacao.png',
+        caminhoDesktop: 'assets/img',
+        nomeImagemDesktop: 'Benner_Diferenciais_Humanizacao.png',
+        caminhoCompletoDesktop: 'assets/img/Benner_Diferenciais_Humanizacao.png',
+        caminhoMobile: 'assets/img',
+        nomeImagemMobile: 'Benner_Diferenciais_Humanizacao.png',
+        caminhoCompletoMobile: 'assets/img/Benner_Diferenciais_Humanizacao.png',
         titulo: 'Cuidado, carinho e tratamento humanizado são a nossa marca',
         descricao: 'O lado humano é nossa maior marca. Dedicamos os nossos esforços para que todos tenham uma vida mais saudável e feliz',
-        tempo: 5000
+        tempoExibicao: 5000
     })
 ];

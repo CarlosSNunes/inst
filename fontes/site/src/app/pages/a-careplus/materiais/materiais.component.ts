@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { FormControlError } from 'src/utils/form-control-error';
 import Materias from './data/materials';
 import { Meta, Title } from '@angular/platform-browser';
+import { remove } from 'remove-accents';
 
 @Component({
     selector: 'app-documentos',
@@ -17,7 +18,7 @@ export class MateriaisComponent implements OnInit {
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home'
+                link: '/'
             }),
             new BreadcrumbModel({
                 name: 'A Care Plus',
@@ -56,10 +57,10 @@ export class MateriaisComponent implements OnInit {
         this.documentsFiltered = this.documents;
         if (this.filterForm.value.document != 'all' || this.filterForm.value.search != '') {
             this.documentsFiltered = this.documentsFiltered.filter(doc => {
-                if ((this.filterForm.value.search != '' && doc.title.match(new RegExp(this.filterForm.value.search, 'gi'))) && doc.category === this.filterForm.value.document) {
+                if ((this.filterForm.value.search != '' && remove(doc.title).match(new RegExp(remove(this.filterForm.value.search), 'gi'))) && doc.category === this.filterForm.value.document) {
                     return true
                 } else if (this.filterForm.value.search != '' && this.filterForm.value.document === 'all') {
-                    if (doc.title.match(new RegExp(this.filterForm.value.search, 'gi'))) {
+                    if (remove(doc.title).match(new RegExp(remove(this.filterForm.value.search), 'gi'))) {
                         return true
                     }
                     return false
@@ -83,10 +84,10 @@ export class MateriaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Materiais de Saúde | A Care Plus | Care Plus');
+        this.title.setTitle('Materiais de Saúde | ANS, Comunicados e Materiais de Apoio | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Todos os materiais divulgados pela Care Plus estão aqui, reunidos em um só lugar.'
+            content: 'Disponibilizamos uma biblioteca de documentos onde você encontra todos os materiais de saúde e da ANS oferecidos pela Care Plus para os seus parceiros.'
         });
     }
 

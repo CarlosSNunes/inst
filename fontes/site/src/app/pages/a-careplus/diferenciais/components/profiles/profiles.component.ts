@@ -76,7 +76,6 @@ export class ProfilesComponent implements OnInit {
             this.activeLine.nativeElement.style.width = `${element.clientWidth * 1.2}px`;
         }
         this.selectedTab = tab;
-        this.tabs[tab - 1].segment;
         this.filterCards(this.tabs[tab - 1].segment);
     }
 

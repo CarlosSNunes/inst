@@ -1,18 +1,52 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject } from '@angular/core';
 import { Router, NavigationEnd, Params } from '@angular/router';
-import { RouteModel } from 'src/app/models';
+import { RouteModel, SubMenu } from 'src/app/models';
 import { routes } from 'src/utils/route-names';
 import { faAngleDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { ResizedEvent } from 'angular-resize-event';
 import { WindowRef } from 'src/utils/window-ref';
 import { DOCUMENT } from '@angular/common';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
-import { SimuladoresService } from 'src/app/services';
+import { SimuladoresService, EventEmitterService } from 'src/app/services';
+import { environment } from 'src/environments/environment';
+import SubMenus from './data/menus';
+import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'app-header-mobile',
     templateUrl: './header-mobile.component.html',
-    styleUrls: ['./header-mobile.component.scss']
+    styleUrls: ['./header-mobile.component.scss'],
+    animations: [
+        trigger('layerAnimation', [
+            // ...
+            state('opened', style({
+                transform: 'translateX(0%)'
+            })),
+            transition('closed => opened', [
+                animate('0.3s')
+            ]),
+            state('closed', style({
+                transform: 'translateX(100%)'
+            })),
+            transition('opened => closed', [
+                animate('0.3s')
+            ]),
+        ]),
+        trigger('containerAnimation', [
+            // ...
+            state('opened', style({
+                transform: 'translateX(0%)'
+            })),
+            transition('closed => opened', [
+                animate('0.3s')
+            ]),
+            state('closed', style({
+                transform: 'translateX(100%)'
+            })),
+            transition('opened => closed', [
+                animate('0.3s')
+            ]),
+        ]),
+    ]
 })
 export class HeaderMobileComponent implements OnInit, AfterViewInit {
     selectedPage: string = '';
@@ -21,8 +55,6 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     faTimes = faTimes;
     openedDropDown: boolean = false;
     @ViewChild('menu', { static: true }) menu: ElementRef<HTMLDivElement>
-    @ViewChild('firstLayer', { static: true }) firstLayer: ElementRef<HTMLDivElement>
-    @ViewChild('secondLayer', { static: true }) secondLayer: ElementRef<HTMLDivElement>
     @ViewChild('body', { static: true }) body: ElementRef<HTMLDivElement>
     @ViewChild('bottom', { static: true }) bottom: ElementRef<HTMLDivElement>
     checked: boolean = false;
@@ -31,6 +63,11 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     pageLoaded: boolean = false;
     static params: Params = {};
     actualRoute: string = '';
+    careplusUrl = environment.CAREPLUS_URL;
+    subMenu: SubMenu = SubMenus[0];
+    layerAnimation: string = 'closed';
+    containerAnimation: string = 'closed';
+    lastRoute: string = '';
 
     constructor(
         private router: Router,
@@ -43,6 +80,9 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
             this.selectedPage = initialRoute.description;
         }
 
+        const route = this.router.url;
+        this.mountMenu(route);
+
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 let routeToCompare = event.urlAfterRedirects;
@@ -52,6 +92,8 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
                 if (routeToCompare.includes('#')) {
                     routeToCompare = routeToCompare.substring(0, routeToCompare.indexOf('#'))
                 }
+
+                this.mountMenu(event.url);
 
                 this.actualRoute = routeToCompare;
 
@@ -80,8 +122,6 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.firstLayer.nativeElement.addEventListener("transitionend", this.transitionListener.bind(this))
-        this.secondLayer.nativeElement.addEventListener("transitionend", this.transitionListener.bind(this))
     }
 
     ngAfterViewInit() {
@@ -90,6 +130,28 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
 
     @HostListener('window: resize') onResize() {
         this.positionFooterOnBottom()
+    }
+
+    mountMenu(url: string) {
+        switch (url) {
+            case '/sou-beneficiario':
+                this.subMenu = SubMenus.find(sub => sub.id == 'beneficiario')
+                break;
+
+            case '/sou-rh':
+                this.subMenu = SubMenus.find(sub => sub.id == 'rh')
+                break;
+            case '/sou-corretor':
+                this.subMenu = SubMenus.find(sub => sub.id == 'corretor')
+                break;
+            case '/sou-credenciado':
+                this.subMenu = SubMenus.find(sub => sub.id == 'credenciado')
+                break;
+
+            default:
+                this.subMenu = SubMenus.find(sub => sub.id == 'default')
+                break;
+        }
     }
 
     toggleDropDown(drop = undefined) {
@@ -103,44 +165,35 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     initTransition() {
         this.checked = !this.checked;
         if (this.checked) {
+            this.menu.nativeElement.classList.add('open');
+            this.layerAnimation = 'opened';
             const top = (this.windowRef.nativeWindow.pageYOffset || this.document.documentElement.scrollTop) - (this.document.documentElement.clientTop || 0);
             this.scrollPosition = top;
             this.document.body.classList.add('no-scroll');
             this.document.body.scrollTop = this.scrollPosition;
+            this.lastRoute = this.actualRoute;
         } else {
-            this.document.body.classList.remove('no-scroll');
-            this.windowRef.nativeWindow.scrollTo(0, this.scrollPosition)
-        }
-        if (this.menu.nativeElement.classList.contains('open')) {
-            this.secondLayer.nativeElement.classList.remove('open');
-        } else {
-            this.menu.nativeElement.classList.add('open')
-            this.firstLayer.nativeElement.classList.add('open');
+            this.containerAnimation = 'closed';
         }
     }
 
-    transitionListener(event) {
-        if (
-            event.target.classList.contains('layer') &&
-            !this.secondLayer.nativeElement.classList.contains('open') &&
-            this.menu.nativeElement.classList.contains('open') &&
-            event.target.classList.contains('open')
-        ) {
-            this.secondLayer.nativeElement.classList.add('open')
-            this.positionFooterOnBottom()
-        } else if (
-            event.target.classList.contains('container') &&
-            this.firstLayer.nativeElement.classList.contains('open') &&
-            !event.target.classList.contains('open')
-        ) {
-            this.firstLayer.nativeElement.classList.remove('open')
-        } else if (
-            event.target.classList.contains('layer') &&
-            !this.secondLayer.nativeElement.classList.contains('open') &&
-            !event.target.classList.contains('open') &&
-            this.menu.nativeElement.classList.contains('open')
-        ) {
-            this.menu.nativeElement.classList.remove('open')
+    captureDoneEvent(event: AnimationEvent) {
+        if (event.fromState == 'closed' && event.toState == 'opened' && event.triggerName == 'layerAnimation') {
+            this.containerAnimation = 'opened'
+        }
+
+        if (event.fromState == 'opened' && event.toState == 'closed' && event.triggerName == 'containerAnimation') {
+            this.layerAnimation = 'closed'
+        }
+
+        if (event.fromState == 'opened' && event.toState == 'closed' && event.triggerName == 'layerAnimation') {
+            this.menu.nativeElement.classList.remove('open');
+            this.document.body.classList.remove('no-scroll');
+            if (this.lastRoute === this.actualRoute) {
+                this.windowRef.nativeWindow.scrollTo(0, this.scrollPosition)
+            } else {
+                this.lastRoute = this.actualRoute;
+            }
         }
     }
 
@@ -154,7 +207,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         } else {
             height = evt.newHeight;
         }
-        if (height <= (this.windowRef.nativeWindow.innerHeight - 167)) {
+        if (height <= (this.windowRef.nativeWindow.innerHeight - 126)) {
             this.bottom.nativeElement.style.width = 'calc(100% - 64px)';
             this.bottom.nativeElement.style.position = 'absolute';
             this.bottom.nativeElement.style.bottom = '15px';
@@ -175,11 +228,6 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
 
     openSimulator() {
         this.simuladoresService.open();
-    }
-
-    ngOnDestroy() {
-        this.firstLayer.nativeElement.removeEventListener("transitionend", (evt) => null)
-        this.secondLayer.nativeElement.removeEventListener("transitionend", (evt) => null)
     }
 
 }

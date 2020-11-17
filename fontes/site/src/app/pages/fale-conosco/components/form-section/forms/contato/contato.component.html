@@ -1,0 +1,337 @@
+<form [formGroup]="contatoForm">
+    <div class="columns flex-wrap has-negative-margin">
+
+        <div class="column is-full-touch is-4-desktop display-flex">
+            <label class="align-self-center">
+                Identifique-se
+            </label>
+        </div>
+
+        <div class="column is-full-touch is-8-desktop">
+            <app-dropdown [options]="types" [default]="defaultType" [canUnselect]="false"
+                (setFilter)="selectType($event)">
+            </app-dropdown>
+            <div class="field" *ngIf="form?.IdTipo?.errors?.length > 0">
+                <div class="errors">
+                    <p *ngFor="let error of getErrors(form.IdTipo)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns w-100 flex-wrap is-mobile" *ngIf="form.IdTipo.touched">
+
+            <div class="column is-full-touch is-6-desktop" *ngIf="formFields.NomeEntidade.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.NomeEntidade?.errors && form?.NomeEntidade?.touched, 'is-invalid' : form.NomeEntidade?.touched && form?.NomeEntidade?.errors, 'is-touched': form?.NomeEntidade?.value?.length > 0 }"
+                            class="input" formControlName="NomeEntidade" type="text">
+                        <label class="label">{{formFields.NomeEntidade.label}} *</label>
+                    </p>
+                    <div *ngIf="form.NomeEntidade.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.NomeEntidade)" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="column is-full-touch is-6-desktop" *ngIf="formFields.NomeContato.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.touched && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
+                            class="input" formControlName="NomeContato" type="text">
+                        <label class="label">{{formFields.NomeContato.label}} *</label>
+                    </p>
+                    <div *ngIf="form.NomeContato.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.NomeContato)" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full-touch is-6-desktop" *ngIf="formFields.CPFCNPJ.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.touched && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
+                            [mask]="formFields.CPFCNPJ.mask" [validation]="false" class="input"
+                            formControlName="CPFCNPJ" type="tel">
+                        <label class="label">{{formFields.CPFCNPJ.label}}
+                            {{formFields.CPFCNPJ.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.CPFCNPJ.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.CPFCNPJ, formFields.CPFCNPJ.label)"
+                            class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full-touch is-6-desktop" *ngIf="formFields.CodigoCarePlus.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.CodigoCarePlus?.errors && form?.CodigoCarePlus?.touched, 'is-invalid' : form.CodigoCarePlus?.touched && form?.CodigoCarePlus?.errors, 'is-touched': form?.CodigoCarePlus?.value?.length > 0 }"
+                            class="input" formControlName="CodigoCarePlus" type="tel" appOnlyNumbers>
+                        <label class="label">{{formFields.CodigoCarePlus.label}}
+                            {{formFields.CodigoCarePlus.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.CodigoCarePlus.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.CodigoCarePlus)" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-2-desktop is-4-touch" *ngIf="formFields.DDDTelefone1.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.DDDTelefone1?.errors && form?.DDDTelefone1?.touched, 'is-invalid' : form.DDDTelefone1?.touched && form?.DDDTelefone1?.errors, 'is-touched': form?.DDDTelefone1?.value?.length > 0 }"
+                            class="input" formControlName="DDDTelefone1" type="tel" mask="000" [validation]="false">
+                        <label class="label">{{formFields.DDDTelefone1.label}}
+                            {{formFields.DDDTelefone1.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.DDDTelefone1.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.DDDTelefone1, 'DDD 1')" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-4-desktop is-8-touch" *ngIf="formFields.Telefone1.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.Telefone1?.errors && form?.Telefone1?.touched, 'is-invalid' : form.Telefone1?.touched && form?.Telefone1?.errors, 'is-touched': form?.Telefone1?.value?.length > 0 }"
+                            class="input" formControlName="Telefone1" type="tel"
+                            [mask]="form.Telefone1?.value?.length > 8 ? '00000-0000' : '0000-00000'"
+                            [validation]="false">
+                        <label class="label">{{formFields.Telefone1.label}}
+                            {{formFields.Telefone1.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.Telefone1.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.Telefone1, 'Telefone 1')" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-2-desktop is-4-touch" *ngIf="formFields.DDDTelefone2.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.DDDTelefone2?.errors && form?.DDDTelefone2?.touched, 'is-invalid' : form.DDDTelefone2?.touched && form?.DDDTelefone2?.errors, 'is-touched': form?.DDDTelefone2?.value?.length > 0 }"
+                            class="input" formControlName="DDDTelefone2" type="tel" mask="000" [validation]="false">
+                        <label class="label">{{formFields.DDDTelefone2.label}}
+                            {{formFields.DDDTelefone2.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.DDDTelefone2.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.DDDTelefone2, 'DDD 2')" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-4-desktop is-8-touch" *ngIf="formFields.Telefone2.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.Telefone2?.errors && form?.Telefone2?.touched, 'is-invalid' : form.Telefone2?.touched && form?.Telefone2?.errors, 'is-touched': form?.Telefone2?.value?.length > 0 }"
+                            class="input" formControlName="Telefone2" type="tel"
+                            [mask]="form.Telefone2?.value?.length > 8 ? '00000-0000' : '0000-00000'"
+                            [validation]="false">
+                        <label class="label">{{formFields.Telefone2.label}}
+                            {{formFields.Telefone2.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.Telefone2.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.Telefone2, 'Telefone 2')" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full-touch is-6-desktop" *ngIf="formFields.Certificado.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.Certificado?.errors && form?.Certificado?.touched, 'is-invalid' : form.Certificado?.touched && form?.Certificado?.errors, 'is-touched': form?.Certificado?.value?.length > 0 }"
+                            class="input" formControlName="Certificado" type="tel" appOnlyNumbers>
+                        <label class="label">{{formFields.Certificado.label}}
+                            {{formFields.Certificado.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.Certificado.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.Certificado)" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column" *ngIf="formFields.Email.canShow">
+                <div class="field">
+                    <p class="control">
+                        <input
+                            [ngClass]="{ 'is-valid': !form?.Email?.errors && form?.Email?.touched, 'is-invalid' : form.Email?.touched && form?.Email?.errors, 'is-touched': form?.Email?.value?.length > 0 }"
+                            class="input" formControlName="Email" type="text">
+                        <label class="label">{{formFields.Email.label}}
+                            {{formFields.Email.required ? '*': ''}}</label>
+                    </p>
+                    <div *ngIf="form.Email.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.Email)" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full">
+                <div class="columns display-flex has-negative-margin">
+                    <div class="column is-full-touch is-3-desktop display-flex is-paddingless-vertical"
+                        *ngIf="formFields.Assunto.canShow">
+                        <label class="align-self-center">
+                            {{formFields.Assunto.label}}
+                            {{formFields.Assunto.required ? '*': ''}}
+                        </label>
+                    </div>
+
+                    <div class="column is-full-touch is-9-desktop is-paddingless-vertical"
+                        *ngIf="formFields.Assunto.canShow">
+                        <app-dropdown [options]="subjects" [default]="defaultSubject" [canUnselect]="false"
+                            (setFilter)="selectSubject($event)">
+                        </app-dropdown>
+                        <div class="field" *ngIf="!form?.Assunto?.valid && form?.Assunto?.touched">
+                            <div class="errors">
+                                <p *ngFor="let error of getErrors(form.Assunto)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full" *ngIf="formFields.Comentario.canShow">
+                <div class="field">
+                    <p class="control">
+                        <textarea name="Comentario" cols="30" rows="10"
+                            [ngClass]="{ 'is-valid': !form.Comentario?.errors, 'is-invalid' : form.Comentario.dirty && form.Comentario?.errors, 'is-touched': form.Comentario?.value?.length > 0 }"
+                            class="textarea" formControlName="Comentario" placeholder="Comentário *"></textarea>
+                    </p>
+                    <div *ngIf="form.Comentario.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.Comentario, 'Comentário')" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full" *ngIf="formFields.lstAnexo.canShow">
+                <div class="field">
+                    <div class="control">
+                        <div class="file has-name">
+                            <label class="file-label">
+                                <input (change)="fileChangeEvent($event)" class="file-input" type="file" multiple
+                                    accept="image/x-png,image/gif,image/jpeg, image/x-ms-bmp, application/pdf">
+                                <span class="file-cta">
+                                    <span class="file-label">
+                                        Escolher arquivos &nbsp;
+                                        <svg width="24" height="16" viewBox="0 0 24 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM14 9V13H10V9H7L12 4L17 9H14Z"
+                                                fill="white" />
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="file-name">
+                                    {{filesNumber > 0 ? filesNumber + ' arquivo(s) selecionado(s)' :  'Nenhum arquivo selecionado'}}
+                                </span>
+                            </label>
+                            <p class="obs">
+                                <strong>Importante:</strong> Extensões permitidas bmp, gif, jpg ou pdf, com no máximo
+                                2mb.
+                            </p>
+                            <div *ngFor="let file of files; let i = index;" class="file-details"
+                                [class.first]="i === 0">
+                                <h5 class="file-name-with-extension">
+                                    {{file.name}}
+                                    <span class="trash-icon" (click)="deleteFile(i)">
+                                        <img src="assets/svg/trash.svg" alt="Deletar">
+                                    </span>
+                                </h5>
+                                <p class="file-size">
+                                    {{filerHelper.humanFileSize(file.size, false)}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full-touch is-6-desktop">
+                <div class="field">
+                    <div class="control">
+                        <input formControlName="aceiteDeTermos"
+                            [ngClass]="{ 'is-invalid' : form?.aceiteDeTermos?.errors && form.aceiteDeTermos?.touched }"
+                            class="checkbox" id="aceiteDeTermos" name="aceiteDeTermos" type="checkbox">
+                        <label class="checkbox-label" for="aceiteDeTermos">
+                            <span>
+                                Eu aceito os
+                                <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos </a> de Política
+                                de
+                                Privacidade.
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="columns is-12">
+                    <div class="field">
+                        <div *ngIf="form.aceiteDeTermos?.touched && form?.aceiteDeTermos?.errors" class="errors">
+                            <p class="help is-danger">
+                                Você deve aceitar os Termos para continuar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-6-desktop is-full-touch">
+                <div id="captcha_element_contato"></div>
+                <div class="field">
+                    <div *ngIf="form.validCaptcha.touched" class="errors">
+                        <p *ngFor="let error of getErrors(form.validCaptcha, 'Captcha')" class="help is-danger">
+                            {{error}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-full">
+                <button [disabled]="loading" [class.loading]="loading"
+                    class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">Enviar
+                </button>
+
+                <button [disabled]="loading" [class.loading]="loading"
+                    class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" (click)="sendForm()">
+                    Enviar
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>

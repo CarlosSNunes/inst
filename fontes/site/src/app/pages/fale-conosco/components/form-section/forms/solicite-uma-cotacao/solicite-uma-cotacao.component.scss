@@ -16,7 +16,7 @@ form {
                 float: right;
             }
 
-            .btn-text {
+            .btn.tertiary {
                 padding-left: 0;
             }
 
@@ -39,6 +39,19 @@ form {
                         pointer-events: visible;
                         white-space: wrap;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    form {
+        .columns {
+            .column {
+                #captcha_element_solicite_uma_cotacao {
+                    display: center;
+                    justify-content: center;
                 }
             }
         }

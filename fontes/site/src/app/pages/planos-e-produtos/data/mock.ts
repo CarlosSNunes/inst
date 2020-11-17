@@ -35,7 +35,7 @@ export const planCards: PlanCardModel[] = [
             routerLink: '/planos-e-produtos/clube-careplus'
         }),
         image: 'assets/svg/clube-careplus.svg',
-        id: 'clube-care-plus'
+        id: 'clube-careplus'
     }),
     new PlanCardModel({
         title: 'Care Plus Empresarial',
@@ -46,7 +46,7 @@ export const planCards: PlanCardModel[] = [
             routerLink: '/planos-e-produtos/careplus-empresarial'
         }),
         image: 'assets/svg/empresarial.svg',
-        id: 'empresarial'
+        id: 'careplus-empresarial'
     })
 ];
 export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
@@ -80,7 +80,7 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
     breadcrumbs: [
         new BreadcrumbModel({
             name: 'Home',
-            link: '/home'
+            link: '/'
         }),
         new BreadcrumbModel({
             name: 'Planos e Produtos',

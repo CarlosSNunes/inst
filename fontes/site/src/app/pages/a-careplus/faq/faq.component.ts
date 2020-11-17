@@ -30,7 +30,7 @@ export class FaqComponent implements OnInit, AfterViewInit {
         breadcrumbs: [
             new BreadcrumbModel({
                 name: 'Home',
-                link: '/home'
+                link: '/'
             }),
             new BreadcrumbModel({
                 name: 'A Care Plus',
@@ -168,10 +168,10 @@ export class FaqComponent implements OnInit, AfterViewInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Perguntas Frequentes | A Care Plus | Care Plus');
+        this.title.setTitle('Perguntas Frequentes | FAQ | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Confira as principais dúvidas de beneficiários, gestores de RH, corretores e credenciados.'
+            content: 'Confira aqui as perguntas frequentes dos Beneficiários, RHs, Corretores e Credenciados e encontre respostas e soluções para suas dúvidas.'
         });
     }
 

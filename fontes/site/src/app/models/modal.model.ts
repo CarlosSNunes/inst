@@ -41,11 +41,12 @@ export class FeedbackModalModel extends ModalModel {
 export class ErrorModalModel extends ModalModel {
     public constructor(init?: Partial<ErrorModalModel>) {
         super(init)
-        this.type = 'info';
-        this.layout = 'table';
+        this.type = 'error';
+        this.layout = 'feedback';
         Object.assign(this, init)
     }
-    title: string = 'Confira os produtos atendidos por este credenciado:';
+    title: string = 'Ops! :( não conseguimos enviar seu formulário'
+    buttonText: string = "VOLTAR PARA O SITE"
 }
 
 export class TableModalModel extends ModalModel {

@@ -3,6 +3,7 @@ import { bannersMock } from './data/banners';
 import { BreadcrumbModel, CareplusVideoModel, ButtonModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 import { Title, Meta } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-diferenciais',
@@ -15,7 +16,7 @@ export class DiferenciaisComponent implements OnInit {
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
             name: 'Home',
-            link: '/home'
+            link: '/'
         }),
         new BreadcrumbModel({
             name: 'A Care Plus',
@@ -56,10 +57,65 @@ export class DiferenciaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Diferenciais | A Care Plus | Care Plus');
+        this.title.setTitle('Diferenciais | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Atendimento, acolhimento e humanização que fazem toda a diferença na vida de quem contrata, usa e comercializa as soluções Care Plus.'
+            content: 'A Care Plus sabe que atendimento, acolhimento e humanização fazem toda a diferença na vida de quem contrata, usa e comercializa os nossos planos e produtos de saúde.'
+        });
+
+        /* 
+            Open graph meta tags
+        */
+        this.meta.updateTag({
+            name: "og:title",
+            content:
+                'Diferenciais | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        // Observação, a meta tag og:image é preenchida no componente de banner.
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'A Care Plus sabe que atendimento, acolhimento e humanização fazem toda a diferença na vida de quem contrata, usa e comercializa os nossos planos e produtos de saúde.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/a-careplus/diferenciais`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content:
+                'Diferenciais | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        // Observação, a meta tag twitter:image é preenchida no componente de banner.
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'A Care Plus sabe que atendimento, acolhimento e humanização fazem toda a diferença na vida de quem contrata, usa e comercializa os nossos planos e produtos de saúde.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/a-careplus/diferenciais`,
         });
     }
 

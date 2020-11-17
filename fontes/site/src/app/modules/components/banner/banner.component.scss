@@ -23,9 +23,10 @@ section.home-banner {
                 .play {
                     width: 34px;
                     height: 34px;
+                    position: relative;
                     &::before {
                         content: "";
-                        background-image: url('data:image/svg+xml;utf8,<svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.45456 11.4091H0.363647V0.590912H3.45456V11.4091ZM6.54546 11.4091V0.590912H9.63636V11.4091H6.54546Z" fill="%2300335B"/></svg>');
+                        background-image: getSvg("desktop-banner-play-button.svg");
                         background-size: contain;
                         background-repeat: no-repeat;
                         background-position: center;
@@ -39,9 +40,16 @@ section.home-banner {
                     }
                     &.stopped {
                         &::before {
-                            background-image: url('data:image/svg+xml;utf8,<svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.1768 13.1136L0.290541 25.7496L0.290543 0.477624L22.1768 13.1136Z" fill="%2300335B"/></svg>') !important;
+                            background-image: getSvg("desktop-banner-stop-button.svg") !important;
                         }
                     }
+
+                    &.loading {
+                        #svg {
+                            cursor: not-allowed;
+                        }
+                    }
+
                     #svg {
                         cursor: pointer;
                         transform: rotate(-90deg);
@@ -153,9 +161,9 @@ section.home-banner {
 
 @media (max-width: 1023px) {
     section.home-banner {
-        height: calc(100vh - 156px);
+        height: calc(100vh - 195px);
         #carousel-banner {
-            height: calc(100vh - (156px + 224px));
+            height: calc(100vh - (195px + 224px));
 
             .stepper {
                 left: 7.83px;
@@ -166,15 +174,17 @@ section.home-banner {
                     .play {
                         width: 34px;
                         height: 34px;
+                        position: relative;
+
                         &::before {
                             content: "";
-                            background-image: url('data:image/svg+xml;utf8,<svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.45456 11.4091H0.363647V0.590912H3.45456V11.4091ZM6.54546 11.4091V0.590912H9.63636V11.4091H6.54546Z" fill="%23FFF"/></svg>');
+                            background-image: getSvg("mobile-banner-play-button.svg");
                         }
                         &.stopped {
                             &::before {
                                 content: "";
                                 background-position-x: 1px;
-                                background-image: url('data:image/svg+xml;utf8,<svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.1768 13.1136L0.290541 25.7496L0.290543 0.477624L22.1768 13.1136Z" fill="%23FFF"/></svg>') !important;
+                                background-image: getSvg("mobile-banner-stop-button.svg") !important;
                             }
                         }
                         #svg {
@@ -201,7 +211,7 @@ section.home-banner {
             }
         }
         .item {
-            height: calc(100vh - (156px + 224px));
+            height: calc(100vh - (195px + 224px));
             position: absolute;
             box-shadow: unset;
             .container:not(.breadcrumb-container) {
@@ -210,12 +220,18 @@ section.home-banner {
                 bottom: -224px;
                 height: 224px;
                 background-color: getColor(_bupa, _digital-cian);
+                display: flex;
+                .columns {
+                    align-self: center;
+                    width: 100%;
+                }
                 .banner-home-description {
                     padding-left: 64px;
                     padding-top: 0;
                     padding-right: 32px;
+                    padding-bottom: 0;
                     .banner-title {
-                        margin-top: 16px;
+                        margin-top: 0;
                         font-size: getSize("mbt");
                         line-height: 120%;
                         color: getColor(_bupa, _white);

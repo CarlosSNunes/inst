@@ -141,7 +141,7 @@ section.is-rede-plus {
                         height: 34px;
                         &::before {
                             content: "";
-                            background-image: url('data:image/svg+xml;utf8,<svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.45456 11.4091H0.363647V0.590912H3.45456V11.4091ZM6.54546 11.4091V0.590912H9.63636V11.4091H6.54546Z" fill="%23FFF"/></svg>');
+                            background-image: getSvg("plus-network-play-button.svg");
                             background-size: contain;
                             background-repeat: no-repeat;
                             background-position: center;
@@ -153,7 +153,8 @@ section.is-rede-plus {
                         }
                         &.stopped {
                             &::before {
-                                background-image: url('data:image/svg+xml;utf8,<svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.1768 13.1136L0.290541 25.7496L0.290543 0.477624L22.1768 13.1136Z" fill="%23FFF"/></svg>') !important;
+                                background-image: getSvg("plus-network-stop-button.svg") !important;
+                                left: 14px;
                             }
                         }
                         #svg {
@@ -243,7 +244,20 @@ section.is-rede-plus {
     }
 
     .has-background {
-        background: getImage("rede-plus-background.png") no-repeat;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% - 16px);
+            height: 100%;
+            background: getImage("rede-plus-background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
 
         p {
             font-style: normal;
@@ -251,9 +265,18 @@ section.is-rede-plus {
             font-size: 24px;
             line-height: 120%;
             color: getColor(_bupa, _white);
+
+            svg {
+                z-index: 1;
+            }
+
+            SPAN {
+                z-index: 1;
+            }
         }
 
         .btn {
+            z-index: 1;
             float: right;
 
             &:hover,

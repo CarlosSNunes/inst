@@ -1,10 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { NgImageSliderComponent } from 'ng-image-slider';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { SliderModel, SliderImage } from 'src/app/models';
+import { ModalService } from 'src/app/services';
+import { SliderModel, SliderImage, VideoModalModel } from 'src/app/models';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
-import { VideoModalModel } from 'src/app/models/modal.model';
 
 @Component({
     selector: 'app-slider',
@@ -33,7 +32,7 @@ export class SliderComponent implements OnInit {
             const imgDivs = this.elementRef.nativeElement.querySelectorAll('.img-div');
             imgDivs[0].classList.add('active')
 
-            this.sliderModel.images.map((image, i) => {
+            this.sliderModel.images.forEach((image, i) => {
                 if ((image as SliderImage).modal) {
                     imgDivs[i].classList.add('modal');
                 }

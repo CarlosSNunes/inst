@@ -77,6 +77,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -93,13 +98,13 @@ export default [
                     }),
                 ]
             }),
-            // new SubMenuItem({
-            //     title: 'Care Plus +',
-            //     routerLink: '/careplus-mais',
-            // }),
+            new SubMenuItem({
+                title: 'Care Plus +',
+                routerLink: '/careplus-mais',
+            }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco/solicite-uma-cotacao',
+                routerLink: '/fale-conosco',
                 subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Cotação',
@@ -197,6 +202,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -229,10 +239,10 @@ export default [
                     }),
                 ]
             }),
-            // new SubMenuItem({
-            //     title: 'Care Plus +',
-            //     routerLink: '/careplus-mais',
-            // }),
+            new SubMenuItem({
+                title: 'Care Plus +',
+                routerLink: '/careplus-mais',
+            }),
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
@@ -333,6 +343,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -353,10 +368,10 @@ export default [
                     }),
                 ]
             }),
-            // new SubMenuItem({
-            //     title: 'Care Plus +',
-            //     routerLink: '/careplus-mais',
-            // }),
+            new SubMenuItem({
+                title: 'Care Plus +',
+                routerLink: '/careplus-mais',
+            }),
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
@@ -475,12 +490,13 @@ export default [
                         title: 'Vagas',
                         routerLink: '/carreiras/vagas',
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
-            // new SubMenuItem({
-            //     title: 'Care Plus +',
-            //     routerLink: '/careplus-mais',
-            // }),
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
@@ -581,6 +597,11 @@ export default [
                         title: 'Gestão de Saúde',
                         routerLink: '/planos-e-produtos/gestao-de-saude/'
                     }),
+                    new SubMenuItem({
+                        title: 'Master International',
+                        href: 'http://www.masterinternational.com.br/',
+                        target: '_blank'
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -597,10 +618,10 @@ export default [
                     }),
                 ]
             }),
-            // new SubMenuItem({
-            //     title: 'Care Plus +',
-            //     routerLink: '/careplus-mais',
-            // }),
+            new SubMenuItem({
+                title: 'Care Plus +',
+                routerLink: '/careplus-mais',
+            }),
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/solicite-uma-cotacao',

@@ -1,0 +1,42 @@
+<app-simple-banner class="app-simple-banner" [simpleBannerModel]="simpleBannerModel"></app-simple-banner>
+<section id="idss-filters">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column filter-box">
+                    <div class="filters">
+                        <form [formGroup]="filterForm">
+                            <div class="columns">
+                                <div class="column is-9-desktop is-full">
+                                    <app-dropdown class="app-dropdown" [options]="dropDownOptions" [default]="{ title: 'Todos', value: 'all' }" (setFilter)="changeCategory($event); "></app-dropdown>
+                                </div>
+
+                                <div class="column is-3-desktop is-full buttons">
+                                    <div class="images">
+                                        <img src="assets/svg/grid-menu-active.svg" class="grid" alt="Modo grid" [class.active]="menuStyle === 'grid'" (click)="changeMenuStyle('grid')">
+                                        <img src="assets/svg/grid-menu.svg" alt="Modo grid" class="grid" [class.active]="menuStyle === 'list'" (click)="changeMenuStyle('grid')">
+                                        <img src="assets/svg/list-menu-active.svg" alt="Modo lista" [class.active]="menuStyle === 'list'" class="list-image" (click)="changeMenuStyle('list')">
+                                        <img src="assets/svg/list-menu.svg" alt="Modo lista" class="list-image" [class.active]="menuStyle === 'grid'" (click)="changeMenuStyle('list')">
+                                    </div>
+                                    <button class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" (click)="filter()">
+                                        Filtrar
+                                    </button>
+                                    <button class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" (click)="filter()">
+                                        Filtrar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <app-documents class="app-documents" *ngIf="menuStyle === 'grid'" [documents]="documentsFiltered"></app-documents>
+            <div class="columns" *ngIf="menuStyle === 'list'">
+                <div class="column is-12 list-table">
+                    <app-table [table]="table"></app-table>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<app-learn-more class="app-learn-more" [cards]="cards"></app-learn-more>

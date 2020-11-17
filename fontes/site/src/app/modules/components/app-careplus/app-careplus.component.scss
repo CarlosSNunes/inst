@@ -65,6 +65,9 @@ section#app-careplus {
                         &.app-store {
                             margin-left: 32px;
                         }
+                        img {
+                            width: 100%;
+                        }
                     }
                 }
             }
@@ -151,6 +154,10 @@ section#app-careplus {
                                 }
                                 &.app-store {
                                     margin-top: 15px;
+                                }
+
+                                img {
+                                    width: 100%;
                                 }
                             }
                         }

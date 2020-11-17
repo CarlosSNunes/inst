@@ -1,0 +1,95 @@
+<section id="results-section" class="blue-background-color">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-paddingless-vertical">
+                    <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <h1 class="h3 big-title" *ngIf="!loading">
+                        {{resultsCountMessage}}
+                    </h1>
+
+                    <div class="loading m-t-30" *ngIf="loading">
+                        <div class="loading__circle"></div>
+                        <div class="loading__circle"></div>
+                        <div class="loading__circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="filter-box" class="is-paddingless">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column filter-box" [ngStyle]="filters.clientHeight > 200 ? { height: (filters.clientHeight - 100) + 'px' } : { height: (filters.clientHeight/2) + 'px'}">
+                    <div #filters class="filters"
+                        [ngStyle]="filters.clientHeight > 200 ? { transform: 'translateY(-100px)'} : { transform: 'translateY(-50%)'}">
+                        <ul class="category-filter">
+                            <li class="title">
+                                Categorias:
+                            </li>
+                            <li *ngFor="let category of categories">
+                                <a [class.active]="categoryId == category.id"
+                                    [routerLink]="['/careplus-mais/categoria', category.id]"
+                                    [attr.title]="category.titulo">
+                                    {{category.titulo}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="results">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+
+                    <p class="description" *ngIf="count > 0">
+                        {{count}} resultados encontrados para a categoria “{{category?.titulo}}”
+                    </p>
+
+                    <a routerLink="/careplus-mais" class="btn btn-digital-cian tertiary arrow-right small reverse"
+                        title="Voltar à navegação">
+                        VOLTAR À NAVEGAÇÃO
+                    </a>
+
+                    <ul class="posts" *ngIf="count > 0" infiniteScroll [infiniteScrollDistance]="2"
+                        [infiniteScrollThrottle]="20" (scrolled)="onScroll()">
+                        <li class="post" *ngFor="let post of posts" (click)="goToPostMobile(post)">
+                            <p class="post-title">
+                                {{post.titulo}}
+                            </p>
+                            <p class="post-description">
+                                {{post.descricaoPrevia}}
+                            </p>
+
+                            <a class="next" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
+                                <img src="assets/svg/arrow-left.svg" alt="Próximo">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <p class="no-results" *ngIf="!loading && count == 0">
+                        Tente novamente selecionando outra categoria.
+                    </p>
+
+                    <div class="loading m-t-30" *ngIf="loading">
+                        <div class="loading__circle"></div>
+                        <div class="loading__circle"></div>
+                        <div class="loading__circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

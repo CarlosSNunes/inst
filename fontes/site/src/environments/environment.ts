@@ -4,8 +4,18 @@
 
 export const environment = {
     production: false,
-    API_URL: 'http://52.3.44.106/api/',
-    SELF_URL: 'http://localhost:4300'
+    API_URL: 'http://ip-c6136b09.corp.amazonworkspaces.com:8081',
+    SELF_URL: 'http://localhost:4300',
+    CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
+    BASE_HREF: '/',
+    API_USER: 'admin@admin.com',
+    API_PASSWORD: '123',
+    HAS_SSL_CERTIFIED: false,
+    CERT_PATH: {
+        key: '',
+        cert: '',
+        ca: ''
+    }
 };
 
 /*

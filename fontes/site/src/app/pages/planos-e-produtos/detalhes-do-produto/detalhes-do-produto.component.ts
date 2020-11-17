@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WindowRef } from 'src/utils/window-ref';
 import { Meta, Title } from '@angular/platform-browser';
@@ -15,7 +15,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     ids = plansMock;
     selectedOptionId: number = 1;
     queryParams: any = {};
-    findedPlan: any = {};
+    foundPlan: any = {};
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -27,10 +27,10 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     ) {
         this.activatedRoute.params.subscribe(params => {
             this.id = params.id;
-            const findedId = this.ids.find(id => id.id === this.id);
-            this.findedPlan = findedId;
-            if (findedId) {
-                this.setSEOInfos(findedId);
+            const foundId = this.ids.find(id => id.id === this.id);
+            this.foundPlan = foundId;
+            if (foundId) {
+                this.setSEOInfos(foundId);
                 this.queryParams = {
                     plano: this.id
                 }
@@ -79,10 +79,10 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     }
 
     setSEOInfos(infos) {
-        this.title.setTitle(`${infos.name} | Produtos e Planos | Care Plus`)
+        this.title.setTitle(infos.title)
         this.meta.updateTag({
             name: 'description',
-            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+            content: infos.description
         })
 
         /* 
@@ -90,8 +90,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
         */
         this.meta.updateTag({
             name: "og:title",
-            content:
-                `${infos.name} | Produtos e Planos | Care Plus`
+            content: infos.title
         });
 
         this.meta.updateTag({
@@ -100,13 +99,9 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
-            content: `${environment.SELF_URL}/${this.findedPlan.simpleBannerModel.image}`,
+            content: `${environment.SELF_URL}/${this.foundPlan.simpleBannerModel.image}`,
         });
 
         this.meta.updateTag({
@@ -116,7 +111,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/planos-e-produtos/${this.findedPlan.id}`,
+            content: `${environment.SELF_URL}/planos-e-produtos/${this.foundPlan.id}`,
         });
 
         /* 
@@ -125,8 +120,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
 
         this.meta.updateTag({
             name: "twitter:title",
-            content:
-                `${infos.name} | Produtos e Planos | Care Plus`
+            content: infos.title
         });
 
         this.meta.updateTag({
@@ -135,23 +129,19 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
-            content: `${environment.SELF_URL}/${this.findedPlan.simpleBannerModel.image}`,
+            content: `${environment.SELF_URL}/${this.foundPlan.simpleBannerModel.image}`,
         });
 
         this.meta.updateTag({
             name: "twitter:description",
-            content: 'Faça uma simulação do perfil da sua empresa aqui no site da Care Plus e confira os produtos e planos que mais se adequam.'
+            content: infos.description
         });
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/planos-e-produtos/${this.findedPlan.id}`,
+            content: `${environment.SELF_URL}/planos-e-produtos/${this.foundPlan.id}`,
         });
     }
 

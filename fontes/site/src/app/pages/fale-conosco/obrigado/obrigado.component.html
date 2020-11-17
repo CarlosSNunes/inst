@@ -1,0 +1,30 @@
+<section id="obrigado">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-paddingless-vertical is-6-desktop is-full">
+                    <app-breadcrumb [breadcrumbs]="selectedOrigin?.breadcrumbs"></app-breadcrumb>
+                    <h3 class="h4 big-title" *ngIf="protocol">
+                        Seu protocolo é: {{protocol}}
+                    </h3>
+                    <h1 class="h4 big-title">
+                        {{selectedOrigin?.message}}
+                    </h1>
+                    <a routerLink="/" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
+                        title="Voltar para Home">
+                        Voltar para Home
+                    </a>
+
+
+                    <a routerLink="/" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop"
+                        title="Voltar para Home">
+                        Voltar para Home
+                    </a>
+                </div>
+                <div class="column is-paddingless-vertical is-6-desktop is-full">
+                    <img src="assets/svg/Credenciado.svg" alt="Página obrigado">
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

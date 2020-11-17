@@ -11,10 +11,6 @@ const routes: Routes = [
         path: 'materiais-de-saude',
         loadChildren: () => import('./materiais/materiais.module').then(m => m.MateriaisModule)
     },
-    // {
-    //     path: 'premios-e-certificacoes',
-    //     loadChildren: () => import('./premios-e-certificacoes/premios-e-certificacoes.module').then(m => m.PremiosECertificacoesModule)
-    // },
     {
         path: 'responsabilidade-social',
         loadChildren: () => import('./responsabilidade-social/responsabilidade-social.module').then(m => m.ResponsabilidadeSocialModule)
@@ -45,7 +41,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        loadChildren: () => import('../erro/erro.module').then(m => m.ErroModule)
+        redirectTo: '/404'
     }
 ];
 
