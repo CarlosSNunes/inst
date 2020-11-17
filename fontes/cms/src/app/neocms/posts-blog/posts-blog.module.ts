@@ -23,6 +23,7 @@ import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PostPreviewComponent } from './post-preview/post-preview.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -32,6 +33,7 @@ defineLocale('pt-br', ptBrLocale);
     PostsBlogCreateComponent,
     PostsBlogEditComponent,
     PostsBlogDeleteComponent,
+    PostPreviewComponent,
   ],
   entryComponents: [
     PostsBlogDeleteComponent

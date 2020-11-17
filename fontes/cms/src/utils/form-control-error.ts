@@ -4,9 +4,11 @@ export class FormControlError {
 
     public static GetErrors(control: AbstractControl, controlName?: string) {
         const errors: string[] = [];
-
+        console.log(control.errors)
         for (const key in control.errors) {
             let error = 'O campo ';
+
+            console.log(key)
 
             if (key === 'required') {
                 error += this.getControlName(control, controlName) + ' é requerido!';

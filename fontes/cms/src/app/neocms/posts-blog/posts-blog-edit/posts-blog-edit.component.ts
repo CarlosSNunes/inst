@@ -7,7 +7,6 @@ import { AuthenticationService } from './../../../../../src/app/authentication/a
 import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
 import { FormControlError } from './../../../../../src/utils/form-control-error';
 import { PostsBlogService } from '../posts-blog.service';
-import { PostBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
 import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 import { CategoriasService } from '../categorias/categorias.service';
 import { TagModel, TagModelList } from './../../../../../src/models/tag/tag.model';
@@ -97,7 +96,7 @@ export class PostsBlogEditComponent implements OnInit {
             descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
             categoriaId: ['', Validators.required],
             postTag: this.fb.array([], Validators.compose([Validators.minLength(1)])),
-            descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+            descricao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             arquivo: [''],
             caminhoImagem: [''],
             nomeImagem: [''],
@@ -127,7 +126,7 @@ export class PostsBlogEditComponent implements OnInit {
             descricaoPaginaSEO: [postBlog.descricaoPaginaSEO, [FormControlError.noWhitespaceValidator]],
             categoriaId: [postBlog.categoriaId, Validators.required],
             postTag: this.fb.array(postTags, Validators.compose([Validators.minLength(1)])),
-            descricao: [postBlog.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+            descricao: [postBlog.descricao, Validators.compose([Validators.required, FormControlError.noWhitespaceValidator])],
             arquivo: [''],
             caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Post/'],
             nomeImagem: [postBlog.nomeImagem]

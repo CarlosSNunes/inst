@@ -87,7 +87,7 @@ export class PostsBlogCreateComponent implements OnInit {
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            descricao: ['', [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
+            descricao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             dataPublicacao: ['', [Validators.required]],
             dataExpiracao: [''],
             arquivo: [''],

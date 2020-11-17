@@ -84,11 +84,11 @@
                                     [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
                                     [editor]="editor" (ready)="onReady($event)">
                                 </ckeditor>
-                                <!-- <div *ngIf="submitted" class="errors">
-                                    <p *ngFor="let error of getErrors(f.descricao.errors)" class="help is-danger">
+                                <div *ngIf="submitted" class="errors">
+                                    <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
                                         {{error}}
                                     </p>
-                                </div> -->
+                                </div>
                             </div>
 
                         </div>
