@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ClassHelper } from './../../../../src/utils/class-helper';
 import { Observable } from 'rxjs';
-import { PostsBlogModel } from './../../../../src/models/posts-blog/posts-blog.model';
+import { PostListModel } from './../../../../src/models/posts-blog/posts-blog.model';
 import { PostsBlogCreateModel } from './../../../../src/models/posts-blog/posts-blog-create.model';
 import { PostBlogUpdateModel } from './../../../../src/models/posts-blog/posts-blog-update-model';
 
@@ -27,16 +27,16 @@ export class PostsBlogService {
     return this.http.post(this.API_ENDPOINT + '/DeleteImage', fileName);
   }
 
-  getAll(page: number, pageSize: number) {
-    return this.http.get<PostsBlogModel[]>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
+  getAll(page: number, pageSize: number): Observable<PostListModel> {
+    return this.http.get<PostListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
   }
 
   getBySlug(slug: string): Observable<PostBlogUpdateModel> {
     return this.http.get<PostBlogUpdateModel>(this.API_ENDPOINT + '/' + slug);
   }
 
-  getByCategoryId(id: string): Observable<PostsBlogModel> {
-    return this.http.get<PostsBlogModel>(this.API_ENDPOINT + '/categoria/' + id);
+  getByCategoryId(id: string): Observable<PostListModel> {
+    return this.http.get<PostListModel>(this.API_ENDPOINT + '/categoria/' + id);
   }
 
   post(post: PostsBlogCreateModel) {
@@ -47,7 +47,7 @@ export class PostsBlogService {
     return this.http.put(this.API_ENDPOINT, this.classHelper.jsonToFormData(post));
   }
 
-  delete(id: number) {
+  delete(id: string) {
     return this.http.delete(this.API_ENDPOINT + '/' + id);
   }
 

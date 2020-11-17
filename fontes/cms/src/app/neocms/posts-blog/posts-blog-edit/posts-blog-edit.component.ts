@@ -7,7 +7,7 @@ import { AuthenticationService } from './../../../../../src/app/authentication/a
 import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
 import { FormControlError } from './../../../../../src/utils/form-control-error';
 import { PostsBlogService } from '../posts-blog.service';
-import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { PostBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
 import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 import { CategoriasService } from '../categorias/categorias.service';
 import { TagModel, TagModelList } from './../../../../../src/models/tag/tag.model';
@@ -34,7 +34,6 @@ export class PostsBlogEditComponent implements OnInit {
     faPlus = faPlus;
     faCog = faCog;
     faArrowCircleLeft = faArrowCircleLeft;
-    postsBlog: PostsBlogModel[] = [];
     tags: TagModel[] = [];
     categorias: CategoriasModel[] = [];
     arquivoNome = 'Selecione um arquivo';
@@ -111,13 +110,17 @@ export class PostsBlogEditComponent implements OnInit {
     private updateForm(postBlog: PostBlogUpdateModel) {
         const postTags = postBlog.postTag.map(postTag => ({ tagId: postTag.id }));
 
+        const dataPublicacao = this.resultPostBlog.dataPublicacao && this.resultPostBlog.dataPublicacao != null ? new Date(this.resultPostBlog.dataPublicacao).toISOString().substring(0, 10) : undefined;
+
+        const dataExpiracao = this.resultPostBlog.dataExpiracao && this.resultPostBlog.dataExpiracao != null ? new Date(this.resultPostBlog.dataExpiracao).toISOString().substring(0, 10) : undefined;
+
         this.postsBlogForm = this.fb.group({
             id: [postBlog.id],
             titulo: [postBlog.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: [postBlog.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             descricaoPrevia: [postBlog.descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            dataPublicacao: [new Date(this.resultPostBlog.dataPublicacao).toISOString().substring(0, 10), [Validators.required]],
-            dataExpiracao: [new Date(this.resultPostBlog.dataExpiracao).toISOString().substring(0, 10),],
+            dataPublicacao: [dataPublicacao, [Validators.required]],
+            dataExpiracao: [dataExpiracao,],
             destaque: [postBlog.destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
             ativo: [postBlog.ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
             tituloPaginaSEO: [postBlog.tituloPaginaSEO],

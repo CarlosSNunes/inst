@@ -93,8 +93,8 @@ export class PostsBlogCreateComponent implements OnInit {
             arquivo: [''],
             caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Post/'],
             nomeImagem: [''],
-            destaque: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
-            ativo: ['', [Validators.required, FormControlError.noWhitespaceValidator],],
+            destaque: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
+            ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
             visualizacoes: [''],
             tituloPaginaSEO: ['', [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
             descricaoPaginaSEO: ['', [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
@@ -173,6 +173,8 @@ export class PostsBlogCreateComponent implements OnInit {
         this.validateDate(dataPublicacao);
 
         this.submitted = true;
+
+        console.log(this.postsBlogForm)
         if (this.postsBlogForm.valid) {
 
             this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao);
