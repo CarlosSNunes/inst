@@ -91,7 +91,6 @@ export class PostsBlogCreateComponent implements OnInit {
             dataPublicacao: ['', [Validators.required]],
             dataExpiracao: [''],
             arquivo: [''],
-            caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Post/'],
             nomeImagem: [''],
             destaque: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],
             ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator],],

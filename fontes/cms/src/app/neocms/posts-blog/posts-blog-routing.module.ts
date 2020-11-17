@@ -4,6 +4,7 @@ import { AuthGuard } from 'src/app/authentication/auth.service';
 import { PostsBlogComponent } from './posts-blog.component';
 import { PostsBlogEditComponent } from './posts-blog-edit/posts-blog-edit.component';
 import { PostsBlogCreateComponent } from './posts-blog-create/posts-blog-create.component';
+import { PostPreviewComponent } from './post-preview/post-preview.component';
 
 const routes: Routes = [
     {
@@ -36,7 +37,12 @@ const routes: Routes = [
         path: 'mais-lidos',
         canActivate: [AuthGuard],
         loadChildren: () => import('./mais-lidos/mais-lidos.module').then(m => m.MaisLidosModule)
-    },        
+    },
+    {
+        path: 'preview/:slug',
+        canActivate: [AuthGuard],
+        component: PostPreviewComponent
+    },
     {
         path: 'edit/:slug',
         canActivate: [AuthGuard],

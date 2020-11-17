@@ -54,7 +54,7 @@
                         </td>
                         <td class="col-md-2 w-50 text-center">
                             <div *ngIf="post.status != 'pendente'">
-                                <a [routerLink]="['./', post.id]" routerLinkActive="active" class="info-icon"
+                                <a [routerLink]="['/neocms/posts-blog/preview', post.slug]" routerLinkActive="active" class="info-icon"
                                     alt="Visualizar post">
                                     <fa-icon [icon]="faEye"></fa-icon>
                                 </a>
