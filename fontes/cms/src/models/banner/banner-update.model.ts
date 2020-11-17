@@ -5,6 +5,7 @@ export class BannerUpdateModel {
 
     id: number;
     nomeImagem: string;
+    nomeImagemMobile: string;
     titulo: string;
     subtitulo: string;
     area: string;
@@ -14,8 +15,9 @@ export class BannerUpdateModel {
     linkExterno: string;
     arquivo: File;
     arquivoMobile: File;
+    nomeLink: string;
     caminhoDesktop: string;
-    caminhoMobile: string;    
-    ativo: string; 
-    
+    caminhoMobile: string;
+    ativo: string;
+
 }

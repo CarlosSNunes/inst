@@ -165,17 +165,54 @@ h4.titulo-visualizacao {
 }
 
 img.thumbnail-image-mobile {
-  width: 100%;
+  width  : 100%;
   padding: 10px;
 }
 
 div.shadow.thumbnail-image-box-mobile {
   margin: 60px auto;
-  width: 75%;
+  width : 75%;
 }
+
 h4.titulo-visualizacao-mobile {
   padding       : 10px 10px 0px 10px !important;
   text-transform: capitalize;
 }
 
+//BOTÃO PREVIEW
+.btn.btn-digital-cian.primary {
+  border          : 3px solid #0079c8;
+  color           : #fff;
+  background-color: #0079c8;
+  outline         : 0;
+  text-align      : center;
+  font-size       : 50%;
+  position        : absolute;
+  top             : 200px;
+  left            : 42px;
+  min-width       : 100px;
+  width           : auto;
+  min-height      : 15px !important;
+  padding         : 2px 7px !important;
+  text-shadow     : 2px 2px 2px #282828,
 
+}
+
+h1.titulo-banner {
+  font-style : normal;
+  font-weight: 800;
+  font-size  : 1.2rem;
+  line-height: 120%;
+  color      : #00335b;
+  position   : absolute;
+  top        : 156px;
+  left       : 40px;
+}
+
+h3.subtitulo-banner {
+  position   : absolute;
+  top        : 180px;
+  left       : 42px;
+  font-size  : 10px;
+  font-weight: 800;
+}

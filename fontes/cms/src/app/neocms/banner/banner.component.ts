@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { BannerModel } from './../../../../src/models/banner/banner.model';
 import { BannerService } from './banner.service';
 import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-banner',
@@ -26,12 +27,14 @@ export class BannerComponent implements OnInit {
   pathDivision: string = "/";
   nomeImagemDesktop;
   result: any;
+  message: string;
   constructor(
     private bannerService: BannerService,
+    private modalService: BsModalService,
   ) { }
   paginaAtual = 0;
   contador = 5;
-
+  modalRef: BsModalRef;
   ngOnInit() {
 
     this.getBanners();
@@ -39,12 +42,29 @@ export class BannerComponent implements OnInit {
 
   }
   deleteBanner() {
-
   }
 
   openBannerDelete(banner: BannerModel) {
     this.banner = banner;
     this.showBannerDelete = true;
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  confirm(id: number): void {
+    this.bannerService
+      .delete(id)
+      .subscribe(result => {
+        this.message = 'Banner:' + id + ' deletada com sucesso!';
+        this.modalRef.hide();
+      });
+
+  }
+
+  decline(): void {
+    this.modalRef.hide();
   }
 
   getBanners() {

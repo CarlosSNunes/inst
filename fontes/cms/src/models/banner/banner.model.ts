@@ -15,8 +15,10 @@ export class BannerModel {
     caminhoDesktop: string;
     caminhoMobile: string;
     nomeImagem: string;
+    nomeLink: string;
     ordem: number;
     tempoExibicao: number;
     ativo: boolean;
     nomeImagemDesktop: string;
+    nomeImagemMobile: string;
 }
