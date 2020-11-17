@@ -29,10 +29,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td *ngIf="postsBlog == 0 && !loaded" colspan="6">
+                        <td *ngIf="postsBlog.length == 0 && !loaded" colspan="6">
                             <progress class="progress is-large is-info" max="100">60%</progress>
                         </td>
-                        <td class="has-text-centered" *ngIf="postsBlog == 0 && loaded" colspan="6">
+                        <td class="has-text-centered" *ngIf="postsBlog.length == 0 && loaded" colspan="6">
                             Não há posts cadastrados
                         </td>
                     </tr>
