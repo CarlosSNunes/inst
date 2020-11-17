@@ -72,7 +72,7 @@
                 <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active" title="Editar">
                   <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
                 </a>
-                <a class="text-right text-danger" (click)="openModal(template)">
+                <a class="text-right text-danger px-3" (click)="openModal(template)">
                   <fa-icon [icon]="faTrash"></fa-icon>
                 </a>
                 <ng-template #template>
