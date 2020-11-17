@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { PostBlogModel } from 'src/models/posts-blog/posts-blog.model';
 import { MaisLidosService } from './mais-lidos.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { MaisLidosService } from './mais-lidos.service';
   styleUrls: ['./mais-lidos.component.scss']
 })
 export class MaisLidosComponent implements OnInit {
-  posts: PostsBlogModel[] = []
+  posts: PostBlogModel[] = []
   loaded: boolean;
-  post: PostsBlogModel
+  post: PostBlogModel
 
   constructor(
     private maisLidosService: MaisLidosService

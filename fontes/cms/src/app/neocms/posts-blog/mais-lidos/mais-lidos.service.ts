@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { PostBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
 
 import { environment } from '../../../../environments/environment';
 
@@ -17,7 +17,7 @@ export class MaisLidosService {
     ) { }
 
     getAll() {
-      return this.http.get<PostsBlogModel[]>(this.API_ENDPOINT + '/maisLidos');
+      return this.http.get<PostBlogModel[]>(this.API_ENDPOINT + '/maisLidos');
     }
 
 }

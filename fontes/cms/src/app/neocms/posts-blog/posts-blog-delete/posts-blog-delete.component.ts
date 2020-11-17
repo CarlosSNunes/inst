@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { PostsBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { PostBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
 import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
 import { PostsBlogService } from '../posts-blog.service';
 import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
@@ -13,7 +13,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class PostsBlogDeleteComponent implements OnInit {
 
   @Output() onClose = new EventEmitter();
-  @Input() post: PostsBlogModel;
+  @Input() post: PostBlogModel;
 
   title: string;
   closeBtnName: string;

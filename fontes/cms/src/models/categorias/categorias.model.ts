@@ -1,4 +1,4 @@
-import { PostsBlogModel } from "../posts-blog/posts-blog.model";
+import { PostBlogModel } from "../posts-blog/posts-blog.model";
 
 export class CategoriasModel {
     public constructor(init?: Partial<CategoriasModel>) {
@@ -8,7 +8,7 @@ export class CategoriasModel {
     titulo: string;
     descricao: string;
     dataCadastro: Date;
-    posts: PostsBlogModel[];
+    posts: PostBlogModel[];
 }
 
 export class CategoriasListModel {
@@ -16,7 +16,7 @@ export class CategoriasListModel {
         Object.assign(this, init);
         this.result['posts'] = [];
         if (init) {
-            init.result['posts'].forEach(post => this.result['posts'].push(new PostsBlogModel(post)));
+            init.result['posts'].forEach(post => this.result['posts'].push(new PostBlogModel(post)));
         }
     }
     count: number;

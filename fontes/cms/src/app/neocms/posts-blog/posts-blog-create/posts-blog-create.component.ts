@@ -7,7 +7,7 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 import { FormControlError } from 'src/utils/form-control-error';
 import { PostsBlogService } from '../posts-blog.service';
-import { PostsBlogModel } from 'src/models/posts-blog/posts-blog.model';
+import { PostBlogModel } from 'src/models/posts-blog/posts-blog.model';
 import { CategoriasModel } from 'src/models/categorias/categorias.model';
 import { CategoriasService } from '../categorias/categorias.service';
 import { PostsBlogCreateModel } from 'src/models/posts-blog/posts-blog-create.model';
@@ -29,7 +29,7 @@ export class PostsBlogCreateComponent implements OnInit {
     editor = DecoupledEditor;
     postsBlogForm: FormGroup;
     faTag = faTag;
-    postsBlog: PostsBlogModel[] = [];
+    postsBlog: PostBlogModel[] = [];
     categorias: CategoriasModel[] = [];
     arquivoNome = '';
     arquivoNomeImagemPequena = '';
