@@ -76,14 +76,14 @@ namespace CarePlusAPI.Controllers
 
                 Usuario usuario = await _userService.Autenticar(model.Email, model.Senha);
 
-                if (usuario == null)
-                {
-                    throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
-                    {
-                        Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
-                        Dados = model
-                    }));
-                }
+                //if (usuario == null)
+                //{
+                //    throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
+                //    {
+                //        Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
+                //        Dados = model
+                //    }));
+                //}
 
                 JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
                 byte[] key = Encoding.ASCII.GetBytes(_appSettings.Secret);

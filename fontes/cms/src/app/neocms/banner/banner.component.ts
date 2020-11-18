@@ -3,6 +3,13 @@ import { BannerModel } from './../../../../src/models/banner/banner.model';
 import { BannerService } from './banner.service';
 import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BannerCreateModel } from 'src/models/banner/banner-create.model';
+import { Observable } from 'rxjs';
+import { Observer } from 'rxjs';
+import { base64ToFile } from 'ngx-image-cropper';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-banner',
@@ -11,7 +18,9 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class BannerComponent implements OnInit {
   @Input() bannerAtivo: boolean;
+
   banners: BannerModel[] = [];
+
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
   faPlus = faPlus;
@@ -19,6 +28,7 @@ export class BannerComponent implements OnInit {
   faEllipsisV = faEllipsisV;
   faEye = faEye;
   faClone = faClone;
+
   loaded: boolean;
   showBannerDelete: boolean;
   banner: BannerModel;
@@ -28,20 +38,75 @@ export class BannerComponent implements OnInit {
   nomeImagemDesktop;
   result: any;
   message: string;
-  constructor(
-    private bannerService: BannerService,
-    private modalService: BsModalService,
-  ) { }
+  bannerForm: FormGroup;
   paginaAtual = 0;
   contador = 5;
   modalRef: BsModalRef;
+
+
+  constructor(
+    private bannerService: BannerService,
+    private modalService: BsModalService,
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) { }
+
+
+
+
   ngOnInit() {
 
     this.getBanners();
     console.log(this.banner.ativo)
 
   }
+
   deleteBanner() {
+  }
+
+  get f() {
+    return this.bannerForm.controls;
+  }
+
+
+  private duplicarBanner(banner: BannerModel) {
+    let imgUrlDesk = banner.caminhoDesktop + '/' + banner.nomeImagemDesktop;
+    let imgUrlMobile = banner.caminhoMobile + '/' + 'small-' + banner.nomeImagemMobile;
+    let nomeImagemDesktop = banner.nomeImagemDesktop;
+    let nomeImagemMobile = banner.nomeImagemMobile;
+
+
+
+    const contentType = 'image/png';
+    const blobD = new Blob([imgUrlDesk], { type: contentType });
+    const blobM = new Blob([imgUrlMobile], { type: contentType });
+    const fileD = new File([blobD], nomeImagemDesktop, { type: contentType, lastModified: Date.now() });
+    const fileM = new File([blobM], nomeImagemMobile, { type: contentType, lastModified: Date.now() });
+    console.log(fileD);
+    console.log(fileM);
+
+    this.bannerForm = this.fb.group({
+      nomeImagem: [banner.nomeImagemDesktop],
+      nomeImageMobile: [banner.nomeImagemMobile],
+      titulo: [banner.titulo],
+      subtitulo: [banner.subtitulo],
+      area: [banner.area],
+      tempoExibicao: [banner.tempoExibicao],
+      descricao: [banner.descricao],
+      rota: [banner.rota],
+      linkExterno: [banner.linkExterno],
+      nomeLink: [banner.nomeLink],
+      ativo: [banner.ativo],
+      arquivo: [fileD, [Validators.required]],
+      arquivoMobile: [fileM, [Validators.required]],
+    });
+
+    console.log(this.bannerForm);
+    const newBanner = new BannerCreateModel(this.bannerForm.value);
+    this.bannerService.post(newBanner)
+      .subscribe(() => {
+      })
+      .add();
   }
 
   openBannerDelete(banner: BannerModel) {
@@ -62,6 +127,15 @@ export class BannerComponent implements OnInit {
       });
 
   }
+  openModalDuplicarBanner(template: TemplateRef<BannerModel>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-md' });
+  }
+
+  confirmDuplicar(banner: BannerModel): void {
+
+    this.duplicarBanner(banner);
+    this.modalRef.hide();
+  }
 
   decline(): void {
     this.modalRef.hide();
@@ -74,7 +148,6 @@ export class BannerComponent implements OnInit {
       .subscribe(banners => {
         this.loaded = true;
         this.banners = banners;
-        this.result = banners['result'];
       },
         error => {
           this.loaded = true;
