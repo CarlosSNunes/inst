@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { HttpRequestInterceptor } from './app.interceptor';
 import { WindowRef } from 'src/utils/window-ref';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -57,6 +58,7 @@ const ngWizardConfig: NgWizardConfig = {
     NgSelectModule,
     FormsModule,
     AlertModule.forRoot(),
+    ToastrModule.forRoot(),
   ],
   providers: [
     WindowRef,

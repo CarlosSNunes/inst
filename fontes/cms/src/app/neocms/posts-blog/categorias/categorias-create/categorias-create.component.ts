@@ -8,87 +8,99 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 import { FormControlError } from 'src/utils/form-control-error';
 import { CategoriasCreateModel } from 'src/models/categorias/categorias-create.model';
 import { NgWizardConfig, THEME } from 'ng-wizard';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-categorias-create',
-  templateUrl: './categorias-create.component.html',
-  styleUrls: ['./categorias-create.component.scss']
+    selector: 'app-categorias-create',
+    templateUrl: './categorias-create.component.html',
+    styleUrls: ['./categorias-create.component.scss']
 })
 export class CategoriasCreateComponent implements OnInit {
-  categoriasForm;
-  faTimes = faTimes;
-  faCheck = faCheck;
-  faUpload = faUpload;
-  faPlus = faPlus;
-  submitted: boolean;
-  usuario: UserAuthenticateModel;
-  btnSubmitDisable = false;
+    categoriasForm;
+    faTimes = faTimes;
+    faCheck = faCheck;
+    faUpload = faUpload;
+    faPlus = faPlus;
+    submitted: boolean;
+    usuario: UserAuthenticateModel;
+    btnSubmitDisable = false;
 
-//*Configuração 'ng-wizard'
-config: NgWizardConfig = {
-  selected: 0,
-  theme: THEME.dots,
-  toolbarSettings:{
-    showNextButton:false,
-    showPreviousButton: false
-  }
-};
+    //*Configuração 'ng-wizard'
+    config: NgWizardConfig = {
+        selected: 0,
+        theme: THEME.dots,
+        toolbarSettings: {
+            showNextButton: false,
+            showPreviousButton: false
+        }
+    };
 
-ngWizardService: any;
+    ngWizardService: any;
 
-  constructor(
-    private authenticateService: AuthenticationService,
-    private categoriasService: CategoriasService,
-    private fb: FormBuilder,
-    private router: Router
-  ) { }
+    constructor(
+        private authenticateService: AuthenticationService,
+        private categoriasService: CategoriasService,
+        private fb: FormBuilder,
+        private router: Router,
+        private toastrService: ToastrService
+    ) { }
 
-  ngOnInit() {
-    this.usuario = this.authenticateService.state;
-    this.createForm();
-  }
-
-  createForm() {
-    this.categoriasForm = this.fb.group({
-      titulo: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(100),
-          FormControlError.noWhitespaceValidator
-        ]
-      ],     
-      descricao: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(100),
-          FormControlError.noWhitespaceValidator
-        ]
-      ]
-    });
-  }
-  
-  get f() {
-    return this.categoriasForm.controls;
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    if (this.categoriasForm.valid) {
-      this.btnSubmitDisable = true;
-
-      const model = new CategoriasCreateModel(this.categoriasForm.value);
-      this.categoriasService.post(model)
-        .subscribe(() => {
-          this.router.navigate(['/neocms/posts-blog/categorias/index']);
-        })
-        .add(() => this.btnSubmitDisable = false);
+    ngOnInit() {
+        this.usuario = this.authenticateService.state;
+        this.createForm();
     }
-  }
 
-  getErrors(control: AbstractControl) {
-    return FormControlError.GetErrors(control);
-  }
+    createForm() {
+        this.categoriasForm = this.fb.group({
+            titulo: [
+                '',
+                [
+                    Validators.required,
+                    Validators.maxLength(100),
+                    FormControlError.noWhitespaceValidator
+                ]
+            ],
+            descricao: [
+                '',
+                [
+                    Validators.required,
+                    Validators.maxLength(100),
+                    FormControlError.noWhitespaceValidator
+                ]
+            ]
+        });
+    }
+
+    get f() {
+        return this.categoriasForm.controls;
+    }
+
+    onSubmit() {
+        this.submitted = true;
+        if (this.categoriasForm.valid) {
+            this.btnSubmitDisable = true;
+
+            const model = new CategoriasCreateModel(this.categoriasForm.value);
+            this.categoriasService.post(model)
+                .subscribe(() => {
+                    this.toastrService.success('Categoria cadastrada com sucesso!');
+                    this.router.navigate(['/neocms/posts-blog/categorias/index']);
+                },
+                    (error) => {
+                        let message = '';
+                        if (error.error) {
+                            message = error.error.message || 'Erro Interno no servidor';
+                        } else {
+                            message = error.message || 'Erro Interno';
+                        }
+                        this.toastrService.error(message);
+                    })
+                .add(() => this.btnSubmitDisable = false);
+        }
+    }
+
+    getErrors(control: AbstractControl) {
+        return FormControlError.GetErrors(control);
+    }
 
 }

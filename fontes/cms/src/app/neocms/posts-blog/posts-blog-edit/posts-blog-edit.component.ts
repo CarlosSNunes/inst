@@ -16,6 +16,7 @@ import { PostBlogUpdateModel } from './../../../../../src/models/posts-blog/post
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { environment } from './../../../../../src/environments/environment';
 import { PostsTagCreateModel } from 'src/models/posts-blog/posts-tag-create.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-posts-blog-edit',
@@ -61,7 +62,8 @@ export class PostsBlogEditComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private localeService: BsLocaleService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private toastrService: ToastrService
     ) {
         this.createForm();
     }
@@ -306,9 +308,18 @@ export class PostsBlogEditComponent implements OnInit {
             }
 
             this.postsBlogService.put(model)
-                .subscribe(() =>
-                    this.router.navigate(['/neocms/posts-blog/index'])
-                );
+                .subscribe(() => {
+                    this.toastrService.success('Post editado com sucesso!!!');
+                    this.router.navigate(['/neocms/posts-blog/index']);
+                }, error => {
+                    let message = '';
+                    if (error.error) {
+                        message = error.error.message || 'Erro Interno no servidor';
+                    } else {
+                        message = error.message || 'Erro Interno';
+                    }
+                    this.toastrService.error(message);
+                });
         }
     }
 

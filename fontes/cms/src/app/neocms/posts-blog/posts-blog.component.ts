@@ -9,6 +9,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormControlError } from 'src/utils/form-control-error';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -41,7 +42,7 @@ export class PostsBlogComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private fb: FormBuilder,
         private modalService: BsModalService,
-
+        private toastrService: ToastrService
     ) {
         this.authenticationService.usuarioChanged.subscribe(usuario =>
             this.usuario = usuario
@@ -97,12 +98,20 @@ export class PostsBlogComponent implements OnInit {
 
         const newPost = new PostsBlogCreateModel(this.postsBlogForm.value);
         this.postsBlogService.post(newPost)
-            .subscribe(() =>
-                this.getPosts()
-                , (error) => {
-                    console.log(error)
+            .subscribe(() => {
+                this.toastrService.success('Post excluido com sucesso!!!');
+                this.getPosts();
+                this.bsModalRef.hide();
+            }, (error) => {
+                let message = '';
+                if (error.error) {
+                    message = error.error.message || 'Erro Interno no servidor';
+                } else {
+                    message = error.message || 'Erro Interno';
                 }
-            );
+                this.bsModalRef.hide();
+                this.toastrService.error(message);
+            });
     }
 
     openModalDuplicarPost(template: TemplateRef<PostBlogModel>) {
@@ -111,18 +120,24 @@ export class PostsBlogComponent implements OnInit {
 
     confirmDuplicar(post: PostBlogModel): void {
         this.duplicarPost(post);
-        this.bsModalRef.hide();
     }
 
     confirmExcluir(post: PostBlogModel): void {
         this.postsBlogService.delete(post.slug)
             .subscribe(() => {
+                this.toastrService.success('Post excluido com sucesso!!!');
+                this.bsModalRef.hide();
                 this.getPosts();
-            },
-                (error) => {
-
-                });
-        this.bsModalRef.hide();
+            }, (error) => {
+                let message = '';
+                if (error.error) {
+                    message = error.error.message || 'Erro Interno no servidor';
+                } else {
+                    message = error.message || 'Erro Interno';
+                }
+                this.bsModalRef.hide();
+                this.toastrService.error(message);
+            });
     }
 
     decline(): void {

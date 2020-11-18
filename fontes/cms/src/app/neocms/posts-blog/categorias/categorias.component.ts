@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { faPencilAlt, faTrash, faPlus, faFileExcel } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 import { CategoriasModel } from './../../../../../src/models/categorias/categorias.model';
 import { CategoriasService } from './categorias.service';
 
@@ -30,11 +31,10 @@ export class CategoriasComponent implements OnInit {
      * itemsPerPage
      */
 
-
-
     constructor(
         private categoriasService: CategoriasService,
         private modalService: BsModalService,
+        private toastrService: ToastrService
     ) { }
 
     pageChanged(event: any): void {
@@ -53,10 +53,16 @@ export class CategoriasComponent implements OnInit {
                 this.categorias = categorias.result;
                 this.result = categorias.result;
                 this.count = categorias.count;
-                console.log(this.result);
             },
-                error => {
+                (error) => {
                     this.loaded = true;
+                    let message = '';
+                    if (error.error) {
+                        message = error.error.message || 'Erro Interno no servidor';
+                    } else {
+                        message = error.message || 'Erro Interno';
+                    }
+                    this.toastrService.error(message);
                 });
     }
 
@@ -70,6 +76,15 @@ export class CategoriasComponent implements OnInit {
             .subscribe(result => {
                 this.message = 'Categoria:' + id + ' deletada com sucesso!';
                 this.modalRef.hide();
+                this.toastrService.success(this.message)
+            }, (error) => {
+                let message = '';
+                if (error.error) {
+                    message = error.error.message || 'Erro Interno no servidor';
+                } else {
+                    message = error.message || 'Erro Interno';
+                }
+                this.toastrService.error(message);
             });
 
     }

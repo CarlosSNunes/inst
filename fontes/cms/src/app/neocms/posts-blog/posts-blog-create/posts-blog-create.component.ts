@@ -16,6 +16,7 @@ import { TagService } from '../tag/tag.service';
 import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -68,6 +69,7 @@ export class PostsBlogCreateComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private bsLocaleService: BsLocaleService,
+        private toastrService: ToastrService
     ) {
         this.bsLocaleService.use(this.locale);
     }
@@ -188,9 +190,18 @@ export class PostsBlogCreateComponent implements OnInit {
 
             const model = new PostsBlogCreateModel(this.postsBlogForm.value);
             this.postsBlogService.post(model)
-                .subscribe(() =>
-                    this.router.navigate(['/neocms/posts-blog/index'])
-                );
+                .subscribe(() => {
+                    this.toastrService.success('Post cadastrado com sucesso!!!');
+                    this.router.navigate(['/neocms/posts-blog/index']);
+                }, error => {
+                    let message = '';
+                    if (error.error) {
+                        message = error.error.message || 'Erro Interno no servidor';
+                    } else {
+                        message = error.message || 'Erro Interno';
+                    }
+                    this.toastrService.error(message);
+                });
         }
     }
 

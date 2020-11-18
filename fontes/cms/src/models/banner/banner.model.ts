@@ -13,7 +13,9 @@ export class BannerModel {
     rota: string;
     linkExterno: string;
     caminhoDesktop: string;
+    caminhoCompletoDesktop: string;
     caminhoMobile: string;
+    caminhoCompletoMobile: string;
     nomeImagem: string;
     nomeLink: string;
     ordem: number;

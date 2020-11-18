@@ -9,6 +9,7 @@ import { FormControlError } from './../../../../../../src/utils/form-control-err
 import { CategoriasModel } from './../../../../../../src/models/categorias/categorias.model';
 import { CategoriasUpdateModel } from './../../../../../../src/models/categorias/categorias-update.model';
 import { NgWizardConfig, THEME } from 'ng-wizard';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-categorias-edit',
@@ -41,7 +42,8 @@ export class CategoriasEditComponent implements OnInit {
         private categoriasService: CategoriasService,
         private fb: FormBuilder,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private toastrService: ToastrService
     ) { }
 
     ngOnInit() {
@@ -117,8 +119,18 @@ export class CategoriasEditComponent implements OnInit {
             const model = new CategoriasUpdateModel(this.categoriasForm.value);
             this.categoriasService.put(model)
                 .subscribe(() => {
+                    this.toastrService.success('Categoria editada com sucesso!');
                     this.router.navigate(['/neocms/posts-blog/categorias/index']);
-                })
+                },
+                    (error) => {
+                        let message = '';
+                        if (error.error) {
+                            message = error.error.message || 'Erro Interno no servidor';
+                        } else {
+                            message = error.message || 'Erro Interno';
+                        }
+                        this.toastrService.error(message);
+                    })
                 .add(() => this.btnSubmitDisable = false);
         }
     }
