@@ -99,7 +99,7 @@ export class PostsBlogComponent implements OnInit {
         const newPost = new PostsBlogCreateModel(this.postsBlogForm.value);
         this.postsBlogService.post(newPost)
             .subscribe(() => {
-                this.toastrService.success('Post excluido com sucesso!!!');
+                this.toastrService.success('Post duplicado com sucesso!!!');
                 this.getPosts();
                 this.bsModalRef.hide();
             }, (error) => {
