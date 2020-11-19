@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
-import { BannerModel } from './../../../../src/models/banner/banner.model';
+import { BannerModel } from 'src/models/banner/banner.model';
 import { BannerService } from './banner.service';
 import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';
-import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -40,11 +40,11 @@ export class BannerComponent implements OnInit {
     contador = 5;
     modalRef: BsModalRef;
 
-
     constructor(
         private bannerService: BannerService,
         private modalService: BsModalService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private toastrService: ToastrService
     ) { }
 
     ngOnInit() {
@@ -98,9 +98,18 @@ export class BannerComponent implements OnInit {
     confirm(id: number): void {
         this.bannerService
             .delete(id)
-            .subscribe(result => {
+            .subscribe(_ => {
                 this.message = 'Banner:' + id + ' deletada com sucesso!';
                 this.modalRef.hide();
+                this.toastrService.success('Banner deletado com sucesso!')
+            }, (error) => {
+                let message = '';
+                if (error.error) {
+                    message = error.error.message || 'Erro Interno no servidor';
+                } else {
+                    message = error.message || 'Erro Interno';
+                }
+                this.toastrService.error(message);
             });
 
     }
@@ -127,6 +136,13 @@ export class BannerComponent implements OnInit {
                 this.banners = banners;
             },
                 error => {
+                    let message = '';
+                    if (error.error) {
+                        message = error.error.message || 'Erro Interno no servidor';
+                    } else {
+                        message = error.message || 'Erro Interno';
+                    }
+                    this.toastrService.error(message);
                     this.loaded = true;
                 });
     }

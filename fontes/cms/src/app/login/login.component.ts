@@ -5,6 +5,7 @@ import { LoginService } from './login.service';
 import { LoginModel } from '../../../src/models/login.model';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../src/app/authentication/authentication.service';
+import { EventEmitterService } from 'src/services/event-emitter/event-emitter-service.service';
 
 @Component({
   selector: 'app-login',
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(loginModel)
         .subscribe(response => {
           this.authenticationService.state = response;
+          EventEmitterService.get('login').emit(response);
           this.router.navigate(['/neocms']);
         },
           error => {

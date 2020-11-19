@@ -54,7 +54,6 @@ export class DashboardComponent implements OnInit {
       .subscribe(res => {
         this.loaded = true;
         this.userCount = res.length;
-        console.log(this.userCount);
       },
         error => {
           this.loaded = true;
@@ -80,7 +79,6 @@ export class DashboardComponent implements OnInit {
         this.loaded = true;
         this.postResult = res['result'];
         this.blogCount = res['count'];
-        console.log(this.postResult);
       },
         error => {
           this.loaded = true;
@@ -127,7 +125,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getBannersAtivos() {
-
     this.dashboardService
       .getBannerAtivos()
       .subscribe(resp => {
@@ -137,14 +134,11 @@ export class DashboardComponent implements OnInit {
         error => {
           this.loaded = true;
         });
-
   }
 
   changePost(index) {
-
     let filterPost = this.postsMaisLidos.filter(x => x.id == index);
     return this.postSelecionado = filterPost[0];
-
   }
 
 }

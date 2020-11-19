@@ -1,117 +1,120 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <a routerLink="/neocms/posts-blog/index">
+    <div class="row">
+        <div class="col-md-4">
+            <a routerLink="/neocms/posts-blog/index">
 
-        <div class="card shadow-sm  bg-white rounded">
-          <div class="card-body">
+                <div class="card shadow-sm  bg-white rounded">
+                    <div class="card-body">
 
-            <h5 class="card-subtitle title-color">
-              Posts no Blog Care Plus+</h5>
-            <ng-container *ngIf="blogCount <= 0; else elseTemplate">
-              <h1 class="card-title title-color">0</h1>
-            </ng-container>
-            <ng-template #elseTemplate>
-              <h1 class="card-title title-color">
-                {{blogCount}}</h1>
-            </ng-template>
+                        <h5 class="card-subtitle title-color">
+                            Posts no Blog Care Plus+</h5>
+                        <ng-container *ngIf="blogCount <= 0; else elseTemplate">
+                            <h1 class="card-title title-color">0</h1>
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                            <h1 class="card-title title-color">
+                                {{blogCount}}</h1>
+                        </ng-template>
 
-            <div class="row">
-              <fa-icon [icon]="faColumns" class="icon-card"></fa-icon>
+                        <div class="row">
+                            <fa-icon [icon]="faColumns" class="icon-card"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a routerLink="/neocms/banner">
+                <div class="card shadow-sm bg-white rounded">
+                    <div class="card-body">
+                        <h5 class="card-subtitle title-color">
+                            Banners ativos</h5>
+                        <ng-container *ngIf="bannerCount <= 0; else elseTemplate0">
+                            <h1 class="card-title title-color">0</h1>
+                        </ng-container>
+                        <ng-template #elseTemplate0>
+                            <h1 class="card-title title-color">
+                                {{bannerCount}}</h1>
+                        </ng-template>
+                        <div class="row">
+                            <fa-icon [icon]="faImages" class="icon-card"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm bg-white rounded">
+                <div class="card-body">
+                    <h5 class="card-subtitle title-color">
+                        Usuários
+                    </h5>
+                    <ng-container *ngIf="userCount <= 0; else elseTemplate1">
+                        <h1 class="card-title title-color">0</h1>
+                    </ng-container>
+                    <ng-template #elseTemplate1>
+                        <h1 class="card-title title-color">
+                            {{userCount}}</h1>
+                    </ng-template>
+                    <div class="row">
+                        <fa-icon [icon]="faUsers" class="icon-card"></fa-icon>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </a>
     </div>
-    <div class="col-md-4">
-      <a routerLink="/neocms/banner">
-        <div class="card shadow-sm bg-white rounded">
-          <div class="card-body">
-            <h5 class="card-subtitle title-color">
-              Banners ativos</h5>
-            <ng-container *ngIf="bannerCount <= 0; else elseTemplate0">
-              <h1 class="card-title title-color">0</h1>
-            </ng-container>
-            <ng-template #elseTemplate0>
-              <h1 class="card-title title-color">
-                {{bannerCount}}</h1>
-            </ng-template>
-            <div class="row">
-              <fa-icon [icon]="faImages" class="icon-card"></fa-icon>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow-sm bg-white rounded">
-        <div class="card-body">
-          <h5 class="card-subtitle title-color">
-            Usuários
-          </h5>
-          <ng-container *ngIf="userCount <= 0; else elseTemplate1">
-            <h1 class="card-title title-color">0</h1>
-          </ng-container>
-          <ng-template #elseTemplate1>
-            <h1 class="card-title title-color">
-              {{userCount}}</h1>
-          </ng-template>
-          <div class="row">
-            <fa-icon [icon]="faUsers" class="icon-card"></fa-icon>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div class="container my-5 h-100">
-  <div class="row">
+    <div class="row">
 
 
-    <div class="col-sm-12">
+        <div class="col-sm-12">
 
-      <div class="card p-3 shadow-sm card-posts">
-        <div class="row">
-          <h5 class="card-subtitle-top title-color">
-            Posts mais lidos no Blog
-          </h5>
-          <div class="col-md-6">
-            <ul class="list-group list-group-flush">
+            <div class="card p-3 shadow-sm card-posts">
+                <div class="row">
+                    <h5 class="card-subtitle-top title-color">
+                        Posts mais lidos no Blog
+                    </h5>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
 
-              <li class="list-group-item title-color list-group-item-action" role="button"
-                *ngFor="let post of postsMaisLidos | slice:0:100; index as i;" (click)="changePost(post.id)">
-                <fa-icon [icon]="faMedal" class="text-success"></fa-icon>
-                <span class="text-item">{{post.titulo}}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <div class="card shadow-sm">
-              <div class="card-body car-post">
+                            <li class="list-group-item title-color list-group-item-action" role="button"
+                                *ngFor="let post of postsMaisLidos | slice:0:100; index as i;"
+                                (click)="changePost(post.id)">
+                                <a [routerLink]="['/neocms/posts-blog/edit', post.slug]">
+                                    <fa-icon [icon]="faMedal" class="text-success"></fa-icon>
+                                    <span class="text-item">{{post.titulo}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="card-body car-post">
+                                <img class="card-img-top"
+                                    [src]="postSelecionado ? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : 'assets/img/image-placeholder.png'"
+                                    [alt]="postSelecionado ? postSelecionado.titulo : ''">
 
-                <img class="card-img-top"
-                  src="{{postSelecionado? postSelecionado.caminhoImagem + postSelecionado.nomeImagem : './../../../assets/img/image-placeholder.png'}}"
-                  alt="">
+                                <h5 class="card-color title-color card-details">
+                                    {{postSelecionado? postSelecionado.titulo : ''}}</h5>
 
-                <h5 class="card-color title-color card-details">{{postSelecionado? postSelecionado.titulo : ''}}</h5>
+                                <p class="subtitulo">
+                                    {{postSelecionado? postSelecionado.subtitulo : ''}}
+                                </p>
 
-                <p class="subtitulo">
-                  {{postSelecionado? postSelecionado.subtitulo : ''}}
-                </p>
-
-                <p class="subtitulo">
-                  {{postSelecionado? postSelecionado.descricaoPrevia : ''}}
-                </p>
+                                <p class="subtitulo">
+                                    {{postSelecionado? postSelecionado.descricaoPrevia : ''}}
+                                </p>
 
 
 
-              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
