@@ -1,83 +1,87 @@
 <div class="card my-2" id="card-header">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-10">
-        <a [routerLink]="['/neocms']">
-          <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-          <span class="title-banner">Categorias</span>
-        </a>
-      </div>
-      <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/categorias/create"
-        routerLinkActive="active">
-        Nova Categoria
-      </button>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-10">
+                <a [routerLink]="['/neocms']">
+                    <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+                    <span class="title-banner">Categorias</span>
+                </a>
+            </div>
+            <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/categorias/create"
+                routerLinkActive="active">
+                Nova Categoria
+            </button>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-12">
-        <table id="bannerTable" class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col" class="text-center">Categoria</th>
-              <th scope="col" class="text-center">Descrição</th>
-              <th scope="col" class="text-center">Data Cadastro</th>
-              <th scope="col" class="text-center">Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <td *ngIf="categorias.length == 0 && !loaded" colspan="6">
-              <progress class="progress is-large is-info" max="100">60%</progress>
-            </td>
-            <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
-              Não há categorias cadastradas
-            </td>
-            <tr *ngFor="let r of result | paginate: { itemsPerPage: contador, currentPage: paginaAtual}" class="
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table id="bannerTable" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Categoria</th>
+                            <th scope="col" class="text-center">Descrição</th>
+                            <th scope="col" class="text-center">Data Cadastro</th>
+                            <th scope="col" class="text-center">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td *ngIf="categorias.length == 0 && !loaded" colspan="6">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
+                            Não há categorias cadastradas
+                        </td>
+                        <tr *ngFor="let c of categorias | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: count}"
+                            class="
                             table-cell text-center">
 
-              <td class="py-3 align-middle text-center">
-                <span class="p-2">{{r.titulo}}</span>
-              </td>
-              <td class="py-3 align-middle text-center">
-                <span class="p-2">{{r.descricao}}</span>
-              </td>
-              <td class="py-3 align-middle text-center">
-                <span class="p-2">{{r.dataCadastro}}</span>
-              </td>
-              <td class="py-3 align-middle text-center">
-                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', r.id]" routerLinkActive="active">
-                  <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
-                </a>
-                &nbsp;
-                <a class="text-right text-danger" (click)="openModal(template)">
-                  <fa-icon [icon]="faTrash"></fa-icon>
-                </a>
-                <ng-template #template>
-                  <div class="modal-body text-center">
-                    <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
-                    <p>Deseja exluir a Categoria: <span class="tag-descricao-del">{{r.descricao}}</span>?</p>
-                    <button type="button" class="btn btn-default" (click)="confirm(r.id)">Sim</button>
-                    <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
-                  </div>
-                </ng-template>
-              </td>
-              {{result.id | json}}
-            </tr>
-          </tbody>
-        </table>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-center">
-              <pagination-controls class="bg-dark" (pageChange)="paginaAtual = $event" previousLabel="Anterior"
-                nextLabel="Próximo">
-              </pagination-controls>
+                            <td class="py-3 align-middle text-center">
+                                <span class="p-2">{{c.titulo}}</span>
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                <span class="p-2">{{c.descricao}}</span>
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                <span class="p-2">{{c.dataCadastro}}</span>
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', c.id]"
+                                    routerLinkActive="active">
+                                    <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
+                                </a>
+                                &nbsp;
+                                <a class="text-right text-danger" (click)="openModal(template)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </a>
+                                <ng-template #template>
+                                    <div class="modal-body text-center">
+                                        <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
+                                        <p>Deseja exluir a Categoria: <span
+                                                class="tag-descricao-del">{{c.descricao}}</span>?</p>
+                                        <button type="button" class="btn btn-default"
+                                            (click)="confirm(c.id)">Sim</button>
+                                        <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
+                                    </div>
+                                </ng-template>
+                            </td>
+                            {{c.id | json}}
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)"
+                                previousLabel="Anterior" nextLabel="Próximo">
+                            </pagination-controls>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

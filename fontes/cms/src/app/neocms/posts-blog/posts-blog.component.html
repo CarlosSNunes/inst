@@ -36,7 +36,8 @@
                             Não há posts cadastrados
                         </td>
                     </tr>
-                    <tr *ngFor="let post of postsBlog | paginate: { itemsPerPage: contador, currentPage: paginaAtual }">
+                    <tr
+                        *ngFor="let post of postsBlog | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: postCount }">
                         <td class="col-md-2 w-25 text-center">
                             <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == '1'}">
                             </fa-icon>
@@ -54,8 +55,8 @@
                         </td>
                         <td class="col-md-2 w-50 text-center">
                             <div *ngIf="post.status != 'pendente'">
-                                <a [routerLink]="['/neocms/posts-blog/preview', post.slug]" routerLinkActive="active" class="info-icon"
-                                    alt="Visualizar post">
+                                <a [routerLink]="['/neocms/posts-blog/preview', post.slug]" routerLinkActive="active"
+                                    class="info-icon" alt="Visualizar post">
                                     <fa-icon [icon]="faEye"></fa-icon>
                                 </a>
                                 <a [routerLink]="['/neocms/posts-blog/edit', post.slug]" routerLinkActive="active"
@@ -114,7 +115,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center">
-                        <pagination-controls class="bg-dark" (pageChange)="paginaAtual = $event"
+                        <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)"
                             previousLabel="Anterior" nextLabel="Próximo">
                         </pagination-controls>
                     </div>

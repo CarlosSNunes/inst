@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PostBlogModel } from './../../../../../src/models/posts-blog/posts-blog.model';
+import { PostListModel } from './../../../../../src/models/posts-blog/posts-blog.model';
 
 import { environment } from '../../../../environments/environment';
 
@@ -16,8 +16,8 @@ export class MaisLidosService {
     private http: HttpClient
     ) { }
 
-    getAll() {
-      return this.http.get<PostBlogModel[]>(this.API_ENDPOINT + '/maisLidos');
+    getPaginated(offset: number, limit: number) {
+      return this.http.get<PostListModel>(`${this.API_ENDPOINT}/maisLidos/${offset}/${limit}`);
     }
 
 }

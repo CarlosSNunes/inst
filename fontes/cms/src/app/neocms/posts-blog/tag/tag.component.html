@@ -37,7 +37,7 @@
               Não há tags cadastradas
             </td>
           </tr>
-          <tr *ngFor="let tag of result | paginate: { itemsPerPage: contador, currentPage: paginaAtual }">
+          <tr *ngFor="let tag of tags | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: tagCount }">
             <td>{{tag.id}}</td>
             <td class="text-truncate text-left">{{tag.descricao}}</td>
             <td class="text-right text-dark">
@@ -63,7 +63,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="text-center">
-            <pagination-controls class="bg-dark" (pageChange)="paginaAtual = $event" previousLabel="Anterior"
+            <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
               nextLabel="Próximo">
             </pagination-controls>
           </div>

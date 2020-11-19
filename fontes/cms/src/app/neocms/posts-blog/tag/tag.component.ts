@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TagService } from './tag.service';
-import { TagModel } from './../../../../../src/models/tag/tag.model';
+import { TagModel } from 'src/models/tag/tag.model';
 import { faPencilAlt, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
@@ -19,11 +19,11 @@ export class TagComponent implements OnInit {
     loaded: boolean;
     showTagDelete: boolean;
     tag: TagModel;
-    result: any;
     modalRef: BsModalRef;
     message: string;
     paginaAtual = 1;
     contador = 5;
+    tagCount: number = 0;
 
     constructor(
         private tagService: TagService,
@@ -42,16 +42,22 @@ export class TagComponent implements OnInit {
 
     getTags() {
         this.showTagDelete = false;
+        const offset = (this.paginaAtual - 1) * this.contador;
         this.tagService
-            .getAll(0, 20)
+            .getAll(offset, this.contador)
             .subscribe(tags => {
                 this.loaded = true;
                 this.tags = tags.result;
-                this.result = tags.result;
-
-                console.log(this.tags);
+                this.tagCount = tags.count;
             },
-                error => {
+                (error) => {
+                    let message = '';
+                    if (error.error) {
+                        message = error.error.message || 'Erro Interno no servidor';
+                    } else {
+                        message = error.message || 'Erro Interno';
+                    }
+                    this.toastrService.error(message);
                     this.loaded = true;
                 });
     }
@@ -63,7 +69,7 @@ export class TagComponent implements OnInit {
     confirm(id: number): void {
         this.tagService
             .delete(id)
-            .subscribe(result => {
+            .subscribe(_ => {
                 this.message = 'Tag:' + id + ' deletada com sucesso!';
                 this.modalRef.hide();
                 this.toastrService.success(this.message);
@@ -83,6 +89,11 @@ export class TagComponent implements OnInit {
     decline(): void {
         this.message = 'Declined!';
         this.modalRef.hide();
+    }
+
+    onPageChange(page: number) {
+        this.paginaAtual = page;
+        this.getTags();
     }
 
 }

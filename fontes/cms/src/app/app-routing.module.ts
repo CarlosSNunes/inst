@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: '**',
     canActivate: [AuthGuard],
-    redirectTo: '/login'
+    redirectTo: '/neocms'
   }
 ];
 

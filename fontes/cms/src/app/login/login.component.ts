@@ -39,9 +39,7 @@ export class LoginComponent implements OnInit {
     this.error = null;
 
     if (this.loginForm.valid) {
-      const loginModel = new LoginModel();
-      loginModel.email = this.loginForm.value.email;
-      loginModel.senha = this.loginForm.value.senha;
+      const loginModel = new LoginModel(this.loginForm.value);
 
       this.loginService.login(loginModel)
         .subscribe(response => {

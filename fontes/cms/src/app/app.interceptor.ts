@@ -16,7 +16,8 @@ export class HttpRequestInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     request = request.clone({
       setHeaders: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Custom": "instadministrativo"
       }
     });
     return next.handle(request).pipe(retry(2))

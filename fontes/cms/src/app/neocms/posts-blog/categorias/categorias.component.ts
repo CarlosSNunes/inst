@@ -18,7 +18,6 @@ export class CategoriasComponent implements OnInit {
     faFileExcel = faFileExcel;
     loaded: boolean;
     showCategoriaDelete: boolean;
-    result;
     count: number;
     paginaAtual = 1;
     contador = 5;
@@ -46,12 +45,12 @@ export class CategoriasComponent implements OnInit {
     }
     getCategorias() {
         this.showCategoriaDelete = false;
+        const offset = (this.paginaAtual - 1) * this.contador;
         this.categoriasService
-            .getAll(0, 100)
+            .getAll(offset, this.contador)
             .subscribe(categorias => {
                 this.loaded = true;
                 this.categorias = categorias.result;
-                this.result = categorias.result;
                 this.count = categorias.count;
             },
                 (error) => {
@@ -73,7 +72,7 @@ export class CategoriasComponent implements OnInit {
     confirm(id: number): void {
         this.categoriasService
             .delete(id)
-            .subscribe(result => {
+            .subscribe(_ => {
                 this.message = 'Categoria:' + id + ' deletada com sucesso!';
                 this.modalRef.hide();
                 this.toastrService.success(this.message)
@@ -92,5 +91,10 @@ export class CategoriasComponent implements OnInit {
     decline(): void {
         this.message = 'Declined!';
         this.modalRef.hide();
+    }
+
+    onPageChange(page: number) {
+        this.paginaAtual = page;
+        this.getCategorias();
     }
 }

@@ -29,13 +29,11 @@ export class PostsBlogComponent implements OnInit {
     postBlog: PostBlogModel;
     usuario: UserAuthenticateModel;
     bsModalRef: BsModalRef;
-
-    totalItems: number;
+    postCount: number;
     paginaAtual = 1;
     contador = 5;
 
     private readonly API_ENDPOINT = environment.API;
-    postCount: number;
 
     constructor(
         private postsBlogService: PostsBlogService,
@@ -55,15 +53,22 @@ export class PostsBlogComponent implements OnInit {
     }
 
     getPosts() {
+        const offset = (this.paginaAtual - 1) * this.contador;
         this.postsBlogService
-            .getAll(0, 100)
+            .getAll(offset, this.contador)
             .subscribe(postsBlog => {
                 this.loaded = true;
                 this.postsBlog = postsBlog.result
-                this.postCount = postsBlog['count'];
-                this.totalItems = this.postCount;
+                this.postCount = postsBlog.count;
             },
                 error => {
+                    let message = '';
+                    if (error.error) {
+                        message = error.error.message || 'Erro Interno no servidor';
+                    } else {
+                        message = error.message || 'Erro Interno';
+                    }
+                    this.toastrService.error(message);
                     this.loaded = true;
                 });
     }
@@ -142,6 +147,11 @@ export class PostsBlogComponent implements OnInit {
 
     decline(): void {
         this.bsModalRef.hide();
+    }
+
+    onPageChange(page: number) {
+        this.paginaAtual = page;
+        this.getPosts();
     }
 
 }
