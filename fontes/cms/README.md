@@ -66,7 +66,6 @@ Segue [link](https://www.codeinwp.com/blog/bootstrap-vs-foundation-vs-bulma-vs-s
 * [Gulp](https://gulpjs.com) - Compilador usado para estilizar bibliotecas externas
 * [Bulma](https://bulma.io) - Framework CSS puro para facilitar a criação do design
 * [Latte-carousel](https://www.npmjs.com/package/latte-carousel) - Biblioteca em javascript para carousel
-* [Bulma-Calendar](https://creativebulma.net/product/calendar/demo) - Biblioteca em javascript para datepicker
 * [Bulma-tooltip](https://wikiki.github.io/elements/tooltip/) - Biblioteca em javascript para tooltip
 * [Videogular2](https://www.npmjs.com/package/videogular2) - Biblioteca em javascript para player de vídeo
 * [CmkEditor 5](https://ckeditor.com/ckeditor-5/) - Biblioteca em javascript para edição de texto

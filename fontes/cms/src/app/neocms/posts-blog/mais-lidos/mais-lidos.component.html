@@ -15,9 +15,10 @@
     <div class="col-md-12 pl-0 pr-0">
         <div class="card">
             <table class="table table-hover text-nowrap">
+                <caption>Mais lidos</caption>
                 <thead class="">
-                    <th class="col-md-6 w-25 text-center">Título do Post</th>
-                    <th class="col-md-6 w-25 text-center">Vizualizações</th>
+                    <th scope="col" class="col-md-6 w-25 text-center">Título do Post</th>
+                    <th scope="col" class="col-md-6 w-25 text-center">Vizualizações</th>
                 </thead>
                 <tbody>
                     <tr>
@@ -30,10 +31,10 @@
                     </tr>
                     <tr
                         *ngFor="let post of posts | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: count }">
-                        <td class="col-md-2 w-25 text-center">
+                        <td score="col" class="col-md-2 w-25 text-center">
                             {{post.titulo}}
                         </td>
-                        <td class="col-md-2 w-25 text-center text-truncate">
+                        <td score="col" class="col-md-2 w-25 text-center text-truncate">
                             {{post.vizualizacoes}}
                         </td>
                     </tr>

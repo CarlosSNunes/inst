@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-12">
             <a [routerLink]="['/neocms/banner']">
-              <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+              <img class="arrow-return" src="assets/img/arrow.png" alt="Arrow return">
               <span class="title-banner">Upload de Banner</span>
             </a>
           </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div *ngIf="croppedImage" class="shadow thumbnail-image-box">
                       <h4 class="titulo-visualizacao">visualização</h4>
-                      <img class="thumbnail-image" [src]="croppedImage" />
+                      <img class="thumbnail-image" [src]="croppedImage" alt="Cropped image" />
                     </div>
                   </div>
                 </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div *ngIf="croppedImageMobile" class="shadow thumbnail-image-box-mobile">
                       <h4 class="titulo-visualizacao-mobile">visualização</h4>
-                      <img class="thumbnail-image-mobile" [src]="croppedImageMobile" />
+                      <img class="thumbnail-image-mobile" [src]="croppedImageMobile" alt="Cropped image mobile" />
                     </div>
                   </div>
                 </div>
@@ -248,7 +248,7 @@
                           <a _ngcontent-serverapp-c8="" class="btn btn-digital-cian primary medium">
                             {{f.nomeLink.value}}
                           </a>
-                          <img class="thumbnail-image" [src]="croppedImage" />
+                          <img class="thumbnail-image" [src]="croppedImage" alt="Cropped image" />
                         </div>
                       </div>
                     </div>

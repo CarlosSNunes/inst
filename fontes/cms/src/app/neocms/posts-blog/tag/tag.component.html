@@ -1,74 +1,78 @@
 <div class="card my-2" id="card-header">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-10">
-        <a [routerLink]="['/neocms/posts-blog/index']">
-          <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-          <span class="title-banner">Tags</span>
-        </a>
-      </div>
-      <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/tag/create"
-        routerLinkActive="active">
-        Nova Tag
-      </button>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-10">
+                <a [routerLink]="['/neocms/posts-blog/index']">
+                    <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+                    <span class="title-banner">Tags</span>
+                </a>
+            </div>
+            <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/tag/create"
+                routerLinkActive="active">
+                Nova Tag
+            </button>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="card">
-  <div class="card-content">
-    <div class="content">
-      <table id="tagTable" class="table tb-cat">
-        <thead>
-          <tr>
-            <th id="">Id</th>
-            <th class="text-left" id="">Descrição</th>
-            <th class="text-right" id="">Ação</th>
-          </tr>
-        </thead>
+    <div class="card-content">
+        <div class="content">
+            <table id="tagTable" class="table tb-cat">
+                <caption>Tags</caption>
+                <thead>
+                    <tr>
+                        <th id="">Id</th>
+                        <th class="text-left" id="">Descrição</th>
+                        <th class="text-right" id="">Ação</th>
+                    </tr>
+                </thead>
 
-        <tbody class="p-3">
+                <tbody class="p-3">
 
-          <tr>
-            <td *ngIf="tags.length == 0 && !loaded" colspan="3">
-              <progress class="progress is-large is-info" max="100">60%</progress>
-            </td>
-            <td class="has-text-centered" *ngIf="tags.length == 0 && loaded" colspan="3">
-              Não há tags cadastradas
-            </td>
-          </tr>
-          <tr *ngFor="let tag of tags | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: tagCount }">
-            <td>{{tag.id}}</td>
-            <td class="text-truncate text-left">{{tag.descricao}}</td>
-            <td class="text-right text-dark">
-              <a class="" [routerLink]="['/neocms/posts-blog/tag/edit', tag.id]" routerLinkActive="active">
-                <fa-icon class="text-dark" [icon]="faPencilAlt"></fa-icon>
-              </a>
-              &nbsp;
-              <a class="text-right text-danger px-3" (click)="openModal(template)">
-                <fa-icon [icon]="faTrash"></fa-icon>
-              </a>
-              <ng-template #template>
-                <div class="modal-body text-center">
-                  <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
-                  <p>Deseja exluir a Tag: <span class="tag-descricao-del">{{tag.descricao}}</span>?</p>
-                  <button type="button" class="btn btn-default" (click)="confirm(tag.id)">Sim</button>
-                  <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
+                    <tr>
+                        <td *ngIf="tags.length == 0 && !loaded" colspan="3">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="tags.length == 0 && loaded" colspan="3">
+                            Não há tags cadastradas
+                        </td>
+                    </tr>
+                    <tr
+                        *ngFor="let tag of tags | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: tagCount }">
+                        <td>{{tag.id}}</td>
+                        <td class="text-truncate text-left">{{tag.descricao}}</td>
+                        <td class="text-right text-dark">
+                            <a class="" [routerLink]="['/neocms/posts-blog/tag/edit', tag.id]"
+                                routerLinkActive="active">
+                                <fa-icon class="text-dark" [icon]="faPencilAlt"></fa-icon>
+                            </a>
+                            &nbsp;
+                            <a class="text-right text-danger px-3" (click)="openModal(template)">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </a>
+                            <ng-template #template>
+                                <div class="modal-body text-center">
+                                    <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
+                                    <p>Deseja exluir a Tag: <span class="tag-descricao-del">{{tag.descricao}}</span>?
+                                    </p>
+                                    <button type="button" class="btn btn-default" (click)="confirm(tag.id)">Sim</button>
+                                    <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
+                                </div>
+                            </ng-template>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)"
+                            previousLabel="Anterior" nextLabel="Próximo">
+                        </pagination-controls>
+                    </div>
                 </div>
-              </ng-template>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="text-center">
-            <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
-              nextLabel="Próximo">
-            </pagination-controls>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
