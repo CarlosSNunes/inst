@@ -65,6 +65,13 @@ namespace CarePlusAPI.Controllers
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
+                model.ForEach(item =>
+                {
+                    item.CaminhoCompleto = $"{_appSettings.PathToGet}/{item.CaminhoImagem}";
+                    item.CaminhoImagem = $"{_appSettings.PathToGet}/{item.CaminhoImagem}";
+                });
+
                 return Ok(new
                 {
                     count = result.Item1,
@@ -293,7 +300,8 @@ namespace CarePlusAPI.Controllers
 
             try
             {
-                var folderName = _appSettings.PathToSave;
+                var stringArr = _appSettings.PathToSave + "\\Post".Split("\\");
+                var folderName = Path.Combine(stringArr);
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                 if (file.Length > 0)
@@ -350,7 +358,9 @@ namespace CarePlusAPI.Controllers
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var folderName = _appSettings.PathToSave + "/Post";
+                    var stringArr = _appSettings.PathToSave + "\\Post".Split("\\");
+                    var folderName = Path.Combine(stringArr);
+                    System.Console.Write(folderName);
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                     if (file.Length > 0)
@@ -402,7 +412,7 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão PUT.
         ///
         ///</summary>
-        ///<param name="model">Model de atualização de um Post</param>
+        ///<param name="model">Model de atualização de um Post</param
         [HttpPut]
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromForm] PostUpdateModel model)
@@ -422,7 +432,8 @@ namespace CarePlusAPI.Controllers
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var folderName = _appSettings.PathToSave;
+                    var stringArr = _appSettings.PathToSave + "\\Post".Split("\\");
+                    var folderName = Path.Combine(stringArr);
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                     if (file.Length > 0)
