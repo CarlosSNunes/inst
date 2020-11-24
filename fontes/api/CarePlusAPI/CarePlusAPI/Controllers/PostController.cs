@@ -325,7 +325,7 @@ namespace CarePlusAPI.Controllers
 
             try
             {
-                var fullRelativePath = _appSettings.PathToSave += "\\Post";
+                var fullRelativePath = _appSettings.PathToSave + "\\Post";
                 var stringArr = fullRelativePath.Split("\\");
                 var folderName = Path.Combine(stringArr);
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
@@ -395,10 +395,9 @@ namespace CarePlusAPI.Controllers
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var fullRelativePath = _appSettings.PathToSave += "\\Post";
+                    var fullRelativePath = _appSettings.PathToSave + "\\Post";
                     var stringArr = fullRelativePath.Split("\\");
                     var folderName = Path.Combine(stringArr);
-                    System.Console.Write(folderName);
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                     if (file.Length > 0)
@@ -470,7 +469,7 @@ namespace CarePlusAPI.Controllers
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var fullRelativePath = _appSettings.PathToSave += "\\Post";
+                    var fullRelativePath = _appSettings.PathToSave + "\\Post";
                     var stringArr = fullRelativePath.Split("\\");
                     var folderName = Path.Combine(stringArr);
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
