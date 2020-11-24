@@ -68,8 +68,8 @@ namespace CarePlusAPI.Controllers
                 // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
                 model.ForEach(item =>
                 {
-                    item.CaminhoCompleto = $"{_appSettings.PathToGet}/{item.CaminhoImagem}";
-                    item.CaminhoImagem = $"{_appSettings.PathToGet}/{item.CaminhoImagem}";
+                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
                 });
 
                 return Ok(new
@@ -106,6 +106,13 @@ namespace CarePlusAPI.Controllers
                 var result = await _postService.BuscarMaisLidos(page, pageSize);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
+
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
+                model.ForEach(item =>
+                {
+                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                });
 
                 return Ok(new
                 {
@@ -146,7 +153,7 @@ namespace CarePlusAPI.Controllers
 
                 PostModel model = _mapper.Map<PostModel>(result);
 
-                model.CaminhoCompleto = $"{_appSettings.PathToGet}/{model.CaminhoImagem}";
+                model.CaminhoCompleto = $"{_appSettings.PathToGet}{model.CaminhoImagem}";
 
                 return Ok(model);
             }
@@ -183,6 +190,8 @@ namespace CarePlusAPI.Controllers
                 Post result = await _postService.BuscarPorSlugHit(slug);
 
                 PostModel model = _mapper.Map<PostModel>(result);
+
+                model.CaminhoCompleto = $"{_appSettings.PathToGet}{model.CaminhoImagem}";
 
                 return Ok(model);
             }
@@ -222,6 +231,13 @@ namespace CarePlusAPI.Controllers
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
+                model.ForEach(item =>
+                {
+                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                });
+
                 return Ok(new
                 {
                     count = result.Item1,
@@ -260,10 +276,19 @@ namespace CarePlusAPI.Controllers
 
                 var result = await _postService.BuscarPorTermo(term, page, pageSize);
 
+                List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
+
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
+                model.ForEach(item =>
+                {
+                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                });
+
                 return Ok(new
                 {
-                    counts = result.Item1,
-                    result = result.Item2
+                    count = result.Item1,
+                    result = model
                 });
             }
             catch (Exception ex)
@@ -300,7 +325,8 @@ namespace CarePlusAPI.Controllers
 
             try
             {
-                var stringArr = _appSettings.PathToSave + "\\Post".Split("\\");
+                var fullRelativePath = _appSettings.PathToSave += "\\Post";
+                var stringArr = fullRelativePath.Split("\\");
                 var folderName = Path.Combine(stringArr);
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
@@ -310,13 +336,24 @@ namespace CarePlusAPI.Controllers
                     fullPath = Path.Combine(pathToSave, fileName);
                     directoryName = Path.GetDirectoryName(fullPath);
 
+
+                    var directoryToReplace = Directory.GetCurrentDirectory();
+                    directoryName = directoryName.Replace(directoryToReplace, "");
+
+                    // Combine with appSettings
+
+                    fullPath = $"{_appSettings.PathToGet}/${directoryName}";
+
                     using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
                     }
                 }
 
-                return Ok(new { directoryName });
+                return Ok(new {
+                    directoryName,
+                    fullPath
+                });
             }
             catch (System.Exception ex)
             {
@@ -358,7 +395,8 @@ namespace CarePlusAPI.Controllers
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var stringArr = _appSettings.PathToSave + "\\Post".Split("\\");
+                    var fullRelativePath = _appSettings.PathToSave += "\\Post";
+                    var stringArr = fullRelativePath.Split("\\");
                     var folderName = Path.Combine(stringArr);
                     System.Console.Write(folderName);
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
@@ -376,7 +414,7 @@ namespace CarePlusAPI.Controllers
 
                     model.NomeImagem = fileName;
 
-                    var directoryToReplace = Directory.GetCurrentDirectory() + "/";
+                    var directoryToReplace = Directory.GetCurrentDirectory();
                     model.CaminhoImagem = directoryName.Replace(directoryToReplace, "");
                 } else
                 {
@@ -432,7 +470,8 @@ namespace CarePlusAPI.Controllers
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var stringArr = _appSettings.PathToSave + "\\Post".Split("\\");
+                    var fullRelativePath = _appSettings.PathToSave += "\\Post";
+                    var stringArr = fullRelativePath.Split("\\");
                     var folderName = Path.Combine(stringArr);
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
@@ -448,7 +487,9 @@ namespace CarePlusAPI.Controllers
                     }
 
                     model.NomeImagem = fileName;
-                    model.CaminhoImagem = directoryName.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
+
+                    var directoryToReplace = Directory.GetCurrentDirectory();
+                    model.CaminhoImagem = directoryName.Replace(directoryToReplace, "");
                 }
                 else
                 {
