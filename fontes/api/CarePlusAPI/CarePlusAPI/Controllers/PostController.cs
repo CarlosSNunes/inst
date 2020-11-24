@@ -419,7 +419,7 @@ namespace CarePlusAPI.Controllers
                 } else
                 {
                     model.NomeImagem = "blog_default_image.jpg";
-                    model.CaminhoImagem = Path.Combine(_appSettings.PathToSaveDefault, model.NomeImagem);
+                    model.CaminhoImagem = $"{_appSettings.PathToSaveDefault}/Post/{model.NomeImagem}";
                 }
 
                 Post post = _mapper.Map<Post>(model);
