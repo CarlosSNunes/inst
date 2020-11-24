@@ -58,6 +58,9 @@ namespace CarePlusAPI.Helpers
                 .WithMany(p => p.Posts)
                 .HasForeignKey(f => f.CategoriaId);
 
+            modelBuilder.Entity<Post>()
+                .Property(a => a.Descricao).HasColumnType("CLOB");
+
             modelBuilder.Entity<PostTag>()
                 .HasOne(p => p.Post)
                 .WithMany(x => x.PostTag)

@@ -56,7 +56,7 @@ namespace CarePlusAPI.Services
                            .Include("Categoria")
                            .Include("PostTag.Tag")
                            .OrderByDescending(p => p.Destaque)
-                           .ThenBy(p => p.DataCadastro);
+                           .ThenByDescending(p => p.DataCadastro);
 
 
                 var count = await query.CountAsync();
@@ -116,6 +116,7 @@ namespace CarePlusAPI.Services
             post.Slug = GeraSlug(post.Titulo);
 
             await Db.Set<Post>().AddAsync(post);
+
             await Db.SaveChangesAsync();
         }
 

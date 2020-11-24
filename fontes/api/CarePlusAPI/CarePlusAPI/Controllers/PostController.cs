@@ -139,6 +139,8 @@ namespace CarePlusAPI.Controllers
 
                 PostModel model = _mapper.Map<PostModel>(result);
 
+                model.CaminhoCompleto = $"{_appSettings.PathToGet}/{model.CaminhoImagem}";
+
                 return Ok(model);
             }
             catch (Exception ex)
@@ -348,7 +350,7 @@ namespace CarePlusAPI.Controllers
                 if (model.Arquivo != null)
                 {
                     var file = model.Arquivo;
-                    var folderName = _appSettings.PathToSave;
+                    var folderName = _appSettings.PathToSave + "/Post";
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                     if (file.Length > 0)
@@ -363,7 +365,13 @@ namespace CarePlusAPI.Controllers
                     }
 
                     model.NomeImagem = fileName;
-                    model.CaminhoImagem = directoryName.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
+
+                    var directoryToReplace = Directory.GetCurrentDirectory() + "/";
+                    model.CaminhoImagem = directoryName.Replace(directoryToReplace, "");
+                } else
+                {
+                    model.NomeImagem = "blog_default_image.jpg";
+                    model.CaminhoImagem = Path.Combine(_appSettings.PathToSaveDefault, model.NomeImagem);
                 }
 
                 Post post = _mapper.Map<Post>(model);
@@ -374,6 +382,7 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
+                System.Console.Write(ex);
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
                 if (System.IO.File.Exists(directoryName))

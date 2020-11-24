@@ -22,8 +22,7 @@ namespace CarePlusAPI.Helpers
             var pageCount = (double)result.RowCount / pageSize;
             result.PageCount = (int)Math.Ceiling(pageCount);
 
-            var skip = (page - 1) * pageSize;
-            query = query.Skip(skip).Take(pageSize);
+            query = query.Skip(page).Take(pageSize);
             List<T> items = await query.ToListAsync();
             result.Results = items;
 

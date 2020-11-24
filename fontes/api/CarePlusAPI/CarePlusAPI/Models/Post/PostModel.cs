@@ -8,6 +8,7 @@ namespace CarePlusAPI.Models.Post
     [ExcludeFromCodeCoverage]
     public class PostModel
     {
+
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Subtitulo { get; set; }
@@ -37,9 +38,8 @@ namespace CarePlusAPI.Models.Post
                 return CaminhoCompleto_build; 
             }
             set 
-            { 
+                { 
                 CaminhoCompleto_build = value;
-                CaminhoCompleto = $"{CaminhoImagem}/{NomeImagem}"; 
             }
         }
     }

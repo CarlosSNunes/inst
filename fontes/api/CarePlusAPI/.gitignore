@@ -8,6 +8,16 @@ nupkg/
 # Visual Studio Code
 .vscode
 
+#Remove images
+CarePlusAPI/Src/Images/Post
+
+CarePlusAPI/Src/Images/Banner
+
+# Removr appsettings
+CarePlusAPI/appsettings.Development.json
+
+CarePlusAPI/appsettings.json
+
 # Rider
 .idea
 

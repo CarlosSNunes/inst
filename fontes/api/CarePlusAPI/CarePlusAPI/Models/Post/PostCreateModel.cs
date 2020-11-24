@@ -19,7 +19,6 @@ namespace CarePlusAPI.Models.Post
         [StringLength(255)]
         public string DescricaoPrevia { get; set; }
         [Required]
-        [StringLength(4000)]
         public string Descricao { get; set; }
         [Required]
         public DateTime DataPublicacao { get; set; }
