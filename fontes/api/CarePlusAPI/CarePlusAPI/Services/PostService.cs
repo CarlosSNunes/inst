@@ -337,8 +337,10 @@ namespace CarePlusAPI.Services
         {
             var local = Db.Set<Post>().Local.Where(func).FirstOrDefault();
 
-            if (!local.Equals(null))
+            if (local != null)
+            {
                 Db.Entry(local).State = EntityState.Detached;
+            }
         }
 
         /// <summary>
