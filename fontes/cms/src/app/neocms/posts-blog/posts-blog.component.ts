@@ -73,36 +73,8 @@ export class PostsBlogComponent implements OnInit {
                 });
     }
 
-    private duplicarPost(post: PostBlogModel) {
-        const postTags = post.postTag.map(postTag => ({ tagId: postTag.id }));
-
-        const dataPublicacao = post.dataPublicacao && post.dataPublicacao != null ? new Date(post.dataPublicacao).toISOString().substring(0, 10) : undefined;
-
-        const dataExpiracao = post.dataExpiracao && post.dataExpiracao != null ? new Date(post.dataExpiracao).toISOString().substring(0, 10) : undefined;
-
-        this.postsBlogForm = this.fb.group({
-            titulo: [post.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            subtitulo: [post.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            descricaoPrevia: [post.descricaoPrevia, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            dataPublicacao: [dataPublicacao, [Validators.required]],
-            dataExpiracao: [dataExpiracao,],
-            destaque: [post.destaque, [Validators.required, FormControlError.noWhitespaceValidator],],
-            ativo: [post.ativo, [Validators.required, FormControlError.noWhitespaceValidator],],
-            tituloPaginaSEO: [post.tituloPaginaSEO, [Validators.required, Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
-            descricaoPaginaSEO: [post.descricaoPaginaSEO, [Validators.required, Validators.maxLength(200), FormControlError.noWhitespaceValidator]],
-            categoriaId: [post.categoriaId, Validators.required],
-            postTag: this.fb.array(postTags),
-            descricao: [post.descricao, [Validators.required, Validators.maxLength(4000), FormControlError.noWhitespaceValidator]],
-            arquivo: [[]],
-            caminhoImagem: [this.API_ENDPOINT + '/Src/Images/Banner/'],
-            nomeImagem: [post.nomeImagem]
-        });
-
-        this.postsBlogForm.controls.titulo.setValue('[Duplicado] - ' + post.titulo);
-        this.postsBlogForm.controls.dataPublicacao.setValue(new Date().toISOString().substring(0, 10))
-
-        const newPost = new PostsBlogCreateModel(this.postsBlogForm.value);
-        this.postsBlogService.post(newPost)
+    private duplicarPost(slug) {
+        this.postsBlogService.duplicate(slug)
             .subscribe(() => {
                 this.toastrService.success('Post duplicado com sucesso!!!');
                 this.getPosts();
@@ -124,7 +96,7 @@ export class PostsBlogComponent implements OnInit {
     }
 
     confirmDuplicar(post: PostBlogModel): void {
-        this.duplicarPost(post);
+        this.duplicarPost(post.slug);
     }
 
     confirmExcluir(post: PostBlogModel): void {

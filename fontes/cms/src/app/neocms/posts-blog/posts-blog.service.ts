@@ -43,6 +43,10 @@ export class PostsBlogService {
     return this.http.post(this.API_ENDPOINT, this.classHelper.jsonToFormData(post));
   }
 
+  duplicate(slug: string) {
+    return this.http.get(`${this.API_ENDPOINT}/duplicar/${slug}`);
+  }
+
   put(post: PostBlogUpdateModel) {
     return this.http.put(this.API_ENDPOINT, this.classHelper.jsonToFormData(post));
   }
