@@ -95,13 +95,34 @@ namespace CarePlusAPI.Services
             return post;
         }
 
+
         ///<summary>
         ///
-        ///Esse método serve para inserir um Post na base.
+        ///Esse método serve para buscar um Post pelo slug, pode retornal null ou um post, e é utilizado vara validar a criação de um novo post pelo slug.
         ///
         ///</summary>
-        ///<param name="post">Model de Post para ser inserido</param>
-        public async Task Criar(Post post)
+        ///<param name="slug">Slug do Post</param>
+        public async Task<Post> BuscarPorSlugCriacao(string slug)
+        {
+            if (string.IsNullOrWhiteSpace(slug))
+                throw new AppException("O slug do Post não pode ser estar vazio");
+
+            Post post = await Db.Set<Post>()
+                                        .AsNoTracking()
+                                        .Include("Categoria")
+                                        .Include("PostTag.Tag")
+                                        .FirstOrDefaultAsync(n => n.Slug == slug);
+
+            return post;
+        }
+
+            ///<summary>
+            ///
+            ///Esse método serve para inserir um Post na base.
+            ///
+            ///</summary>
+            ///<param name="post">Model de Post para ser inserido</param>
+            public async Task Criar(Post post)
         {
             if (post == null)
                 throw new AppException("O Post não pode estar nulo");
@@ -114,6 +135,23 @@ namespace CarePlusAPI.Services
             }
 
             post.Slug = GeraSlug(post.Titulo);
+
+            var numero = 1;
+            var postExistente = await BuscarPorSlugCriacao(post.Slug);
+
+            if (postExistente != null)
+            {
+                while(postExistente != null)
+                {
+                    var titulo = $"{post.Titulo} {numero}";
+                    post.Slug = GeraSlug(titulo);
+                    postExistente = await BuscarPorSlugCriacao(post.Slug);
+                    if (postExistente != null)
+                    {
+                        numero++;
+                    }
+                }
+            }
 
             await Db.Set<Post>().AddAsync(post);
 

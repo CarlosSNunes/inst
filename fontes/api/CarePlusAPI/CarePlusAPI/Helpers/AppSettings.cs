@@ -7,9 +7,9 @@ namespace CarePlusAPI.Helpers
     {
         public string Secret { get; set; }
         public string PathToSave { get; set; }
-        public string PathToSaveDefault { get; set; }
         public string PathToGet { get; set; }
-        public string PathToGetDefault { get; set; }
+        public string UrlDefault { get; set; }
+        public string PostImageRelativePathDefault { get; set; }
         public string PathToSaveMobile { get; set; }
         public string PathToGetMobile { get; set; }
         public string TinyPngKey { get; set; }

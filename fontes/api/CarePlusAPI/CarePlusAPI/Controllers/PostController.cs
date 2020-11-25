@@ -2,6 +2,7 @@ using AutoMapper;
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Post;
+using CarePlusAPI.Models.PostTag;
 using CarePlusAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -68,8 +69,14 @@ namespace CarePlusAPI.Controllers
                 // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
                 model.ForEach(item =>
                 {
-                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
-                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    if (item.CaminhoImagem != null)
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
                 });
 
                 return Ok(new
@@ -110,8 +117,14 @@ namespace CarePlusAPI.Controllers
                 // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
                 model.ForEach(item =>
                 {
-                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
-                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    if (item.CaminhoImagem != null)
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
                 });
 
                 return Ok(new
@@ -153,7 +166,14 @@ namespace CarePlusAPI.Controllers
 
                 PostModel model = _mapper.Map<PostModel>(result);
 
-                model.CaminhoCompleto = $"{_appSettings.PathToGet}{model.CaminhoImagem}";
+                if (model.CaminhoImagem != null)
+                {
+                    model.CaminhoCompleto = $"{_appSettings.PathToGet}{model.CaminhoImagem}";
+                }
+                else
+                {
+                    model.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                }
 
                 return Ok(model);
             }
@@ -191,7 +211,13 @@ namespace CarePlusAPI.Controllers
 
                 PostModel model = _mapper.Map<PostModel>(result);
 
-                model.CaminhoCompleto = $"{_appSettings.PathToGet}{model.CaminhoImagem}";
+                if (model.CaminhoImagem != null)
+                {
+                    model.CaminhoCompleto = $"{_appSettings.PathToGet}{model.CaminhoImagem}";
+                } else
+                {
+                    model.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                }
 
                 return Ok(model);
             }
@@ -234,8 +260,14 @@ namespace CarePlusAPI.Controllers
                 // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
                 model.ForEach(item =>
                 {
-                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
-                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    if (item.CaminhoImagem != null)
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
                 });
 
                 return Ok(new
@@ -281,8 +313,14 @@ namespace CarePlusAPI.Controllers
                 // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
                 model.ForEach(item =>
                 {
-                    item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
-                    item.CaminhoImagem = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    if (item.CaminhoImagem != null)
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
                 });
 
                 return Ok(new
@@ -415,10 +453,6 @@ namespace CarePlusAPI.Controllers
 
                     var directoryToReplace = Directory.GetCurrentDirectory();
                     model.CaminhoImagem = directoryName.Replace(directoryToReplace, "");
-                } else
-                {
-                    model.NomeImagem = "blog_default_image.jpg";
-                    model.CaminhoImagem = $"{_appSettings.PathToSaveDefault}/Post/{model.NomeImagem}";
                 }
 
                 Post post = _mapper.Map<Post>(model);
@@ -508,6 +542,64 @@ namespace CarePlusAPI.Controllers
 
                 if (System.IO.File.Exists(directoryName))
                     System.IO.File.Delete(directoryName);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para duplicar um Post na base.
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
+        ///
+        ///</summary>
+        ///<param name="slug">Slug do Post</param>
+        [HttpGet("duplicar/{slug}")]
+        [Authorize(Roles = "Editor, Administrador")]
+        public async Task<IActionResult> Duplicate(string slug)
+        {
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                if (string.IsNullOrWhiteSpace(slug))
+                    throw new AppException("O slug do Post não pode estar vazio");
+
+                Post post = await _postService.BuscarPorSlug(slug);
+
+                var newPost = new PostCreateModel
+                {
+                    Titulo = $"[Duplicado] - {post.Titulo}",
+                    Subtitulo = post.Subtitulo,
+                    DescricaoPrevia = post.DescricaoPrevia,
+                    Descricao = post.Descricao,
+                    DataPublicacao = post.DataPublicacao,
+                    DataExpiracao = post.DataExpiracao,
+                    CaminhoImagem = post.CaminhoImagem,
+                    NomeImagem = post.NomeImagem,
+                    Destaque = post.Destaque,
+                    Ativo = post.Ativo,
+                    Vizualizacoes = post.Vizualizacoes,
+                    TituloPaginaSEO = post.TituloPaginaSEO,
+                    DescricaoPaginaSEO = post.DescricaoPaginaSEO,
+                    CategoriaId = post.CategoriaId
+                };
+
+                newPost.PostTag = new List<PostTagCreateModel>();
+                foreach (var postTag in post.PostTag) { 
+                    newPost.PostTag.Add(new PostTagCreateModel { TagId = postTag.TagId });
+                }
+
+                var postToCreate = _mapper.Map<Post>(newPost);
+                await _postService.Criar(postToCreate);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
                 return BadRequest(new
                 {
