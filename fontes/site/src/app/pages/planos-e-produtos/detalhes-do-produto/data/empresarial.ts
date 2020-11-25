@@ -208,7 +208,7 @@ export default {
                             text: 'Opção: Ortodontia, Prótese e Implante.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
+                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
                         }
                     ]
                 },
@@ -227,7 +227,7 @@ export default {
                             text: 'Opção: Ortodontia, Prótese e Implante.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
+                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
                         }
                     ]
                 },
