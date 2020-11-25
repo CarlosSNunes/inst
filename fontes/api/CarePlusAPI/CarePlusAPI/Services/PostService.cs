@@ -12,10 +12,10 @@ namespace CarePlusAPI.Services
 {
     public interface IPostService
     {
-        Task<Tuple<int, List<Post>>> Listar(int page, int pageSize);
-        Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize);
-        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug);
-        Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize);
+        Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo);
+        Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo);
+        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo);
+        Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo);
         Task<Post> BuscarPorSlug(string slug);
         Task<Post> BuscarPorSlugHit(string slug);
 
@@ -45,7 +45,7 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todos os Post da base.
         ///
         ///</summary>
-        public async Task<Tuple<int, List<Post>>> Listar(int page, int pageSize)
+        public async Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo)
         {
             try
             {
@@ -53,6 +53,7 @@ namespace CarePlusAPI.Services
 
                 query = query
                            .AsNoTracking()
+                           .Where(p => ativo != null ? p.Ativo == ativo : true)
                            .Include("Categoria")
                            .Include("PostTag.Tag")
                            .OrderByDescending(p => p.Destaque)
@@ -169,12 +170,14 @@ namespace CarePlusAPI.Services
             if (post == null)
                 throw new AppException("O Post não pode estar nulo");
 
+            await ExcluirTags(post.Id);
+
             Db.Set<Post>().Update(post);
 
             await Db.SaveChangesAsync();
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug)
+        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo)
         {
             if (id == 0)
                 throw new AppException("O id da categoria não pode ser igual a 0");
@@ -183,7 +186,7 @@ namespace CarePlusAPI.Services
 
 
             query = query.AsNoTracking()
-                                    .Where(p => p.CategoriaId == id && p.Ativo.Equals('1') && p.Slug != slug)
+                                    .Where(p => p.CategoriaId == id && (ativo != null ? p.Ativo.Equals(ativo) : true) && p.Slug != slug)
                                     .Include("Categoria")
                                     .Include("PostTag.Tag")
                                     .OrderBy(c => c.DataCadastro);
@@ -199,7 +202,7 @@ namespace CarePlusAPI.Services
             return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize)
+        public async Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo)
         {
             if (string.IsNullOrWhiteSpace(term))
                 throw new AppException("O termo não pode estar vazio");
@@ -208,12 +211,12 @@ namespace CarePlusAPI.Services
 
 
             query = query.AsNoTracking()
-                                    .Where(x => x.Titulo.Contains(term)
+                                    .Where(x => (x.Titulo.Contains(term)
                                     || x.Subtitulo.Contains(term)
                                     || x.DescricaoPaginaSEO.Contains(term)
                                     || x.TituloPaginaSEO.Contains(term)
                                     || x.DescricaoPrevia.Contains(term)
-                                    || x.Slug.Contains(term))
+                                    || x.Slug.Contains(term)) && (ativo != null ? x.Ativo.Equals(ativo) : true))
                                     .Include("Categoria")
                                     .Include("PostTag.Tag")
                                     .OrderBy(c => c.DataCadastro);
@@ -228,13 +231,13 @@ namespace CarePlusAPI.Services
             return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize)
+        public async Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo)
         {
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
 
             query = query.AsNoTracking()
-                                    .Where(p => p.Ativo.Equals('1'))
+                                    .Where(p => ativo != null ? p.Ativo.Equals(ativo) : true)
                                     .Include("Categoria")
                                     .Include("PostTag.Tag")
                                     .OrderByDescending(p => p.Vizualizacoes)

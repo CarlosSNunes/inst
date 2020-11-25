@@ -57,12 +57,13 @@ namespace CarePlusAPI.Controllers
         [HttpGet("{page}/{pageSize}")]
         [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> Get(int page, int pageSize)
+        public async Task<IActionResult> Get(int page, int pageSize, [FromQuery(Name = "ativo")] char? ativo)
         {
             string origem = Request.Headers["Custom"];
             try
             {
-                var result = await _postService.Listar(page, pageSize);
+
+                var result = await _postService.Listar(page, pageSize, ativo);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -105,12 +106,12 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         [HttpGet("maisLidos/{page}/{pageSize}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetMostsRead(int page, int pageSize)
+        public async Task<IActionResult> GetMostsRead(int page, int pageSize, [FromQuery(Name = "ativo")] char? ativo)
         {
             string origem = Request.Headers["Custom"];
             try
             {
-                var result = await _postService.BuscarMaisLidos(page, pageSize);
+                var result = await _postService.BuscarMaisLidos(page, pageSize, ativo);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -244,7 +245,7 @@ namespace CarePlusAPI.Controllers
         [HttpGet("categoria/{id}/{page}/{pageSize}/{slug}")]
         [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByCategory(int id, int page, int pageSize, string slug)
+        public async Task<IActionResult> GetByCategory(int id, int page, int pageSize, string slug, [FromQuery(Name = "ativo")] char? ativo)
         {
             string origem = Request.Headers["Custom"];
 
@@ -253,7 +254,7 @@ namespace CarePlusAPI.Controllers
                 if (id == 0)
                     throw new AppException("O id do Post não pode ser igual a 0");
 
-               var result = await _postService.BuscarPorCategoria(id, page, pageSize, slug);
+               var result = await _postService.BuscarPorCategoria(id, page, pageSize, slug, ativo);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -297,7 +298,7 @@ namespace CarePlusAPI.Controllers
         ///<param name="id">Id do Post</param>
         [HttpGet("term/{term}/{page}/{pageSize}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByTerm(string term, int page, int pageSize)
+        public async Task<IActionResult> GetByTerm(string term, int page, int pageSize, [FromQuery(Name = "ativo")] char? ativo)
         {
             string origem = Request.Headers["Custom"];
 
@@ -306,7 +307,7 @@ namespace CarePlusAPI.Controllers
                 if (string.IsNullOrWhiteSpace(term))
                     throw new AppException("O termo não estar vazio");
 
-                var result = await _postService.BuscarPorTermo(term, page, pageSize);
+                var result = await _postService.BuscarPorTermo(term, page, pageSize, ativo);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
