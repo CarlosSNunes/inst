@@ -4,10 +4,7 @@ import { PostBlogModel } from 'src/models/posts-blog/posts-blog.model';
 import { PostsBlogService } from './posts-blog.service';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-import { PostsBlogCreateModel } from 'src/models/posts-blog/posts-blog-create.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormControlError } from 'src/utils/form-control-error';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
@@ -19,7 +16,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PostsBlogComponent implements OnInit {
     postsBlog: PostBlogModel[] = [];
-    postsBlogForm: FormGroup;
     faEdit = faEdit;
     faTrashAlt = faTrashAlt;
     faEye = faEye;
@@ -38,7 +34,6 @@ export class PostsBlogComponent implements OnInit {
     constructor(
         private postsBlogService: PostsBlogService,
         private authenticationService: AuthenticationService,
-        private fb: FormBuilder,
         private modalService: BsModalService,
         private toastrService: ToastrService
     ) {
