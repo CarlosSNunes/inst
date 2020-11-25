@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-// import { UserAuthenticateModel } from './../../src/models/user-authenticate.model';
-// import { AuthenticationService } from './../../src/app/authentication/authentication.service';
-// import { setTheme } from 'ngx-bootstrap/utils';
+import { setTheme } from 'ngx-bootstrap/utils';
+import { AuthenticationService } from 'src/app/authentication/authentication.service';
+// import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 // import { EventEmitterService } from 'src/services/event-emitter/event-emitter-service.service';
-@Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
-})
 
-export class AppComponent implements OnInit {
-    // usuario: UserAuthenticateModel;
+@Component({
+  selector: 'app-container',
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.scss']
+})
+export class ContainerComponent implements OnInit {
+
+  // usuario: UserAuthenticateModel;
 
     constructor(
         // private authenticationService: AuthenticationService
     ) {
-        // setTheme('bs4');
+        setTheme('bs4');
         // EventEmitterService.get('login').subscribe(usuario =>
         //     this.usuario = usuario
         // );
@@ -27,4 +28,5 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         // this.usuario = this.authenticationService.state;
     }
+
 }
