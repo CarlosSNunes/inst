@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TinifyAPI;
 
@@ -52,7 +53,8 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet]
-        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             string origem = Request.Headers["Custom"];
@@ -119,10 +121,12 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="area">Id do Banner</param>
         [HttpGet("getByArea/{area}")]
-        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetByArea(string area)
         {
             string origem = Request.Headers["Custom"];
+
             try
             {
                 if (string.IsNullOrEmpty(area))
@@ -173,17 +177,19 @@ namespace CarePlusAPI.Controllers
 
             try
             {
-                var desktop = await _bannerService.SalvaImagem(_appSettings.PathToSave, Arquivo);
+                var bannerPath = "\\Banner";
+
+                var desktop = await _bannerService.SalvaImagem(_appSettings.PathToSave + bannerPath, Arquivo);
                 fileName = desktop.Item1;
                 path = desktop.Item2;
                 model.NomeImagemDesktop = fileName;
-                model.CaminhoDesktop = path.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
-
-                var mobile = await _bannerService.SalvaImagem(_appSettings.PathToSaveMobile, ArquivoMobile);
+                model.CaminhoDesktop = _appSettings.PathToSave + bannerPath + "/" + fileName;
+                
+                var mobile = await _bannerService.SalvaImagem(_appSettings.PathToSave + bannerPath, ArquivoMobile);
                 directoryNameMobile = mobile.Item1;
                 pathMobile = mobile.Item2;
                 model.NomeImagemMobile = fileName;
-                model.CaminhoMobile = pathMobile.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
+                model.CaminhoMobile = _appSettings.PathToSave + bannerPath + "/" + fileName;
 
 
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
