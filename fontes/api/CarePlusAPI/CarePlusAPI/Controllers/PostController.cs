@@ -373,15 +373,11 @@ namespace CarePlusAPI.Controllers
                 {
                     fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                     fullPath = Path.Combine(pathToSave, fileName);
-                    directoryName = Path.GetDirectoryName(fullPath);
-
-
-                    var directoryToReplace = Directory.GetCurrentDirectory();
-                    directoryName = directoryName.Replace(directoryToReplace, "");
 
                     // Combine with appSettings
 
-                    fullPath = $"{_appSettings.PathToGet}/${directoryName}";
+                    fullPath = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Post/{fileName}";
+                    directoryName = $"{_appSettings.VirtualPath}/Post/{fileName}";
 
                     using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
@@ -451,9 +447,7 @@ namespace CarePlusAPI.Controllers
                     }
 
                     model.NomeImagem = fileName;
-
-                    var directoryToReplace = Directory.GetCurrentDirectory();
-                    model.CaminhoImagem = directoryName.Replace(directoryToReplace, "");
+                    model.CaminhoImagem = $"{_appSettings.VirtualPath}/Post/{fileName}";
                 }
 
                 Post post = _mapper.Map<Post>(model);
@@ -521,9 +515,7 @@ namespace CarePlusAPI.Controllers
                     }
 
                     model.NomeImagem = fileName;
-
-                    var directoryToReplace = Directory.GetCurrentDirectory();
-                    model.CaminhoImagem = directoryName.Replace(directoryToReplace, "");
+                    model.CaminhoImagem = $"{_appSettings.VirtualPath}/Post/{fileName}";
                 }
                 else
                 {
