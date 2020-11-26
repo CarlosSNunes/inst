@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, AbstractControl, FormGroup } from '@angular/forms';
 import { faTimes, faCheck, faUpload, faPlus, faCog, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
 import { UserAuthenticateModel } from './../../../../../src/models/user-authenticate.model';
@@ -25,7 +24,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class PostsBlogEditComponent implements OnInit {
-    editor = DecoupledEditor;
     dataPublicacao;
     postsBlogForm: FormGroup;
     faTimes = faTimes;

@@ -193,8 +193,7 @@
                     <div class="field">
                         <label class="label">Descrição</label>
                         <ckeditor formControlName="descricao"
-                            [ngClass]="{ 'is-success': submitted && !bloco.get('descricao').errors, 'is-danger' : submitted && bloco.get('descricao').errors }"
-                            [editor]="editor" (ready)="onReady($event)">
+                            [ngClass]="{ 'is-success': submitted && !bloco.get('descricao').errors, 'is-danger' : submitted && bloco.get('descricao').errors }">
                         </ckeditor>
                         <div *ngIf="submitted" class="errors">
                             <p *ngFor="let error of getErrors(bloco.get('descricao'))" class="help is-danger">

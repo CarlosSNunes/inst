@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AuthenticationService } from '../authentication/authentication.service';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,10 @@ export class HttpHandlerService implements HttpInterceptor {
 
     if (usuario) {
       const reqAuth = req.clone({
-        headers: req.headers.set('Authorization', 'Bearer ' + usuario.token)
+        setHeaders: {
+            'Authorization': 'Bearer ' + usuario.token,
+            "Custom": "instadministrativo"
+        }
       });
       return next.handle(reqAuth);
     }

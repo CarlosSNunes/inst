@@ -14,7 +14,7 @@ import { PostsBlogComponent } from './posts-blog.component';
 import { PostsBlogCreateComponent } from './posts-blog-create/posts-blog-create.component';
 import { PostsBlogEditComponent } from './posts-blog-edit/posts-blog-edit.component';
 import { PostsBlogDeleteComponent } from './posts-blog-delete/posts-blog-delete.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
