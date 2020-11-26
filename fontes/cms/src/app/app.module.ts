@@ -25,6 +25,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { HttpRequestInterceptor } from './app.interceptor';
 import { WindowRef } from 'src/utils/window-ref';
 import { ToastrModule } from 'ngx-toastr';
+import { BlankContainerComponent } from './layout/blank-container/blank-container.component';
+import { ContainerComponent } from './layout/container/container.component';
 
 
 
@@ -34,6 +36,8 @@ const ngWizardConfig: NgWizardConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    BlankContainerComponent,
+    ContainerComponent,
   ],
   entryComponents: [
     PostsBlogDeleteComponent

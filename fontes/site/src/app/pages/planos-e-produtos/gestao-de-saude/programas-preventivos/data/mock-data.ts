@@ -26,7 +26,32 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
     hasAnchor: true,
     image: 'assets/img/programas-preventivos.jpg'
 });
+export const checkupDoViajante: InfoSectionModel = new InfoSectionModel({
+    smallTitle: 'Programas Preventivos',
+    bigTitle: 'Check-up do Viajante',
+    subDescriptions: [
+        'Avaliação médica destinada a pessoas que farão viagens internacionais a lazer ou a trabalho para qualquer lugar do mundo, para tornar a sua viagem mais tranquila e segura',
+        'O objetivo da consulta é orientar sobre a prevenção de doenças através do aconselhamento para cuidados básicos que visam reduzir a exposição a situações de risco de doenças, muitas vezes adquiridas após a ingestão de água ou de alimentos contaminados ou picadas de insetos, indicação de vacinas ou necessidade de medicação para profilaxia de doenças de acordo como o itinerário, sugestão de kit de medicamentos para serem levados na viagem, além de avaliar o estado de saúde antes da viagem. Ao final da consulta, você receberá um relatório resumido com as orientações e cuidados a serem tomados.',
+        '<strong>Lembre-se: o formulário deve ser preenchido com no mínimo 30 dias de antecedência da viagem.</strong>'
+    ],
+    imageSrc: 'assets/img/checkup-viajante.jpg',
+    removeLine: false,
+    objectFit: 'cover',
+    
+});
 
+export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
+    smallTitle: 'Programas Preventivos',
+    bigTitle: 'Monitoramento de Check-up',
+    subDescriptions: [
+        'O check-up é uma avaliação clínica acompanhada de exames laboratoriais e de imagem que promove o rastreamento de doenças na ausência de sintomas e que permite soluções mais rápidas e ações preventivas para estimular o cuidado rotineiro com a saúde.',
+        'A consulta de monitoramento pós check-up oferece aos beneficiários Care Plus, que possuem cobertura em seu plano, atenção contínua à saúde após a realização dos exames. Na consulta, o beneficiário poderá esclarecer as dúvidas relacionadas à saúde, receber um feedback sobre o check-up realizado e contar com a ajuda do médico e de equipe multidisciplinar para dar continuidade no cuidado com a saúde e receber orientações sobre a frequência adequada para a repetição dos exames realizados.'
+    ],
+    imageSrc: 'assets/img/monitoramento-checkup.jpg',
+    removeLine: false,
+    objectFit: 'cover',
+    reverse: true
+});
 export const mommyCareSection = new InfoSectionModel({
     smallTitle: 'Programas Preventivos',
     bigTitle: 'Mommy Care',
