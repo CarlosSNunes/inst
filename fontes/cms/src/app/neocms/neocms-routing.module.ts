@@ -35,7 +35,7 @@ const routes: Routes = [
     loadChildren: () => import('./careplus-perfil/careplus-perfil.module').then(m => m.CareplusPerfilModule)
   },
   {
-    path: 'usuario',
+    path: 'usuarios',
     canActivate: [AuthGuard],
     loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)
   },

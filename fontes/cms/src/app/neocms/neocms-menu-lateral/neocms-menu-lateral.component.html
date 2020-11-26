@@ -1,4 +1,4 @@
-<div class="menu-lateral shadow">
+<div class="menu-lateral">
   <div class="menu-header">
     <a class="logos" routerLink="/neocms">
       <img class=" img-logo-carePlus" src="assets/img/carePlus-logo.svg" alt="CarePlus">
@@ -15,6 +15,14 @@
           <img src="assets/img/dashboard.svg" alt="Dashboard">
           <p>
             Dashboard
+          </p>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a routerLink="/neocms/usuarios" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+          <img src="assets/img/users.svg" alt="Usuarios">
+          <p>
+            Usuarios
           </p>
         </a>
       </li>
@@ -49,14 +57,14 @@
           <p>Posts</p> 
         </a>
       </li>
-      <li class="menu-item">
+      <!-- <li class="menu-item">
         <a routerLink="/neocms/posts-blog/mais-lidos" routerLinkActive="is-active">
           <img src="assets/img/posts2.svg" alt="Posts Mais Lidos">
          <p>
           Posts Mais Lidos
          </p>
         </a>
-      </li>
+      </li> -->
       <!--
             <li class="menu-item">
                 <a routerLink="/neocms/noticia/index" routerLinkActive="is-active">

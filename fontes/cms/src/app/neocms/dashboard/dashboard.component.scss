@@ -1,149 +1,248 @@
-a:hover {
-    color: initial;
-    text-decoration: none;
-}
-.card {
-    position: relative;
-    width: 100%;
-    height: 230px;
-    padding: 1.25rem;
-    background-color: #ffffff;
-    cursor: pointer;
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
 
-    transition: background .3s ease-in-out,border-color .3s ease-in-out;
-    transition-property: background, border-color;
-    transition-duration: 0.3s, 0.3s;
-    transition-timing-function: ease-in-out, ease-in-out;
-    transition-delay: 0s, 0s;
+#dashboard {
+    a:hover {
+        color: initial;
+        text-decoration: none;
+    }
+    .card {
+        position: relative;
+        width: 100%;
+        height: 230px;
+        padding: 1.25rem;
+        background-color: getColor(_bupa, _white);
+        cursor: pointer;
 
-    svg {
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 1.25rem;
-        right: 1.25rem;
+        transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        transition-property: background, border-color;
+        transition-duration: 0.3s, 0.3s;
+        transition-timing-function: ease-in-out, ease-in-out;
+        transition-delay: 0s, 0s;
 
-        path {
-            transition: fill .3s ease-in-out;
-            transition-property: fill;
+        svg {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+
+            path {
+                transition: fill 0.3s ease-in-out;
+                transition-property: fill;
+                transition-duration: 0.3s;
+                transition-timing-function: ease-in-out;
+                transition-delay: 0s;
+            }
+        }
+        h5 {
+            font-weight: 500;
+
+            transition: color 0.3s ease-in-out;
+            transition-property: color;
             transition-duration: 0.3s;
             transition-timing-function: ease-in-out;
             transition-delay: 0s;
         }
-    }
-    h5 {
-        font-weight: 500;
-        
-
-        transition: color .3s ease-in-out;
-        transition-property: color;
-        transition-duration: 0.3s;
-        transition-timing-function: ease-in-out;
-        transition-delay: 0s;
-    }
-    h1 {
-        font-size: 8rem;
-        font-weight: 500;
-        
-        
-        transition: color .3s ease-in-out;
-        transition-property: color;
-        transition-duration: 0.3s;
-        transition-timing-function: ease-in-out;
-        transition-delay: 0s;
-    }
-    
-    &.posts {
-        border: 1px solid #008385;
-        svg {
-
-            path {
-                fill: #008385;
-            }
-        }
-        h5 {
-            color: #008385;
-        }
         h1 {
-            color: #008385;
+            font-size: 8rem;
+            font-weight: 500;
+
+            transition: color 0.3s ease-in-out;
+            transition-property: color;
+            transition-duration: 0.3s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 0s;
         }
-        &:hover {
-            background-color: #008385;
+
+        &.posts {
+            border: 1px solid getColor(_bupa, _teal);
             svg {
                 path {
-                    fill: #ffffff;
+                    fill: getColor(_bupa, _teal);
                 }
             }
             h5 {
-                color: #ffffff;
+                color: getColor(_bupa, _teal);
             }
             h1 {
-                color: #ffffff;
+                color: getColor(_bupa, _teal);
+            }
+            &:hover {
+                background-color: getColor(_bupa, _teal);
+                svg {
+                    path {
+                        fill: getColor(_bupa, _white);
+                    }
+                }
+                h5 {
+                    color: getColor(_bupa, _white);
+                }
+                h1 {
+                    color: getColor(_bupa, _white);
+                }
             }
         }
-    }
-    &.banners {
-        border: 1px solid  #00335b;
-        svg {
-
-            path {
-                fill: #00335b;
-            }
-        }
-        h5 {
-            color: #00335b;
-        }
-        h1 {
-            color:#00335b;
-        }
-        &:hover {
-            background-color:#00335b;
+        &.banners {
+            border: 1px solid getColor(_bupa, _navy);
             svg {
                 path {
-                    fill: #ffffff;
+                    fill: getColor(_bupa, _navy);
                 }
             }
             h5 {
-                color: #ffffff;
+                color: getColor(_bupa, _navy);
             }
             h1 {
-                color: #ffffff;
+                color: getColor(_bupa, _navy);
+            }
+            &:hover {
+                background-color: getColor(_bupa, _navy);
+                svg {
+                    path {
+                        fill: getColor(_bupa, _white);
+                    }
+                }
+                h5 {
+                    color: getColor(_bupa, _white);
+                }
+                h1 {
+                    color: getColor(_bupa, _white);
+                }
             }
         }
-    }
-    &.users {
-        border: 1px solid #6a2ca1;
-        svg {
-
-            path {
-                fill:#6a2ca1;
-            }
-        }
-        h5 {
-            color: #6a2ca1;
-        }
-        h1 {
-            color: #6a2ca1;
-        }
-        &:hover {
-            background-color: #6a2ca1;
+        &.users {
+            border: 1px solid getColor(_bupa, _purple);
             svg {
                 path {
-                    fill: #ffffff;
+                    fill: getColor(_bupa, _purple);
                 }
             }
             h5 {
-                color: #ffffff;
+                color: getColor(_bupa, _purple);
             }
             h1 {
-                color: #ffffff;
+                color: getColor(_bupa, _purple);
             }
+            &:hover {
+                background-color: getColor(_bupa, _purple);
+                svg {
+                    path {
+                        fill: getColor(_bupa, _white);
+                    }
+                }
+                h5 {
+                    color: getColor(_bupa, _white);
+                }
+                h1 {
+                    color: getColor(_bupa, _white);
+                }
+            }
+        }
+        &.posts-mais-lidos {
+            height: 100%;
+            margin-top: 25px;
+            border: 1px solid getColor(_bupa, _black);
+            svg {
+                path {
+                    fill: getColor(_bupa, _black);
+                }
+            }
+            h5 {
+                color: getColor(_bupa, _black);
+            }
+            h1 {
+                color: getColor(_bupa, _black);
+            }
+
+            .body {
+                display: flex;
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    width: 45%;
+                    height: 394px;
+                    margin-right: 5%;
+                    overflow-y: auto;
+                    li {
+                        position: relative;
+                        cursor: pointer;
+                        // border-bottom: 1px solid getColor(_bupa, _black);
+                        margin: 15px 0;
+                        border-radius: 2px;
+                        padding-left: 10px;
+                        a {
+                            color: getColor(_bupa, _black);
+                            svg {
+                                position: inherit;
+                                width: 20px;
+                                margin-right: 10px;
+                                path {
+                                    fill: getColor(_bupa, _black);
+                                }
+                            }
+                        }
+                        &:hover {
+                            background-color: getColor(_bupa, _grey-3);
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                bottom: 0;
+                                left: 5px;
+                                width: calc(100% - 10px);
+                                height: 1px;
+                                background-color: getColor(_bupa, _black);
+                            }
+                            a {
+                                // color: getColor(_bupa, _white);
+                            }
+                        }
+                    }
+                }
+                .post-content {
+                    width: 50%;
+                    height: 410px;
+                    border: 1px solid getColor(_bupa, _black);
+                    border-radius: 0.25rem;
+                    padding: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .post-image {
+                        width: 100%;
+                        &.crop {
+                            height: 170px;
+                            overflow: hidden;
+                        }
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .post-body {
+                        .post-title {
+                            font-size: getSize("h4");
+                        }
+                        .post-subtitle {
+                            font-size: getSize("mbt");
+                        }
+                        .post-description {
+                            font-size: getSize("p");
+                        }
+                        button {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        &:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         }
     }
 }
 
 // .title-color {
-//     color: #00335b !important;
+//     color: getColor(_bupa, _navy) !important;
 //     font-weight: 400;
 //     font-style: normal;
 // }

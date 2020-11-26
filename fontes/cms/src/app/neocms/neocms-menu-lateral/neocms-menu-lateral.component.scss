@@ -1,9 +1,9 @@
-@import "./../../../assets/sass/variables";
+@import "~src/assets/sass/variables";
 .menu-lateral {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $azul-claro-primario;
+  background-color: getColor(_bupa, _digital-cian);
   padding: 10px 1rem;
   width: 250px;
 
