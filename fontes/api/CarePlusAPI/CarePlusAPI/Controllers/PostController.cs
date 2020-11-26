@@ -395,18 +395,24 @@ namespace CarePlusAPI.Controllers
 
                 if (file.Length > 0)
                 {
-                    fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                    fullPath = Path.Combine(pathToSave, fileName);
+                    var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                    directoryName = Path.Combine(pathToSave, fileOriginalName);
 
                     // Combine with appSettings
-
-                    fullPath = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Post/{fileName}";
-                    directoryName = $"{_appSettings.VirtualPath}/Post/{fileName}";
 
                     using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
                     }
+
+                    // Renomeando
+                    var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                    fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
+                    var renamedDirectory = Path.Combine(pathToSave, fileName);
+                    System.IO.File.Move(directoryName, renamedDirectory);
+
+                    fullPath = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Post/{fileName}";
+                    directoryName = $"{_appSettings.VirtualPath}/Post/{fileName}";
                 }
 
                 return Ok(new {
@@ -463,13 +469,19 @@ namespace CarePlusAPI.Controllers
 
                     if (file.Length > 0)
                     {
-                        fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                        directoryName = Path.Combine(pathToSave, fileName);
+                        var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                        directoryName = Path.Combine(pathToSave, fileOriginalName);
 
                         using (var stream = new FileStream(directoryName, FileMode.Create))
                         {
                             await file.CopyToAsync(stream);
                         }
+
+                        // Renomeando
+                        var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                        fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
+                        var renamedDirectory = Path.Combine(pathToSave, fileName);
+                        System.IO.File.Move(directoryName, renamedDirectory);
                     }
 
                     model.NomeImagem = fileName;
@@ -533,13 +545,19 @@ namespace CarePlusAPI.Controllers
 
                     if (file.Length > 0)
                     {
-                        fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                        directoryName = Path.Combine(pathToSave, fileName);
+                        var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                        directoryName = Path.Combine(pathToSave, fileOriginalName);
 
                         using (var stream = new FileStream(directoryName, FileMode.Create))
                         {
                             await file.CopyToAsync(stream);
                         }
+
+                        // Renomeando
+                        var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                        fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
+                        var renamedDirectory = Path.Combine(pathToSave, fileName);
+                        System.IO.File.Move(directoryName, renamedDirectory);
                     }
 
                     model.NomeImagem = fileName;
