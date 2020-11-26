@@ -277,6 +277,7 @@ const options: ExtraOptions = {
     anchorScrolling: "disabled",
     onSameUrlNavigation: "reload",
     scrollPositionRestoration: 'enabled',
+    initialNavigation: 'enabled'
 };
 
 @NgModule({

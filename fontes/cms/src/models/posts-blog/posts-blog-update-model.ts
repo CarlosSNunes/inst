@@ -21,7 +21,7 @@ export class PostBlogUpdateModel {
                 init.postTag.forEach(tag => this.postTag.push(new PostsTagCreateModel(tag)));
 
                 if (init.getDateDifferences) {
-                    this.dateDifferences = getDifferences(new Date(), init.dataCadastro);
+                    this.dateDifferences = getDifferences(new Date(), init.dataPublicacao);
                 }
             }
         }

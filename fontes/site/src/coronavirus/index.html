@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+    <title>Coronavírus e covid-19 | Care Plus</title>
+    <base href="/coronavirus/">
+    
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" type="text/css" href="css/toastify.min.css">
+	<link rel="stylesheet" type="text/css" href="css/aos.min.css">
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="canonical" href="/coronavirus">
+    <link rel="manifest" href="manifest.json">
+
+	<!-- Primary Meta Tags -->
+	<meta name="title" content="Care Plus | Coronavírus">
+	<meta name="description" content="A Care Plus disponibiliza informações relevantes sobre o coronavírus e a covid-19. Entenda o que é, sintomas, quando procurar ajuda e atividades na quarentena.">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="/coronavirus">
+	<meta property="og:title" content="Care Plus | Coronavírus">
+	<meta property="og:description" content="A Care Plus disponibiliza informações relevantes sobre o coronavírus e a covid-19. Entenda o que é, sintomas, quando procurar ajuda e atividades na quarentena.">
+	<meta property="og:image" content="/coronavirus/img/oQueEoCoronaVirus_image.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="/coronavirus/img/oQueEoCoronaVirus_image.png">
+	<meta property="twitter:title" content="Care Plus | Coronavírus">
+	<meta property="twitter:description" content="A Care Plus disponibiliza informações relevantes sobre o coronavírus e a covid-19. Entenda o que é, sintomas, quando procurar ajuda e atividades na quarentena.">
+	<meta property="twitter:image" content="/coronavirus/img/oQueEoCoronaVirus_image.png">
+
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+
+
+
+<body>
+	<header class="header dark" id="header">
+		<div class="container">
+			<div class="logo">
+				<a title="Careplus Homepage" href="https://www.careplus.com.br" target="_blank">
+					<img data-aos="fade-right" data-aos-duration="1000" src="svg/logo_main.svg" class="coronavirus_logo" alt="logo da CarePlus">
+					<img data-aos="fade-right" data-aos-duration="1000" src="svg/logo_main_color.svg" class="coronavirus_logo_color" alt="logo da CarePlus">
+
+				</a>
+			</div>
+			<input class="menu-btn" type="checkbox" id="menu-btn" onclick="changeMenuStatus()" />
+			<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+			<ul class="menu">
+				<li id="informacoesGerais_menu" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="liContato"><a onclick="moveToElement('informacoesGerais',true)">INFORMAÇÕES GERAIS</a></li>
+				<li id="prevencaoEtratamento_menu" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500"><a onclick="moveToElement('prevencaoEtratamento',true)" class="js-trigger">PREVENÇÃO E TRATAMENTO</a></li>
+				<li id="dicas_menu" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="700"><a onclick="moveToElement('dicas',true)" class="js-trigger">DICAS PARA a QUARENTENA</a></li>
+				<li id="conteComAcareplus_menu" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900"><a onclick="moveToElement('conteComAcareplus',true)" class="js-trigger">care plus</a></li>
+				<li id="fac_menu" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900"><a onclick="moveToElement('fac',true)" class="js-trigger">faq</a></li>
+				<li id="welcomeBack_menu"  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900"><a href="https://www.careplus.com.br/ocupacional/welcomeback/" target="_blank" class="js-trigger">Welcome Back</a></li>
+			</ul>
+		</div>
+	</header>
+	<section id="topImage" class="lazy" data-bg="img/main_bg.jpg">
+		<div class="container">
+			<div class="textbox" data-aos="fade-up" data-aos-duration="2000">
+				<h1>
+					Tudo o que você precisa saber sobre o coronavírus
+				</h1>
+
+
+				<div class="btn btnGreen" onclick="moveToElement('informacoesGerais',false)">
+					SAIBA MAIS
+				</div>
+			</div>
+		</div>
+
+		<div class="arrowBox" onclick="moveToElement('informacoesGerais',false)">
+			<div class="mouse-down center">
+				<div class="bullet">
+				</div>
+			</div>
+		</div>
+
+		<!-- <img src="img/main_bg.jpg" alt=""> -->
+
+	</section>
+	<section id="informacoesGerais" class="defaultSection">
+		<div class="socialBox sticky" data-sticky data-margin-top="200">
+			<ul>
+				<li class="linkedin">
+					<a href="https://br.linkedin.com/company/care-plus" target="_blank">
+						<img src="svg/linkedin.svg" alt="Logo do linkedin">
+					</a>
+
+				</li>
+				<li class="instagram">
+
+					<a href="https://www.instagram.com/careplusoficial/" target="_blank">
+						<img src="svg/instagram_blue.svg" alt="logo do Instagram">
+					</a>
+
+				</li>
+				<li class="youtube">
+					<a href="https://www.youtube.com/user/careplusnarede" target="_blank">
+						<img src="svg/youtube.svg" alt="Logo do youtube">
+					</a>
+
+				</li>
+				<li class="facebook">
+					<a href="https://www.facebook.com/careplusnarede/" target="_blank">
+						<img src="svg/facebook.svg" alt="Logo do Facebook">
+					</a>
+
+				</li>
+			</ul>
+		</div>
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<h2 data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="aos-init aos-animate">Informações gerais</h2>
+
+					<p class="informacoesGeraisDescription">Convidamos o Dr. Thiago Zinsly, médico infectologista do Hospital Albert Einstein, para esclarecimentos gerais aos nossos beneficiários e parceiros.</p>
+
+
+
+				</div>
+
+				<div class="col-md-8 offset-md-2">
+					<div class="videoBox">
+
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/2FjtXOx2ifo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<section id="oQueEoCoronaVirus" class="defaultSection">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item">
+							<h4>INFORMAÇÕES GERAIS</h4>
+							<h2>O que é coronavírus?</h2>
+
+							<p>O coronavírus é uma família de vírus que pode causar infecções respiratórias de graus variados. Chamado pela Organização Mundial de Saúde (OMS) de SARS-CoV-2, o novo coronavírus é o agente causador da doença denominada covid-19.
+							</p>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 order-1 order-md-2 sideImage" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+
+					<img src="svg/oQueEoCoronaVirus_image.svg" alt="Ilustração de uma mulher de máscara">
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section id="comoEtransmitido" class="defaultSection blueVersion">
+
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-md-6 order-2">
+					<div class="Aligner">
+						<div class="Aligner-item">
+							<h4>INFORMAÇÕES GERAIS</h4>
+							<h2>Como o coronavírus é transmitido?</h2>
+
+							<p>A transmissão do coronavírus ocorre pelo ar e através do contato com secreções expelidas pela boca e nariz quando uma pessoa infectada tosse, espirra ou fala. As gotículas podem ficar depositadas nos objetos ou nas superfícies e
+								outras pessoas podem adquirir o vírus ao tocar esses objetos ou superfícies contaminadas e depois tocar o nariz, a boca ou os olhos. Contato direto com toque ou aperto de mão também pode transmitir a covid-19.</p>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 order-1 sideImage" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+
+					<img src="svg/comoEtransmitido.svg" alt="Ilustração de uma mulher tossindo">
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section id="quaisSaoOsSintomas" class="defaultSection">
+
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-md-6 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item">
+							<h4>INFORMAÇÕES GERAIS</h4>
+							<h2>Quais são os sintomas da covid-19?</h2>
+
+							<p>Os sintomas mais comuns da doença são febre, tosse e dificuldade para respirar. No entanto, em alguns casos, os pacientes podem apresentar dor de garganta, cansaço, dor no corpo, mal-estar geral, coriza, diarreia, dor de cabeça, dor
+								no peito, náuseas, vômitos, congestão conjuntival, redução ou perda do olfato.
+								Os sintomas geralmente são leves e começam gradualmente. Algumas pessoas não apresentam sintomas.
+							</p>
+
+							<img src="svg/tips_new.svg" class="tipsImage" alt="imagem com dicas para evitar o contágio">
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 order-1 order-md-2 sideImage" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+
+					<img src="svg/quaisSaoOsSintomas.svg" alt="imagem exibindo uma mulher aparentemente doente, mostrando alguns dos sintomas de coronavírus">
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section id="comoAgir" class="defaultSection blueVersion">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 order-2">
+					<div class="Aligner">
+						<div class="Aligner-item">
+							<h4>INFORMAÇÕES GERAIS</h4>
+							<h2>Como agir em caso de suspeita da doença?</h2>
+
+							<p>As manifestações do coronavírus no corpo humano são muito parecidas com os sintomas de uma gripe comum. Por isso, siga as recomendações se apresentar os sintomas.
+							</p>
+
+							<div class="btn btnGreen" data-custom-open="modal-1" onclick="MicroModal.show('modal-1');">
+								VEJA AS RECOMENDAÇÕES
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 order-1 sideImage" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="svg/comoAgir_image.svg" alt="Imagem de homem com mascara de proteção">
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	</section>
+	<section id="prevencaoEtratamento" class="defaultSection">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="titleWithThatThing">Prevenção e tratamento</h2>
+				</div>
+				<div class="col-md-8 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item">
+							<h4>Prevenção e tratamento</h4>
+							<h2>Quais são os cuidados para prevenir a doença?</h2>
+
+							<p>Algumas medidas são essenciais para evitar o contágio e a transmissão do coronavírus:
+							</p>
+
+							<div class="row">
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											Lave frequentemente as mãos com água e sabão até a altura dos punhos. Esfregue bem as unhas e entre os dedos ou higienize com álcool em gel 70%
+										</li>
+										<li>
+											Não compartilhe itens de uso pessoal como talheres, toalhas, pratos e copos
+										</li>
+										<li>
+											Evite aglomerações e contato próximo com as pessoas, ou seja, manter uma distância de pelo menos dois metros
+										</li>
+
+										<li>
+											Procure não tocar no rosto, especialmente nos olhos, nariz e boca com as mãos não lavadas</li>
+
+										<li>
+											Evite beijos, abraços e apertos de mãos. Adote um comportamento amigável, mas sem contato físico</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											Pratique a etiqueta respiratória, ou seja, cubra a boca e o nariz com o antebraço ao tossir ou espirrar ou cubra com lenços descartáveis, desprezando-os imediatamente após o uso em uma lixeira fechada. Em seguida, higienize bem
+											as mãos
+										</li>
+										<li>
+											Limpe e desinfete, frequentemente, os objetos
+										</li>
+										<li>
+											Mantenha os ambientes limpos e ventilados
+										</li>
+										<li>
+											Durma bem e alimente-se adequadamente
+										</li>
+
+										<li>
+											Use máscaras caseiras feitas de tecido ao sair de casa</li>
+									</ul>
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 order-1 sideImage order-md-2" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="svg/prevencaoEtratamento.svg" alt="Imagem de homem com mascara de proteção">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="comoEFeitoOdiagnostico" class="defaultSection blueVersion">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item lg">
+							<div class="normalize">
+								<h4>Prevenção e tratamento</h4>
+								<h2>Como é feito o diagnóstico da covid-19</h2>
+
+								<p>O diagnóstico da covid-19 é realizado através da presença de sinais e sintomas de Síndrome Gripal (tosse, febre – pode ou não estar presente no momento da consulta, dor de garganta, coriza e/ou dificuldade respiratória) ou da
+									presença de Síndrome Respiratória Aguda Grave - SRAG (dificuldade para respirar, pressão no tórax, saturação de oxigênio menor do que 95% em ar ambiente e/ou coloração azulada dos lábios ou rosto). Em crianças, além dos
+									sintomas/sinais anteriores, podem estar presentes desidratação, redução do apetite e batimentos da asa do nariz.
+								</p>
+
+								<p>
+									Na presença de suspeita clínica, o profissional de saúde poderá solicitar exames laboratoriais.</p>
+							</div>
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 order-1 sideImage" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="svg/comoEFeitoOdiagnostico.svg" alt="Ilustração de um médico de braços cruzados">
+				</div>
+			</div>
+			<div class="diagnostico-container">
+				<ul class="diagnostico">
+					<li>
+					<strong>Biologia molecular (RT-PCR): detecta o RNA do vírus.</strong>
+					<div class="diagnostico-description">
+						<img src='svg/icon-ok.svg' />
+						<div>
+						<p>Possui cobertura pelos planos Care Plus</p>
+						<small>*Para planos regulamentados ou adaptados à lei 9656/98</small>
+						</div>
+					<div>
+					</li>
+					<li>
+					<strong>Imunológico: sorologia clássica*</strong>
+					<div class="diagnostico-description">
+						<img src='svg/icon-ok.svg' />
+						<div>
+						<p>Possui cobertura pelos planos Care Plus</p>
+						<small>*Para planos regulamentados ou adaptados à lei 9656/98</small>
+						</div>
+					<div>
+					</li>
+					<li>
+					<strong>Imunológico: teste rápido</strong>
+					<div class="diagnostico-description">
+						<img src='svg/icon-error.svg' />
+						<div>
+						<p>Não possui cobertura pelos planos Care Plus</p>
+						</div>
+					<div>
+					</li>
+				</ul>
+				<p>
+					O diagnóstico da covid-19 também pode ser realizado a partir do histórico de contato domiciliar ou próximo nos últimos 14 dias antes do aparecimento dos sintomas com caso confirmado laboratorialmente e que não foi possível realizar a
+					investigação laboratorial específica.
+				</p>
+				<p>
+					<small> * Imunológico: teste rápido ou sorologia clássica para a detecção dos anticorpos a partir do décimo dia do início dos sintomas. Resultado positivo para anticorpos IgM e/ou IgG. Vale ressaltar que a presença de anticorpos, até o momento, não garante imunidade para o novo coronavírus. A detecção de anticorpos para o SARS-CoV-2 informa que o indivíduo foi infectado pelo vírus. </small>
+				</p>
+			</div>
+		</div>
+	</section>
+	<section id="quaisSaoOsTratamentos" class="defaultSection">
+
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-md-6 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item">
+							<h4>PREVENÇÃO E TRATAMENTO</h4>
+							<h2>Quais são os tratamentos para combater a covid-19?</h2>
+
+							<p>Até o momento, não existe um tratamento específico para prevenir ou tratar a covid-19. As pessoas infectadas devem receber medicações para aliviar os sintomas. Os casos mais graves devem ser tratados em nível hospitalar. Vários
+								estudos vêm sendo conduzidos para buscar alternativas terapêuticas para o novo coronavírus. Algumas medicações estão sendo estudadas, como antivirais e antimaláricos.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 order-1 order-md-2 sideImage" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+
+					<img src="svg/quaisSaoOsTratamentos.svg" alt="Ilustração de alguns frascos de remédios">
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section id="dicas" class="defaultSection blueVersion">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="titleWithThatThing">Dicas para o período de quarentena</h2>
+				</div>
+
+			</div>
+			<div class="row">
+
+				<div class="col-md-8 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item lg">
+							<div class="normalize">
+								<h4>DICAS</h4>
+								<h2>Home office: como ter produtividade no trabalho remoto</h2>
+
+								<p>Devido à quarentena provocada pelo coronavírus, muitos profissionais estão trabalhando em casa. Para garantir um bom desempenho longe do escritório, aqui vão algumas dicas:
+								</p>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>Determine o seu local de trabalho:</strong> procure um espaço iluminado e silencioso
+										</li>
+										<li>
+											<strong>Evite distrações:</strong> tente não lidar com questões pessoais durante o expediente
+										</li>
+										<li>
+											<strong>Faça pausas:</strong> além de ir ao banheiro e se hidratar, tenha intervalos para relaxar
+										</li>
+										<li>
+											<strong>Desconecte-se ao final do dia:</strong> aproveite o seu momento de lazer e descanso</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>Estabeleça uma jornada razoável:</strong> planeje seu horário e cumpra as atividades do dia
+										</li>
+										<li>
+											<strong>Comunique-se com sua equipe:</strong> use as ferramentas disponíveis para manter contato
+										</li>
+										<li>
+											<strong>Organize-se:</strong> mantenha a sua estação de trabalho sempre limpa e arrumada
+										</li>
+									</ul>
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 order-1 sideImage order-md-2" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="svg/dicas_image.svg" alt="Ilustração de uma mulher trabalhando em seu notebook">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="organizarRotina" class="defaultSection">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-8 order-2 order-md-2">
+					<div class="Aligner">
+						<div class="Aligner-item lg">
+							<div class="normalize">
+								<h4>DICAS</h4>
+								<h2>Como organizar a rotina familiar e entreter as crianças?</h2>
+
+								<p>Com toda a família em casa, pode ser um enorme desafio conciliar o trabalho e a atenção com as crianças. Por isso, é importante estabelecer uma rotina:
+								</p>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>Pela manhã</strong><br>
+											<ul>
+												<li>• Acorde sua família cedo</li>
+												<li>• Tomem café da manhã juntos</li>
+												<li>• Defina atividades individuais</li>
+											</ul>
+
+
+
+										</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>À tarde</strong> <br>
+											<ul>
+												<li>• Retome os afazeres</li>
+												<li>• Faça um lanche da tarde</li>
+												<li>• Prepare atividades educativas e divertidas como pintura, filmes, fantasias, caça ao tesouro, mímica, jogo de tabuleiro, recorte e cole e oficina de brinquedos caseiros</li>
+											</ul>
+										</li>
+									</ul>
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>Na hora do almoço</strong><br>
+											<ul>
+												<li>• Junte a família para a refeição</li>
+												<li>• Converse sobre a nova rotina</li>
+												<li>• Ensine seus filhos sobre prevenção</li>
+											</ul>
+
+
+
+										</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>Durante a noite</strong> <br>
+											<ul>
+												<li>• Promova brincadeiras no banho</li>
+												<li>• Reúna todos para o jantar</li>
+												<li>• Curta a família antes de dormir</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 order-1 sideImage order-md-1" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="svg/organizarRotina_image.svg" alt="Ilustração de um homem no parque com o seu filho">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="mantenhaOequilibrio" class="defaultSection blueVersion">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-8 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item lg">
+							<div class="normalize">
+								<h4>DICAS</h4>
+								<h2>Mantenha o equilíbrio emocional com algumas recomendações</h2>
+
+								<p>Neste momento de isolamento social, é importante cuidar da sua saúde mental. Algumas práticas podem ajudar:
+								</p>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>Siga uma rotina</strong><br> Liste suas tarefas e programa-se para realizá-las ao longo do dia
+										</li>
+										<li>
+											<strong>Tenha momentos de lazer</strong> Veja filmes e séries, leia livros ou converse com os amigos
+										</li>
+										<li>
+											<strong>Seja organizado</strong> Aproveite para arrumar a casa e ajeitar o que estava postergando há tempos
+										</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="itens">
+										<li>
+											<strong>Cuide do seu corpo</strong> Pratique exercícios, relaxe, faça meditação e procure comer bem
+										</li>
+										<li>
+											<strong>Tome cuidado com os excessos</strong> use as Filtre a quantidade de informações diárias para evitar o estresse
+										</li>
+									</ul>
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 order-1 sideImage order-md-2" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="svg/mantenhaOequilibrio.svg" alt="Ilustração de uma mulher meditando">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="conteComAcareplus" class="defaultSection">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="titleWithThatThing">Conte com a Care Plus</h2>
+				</div>
+				<div class="col-md-6 order-2 order-md-1">
+					<div class="Aligner">
+						<div class="Aligner-item">
+
+							<p>A recomendação do Ministério da Saúde quanto ao novo coronavírus é de que a procura por hospitais seja feita somente em casos mais graves (febre persistente – por mais de 48hs e/ou falta de ar).
+							</p>
+							<p>
+								Se você estiver na dúvida sobre como agir, entre em contato com os nossos canais de atendimento. </p>
+
+							<p>
+
+								E, se precisar de apoio psicológico para lidar com a situação, lembre-se de acionar o Mental Health.</p>
+
+							<div class="row">
+								<div class="col-md-12">
+									<ul class="boxWithLine phone">
+										<li>
+											<div class="title">
+												Orientação Médica 24h
+											</div>
+											<div class="description">
+												Clínicos e pediatras estão disponíveis para o esclarecimento de dúvidas.
+											</div>
+											<div class="description">
+												0800 13 2992
+											</div>
+										</li>
+										<li>
+											<div class="title">
+												Mental Health
+											</div>
+											<div class="description">
+												(11) 4197- 4555 ou fale com seu consultor de relacionamento.
+											</div>
+										</li>
+									</ul>
+								</div>
+
+
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<ul class="boxWithLine computer">
+										<li>
+											<div class="title">
+												Telemedicina do Hospital Israelita Albert Einstein
+											</div>
+											<div class="description">
+												Verificar com o consultor de relacionamento ou na Central se existe cobertura.
+												Para acessar: <br> <a title="Atendimento Virtual Einstein Conecta" href="https://www.conecta.einstein.br" target="_blank">www.conecta.einstein.br</a>
+											</div>
+										</li>
+										<li>
+											<div class="title">
+												Hospital Moriah
+											</div>
+											<div class="description">
+												Atendimento Presencial específico para pacientes com covid-19 (no estacionamento do Hospital)
+											</div>
+										</li>
+										<li>
+											<div class="title">
+												Teleconsulta da Amparo Saúde
+											</div>
+											<div class="description">
+												Disponível para todos os planos. Atendimento virtual com médicos para esclarecimento de dúvidas sobre o coronavírus e outras patologias. <br>
+												(11) 4118-2277.
+
+											</div>
+										</li>
+										<li>
+											<div class="title">
+												DaVita
+											</div>
+											<div class="description">
+
+
+												Disponível para todos os planos. Atendimento médico presencial. As unidades disponíveis são Osasco, Indianópolis, Santana, São Judas, Anália Franco, Santa Cruz, Santa Cecilia, Tatuapé, Taboão da Serra.<br> Acesse <a
+														title="Atendimento Presencial" href="https://www.davita.com.br" target="_blank">www.davita.com.br</a> ou entre em contato através do telefone (11) 3003-8482.
+											</div>
+										</li>
+										<li>
+											<div class="ps">
+												*consulte a cobertura do seu Plano Care Plus
+											</div>
+
+										</li>
+									</ul>
+								</div>
+
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 order-1 sideImage order-md-2" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="svg/conteComAcareplus.svg" alt="Ilustação de um  médico de braços cruzados">
+
+					<div class="row">
+
+						<ul class="simpleList">
+							<li class="title">Links úteis</li>
+							<li>
+								<a href="https://www.iess.org.br/" target="_blank" itle="IESS - Instituto de Estudos de Saúde Suplementar">
+									IESS - Instituto de Estudos de Saúde Suplementar
+								</a>
+							</li>
+							<li>
+								<a href="https://apsredes.org" target="_blank" title="ASPREDES - Portal da Inovação na Gestão do SUS ">
+									ASPREDES - Portal da Inovação na Gestão do SUS 
+								</a>
+							</li>
+							<li>
+								<a href="http://www.abramge.com.br" target="_blank" title="ABRAMGE - Associação Brasileira de Medicina de Grupo ">
+									ABRAMGE - Associação Brasileira de Medicina de Grupo 
+								</a>
+							</li>
+							<li>
+								<a href="http://www.cmb.org.br/cmb" target="_blank" title="CMB – Confederação das Santas Casas e Hospitais Filantrópicos ">
+									CMB – Confederação das Santas Casas e Hospitais Filantrópicos 
+								</a>
+							</li>
+							<li>
+								<a href="http://www.ans.gov.br" target="_blank" title="ANS - Agência Nacional de Saúde Suplementar">
+									ANS - Agência Nacional de Saúde Suplementar
+								</a>
+							</li>
+							<li>
+								<a href="http://plataforma.saude.gov.br/novocoronavirus/#2019-nCov-brazil" target="_blank" title="Plataforma Integrada de Vigilância em Saúde - Ministério da Saúde ">
+									Plataforma Integrada de Vigilância em Saúde - Ministério da Saúde 
+								</a>
+							</li>
+							<li>
+								<a href="https://portal.fiocruz.br/coronavirus" target="_blank" title="FIOCRUZ - Fundação Oswaldo Cruz ">
+									FIOCRUZ - Fundação Oswaldo Cruz 
+								</a>
+							</li>
+							<li>
+								<a href="https://www.saopaulo.sp.gov.br/coronavirus" target="_blank" title="Guia de Prevenção Sobre o Coronavírus - Governo do Estado de São Paulo ">
+									Guia de Prevenção Sobre o Coronavírus - Governo do Estado de São Paulo 
+								</a>
+							</li>
+							<li>
+								<a href="https://unidas.org.br" target="_blank" title="UNIDAS – União Nacional das Instituições de Autogestão em Saúde ">
+									UNIDAS – União Nacional das Instituições de Autogestão em Saúde 
+								</a>
+							</li>
+							<li>
+								<a href="http://fenasaude.org.br" target="_blank" title="FenaSaúde - Federação Nacional de Saúde Suplementar">FenaSaúde - Federação Nacional de Saúde Suplementar</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="documentoUteis" class="defaultSection blueVersion">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="titleWithThatThing">Documentos úteis</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="row">
+
+						<div class="col-lg-4 col-md-6">
+
+							<div class="docBox">
+								<a targe="_blank" href="files/BE6-Boletim-Especial-do-COE.pdf">
+									<div class="title">
+										Boletim Especial
+									</div>
+
+									<div class="downloadBox">
+
+										<svg width="154" height="20" viewBox="0 0 154 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0)">
+												<path
+														d="M1.504 4.18867H6.4C7.59467 4.18867 8.656 4.42334 9.584 4.89267C10.512 5.35134 11.232 6.00734 11.744 6.86067C12.256 7.70334 12.512 8.67934 12.512 9.78867C12.512 10.898 12.256 11.8793 11.744 12.7327C11.232 13.5753 10.512 14.2313 9.584 14.7007C8.656 15.1593 7.59467 15.3887 6.4 15.3887H1.504V4.18867ZM6.304 13.6287C7.12533 13.6287 7.84533 13.474 8.464 13.1647C9.09333 12.8447 9.57333 12.3967 9.904 11.8207C10.2453 11.234 10.416 10.5567 10.416 9.78867C10.416 9.02067 10.2453 8.34867 9.904 7.77267C9.57333 7.186 9.09333 6.73801 8.464 6.42867C7.84533 6.10867 7.12533 5.94867 6.304 5.94867H3.584V13.6287H6.304ZM21.9548 15.5487C20.8134 15.5487 19.7841 15.3033 18.8668 14.8127C17.9494 14.3113 17.2294 13.6233 16.7068 12.7487C16.1841 11.8633 15.9228 10.8767 15.9228 9.78867C15.9228 8.70067 16.1841 7.71934 16.7068 6.84467C17.2294 5.95934 17.9494 5.27134 18.8668 4.78067C19.7841 4.27934 20.8134 4.02867 21.9548 4.02867C23.0961 4.02867 24.1254 4.27934 25.0428 4.78067C25.9601 5.27134 26.6801 5.954 27.2028 6.82867C27.7254 7.70334 27.9868 8.69 27.9868 9.78867C27.9868 10.8873 27.7254 11.874 27.2028 12.7487C26.6801 13.6233 25.9601 14.3113 25.0428 14.8127C24.1254 15.3033 23.0961 15.5487 21.9548 15.5487ZM21.9548 13.7247C22.7014 13.7247 23.3734 13.5593 23.9708 13.2287C24.5681 12.8873 25.0374 12.418 25.3788 11.8207C25.7201 11.2127 25.8908 10.5353 25.8908 9.78867C25.8908 9.042 25.7201 8.37 25.3788 7.77267C25.0374 7.16467 24.5681 6.69534 23.9708 6.36467C23.3734 6.02334 22.7014 5.85267 21.9548 5.85267C21.2081 5.85267 20.5361 6.02334 19.9388 6.36467C19.3414 6.69534 18.8721 7.16467 18.5308 7.77267C18.1894 8.37 18.0188 9.042 18.0188 9.78867C18.0188 10.5353 18.1894 11.2127 18.5308 11.8207C18.8721 12.418 19.3414 12.8873 19.9388 13.2287C20.5361 13.5593 21.2081 13.7247 21.9548 13.7247ZM48.2001 4.18867L44.4881 15.3887H42.2801L39.5121 7.10067L36.6961 15.3887H34.4721L30.7601 4.18867H32.9201L35.7041 12.7007L38.6001 4.18867H40.5201L43.3521 12.7487L46.2161 4.18867H48.2001ZM61.8466 4.18867V15.3887H60.1346L53.9586 7.80467V15.3887H51.8946V4.18867H53.6066L59.7826 11.7727V4.18867H61.8466ZM66.8478 4.18867H68.9278V13.6287H74.7838V15.3887H66.8478V4.18867ZM83.4548 15.5487C82.3134 15.5487 81.2841 15.3033 80.3668 14.8127C79.4494 14.3113 78.7294 13.6233 78.2068 12.7487C77.6841 11.8633 77.4228 10.8767 77.4228 9.78867C77.4228 8.70067 77.6841 7.71934 78.2068 6.84467C78.7294 5.95934 79.4494 5.27134 80.3668 4.78067C81.2841 4.27934 82.3134 4.02867 83.4548 4.02867C84.5961 4.02867 85.6254 4.27934 86.5428 4.78067C87.4601 5.27134 88.1801 5.954 88.7028 6.82867C89.2254 7.70334 89.4868 8.69 89.4868 9.78867C89.4868 10.8873 89.2254 11.874 88.7028 12.7487C88.1801 13.6233 87.4601 14.3113 86.5428 14.8127C85.6254 15.3033 84.5961 15.5487 83.4548 15.5487ZM83.4548 13.7247C84.2014 13.7247 84.8734 13.5593 85.4708 13.2287C86.0681 12.8873 86.5374 12.418 86.8788 11.8207C87.2201 11.2127 87.3908 10.5353 87.3908 9.78867C87.3908 9.042 87.2201 8.37 86.8788 7.77267C86.5374 7.16467 86.0681 6.69534 85.4708 6.36467C84.8734 6.02334 84.2014 5.85267 83.4548 5.85267C82.7081 5.85267 82.0361 6.02334 81.4388 6.36467C80.8414 6.69534 80.3721 7.16467 80.0308 7.77267C79.6894 8.37 79.5188 9.042 79.5188 9.78867C79.5188 10.5353 79.6894 11.2127 80.0308 11.8207C80.3721 12.418 80.8414 12.8873 81.4388 13.2287C82.0361 13.5593 82.7081 13.7247 83.4548 13.7247ZM100.799 12.7967H95.1993L94.0953 15.3887H91.9512L96.9913 4.18867H99.0393L104.095 15.3887H101.919L100.799 12.7967ZM100.111 11.1647L97.9993 6.26867L95.9033 11.1647H100.111ZM107.52 4.18867H112.416C113.61 4.18867 114.672 4.42334 115.6 4.89267C116.528 5.35134 117.248 6.00734 117.76 6.86067C118.272 7.70334 118.528 8.67934 118.528 9.78867C118.528 10.898 118.272 11.8793 117.76 12.7327C117.248 13.5753 116.528 14.2313 115.6 14.7007C114.672 15.1593 113.61 15.3887 112.416 15.3887H107.52V4.18867ZM112.32 13.6287C113.141 13.6287 113.861 13.474 114.48 13.1647C115.109 12.8447 115.589 12.3967 115.92 11.8207C116.261 11.234 116.432 10.5567 116.432 9.78867C116.432 9.02067 116.261 8.34867 115.92 7.77267C115.589 7.186 115.109 6.73801 114.48 6.42867C113.861 6.10867 113.141 5.94867 112.32 5.94867H109.6V13.6287H112.32Z"
+														fill="#0079C8" />
+												<path
+														d="M153.538 18.4485H136.462C136.207 18.4485 136 18.6591 136 18.9186C136 19.1781 136.207 19.3887 136.462 19.3887H153.538C153.793 19.3887 154 19.1781 154 18.9186C154 18.6591 153.793 18.4485 153.538 18.4485ZM144.674 15.0982C144.764 15.19 144.882 15.2358 145 15.2358C145.118 15.2358 145.236 15.19 145.326 15.0982L151.962 8.33937C152.142 8.15571 152.142 7.8583 151.962 7.67464C151.782 7.49099 151.49 7.49099 151.31 7.67464L145.462 13.6308V0.858775C145.462 0.599278 145.255 0.388672 145 0.388672C144.745 0.388672 144.538 0.599278 144.538 0.858775V13.6312L138.69 7.67464C138.51 7.49099 138.218 7.49099 138.038 7.67464C137.858 7.8583 137.858 8.15571 138.038 8.33937L144.674 15.0982Z"
+														fill="#0079C8" />
+											</g>
+											<defs>
+												<clipPath id="clip0">
+													<rect y="0.118164" width="154" height="19.542" fill="white" />
+												</clipPath>
+											</defs>
+										</svg>
+
+
+
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="col-lg-4 col-md-6">
+
+							<div class="docBox">
+								<a targe="_blank" href="files/guia-de-vigilancia-2020.pdf">
+									<div class="title">
+										Guia da Vigilância
+									</div>
+
+									<div class="downloadBox">
+										<svg width="154" height="20" viewBox="0 0 154 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0)">
+												<path
+														d="M1.504 4.18867H6.4C7.59467 4.18867 8.656 4.42334 9.584 4.89267C10.512 5.35134 11.232 6.00734 11.744 6.86067C12.256 7.70334 12.512 8.67934 12.512 9.78867C12.512 10.898 12.256 11.8793 11.744 12.7327C11.232 13.5753 10.512 14.2313 9.584 14.7007C8.656 15.1593 7.59467 15.3887 6.4 15.3887H1.504V4.18867ZM6.304 13.6287C7.12533 13.6287 7.84533 13.474 8.464 13.1647C9.09333 12.8447 9.57333 12.3967 9.904 11.8207C10.2453 11.234 10.416 10.5567 10.416 9.78867C10.416 9.02067 10.2453 8.34867 9.904 7.77267C9.57333 7.186 9.09333 6.73801 8.464 6.42867C7.84533 6.10867 7.12533 5.94867 6.304 5.94867H3.584V13.6287H6.304ZM21.9548 15.5487C20.8134 15.5487 19.7841 15.3033 18.8668 14.8127C17.9494 14.3113 17.2294 13.6233 16.7068 12.7487C16.1841 11.8633 15.9228 10.8767 15.9228 9.78867C15.9228 8.70067 16.1841 7.71934 16.7068 6.84467C17.2294 5.95934 17.9494 5.27134 18.8668 4.78067C19.7841 4.27934 20.8134 4.02867 21.9548 4.02867C23.0961 4.02867 24.1254 4.27934 25.0428 4.78067C25.9601 5.27134 26.6801 5.954 27.2028 6.82867C27.7254 7.70334 27.9868 8.69 27.9868 9.78867C27.9868 10.8873 27.7254 11.874 27.2028 12.7487C26.6801 13.6233 25.9601 14.3113 25.0428 14.8127C24.1254 15.3033 23.0961 15.5487 21.9548 15.5487ZM21.9548 13.7247C22.7014 13.7247 23.3734 13.5593 23.9708 13.2287C24.5681 12.8873 25.0374 12.418 25.3788 11.8207C25.7201 11.2127 25.8908 10.5353 25.8908 9.78867C25.8908 9.042 25.7201 8.37 25.3788 7.77267C25.0374 7.16467 24.5681 6.69534 23.9708 6.36467C23.3734 6.02334 22.7014 5.85267 21.9548 5.85267C21.2081 5.85267 20.5361 6.02334 19.9388 6.36467C19.3414 6.69534 18.8721 7.16467 18.5308 7.77267C18.1894 8.37 18.0188 9.042 18.0188 9.78867C18.0188 10.5353 18.1894 11.2127 18.5308 11.8207C18.8721 12.418 19.3414 12.8873 19.9388 13.2287C20.5361 13.5593 21.2081 13.7247 21.9548 13.7247ZM48.2001 4.18867L44.4881 15.3887H42.2801L39.5121 7.10067L36.6961 15.3887H34.4721L30.7601 4.18867H32.9201L35.7041 12.7007L38.6001 4.18867H40.5201L43.3521 12.7487L46.2161 4.18867H48.2001ZM61.8466 4.18867V15.3887H60.1346L53.9586 7.80467V15.3887H51.8946V4.18867H53.6066L59.7826 11.7727V4.18867H61.8466ZM66.8478 4.18867H68.9278V13.6287H74.7838V15.3887H66.8478V4.18867ZM83.4548 15.5487C82.3134 15.5487 81.2841 15.3033 80.3668 14.8127C79.4494 14.3113 78.7294 13.6233 78.2068 12.7487C77.6841 11.8633 77.4228 10.8767 77.4228 9.78867C77.4228 8.70067 77.6841 7.71934 78.2068 6.84467C78.7294 5.95934 79.4494 5.27134 80.3668 4.78067C81.2841 4.27934 82.3134 4.02867 83.4548 4.02867C84.5961 4.02867 85.6254 4.27934 86.5428 4.78067C87.4601 5.27134 88.1801 5.954 88.7028 6.82867C89.2254 7.70334 89.4868 8.69 89.4868 9.78867C89.4868 10.8873 89.2254 11.874 88.7028 12.7487C88.1801 13.6233 87.4601 14.3113 86.5428 14.8127C85.6254 15.3033 84.5961 15.5487 83.4548 15.5487ZM83.4548 13.7247C84.2014 13.7247 84.8734 13.5593 85.4708 13.2287C86.0681 12.8873 86.5374 12.418 86.8788 11.8207C87.2201 11.2127 87.3908 10.5353 87.3908 9.78867C87.3908 9.042 87.2201 8.37 86.8788 7.77267C86.5374 7.16467 86.0681 6.69534 85.4708 6.36467C84.8734 6.02334 84.2014 5.85267 83.4548 5.85267C82.7081 5.85267 82.0361 6.02334 81.4388 6.36467C80.8414 6.69534 80.3721 7.16467 80.0308 7.77267C79.6894 8.37 79.5188 9.042 79.5188 9.78867C79.5188 10.5353 79.6894 11.2127 80.0308 11.8207C80.3721 12.418 80.8414 12.8873 81.4388 13.2287C82.0361 13.5593 82.7081 13.7247 83.4548 13.7247ZM100.799 12.7967H95.1993L94.0953 15.3887H91.9512L96.9913 4.18867H99.0393L104.095 15.3887H101.919L100.799 12.7967ZM100.111 11.1647L97.9993 6.26867L95.9033 11.1647H100.111ZM107.52 4.18867H112.416C113.61 4.18867 114.672 4.42334 115.6 4.89267C116.528 5.35134 117.248 6.00734 117.76 6.86067C118.272 7.70334 118.528 8.67934 118.528 9.78867C118.528 10.898 118.272 11.8793 117.76 12.7327C117.248 13.5753 116.528 14.2313 115.6 14.7007C114.672 15.1593 113.61 15.3887 112.416 15.3887H107.52V4.18867ZM112.32 13.6287C113.141 13.6287 113.861 13.474 114.48 13.1647C115.109 12.8447 115.589 12.3967 115.92 11.8207C116.261 11.234 116.432 10.5567 116.432 9.78867C116.432 9.02067 116.261 8.34867 115.92 7.77267C115.589 7.186 115.109 6.73801 114.48 6.42867C113.861 6.10867 113.141 5.94867 112.32 5.94867H109.6V13.6287H112.32Z"
+														fill="#0079C8" />
+												<path
+														d="M153.538 18.4485H136.462C136.207 18.4485 136 18.6591 136 18.9186C136 19.1781 136.207 19.3887 136.462 19.3887H153.538C153.793 19.3887 154 19.1781 154 18.9186C154 18.6591 153.793 18.4485 153.538 18.4485ZM144.674 15.0982C144.764 15.19 144.882 15.2358 145 15.2358C145.118 15.2358 145.236 15.19 145.326 15.0982L151.962 8.33937C152.142 8.15571 152.142 7.8583 151.962 7.67464C151.782 7.49099 151.49 7.49099 151.31 7.67464L145.462 13.6308V0.858775C145.462 0.599278 145.255 0.388672 145 0.388672C144.745 0.388672 144.538 0.599278 144.538 0.858775V13.6312L138.69 7.67464C138.51 7.49099 138.218 7.49099 138.038 7.67464C137.858 7.8583 137.858 8.15571 138.038 8.33937L144.674 15.0982Z"
+														fill="#0079C8" />
+											</g>
+											<defs>
+											</defs>
+										</svg>
+
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="col-lg-4 col-md-6">
+
+							<div class="docBox">
+								<a href="files/2020-04-06---BE7---Boletim-Especial-do-COE---Atualizacao-da-Avaliacao-de-Risco.pdf">
+									<div class="title">
+										Boletim Epidemiológico
+									</div>
+
+									<div class="downloadBox">
+										<svg width="154" height="20" viewBox="0 0 154 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0)">
+												<path
+														d="M1.504 4.18867H6.4C7.59467 4.18867 8.656 4.42334 9.584 4.89267C10.512 5.35134 11.232 6.00734 11.744 6.86067C12.256 7.70334 12.512 8.67934 12.512 9.78867C12.512 10.898 12.256 11.8793 11.744 12.7327C11.232 13.5753 10.512 14.2313 9.584 14.7007C8.656 15.1593 7.59467 15.3887 6.4 15.3887H1.504V4.18867ZM6.304 13.6287C7.12533 13.6287 7.84533 13.474 8.464 13.1647C9.09333 12.8447 9.57333 12.3967 9.904 11.8207C10.2453 11.234 10.416 10.5567 10.416 9.78867C10.416 9.02067 10.2453 8.34867 9.904 7.77267C9.57333 7.186 9.09333 6.73801 8.464 6.42867C7.84533 6.10867 7.12533 5.94867 6.304 5.94867H3.584V13.6287H6.304ZM21.9548 15.5487C20.8134 15.5487 19.7841 15.3033 18.8668 14.8127C17.9494 14.3113 17.2294 13.6233 16.7068 12.7487C16.1841 11.8633 15.9228 10.8767 15.9228 9.78867C15.9228 8.70067 16.1841 7.71934 16.7068 6.84467C17.2294 5.95934 17.9494 5.27134 18.8668 4.78067C19.7841 4.27934 20.8134 4.02867 21.9548 4.02867C23.0961 4.02867 24.1254 4.27934 25.0428 4.78067C25.9601 5.27134 26.6801 5.954 27.2028 6.82867C27.7254 7.70334 27.9868 8.69 27.9868 9.78867C27.9868 10.8873 27.7254 11.874 27.2028 12.7487C26.6801 13.6233 25.9601 14.3113 25.0428 14.8127C24.1254 15.3033 23.0961 15.5487 21.9548 15.5487ZM21.9548 13.7247C22.7014 13.7247 23.3734 13.5593 23.9708 13.2287C24.5681 12.8873 25.0374 12.418 25.3788 11.8207C25.7201 11.2127 25.8908 10.5353 25.8908 9.78867C25.8908 9.042 25.7201 8.37 25.3788 7.77267C25.0374 7.16467 24.5681 6.69534 23.9708 6.36467C23.3734 6.02334 22.7014 5.85267 21.9548 5.85267C21.2081 5.85267 20.5361 6.02334 19.9388 6.36467C19.3414 6.69534 18.8721 7.16467 18.5308 7.77267C18.1894 8.37 18.0188 9.042 18.0188 9.78867C18.0188 10.5353 18.1894 11.2127 18.5308 11.8207C18.8721 12.418 19.3414 12.8873 19.9388 13.2287C20.5361 13.5593 21.2081 13.7247 21.9548 13.7247ZM48.2001 4.18867L44.4881 15.3887H42.2801L39.5121 7.10067L36.6961 15.3887H34.4721L30.7601 4.18867H32.9201L35.7041 12.7007L38.6001 4.18867H40.5201L43.3521 12.7487L46.2161 4.18867H48.2001ZM61.8466 4.18867V15.3887H60.1346L53.9586 7.80467V15.3887H51.8946V4.18867H53.6066L59.7826 11.7727V4.18867H61.8466ZM66.8478 4.18867H68.9278V13.6287H74.7838V15.3887H66.8478V4.18867ZM83.4548 15.5487C82.3134 15.5487 81.2841 15.3033 80.3668 14.8127C79.4494 14.3113 78.7294 13.6233 78.2068 12.7487C77.6841 11.8633 77.4228 10.8767 77.4228 9.78867C77.4228 8.70067 77.6841 7.71934 78.2068 6.84467C78.7294 5.95934 79.4494 5.27134 80.3668 4.78067C81.2841 4.27934 82.3134 4.02867 83.4548 4.02867C84.5961 4.02867 85.6254 4.27934 86.5428 4.78067C87.4601 5.27134 88.1801 5.954 88.7028 6.82867C89.2254 7.70334 89.4868 8.69 89.4868 9.78867C89.4868 10.8873 89.2254 11.874 88.7028 12.7487C88.1801 13.6233 87.4601 14.3113 86.5428 14.8127C85.6254 15.3033 84.5961 15.5487 83.4548 15.5487ZM83.4548 13.7247C84.2014 13.7247 84.8734 13.5593 85.4708 13.2287C86.0681 12.8873 86.5374 12.418 86.8788 11.8207C87.2201 11.2127 87.3908 10.5353 87.3908 9.78867C87.3908 9.042 87.2201 8.37 86.8788 7.77267C86.5374 7.16467 86.0681 6.69534 85.4708 6.36467C84.8734 6.02334 84.2014 5.85267 83.4548 5.85267C82.7081 5.85267 82.0361 6.02334 81.4388 6.36467C80.8414 6.69534 80.3721 7.16467 80.0308 7.77267C79.6894 8.37 79.5188 9.042 79.5188 9.78867C79.5188 10.5353 79.6894 11.2127 80.0308 11.8207C80.3721 12.418 80.8414 12.8873 81.4388 13.2287C82.0361 13.5593 82.7081 13.7247 83.4548 13.7247ZM100.799 12.7967H95.1993L94.0953 15.3887H91.9512L96.9913 4.18867H99.0393L104.095 15.3887H101.919L100.799 12.7967ZM100.111 11.1647L97.9993 6.26867L95.9033 11.1647H100.111ZM107.52 4.18867H112.416C113.61 4.18867 114.672 4.42334 115.6 4.89267C116.528 5.35134 117.248 6.00734 117.76 6.86067C118.272 7.70334 118.528 8.67934 118.528 9.78867C118.528 10.898 118.272 11.8793 117.76 12.7327C117.248 13.5753 116.528 14.2313 115.6 14.7007C114.672 15.1593 113.61 15.3887 112.416 15.3887H107.52V4.18867ZM112.32 13.6287C113.141 13.6287 113.861 13.474 114.48 13.1647C115.109 12.8447 115.589 12.3967 115.92 11.8207C116.261 11.234 116.432 10.5567 116.432 9.78867C116.432 9.02067 116.261 8.34867 115.92 7.77267C115.589 7.186 115.109 6.73801 114.48 6.42867C113.861 6.10867 113.141 5.94867 112.32 5.94867H109.6V13.6287H112.32Z"
+														fill="#0079C8" />
+												<path
+														d="M153.538 18.4485H136.462C136.207 18.4485 136 18.6591 136 18.9186C136 19.1781 136.207 19.3887 136.462 19.3887H153.538C153.793 19.3887 154 19.1781 154 18.9186C154 18.6591 153.793 18.4485 153.538 18.4485ZM144.674 15.0982C144.764 15.19 144.882 15.2358 145 15.2358C145.118 15.2358 145.236 15.19 145.326 15.0982L151.962 8.33937C152.142 8.15571 152.142 7.8583 151.962 7.67464C151.782 7.49099 151.49 7.49099 151.31 7.67464L145.462 13.6308V0.858775C145.462 0.599278 145.255 0.388672 145 0.388672C144.745 0.388672 144.538 0.599278 144.538 0.858775V13.6312L138.69 7.67464C138.51 7.49099 138.218 7.49099 138.038 7.67464C137.858 7.8583 137.858 8.15571 138.038 8.33937L144.674 15.0982Z"
+														fill="#0079C8" />
+											</g>
+											<defs>
+											</defs>
+										</svg>
+
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="col-lg-4 col-md-6">
+
+							<div class="docBox">
+								<a href="files/ddt-covid-19.pdf">
+									<div class="title">
+										COVID-19
+									</div>
+
+									<div class="downloadBox">
+										<svg width="154" height="20" viewBox="0 0 154 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0)">
+												<path
+														d="M1.504 4.18867H6.4C7.59467 4.18867 8.656 4.42334 9.584 4.89267C10.512 5.35134 11.232 6.00734 11.744 6.86067C12.256 7.70334 12.512 8.67934 12.512 9.78867C12.512 10.898 12.256 11.8793 11.744 12.7327C11.232 13.5753 10.512 14.2313 9.584 14.7007C8.656 15.1593 7.59467 15.3887 6.4 15.3887H1.504V4.18867ZM6.304 13.6287C7.12533 13.6287 7.84533 13.474 8.464 13.1647C9.09333 12.8447 9.57333 12.3967 9.904 11.8207C10.2453 11.234 10.416 10.5567 10.416 9.78867C10.416 9.02067 10.2453 8.34867 9.904 7.77267C9.57333 7.186 9.09333 6.73801 8.464 6.42867C7.84533 6.10867 7.12533 5.94867 6.304 5.94867H3.584V13.6287H6.304ZM21.9548 15.5487C20.8134 15.5487 19.7841 15.3033 18.8668 14.8127C17.9494 14.3113 17.2294 13.6233 16.7068 12.7487C16.1841 11.8633 15.9228 10.8767 15.9228 9.78867C15.9228 8.70067 16.1841 7.71934 16.7068 6.84467C17.2294 5.95934 17.9494 5.27134 18.8668 4.78067C19.7841 4.27934 20.8134 4.02867 21.9548 4.02867C23.0961 4.02867 24.1254 4.27934 25.0428 4.78067C25.9601 5.27134 26.6801 5.954 27.2028 6.82867C27.7254 7.70334 27.9868 8.69 27.9868 9.78867C27.9868 10.8873 27.7254 11.874 27.2028 12.7487C26.6801 13.6233 25.9601 14.3113 25.0428 14.8127C24.1254 15.3033 23.0961 15.5487 21.9548 15.5487ZM21.9548 13.7247C22.7014 13.7247 23.3734 13.5593 23.9708 13.2287C24.5681 12.8873 25.0374 12.418 25.3788 11.8207C25.7201 11.2127 25.8908 10.5353 25.8908 9.78867C25.8908 9.042 25.7201 8.37 25.3788 7.77267C25.0374 7.16467 24.5681 6.69534 23.9708 6.36467C23.3734 6.02334 22.7014 5.85267 21.9548 5.85267C21.2081 5.85267 20.5361 6.02334 19.9388 6.36467C19.3414 6.69534 18.8721 7.16467 18.5308 7.77267C18.1894 8.37 18.0188 9.042 18.0188 9.78867C18.0188 10.5353 18.1894 11.2127 18.5308 11.8207C18.8721 12.418 19.3414 12.8873 19.9388 13.2287C20.5361 13.5593 21.2081 13.7247 21.9548 13.7247ZM48.2001 4.18867L44.4881 15.3887H42.2801L39.5121 7.10067L36.6961 15.3887H34.4721L30.7601 4.18867H32.9201L35.7041 12.7007L38.6001 4.18867H40.5201L43.3521 12.7487L46.2161 4.18867H48.2001ZM61.8466 4.18867V15.3887H60.1346L53.9586 7.80467V15.3887H51.8946V4.18867H53.6066L59.7826 11.7727V4.18867H61.8466ZM66.8478 4.18867H68.9278V13.6287H74.7838V15.3887H66.8478V4.18867ZM83.4548 15.5487C82.3134 15.5487 81.2841 15.3033 80.3668 14.8127C79.4494 14.3113 78.7294 13.6233 78.2068 12.7487C77.6841 11.8633 77.4228 10.8767 77.4228 9.78867C77.4228 8.70067 77.6841 7.71934 78.2068 6.84467C78.7294 5.95934 79.4494 5.27134 80.3668 4.78067C81.2841 4.27934 82.3134 4.02867 83.4548 4.02867C84.5961 4.02867 85.6254 4.27934 86.5428 4.78067C87.4601 5.27134 88.1801 5.954 88.7028 6.82867C89.2254 7.70334 89.4868 8.69 89.4868 9.78867C89.4868 10.8873 89.2254 11.874 88.7028 12.7487C88.1801 13.6233 87.4601 14.3113 86.5428 14.8127C85.6254 15.3033 84.5961 15.5487 83.4548 15.5487ZM83.4548 13.7247C84.2014 13.7247 84.8734 13.5593 85.4708 13.2287C86.0681 12.8873 86.5374 12.418 86.8788 11.8207C87.2201 11.2127 87.3908 10.5353 87.3908 9.78867C87.3908 9.042 87.2201 8.37 86.8788 7.77267C86.5374 7.16467 86.0681 6.69534 85.4708 6.36467C84.8734 6.02334 84.2014 5.85267 83.4548 5.85267C82.7081 5.85267 82.0361 6.02334 81.4388 6.36467C80.8414 6.69534 80.3721 7.16467 80.0308 7.77267C79.6894 8.37 79.5188 9.042 79.5188 9.78867C79.5188 10.5353 79.6894 11.2127 80.0308 11.8207C80.3721 12.418 80.8414 12.8873 81.4388 13.2287C82.0361 13.5593 82.7081 13.7247 83.4548 13.7247ZM100.799 12.7967H95.1993L94.0953 15.3887H91.9512L96.9913 4.18867H99.0393L104.095 15.3887H101.919L100.799 12.7967ZM100.111 11.1647L97.9993 6.26867L95.9033 11.1647H100.111ZM107.52 4.18867H112.416C113.61 4.18867 114.672 4.42334 115.6 4.89267C116.528 5.35134 117.248 6.00734 117.76 6.86067C118.272 7.70334 118.528 8.67934 118.528 9.78867C118.528 10.898 118.272 11.8793 117.76 12.7327C117.248 13.5753 116.528 14.2313 115.6 14.7007C114.672 15.1593 113.61 15.3887 112.416 15.3887H107.52V4.18867ZM112.32 13.6287C113.141 13.6287 113.861 13.474 114.48 13.1647C115.109 12.8447 115.589 12.3967 115.92 11.8207C116.261 11.234 116.432 10.5567 116.432 9.78867C116.432 9.02067 116.261 8.34867 115.92 7.77267C115.589 7.186 115.109 6.73801 114.48 6.42867C113.861 6.10867 113.141 5.94867 112.32 5.94867H109.6V13.6287H112.32Z"
+														fill="#0079C8" />
+												<path
+														d="M153.538 18.4485H136.462C136.207 18.4485 136 18.6591 136 18.9186C136 19.1781 136.207 19.3887 136.462 19.3887H153.538C153.793 19.3887 154 19.1781 154 18.9186C154 18.6591 153.793 18.4485 153.538 18.4485ZM144.674 15.0982C144.764 15.19 144.882 15.2358 145 15.2358C145.118 15.2358 145.236 15.19 145.326 15.0982L151.962 8.33937C152.142 8.15571 152.142 7.8583 151.962 7.67464C151.782 7.49099 151.49 7.49099 151.31 7.67464L145.462 13.6308V0.858775C145.462 0.599278 145.255 0.388672 145 0.388672C144.745 0.388672 144.538 0.599278 144.538 0.858775V13.6312L138.69 7.67464C138.51 7.49099 138.218 7.49099 138.038 7.67464C137.858 7.8583 137.858 8.15571 138.038 8.33937L144.674 15.0982Z"
+														fill="#0079C8" />
+											</g>
+											<defs>
+											</defs>
+										</svg>
+
+									</div>
+								</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+	<section id="instagram" class="defaultSection">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 order-1 sideImage" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-left">
+					<img src="img/instagram_image.jpg" class="iphoneInstagram" alt="Imagem de um celular iPhone x exibindo o instagram">
+
+				</div>
+				<div class="col-md-6 order-2">
+					<div class="Aligner">
+						<div class="Aligner-item lg">
+							<div class="normalize">
+								<h4>+CONTEÚDO</h4>
+								<h2>Vamos tornar esse momento delicado e inesperado mais leve, descontraído e inspirador</h2>
+
+								<p>É hora de inspirar e ter o melhor conteúdo, com dicas, vídeos, dados e informações para vencermos a covid-19. Vamos unir forças, compartilhar momentos, e, juntos, passar por essa pandemia sem pirar!
+								</p>
+
+								<a href="https://instagram.com/naopirainspiracp?igshid=1q48ih6tsyfmw" target="_blank">
+									<div class="btn btnGreen instagram">
+										<img src="svg/instagram.svg" alt="logo do instagram">
+										SIGA NOSSO INSTAGRAM
+									</div>
+								</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="fac" class="defaultSection">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="titleWithThatThing">Perguntas frequentes</h2>
+				</div>
+
+			</div>
+			<div class="row">
+
+				<div class="col-md-12">
+					<div class="accordion">
+						<div class="item">
+							<a href="#acc1" class="acc-heading">O que é o coronavírus?</a>
+
+							<section id="acc1" class="acc-content">
+								<div class="inner">
+									<h5> O coronavírus é uma família de vírus que pode causar infecções respiratórias de graus variados. Chamado pela Organização Mundial de Saúde (OMS) de SARS-CoV-2, o novo coronavírus é o agente causador da doença denominada
+										covid-19. </h5>
+
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc2" class="acc-heading">Qual é a gravidade da doença?</a>
+
+							<section id="acc2" class="acc-content">
+								<div class="inner">
+									<h5> O coronavírus provoca, frequentemente, infecções respiratórias leves e moderadas, parecidas com um resfriado comum. Mas, em alguns indivíduos, considerados parte do grupo de risco, os casos podem se agravar e levar ao óbito.
+									</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+						<div class="item">
+							<a href="#acc3" class="acc-heading">Onde e como o SARS-CoV-2 surgiu? </a>
+
+							<section id="acc3" class="acc-content">
+								<div class="inner">
+									<h5> O primeiro caso do novo coronavírus foi identificado em dezembro de 2019, na cidade de Wuhan, na província de Hubei, na China, quando surgiram diversos casos de pneumonia viral de origem desconhecida. A partir da análise
+										genética do vírus, constatou-se que se tratava de um novo betacoronavírus, inicialmente chamado de 2019-n-CoV pela Organização Mundial da Saúde (OMS). Ainda não há confirmação sobre a origem do vírus, mas a suspeita é de que ele
+										tenha sido transmitido por morcegos.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+
+						<div class="item">
+							<a href="#acc4" class="acc-heading"> Quando foi registrado o primeiro caso no Brasil?</a>
+
+							<section id="acc4" class="acc-content">
+								<div class="inner">
+									<h5>O Brasil registrou o primeiro caso de coronavírus no dia 26 de fevereiro de 2020, na cidade de São Paulo, em um homem, de 62 anos, que havia viajado para a Itália.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc5" class="acc-heading"> Como o coronavírus é transmitido?</a>
+
+							<section id="acc5" class="acc-content">
+								<div class="inner">
+									<h5>A transmissão do coronavírus ocorre pelo ar e através do contato com secreções expelidas pela boca e nariz quando uma pessoa infectada tosse, espirra ou fala. As gotículas podem ficar depositadas nos objetos ou nas superfícies e
+										outras pessoas podem adquirir o vírus ao tocar esses objetos ou superfícies contaminadas e depois tocar o nariz, a boca ou os olhos. Contato direto com toque ou aperto de mão também pode transmitir a Covid-19.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc6" class="acc-heading"> Quem faz parte do grupo de risco?</a>
+
+							<section id="acc6" class="acc-content">
+								<div class="inner">
+									<h5>Os indivíduos mais suscetíveis a apresentar complicações graves são os idosos, as pessoas com condições pré-existentes (cardiopatias, pressão alta, diabetes, doenças respiratórias, insuficiência renal crônica, imunossupressão,
+										obesidade, entre outras), gestação de alto risco.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc7" class="acc-heading"> Os animais domésticos podem contrair a doença?</a>
+
+							<section id="acc7" class="acc-content">
+								<div class="inner">
+									<h5>Por ora, não há nenhuma evidência de que os animais domésticos possam contrair o coronavírus e transmiti-lo para os seres humanos.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc8" class="acc-heading"> Quanto tempo o SARS-CoV-2 sobrevive nas superfícies?</a>
+
+							<section id="acc8" class="acc-content">
+								<div class="inner">
+									<h5>Não se sabe ao certo quanto tempo o vírus sobrevive nas superfícies. Alguns estudos sugerem que o vírus pode sobreviver nas superfícies por algumas horas ou até vários dias. Isso pode variar conforme as diferentes condições,
+										como o tipo de superfície, a temperatura e a umidade do ambiente. </h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc9" class="acc-heading"> Quais são os sintomas da covid-19?</a>
+
+							<section id="acc9" class="acc-content">
+								<div class="inner">
+									<h5>Os sintomas mais comuns da doença são febre, tosse e dificuldade para respirar. No entanto, em alguns casos, os pacientes podem apresentar dor de garganta, cansaço, dor no corpo, mal-estar geral, coriza, diarreia, dor de cabeça,
+										dor no peito, náuseas, vômitos, congestão conjuntival, redução ou perda do olfato.
+
+									</h5>
+
+									<h5>
+										Os sintomas geralmente são leves e começam gradualmente. Algumas pessoas não apresentam sintomas. </h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc10" class="acc-heading"> Qual é o período de incubação do vírus? </a>
+
+							<section id="acc10" class="acc-content">
+								<div class="inner">
+									<h5>O período de incubação é o tempo que leva para os primeiros sintomas aparecerem desde a infecção. No caso do coronavírus, varia entre 2 e 14 dias.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc11" class="acc-heading"> Como agir em caso de suspeita da doença?</a>
+
+							<section id="acc11" class="acc-content">
+								<div class="inner">
+									<h5>Na presença de sintomas brandos da doença, compatíveis com gripe, a orientação é permanecer em casa, em repouso e isolamento por 14 dias. Se as manifestações forem graves, como febre persistente (mais de 48hs) e dificuldade para
+										respirar, a recomendação é procurar atendimento médico.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc12" class="acc-heading">Qualquer hospital pode receber pacientes com coronavírus?</a>
+
+							<section id="acc12" class="acc-content">
+								<div class="inner">
+									<h5>De acordo com o Ministério da Saúde, apenas os casos graves devem ser encaminhados aos hospitais de referência, para que seja feito o isolamento, a investigação diagnóstica e o tratamento adequado. Já os casos leves podem ser
+										acompanhados ambulatorialmente (não precisam de avaliação em ambiente hospitalar e internação).</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc13" class="acc-heading"> Quais são os cuidados para prevenir a covid-19?</a>
+
+							<section id="acc13" class="acc-content">
+								<div class="inner">
+									<h5>Algumas medidas são essenciais para evitar o contágio e a transmissão do coronavírus:
+									</h5>
+
+
+
+
+									<ul>
+										<li>Lave frequentemente as mãos com água e sabão até a altura dos punhos. Esfregue bem as unhas e entre os dedos ou higienize com álcool em gel 70%
+										</li>
+										<li>Não compartilhe itens de uso pessoal como talheres, toalhas, pratos e copos</li>
+
+										<li>Evite aglomerações e contato próximo com as pessoas, ou seja, manter uma distância de pelo menos dois metros </li>
+
+										<li>Procure não tocar no rosto, especialmente nos olhos, nariz e boca com as mãos não lavadas</li>
+
+
+										<li>Evite beijos, abraços e apertos de mãos. Adote um comportamento amigável, mas sem contato físico</li>
+										<li>
+											Pratique a etiqueta respiratória, ou seja, cubra a boca e o nariz com o antebraço ao tossir ou espirrar ou cubra com lenços descartáveis, desprezando-os imediatamente após o uso em uma lixeira fechada. Em seguida, higienize bem
+											as mãos.
+										</li>
+
+										<li>
+											Limpe e desinfete, frequentemente, os objetos
+										</li>
+										<li>Mantenha os ambientes limpos e ventilados</li>
+
+										<li>Durma bem e alimente-se adequadamente
+										</li>
+
+										<li>
+											Use máscaras caseiras feitas de tecido ao sair de casa</li>
+
+									</ul>
+
+
+
+
+
+
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc14" class="acc-heading"> Por que é importante ficar em casa?</a>
+
+							<section id="acc14" class="acc-content">
+								<div class="inner">
+									<h5>A disseminação do coronavírus é bastante rápida. Sendo assim, ao ficar em casa, as chances de contágio e transmissão são muito menores.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc15" class="acc-heading"> O uso de máscaras é realmente necessário e eficaz?</a>
+
+							<section id="acc15" class="acc-content">
+								<div class="inner">
+									<h5>Pesquisas têm apontado que a utilização de máscaras caseiras impede a disseminação de gotículas expelidas do nariz ou da boca do usuário no ambiente, garantindo uma barreira física para evitar a propagação da doença e diminuição
+										do número de casos. Nesse sentido, o Ministério da Saúde sugere que as pessoas produzam suas próprias máscaras caseiras, utilizando tecidos que podem assegurar uma boa efetividade se forem bem desenhadas e higienizadas
+										corretamente. Recomenda-se que máscaras cirúrgicas e N95/PFF2 sejam utilizadas pelos profissionais de saúde.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc16" class="acc-heading"> Gestantes e lactantes devem ter algum cuidado especial?</a>
+
+							<section id="acc16" class="acc-content">
+								<div class="inner">
+									<h5>A amamentação não deve ser interrompida frente a um quadro de síndrome gripal!
+										A Organização Mundial da Saúde (OMS) orienta a manutenção da amamentação por falta de elementos que comprovem que o leite materno possa disseminar o novo coronavírus.
+
+										O Centers for Disease Control and Prevention (CDC) destaca que os benefícios da amamentação superam quaisquer riscos potenciais de transmissão do vírus através do leite materno (transmissão de anticorpos maternos protetores ao
+										bebê).
+
+										Recomendações para as mães que amamentam e estão com sintomas de gripe
+
+										<ul>
+											<li> Lavar as mãos por pelo menos 20 segundos antes de tocar o bebê e iniciar as mamadas</li>
+
+											<li>
+												Usar máscara facial durante as mamadas</li>
+											<li>
+
+												Evitar falar ou tossir durante a amamentação para não expor o bebê</li>
+
+											<li>
+												Trocar a máscara em caso de tosse ou espirro e a cada nova mamada</li>
+										</ul>
+
+
+
+
+
+										No caso de a mãe não se sentir à vontade para amamentar a criança, ela
+										poderá extrair o seu leite manualmente ou usar bombas de extração láctea (com higiene
+										adequada), e um cuidador saudável poderá oferecer o leite ao bebê por copinho,
+										xícara ou colher.
+
+										Quem faz doação de leite deverá buscar informações diretamente no banco de leite.
+									</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc17" class="acc-heading">Existe vacina para o coronavírus?</a>
+
+							<section id="acc17" class="acc-content">
+								<div class="inner">
+									<h5>Ainda não há vacina ou qualquer tipo de imunização contra o novo coronavírus, embora estudos e testes estejam sendo realizados. Entretanto, recomenda-se manter o calendário vacinal em dia para evitar infecções que podem ser
+										confundidas com a COVID-19 ou que podem debilitar o organismo e agravar uma possível infecção por esse agente.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc18" class="acc-heading"> A vacina contra a gripe também protege do coronavírus?</a>
+
+							<section id="acc18" class="acc-content">
+								<div class="inner">
+									<h5>Não. As autoridades, porém, avaliam que a imunização facilita o diagnóstico para separar os casos quando há sintomas como febre e tosse. É por isso que Ministério da Saúde antecipou a vacinação anual de gripe no Brasil.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc19" class="acc-heading"> Como é feito o diagnóstico do coronavírus?</a>
+
+							<section id="acc19" class="acc-content">
+								<div class="inner">
+									<h5>O diagnóstico da Covid-19 é realizado através da presença de sinais e sintomas de Síndrome Gripal (tosse, febre – pode ou não estar presente no momento da consulta, dor de garganta, coriza e/ou dificuldade respiratória) ou da
+										presença de Síndrome Respiratória Aguda Grave - SRAG (dificuldade para respirar, pressão no tórax, saturação de oxigênio menor do que 95% em ar ambiente e/ou coloração azulada dos lábios ou rosto). Em crianças, além dos
+										sintomas/sinais anteriores, podem estar presentes desidratação, redução do apetite e batimentos da asa do nariz.
+
+									</h5>
+
+
+									<h5>
+										Na presença de suspeita clínica, o profissional de saúde poderá solicitar exames laboratoriais.
+									</h5>
+
+									<ul>
+										<li> Biologia molecular (RT-PCR): detecta o RNA do vírus
+										</li>
+										<li>
+											Imunológico: teste rápido ou sorologia clássica para a detecção dos anticorpos a partir do sétimo dia do início dos sintomas (idealmente a partir do décimo dia). Resultado positivo para anticorpos IgM e/ou IgG</li>
+									</ul>
+
+									<h5>
+
+										O diagnóstico da Covid-19 também pode ser realizado a partir do histórico de contato domiciliar ou próximo nos últimos 14 dias antes do aparecimento dos sintomas com caso confirmado laboratorialmente e que não foi possível
+										realizar a investigação laboratorial específica. </h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc20" class="acc-heading"> Quem apresenta sintomas de gripe deve fazer o teste?</a>
+
+							<section id="acc20" class="acc-content">
+								<div class="inner">
+									<h5>Devido à disponibilidade reduzida, os testes diagnósticos são realizados em pessoas que apresentam manifestações clínicas graves da doença (pacientes internados). </h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc21" class="acc-heading"> A Care Plus tem cobertura para os exames que investigam o coronavírus?</a>
+
+							<section id="acc21" class="acc-content">
+								<div class="inner">
+									<h5>Sim. O exame para detecção do coronavírus Biologia Molecular - RT-PCR e o Imunológico - Sorologia Clássica, foram incluídos no Rol de Procedimentos da ANS (Agência Nacional de Saúde Suplementar) e devem ser cobertos pelas operadoras de saúde, desde que os planos sejam regulamentados ou adaptados a lei 9656/98.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+						<div class="item">
+							<a href="#acc22" class="acc-heading"> Existe tratamento para combater a covid-19?</a>
+
+							<section id="acc22" class="acc-content">
+								<div class="inner">
+									<h5>Até o momento, não existe um tratamento específico para prevenir ou tratar a covid-19. As pessoas infectadas devem receber medicações para aliviar os sintomas. Os casos mais graves devem ser tratados em nível hospitalar. Vários
+										estudos vêm sendo conduzidos para buscar alternativas terapêuticas para o novo coronavírus. Algumas medicações estão sendo estudadas, como antivirais e antimaláricos.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc23" class="acc-heading"> Existe alguma contraindicação para o uso de medicamentos?</a>
+
+							<section id="acc23" class="acc-content">
+								<div class="inner">
+									<h5>A automedicação nunca deve ser feita. Converse com o seu médico antes de usar alguma medicação. </h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc24" class="acc-heading"> Qual a indicação para usar a cloroquina e a hidroxicloroquina no tratamento da covid-19? </a>
+
+							<section id="acc24" class="acc-content">
+								<div class="inner">
+									<h5>Até o momento, a cloroquina e a hidroxicloroquina são indicadas para o tratamento de pacientes graves hospitalizados. O Ministério da Saúde está monitorando os estudos de eficácia e segurança da cloroquina e da hidroxicloroquina
+										em pacientes com covid-19 e, em qualquer momento, poderá modificar sua recomendação quanto ao uso destes fármacos, baseando-se na melhor evidência disponível.</h5>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+
+						<div class="item">
+							<a href="#acc25" class="acc-heading">Estando com o covid-19, em isolamento domiciliar, que orientações devo seguir?</a>
+
+							<section id="acc25" class="acc-content">
+								<div class="inner">
+									<ul>
+										<li>
+											Permaneça em quarto isolado e bem ventilado</li>
+										<li>Caso não seja possível ficar isolado em um quarto único, manter pelo menos 1 metro de distância das outras pessoas</li>
+										<li>Dormir em camas separadas (exceção: mães que estão amamentando devem utilizar a máscara e medidas de higiene, como a lavagem constante de mãos)
+										</li>
+										<li>Limite a sua movimentação pela casa. Locais da casa compartilhados como cozinha, banheiro e sala devem estar bem ventilados
+										</li>
+										<li>Utilize máscara cirúrgica todo o tempo
+										</li>
+										<li>Troque a máscara cirúrgica sempre que esta estiver úmida ou danificada
+										</li>
+										<li> Em idas ao banheiro ou outro ambiente obrigatório, sempre usar a máscara
+										</li>
+										<li> Realize a higiene frequente das mãos, com água e sabão ou álcool em gel (70 INPM), especialmente antes de comer ou cozinhar e após ir ao banheiro
+										</li>
+										<li>Não receber visitas
+										</li>
+										<li> Sair de casa só em casos de emergência. Caso necessário, sair com máscara e evitar multidões, preferindo transportes individuais ou a pé, sempre que possível
+										</li>
+										<li> Toda vez que lavar as mãos com água e sabão, dar preferência ao papel-toalha. Caso não seja possível, utilizar toalha de tecido, trocá-la toda vez que ficar úmida e não compartilhar esta toalha com outras pessoas da
+											casa
+										</li>
+										<li> Todos os moradores da casa devem cobrir a boca e o nariz quando forem tossir ou espirrar, seja com as mãos ou máscaras. Logo após, sempre lavar as mãos;
+										</li>
+										<li>Evitar o contato com as secreções de quem estiver doente
+										</li>
+										<li> Quando for descartar o lixo, sempre utilizar luvas descartáveis
+										</li>
+										<li>Limpar frequentemente (mais de uma vez por dia) as superfícies que são frequentemente utilizadas com solução contendo alvejante (1 parte de alvejante para 99 partes de água). Faça o mesmo para os cômodos de uso comum
+										</li>
+										<li> Lave roupas pessoais, roupas de cama e roupas de banho do paciente com sabão comum e água entre 60ºC e 90ºC, deixando secar totalmente para reutilizar.</li>
+									</ul>
+								</div><!-- / .inner -->
+							</section>
+						</div><!-- / .item -->
+
+					</div><!-- / .accordion -->
+				</div>
+			</div>
+		</div>
+	</section>
+    <section id="referencias" class="defaultSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="Aligner">
+					    <div class="Aligner-item lg">
+                            <h4>Referências</h4>
+                            <h2 class="title2">Referências para os conteúdos</h2>
+                            <img class="img-fluid d-block d-lg-none" alt="Referências para os conteúdos" title="Referências para os conteúdos" src="img/img-referencias.png">
+                            <ul class="items">
+                                <li>
+                                    Ministério da Saúde – Portaria Nº 3.523 DE 28 DE AGOSTO DE 1998
+                                </li>
+                                <li>
+                                    Ministério da Saúde – Coronavirus (<a href="https://coronavirus.saude.gov.br/" target="_blank">www.coronavirus.saude.gov.br/</a> e <a href="http://www.saude.gov.br/" target="_blank">www.saude.gov.br</a>)
+                                </li>
+                                <li>
+                                    Resolução nº 9, de 16 de janeiro de 2003, da Agência Nacional de Vigilância Sanitária/ANVISA
+                                </li>
+                                <li>
+                                    SIT – Subsecretaria de Inspeção do Trabalho
+                                </li>
+                                <li>
+                                    Family-Friendly Policies and Other Good Workplace Practices in the Context of Covid-19: Key steps employers can take
+                                </li>
+                                <li>
+                                    Limpeza e Desinfecção de Superfícies – Agência Nacional de Vigilância Sanitária (ANVISA)
+                                </li>
+                                <li>
+                                    Getting your workplace ready for COVID-1 – World Health Organization
+                                </li>
+                                <li>
+                                    Occupational Safety Health Administration (OSHA)
+                                </li>
+                                <li>
+                                    CDC – Centers for Disease Control and Prevention – Coronavirus Disease 2019
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-4" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
+                    <img class="img-fluid" alt="Referências para os conteúdos" title="Referências para os conteúdos" src="img/img-referencias.png">
+                </div>
+            </div>
+        </div>
+    </section>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 order-lg-1 order-2">
+					<div class="info">
+						<p>© Care Plus Medicina Assistencial LTDA | Todos os direitos reservados - CNPJ: 02.725.347/0001-27</p>
+					</div>
+				</div>
+				<div class="col-lg-6 order-lg-2 order-1">
+
+					<div class="appDownload">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="appTextInfo">
+									Baixe o app Care Plus
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-6 logoContainer">
+								<a href="https://apps.apple.com/br/app/care-plus/id899562421" target="_blank">
+									<img src="svg/appStore.svg" alt="logo da loja de aplicativos App Store">
+								</a>
+
+							</div>
+							<div class="col-lg-3 col-6 logoContainer ">
+								<a href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR" target="_blank">
+									<img src="svg/googlePlay.svg" alt="logo da loja de aplicativos Google Play">
+								</a>
+							</div>
+
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+
+	</footer>
+
+	<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+		<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+			<div class="modal__container" role="dialog" aria-modal="true">
+				<!-- <header class="modal__header">
+					<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+				</header> -->
+				<main class="modal__content" id="modal-1-content">
+					<img src="svg/modal_mobile.svg" alt="Fluxograma" class="d-lg-none">
+
+					<img src="svg/modal_desktop.svg" alt="Fluxograma" class="d-none d-lg-block">
+
+					<div class="btnContainer">
+						<div class="btn ghost" data-micromodal-close>
+							Entendi
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="arrowTop" id="arrowTop" onclick="moveToElement('topImage',false)">
+
+	</div>
+
+
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-21801811-5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-21801811-5');
+	</script>
+
+	<script src="js/toastify.min.js"></script>
+	<script src="js/moveTo.min.js"></script>
+	<script src="js/aos.min.js"></script>
+	<script src="js/sticky.compile.min.js"></script>
+	<script src="js/micromodal.min.js"></script>
+	<script src="js/lazyload.min.js"></script>
+	<script src="js/main.min.js"></script>
+
+
+</body>
+
+</html>

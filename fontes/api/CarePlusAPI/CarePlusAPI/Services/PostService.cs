@@ -12,14 +12,14 @@ namespace CarePlusAPI.Services
 {
     public interface IPostService
     {
-        Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo);
-        Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo);
-        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo);
-        Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo);
+        Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo, string? origem);
         Task<Post> BuscarPorSlug(string slug);
         Task<Post> BuscarPorSlugHit(string slug);
 
-        Task Criar(Post model);
+        Task Criar(Post model, bool? duplication);
         Task Atualizar(Post model);
         Task Excluir(string slug);
     }
@@ -45,7 +45,7 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todos os Post da base.
         ///
         ///</summary>
-        public async Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo)
+        public async Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo, string origem)
         {
             try
             {
@@ -53,7 +53,18 @@ namespace CarePlusAPI.Services
 
                 query = query
                            .AsNoTracking()
-                           .Where(p => ativo != null ? p.Ativo == ativo : true)
+                           .Where(p =>
+                                (ativo != null ? p.Ativo == ativo : true)
+                                && origem != null ?
+                                    origem == "institucional" ?
+                                        (p.DataPublicacao != null && p.DataExpiracao == null) ?
+                                            p.DataPublicacao <= DateTime.Now
+                                        : (p.DataPublicacao != null && p.DataExpiracao != null) ?
+                                            (p.DataPublicacao <= DateTime.Now && p.DataExpiracao > DateTime.Now)
+                                        : false
+                                    : true
+                                : false
+                           )
                            .Include("Categoria")
                            .Include("PostTag.Tag")
                            .OrderByDescending(p => p.Destaque)
@@ -123,7 +134,7 @@ namespace CarePlusAPI.Services
             ///
             ///</summary>
             ///<param name="post">Model de Post para ser inserido</param>
-            public async Task Criar(Post post)
+            public async Task Criar(Post post, bool? duplication)
         {
             if (post == null)
                 throw new AppException("O Post não pode estar nulo");
@@ -154,6 +165,11 @@ namespace CarePlusAPI.Services
                 }
             }
 
+            if (duplication != null)
+            {
+                post.Titulo = $"[Duplicado] - {post.Titulo}";
+            }
+
             await Db.Set<Post>().AddAsync(post);
 
             await Db.SaveChangesAsync();
@@ -172,21 +188,51 @@ namespace CarePlusAPI.Services
 
             await ExcluirTags(post.Id);
 
+            post.Slug = GeraSlug(post.Titulo);
+
+            var numero = 1;
+            var postExistente = await BuscarPorSlugCriacao(post.Slug);
+
+            if (postExistente != null && postExistente.Id != post.Id)
+            {
+                while (postExistente != null && postExistente.Id != post.Id)
+                {
+                    var titulo = $"{post.Titulo} {numero}";
+                    post.Slug = GeraSlug(titulo);
+                    postExistente = await BuscarPorSlugCriacao(post.Slug);
+                    if (postExistente != null && postExistente.Id != post.Id)
+                    {
+                        numero++;
+                    }
+                }
+            }
+
             Db.Set<Post>().Update(post);
 
             await Db.SaveChangesAsync();
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo)
+        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo, string? origem)
         {
             if (id == 0)
                 throw new AppException("O id da categoria não pode ser igual a 0");
 
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
-
             query = query.AsNoTracking()
-                                    .Where(p => p.CategoriaId == id && (ativo != null ? p.Ativo.Equals(ativo) : true) && p.Slug != slug)
+                                    .Where(p =>
+                                    p.CategoriaId == id
+                                    && (ativo != null ? p.Ativo.Equals(ativo) : true)
+                                    && p.Slug != slug
+                                    && origem != null ?
+                                        origem == "institucional" ?
+                                            (p.DataPublicacao != null && p.DataExpiracao == null) ?
+                                                p.DataPublicacao <= DateTime.Now
+                                            : (p.DataPublicacao != null && p.DataExpiracao != null) ?
+                                                (p.DataPublicacao <= DateTime.Now && p.DataExpiracao > DateTime.Now)
+                                            : false
+                                        : true
+                                    : false)
                                     .Include("Categoria")
                                     .Include("PostTag.Tag")
                                     .OrderBy(c => c.DataCadastro);
@@ -202,7 +248,7 @@ namespace CarePlusAPI.Services
             return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo)
+        public async Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo, string? origem)
         {
             if (string.IsNullOrWhiteSpace(term))
                 throw new AppException("O termo não pode estar vazio");
@@ -216,7 +262,18 @@ namespace CarePlusAPI.Services
                                     || x.DescricaoPaginaSEO.Contains(term)
                                     || x.TituloPaginaSEO.Contains(term)
                                     || x.DescricaoPrevia.Contains(term)
-                                    || x.Slug.Contains(term)) && (ativo != null ? x.Ativo.Equals(ativo) : true))
+                                    || x.Slug.Contains(term))
+                                    &&
+                                    ((ativo != null ? x.Ativo.Equals(ativo) : true)
+                                    && origem != null ?
+                                        origem == "institucional" ?
+                                            (x.DataPublicacao != null && x.DataExpiracao == null) ?
+                                                x.DataPublicacao <= DateTime.Now
+                                            : (x.DataPublicacao != null && x.DataExpiracao != null) ?
+                                                (x.DataPublicacao <= DateTime.Now && x.DataExpiracao > DateTime.Now)
+                                            : false
+                                        : true
+                                    : false))
                                     .Include("Categoria")
                                     .Include("PostTag.Tag")
                                     .OrderBy(c => c.DataCadastro);
@@ -231,13 +288,24 @@ namespace CarePlusAPI.Services
             return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo)
+        public async Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo, string? origem)
         {
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
 
             query = query.AsNoTracking()
-                                    .Where(p => ativo != null ? p.Ativo.Equals(ativo) : true)
+                                    .Where(p =>
+                                        (ativo != null ? p.Ativo == ativo : true)
+                                        && (origem != null ?
+                                            origem == "institucional" ?
+                                                (p.DataPublicacao != null && p.DataExpiracao == null) ?
+                                                    p.DataPublicacao <= DateTime.Now
+                                                : (p.DataPublicacao != null && p.DataExpiracao != null) ?
+                                                    (p.DataPublicacao <= DateTime.Now && p.DataExpiracao > DateTime.Now)
+                                                : false
+                                            : true
+                                        : false)
+                                    )
                                     .Include("Categoria")
                                     .Include("PostTag.Tag")
                                     .OrderByDescending(p => p.Vizualizacoes)

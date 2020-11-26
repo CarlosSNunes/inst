@@ -57,13 +57,17 @@ namespace CarePlusAPI.Controllers
         [HttpGet("{page}/{pageSize}")]
         [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> Get(int page, int pageSize, [FromQuery(Name = "ativo")] char? ativo)
+        public async Task<IActionResult> Get(
+            int page,
+            int pageSize,
+            [FromQuery(Name = "ativo")] char? ativo,
+            [FromHeader(Name = "Custom")] string? origem
+            )
         {
-            string origem = Request.Headers["Custom"];
             try
             {
 
-                var result = await _postService.Listar(page, pageSize, ativo);
+                var result = await _postService.Listar(page, pageSize, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -106,12 +110,16 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         [HttpGet("maisLidos/{page}/{pageSize}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetMostsRead(int page, int pageSize, [FromQuery(Name = "ativo")] char? ativo)
+        public async Task<IActionResult> GetMostsRead(
+            int page,
+            int pageSize,
+            [FromQuery(Name = "ativo")] char? ativo,
+            [FromHeader(Name = "Custom")] string? origem
+        )
         {
-            string origem = Request.Headers["Custom"];
             try
             {
-                var result = await _postService.BuscarMaisLidos(page, pageSize, ativo);
+                var result = await _postService.BuscarMaisLidos(page, pageSize, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -155,9 +163,11 @@ namespace CarePlusAPI.Controllers
         ///<param name="id">Id do Post</param>        
         [HttpGet("{slug}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetBySlug(string slug)
+        public async Task<IActionResult> GetBySlug(
+            string slug,
+            [FromHeader(Name = "Custom")] string? origem
+            )
         {
-            string origem = Request.Headers["Custom"];
             try
             {
                 if (string.IsNullOrWhiteSpace(slug))
@@ -199,9 +209,11 @@ namespace CarePlusAPI.Controllers
         ///<param name="id">Id do Post</param>
         [HttpGet("hit/{slug}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetBySlugHit(string slug)
+        public async Task<IActionResult> GetBySlugHit(
+            string slug,
+            [FromHeader(Name = "Custom")] string? origem
+            )
         {
-            string origem = Request.Headers["Custom"];
 
             try
             {
@@ -245,16 +257,22 @@ namespace CarePlusAPI.Controllers
         [HttpGet("categoria/{id}/{page}/{pageSize}/{slug}")]
         [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByCategory(int id, int page, int pageSize, string slug, [FromQuery(Name = "ativo")] char? ativo)
+        public async Task<IActionResult> GetByCategory(
+            int id,
+            int page,
+            int pageSize,
+            string slug,
+            [FromQuery(Name = "ativo")] char? ativo,
+            [FromHeader(Name = "Custom")] string? origem
+         )
         {
-            string origem = Request.Headers["Custom"];
 
             try
             {
                 if (id == 0)
                     throw new AppException("O id do Post não pode ser igual a 0");
 
-               var result = await _postService.BuscarPorCategoria(id, page, pageSize, slug, ativo);
+               var result = await _postService.BuscarPorCategoria(id, page, pageSize, slug, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -298,16 +316,20 @@ namespace CarePlusAPI.Controllers
         ///<param name="id">Id do Post</param>
         [HttpGet("term/{term}/{page}/{pageSize}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByTerm(string term, int page, int pageSize, [FromQuery(Name = "ativo")] char? ativo)
+        public async Task<IActionResult> GetByTerm(
+            string term,
+            int page,
+            int pageSize,
+            [FromQuery(Name = "ativo")] char? ativo,
+            [FromHeader(Name = "Custom")] string? origem)
         {
-            string origem = Request.Headers["Custom"];
 
             try
             {
                 if (string.IsNullOrWhiteSpace(term))
                     throw new AppException("O termo não estar vazio");
 
-                var result = await _postService.BuscarPorTermo(term, page, pageSize, ativo);
+                var result = await _postService.BuscarPorTermo(term, page, pageSize, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -351,9 +373,11 @@ namespace CarePlusAPI.Controllers
         ///<param name="file">Arquivo para ser feito o upload</param>
         [HttpPost("Upload")]
         [Authorize(Roles = "Editor, Administrador")]
-        public async Task<IActionResult> Upload([FromForm] IFormFile file)
+        public async Task<IActionResult> Upload(
+            [FromForm] IFormFile file,
+            [FromHeader(Name = "Custom")] string? origem
+            )
         {
-            string origem = Request.Headers["Custom"];
 
             if (file == null)
                 throw new AppException("O Arquivo não pode estar nulo");
@@ -414,9 +438,11 @@ namespace CarePlusAPI.Controllers
         ///<param name="model">Model de criação de um Post</param>
         [HttpPost]        
         [Authorize(Roles = "Editor, Administrador")]
-        public async Task<IActionResult> Post([FromForm] PostCreateModel model)
+        public async Task<IActionResult> Post(
+            [FromForm] PostCreateModel model,
+            [FromHeader(Name = "Custom")] string? origem
+           )
         {
-            string origem = Request.Headers["Custom"];
 
             if (model == null)
                 throw new AppException("O Post não pode estar nulo");
@@ -452,7 +478,7 @@ namespace CarePlusAPI.Controllers
 
                 Post post = _mapper.Map<Post>(model);
 
-                await _postService.Criar(post);
+                await _postService.Criar(post, null);
 
                 return Ok();
             }
@@ -481,9 +507,11 @@ namespace CarePlusAPI.Controllers
         ///<param name="model">Model de atualização de um Post</param
         [HttpPut]
         [Authorize(Roles = "Editor, Administrador")]
-        public async Task<IActionResult> Put([FromForm] PostUpdateModel model)
+        public async Task<IActionResult> Put(
+            [FromForm] PostUpdateModel model,
+            [FromHeader(Name = "Custom")] string origem
+            )
         {
-            string origem = Request.Headers["Custom"];
 
             if (model == null)
                 throw new AppException("O Post não pode estar nulo");
@@ -552,9 +580,11 @@ namespace CarePlusAPI.Controllers
         ///<param name="slug">Slug do Post</param>
         [HttpGet("duplicar/{slug}")]
         [Authorize(Roles = "Editor, Administrador")]
-        public async Task<IActionResult> Duplicate(string slug)
+        public async Task<IActionResult> Duplicate(
+            string slug,
+            [FromHeader(Name = "Custom")] string? origem
+            )
         {
-            string origem = Request.Headers["Custom"];
             try
             {
                 if (string.IsNullOrWhiteSpace(slug))
@@ -564,7 +594,7 @@ namespace CarePlusAPI.Controllers
 
                 var newPost = new PostCreateModel
                 {
-                    Titulo = $"[Duplicado] - {post.Titulo}",
+                    Titulo = post.Titulo,
                     Subtitulo = post.Subtitulo,
                     DescricaoPrevia = post.DescricaoPrevia,
                     Descricao = post.Descricao,
@@ -586,7 +616,7 @@ namespace CarePlusAPI.Controllers
                 }
 
                 var postToCreate = _mapper.Map<Post>(newPost);
-                await _postService.Criar(postToCreate);
+                await _postService.Criar(postToCreate, true);
 
                 return Ok();
             }
@@ -610,9 +640,11 @@ namespace CarePlusAPI.Controllers
         ///<param name="id">Id do Post</param>
         [HttpDelete("{slug}")]
         [Authorize(Roles = "Editor, Administrador")]
-        public async Task<IActionResult> Delete(string slug)
+        public async Task<IActionResult> Delete(
+            string slug,
+            [FromHeader(Name = "Custom")] string? origem
+            )
         {
-            string origem = Request.Headers["Custom"];
             try
             {
                 if (string.IsNullOrWhiteSpace(slug))
