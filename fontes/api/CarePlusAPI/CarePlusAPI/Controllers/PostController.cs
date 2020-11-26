@@ -395,12 +395,10 @@ namespace CarePlusAPI.Controllers
 
                 if (file.Length > 0)
                 {
-                    var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                    var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                     directoryName = Path.Combine(pathToSave, fileOriginalName);
 
-                    // Combine with appSettings
-
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    using (var stream = new FileStream(directoryName, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
                     }
@@ -469,7 +467,7 @@ namespace CarePlusAPI.Controllers
 
                     if (file.Length > 0)
                     {
-                        var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                        var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                         directoryName = Path.Combine(pathToSave, fileOriginalName);
 
                         using (var stream = new FileStream(directoryName, FileMode.Create))
@@ -545,7 +543,7 @@ namespace CarePlusAPI.Controllers
 
                     if (file.Length > 0)
                     {
-                        var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                        var fileOriginalName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                         directoryName = Path.Combine(pathToSave, fileOriginalName);
 
                         using (var stream = new FileStream(directoryName, FileMode.Create))
