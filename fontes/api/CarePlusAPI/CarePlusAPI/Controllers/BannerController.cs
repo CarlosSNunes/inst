@@ -288,8 +288,8 @@ namespace CarePlusAPI.Controllers
             {
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
-                if (System.IO.File.Exists(path))
-                    System.IO.File.Delete(path);
+                if (System.IO.File.Exists(bannerPath))
+                    System.IO.File.Delete(bannerPath);
 
                 return BadRequest(new
                 {
