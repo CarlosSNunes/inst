@@ -74,8 +74,12 @@ export class BannerEditComponent implements OnInit {
         private router: Router,
         private authenticateService: AuthenticationService,
         private route: ActivatedRoute,
-        private toastrService: ToastrService
-    ) { }
+        private toastrService: ToastrService,
+    ) {
+
+
+
+    }
 
     ngOnInit() {
         this.usuario = this.authenticateService.state;
@@ -86,6 +90,8 @@ export class BannerEditComponent implements OnInit {
     imageLoaded() { }
     cropperReady() { }
     loadImageFailed() { }
+
+
     /**
      * @description Metodo retorna a consula de banner por Id.
      * @memberOf BannerEditComponent
@@ -137,7 +143,7 @@ export class BannerEditComponent implements OnInit {
     updateForm() {
         this.bannerForm = this.fb.group({
             id: [this.bannerResult.id, [Validators.required]],
-            nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            nomeImagem: [this.bannerResult.nomeImagemDesktop, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             titulo: [this.bannerResult.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: [this.bannerResult.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             area: [this.bannerResult.area, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
@@ -154,6 +160,17 @@ export class BannerEditComponent implements OnInit {
     get f() {
         return this.bannerForm.controls;
     }
+    generateHashName() {
+        let hashName;
+        let nomeImgForm = this.f['nomeImagem'].value;
+        console.log(nomeImgForm)
+        if (nomeImgForm === null) {
+            hashName = this.fileUpDesk.name;
+        } else {
+            hashName = this.bannerResult.nomeImagemDesktop;
+        }
+        return hashName;
+    }
 
     /**
      * @description Evento que submete o formGroup
@@ -161,7 +178,8 @@ export class BannerEditComponent implements OnInit {
      */
     onSubmit() {
         this.submitted = true;
-
+        let nomeArquivo = this.generateHashName();
+        this.bannerForm.controls.nomeImagem.setValue(nomeArquivo);
         console.log(this.bannerForm);
         if (this.bannerForm.valid) {
             this.btnSubmitDisable = true;
@@ -200,7 +218,7 @@ export class BannerEditComponent implements OnInit {
 
         this.bannerForm.controls.arquivo.setValue(this.arquivo);
         this.bannerForm.controls.nome.setValue(this.arquivoNome);
-
+        console.log(this.bannerForm.controls.nome.setValue(this.arquivoNome))
     }
 
     /**
