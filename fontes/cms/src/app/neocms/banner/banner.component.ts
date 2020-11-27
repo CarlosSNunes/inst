@@ -6,6 +6,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '../../../environments/environment';
+import { concat } from 'rxjs';
 
 
 @Component({
@@ -40,11 +42,15 @@ export class BannerComponent implements OnInit {
     contador = 5;
     modalRef: BsModalRef;
 
+    caminhoImagem;
+    bannerPath: string;
+    nomeFull: string;
+
     constructor(
         private bannerService: BannerService,
         private modalService: BsModalService,
         private fb: FormBuilder,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
     ) { }
 
     ngOnInit() {
@@ -75,7 +81,7 @@ export class BannerComponent implements OnInit {
             rota: [banner.rota],
             linkExterno: [banner.linkExterno],
             nomeLink: [banner.nomeLink],
-            ativo: [banner.ativo],
+
         });
 
         console.log(this.bannerForm);
@@ -134,6 +140,11 @@ export class BannerComponent implements OnInit {
             .subscribe(banners => {
                 this.loaded = true;
                 this.banners = banners;
+                this.nomeFull = environment.API;
+                this.bannerPath = '/Src/Images/Banner/';
+                banners.forEach(o => [
+                    this.caminhoImagem = o.caminhoCompletoDesktop.split('/', 2)[1]
+                ]);
             },
                 error => {
                     let message = '';
