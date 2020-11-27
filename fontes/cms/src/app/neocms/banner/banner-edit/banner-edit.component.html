@@ -1,241 +1,232 @@
 <div class="card-banner-wizard">
-    <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
-        <div class="card my-3" id="card-header">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a [routerLink]="['/neocms/banner']">
-                            <img class="arrow-return" src="assets/img/arrow.png" alt="Arrow return">
-                            <span class="title-banner">Editar Banner</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
+    <div class="card my-3" id="card-header">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <a [routerLink]="['/neocms/banner']">
+              <img class="arrow-return" src="assets/img/arrow.png" alt="Arrow return">
+              <span class="title-banner">Editar Banner</span>
+            </a>
+          </div>
         </div>
-        <div class="card my-3" id="cardWizardArea">
-            <div class="card-body p-5">
-                <ng-wizard [config]="configBannerEdit" (stepChanged)="stepChanged($event)">
-                    <ng-wizard-step [title]="'Área'" [description]="'Escolher Área'">
-                        <div class="row my-5">
-                            <div class="col-md-12">
-                                <div class="card col-md-6 m-auto fade-in shadow-sm border-light">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Area do Banner</h5>
-                                        <select formControlName="area" class="form-control my-3">
-                                            <option [ngValue]="null" disabled>Selecione</option>
-                                            <option *ngFor="let prf of dropdownOptions" [ngValue]="prf['nome']">
-                                                Home - {{ prf.descricao }}
-                                            </option>
-                                        </select>
+      </div>
+    </div>
+    <div class="card my-3" id="cardWizardArea">
+      <div class="card-body p-5">
+        <ng-wizard [config]="configBannerEdit" (stepChanged)="stepChanged($event)">
+          <ng-wizard-step [title]="'Área'" [description]="'Escolher Área'">
+            <div class="row my-5">
+              <div class="col-md-12">
+                <div class="card col-md-6 m-auto fade-in shadow-sm border-light">
+                  <div class="card-body">
+                    <h5 class="card-title">Area do Banner</h5>
+                    <select formControlName="area" class="form-control my-3">
+                      <option [ngValue]="null" disabled>Selecione</option>
+                      <option *ngFor="let prf of dropdownOptions" [ngValue]="prf['nome']">
+                        Home - {{ prf.descricao }}
+                      </option>
+                    </select>
 
-                                        <input formControlName="area" type="hidden">
-                                        <div class="my-2" *ngFor="let a of areaSelectedObject">
-                                            <h5>Descrição: {{a.descricao }}</h5>
-                                        </div>
-                                        <div *ngIf="submitted" class="errors">
-                                            <p *ngFor="let error of getErrors(f.area)" class="help is-danger">
-                                                {{error}}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-wizard-step>
-                    <ng-wizard-step [title]="'Imagens'" [description]="'Escolher os Banners'">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-6 w-100 my-5 card-crop">
-                                <div class="card shadow-sm border-light fade-in">
-                                    {{nomeDaImagem}}
-                                    <div class="card-body text-center m-3 card-crop">
-                                        <h3>Imagem Grande</h3>
-                                        <small>Dimensões: 1920 x 720 px</small>
-                                        <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
-                                        <div class="shadow p-0 m-auto">
-                                            <image-cropper [imageChangedEvent]="imageChangedEvent"
-                                                [maintainAspectRatio]="true" [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="8/3"
-                                                [resizeToWidth]="1920" [cropperMinWidth]="1920" [resizeToHeight]="720"
-                                                [cropperMinHeight]="720" format="png"
-                                                (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
-                                                (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
-                                            </image-cropper>
-                                        </div>
-                                        <div class="shadow thumbnail-image-box">
-                                            <h4 class="titulo-visualizacao">visualização</h4>
-                                            <img class="thumbnail-image" [src]="croppedImage" alt="Cropped image" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 w-100 my-5">
-                                <div class="card shadow-sm border-light fade-in">
-                                    <div class="card-body text-center m-3 card-crop">
-                                        <h3>Imagem Pequena</h3>
-                                        <small>Dimensões: 200 x 150 px</small>
-                                        <input type="file" class="text-truncate"
-                                            (change)="fileChangeEventMobile($event)" />
-                                        <div class="shadow p-0 m-auto">
-                                            <image-cropper [imageChangedEvent]="imageChangedEventMobile"
-                                                [maintainAspectRatio]="true" [containWithinAspectRatio]="false"
-                                                [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="4/3"
-                                                [imageFile]="bannerMobile" [resizeToWidth]="200" [cropperMinWidth]="200"
-                                                [resizeToHeight]="150" [cropperMinHeight]="150" format="png"
-                                                (imageCropped)="imageCroppedMobile($event)">
-                                            </image-cropper>
-                                        </div>
-                                        <div class="shadow thumbnail-image-box-mobile">
-                                            <h4 class="titulo-visualizacao-mobile">visualização</h4>
-                                            <img class="thumbnail-image-mobile" [src]="croppedImageMobile"
-                                                alt="Cropped image mobile" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-wizard-step>
-                    <ng-wizard-step [title]="'Dados'" [description]="'Dados do Banners'">
-                        <div class="card shadow-sm border-light fade-in">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Título*</label>
-                                            <input formControlName="titulo" class="form-control" type="text"
-                                                placeholder="Título do Banner" [ngClass]="{ 'is-success': submitted &&
+                    <input formControlName="area" type="hidden">
+                    <div class="my-2" *ngFor="let a of areaSelectedObject">
+                      <h5>Descrição: {{a.descricao }}</h5>
+                    </div>
+                    <div *ngIf="submitted" class="errors">
+                      <p *ngFor="let error of getErrors(f.area)" class="help is-danger">
+                        {{error}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-wizard-step>
+          <ng-wizard-step [title]="'Imagens'" [description]="'Escolher os Banners'">
+            <div class="row">
+              <div class="col-md-12 col-lg-6 w-100 my-5 card-crop">
+                <div class="card shadow-sm border-light fade-in">
+                  {{nomeDaImagem}}
+                  <div class="card-body text-center m-3 card-crop">
+                    <h3>Imagem Grande</h3>
+                    <small>Dimensões: 1920 x 720 px</small>
+                    <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
+                    <div class="shadow p-0 m-auto">
+                      <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                        [containWithinAspectRatio]="false" [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="8/3"
+                        [resizeToWidth]="1920" [cropperMinWidth]="1920" [resizeToHeight]="720" [cropperMinHeight]="720"
+                        format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                        (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                      </image-cropper>
+                    </div>
+                    <div class="shadow thumbnail-image-box">
+                      <h4 class="titulo-visualizacao">visualização</h4>
+                      <img class="thumbnail-image" [src]="croppedImage" alt="Cropped image" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-6 w-100 my-5">
+                <div class="card shadow-sm border-light fade-in">
+                  <div class="card-body text-center m-3 card-crop">
+                    <h3>Imagem Pequena</h3>
+                    <small>Dimensões: 200 x 150 px</small>
+                    <input type="file" class="text-truncate" (change)="fileChangeEventMobile($event)" />
+                    <div class="shadow p-0 m-auto">
+                      <image-cropper [imageChangedEvent]="imageChangedEventMobile" [maintainAspectRatio]="true"
+                        [containWithinAspectRatio]="false" [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="4/3"
+                        [imageFile]="bannerMobile" [resizeToWidth]="200" [cropperMinWidth]="200" [resizeToHeight]="150"
+                        [cropperMinHeight]="150" format="png" (imageCropped)="imageCroppedMobile($event)">
+                      </image-cropper>
+                    </div>
+                    <div class="shadow thumbnail-image-box-mobile">
+                      <h4 class="titulo-visualizacao-mobile">visualização</h4>
+                      <img class="thumbnail-image-mobile" [src]="croppedImageMobile" alt="Cropped image mobile" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-wizard-step>
+          <ng-wizard-step [title]="'Dados'" [description]="'Dados do Banners'">
+            <div class="card shadow-sm border-light fade-in">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="my-input">Título*</label>
+                      <input formControlName="titulo" class="form-control" type="text" placeholder="Título do Banner"
+                        [ngClass]="{ 'is-success': submitted &&
                                                                 !f.titulo.errors, 'is-danger' :
                                                                 submitted && f.titulo.errors }">
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of
                                                                     getErrors(f.titulo)" class="help
                                                                     is-danger">
-                                                    {{error}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Texto do Botão</label>
-                                            <input formControlName="nomeLink" class="form-control" type="text"
-                                                placeholder="Texto do Botão"
-                                                [ngClass]="{ 'is-success': submitted && !f.nomeLink.errors, 'is-danger' : submitted && f.nomeLink.errors }">
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of getErrors(f.nomeLink)" class="help is-danger">
-                                                    {{error}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Subtítulo</label>
-                                            <input formControlName="subtitulo" class="form-control" type="text"
-                                                placeholder="Subtítulo do Banner"
-                                                [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }">
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
-                                                    {{error}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Tempo de Exibição</label>
-                                            <input formControlName="tempoExibicao" class="form-control" type="text"
-                                                placeholder="Ex: 12 (12 Segundos)" [ngClass]="{ 'is-success': submitted &&
+                          {{error}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="my-input">Texto do Botão</label>
+                      <input formControlName="nomeLink" class="form-control" type="text" placeholder="Texto do Botão">
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of getErrors(f.nomeLink)" class="help is-danger">
+                          {{error}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="my-input">Subtítulo</label>
+                      <input formControlName="subtitulo" class="form-control" type="text"
+                        placeholder="Subtítulo do Banner"
+                        [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }">
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
+                          {{error}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="my-input">Tempo de Exibição</label>
+                      <input formControlName="tempoExibicao" class="form-control" type="text"
+                        placeholder="Ex: 12 (12 Segundos)" [ngClass]="{ 'is-success': submitted &&
                                                                 !f.area.errors, 'is-danger' : submitted
                                                                 && f.area.errors }">
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of
                                                                     getErrors(f.tempoExibicao)" class="help is-danger">
-                                                    {{error}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Rota/Link*</label>
-                                            <input formControlName="rota" class="form-control" type="text"
-                                                placeholder="" [ngClass]="{ 'is-success': submitted &&
+                          {{error}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="my-input">Rota/Link*</label>
+                      <input formControlName="rota" class="form-control" type="text" placeholder="" [ngClass]="{ 'is-success': submitted &&
                                                                 !f.rota.errors, 'is-danger' : submitted
                                                                 && f.rota.errors }">
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of
                                                                     getErrors(f.rota)" class="help
                                                                     is-danger">
-                                                    {{error}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="my-input">Descrição</label>
-                                            <textarea formControlName="descricao"
-                                                [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
-                                                class="form-control" placeholder="Descrição do Banner" rows="5">
+                          {{error}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="my-input">Descrição</label>
+                      <textarea formControlName="descricao"
+                        [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
+                        class="form-control" placeholder="Descrição do Banner" rows="5">
                                             </textarea>
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of
                                                                 getErrors(f.descricao)" class="help is-danger">
-                                                    {{error}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-3 w-100">
-                                        <label class="label">É um link externo?</label>
-                                        <div class="form-group">
-                                            <div class="form-check form-check-inline">
-                                                <input id="naoLink" type="radio" class="form-check-input" checked
-                                                    value="0" formControlName="linkExterno" name="linkExterno"
-                                                    [ngClass]="{'is-danger': isLinkExternoSelected,'is-selected': !isLinkExternoSelected}"
-                                                    (click)="changeLinkExterno('0',false)">
-                                                <label for="linkExterno">Não</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input id="simLink" type="radio" class="form-check-input" value="1"
-                                                    name="linkExterno" formControlName="linkExterno"
-                                                    [ngClass]="{'is-danger': isLinkExternoSelected, 'is-selected':  !isLinkExternoSelected}"
-                                                    (click)="changeLinkExterno('1',true)">
-                                                <label for="linkExterno">Sim</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-3 w-100">
-                                        <label class="label">Ativar banner?</label>
-                                        <div class="form-group">
-                                            <div class="form-check form-check-inline">
-                                                <input id="ativo" type="radio" class="form-check-input" checked
-                                                    value="0" name="ativo" formControlName="ativo"
-                                                    [ngClass]="{'is-danger': !isBannerAtivo, 'is-selected': !isBannerAtivo}"
-                                                    (click)="changeStatusBanner('0', false)">
-                                                <label for="ativo">Não</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input id="ativo1" type="radio" class="form-check-input" value="1"
-                                                    name="ativo" formControlName="ativo"
-                                                    [ngClass]="{'is-success': isBannerAtivo, 'is-selected': isBannerAtivo}"
-                                                    (click)="changeStatusBanner('1',true)">
-                                                <label for="ativo">Sim</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 w-100 text-right">
-                                        <button class="badge badge-dark shadow p-3" type="submit">
-                                            SALVAR ALTERAÇÕES
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-wizard-step>
-                </ng-wizard>
+                          {{error}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-3 w-100">
+                    <label class="label">É um link externo?</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline">
+                        <input id="naoLink" type="radio" class="form-check-input" checked value="0"
+                          formControlName="linkExterno" name="linkExterno"
+                          [ngClass]="{'is-danger': isLinkExternoSelected,'is-selected': !isLinkExternoSelected}"
+                          (click)="changeLinkExterno('0',false)">
+                        <label for="linkExterno">Não</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input id="simLink" type="radio" class="form-check-input" value="1" name="linkExterno"
+                          formControlName="linkExterno"
+                          [ngClass]="{'is-danger': isLinkExternoSelected, 'is-selected':  !isLinkExternoSelected}"
+                          (click)="changeLinkExterno('1',true)">
+                        <label for="linkExterno">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-3 w-100">
+                    <label class="label">Ativar banner?</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline">
+                        <input id="ativo" type="radio" class="form-check-input" checked value="0" name="ativo"
+                          formControlName="ativo"
+                          [ngClass]="{'is-danger': !isBannerAtivo, 'is-selected': !isBannerAtivo}"
+                          (click)="changeStatusBanner('0', false)">
+                        <label for="ativo">Não</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input id="ativo1" type="radio" class="form-check-input" value="1" name="ativo"
+                          formControlName="ativo"
+                          [ngClass]="{'is-success': isBannerAtivo, 'is-selected': isBannerAtivo}"
+                          (click)="changeStatusBanner('1',true)">
+                        <label for="ativo">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 w-100 text-right">
+                    <button class="badge badge-dark shadow p-3" type="submit">
+                      SALVAR ALTERAÇÕES
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </form>
+          </ng-wizard-step>
+        </ng-wizard>
+      </div>
+    </div>
+  </form>
 </div>
