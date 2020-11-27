@@ -246,6 +246,66 @@ namespace CarePlusAPI.Controllers
             }
         }
 
+
+        ///<summary>
+        ///
+        ///Esse método serve para buscar e gravar uma vizualização em um Post através do Id e
+        ///mapear esse objeto para um objeto de retorno mais simples.
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
+        ///
+        ///</summary>
+        ///<param name="id">Id do Post</param>
+        [HttpGet("categoria-id/{id}/{page}/{pageSize}")]
+        [AllowAnonymous]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        public async Task<IActionResult> getByCategoryId(
+            int id,
+            int page,
+            int pageSize,
+            [FromQuery(Name = "ativo")] char? ativo,
+            [FromHeader(Name = "Custom")] string? origem
+         )
+        {
+
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do Post não pode ser igual a 0");
+
+                var result = await _postService.BuscarPorCategoria(id, page, pageSize, ativo, origem);
+
+                List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
+
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
+                model.ForEach(item =>
+                {
+                    if (item.CaminhoImagem != null)
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
+                });
+
+                return Ok(new
+                {
+                    count = result.Item1,
+                    result = model
+                });
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
+        }
+
         ///<summary>
         ///
         ///Esse método serve para buscar e gravar uma vizualização em um Post através do Id e
@@ -257,7 +317,7 @@ namespace CarePlusAPI.Controllers
         [HttpGet("categoria/{id}/{page}/{pageSize}/{slug}")]
         [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> GetByCategory(
+        public async Task<IActionResult> getRelativePosts(
             int id,
             int page,
             int pageSize,
@@ -272,7 +332,7 @@ namespace CarePlusAPI.Controllers
                 if (id == 0)
                     throw new AppException("O id do Post não pode ser igual a 0");
 
-               var result = await _postService.BuscarPorCategoria(id, page, pageSize, slug, ativo, origem);
+               var result = await _postService.BuscarPostsRelacionados(id, page, pageSize, slug, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
