@@ -127,7 +127,7 @@ export class DetalheDoPostComponent implements OnInit {
         this.meta.updateTag({ name: 'twitter:image', content: `${this.post.caminhoCompleto}?${new Date().getTime()}` });
         this.meta.updateTag({ name: 'twitter:description', content: this.post.descricaoPrevia });
 
-        this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
+        this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}/careplus-mais/${this.post.slug}` });
 
         // Facebook e demais redes sociais
         this.meta.updateTag({ name: 'og:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
@@ -135,7 +135,7 @@ export class DetalheDoPostComponent implements OnInit {
         this.meta.updateTag({ name: 'og:image', content: this.post.caminhoCompleto });
         this.meta.updateTag({ name: 'og:description', content: this.post.descricaoPrevia });
 
-        this.meta.updateTag({ name: 'og:url', content: `${environment.SELF_URL}careplus-mais/${this.post.slug}` });
+        this.meta.updateTag({ name: 'og:url', content: `${environment.SELF_URL}/careplus-mais/${this.post.slug}` });
 
         // Imagem linkedin
         this.meta.updateTag({ name: 'image', property: 'og:image', content: this.post.caminhoCompleto });
