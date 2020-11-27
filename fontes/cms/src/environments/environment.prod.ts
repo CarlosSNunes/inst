@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  API: 'http://52.3.44.106:8081',
+  API: 'https://localhost:4000',
   INSTITUCIONAL_URL: 'http://careplus.homolog.neotix.com.br'
 };

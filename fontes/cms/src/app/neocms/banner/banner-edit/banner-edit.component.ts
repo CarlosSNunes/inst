@@ -124,7 +124,7 @@ export class BannerEditComponent implements OnInit {
             descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
-            ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+            ativo: ['1', [Validators.required, FormControlError.noWhitespaceValidator]],
             arquivo: [''],
             arquivoMobile: ['']
         });
@@ -146,8 +146,8 @@ export class BannerEditComponent implements OnInit {
             rota: [this.bannerResult.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
             linkExterno: [this.bannerResult.linkExterno, [Validators.required, FormControlError.noWhitespaceValidator]],
             ativo: [this.bannerResult.ativo, [Validators.required, FormControlError.noWhitespaceValidator]],
-            arquivo: this.fileUpDesk[0],
-            arquivoMobile: [this.fileUpMobile[0]]
+            arquivo: [],
+            arquivoMobile: []
         });
     }
 

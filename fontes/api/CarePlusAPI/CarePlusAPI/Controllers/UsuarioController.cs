@@ -121,11 +121,9 @@ namespace CarePlusAPI.Controllers
         }
 
         ///<summary>
-        ///
         ///Esse método serve para inserir um usuário na base, primeiro mapeando
         ///o objeto recebido para o objeto esperado na base.
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão POST.
-        ///
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost("gera-requisicao")]
