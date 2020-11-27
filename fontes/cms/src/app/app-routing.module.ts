@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './authentication/auth.service';
+// import { AuthGuard } from './authentication/auth.service';
+import { AuthGuardService } from './guard/auth-guard.service';
 import { BlankContainerComponent } from './layout/blank-container/blank-container.component';
 import { ContainerComponent } from './layout/container/container.component';
 
@@ -13,7 +14,7 @@ const routes: Routes = [
   {
     path: 'neocms',
     component:ContainerComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardService],
     loadChildren: () => import('./neocms/neocms.module').then(m => m.NeocmsModule)
   },
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardService],
     redirectTo: '/neocms'
   }
 ];

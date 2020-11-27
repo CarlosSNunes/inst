@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './login.service';
 import { LoginRoutingModule } from './login-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginAuthGuard } from './login-auth.service';
 import { HttpHandlerService } from '../http-handler/http-handler.service';
 import { AuthenticationService } from '../authentication/authentication.service';
 
@@ -22,12 +21,11 @@ import { AuthenticationService } from '../authentication/authentication.service'
   providers: [
     AuthenticationService,
     LoginService,
-    LoginAuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpHandlerService,
-      multi: true,
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpHandlerService,
+    //   multi: true,
+    // }
   ]
 })
 export class LoginModule { }

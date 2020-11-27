@@ -35,24 +35,35 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.submitted = true;
     this.error = null;
 
     if (this.loginForm.valid) {
-      const loginModel = new LoginModel(this.loginForm.value);
 
-      this.loginService.login(loginModel)
-        .subscribe(response => {
-          this.authenticationService.state = response;
-          EventEmitterService.get('login').emit(response);
-          this.router.navigate(['/neocms']);
-        },
-          error => {
-            this.error = error;
-          });
+      const loginModel = new LoginModel(this.loginForm.value);
+      try {
+        // this.authenticationService.state = await this.loginService.login(loginModel)
+        let response = await this.loginService.login(loginModel);
+        localStorage.setItem('user_token', JSON.stringify(response))
+        this.goTo('neocms')
+      } catch (err) {
+        this.error = err.error;
+      }
+      // this.loginService.login(loginModel)
+      // .subscribe(response => {
+      //   this.authenticationService.state = response;
+      //   EventEmitterService.get('login').emit(response);
+      //   this.router.navigate(['/neocms']);
+      // },
+      //   error => {
+      //     this.error = error;
+      //   });
     }
 
 
+  }
+  goTo(route) {
+    this.router.navigate([route]);
   }
 }

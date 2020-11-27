@@ -15,7 +15,7 @@ export class HttpHandlerService implements HttpInterceptor {
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const usuario = this.authenticationService.state;
 
-    if (usuario) {
+    // if (usuario) {
       const reqAuth = req.clone({
         setHeaders: {
             'Authorization': 'Bearer ' + usuario.token,
@@ -23,7 +23,7 @@ export class HttpHandlerService implements HttpInterceptor {
         }
       });
       return next.handle(reqAuth);
-    }
+    // }
 
     return next.handle(req).pipe(
       // catchError((error) => {

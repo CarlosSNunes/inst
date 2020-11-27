@@ -19,14 +19,14 @@ export class LoginService {
     private http: HttpClient
   ) { }
 
-  login(loginModel: LoginModel) {
-    return this.http.post<UserAuthenticateModel>(this.API_ENDPOINT + '/Autenticar', loginModel)
-      .pipe(catchError(this.errorHandler));
+ async login(loginModel: LoginModel) {
+    return this.http.post<UserAuthenticateModel>(this.API_ENDPOINT + '/Autenticar', loginModel).toPromise();
+      // .pipe(catchError(this.errorHandler));
   }
 
-  generateUserRequisition(usuario: UsuarioCreateModel) {
-    return this.http.post<UsuarioCreateModel>(this.API_ENDPOINT, usuario);
-}
+//   generateUserRequisition(usuario: UsuarioCreateModel) {
+//     return this.http.post<UsuarioCreateModel>(this.API_ENDPOINT, usuario);
+// }
 
   errorHandler(error: HttpErrorResponse) {
     return throwError(error.error);

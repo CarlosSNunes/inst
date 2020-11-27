@@ -11,28 +11,31 @@ import { EventEmitterService } from 'src/services/event-emitter/event-emitter-se
     styleUrls: ['./neocms-header.component.scss']
 })
 export class NeocmsHeaderComponent implements OnInit {
-    faEnvelope = faEnvelope;
-    faHome = faHome;
-    faUser = faUser;
+    // faEnvelope = faEnvelope;
+    // faHome = faHome;
+    // faUser = faUser;
     faPowerOff = faPowerOff;
-    usuario: UserAuthenticateModel;
+    // usuario: UserAuthenticateModel;
 
     constructor(
-        private authenticationService: AuthenticationService,
+        // private authenticationService: AuthenticationService,
         public router: Router
     ) {
-        EventEmitterService.get('login').subscribe(usuario => {
-            this.usuario = usuario;
-        });
+        // EventEmitterService.get('login').subscribe(usuario => {
+        //     this.usuario = usuario;
+        // });
     }
 
     ngOnInit() {
-        this.usuario = this.authenticationService.state;
+        // console.log('aqui',this.authenticationService.state)
+        // this.usuario = this.authenticationService.state;
     }
 
     logOff() {
-        this.authenticationService.state = null;
-        EventEmitterService.get('logout').emit();
+        // this.authenticationService.state = null;
+        // EventEmitterService.get('logout').emit();
+        localStorage.clear();
+        sessionStorage.clear();
         this.router.navigate(['/login']);
     }
 }
