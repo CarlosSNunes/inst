@@ -354,6 +354,10 @@ app.get('*.*', express.static(DIST_FOLDER, {
 
 // All regular routes use the Universal engine
 
+app.get('/coronavirus', (req, res) => {
+    res.sendFile(process.cwd() + '/dist/browser/coronavirus/index.html');
+});
+
 app.get('*', (req, res) => {
     res.render('index', { req });
 });

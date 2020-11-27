@@ -23,7 +23,7 @@ export class NoticiaModel {
             }
 
             if (init.getDateDifferences) {
-                this.dateDifferences = GetDifferences(new Date(), init.dataCadastro);
+                this.dateDifferences = GetDifferences(new Date(), init.dataPublicacao);
             }
         }
     }

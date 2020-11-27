@@ -7,6 +7,7 @@ namespace CarePlusAPI.Helpers
     {
         public string Secret { get; set; }
         public string PathToSave { get; set; }
+        public string VirtualPath { get; set; }
         public string PathToGet { get; set; }
         public string UrlDefault { get; set; }
         public string PostImageRelativePathDefault { get; set; }

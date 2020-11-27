@@ -81,8 +81,7 @@
                             <label class="label">Descrição</label>
                             <div class="card shadow border mb-3">
                                 <ckeditor formControlName="descricao" rows="4"
-                                    [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
-                                    [editor]="editor" (ready)="onReady($event)">
+                                    [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }" (ready)="onReady($event)">
                                 </ckeditor>
                                 <div *ngIf="submitted" class="errors">
                                     <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">

@@ -4,7 +4,7 @@ import { NoticiaComponent } from './noticia.component';
 import { NoticiaService } from './noticia.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NoticiaEditComponent } from './noticia-edit/noticia-edit.component';
 import { NoticiaCreateComponent } from './noticia-create/noticia-create.component';

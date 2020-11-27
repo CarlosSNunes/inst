@@ -19,10 +19,6 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "@ckeditor/ckeditor5-angular": "^1.2.3",
-    "@ckeditor/ckeditor5-build-classic": "^16.0.0",
-    "@ckeditor/ckeditor5-build-decoupled-document": "^21.0.0",
-    "@ckeditor/ckeditor5-theme-lark": "^16.0.0",
     "@fortawesome/angular-fontawesome": "^0.5.0",
     "@fortawesome/fontawesome-free": "^5.15.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -30,7 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@ng-select/ng-select": "^5.0.8",
     "bootstrap": "^4.5.2",
-    "ckeditor5-simple-upload": "^1.0.7",
+    "ckeditor4-angular": "^2.0.1",
     "component": "^1.1.0",
     "file-server": "^2.1.0",
     "image-to-base64": "^2.1.1",
@@ -44,6 +40,7 @@
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "xlsx": "^0.16.3",
+    "typeface-montserrat": "0.0.75",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

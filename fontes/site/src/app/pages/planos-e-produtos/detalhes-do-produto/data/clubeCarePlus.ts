@@ -38,7 +38,8 @@ export default {
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
-                plano: 'clube-careplus'
+                plano: 'clube-careplus',
+                planoSaude:true
             }
         }),
         parallax: true
@@ -168,7 +169,7 @@ export default {
                             text: 'Opção: Ortodontia e Prótese.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
+                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
                         }
                     ]
                 },
@@ -206,7 +207,7 @@ export default {
                             text: 'Opção: Ortodontia, Prótese e Implante.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
+                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
                         }
                     ]
                 },
@@ -281,7 +282,7 @@ export default {
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'clube-careplus',
-                planoOdontologico: true
+                planoOdontologico:true
             }
         })
     }),
@@ -390,7 +391,8 @@ export default {
             text: 'Clique e solicite cotação',
             target: '_self',
             queryParams: {
-                plano: 'clube-careplus'
+                plano: 'clube-careplus',
+                planoSaude:true
             }
         }),
         backgroundColorClass: 'blue-background-color',

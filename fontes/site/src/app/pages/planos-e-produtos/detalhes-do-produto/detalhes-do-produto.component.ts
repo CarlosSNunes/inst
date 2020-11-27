@@ -32,6 +32,8 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
             if (foundId) {
                 this.setSEOInfos(foundId);
                 this.queryParams = {
+                    
+                    planoSaude:true,
                     plano: this.id
                 }
             } else {

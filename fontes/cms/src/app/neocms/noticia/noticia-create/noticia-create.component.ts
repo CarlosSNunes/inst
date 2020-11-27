@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UploadAdapter } from './../../../../../src/plugins/upload-adapter';
 import { NoticiaService } from '../noticia.service';
 import { FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
@@ -20,7 +19,6 @@ import { TipoService } from '../tipo/tipo.service';
   styleUrls: ['./noticia-create.component.scss']
 })
 export class NoticiaCreateComponent implements OnInit {
-  editor = CKEditorModule;
   noticiaForm;
   faTimes = faTimes;
   faCheck = faCheck;

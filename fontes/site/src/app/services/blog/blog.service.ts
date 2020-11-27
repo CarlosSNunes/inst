@@ -13,11 +13,11 @@ export class BlogService {
     private url = `${environment.API_URL}/Post`;
 
     async getRelatedPosts(post: NoticiaModel, skip: number, take: number): Promise<NoticiasPaginadas> {
-        return this.http.get<NoticiasPaginadas>(`${this.url}/categoria/${post.categoriaId}/${skip}/${take}/${post.slug}`).toPromise();
+        return this.http.get<NoticiasPaginadas>(`${this.url}/categoria/${post.categoriaId}/${skip}/${take}/${post.slug}?ativo=1`).toPromise();
     }
 
     async getPaginatedByTerm(skip: number, take: number, term: string): Promise<NoticiasPaginadas> {
-        return this.http.get<NoticiasPaginadas>(`${this.url}/term/${term}/${skip}/${take}`).toPromise();
+        return this.http.get<NoticiasPaginadas>(`${this.url}/term/${term}/${skip}/${take}?ativo=1`).toPromise();
     }
 
     async getPostBySlug(slug: string): Promise<NoticiaModel> {
@@ -25,15 +25,15 @@ export class BlogService {
     }
 
     async getMostRead(skip: number, take: number): Promise<NoticiasPaginadas> {
-        return this.http.get<NoticiasPaginadas>(`${this.url}/maisLidos/${skip}/${take}`).toPromise();
+        return this.http.get<NoticiasPaginadas>(`${this.url}/maisLidos/${skip}/${take}?ativo=1`).toPromise();
     }
 
     async getByCategoryId(id: number, skip: number, take: number): Promise<NoticiasPaginadas> {
-        return this.http.get<NoticiasPaginadas>(`${this.url}/categoria-id/${id}/${skip}/${take}`).toPromise();
+        return this.http.get<NoticiasPaginadas>(`${this.url}/categoria-id/${id}/${skip}/${take}?ativo=1`).toPromise();
     }
 
     async getAllPostsPaginated(skip: number, take: number): Promise<NoticiasPaginadas> {
-        return this.http.get<NoticiasPaginadas>(`${this.url}/${skip}/${take}`).toPromise();
+        return this.http.get<NoticiasPaginadas>(`${this.url}/${skip}/${take}?ativo=1`).toPromise();
     }
 
 }
