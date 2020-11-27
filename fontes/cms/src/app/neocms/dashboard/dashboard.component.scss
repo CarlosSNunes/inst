@@ -219,6 +219,10 @@
                         }
                     }
                     .post-body {
+                        height: 140px;
+                        margin-top: 15px;
+                        overflow: auto;
+                        margin-bottom: 15px;
                         .post-title {
                             font-size: getSize("h4");
                         }
@@ -228,9 +232,10 @@
                         .post-description {
                             font-size: getSize("p");
                         }
-                        button {
-                            width: 100%;
-                        }
+                        
+                    }
+                    button {
+                        width: 100%;
                     }
                 }
             }

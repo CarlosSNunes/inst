@@ -165,11 +165,11 @@
                                 <p *ngIf="postSelecionado" class="post-description">
                                     {{postSelecionado.descricaoPrevia}}
                                 </p>
-                                <a *ngIf="postSelecionado"
-                                    [routerLink]="['/neocms/posts-blog/edit', postSelecionado.slug]">
-                                    <button class="btn blue">Editar</button></a>
+                                
                             </div>
-
+                            <a *ngIf="postSelecionado"
+                            [routerLink]="['/neocms/posts-blog/edit', postSelecionado.slug]">
+                            <button class="btn blue">Editar</button></a>
                         </div>
                     </div>
                 </div>
