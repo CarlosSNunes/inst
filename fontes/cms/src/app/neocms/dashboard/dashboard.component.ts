@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faColumns, faDotCircle, faImages, faMedal, faUsers } from '@fortawesome/free-solid-svg-icons';
-import { filter } from 'rxjs/operators';
+import { PostBlogModel } from 'src/models/posts-blog/posts-blog.model';
 import { BannerService } from '../banner/banner.service';
 import { PostsBlogService } from '../posts-blog/posts-blog.service';
 import { UsuarioService } from '../usuario/usuario.service';
@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   faColumns = faColumns;
   faDotCircle = faDotCircle;
   faMedal = faMedal;
-  postResult: any;
+  postResult: PostBlogModel[] = [];
 
 
   constructor(
@@ -77,8 +77,8 @@ export class DashboardComponent implements OnInit {
       .getAll(1, 100)
       .subscribe(res => {
         this.loaded = true;
-        this.postResult = res['result'];
-        this.blogCount = res['count'];
+        this.postResult = res.result;
+        this.blogCount = res.count;
       },
         error => {
           this.loaded = true;

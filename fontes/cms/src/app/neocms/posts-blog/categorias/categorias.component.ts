@@ -75,7 +75,8 @@ export class CategoriasComponent implements OnInit {
             .subscribe(_ => {
                 this.message = 'Categoria:' + id + ' deletada com sucesso!';
                 this.modalRef.hide();
-                this.toastrService.success(this.message)
+                this.toastrService.success(this.message);
+                this.getCategorias();
             }, (error) => {
                 let message = '';
                 if (error.error) {

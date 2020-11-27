@@ -119,6 +119,10 @@ namespace CarePlusAPI.Services
             {
                 Db.Set<Tag>().Remove(entity);
 
+                IQueryable<PostTag> postTagsToRemove = Db.Set<PostTag>().AsNoTracking().AsQueryable().Where(pt => pt.TagId == id);
+
+                Db.Set<PostTag>().RemoveRange(postTagsToRemove);
+
                 await Db.SaveChangesAsync();
             }
             else

@@ -80,7 +80,7 @@
             </div>
 
             <div class="col-md-4">
-                <a routerLink="/neocms/usuario">
+                <a routerLink="/neocms/usuarios">
                     <div class="card users">
                         <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +147,7 @@
                         </ul>
                         <div class="post-content">
                             <div *ngIf="postSelecionado" class="post-image crop">
-                                <img [src]="postSelecionado.caminhoImagem + postSelecionado.nomeImagem"
+                                <img [src]="postSelecionado.caminhoCompleto"
                                     [alt]="postSelecionado.titulo">
                             </div>
                             <div *ngIf="!postSelecionado" class="post-image">

@@ -13,10 +13,10 @@ CarePlusAPI/Src/Images/Post
 
 CarePlusAPI/Src/Images/Banner
 
-# Removr appsettings
-CarePlusAPI/appsettings.Development.json
+# Remove appsettings
+appsettings.Development.json
 
-CarePlusAPI/appsettings.json
+appsettings.json
 
 # Rider
 .idea

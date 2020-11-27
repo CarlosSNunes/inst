@@ -19,6 +19,7 @@ namespace CarePlusAPI.Controllers
         private readonly IDashboardService _dashboardService;
         private readonly IMapper _mapper;
         private readonly SeriLog _seriLog;
+        private readonly AppSettings _appSettings;
 
         ///<summary>
         ///
@@ -37,6 +38,7 @@ namespace CarePlusAPI.Controllers
             _dashboardService = dashboardService;
             _mapper = mapper;
             _seriLog = new SeriLog(appSettings);
+            _appSettings = appSettings.Value;
         }
 
         ///<summary>
@@ -57,6 +59,19 @@ namespace CarePlusAPI.Controllers
                 List<Post> maisLidos = await _dashboardService.ListarPostsMaisLidos();
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(maisLidos);
+
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
+                model.ForEach(item =>
+                {
+                    if (item.CaminhoImagem != null)
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.PathToGet}{item.CaminhoImagem}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompleto = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
+                });
 
                 return Ok(model);
             }

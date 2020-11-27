@@ -56,7 +56,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>        
         [HttpGet("{page}/{pageSize}")]
         [AllowAnonymous]
-        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador, Post")]
         public async Task<IActionResult> Get(
             int page,
             int pageSize,
