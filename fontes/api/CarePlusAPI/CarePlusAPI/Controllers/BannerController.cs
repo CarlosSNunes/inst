@@ -177,19 +177,20 @@ namespace CarePlusAPI.Controllers
 
             try
             {
-                var bannerPath = "\\Banner";
+                var bannerPath = "Src/Images/Banner/";
 
                 var desktop = await _bannerService.SalvaImagem(_appSettings.PathToSave + bannerPath, Arquivo);
+
                 fileName = desktop.Item1;
                 path = desktop.Item2;
                 model.NomeImagemDesktop = fileName;
-                model.CaminhoDesktop = _appSettings.PathToSave + bannerPath + "/" + fileName;
+                model.CaminhoDesktop = bannerPath + fileName;
                 
                 var mobile = await _bannerService.SalvaImagem(_appSettings.PathToSave + bannerPath, ArquivoMobile);
                 directoryNameMobile = mobile.Item1;
                 pathMobile = mobile.Item2;
                 model.NomeImagemMobile = fileName;
-                model.CaminhoMobile = _appSettings.PathToSave + bannerPath + "/" + fileName;
+                model.CaminhoMobile = bannerPath + fileName;
 
 
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
@@ -233,10 +234,9 @@ namespace CarePlusAPI.Controllers
             if (model == null)
                 throw new AppException("O Banner não pode estar nulo");
 
-            string path = "";
+            var bannerPath = "Src/Images/Banner/";
             var Arquivo = model.Arquivo;
 
-            string pathMobile = "";
             string directoryNameMobile;
             var ArquivoMobile = model.ArquivoMobile;
 
@@ -256,19 +256,21 @@ namespace CarePlusAPI.Controllers
 
                     var desktop = await _bannerService.SalvaImagem(_appSettings.PathToSave, model.Arquivo);
                     fileName = desktop.Item1;
-                    path = desktop.Item2;
+                    bannerPath = desktop.Item2;
                     model.NomeImagemDesktop = fileName;
-                    model.CaminhoDesktop = path.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
+                    model.CaminhoDesktop = bannerPath + fileName;
+                    //model.CaminhoDesktop = bannerPath.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
 
                     var mobile = await _bannerService.SalvaImagem(_appSettings.PathToSaveMobile, model.ArquivoMobile);
                     directoryNameMobile = mobile.Item1;
-                    pathMobile = mobile.Item2;
+                    bannerPath = mobile.Item2;
                     model.NomeImagemMobile = fileName;
-                    model.CaminhoMobile = pathMobile.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
+                    model.CaminhoMobile = bannerPath + fileName;
+                    //model.CaminhoMobile = bannerPath.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
 
 
-                    model.CaminhoDesktop = path.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
-                    model.CaminhoMobile = path.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
+                    model.CaminhoDesktop = bannerPath.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
+                    model.CaminhoMobile = bannerPath.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
                 }
                 else
                 {
