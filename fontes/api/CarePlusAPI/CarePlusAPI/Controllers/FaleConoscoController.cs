@@ -108,7 +108,7 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet("classificacao-ouvidoria")]
-        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [Authorize(Roles = "Editor, Administrador, Visualizador")]
         public async Task<IActionResult> GetClassificacaoOuvidoria()
         {
             string origem = Request.Headers["Custom"];
@@ -140,7 +140,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação Fale conosco</param>
         [HttpPost("gravar-fale-conosco")]
-        [Authorize(Roles = "Editor, Administrador")]
+        [Authorize(Roles = "Editor, Administrador, Visualizador")]
         public async Task<IActionResult> Post([FromForm] GravarFaleConoscoEntradaModel model)
         {
             string origem = Request.Headers["Custom"];
@@ -174,7 +174,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação Fale conosco</param>
         [HttpPost("gravar-canal-de-denuncia")]
-        [Authorize(Roles = "Editor, Administrador")]
+        [Authorize(Roles = "Editor, Administrador, Visualizador")]
         public async Task<IActionResult> Post([FromForm] GravarCanalDenunciaEntradaModel model)
         {
             string origem = Request.Headers["Custom"];
@@ -207,8 +207,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação Fale conosco</param>
         [HttpPost("gravar-ouvidoria")]
-        [AllowAnonymous]
-        [Authorize(Roles = "Editor, Administrador")]
+        [Authorize(Roles = "Editor, Administrador, Visualizador")]
         public async Task<IActionResult> Post([FromForm] GravarOuvidoriaEntradaModel model)
         {
             string origem = Request.Headers["Custom"];

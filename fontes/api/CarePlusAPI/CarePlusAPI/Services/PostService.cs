@@ -14,7 +14,8 @@ namespace CarePlusAPI.Services
     {
         Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo, string? origem);
         Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo, string? origem);
-        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int page, int pageSize, string slug, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, char? ativo, string? origem);
         Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo, string? origem);
         Task<Post> BuscarPorSlug(string slug);
         Task<Post> BuscarPorSlugHit(string slug);
@@ -51,25 +52,27 @@ namespace CarePlusAPI.Services
             {
                 IQueryable<Post> query = Db.Post.AsQueryable();
 
-                query = query
-                           .AsNoTracking()
-                           .Where(p =>
-                                (ativo != null ? p.Ativo == ativo : true)
-                                && origem != null ?
-                                    origem == "institucional" ?
-                                        (p.DataPublicacao != null && p.DataExpiracao == null) ?
-                                            p.DataPublicacao <= DateTime.Now
-                                        : (p.DataPublicacao != null && p.DataExpiracao != null) ?
-                                            (p.DataPublicacao <= DateTime.Now && p.DataExpiracao > DateTime.Now)
-                                        : false
-                                    : true
-                                : false
-                           )
-                           .Include("Categoria")
-                           .Include("PostTag.Tag")
-                           .OrderByDescending(p => p.Destaque)
-                           .ThenByDescending(p => p.DataCadastro);
+                query = query.AsNoTracking();
+                    
 
+                if (ativo != null)
+                {
+                    query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
+                }
+
+                if (origem != null && origem == "institucional")
+                {
+                    query = (IOrderedQueryable<Post>)query.Where(
+                        p => p.DataPublicacao <= DateTime.Now
+                        || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
+                    );
+                }
+
+                query = query
+                    .Include("Categoria")
+                    .Include("PostTag.Tag")
+                    .OrderByDescending(p => p.Destaque)
+                    .ThenByDescending(p => p.DataCadastro);
 
                 var count = await query.CountAsync();
 
@@ -123,7 +126,7 @@ namespace CarePlusAPI.Services
                                         .AsNoTracking()
                                         .Include("Categoria")
                                         .Include("PostTag.Tag")
-                                        .FirstOrDefaultAsync(n => n.Slug == slug);
+                                        .FirstOrDefaultAsync(n => n.Slug.Equals(slug));
 
             return post;
         }
@@ -212,7 +215,46 @@ namespace CarePlusAPI.Services
             await Db.SaveChangesAsync();
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo, string? origem)
+        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, char? ativo, string? origem)
+        {
+            if (id == 0)
+                throw new AppException("O id da categoria não pode ser igual a 0");
+
+            IQueryable<Post> query = Db.Set<Post>().AsQueryable();
+
+            query = query.AsNoTracking()
+                                    .Where(p =>
+                                    p.CategoriaId == id);
+
+            if (ativo != null)
+            {
+                query.Where(p => p.Ativo == ativo);
+            }
+
+            if (origem != null && origem == "institucional")
+            {
+                query.Where(
+                    p => p.DataPublicacao <= DateTime.Now
+                    || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
+                );
+            }
+
+            query = query.OrderBy(c => c.DataCadastro)
+                .Include("Categoria")
+                .Include("PostTag.Tag");
+
+
+            if (query == null)
+                throw new AppException("Posts não localizados");
+
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+
+            return new Tuple<int, List<Post>>(count, result.Results);
+        }
+
+        public async Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int page, int pageSize, string slug, char? ativo, string? origem)
         {
             if (id == 0)
                 throw new AppException("O id da categoria não pode ser igual a 0");
@@ -222,21 +264,25 @@ namespace CarePlusAPI.Services
             query = query.AsNoTracking()
                                     .Where(p =>
                                     p.CategoriaId == id
-                                    && (ativo != null ? p.Ativo.Equals(ativo) : true)
-                                    && p.Slug != slug
-                                    && origem != null ?
-                                        origem == "institucional" ?
-                                            (p.DataPublicacao != null && p.DataExpiracao == null) ?
-                                                p.DataPublicacao <= DateTime.Now
-                                            : (p.DataPublicacao != null && p.DataExpiracao != null) ?
-                                                (p.DataPublicacao <= DateTime.Now && p.DataExpiracao > DateTime.Now)
-                                            : false
-                                        : true
-                                    : false)
-                                    .Include("Categoria")
-                                    .Include("PostTag.Tag")
-                                    .OrderBy(c => c.DataCadastro);
-                                    
+                                    && p.Slug != slug);
+
+            if (ativo != null)
+            {
+                query.Where(p => p.Ativo == ativo);
+            }
+
+            if (origem != null && origem == "institucional")
+            {
+                query.Where(
+                    p => p.DataPublicacao <= DateTime.Now
+                    || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
+                );
+            }
+
+            query = query.OrderBy(c => c.DataCadastro)
+                .Include("Categoria")
+                .Include("PostTag.Tag");
+
 
             if (query == null)
                 throw new AppException("Posts não localizados");
@@ -257,26 +303,31 @@ namespace CarePlusAPI.Services
 
 
             query = query.AsNoTracking()
-                                    .Where(x => (x.Titulo.Contains(term)
+                                    .Where(x => x.Titulo.Contains(term)
                                     || x.Subtitulo.Contains(term)
                                     || x.DescricaoPaginaSEO.Contains(term)
                                     || x.TituloPaginaSEO.Contains(term)
                                     || x.DescricaoPrevia.Contains(term)
-                                    || x.Slug.Contains(term))
-                                    &&
-                                    ((ativo != null ? x.Ativo.Equals(ativo) : true)
-                                    && origem != null ?
-                                        origem == "institucional" ?
-                                            (x.DataPublicacao != null && x.DataExpiracao == null) ?
-                                                x.DataPublicacao <= DateTime.Now
-                                            : (x.DataPublicacao != null && x.DataExpiracao != null) ?
-                                                (x.DataPublicacao <= DateTime.Now && x.DataExpiracao > DateTime.Now)
-                                            : false
-                                        : true
-                                    : false))
-                                    .Include("Categoria")
-                                    .Include("PostTag.Tag")
-                                    .OrderBy(c => c.DataCadastro);
+                                    || x.Slug.Contains(term));
+
+
+            if (ativo != null)
+            {
+                query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
+            }
+
+            if (origem != null && origem == "institucional")
+            {
+                query = (IOrderedQueryable<Post>)query.Where(
+                    p => p.DataPublicacao <= DateTime.Now
+                    || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
+                );
+            }
+
+            query = query.Include("Categoria")
+                                .Include("PostTag.Tag")
+                                .OrderBy(c => c.DataCadastro);
+
 
             if (query == null)
                 throw new AppException("Posts não localizados");
@@ -292,24 +343,24 @@ namespace CarePlusAPI.Services
         {
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
+            if (ativo != null)
+            {
+                query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
+            }
+
+            if (origem != null && origem == "institucional")
+            {
+                query = (IOrderedQueryable<Post>)query.Where(
+                    p => p.DataPublicacao <= DateTime.Now
+                    || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
+                );
+            }
 
             query = query.AsNoTracking()
-                                    .Where(p =>
-                                        (ativo != null ? p.Ativo == ativo : true)
-                                        && (origem != null ?
-                                            origem == "institucional" ?
-                                                (p.DataPublicacao != null && p.DataExpiracao == null) ?
-                                                    p.DataPublicacao <= DateTime.Now
-                                                : (p.DataPublicacao != null && p.DataExpiracao != null) ?
-                                                    (p.DataPublicacao <= DateTime.Now && p.DataExpiracao > DateTime.Now)
-                                                : false
-                                            : true
-                                        : false)
-                                    )
-                                    .Include("Categoria")
-                                    .Include("PostTag.Tag")
-                                    .OrderByDescending(p => p.Vizualizacoes)
-                                    .ThenBy(p => p.DataCadastro);
+                            .Include("Categoria")
+                            .Include("PostTag.Tag")
+                            .OrderByDescending(p => p.Vizualizacoes)
+                            .ThenBy(p => p.DataCadastro);
 
             if (query == null)
                 throw new AppException("Posts não localizados");
@@ -462,8 +513,7 @@ namespace CarePlusAPI.Services
             str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
             // convert multiple spaces into one space   
             str = Regex.Replace(str, @"\s+", " ").Trim();
-            // cut and trim 
-            str = str.Substring(0, str.Length <= 45 ? str.Length : 45).Trim();
+            // cut and trim
             str = Regex.Replace(str, @"\s", "-"); // hyphens  
 
             return str;

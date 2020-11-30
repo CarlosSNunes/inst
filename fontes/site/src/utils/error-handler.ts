@@ -24,7 +24,11 @@ export class ErrorHandler {
         } else if (error instanceof DefaultErrors) {
             message = error.message;
         } else {
-            message = error.message;
+            if (error) {
+                message = error.message;
+            } else {
+                message = 'Erro Interno no servidor'
+            }
         }
 
         this.notificationService.addNotification('error', message);

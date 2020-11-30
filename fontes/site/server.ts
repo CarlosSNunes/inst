@@ -359,7 +359,7 @@ app.get('/coronavirus', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.render('index', { req });
+    res.render('index', { req, res });
 });
 
 // Start up the Node server

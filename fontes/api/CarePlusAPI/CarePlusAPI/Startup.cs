@@ -2,6 +2,7 @@ using AutoMapper;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -80,7 +81,7 @@ namespace CarePlusAPI
                             context.Fail("Unauthorized");
 
                         return Task.CompletedTask;
-                    }
+                    },
                 };
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = true;
@@ -89,8 +90,10 @@ namespace CarePlusAPI
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
-                    ValidateAudience = false
-                };
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+            };
             });
 
             services.AddScoped<IUsuarioService, UsuarioService>();
@@ -102,6 +105,19 @@ namespace CarePlusAPI
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IFaleConoscoService, FaleConoscoService>();
             services.AddScoped<IDashboardService, DashboardService>();
+
+            // Ativa o uso do token como forma de autorizar o acesso
+            // a recursos deste projeto
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build());
+
+                auth.AddPolicy("Posts",
+                      policy => policy.RequireClaim("Administrador"));
+        });
+
 
             services.AddSwaggerGen(c =>
             {
@@ -121,6 +137,8 @@ namespace CarePlusAPI
             });
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                        services.AddMvc();
         }
 
         ///<summary>
