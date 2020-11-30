@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef, Optional } from '@angular/core';
 import { BreadcrumbModel, NoticiaModel, IconCardsSectionModel, PostCardModel, RouteModel, ButtonModel } from 'src/app/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -7,6 +7,8 @@ import { WindowRef } from 'src/utils/window-ref';
 import { BlogService, EventEmitterService } from 'src/app/services';
 import { environment } from 'src/environments/environment';
 import { ErrorHandler } from 'src/utils/error-handler';
+import { RESPONSE } from '@nguniversal/express-engine/tokens'
+import { Response } from 'express';
 
 @Component({
     selector: 'app-detalhe-do-post',
@@ -25,6 +27,8 @@ export class DetalheDoPostComponent implements OnInit {
         cendered: false
     });
     pageURL: string;
+    isBrowser: boolean = false;
+
     constructor(
         private activatedRoute: ActivatedRoute,
         private title: Title,
@@ -34,9 +38,11 @@ export class DetalheDoPostComponent implements OnInit {
         private blogService: BlogService,
         private cdr: ChangeDetectorRef,
         private errorHandler: ErrorHandler,
-        private router: Router
+        private router: Router,
+        @Optional() @Inject(RESPONSE) private readonly res: Response
     ) {
-        if (isPlatformBrowser(this.platformId)) {
+        this.isBrowser = isPlatformBrowser(this.platformId)
+        if (this.isBrowser) {
             this.pageURL = this.windowRef.nativeWindow.location.href;
         }
         this.activatedRoute.params.subscribe(params => this.refreshData(params.slug));
@@ -83,8 +89,13 @@ export class DetalheDoPostComponent implements OnInit {
             this.getRelatedPosts(apiPost);
             this.cdr.detectChanges();
         } catch (error) {
-            this.errorHandler.ShowError(error.error);
-            this.router.navigate(['/404'])
+            if (this.isBrowser) {
+                this.errorHandler.ShowError(error.error);
+                this.router.navigate(['/404']);
+            } else {
+                this.res.redirect(301, '/404');
+            }
+
         }
     }
 
