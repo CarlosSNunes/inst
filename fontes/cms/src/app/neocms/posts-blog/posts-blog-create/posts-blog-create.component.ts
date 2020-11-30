@@ -86,7 +86,7 @@ export class PostsBlogCreateComponent implements OnInit {
         this.postsBlogForm = this.fb.group({
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            descricaoPrevia: ['', [Validators.required,Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             dataPublicacao: ['', [Validators.required]],
             dataExpiracao: [''],

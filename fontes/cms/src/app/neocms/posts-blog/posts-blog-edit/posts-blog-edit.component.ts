@@ -87,7 +87,7 @@ export class PostsBlogEditComponent implements OnInit {
             id: [''],
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            descricaoPrevia: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            descricaoPrevia: ['', [Validators.required,Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             dataPublicacao: [new Date().toISOString().substring(0, 10), [Validators.required]],
             dataExpiracao: [''],
             destaque: [false, [Validators.required, FormControlError.noWhitespaceValidator],],
@@ -218,6 +218,7 @@ export class PostsBlogEditComponent implements OnInit {
                 .getAll(0, 1000).toPromise();
             this.tags = tags.result;
             this.resultTags = tags;
+            console.log(this.resultTags)
         } catch (error) {
             console.log(error)
         }

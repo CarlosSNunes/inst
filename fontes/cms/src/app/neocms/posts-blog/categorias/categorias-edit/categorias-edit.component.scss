@@ -1,154 +1,208 @@
-@import './../../../../../assets/sass/animations.scss';
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
 
-
-img.arrow-return {
-  width   : 35px;
-  position: absolute;
-  left    : 15px;
-  top     : 0px;
-}
-
-h4.card-title {
-  padding    : 2px 0px 0px 40px;
-  font-weight: 600;
-}
-
-div.card.card-bg {
-  background-color: #f9f9f9;
-  box-shadow      : inset 0px 0px 20px 0px rgb(0 0 0 / 16%)
-}
-
-
-.media-upload-box {
-  width          : 500px;
-  height         : 200px;
-  background     : #ffffff;
-  align-items    : center;
-  display        : flex;
-  flex-direction : row;
-  flex-wrap      : wrap;
-  justify-content: center;
-}
-
-img.icon-upload {
-  width: 30px;
-}
-
-span.label-dimension {
-  position   : relative;
-  font-weight: 700;
-  display    : flex;
-  width      : 100%;
-}
-
-div.box-upload {
-  margin: 30px 0px;
-}
-
-.custom-file-input {
-  position: relative;
-  z-index : 2;
-  width   : 100%;
-  height  : calc(1.5em + .75rem + 2px);
-  margin  : 0;
-  opacity : 0;
-  cursor  : pointer;
-  border  : 1px solid #343a40;
-}
-
-.custom-file-input:lang(en)~.custom-file-label::after {
-  content         : "Procurar";
-  cursor          : pointer !important;
-  color           : #fff;
-  background-color: #343a40;
-  border          : 1px solid #343a40;
-  outline         : #343a40;
-}
-
-::ng-deep {
-
-  canvas.canvas-style {
-    background-color: white !important;
+#editCategoria {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+    h1 {
+      font-size: getSize("h2");
+    }
+    a {
+      color: getColor(_bupa, _digital-cian);
+      margin: auto 0;
+    }
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: getColor(_bupa, _black);
+      height: 1px;
+      width: 100%;
+    }
   }
-
-  input[type="file"] {
-    content   : "" !important;
-    position  : relative !important;
-    width     : 100% !important;
-    background: silver !important;
-    color     : #343a40 !important;
-    margin    : 12px 0px !important;
+  form {
+    label {
+      font-size: getSize("p");
+    }
+    input,
+    textarea {
+      margin-bottom: 25px;
+      resize: none;
+      &.is-danger {
+        margin-bottom: 5px;
+        border-color: #ff3e1d;
+      }
+    }
+    p {
+      &.is-danger {
+        color: #ff3e1d;
+      }
+    }
+    .buttons{
+      display: flex;
+      justify-content: flex-end;
+      button{
+        margin-left: 15px;
+        &:first-child{
+          margin-left: 0;
+        }
+      }
+    }
   }
-
-  input[type="file"]::after {
-    content: "" !important;
-    color  : #343a40 !important;
-  }
-
-  input[type="file"]::placeholder {
-    display: none;
-  }
-
-  input[type="file"]::content {
-    color: #343a40 !important
-  }
-
 }
 
-span.title-banner {
-  position   : absolute;
-  left       : 60px;
-  top        : 0px;
-  color      : #485665;
-  font-weight: bolder;
-  font-size  : 20px;
-}
+// @import './../../../../../assets/sass/animations.scss';
 
-div#card-header {
-  height: 75px;
-}
+// img.arrow-return {
+//   width   : 35px;
+//   position: absolute;
+//   left    : 15px;
+//   top     : 0px;
+// }
 
-#cardAread {
-  animation : fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  transition: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
+// h4.card-title {
+//   padding    : 2px 0px 0px 40px;
+//   font-weight: 600;
+// }
 
+// div.card.card-bg {
+//   background-color: #f9f9f9;
+//   box-shadow      : inset 0px 0px 20px 0px rgb(0 0 0 / 16%)
+// }
 
-div#cardWizardArea {
-  min-height: 100%;
-  position  : absolute;
-  right     : 0;
-  left      : 0;
-  bottom    : 0px;
-  top       : 94px;
-  width     : auto;
-  height    : fit-content;
-}
+// .media-upload-box {
+//   width          : 500px;
+//   height         : 200px;
+//   background     : #ffffff;
+//   align-items    : center;
+//   display        : flex;
+//   flex-direction : row;
+//   flex-wrap      : wrap;
+//   justify-content: center;
+// }
 
-img.thumbnail-image {
-  width  : 100%;
-  padding: 10px;
-}
+// img.icon-upload {
+//   width: 30px;
+// }
 
-div.shadow.thumbnail-image-box {
-  margin: 60px 0 0 0;
-}
+// span.label-dimension {
+//   position   : relative;
+//   font-weight: 700;
+//   display    : flex;
+//   width      : 100%;
+// }
 
-h4.titulo-visualizacao {
-  padding       : 10px 10px 0px 10px !important;
-  text-transform: capitalize;
-}
+// div.box-upload {
+//   margin: 30px 0px;
+// }
 
-img.thumbnail-image-mobile {
-  width: 100%;
-  padding: 10px;
-}
+// .custom-file-input {
+//   position: relative;
+//   z-index : 2;
+//   width   : 100%;
+//   height  : calc(1.5em + .75rem + 2px);
+//   margin  : 0;
+//   opacity : 0;
+//   cursor  : pointer;
+//   border  : 1px solid #343a40;
+// }
 
-div.shadow.thumbnail-image-box-mobile {
-  margin: 60px auto;
-  width: 75%;
-}
-h4.titulo-visualizacao-mobile {
-  padding       : 10px 10px 0px 10px !important;
-  text-transform: capitalize;
-}
+// .custom-file-input:lang(en)~.custom-file-label::after {
+//   content         : "Procurar";
+//   cursor          : pointer !important;
+//   color           : #fff;
+//   background-color: #343a40;
+//   border          : 1px solid #343a40;
+//   outline         : #343a40;
+// }
+
+// ::ng-deep {
+
+//   canvas.canvas-style {
+//     background-color: white !important;
+//   }
+
+//   input[type="file"] {
+//     content   : "" !important;
+//     position  : relative !important;
+//     width     : 100% !important;
+//     background: silver !important;
+//     color     : #343a40 !important;
+//     margin    : 12px 0px !important;
+//   }
+
+//   input[type="file"]::after {
+//     content: "" !important;
+//     color  : #343a40 !important;
+//   }
+
+//   input[type="file"]::placeholder {
+//     display: none;
+//   }
+
+//   input[type="file"]::content {
+//     color: #343a40 !important
+//   }
+
+// }
+
+// span.title-banner {
+//   position   : absolute;
+//   left       : 60px;
+//   top        : 0px;
+//   color      : #485665;
+//   font-weight: bolder;
+//   font-size  : 20px;
+// }
+
+// div#card-header {
+//   height: 75px;
+// }
+
+// #cardAread {
+//   animation : fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+//   transition: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+// }
+
+// div#cardWizardArea {
+//   min-height: 100%;
+//   position  : absolute;
+//   right     : 0;
+//   left      : 0;
+//   bottom    : 0px;
+//   top       : 94px;
+//   width     : auto;
+//   height    : fit-content;
+// }
+
+// img.thumbnail-image {
+//   width  : 100%;
+//   padding: 10px;
+// }
+
+// div.shadow.thumbnail-image-box {
+//   margin: 60px 0 0 0;
+// }
+
+// h4.titulo-visualizacao {
+//   padding       : 10px 10px 0px 10px !important;
+//   text-transform: capitalize;
+// }
+
+// img.thumbnail-image-mobile {
+//   width: 100%;
+//   padding: 10px;
+// }
+
+// div.shadow.thumbnail-image-box-mobile {
+//   margin: 60px auto;
+//   width: 75%;
+// }
+// h4.titulo-visualizacao-mobile {
+//   padding       : 10px 10px 0px 10px !important;
+//   text-transform: capitalize;
+// }
