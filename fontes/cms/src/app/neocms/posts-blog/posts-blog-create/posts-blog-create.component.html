@@ -1,239 +1,204 @@
-<form [formGroup]="postsBlogForm" (ngSubmit)="onSubmit()">
-    <div class="card my-2" id="card-header">
-        <div class="card-body">
-            <div class="row">
-                <div class="link-title">
+<section id="createPost">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1 class="title-banner">Criar Novo Post</h1>
                     <a [routerLink]="['neocms/post-blog/index']">
-                        <img class="arrow-return" src="assets/img/arrow.png" alt="Arrow return">
-                        <span class="title-banner">Criar Novo Post</span>
+                        Voltar
                     </a>
                 </div>
+            </div>
+            <div class="col-12">
+                <form [formGroup]="postsBlogForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <h5 class="col-12">1 - Conteúdo</h5>
+                        <div class="col-md-6">
+                            <label class="label">Título</label>
+                            <input formControlName="titulo" class="form-control input" type="text" placeholder=""
+                                [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="label">Subtítulo</label>
+                            <input
+                                [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }"
+                                formControlName="subtitulo" class="form-control input" type="text" placeholder="">
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="label">Qual é a categoria?</label>
+                            <div class="select"
+                                [ngClass]="{ 'is-success': submitted && !f.categoriaId.errors, 'is-danger' : submitted && f.categoriaId.errors }">
+                                <select formControlName="categoriaId" (change)="manageCategories($event.target)"
+                                    class="custom-select form-group">
+                                    <option value="">Selecione uma categoria..</option>
+                                    <option *ngFor="let cat of categorias" [value]="cat.id">
+                                        {{cat.titulo}}</option>
+                                </select>
+                            </div>
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.categoriaId)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="label">Destacar postagem na Home?</label>
+                                    <div class="buttons">
+                                        <button type="button" class="btn blue"
+                                            [ngClass]="{'isSelected': !isPostDestaque}"
+                                            (click)="changeStatusDestaque('0', false)">
+                                            Não
+                                        </button>
+                                        <button type="button" class="btn blue"
+                                            [ngClass]="{'isSelected': isPostDestaque}"
+                                            (click)="changeStatusDestaque('1', true)">
+                                            Sim
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="label">Ativar Post?</label>
+                                    <div class="buttons">
+                                        <button type="button" class="btn blue" [ngClass]="{'isSelected': !isPostAtivo}"
+                                            (click)="changeStatusPost('0', false)">
+                                            Não
+                                        </button>
+                                        <button type="button" class="btn blue" [ngClass]="{'isSelected': isPostAtivo}"
+                                            (click)="changeStatusPost('1', true)">
+                                            Sim
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="label">Descrição Prévia</label>
+                            <textarea formControlName="descricaoPrevia"
+                                [ngClass]="{ 'is-success': submitted && !f.descricaoPrevia.errors, 'is-danger' : submitted && f.descricaoPrevia.errors }"
+                                class="form-control textarea" placeholder="" rows="3">
+                                        </textarea>
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.descricaoPrevia)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="label">Descrição</label>
+                            <ckeditor formControlName="descricao" class="card " [config]="{ resize_enabled: false }"
+                                [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }">
+                            </ckeditor>
+                            <div *ngIf="submitted" class="ckeditor-errors">
+                                <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <h5 class="col-12">2 - Opções</h5>
+                        <div class="col-md-12">
+
+                            <input type="file" class="text-truncate input-img"
+                                (change)="fileProgress($event.srcElement.files)" />
+
+                            <div *ngIf="fileUploadProgress">
+                                Upload progress: {{ fileUploadProgress }}
+                            </div>
+                            <div class="my-2" *ngIf="uploadedFilePath">
+                                {{uploadedFilePath}}
+                            </div>
+                            <div class="" *ngIf="previewUrl">
+                                <img [src]="previewUrl" class="image-preview card shadow" alt="Preview Image" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="label">Quando será publicado?</label>
+                            <input type="date" id="dataPublicacao" formControlName="dataPublicacao"
+                                [ngClass]="{ 'is-success': submitted && !f.dataPublicacao.errors, 'is-danger' : submitted && f.dataPublicacao.errors }"
+                                placeholder="Selecione uma data" class="form-control data">
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.dataPublicacao, 'Data de Publicação')"
+                                    class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="label">Quando deverá ser removido?</label>
+                            <input type="date" id="dataExpiracao" formControlName="dataExpiracao"
+                                [ngClass]="{ 'is-success': submitted && !f.dataExpiracao.errors, 'is-danger' : submitted && f.dataExpiracao.errors }"
+                                class=" form-control input" placeholder="Selecione uma data">
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.dataExpiracao)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 tags">
+                            <label class="label">Tags</label>
+                            <div class="tags-container">
+                                <button  *ngFor="let t of resultTag?.result" type="button" (click)="toggleTag(t)" class="btn blue"
+                                    btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+                                    <img src="assets/img/tag.svg" alt="Tags">
+                                    {{t.descricao}}
+                                </button>
+                            </div>
+
+
+                            <a target="blank" type="button" class="btn blue"
+                                [routerLink]="['/neocms/posts-blog/tag/']" routerLinkActive="active">
+                                Nova Tag
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <h5 class="col-12">3 - SEO</h5>
+                        <div class="col-md-12">
+                            <label class="label">Título para SEO</label>
+                            <input formControlName="tituloPaginaSEO" class="form-control input" type="text"
+                                placeholder=""
+                                [ngClass]="{ 'is-success': submitted && !f.tituloPaginaSEO.errors, 'is-danger' : submitted && f.tituloPaginaSEO.errors }">
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.tituloPaginaSEO)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="label">Descrição para SEO</label>
+                            <textarea formControlName="descricaoPaginaSEO"
+                                [ngClass]="{ 'is-success': submitted && !f.descricaoPaginaSEO.errors, 'is-danger' : submitted && f.descricaoPaginaSEO.errors }"
+                                class="form-control textarea" placeholder="" rows="4"></textarea>
+                            <div *ngIf="submitted" class="errors">
+                                <p *ngFor="let error of getErrors(f.descricaoPaginaSEO)" class="help is-danger">
+                                    {{error}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 save-post">
+                            <button class="btn blue " type="submit">
+                                Salvar Post
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="card my-5 py-5">
-        <div class="card-body">
-            <div class="container w-100 mb-5">
-                <section class="mb-5">
-                    <h5 class="">1 - Conteúdo</h5>
-                    <hr>
-                </section>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="label">Título</label>
-                        <input formControlName="titulo" class="form-control input" type="text" placeholder=""
-                            [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="label">Subtítulo</label>
-                        <input
-                            [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }"
-                            formControlName="subtitulo" class="form-control input" type="text" placeholder="">
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="label">Qual é a categoria?</label>
-                        <div class="select"
-                            [ngClass]="{ 'is-success': submitted && !f.categoriaId.errors, 'is-danger' : submitted && f.categoriaId.errors }">
-                            <select formControlName="categoriaId" (change)="manageCategories($event.target)"
-                                class="custom-select form-group">
-                                <option value="">Selecione uma categoria..</option>
-                                <option *ngFor="let cat of categorias" [value]="cat.id">
-                                    {{cat.descricao}}</option>
-                            </select>
-                        </div>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.categoriaId)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="label">Destacar postagem na Home?</label>
-                                <div class="buttons has-addons">
-                                    <button type="button" class="btn btn-outline-primary "
-                                        [ngClass]="{'isSelected': !isPostDestaque}"
-                                        (click)="changeStatusDestaque('0', false)">
-                                        Não
-                                    </button>
-                                    <button type="button" class="btn btn-outline-primary ml-2"
-                                        [ngClass]="{'isSelected': isPostDestaque}"
-                                        (click)="changeStatusDestaque('1', true)">
-                                        Sim
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="label">Ativar Post?</label>
-                                <div class="buttons has-addons">
-                                    <button type="button" class="btn btn-outline-primary "
-                                        [ngClass]="{'isSelected': !isPostAtivo}" (click)="changeStatusPost('0', false)">
-                                        Não
-                                    </button>
-                                    <button type="button" class="btn btn-outline-primary ml-2"
-                                        [ngClass]="{'isSelected': isPostAtivo}" (click)="changeStatusPost('1', true)">
-                                        Sim
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <label class="label">Descrição Prévia</label>
-                        <textarea formControlName="descricaoPrevia"
-                            [ngClass]="{ 'is-success': submitted && !f.descricaoPrevia.errors, 'is-danger' : submitted && f.descricaoPrevia.errors }"
-                            class="form-control textarea" placeholder="" rows="3">
-                                    </textarea>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.descricaoPrevia)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <label class="label">Descrição</label>
-                        <ckeditor formControlName="descricao" class="card h-75"
-                            [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }">
-                        </ckeditor>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container w-100 my-5">
-                <section class="my-5">
-                    <h5 class="">2 - Opções</h5>
-                    <hr>
-                </section>
-            </div>
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="file" class="text-truncate input-img"
-                            (change)="fileProgress($event.srcElement.files)" />
-                    </div>
-                    <div *ngIf="fileUploadProgress">
-                        Upload progress: {{ fileUploadProgress }}
-                    </div>
-                    <div class="my-2" *ngIf="uploadedFilePath">
-                        {{uploadedFilePath}}
-                    </div>
-                    <div class="" *ngIf="previewUrl">
-                        <img [src]="previewUrl" class="image-preview card shadow" alt="Preview Image" />
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="label">Quando será publicado?</label>
-                        <input type="date" id="dataPublicacao" formControlName="dataPublicacao"
-                            [ngClass]="{ 'is-success': submitted && !f.dataPublicacao.errors, 'is-danger' : submitted && f.dataPublicacao.errors }"
-                            placeholder="Selecione uma data" class="form-control data">
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.dataPublicacao, 'Data de Publicação')"
-                                class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="label">Quando deverá ser removido?</label>
-                        <input type="date" id="dataExpiracao" formControlName="dataExpiracao"
-                            [ngClass]="{ 'is-success': submitted && !f.dataExpiracao.errors, 'is-danger' : submitted && f.dataExpiracao.errors }"
-                            class=" form-control input" placeholder="Selecione uma data">
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.dataExpiracao)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="container">
-                <label class="label">Tags</label>
-                <div class="card">
-                    <div class="card-body my-2">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="tags-container" *ngFor="let t of resultTag?.result">
-                                    <button type="button" (click)="toggleTag(t)" class="btn btn-outline-primary btn-tag"
-                                        btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
-                                        <fa-icon class="gold" [icon]="faTag"></fa-icon>
-                                        {{t.descricao}}
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <a target="blank" type="button" class="btn btn-outline-primary new-tag"
-                                    [routerLink]="['/neocms/posts-blog/tag/']" routerLinkActive="active">
-                                    Nova Tag &nbsp;
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container w-100 my-5">
-                <section class="my-5">
-                    <h5 class="">3 - SEO</h5>
-                    <hr>
-                </section>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <label class="label">Título para SEO</label>
-                        <input formControlName="tituloPaginaSEO" class="form-control input" type="text" placeholder=""
-                            [ngClass]="{ 'is-success': submitted && !f.tituloPaginaSEO.errors, 'is-danger' : submitted && f.tituloPaginaSEO.errors }">
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.tituloPaginaSEO)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label class="label">Descrição para SEO</label>
-                        <textarea formControlName="descricaoPaginaSEO"
-                            [ngClass]="{ 'is-success': submitted && !f.descricaoPaginaSEO.errors, 'is-danger' : submitted && f.descricaoPaginaSEO.errors }"
-                            class="form-control textarea" placeholder="" rows="4"></textarea>
-                        <div *ngIf="submitted" class="errors">
-                            <p *ngFor="let error of getErrors(f.descricaoPaginaSEO)" class="help is-danger">
-                                {{error}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button class="btn btn-primary btn-salvar" type="submit">
-                            Salvar Post
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
+</section>
