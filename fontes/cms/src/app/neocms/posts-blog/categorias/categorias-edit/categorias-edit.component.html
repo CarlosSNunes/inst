@@ -1,62 +1,55 @@
-<div class="card-banner-wizard">
-    <form [formGroup]="categoriasForm" (ngSubmit)="onSubmit()">
-        <div class="card shadow my-3" id="card-header">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a [routerLink]="['neocms/posts-blog/categorias/index']">
-                            <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-                            <span class="title-banner">Editar Categoria</span>
-                        </a>
-                    </div>
+<section id="editCategoria">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Editar Categoria
+                    </h1>
+                    <a routerLink="/neocms/posts-blog/categorias/index">
+                        Voltar
+                    </a>
                 </div>
+
             </div>
         </div>
-        <div class="card shadow my-3" id="cardWizardArea">
-            <div class="card-body">
-                <ng-wizard [config]="config">
-                    <ng-wizard-step [title]="'Categoria'" [description]="'Editar Categoria'">
-                        <div class="row">
-                            <div class="col-md-6 m-auto">
-                                <div class="card shadow">
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label class="label">Título</label>
-                                            <input formControlName="titulo" class="form-control" type="text" placeholder=""
-                                                [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
-                                                    {{error}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="my-input">Descrição</label>
-                                            <textarea formControlName="descricao"
-                                                [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
-                                                class="form-control" type="textarea" placeholder="" rows="5"></textarea>
-                                            <div *ngIf="submitted" class="errors">
-                                                <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
-                                                    {{error}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="buttom-group">
-                                            <button routerLink="/neocms/posts-blog/categorias/index" routerLinkActive="active" class="badge badge-dark shadow p-3" type="button">
-                                                Fechar
-                                            </button>
-                                            <button class="badge badge-dark shadow p-3" type="submit"
-                                                [ngClass]="{'is-loading': btnSubmitDisable}">
-                                                Gravar
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="row">
+            <div class="col-12">
+
+                <form [formGroup]="categoriasForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label class="label">Título</label>
+                        <input formControlName="titulo" class="form-control" type="text" placeholder=""
+                            [ngClass]="{ 'is-success': submitted && !f.titulo.errors, 'is-danger' : submitted && f.titulo.errors }">
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.titulo)" class="help is-danger">
+                                {{error}}
+                            </p>
                         </div>
-                    </ng-wizard-step>
-                </ng-wizard>
+                    </div>
+                    <div class="form-group">
+                        <label for="my-input">Descrição</label>
+                        <textarea formControlName="descricao"
+                            [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }"
+                            class="form-control" type="textarea" placeholder="" rows="5"></textarea>
+                        <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+
+                        <button routerLink="neocms/posts-blog/categorias/index" routerLinkActive="active"
+                            class="btn orange" type="button">
+                            Fechar
+                        </button>
+                        <button class="btn blue" type="submit" [ngClass]="{'is-loading': btnSubmitDisable}">
+                            Gravar
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
-</div>
+    </div>
+</section>
