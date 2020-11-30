@@ -14,7 +14,8 @@ namespace CarePlusAPI.Services
     {
         Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo, string? origem);
         Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo, string? origem);
-        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int page, int pageSize, string slug, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, char? ativo, string? origem);
         Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo, string? origem);
         Task<Post> BuscarPorSlug(string slug);
         Task<Post> BuscarPorSlugHit(string slug);
@@ -214,7 +215,46 @@ namespace CarePlusAPI.Services
             await Db.SaveChangesAsync();
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, string slug, char? ativo, string? origem)
+        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, char? ativo, string? origem)
+        {
+            if (id == 0)
+                throw new AppException("O id da categoria não pode ser igual a 0");
+
+            IQueryable<Post> query = Db.Set<Post>().AsQueryable();
+
+            query = query.AsNoTracking()
+                                    .Where(p =>
+                                    p.CategoriaId == id);
+
+            if (ativo != null)
+            {
+                query.Where(p => p.Ativo == ativo);
+            }
+
+            if (origem != null && origem == "institucional")
+            {
+                query.Where(
+                    p => p.DataPublicacao <= DateTime.Now
+                    || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
+                );
+            }
+
+            query = query.OrderBy(c => c.DataCadastro)
+                .Include("Categoria")
+                .Include("PostTag.Tag");
+
+
+            if (query == null)
+                throw new AppException("Posts não localizados");
+
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+
+            return new Tuple<int, List<Post>>(count, result.Results);
+        }
+
+        public async Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int page, int pageSize, string slug, char? ativo, string? origem)
         {
             if (id == 0)
                 throw new AppException("O id da categoria não pode ser igual a 0");
