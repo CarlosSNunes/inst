@@ -14,6 +14,7 @@ namespace CarePlusAPI.Entities
         public string Descricao { get; set; }
         [Column("PRIORIDADE")]
         public int Prioridade { get; set; }
-        public virtual List<UsuarioPerfil> UsuarioPerfil { get; set; }
+        
+        public virtual ICollection<UsuarioPerfil> UsuarioPerfil { get; set; }
     }
 }

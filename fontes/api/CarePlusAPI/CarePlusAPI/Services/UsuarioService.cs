@@ -66,7 +66,7 @@ namespace CarePlusAPI.Services
             if (string.IsNullOrWhiteSpace(senha))
                 throw new AppException("A senha é de preenchimento obrigatório");
 
-            Usuario usuario = await Context.Usuario.Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(x => x.Email == email);
+            Usuario usuario = await Context.Set<Usuario>().AsNoTracking().Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(x => x.Email == email);
 
             if (usuario == null)
             {
@@ -86,7 +86,7 @@ namespace CarePlusAPI.Services
         ///</summary>
         public async Task<List<Usuario>> Listar()
         {
-            return await Context.Usuario.Include("UsuarioPerfil.Perfil").Where(x => x.Ativo == '1').AsNoTracking().ToListAsync();
+            return await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").Where(x => x.Ativo == '1').AsNoTracking().ToListAsync();
         }
 
         ///<summary>
@@ -100,7 +100,7 @@ namespace CarePlusAPI.Services
             if (id == 0)
                 throw new AppException("O id do usuário não pode ser igual a 0");
 
-            Usuario usuario = await Context.Usuario.Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(u => u.Id == id);
+            Usuario usuario = await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(u => u.Id == id);
 
             if (usuario == null)
                 throw new AppException("Usuario não encontrado");
@@ -149,7 +149,7 @@ namespace CarePlusAPI.Services
             if (id == 0)
                 throw new AppException("O id do usuário não pode ser igual a 0");
 
-            return Context.Usuario.Any(u => u.Id == id);
+            return Context.Set<Usuario>().Any(u => u.Id == id);
         }
 
         ///<summary>
@@ -167,7 +167,7 @@ namespace CarePlusAPI.Services
             if (string.IsNullOrWhiteSpace(senha))
                 throw new AppException("A senha tem que estar preenchida");
 
-            if (await Context.Usuario.AnyAsync(x => x.Email == model.Email))
+            if (await Context.Set<Usuario>().AnyAsync(x => x.Email == model.Email))
                 throw new AppException($"Email {model.Email} ja utilizado");
 
             CriarSenha(senha, out byte[] senhaHash, out byte[] senhaSalt);
@@ -176,7 +176,8 @@ namespace CarePlusAPI.Services
             model.SenhaSalt = senhaSalt;
             model.Ativo = '1';
 
-            await Context.Usuario.AddAsync(model);
+            await Context.Set<Usuario>().AddAsync(model);
+
             await Context.SaveChangesAsync();
 
             return model;
@@ -194,14 +195,14 @@ namespace CarePlusAPI.Services
             if (model == null)
                 throw new AppException("O usuário não pode estar nulo");
 
-            Usuario usuario = await Context.Usuario.FindAsync(model.Id);
+            Usuario usuario = await Context.Set<Usuario>().FindAsync(model.Id);
 
             if (usuario == null)
                 throw new AppException("Usuário não encontrado!");
 
             if (!string.IsNullOrWhiteSpace(model.Email) && model.Email != usuario.Email)
             {
-                if (await Context.Usuario.AnyAsync(x => x.Email == model.Email))
+                if (await Context.Set<Usuario>().AnyAsync(x => x.Email == model.Email))
                     throw new AppException($"Email { model.Email } ja utilizado");
 
                 usuario.Email = model.Email;
@@ -222,7 +223,7 @@ namespace CarePlusAPI.Services
 
             usuario.UsuarioPerfil = model.UsuarioPerfil;
 
-            Context.Usuario.Update(usuario);
+            Context.Set<Usuario>().Update(usuario);
             await Context.SaveChangesAsync();
         }
 
@@ -237,12 +238,12 @@ namespace CarePlusAPI.Services
             if (id == 0)
                 throw new AppException("O id do usuário não pode ser igual a 0");
 
-            Usuario user = await Context.Usuario.Include("UsuarioPerfil").FirstOrDefaultAsync(u => u.Id == id);
+            Usuario user = await Context.Set<Usuario>().Include("UsuarioPerfil").FirstOrDefaultAsync(u => u.Id == id);
 
             if (user != null)
             {
-                Context.UsuarioPerfil.RemoveRange(user.UsuarioPerfil);
-                Context.Usuario.Remove(user);
+                Context.Set<UsuarioPerfil>().RemoveRange(user.UsuarioPerfil);
+                Context.Set<Usuario>().Remove(user);
                 await Context.SaveChangesAsync();
             }
             else
@@ -298,7 +299,7 @@ namespace CarePlusAPI.Services
             if (id == 0)
                 throw new AppException("O id do usuário não pode ser igual a 0");
 
-            List<UsuarioPerfil> perfis = await Context.UsuarioPerfil.Where(b => b.UsuarioId == id).ToListAsync();
+            List<UsuarioPerfil> perfis = await Context.Set<UsuarioPerfil>().Where(b => b.UsuarioId == id).ToListAsync();
             Context.RemoveRange(perfis);
         }
 
@@ -515,14 +516,14 @@ namespace CarePlusAPI.Services
             if (string.IsNullOrWhiteSpace(userEmail))
                 throw new AppException("O e-mail do usuário não pode estar vazio.");
 
-            Usuario usuario = await Context.Usuario.Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(u => u.Email == userEmail);
+            Usuario usuario = await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(u => u.Email == userEmail);
 
             if (usuario == null)
                 throw new AppException("Usuario não encontrado");
 
             usuario.Ativo = '0';
 
-            Context.Usuario.Update(usuario).Property(x => x.Ativo).IsModified = true;
+            Context.Set<Usuario>().Update(usuario).Property(x => x.Ativo).IsModified = true;
 
             LogUsuarioDesativado logUsr = new LogUsuarioDesativado()
             {        

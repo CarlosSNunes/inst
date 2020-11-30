@@ -23,7 +23,8 @@ namespace CarePlusAPI.Entities
         public byte[] SenhaSalt { get; set; }
         [Column("ATIVO")]
         public char Ativo { get; set; }
-        public List<UsuarioPerfil> UsuarioPerfil { get; set; }
+
+        public virtual ICollection<UsuarioPerfil> UsuarioPerfil { get; set; }
 
     }
 }

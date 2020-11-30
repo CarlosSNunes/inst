@@ -44,13 +44,13 @@ namespace CarePlusAPI.Helpers
             modelBuilder.HasDefaultSchema("APP_INSTITUCIONAL");
 
             modelBuilder.Entity<UsuarioPerfil>()
-                .HasOne(p => p.Usuario)
-                .WithMany(b => b.UsuarioPerfil)
+                .HasOne(u => u.Usuario)
+                .WithMany(us => us.UsuarioPerfil)
                 .HasForeignKey(f => f.UsuarioId);
 
             modelBuilder.Entity<UsuarioPerfil>()
-                .HasOne(p => p.Perfil)
-                .WithMany(b => b.UsuarioPerfil)
+                .HasOne(u => u.Perfil)
+                .WithMany(us => us.UsuarioPerfil)
                 .HasForeignKey(f => f.PerfilId);
 
             modelBuilder.Entity<Post>()

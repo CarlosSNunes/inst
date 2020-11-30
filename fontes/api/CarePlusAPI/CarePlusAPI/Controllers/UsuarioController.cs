@@ -57,6 +57,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de autenticação de um usuário</param>
         [HttpPost("Autenticar")]
+        [AllowAnonymous]
         public async Task<IActionResult> Autenticar(UsuarioAutenticadoModel model)
         {
             string origem = Request.Headers["Custom"];
@@ -164,7 +165,8 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> Post(UsuarioCreateModel model)
         {
             string origem = Request.Headers["Custom"];
