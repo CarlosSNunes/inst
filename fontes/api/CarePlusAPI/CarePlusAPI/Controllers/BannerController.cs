@@ -58,8 +58,7 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet]
-        [AllowAnonymous]
-        //[Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get()
         {
             string origem = Request.Headers["Custom"];
@@ -126,8 +125,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="area">Id do Banner</param>
         [HttpGet("getByArea/{area}")]
-        [AllowAnonymous]
-        //[Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetByArea(string area)
         {
             string origem = Request.Headers["Custom"];

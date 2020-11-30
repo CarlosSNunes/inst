@@ -55,8 +55,7 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>        
         [HttpGet("{page}/{pageSize}")]
-        [AllowAnonymous]
-        [Authorize(Roles = "Editor, Visualizador, Administrador, Post")]
+        [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> Get(
             int page,
             int pageSize,
@@ -256,7 +255,6 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Post</param>
         [HttpGet("categoria-id/{id}/{page}/{pageSize}")]
-        [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> getByCategoryId(
             int id,
@@ -315,7 +313,6 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Post</param>
         [HttpGet("categoria/{id}/{page}/{pageSize}/{slug}")]
-        [AllowAnonymous]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> getRelativePosts(
             int id,

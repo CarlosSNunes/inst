@@ -56,7 +56,6 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="model">Model de autenticação de um usuário</param>
-        [AllowAnonymous]
         [HttpPost("Autenticar")]
         public async Task<IActionResult> Autenticar(UsuarioAutenticadoModel model)
         {
@@ -91,7 +90,7 @@ namespace CarePlusAPI.Controllers
                 {
                     Subject = new ClaimsIdentity(new Claim[] {
                 new Claim (ClaimTypes.Name, usuario.Id.ToString ()),
-                new Claim (ClaimTypes.Role, usuario.UsuarioPerfil.OrderBy (x => x.Perfil.Prioridade).FirstOrDefault ().Perfil.Descricao)
+                new Claim (ClaimTypes.Role, usuario.UsuarioPerfil.OrderBy (x => x.Perfil.Prioridade).FirstOrDefault ().Perfil.Descricao),
                 }),
 
                     Expires = DateTime.UtcNow.AddDays(7),
@@ -165,7 +164,6 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost]
-        [AllowAnonymous]
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Post(UsuarioCreateModel model)
         {
