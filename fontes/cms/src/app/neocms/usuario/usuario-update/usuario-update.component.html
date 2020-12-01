@@ -5,7 +5,7 @@
   <div class="card-body">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <ng-wizard [config]="configUser" (stepChanged)="stepChanged($event)">
-        <ng-wizard-step [title]="'Usuário'" [description]="'Novo Usuário'">
+        <ng-wizard-step [title]="'Usuário'" [description]="'Editar Usuário'">
           <div class="row">
             <div class="col-md-12 col-lg-4 m-auto">
               <div *ngFor="let alert of alerts">

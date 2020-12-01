@@ -11,6 +11,7 @@ export class UsuarioUpdateModel {
       init.usuarioPerfil.forEach(perfil => this.usuarioPerfil.push(new CareplusPerfilCreateModel(perfil)));
     }
   }
+  id: string;
   nome: string;
   email: string;
   dataCadastro: Date;

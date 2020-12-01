@@ -16,6 +16,7 @@ import { UsuarioUpdateModel } from 'src/models/usuario/usuario-update.model';
 import { stream } from 'xlsx/types';
 import { UsuarioModel } from 'src/models/usuario/usuario.model';
 import { ToastrService } from 'ngx-toastr';
+import { modalConfigDefaults } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
   selector: 'app-usuario-update',
@@ -181,6 +182,9 @@ export class UsuarioUpdateComponent implements OnInit {
 
       this.btnSubmitDisable = true;
       const model = new UsuarioUpdateModel(this.userForm.value);
+      model.id = this.usuarioSelecionado.id;
+
+
       this.usuarioService.put(model)
         .subscribe(() => {
           this.toastrService.success('Post editado com sucesso!!!');
