@@ -55,6 +55,10 @@ export class BuscaPorCategoriaComponent implements OnInit {
         this.count = 0;
         this.posts = [];
         this.category = undefined;
+        this.canFindMore = true;
+        this.skip = 0;
+        this.take = 20;
+        this.loading = false;
     }
 
     private async filterPosts(params) {

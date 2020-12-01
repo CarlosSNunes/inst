@@ -4,32 +4,24 @@ import { Observable } from 'rxjs';
 import { AuthenticationService } from '../authentication/authentication.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class HttpHandlerService implements HttpInterceptor {
 
-  constructor(
-    private authenticationService: AuthenticationService
-  ) { }
+    constructor() { }
 
-  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const usuario = this.authenticationService.state;
-
-    // if (usuario) {
-      const reqAuth = req.clone({
-        setHeaders: {
-            'Authorization': 'Bearer ' + usuario.token,
-            "Custom": "instadministrativo"
+    public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        let token;
+        if (localStorage.getItem('user_token')) {
+            token = JSON.parse(localStorage.getItem('user_token'));
         }
-      });
-      return next.handle(reqAuth);
-    // }
 
-    return next.handle(req).pipe(
-      // catchError((error) => {
-      //   console.log(error);
-      //   return throwError(error);
-      // })
-    );
-  }
+        const reqAuth = req.clone({
+            setHeaders: {
+                'Authorization': 'Bearer ' + (token ? token.token : undefined),
+                "Custom": "instadministrativo"
+            }
+        });
+        return next.handle(reqAuth);
+    }
 }
