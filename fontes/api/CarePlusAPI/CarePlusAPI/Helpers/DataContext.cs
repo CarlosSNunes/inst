@@ -44,13 +44,18 @@ namespace CarePlusAPI.Helpers
             modelBuilder.HasDefaultSchema("APP_INSTITUCIONAL");
 
             modelBuilder.Entity<UsuarioPerfil>()
-                .HasOne(u => u.Usuario)
-                .WithMany(us => us.UsuarioPerfil)
+                .HasOne(p => p.Usuario)
+                .WithMany(x => x.UsuarioPerfil)
                 .HasForeignKey(f => f.UsuarioId);
 
             modelBuilder.Entity<UsuarioPerfil>()
-                .HasOne(u => u.Perfil)
-                .WithMany(us => us.UsuarioPerfil)
+                .HasOne(p => p.Perfil)
+                .WithMany(x => x.UsuarioPerfil)
+                .HasForeignKey(f => f.PerfilId);
+
+            modelBuilder.Entity<UsuarioPerfil>()
+                .HasOne(p => p.Perfil)
+                .WithMany(x => x.UsuarioPerfil)
                 .HasForeignKey(f => f.PerfilId);
 
             modelBuilder.Entity<Post>()
@@ -150,7 +155,7 @@ namespace CarePlusAPI.Helpers
                     base.Entry(e.Entity).Property("DataCadastro").IsModified = false;
                 }
 
-                if (usuarioId != null && HttpUser.UsuarioId != null)
+                if (usuarioId != null && HttpUser.UsuarioId != null && usuarioId.GetValue(e.Entity) == null)
                 {
                     usuarioId.SetValue(e.Entity, HttpUser.UsuarioId, null);
                 }

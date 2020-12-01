@@ -186,6 +186,8 @@ namespace CarePlusAPI.Controllers
             }
             catch (Exception ex)
             {
+                Console.Write("EXCEPTION: ", ex.StackTrace);
+                
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
                 return BadRequest(new
