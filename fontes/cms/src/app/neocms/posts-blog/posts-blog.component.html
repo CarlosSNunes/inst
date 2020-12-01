@@ -55,18 +55,18 @@
                             <td class="text-center">
                                 <div class="actions" *ngIf="post.status != 'pendente'">
                                     <a [routerLink]="['/neocms/posts-blog/preview', post.slug]"
-                                        routerLinkActive="active" class="info-icon" alt="Visualizar post">
+                                        routerLinkActive="active" class="info-icon text-dark" alt="Visualizar post">
                                         <fa-icon [icon]="faEye"></fa-icon>
                                     </a>
                                     <a [routerLink]="['/neocms/posts-blog/edit', post.slug]" routerLinkActive="active"
-                                        class="info-icon" alt="Editar post">
+                                        class="info-icon text-dark" alt="Editar post">
                                         <fa-icon [icon]="faEdit"></fa-icon>
                                     </a>
-                                    <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon"
+                                    <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon text-danger"
                                         alt="Excluir post">
                                         <fa-icon [icon]="faTrashAlt"></fa-icon>
                                     </a>
-                                    <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon"
+                                    <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon "
                                         alt="Duplicar post">
                                         <fa-icon [icon]="faClone"></fa-icon>
                                     </a>
