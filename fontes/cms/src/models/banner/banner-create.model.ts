@@ -19,3 +19,12 @@ export class BannerCreateModel {
     ativo: string;
     ordem: number;
 }
+
+export class BannerListModel {
+    constructor(init?: Partial<BannerListModel>) {
+        Object.assign(this, init);
+    }
+
+    count: number;
+    result: BannerListModel[];
+}

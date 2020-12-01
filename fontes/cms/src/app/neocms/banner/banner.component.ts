@@ -1,3 +1,9 @@
+/**========================================================================
+ **                            BANNER COMPONENT
+
+ //* INFO: Componente de Listagem de Banners
+ *========================================================================**/
+
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { BannerModel } from 'src/models/banner/banner.model';
 import { BannerService } from './banner.service';
@@ -6,8 +12,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BannerCreateModel } from 'src/models/banner/banner-create.model';
 import { ToastrService } from 'ngx-toastr';
-import { environment } from '../../../environments/environment';
-import { concat } from 'rxjs';
+import { environment } from 'src/environments/environment';
+// import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
 
 
 @Component({
@@ -17,47 +23,44 @@ import { concat } from 'rxjs';
 })
 export class BannerComponent implements OnInit {
     @Input() bannerAtivo: boolean;
-
-    banners: BannerModel[] = [];
-
-    faPencilAlt = faPencilAlt;
-    faTrash = faTrash;
-    faPlus = faPlus;
+    //Icons 
     faArrowsAltV = faArrowsAltV;
+    faClone = faClone;
     faEllipsisV = faEllipsisV;
     faEye = faEye;
-    faClone = faClone;
-
-    loaded: boolean;
-    showBannerDelete: boolean;
+    faPencilAlt = faPencilAlt;
+    faPlus = faPlus;
+    faTrash = faTrash;
+    //External References
+    apiPath = environment.API;
+    banners: BannerModel[] = [];
     banner: BannerModel;
-    imagemLargura = 50;
-    imagemMargem = 2;
-    pathDivision: string = "/";
-    nomeImagemDesktop;
-    result: any;
-    message: string;
     bannerForm: FormGroup;
-    paginaAtual = 0;
-    contador = 5;
     modalRef: BsModalRef;
+    // usuario: UserAuthenticateModel;
+    //Internal References
+    bannerCount: any;
+    bannerResult: any;
+    contador = 4;
+    loaded: boolean;
+    message: string;
+    paginaAtual = 0;
+    showBannerDelete: boolean;
+    thumbnail: string;
 
-    caminhoImagem;
-    bannerPath: string;
-    nomeFull: string;
 
     constructor(
+        // private authenticationService: AuthenticationService,
         private bannerService: BannerService,
-        private modalService: BsModalService,
         private fb: FormBuilder,
+        private modalService: BsModalService,
         private toastrService: ToastrService,
     ) { }
 
     ngOnInit() {
+        // this.usuario = this.authenticationService.state;
 
         this.getBanners();
-        console.log(this.banner.ativo)
-
     }
 
     deleteBanner() {
@@ -67,21 +70,19 @@ export class BannerComponent implements OnInit {
         return this.bannerForm.controls;
     }
 
-
+    //TODO: Criar Endpoint para Duplicação de Banners 
     private duplicarBanner(banner: BannerModel) {
-
         this.bannerForm = this.fb.group({
-            nomeImagem: [banner.nomeImagemDesktop],
-            nomeImageMobile: [banner.nomeImagemMobile],
-            titulo: [banner.titulo],
-            subtitulo: [banner.subtitulo],
             area: [banner.area],
-            tempoExibicao: [banner.tempoExibicao],
             descricao: [banner.descricao],
-            rota: [banner.rota],
             linkExterno: [banner.linkExterno],
+            nomeImageMobile: [banner.nomeImagemMobile],
+            nomeImagem: [banner.nomeImagemDesktop],
             nomeLink: [banner.nomeLink],
-
+            rota: [banner.rota],
+            subtitulo: [banner.subtitulo],
+            tempoExibicao: [banner.tempoExibicao],
+            titulo: [banner.titulo],
         });
 
         console.log(this.bannerForm);
@@ -90,6 +91,15 @@ export class BannerComponent implements OnInit {
             .subscribe(() => {
             })
             .add();
+    }
+    openModalDuplicarBanner(template: TemplateRef<BannerModel>) {
+        this.modalRef = this.modalService.show(template, { class: 'modal-md' });
+    }
+
+    confirmDuplicar(banner: BannerModel): void {
+
+        this.duplicarBanner(banner);
+        this.modalRef.hide();
     }
 
     openBannerDelete(banner: BannerModel) {
@@ -119,32 +129,22 @@ export class BannerComponent implements OnInit {
             });
 
     }
-    openModalDuplicarBanner(template: TemplateRef<BannerModel>) {
-        this.modalRef = this.modalService.show(template, { class: 'modal-md' });
-    }
-
-    confirmDuplicar(banner: BannerModel): void {
-
-        this.duplicarBanner(banner);
-        this.modalRef.hide();
-    }
 
     decline(): void {
         this.modalRef.hide();
     }
 
+
     getBanners() {
-        this.showBannerDelete = false;
+        const offset = (this.paginaAtual - 1) * this.contador;
         this.bannerService
-            .getAll()
+            .getAll(offset, this.contador)
             .subscribe(banners => {
                 this.loaded = true;
-                this.banners = banners;
-                this.nomeFull = environment.API;
-                this.bannerPath = '/Src/Images/Banner/';
-                banners.forEach(o => [
-                    this.caminhoImagem = o.caminhoCompletoDesktop.split('/', 2)[1]
-                ]);
+                this.bannerResult = banners.result
+                this.bannerCount = banners.count;
+                console.log(this.bannerResult);
+                this.bannerResult.caminhoCompletoDesktop;
             },
                 error => {
                     let message = '';
@@ -156,5 +156,10 @@ export class BannerComponent implements OnInit {
                     this.toastrService.error(message);
                     this.loaded = true;
                 });
+    }
+
+    onPageChange(page: number) {
+        this.paginaAtual = page;
+        this.getBanners();
     }
 }
