@@ -35,9 +35,34 @@ namespace CarePlusAPI.Models.Banner
             }
         }
         public string CaminhoCompletoDesktop { get; set; }
-        public string CaminhoDesktop { get; set; }
+        private string CaminhoCompletoDesktop_build;
+        public string CaminhoDesktop
+        {
+            get
+            {
+                return CaminhoCompletoDesktop_build;
+            }
+            set
+            {
+                CaminhoCompletoDesktop_build = value;
+            }
+        }
         public string CaminhoCompletoMobile { get; set; }
-        public string CaminhoMobile { get; set;}
+        private string CaminhoCompletoMobile_build;
+
+
+
+        public string CaminhoMobile
+        {
+            get
+            {
+                return CaminhoCompletoMobile_build;
+            }
+            set
+            {
+                CaminhoCompletoMobile_build = value;
+            }
+        }
 
 
     }

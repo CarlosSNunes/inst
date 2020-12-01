@@ -273,7 +273,7 @@ namespace CarePlusAPI.Controllers
                 model.CaminhoMobile = $"{_appSettings.VirtualPath}/Banner/{fileMobileName}";
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
                 Banner banner = _mapper.Map<Banner>(model);
-                _bannerService.Criar(banner);
+                await _bannerService.Criar(banner);
 
                
 
