@@ -65,9 +65,10 @@ export class BannerEditComponent implements OnInit {
     nomeDaImagem: any;
     submitted: boolean;
     usuario: UserAuthenticateModel;
-    bannerResult: BannerModel;
+    bannerResult;
     fileUpDesk: File;
     fileUpMobile: any;
+    bannerCount: number;
     constructor(
         private bannerService: BannerService,
         private fb: FormBuilder,
@@ -100,7 +101,8 @@ export class BannerEditComponent implements OnInit {
         const id = this.route.snapshot.paramMap.get('id');
         this.bannerService.getById(id)
             .subscribe(banner => {
-                this.bannerResult = banner;
+                this.bannerResult = banner.result;
+                this.bannerCount = banner.count;
                 this.bannerForm.patchValue(this.bannerResult);
                 this.updateForm();
             },

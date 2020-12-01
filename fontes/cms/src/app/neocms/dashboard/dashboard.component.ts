@@ -30,6 +30,8 @@ export class DashboardComponent implements OnInit {
   faDotCircle = faDotCircle;
   faMedal = faMedal;
   postResult: PostBlogModel[] = [];
+  paginaAtual: number;
+  contador: number;
 
 
   constructor(
@@ -62,10 +64,10 @@ export class DashboardComponent implements OnInit {
 
   getBanners() {
     this.bannerServices
-      .getAll()
+      .getAll(0, 100)
       .subscribe(res => {
         this.loaded = true;
-        this.bannerCount = res.length;
+        this.bannerCount = res.count;
       },
         error => {
           this.loaded = true;
