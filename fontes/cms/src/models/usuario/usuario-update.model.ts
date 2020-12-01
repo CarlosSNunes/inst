@@ -5,10 +5,10 @@ export class UsuarioUpdateModel {
   public constructor(init?: Partial<UsuarioUpdateModel>) {
     Object.assign(this, init);
 
-    this.perfil = [];
+    this.usuarioPerfil = [];
 
-    if (init.perfil) {
-      init.perfil.forEach(perfil => this.perfil.push(new CareplusPerfilCreateModel(perfil)));
+    if (init.usuarioPerfil) {
+      init.usuarioPerfil.forEach(perfil => this.usuarioPerfil.push(new CareplusPerfilCreateModel(perfil)));
     }
   }
   nome: string;
@@ -16,5 +16,5 @@ export class UsuarioUpdateModel {
   dataCadastro: Date;
   SenhaHash: string;
   SenhaSalt: string;
-  perfil: CareplusPerfilCreateModel[];
+  usuarioPerfil: CareplusPerfilCreateModel[];
 }
