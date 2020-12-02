@@ -35,7 +35,6 @@ export class PostCardModel<T = any> extends CardModel {
     }
 
     post: NoticiaModel;
-    isNewRequest?: boolean = false;
     modalContent: T;
 }
 

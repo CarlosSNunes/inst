@@ -35,7 +35,7 @@ export class BannerComponent implements OnInit {
     banner: BannerModel;
     bannerForm: FormGroup;
     modalRef: BsModalRef;
-    bannerCount: any;
+    bannerCount: number = 0;
     bannerResult: any;
     contador = 4;
     loaded: boolean;

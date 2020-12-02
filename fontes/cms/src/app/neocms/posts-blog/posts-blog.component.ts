@@ -25,7 +25,7 @@ export class PostsBlogComponent implements OnInit {
     postBlog: PostBlogModel;
     usuario: UserAuthenticateModel;
     bsModalRef: BsModalRef;
-    postCount: number;
+    postCount: number = 0;
     paginaAtual = 1;
     contador = 5;
 

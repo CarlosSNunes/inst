@@ -19,9 +19,9 @@ export class DashboardComponent implements OnInit {
   postSelecionado: any = null;
   loaded: boolean;
   userResposta: any;
-  userCount: number;
-  bannerCount: number;
-  blogCount: number;
+  userCount: number = undefined;
+  bannerCount: number = undefined;
+  blogCount: number = undefined;
 
 
   faUsers = faUsers;

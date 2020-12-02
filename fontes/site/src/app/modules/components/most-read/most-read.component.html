@@ -6,7 +6,7 @@
         <div class="post">
             <img [src]="post?.caminhoCompleto" [alt]="post.titulo">
             <div class="title">
-                <p>{{post.titulo}}</p>
+                <p>{{post.titulo | substring: 40}}</p>
 
             </div>
         </div>

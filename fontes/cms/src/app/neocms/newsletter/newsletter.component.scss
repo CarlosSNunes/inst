@@ -1,3 +1,47 @@
-.export {
-   margin-left: 20px;
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#newsletter {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+    h1 {
+      font-size: getSize("h2");
+    }
+    a {
+      color: getColor(_bupa, _digital-cian);
+      margin: auto 0;
+    }
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: getColor(_bupa, _black);
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  table {
+    thead {
+      background-color: getColor(_bupa, _grey-3);
+    }
+
+    td{
+      vertical-align: middle;
+    }
+  }
+  button{
+     padding: 10px 15px;
+  }
+  .load {
+    width: 100%;
+    display: flex;
+    svg {
+      margin: auto;
+    }
+  }
 }

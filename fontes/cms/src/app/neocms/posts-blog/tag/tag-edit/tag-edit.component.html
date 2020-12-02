@@ -1,24 +1,26 @@
-<form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
-  <div class="card shadow my-2" id="card-header">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-10">
-          <a [routerLink]="['/neocms/posts-blog/tag/']">
-            <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-            <span class="title-banner">Editar Tag</span>
+<section id="editTag">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="header">
+          <h1>
+            Editar Tag
+          </h1>
+          <a routerLink="/neocms/posts-blog/tag">
+            Voltar
           </a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="card shadow p-3">
-    <div class="card-content">
-      <div class="columns">
-        <div class="column">
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+
+
           <div class="field">
-            <span class="">Descrição</span>
-            <div class="control mt-2">
-              <input formControlName="descricao" class="form-control col-md-4" type="text" placeholder=""
+            <p >Descrição</p>
+            <div class="control">
+              <input formControlName="descricao" class="form-control" type="text" placeholder=""
                 [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }">
             </div>
             <div *ngIf="submitted" class="errors">
@@ -26,14 +28,17 @@
                 {{error}}
               </p>
             </div>
-            <p>&nbsp;</p>
-            <button class="btn btn-primary" type="submit">
-              Gravar &nbsp;
-              <fa-icon [icon]="faCheck"></fa-icon>
-            </button>
+            <div class="buttons">
+              <button class="btn blue" type="submit">
+                Salvar
+  
+              </button>
+            </div>
+            
+
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
-</form>
+</section>

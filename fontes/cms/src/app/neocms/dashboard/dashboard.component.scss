@@ -35,6 +35,14 @@
                 transition-delay: 0s;
             }
         }
+        .load{
+            svg{
+                position: inherit;
+                width: 150px;
+                height: 150px;
+                margin-bottom: 10px;
+            }
+        }
         h5 {
             font-weight: 500;
 

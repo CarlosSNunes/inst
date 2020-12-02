@@ -1,76 +1,53 @@
-<style type="css/text">
-    div.card.m-5.position-fixed.shadow {
-        z-index: 99999 !important;
-        right: 0 !important;
-        padding: 20px !important;
-        overflow:auto;
-        width:300px
-    }
-</style>
-
-<form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
-    <div class="card shadow my-2" id="card-header">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-10">
-                    <a [routerLink]="['/neocms/posts-blog/tag/']">
-                        <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-                        <span class="title-banner">Criar Nova Tag</span>
+<section id="createTag">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Criar Nova Tag
+                    </h1>
+                    <a routerLink="/neocms/posts-blog/tag">
+                        Voltar
                     </a>
                 </div>
-                <div style="align-content: flex-end;">
-                    <button class="btn btn-primary is-primary" type="submit">
-                        Salvar Tags &nbsp;
-                        <fa-icon [icon]="faCheck"></fa-icon>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card shadow p-3">
-        <div class="card-content">
-            <div class="columns">
-                <div *ngFor="let tag of tags.controls; let i=index" class="column" formArrayName="tags">
-                    <div [formGroupName]="i" class="field has-addons">
-                        <p class="control">
-                            <input formControlName="descricao" class="form-control input" type="text" placeholder=""
-                                [ngClass]="{ 'is-success': submitted && !tag.get('descricao').errors, 'is-danger' : submitted && tag.get('descricao').errors }">
-                        </p>
-                        <p *ngIf="tags.length > 1" class="control">
-                            <button type="button" class="btn btn-link" (click)="removeTag(i)">
-                                remover tag
-                            </button>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="field">
-                <button (click)="addTag()" class="btn btn-primary" type="button">
-                    Adcionar Tag
-                    <fa-icon [icon]="faPlus"></fa-icon>
-                </button>
-                <p *ngIf="submitted && f.invalid" class="errors">
-                    <label class="help is-danger">
-                        É necessário preencher o nome das tags adicionadas
-                    </label>
-                </p>
-            </div>
-        </div>
 
-        <!-- <footer class="card-footer ">
-            <p class="card-footer-item">
-                <button [routerLink]="['/neocms/posts-blog/tag/']" routerLinkActive="active" class="btn btn-primary "
-                    type="button">
-                    Fechar &nbsp;
-                    <fa-icon [icon]="faTimes"></fa-icon>
-                </button>
-            </p>
-            <p class="card-footer-item">
-                <button class="btn btn-primary" type="submit">
-                    Gravar &nbsp;
-                    <fa-icon [icon]="faCheck"></fa-icon>
-                </button>
-            </p>
-        </footer> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+                    <div class="buttons">
+                        <button class="btn blue" type="submit">
+                            Salvar Tags
+                        </button>
+                        
+                    </div>
+                    <p *ngIf="submitted && tagForm.invalid" class="errors">
+                        <label class="help is-danger">
+                            É necessário preencher o nome das tags adicionadas
+                        </label>
+                    </p>
+                    <div *ngFor="let tag of tags.controls; let i=index" class="column" formArrayName="tags">
+                        <p>Nova Tag</p>
+                        <div [formGroupName]="i" class="field has-addons">
+                            <p class="control">
+                                <input formControlName="descricao" class="form-control input" type="text" placeholder=""
+                                    [ngClass]="{ 'is-success': submitted && !tag.get('descricao').errors, 'is-danger' : submitted && tag.get('descricao').errors }">
+                            </p>
+                            <p *ngIf="tags.length > 1" class="control">
+                                <button type="button" class="btn orange remove-button" (click)="removeTag(i)">
+                                    remover tag
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button (click)="addTag()" class="btn blue add-tag" type="button">
+                            Adicionar Tag
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</section>

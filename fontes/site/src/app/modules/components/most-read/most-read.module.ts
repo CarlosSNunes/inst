@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MostReadComponent } from './most-read.component';
 import { RouterModule } from '@angular/router';
+import { SubstringPipeModule } from 'src/app/pipes/substring/substring-pipe.module';
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import { RouterModule } from '@angular/router';
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        SubstringPipeModule
     ],
     exports: [
         MostReadComponent
