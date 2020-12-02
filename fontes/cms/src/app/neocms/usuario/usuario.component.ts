@@ -15,7 +15,7 @@ export class UsuarioComponent implements OnInit {
   faTrash = faTrash;
   faPlus = faPlus;
   showUsuarioDelete: boolean;
-  usuarios: UsuarioModel[];
+  usuarios: UsuarioModel[] = [];
   usuario: UsuarioModel;
   perfis: CareplusPerfilModel[];
   usuarioPerfil: any;
