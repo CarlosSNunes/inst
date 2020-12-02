@@ -18,7 +18,7 @@ export class NeocmsHeaderComponent implements OnInit {
     // usuario: UserAuthenticateModel;
 
     constructor(
-        // private authenticationService: AuthenticationService,
+        private authenticationService: AuthenticationService,
         public router: Router
     ) {
         // EventEmitterService.get('login').subscribe(usuario => {
@@ -36,6 +36,7 @@ export class NeocmsHeaderComponent implements OnInit {
         // EventEmitterService.get('logout').emit();
         localStorage.clear();
         sessionStorage.clear();
+        this.authenticationService.state = undefined;
         this.router.navigate(['/login']);
     }
 }

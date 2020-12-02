@@ -472,7 +472,7 @@ namespace CarePlusAPI.Services
                     await Context.SaveChangesAsync();
 
 
-                    await Criar(new Usuario() { Nome = requisicao.UsuarioNome, Email = requisicao.UsuarioEmail }, requisicao.UsuarioSenha);
+                    //await Criar(new Usuario() { Nome = requisicao.UsuarioNome, Email = requisicao.UsuarioEmail }, requisicao.UsuarioSenha);
 
                     return requisicao;
                 }

@@ -24,3 +24,11 @@ export class BannerModel {
     nomeImagemDesktop: string;
     nomeImagemMobile: string;
 }
+export class BannerListModel {
+    constructor(init?: Partial<BannerListModel>) {
+        Object.assign(this, init);
+    }
+
+    count: number;
+    result: BannerListModel[];
+}

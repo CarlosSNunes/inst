@@ -60,7 +60,7 @@ export class UsuarioService {
           console.log(result);
         },
         error => console.log(error));
-    }
+  }
 
   /**
    * @method PUT() - Método atualizar um usuário.
@@ -69,7 +69,7 @@ export class UsuarioService {
    * @memberOf UsuarioService
    */
   put(usuario: UsuarioUpdateModel) {
-    return this.http.put(this.API_ENDPOINT, [usuario]);
+    return this.http.put(this.API_ENDPOINT, usuario);
   }
 
   /**

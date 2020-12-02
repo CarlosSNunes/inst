@@ -21,3 +21,11 @@ export class BannerUpdateModel {
     ativo: string;
 
 }
+export class BannerListModel {
+    constructor(init?: Partial<BannerListModel>) {
+        Object.assign(this, init);
+    }
+
+    count: number;
+    result: BannerListModel[];
+}

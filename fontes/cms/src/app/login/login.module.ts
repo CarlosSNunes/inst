@@ -21,11 +21,6 @@ import { AuthenticationService } from '../authentication/authentication.service'
   providers: [
     AuthenticationService,
     LoginService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: HttpHandlerService,
-    //   multi: true,
-    // }
   ]
 })
 export class LoginModule { }

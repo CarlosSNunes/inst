@@ -22,7 +22,6 @@ namespace CarePlusAPI.Models.Banner
         public char Ativo { get; set; }
         public string Area { get; set; }
         public int Ordem { get; set; }
-        
         private int TempoExibicaoMilisegundos;
         public int TempoExibicao
         {
@@ -35,25 +34,22 @@ namespace CarePlusAPI.Models.Banner
                 TempoExibicaoMilisegundos = value * 1000; 
             }
         }
-
         public string CaminhoCompletoDesktop { get; set; }
-
         private string CaminhoCompletoDesktop_build;
         public string CaminhoDesktop
         {
-            get 
+            get
             {
-                return CaminhoCompletoDesktop_build; 
+                return CaminhoCompletoDesktop_build;
             }
-            set 
-            { 
+            set
+            {
                 CaminhoCompletoDesktop_build = value;
-                CaminhoCompletoDesktop = $"{CaminhoDesktop}/{NomeImagemDesktop}"; 
             }
         }
-
         public string CaminhoCompletoMobile { get; set; }
         private string CaminhoCompletoMobile_build;
+
         public string CaminhoMobile
         {
             get
@@ -63,7 +59,6 @@ namespace CarePlusAPI.Models.Banner
             set
             {
                 CaminhoCompletoMobile_build = value;
-                CaminhoCompletoMobile = $"{CaminhoMobile}/{NomeImagemMobile}";
             }
         }
 

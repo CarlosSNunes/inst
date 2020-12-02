@@ -58,7 +58,6 @@ export class CareplusMaisComponent implements OnInit {
         try {
             const lastPosts = await this.blogService.getAllPostsPaginated(0, 7);
             this.filterHighlightPost(lastPosts.result);
-            this.filterRecentPosts(lastPosts.result);
             this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.ShowError(error);
@@ -72,7 +71,18 @@ export class CareplusMaisComponent implements OnInit {
                 ...highlight,
                 getDateDifferences: true,
             });
+            this.filterRecentPosts(lastPosts);
             this.cdr.detectChanges();
+        } 
+        // Se não houver um post principal, ele utilizará o primeiro post como principal.
+        else if (lastPosts.length > 0) {
+            this.highLightPost =
+                new NoticiaModel({
+                    ...lastPosts[0],
+                    getDateDifferences: true,
+                });
+            lastPosts.splice(0, 1);
+            this.filterRecentPosts(lastPosts);
         }
     }
 

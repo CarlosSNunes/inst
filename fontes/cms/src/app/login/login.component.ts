@@ -43,22 +43,12 @@ export class LoginComponent implements OnInit {
 
       const loginModel = new LoginModel(this.loginForm.value);
       try {
-        // this.authenticationService.state = await this.loginService.login(loginModel)
         let response = await this.loginService.login(loginModel);
         localStorage.setItem('user_token', JSON.stringify(response))
         this.goTo('neocms')
       } catch (err) {
         this.error = err.error;
       }
-      // this.loginService.login(loginModel)
-      // .subscribe(response => {
-      //   this.authenticationService.state = response;
-      //   EventEmitterService.get('login').emit(response);
-      //   this.router.navigate(['/neocms']);
-      // },
-      //   error => {
-      //     this.error = error;
-      //   });
     }
 
 

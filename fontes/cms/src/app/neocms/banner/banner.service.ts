@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ClassHelper } from './../../../../src/utils/class-helper';
-import { BannerModel } from './../../../../src/models/banner/banner.model';
+import { BannerListModel, BannerModel } from './../../../../src/models/banner/banner.model';
 import { BannerCreateModel } from './../../../../src/models/banner/banner-create.model';
 import { BannerUpdateModel } from './../../../../src/models/banner/banner-update.model';
 
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,12 @@ export class BannerService {
     private http: HttpClient
   ) { }
 
-  getAll() {
-    return this.http.get<BannerModel[]>(this.API_ENDPOINT);
+  getAll(page: number, pageSize: number): Observable<BannerListModel> {
+    return this.http.get<BannerListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
   }
 
-  getById(id: string) {
-    return this.http.get<BannerModel>(this.API_ENDPOINT + '/' + id);
+  getById(id: string): Observable<BannerListModel> {
+    return this.http.get<BannerListModel>(this.API_ENDPOINT + '/' + id);
   }
 
   post(banner: BannerCreateModel) {

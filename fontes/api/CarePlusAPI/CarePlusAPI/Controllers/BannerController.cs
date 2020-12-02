@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-
+using CarePlusAPI.Models.Categorias;
 using TinifyAPI;
 
 namespace CarePlusAPI.Controllers
@@ -57,18 +57,45 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet]
+        [HttpGet("{page}/{pageSize}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(int page, int pageSize)
         {
             string origem = Request.Headers["Custom"];
             try
             {
-                List<Banner> banners = await _bannerService.Listar();
+                var result = await _bannerService.Listar(page, pageSize);
 
-                List<BannerModel> model = _mapper.Map<List<BannerModel>>(banners);
+                List<BannerModel> model = _mapper.Map<List<BannerModel>>(result.Item2);
 
-                return Ok(model);
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
+
+                model.ForEach(item =>
+                {
+                    if (item.CaminhoDesktop != null)
+                    {
+                        item.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{item.CaminhoDesktop}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompletoDesktop = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
+
+                    if (item.CaminhoMobile != null)
+                    {
+                        item.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{item.CaminhoMobile}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompletoMobile = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
+                });
+
+                return Ok(new
+                {
+                    count = result.Item1,
+                    result = model
+                });
             }
             catch (Exception ex)
             {
@@ -102,6 +129,25 @@ namespace CarePlusAPI.Controllers
                 Banner banner = await _bannerService.Buscar(id);
 
                 BannerModel model = _mapper.Map<BannerModel>(banner);
+
+
+                if (model.CaminhoDesktop != null)
+                {
+                    model.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{model.CaminhoDesktop}";
+                }
+                else
+                {
+                    model.CaminhoCompletoDesktop = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                }
+
+                if (model.CaminhoMobile != null)
+                {
+                    model.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{model.CaminhoMobile}";
+                }
+                else
+                {
+                    model.CaminhoCompletoMobile = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                }
 
                 return Ok(model);
             }
@@ -138,6 +184,26 @@ namespace CarePlusAPI.Controllers
                 List<Banner> banner = await _bannerService.BuscarPorArea(area);
 
                 List<BannerModel> model = _mapper.Map<List<BannerModel>>(banner);
+                model.ForEach(item =>
+                {
+                    if (item.CaminhoDesktop != null)
+                    {
+                        item.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{item.CaminhoDesktop}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompletoDesktop = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
+
+                    if (item.CaminhoMobile != null)
+                    {
+                        item.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{item.CaminhoMobile}";
+                    }
+                    else
+                    {
+                        item.CaminhoCompletoMobile = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                    }
+                });
 
                 return Ok(model);
             }
@@ -226,7 +292,7 @@ namespace CarePlusAPI.Controllers
                 model.CaminhoMobile = $"{_appSettings.VirtualPath}/Banner/{fileMobileName}";
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
                 Banner banner = _mapper.Map<Banner>(model);
-                _bannerService.Criar(banner);
+                await _bannerService.Criar(banner);
 
                
 

@@ -94,7 +94,7 @@ namespace CarePlusAPI.Controllers
                 new Claim (ClaimTypes.Role, usuario.UsuarioPerfil.OrderBy (x => x.Perfil.Prioridade).FirstOrDefault ().Perfil.Descricao),
                 }),
 
-                    Expires = DateTime.UtcNow.AddDays(7),
+                    Expires = DateTime.UtcNow.AddHours(3),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                 };
                 SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
@@ -165,8 +165,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost]
-        //[Authorize(Roles = "Administrador")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Post(UsuarioCreateModel model)
         {
             string origem = Request.Headers["Custom"];
@@ -185,7 +184,7 @@ namespace CarePlusAPI.Controllers
                 return Ok();
             }
             catch (Exception ex)
-            {
+            {   
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
                 return BadRequest(new

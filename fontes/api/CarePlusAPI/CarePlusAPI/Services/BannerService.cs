@@ -13,7 +13,7 @@ namespace CarePlusAPI.Services
 {
     public interface IBannerService
     {
-        Task<List<Banner>> Listar();
+        Task<Tuple<int, List<Banner>>> Listar(int page, int pageSize); 
         Task<List<Banner>> ListarPorOrdem();
         Task<List<Banner>> BuscarPorArea(string area);
         Task<Banner> Buscar(int id);
@@ -45,17 +45,20 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todos os Banners por data, da base.
         ///
         ///</summary>
-        public async Task<List<Banner>> Listar()
+        public async Task<Tuple<int, List<Banner>>> Listar(int page, int pageSize)
         {
-            List<Banner> filtroData = await Db.Set<Banner>()
+            IQueryable<Banner> query = Db.Banner.AsQueryable();
+
+            query = query
                 .AsNoTracking()
-                .OrderByDescending(x => x.DataCadastro)
-                .Take(4)
-                .ToListAsync();
+                .OrderByDescending(x => x.DataCadastro);
 
-            return filtroData;
+            var count = await query.CountAsync();
 
-            //return await Db.Set<Banner>().ToListAsync();
+            var result = await PagingResults.GetPaged<Banner>(query, page, pageSize);
+
+            return new Tuple<int, List<Banner>>(count, result.Results);
+
         }
 
         ///<summary>
@@ -69,7 +72,6 @@ namespace CarePlusAPI.Services
                 .AsNoTracking()
                 .Where(x => x.Ativo.Equals('1'))
                 .OrderByDescending(x => x.Ordem)
-                .Take(4)
                 .ToListAsync();
 
             return filtroOrdem;
@@ -84,13 +86,12 @@ namespace CarePlusAPI.Services
         public async Task<List<Banner>> BuscarPorArea(string area)
         {
             if (string.IsNullOrEmpty(area))
-                throw new AppException("O area não pode ser igual a null ou empty");
+                throw new AppException("O area não pode ser igual a 'null' ou 'empty'");
 
             List<Banner> listaBanner = await Db.Set<Banner>()
                 .AsNoTracking()
                 .Where(x => x.Ativo.Equals('1') && x.Area == area )
                 .OrderByDescending(x => x.DataCadastro)
-                .Take(4)
                 .ToListAsync();
 
             if (listaBanner == null)
