@@ -55,6 +55,7 @@ export class DetalheDoPostComponent implements OnInit {
 
     private async refreshData(slug?: string) {
         if (this.slug != slug) {
+            this.iconCardsSectionModel.cards = [];
             this.slug = slug
             this.breadcrumbs = [
                 new BreadcrumbModel({
