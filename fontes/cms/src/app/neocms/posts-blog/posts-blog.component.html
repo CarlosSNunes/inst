@@ -11,8 +11,7 @@
                     </a>
                 </div>
                 <div class="createPost">
-                    <button type="button" class="btn blue " routerLink="/neocms/posts-blog/create"
-                        >Novo Post</button>
+                    <button type="button" class="btn blue " routerLink="/neocms/posts-blog/create">Novo Post</button>
                 </div>
             </div>
         </div>
@@ -42,7 +41,7 @@
                             </td>
                             <td class=" text-center text-truncate img-post">
                                 <img *ngIf="post.caminhoCompleto" src="{{ post.caminhoCompleto}}" [alt]="post.titulo">
-                                <img *ngIf="!post.caminhoCompleto"  src="assets/img/image-placeholder.png">
+                                <img *ngIf="!post.caminhoCompleto" src="assets/img/image-placeholder.png">
                             </td>
                             <td scope="col" class=" text-center">
                                 {{post.titulo}}</td>
@@ -62,12 +61,12 @@
                                         class="info-icon text-dark" alt="Editar post">
                                         <fa-icon [icon]="faEdit"></fa-icon>
                                     </a>
-                                    <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon text-danger"
-                                        alt="Excluir post">
+                                    <a (click)="openModalDuplicarPost(templateDelete)" type="button"
+                                        class="info-icon text-danger" alt="Excluir post">
                                         <fa-icon [icon]="faTrashAlt"></fa-icon>
                                     </a>
-                                    <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon "
-                                        alt="Duplicar post">
+                                    <a (click)="openModalDuplicarPost(templateDuplicar)" type="button"
+                                        class="info-icon " alt="Duplicar post">
                                         <fa-icon [icon]="faClone"></fa-icon>
                                     </a>
                                     <ng-template #templateDuplicar>
