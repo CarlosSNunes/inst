@@ -332,6 +332,10 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> Put([FromForm] BannerUpdateModel model)
         {
+            string fullPathDesk = string.Empty;
+            string fullPathMobile = string.Empty;
+            string directoryNameDesk = string.Empty;
+            string directoryNameMobile = string.Empty;
             string origem = Request.Headers["Custom"];
 
             if (model == null)
@@ -341,45 +345,83 @@ namespace CarePlusAPI.Controllers
             var arquivo = model.Arquivo;
 
             var arquivoMobile = model.ArquivoMobile;
-
+            string fileName = string.Empty;
+            string fileNameMobile = string.Empty;
             try
             {
-                Banner banner = await _bannerService.Buscar(model.Id.Value);
 
-                if (model.Arquivo != null && model.ArquivoMobile != null)
+                //Banner banner = _mapper.Map<Banner>(model);
+                Banner banner = await _bannerService.Buscar((int)model.Id);
+
+                if (model.Arquivo != null)
                 {
-                    if (System.IO.File.Exists(banner.CaminhoDesktop))
-                        System.IO.File.Delete(banner.CaminhoDesktop);
 
-                    if (System.IO.File.Exists(banner.CaminhoMobile))
-                        System.IO.File.Delete(banner.CaminhoMobile);
+                    var file = model.Arquivo;
+                    var fileMobile = model.ArquivoMobile;
+                    var fullRelativePath = _appSettings.PathToSave + "\\Banner";
+                    var stringArr = fullRelativePath.Split("\\");
+                    var folderName = Path.Combine(stringArr);
+                    var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
-                    var desktop = await _bannerService.SalvaImagem(bannerPath, arquivo);
-                    var fileName = desktop.Item1;
-                    bannerPath = desktop.Item2;
+
+
+                    if(file.Length > 0){
+                        var fileOriginalNameDesk = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                        directoryNameDesk = Path.Combine(pathToSave, fileOriginalNameDesk);
+                        await using (var stream = new FileStream(directoryNameDesk, FileMode.Create))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+                        var extensionDesk = Path.GetExtension(directoryNameDesk).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                        //Renomeando Arquivo Desktop
+                        fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameDesk)}{extensionDesk}";
+                        var renamedDirectory = Path.Combine(pathToSave, fileName);
+                        System.IO.File.Move(directoryNameDesk, renamedDirectory);
+                    }
+                    
+                    if(fileMobile
+                        .Length > 0)
+                    {
+                        var fileOriginalNameMobile = ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                        directoryNameMobile = Path.Combine(pathToSave, fileOriginalNameMobile);
+                        await using (var stream = new FileStream(directoryNameMobile, FileMode.Create))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+                        var extensionMobile = Path.GetExtension(directoryNameMobile).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                        //Renomeando Arquivo Mobile
+                        fileNameMobile = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
+                        var renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
+                        System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
+                    } 
+                    fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
+                    fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+                    directoryNameDesk = $"{_appSettings.VirtualPath}/Banner/{fileName}";
+                    directoryNameMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+
                     model.NomeImagemDesktop = fileName;
-                    model.CaminhoDesktop = bannerPath + fileName;
-                    //model.CaminhoDesktop = bannerPath.Replace(_appSettings.PathToSave, _appSettings.PathToGet);
-
-                    var mobile = await _bannerService.SalvaImagem(bannerPath, arquivoMobile);
-                    bannerPath = mobile.Item2;
-                    model.NomeImagemMobile = fileName;
-                    model.CaminhoMobile = bannerPath + fileName;
-                    //model.CaminhoMobile = bannerPath.Replace(_appSettings.PathToSaveMobile, _appSettings.PathToGetMobile);
-
-
+                    model.NomeImagemMobile = fileNameMobile;
+                    model.CaminhoDesktop = $"{_appSettings.VirtualPath}/Banner/{fileName}";
+                    model.CaminhoMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
                 }
                 else
                 {
                     model.CaminhoDesktop = banner.CaminhoDesktop;
-                    model.CaminhoMobile = banner.CaminhoMobile;
                     model.NomeImagemDesktop = banner.NomeImagemDesktop;
+                    model.CaminhoMobile = banner.CaminhoMobile;
                     model.NomeImagemMobile = banner.NomeImagemMobile;
                 }
-
+                model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
+                banner = _mapper.Map<Banner>(model);
                 await _bannerService.Atualizar(banner);
 
-                return Ok();
+                return Ok(new
+                {
+                    directoryNameDesk,
+                    directoryNameMobile,
+                    fullPathDesk,
+                    fullPathMobile
+                });
             }
             catch (System.Exception ex)
             {

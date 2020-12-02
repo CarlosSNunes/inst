@@ -4,6 +4,8 @@ export class BannerCreateModel {
     }
 
     nomeImagem: string;
+    nomeImagemDesktop: string;
+    nomeImagemMobile: string;
     titulo: string;
     subtitulo: string;
     area: string;

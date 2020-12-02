@@ -59,7 +59,8 @@
                         (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
                       </image-cropper>
                     </div>
-                    <div class="shadow thumbnail-image-box">
+
+                    <div *ngIf="croppedImage" class="shadow thumbnail-image-box">
                       <h4 class="titulo-visualizacao">visualização</h4>
                       <img class="thumbnail-image" [src]="croppedImage" alt="Cropped image" />
                     </div>
@@ -79,7 +80,7 @@
                         [cropperMinHeight]="150" format="png" (imageCropped)="imageCroppedMobile($event)">
                       </image-cropper>
                     </div>
-                    <div class="shadow thumbnail-image-box-mobile">
+                    <div *ngIf="croppedImageMobile" class="shadow thumbnail-image-box-mobile">
                       <h4 class="titulo-visualizacao-mobile">visualização</h4>
                       <img class="thumbnail-image-mobile" [src]="croppedImageMobile" alt="Cropped image mobile" />
                     </div>
@@ -92,6 +93,7 @@
             <div class="card shadow-sm border-light fade-in">
               <div class="card-body">
                 <div class="row">
+
                   <div class="col-md-12 col-lg-6">
                     <div class="form-group">
                       <label for="my-input">Título*</label>
@@ -146,37 +148,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="my-input">Rota/Link*</label>
-                      <input formControlName="rota" class="form-control" type="text" placeholder="" [ngClass]="{ 'is-success': submitted &&
-                                                                !f.rota.errors, 'is-danger' : submitted
-                                                                && f.rota.errors }">
-                      <div *ngIf="submitted" class="errors">
-                        <p *ngFor="let error of
-                                                                    getErrors(f.rota)" class="help
-                                                                    is-danger">
-                          {{error}}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-lg-6">
-                    <div class="form-group">
-                      <label for="my-input">Descrição</label>
-                      <textarea formControlName="descricao"
-                        [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
-                        class="form-control" placeholder="Descrição do Banner" rows="5">
-                                            </textarea>
-                      <div *ngIf="submitted" class="errors">
-                        <p *ngFor="let error of
-                                                                getErrors(f.descricao)" class="help is-danger">
-                          {{error}}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-lg-3 w-100">
+                  <div class="col-md-12 col-lg-3">
                     <label class="label">É um link externo?</label>
                     <div class="form-group">
                       <div class="form-check form-check-inline">
@@ -195,6 +167,46 @@
                       </div>
                     </div>
                   </div>
+
+                  <ng-container *ngIf="isLinkExternoSelected === true; else elseTemplate">
+                    <div class="col-md-12 col-lg-3">
+                      <div class="form-group">
+                        <label for="my-input">link*</label>
+                        <input formControlName="link" class="form-control" type="text" placeholder="">
+
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <div class="col-md-12 col-lg-3">
+
+                      <div class="form-group">
+                        <label for="my-input">Rota*</label>
+                        <input formControlName="rota" class="form-control" type="text" placeholder="">
+
+                      </div>
+                    </div>
+                  </ng-template>
+
+
+
+
+                  <div class="col-md-12 col-lg-6">
+                    <div class="form-group">
+                      <label for="my-input">Descrição</label>
+                      <textarea formControlName="descricao"
+                        [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
+                        class="form-control" placeholder="Descrição do Banner" rows="5">
+                                            </textarea>
+                      <div *ngIf="submitted" class="errors">
+                        <p *ngFor="let error of
+                                                                getErrors(f.descricao)" class="help is-danger">
+                          {{error}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="col-md-12 col-lg-3 w-100">
                     <label class="label">Ativar banner?</label>
                     <div class="form-group">
