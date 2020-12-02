@@ -397,6 +397,61 @@ namespace CarePlusAPI.Controllers
 
         ///<summary>
         ///
+        ///Esse método serve para duplicar um Banner na base.
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
+        ///
+        ///</summary>
+        ///<param name="id">Id do Banner</param>
+        [HttpGet("duplicar/{id}")]
+        [Authorize(Roles = "Editor, Administrador")]
+        public async Task<IActionResult> Duplicate(
+            int id,
+            [FromHeader(Name = "Custom")] string? origem
+            )
+        {
+            try
+            {
+                if (id == 0)
+                    throw new AppException("O id do Banner não pode estar vazio");
+
+                Banner banner = await _bannerService.Buscar(id);
+
+                var newBanner = new BannerCreateModel
+                        {
+                        Titulo = $"[Duplicado] - {banner.Titulo}",
+                        Subtitulo = banner.Subtitulo,
+                        Area = banner.Area,
+                        TempoExibicao = banner.TempoExibicao,
+                        Descricao = banner.Descricao,
+                        Rota = banner.Rota,
+                        LinkExterno = banner.LinkExterno,
+                        Link = banner.Link,
+                        Ativo = "0".ToCharArray()[0],
+                        CaminhoDesktop = banner.CaminhoDesktop,
+                        NomeLink = banner.NomeLink,
+                        NomeImagemDesktop = banner.NomeImagemDesktop,
+                        CaminhoMobile = banner.CaminhoMobile,
+                        NomeImagemMobile = banner.NomeImagemMobile
+                };
+
+                var bannerToCreate = _mapper.Map<Banner>(newBanner);
+                await _bannerService.Criar(bannerToCreate);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
+        }
+
+        ///<summary>
+        ///
         ///Esse método serve para excluir um Banner na base.
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão DELETE.
         ///

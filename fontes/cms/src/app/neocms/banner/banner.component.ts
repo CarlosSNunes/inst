@@ -70,25 +70,23 @@ export class BannerComponent implements OnInit {
         return this.bannerForm.controls;
     }
 
-    //TODO: Criar Endpoint para Duplicação de Banners 
     private duplicarBanner(banner: BannerModel) {
-        this.bannerForm = this.fb.group({
-            area: [banner.area],
-            descricao: [banner.descricao],
-            linkExterno: [banner.linkExterno],
-            nomeImageMobile: [banner.nomeImagemMobile],
-            nomeImagem: [banner.nomeImagemDesktop],
-            nomeLink: [banner.nomeLink],
-            rota: [banner.rota],
-            subtitulo: [banner.subtitulo],
-            tempoExibicao: [banner.tempoExibicao],
-            titulo: [banner.titulo],
-        });
-
-        console.log(this.bannerForm);
-        const newBanner = new BannerCreateModel(this.bannerForm.value);
-        this.bannerService.post(newBanner)
+        this.bannerService.duplicate(banner.id)
             .subscribe(() => {
+                this.message = 'Banner: ' + banner.id + ' duplicado com sucesso!';
+                this.modalRef.hide();
+                this.toastrService.success('Banner duplicado com sucesso!');
+                this.paginaAtual = 0;
+                this.getBanners();
+            },
+            (error) => {
+                let message = '';
+                if (error.error) {
+                    message = error.error.message || 'Erro Interno no servidor';
+                } else {
+                    message = error.message || 'Erro Interno';
+                }
+                this.toastrService.error(message);
             })
             .add();
     }
@@ -117,7 +115,9 @@ export class BannerComponent implements OnInit {
             .subscribe(_ => {
                 this.message = 'Banner:' + id + ' deletada com sucesso!';
                 this.modalRef.hide();
-                this.toastrService.success('Banner deletado com sucesso!')
+                this.toastrService.success('Banner deletado com sucesso!');
+                this.paginaAtual = 0;
+                this.getBanners();
             }, (error) => {
                 let message = '';
                 if (error.error) {
@@ -136,7 +136,7 @@ export class BannerComponent implements OnInit {
 
 
     getBanners() {
-        const offset = (this.paginaAtual - 1) * this.contador;
+        const offset = this.paginaAtual * this.contador;
         this.bannerService
             .getAll(offset, this.contador)
             .subscribe(banners => {

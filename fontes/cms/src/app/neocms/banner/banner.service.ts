@@ -31,6 +31,10 @@ export class BannerService {
     return this.http.post(this.API_ENDPOINT, this.classHelper.jsonToFormData(banner));
   }
 
+  duplicate(id: number) {
+    return this.http.get(`${this.API_ENDPOINT}/duplicar/${id}`);
+  }
+
   put(banner: BannerUpdateModel) {
     return this.http.put(this.API_ENDPOINT, this.classHelper.jsonToFormData(banner));
   }
