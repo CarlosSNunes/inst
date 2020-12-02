@@ -73,6 +73,7 @@ export class BannerEditComponent implements OnInit {
         private bannerService: BannerService,
         private fb: FormBuilder,
         private router: Router,
+        private activatedRoute: ActivatedRoute,
         private authenticateService: AuthenticationService,
         private route: ActivatedRoute,
         private toastrService: ToastrService,
@@ -83,9 +84,9 @@ export class BannerEditComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.usuario = this.authenticateService.state;
         this.createForm();
         this.getBanner();
+        console.log(this.bannerResult.nomeImagemDesktop);
     }
 
     imageLoaded() { }
@@ -101,10 +102,12 @@ export class BannerEditComponent implements OnInit {
         const id = this.route.snapshot.paramMap.get('id');
         this.bannerService.getById(id)
             .subscribe(banner => {
-                this.bannerResult = banner.result;
-                this.bannerCount = banner.count;
+                this.bannerResult = banner;
+                console.log(banner);
                 this.bannerForm.patchValue(this.bannerResult);
                 this.updateForm();
+
+                console.log(this.updateForm())
             },
                 (error) => {
                     let message = '';
@@ -123,13 +126,16 @@ export class BannerEditComponent implements OnInit {
      */
     createForm() {
         this.bannerForm = this.fb.group({
-            nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            id: [''],
+            nomeImagemDesktop: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
+            rota: [''],
+            link: [''],
+            nomeLink: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
             ativo: ['1', [Validators.required, FormControlError.noWhitespaceValidator]],
             arquivo: [''],
@@ -142,15 +148,19 @@ export class BannerEditComponent implements OnInit {
      * @memberOf BannerEditComponent
      */
     updateForm() {
+        const id = this.activatedRoute.snapshot.paramMap.get('id');
         this.bannerForm = this.fb.group({
-            id: [this.bannerResult.id, [Validators.required]],
-            nomeImagem: [this.bannerResult.nomeImagemDesktop, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+
+            id: [id],
+            nomeImagemDesktop: [this.bannerResult.nomeImagemDesktop, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             titulo: [this.bannerResult.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: [this.bannerResult.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             area: [this.bannerResult.area, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             tempoExibicao: [this.bannerResult.tempoExibicao, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             descricao: [this.bannerResult.descricao, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            rota: [this.bannerResult.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
+            rota: [this.bannerResult.rota],
+            link: [this.bannerResult.rota],
+            nomeLink: [this.bannerResult.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
             linkExterno: [this.bannerResult.linkExterno, [Validators.required, FormControlError.noWhitespaceValidator]],
             ativo: [this.bannerResult.ativo, [Validators.required, FormControlError.noWhitespaceValidator]],
             arquivo: [],
@@ -161,17 +171,6 @@ export class BannerEditComponent implements OnInit {
     get f() {
         return this.bannerForm.controls;
     }
-    generateHashName() {
-        let hashName;
-        let nomeImgForm = this.f['nomeImagem'].value;
-        console.log(nomeImgForm)
-        if (nomeImgForm === null) {
-            hashName = this.fileUpDesk.name;
-        } else {
-            hashName = this.bannerResult.nomeImagemDesktop;
-        }
-        return hashName;
-    }
 
     /**
      * @description Evento que submete o formGroup
@@ -179,11 +178,11 @@ export class BannerEditComponent implements OnInit {
      */
     onSubmit() {
         this.submitted = true;
-        let nomeArquivo = this.generateHashName();
-        this.bannerForm.controls.nomeImagem.setValue(nomeArquivo);
         console.log(this.bannerForm);
         if (this.bannerForm.valid) {
             this.btnSubmitDisable = true;
+            const id = this.activatedRoute.snapshot.paramMap.get('id');
+            this.bannerForm.controls['id'].setValue(id);
             const model = new BannerUpdateModel(this.bannerForm.value);
             this.bannerService.put(model)
                 .subscribe(() => {

@@ -71,15 +71,15 @@ export class BannerComponent implements OnInit {
                 this.paginaAtual = 0;
                 this.getBanners();
             },
-            (error) => {
-                let message = '';
-                if (error.error) {
-                    message = error.error.message || 'Erro Interno no servidor';
-                } else {
-                    message = error.message || 'Erro Interno';
-                }
-                this.toastrService.error(message);
-            })
+                (error) => {
+                    let message = '';
+                    if (error.error) {
+                        message = error.error.message || 'Erro Interno no servidor';
+                    } else {
+                        message = error.message || 'Erro Interno';
+                    }
+                    this.toastrService.error(message);
+                })
             .add();
     }
     openModalDuplicarBanner(template: TemplateRef<BannerModel>) {
@@ -133,7 +133,7 @@ export class BannerComponent implements OnInit {
             .getAll(offset, this.contador)
             .subscribe(banners => {
                 this.loaded = true;
-                this.bannerResult = banners.result
+                this.bannerResult = banners.result;
                 this.bannerCount = banners.count;
                 console.log(this.bannerResult);
                 this.bannerResult.caminhoCompletoDesktop;
