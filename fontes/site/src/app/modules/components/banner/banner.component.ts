@@ -140,12 +140,12 @@ export class BannerComponent implements OnInit {
     async getBannersFromApi() {
         this.loading = true;
         try {
-            const banners = await this.bannerService.getByArea(this.area);
-            banners.forEach((banner, i) => {
+            let banners = await this.bannerService.getByArea(this.area);
+            banners = banners.map((banner, i) => {
                 if (i === 0) {
                     banner.slideAtual = true;
                 }
-                banner = new BannerModel(banner)
+                return new BannerModel(banner);
             });
             this.loading = false;
             return banners;
