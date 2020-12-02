@@ -50,8 +50,6 @@ namespace CarePlusAPI.Models.Banner
         public string CaminhoCompletoMobile { get; set; }
         private string CaminhoCompletoMobile_build;
 
-
-
         public string CaminhoMobile
         {
             get
