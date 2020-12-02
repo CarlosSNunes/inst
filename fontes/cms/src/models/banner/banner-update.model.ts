@@ -12,6 +12,7 @@ export class BannerUpdateModel {
     tempoExibicao: number;
     descricao: string;
     rota: string;
+    link: string;
     linkExterno: string;
     arquivo: File;
     arquivoMobile: File;

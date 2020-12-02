@@ -9,8 +9,7 @@ import { BannerModel } from 'src/models/banner/banner.model';
 import { BannerService } from './banner.service';
 import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { BannerCreateModel } from 'src/models/banner/banner-create.model';
+import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 // import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
@@ -31,35 +30,28 @@ export class BannerComponent implements OnInit {
     faPencilAlt = faPencilAlt;
     faPlus = faPlus;
     faTrash = faTrash;
-    //External References
     apiPath = environment.API;
     banners: BannerModel[] = [];
     banner: BannerModel;
     bannerForm: FormGroup;
     modalRef: BsModalRef;
-    // usuario: UserAuthenticateModel;
-    //Internal References
     bannerCount: number = 0;
     bannerResult: any;
     contador = 4;
     loaded: boolean;
     message: string;
-    paginaAtual = 0;
+    paginaAtual = 1;
     showBannerDelete: boolean;
     thumbnail: string;
 
 
     constructor(
-        // private authenticationService: AuthenticationService,
         private bannerService: BannerService,
-        private fb: FormBuilder,
         private modalService: BsModalService,
         private toastrService: ToastrService,
     ) { }
 
     ngOnInit() {
-        // this.usuario = this.authenticationService.state;
-
         this.getBanners();
     }
 
@@ -70,25 +62,23 @@ export class BannerComponent implements OnInit {
         return this.bannerForm.controls;
     }
 
-    //TODO: Criar Endpoint para Duplicação de Banners 
     private duplicarBanner(banner: BannerModel) {
-        this.bannerForm = this.fb.group({
-            area: [banner.area],
-            descricao: [banner.descricao],
-            linkExterno: [banner.linkExterno],
-            nomeImageMobile: [banner.nomeImagemMobile],
-            nomeImagem: [banner.nomeImagemDesktop],
-            nomeLink: [banner.nomeLink],
-            rota: [banner.rota],
-            subtitulo: [banner.subtitulo],
-            tempoExibicao: [banner.tempoExibicao],
-            titulo: [banner.titulo],
-        });
-
-        console.log(this.bannerForm);
-        const newBanner = new BannerCreateModel(this.bannerForm.value);
-        this.bannerService.post(newBanner)
+        this.bannerService.duplicate(banner.id)
             .subscribe(() => {
+                this.message = 'Banner: ' + banner.id + ' duplicado com sucesso!';
+                this.modalRef.hide();
+                this.toastrService.success('Banner duplicado com sucesso!');
+                this.paginaAtual = 0;
+                this.getBanners();
+            },
+            (error) => {
+                let message = '';
+                if (error.error) {
+                    message = error.error.message || 'Erro Interno no servidor';
+                } else {
+                    message = error.message || 'Erro Interno';
+                }
+                this.toastrService.error(message);
             })
             .add();
     }
@@ -117,7 +107,9 @@ export class BannerComponent implements OnInit {
             .subscribe(_ => {
                 this.message = 'Banner:' + id + ' deletada com sucesso!';
                 this.modalRef.hide();
-                this.toastrService.success('Banner deletado com sucesso!')
+                this.toastrService.success('Banner deletado com sucesso!');
+                this.paginaAtual = 0;
+                this.getBanners();
             }, (error) => {
                 let message = '';
                 if (error.error) {

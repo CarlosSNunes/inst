@@ -10,6 +10,7 @@ export class BannerCreateModel {
     tempoExibicao: number;
     descricao: string;
     rota: string;
+    link: string;
     linkExterno: string;
     arquivo: File;
     arquivoMobile: File;
