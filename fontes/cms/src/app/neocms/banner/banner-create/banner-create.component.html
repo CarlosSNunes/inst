@@ -157,23 +157,25 @@
                           </p>
                         </div>
                       </div>
-                      <div class="col-md-12 col-lg-3 w-100">
-                        <label class="label">É um link externo?</label>
-                        <div class="form-group">
-                          <div class="form-check form-check-inline">
-                            <input id="naoLink" type="radio" class="form-check-input" checked value="0"
-                              formControlName="linkExterno" name="linkExterno"
-                              [ngClass]="{'is-danger': isLinkExternoSelected,'is-selected': !isLinkExternoSelected}"
-                              (click)="changeLinkExterno('0',false)">
-                            <label for="linkExterno">Não</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input id="simLink" type="radio" class="form-check-input" value="1" name="linkExterno"
-                              formControlName="linkExterno"
-                              [ngClass]="{'is-danger': isLinkExternoSelected, 'is-selected':  !isLinkExternoSelected}"
-                              (click)="changeLinkExterno('1',true)">
-                            <label for="linkExterno">Sim</label>
-                          </div>
+                    </div>
+
+
+                    <div class="col-md-12 col-lg-3 w-100">
+                      <label class="label">É um link externo?</label>
+                      <div class="form-group">
+                        <div class="form-check form-check-inline">
+                          <input id="naoLink" type="radio" class="form-check-input" checked value="0"
+                            formControlName="linkExterno" name="linkExterno"
+                            [ngClass]="{'is-danger': isLinkExternoSelected,'is-selected': !isLinkExternoSelected}"
+                            (click)="changeLinkExterno('0',false)">
+                          <label for="linkExterno">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input id="simLink" type="radio" class="form-check-input" value="1" name="linkExterno"
+                            formControlName="linkExterno"
+                            [ngClass]="{'is-danger': isLinkExternoSelected, 'is-selected':  !isLinkExternoSelected}"
+                            (click)="changeLinkExterno('1',true)">
+                          <label for="linkExterno">Sim</label>
                         </div>
                       </div>
                     </div>
@@ -193,8 +195,10 @@
                             </p>
                           </div>
                         </div>
-                      </ng-template>
-                      <div class="col-md-12 col-lg-6">
+                      </div>
+                    </ng-container>
+                    <ng-template #rotaTemplate>
+                      <div class="col-md-12 col-lg-3">
                         <div class="form-group">
                           <label for="my-input">Rota*</label>
                           <input formControlName="rota" class="form-control" type="text" placeholder="" [ngClass]="{ 'is-success': submitted &&
@@ -209,23 +213,20 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-12 col-lg-3 w-100">
-                        <label class="label">Ativar banner?</label>
-                        <div class="form-group">
-                          <div class="form-check form-check-inline">
-                            <input id="ativo" type="radio" class="form-check-input" checked value="0" name="ativo"
-                              formControlName="ativo"
-                              [ngClass]="{'is-danger': !isBannerAtivo, 'is-selected': !isBannerAtivo}"
-                              (click)="changeStatusBanner('0', false)">
-                            <label for="ativo">Não</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input id="ativo1" type="radio" class="form-check-input" value="1" name="ativo"
-                              formControlName="ativo"
-                              [ngClass]="{'is-success': isBannerAtivo, 'is-selected': isBannerAtivo}"
-                              (click)="changeStatusBanner('1',true)">
-                            <label for="ativo">Sim</label>
-                          </div>
+                    </ng-template>
+
+                    <div class="col-md-12 col-lg-6">
+                      <div class="form-group">
+                        <label for="my-input">Descrição</label>
+                        <textarea formControlName="descricao"
+                          [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
+                          class="form-control" placeholder="Descrição do Banner" rows="5">
+                                              </textarea>
+                        <div *ngIf="submitted" class="errors">
+                          <p *ngFor="let error of
+                                                                  getErrors(f.descricao)" class="help is-danger">
+                            {{error}}
+                          </p>
                         </div>
                       </div>
                     </div>
