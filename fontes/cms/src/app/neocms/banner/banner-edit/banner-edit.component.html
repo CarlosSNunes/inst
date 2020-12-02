@@ -49,14 +49,15 @@
                   {{nomeDaImagem}}
                   <div class="card-body text-center m-3 card-crop">
                     <h3>Imagem Grande</h3>
-                    <small>Dimensões: 1920 x 720 px</small>
+                    <small>Dimensões: 1440 x 630 px</small>
                     <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
                     <div class="shadow p-0 m-auto">
                       <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
-                        [containWithinAspectRatio]="false" [autoCrop]="true" [onlyScaleDown]="false" [aspectRatio]="8/3"
-                        [resizeToWidth]="1920" [cropperMinWidth]="1920" [resizeToHeight]="720" [cropperMinHeight]="720"
-                        format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
-                        (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+                        [containWithinAspectRatio]="false" [autoCrop]="true" [onlyScaleDown]="false"
+                        [aspectRatio]="16/7" [resizeToWidth]="1440" [cropperMinWidth]="1440" [resizeToHeight]="630"
+                        [cropperMinHeight]="630" format="png" (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                        (loadImageFailed)="loadImageFailed()">
                       </image-cropper>
                     </div>
 
