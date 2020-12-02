@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './card.component';
 import { RouterModule } from '@angular/router';
-import { SubstringPipe } from './pipes/substring.pipe';
+import { SubstringPipeModule } from 'src/app/pipes/substring/substring-pipe.module';
 
 
 
 @NgModule({
-  declarations: [CardComponent, SubstringPipe],
+  declarations: [CardComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SubstringPipeModule
   ],
   exports: [CardComponent],
 })
