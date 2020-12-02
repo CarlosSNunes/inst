@@ -98,7 +98,8 @@ export class BannerCreateComponent implements OnInit {
             area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            rota: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
+            rota: [''],
+            link: [''],
             linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
             nomeLink: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
@@ -130,6 +131,7 @@ export class BannerCreateComponent implements OnInit {
      * @memberOf BannerCreateComponent
      */
     onSubmit(): void {
+        console.log(this.bannerForm.value);
         this.submitted = true;
         if (this.bannerForm.valid) {
             this.btnSubmitDisable = true;

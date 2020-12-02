@@ -1,7 +1,7 @@
-//===============================================================================
+//==============================================================================
 //Web API Banner
 //
-//===============================================================================
+//==============================================================================
 //Copyright (C) 2020-2020 Neotix
 //Todos direitos reservados.
 //Web API da entidade Banner para uso do NEOCMS
@@ -28,9 +28,7 @@ namespace CarePlusAPI.Models.Banner
     [StringLength(255)]
     public string Descricao { get; set; }
     [StringLength(100)]
-    [Required]
     public string Rota { get; set; }
-    [Required]
     public char LinkExterno { get; set; }
     [StringLength(255)]
     public string Link { get; set; }

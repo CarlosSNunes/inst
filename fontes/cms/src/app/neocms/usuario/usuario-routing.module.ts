@@ -12,16 +12,16 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: UsuarioComponent
   },
-  {
-    path: 'create',
-    canActivate: [AuthGuard],
-    component: UsuarioCreateComponent
-  },
-  {
-    path: 'edit/:id',
-    canActivate: [AuthGuard],
-    component: UsuarioUpdateComponent
-  },
+  // {
+  //   path: 'create',
+  //   canActivate: [AuthGuard],
+  //   component: UsuarioCreateComponent
+  // },
+  // {
+  //   path: 'edit/:id',
+  //   canActivate: [AuthGuard],
+  //   component: UsuarioUpdateComponent
+  // },
   {
     path: '**',
     canActivate: [AuthGuard],

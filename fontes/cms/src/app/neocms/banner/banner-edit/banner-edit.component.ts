@@ -123,7 +123,6 @@ export class BannerEditComponent implements OnInit {
      */
     createForm() {
         this.bannerForm = this.fb.group({
-            id: [],
             nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
