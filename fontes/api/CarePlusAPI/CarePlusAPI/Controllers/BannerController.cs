@@ -203,6 +203,9 @@ namespace CarePlusAPI.Controllers
                     {
                         item.CaminhoCompletoMobile = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
                     }
+
+                    // Transformando os segundos em millisegundos
+                    item.TempoExibicao = item.TempoExibicao * 1000;
                 });
 
                 return Ok(model);
