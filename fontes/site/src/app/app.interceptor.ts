@@ -83,7 +83,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                                         /*
                                             Caso dê não autorizado ele revova o token e tenta novamente.
                                         */
-                                        if (error.status === 401) {
+                                        if (error.status === 401 || error.status === 403) {
                                             this.localStorageService.removeItem('token');
                                             if (!this.retried) {
                                                 this.retried = true;
