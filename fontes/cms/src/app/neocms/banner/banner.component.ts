@@ -9,8 +9,7 @@ import { BannerModel } from 'src/models/banner/banner.model';
 import { BannerService } from './banner.service';
 import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { BannerCreateModel } from 'src/models/banner/banner-create.model';
+import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 // import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
@@ -31,35 +30,28 @@ export class BannerComponent implements OnInit {
     faPencilAlt = faPencilAlt;
     faPlus = faPlus;
     faTrash = faTrash;
-    //External References
     apiPath = environment.API;
     banners: BannerModel[] = [];
     banner: BannerModel;
     bannerForm: FormGroup;
     modalRef: BsModalRef;
-    // usuario: UserAuthenticateModel;
-    //Internal References
     bannerCount: any;
     bannerResult: any;
     contador = 4;
     loaded: boolean;
     message: string;
-    paginaAtual = 0;
+    paginaAtual = 1;
     showBannerDelete: boolean;
     thumbnail: string;
 
 
     constructor(
-        // private authenticationService: AuthenticationService,
         private bannerService: BannerService,
-        private fb: FormBuilder,
         private modalService: BsModalService,
         private toastrService: ToastrService,
     ) { }
 
     ngOnInit() {
-        // this.usuario = this.authenticationService.state;
-
         this.getBanners();
     }
 
@@ -136,7 +128,7 @@ export class BannerComponent implements OnInit {
 
 
     getBanners() {
-        const offset = this.paginaAtual * this.contador;
+        const offset = (this.paginaAtual - 1) * this.contador;
         this.bannerService
             .getAll(offset, this.contador)
             .subscribe(banners => {
