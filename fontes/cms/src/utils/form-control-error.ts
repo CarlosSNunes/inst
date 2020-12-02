@@ -4,11 +4,8 @@ export class FormControlError {
 
     public static GetErrors(control: AbstractControl, controlName?: string) {
         const errors: string[] = [];
-        console.log(control.errors)
         for (const key in control.errors) {
             let error = 'O campo ';
-
-            console.log(key)
 
             if (key === 'required') {
                 error += this.getControlName(control, controlName) + ' é requerido!';
@@ -50,7 +47,10 @@ export class FormControlError {
         }
 
         const controlLength = (control.value || '').length;
-        const controlTrimLenght = (control.value || '').trim().length;
+        let controlTrimLenght: number;
+        if (typeof (control.value) === 'string') {
+            controlTrimLenght = control.value.trim().length;
+        }
         const isWhitespace = controlLength > 0 && controlTrimLenght === 0;
         const isValid = !isWhitespace;
         return isValid ? null : { whitespace: true };
