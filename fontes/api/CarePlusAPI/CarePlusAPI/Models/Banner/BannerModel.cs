@@ -22,18 +22,7 @@ namespace CarePlusAPI.Models.Banner
         public char Ativo { get; set; }
         public string Area { get; set; }
         public int Ordem { get; set; }
-        private int TempoExibicaoMilisegundos;
-        public int TempoExibicao
-        {
-            get 
-            { 
-                return TempoExibicaoMilisegundos; 
-            }
-            set 
-            { 
-                TempoExibicaoMilisegundos = value * 1000; 
-            }
-        }
+        public int TempoExibicao{ get; set; }
         public string CaminhoCompletoDesktop { get; set; }
         private string CaminhoCompletoDesktop_build;
         public string CaminhoDesktop

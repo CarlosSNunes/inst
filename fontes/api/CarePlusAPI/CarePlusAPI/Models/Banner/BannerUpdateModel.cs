@@ -20,7 +20,6 @@ namespace CarePlusAPI.Models.Banner
         public int TempoExibicao { get; set; }
         [StringLength(255)]
         public string Descricao { get; set; }
-        [Required]
         [StringLength(100)]
         public string Rota { get; set; }
         [Required]

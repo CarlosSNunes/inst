@@ -86,7 +86,6 @@ export class BannerEditComponent implements OnInit {
     ngOnInit() {
         this.createForm();
         this.getBanner();
-        console.log(this.bannerResult.nomeImagemDesktop);
     }
 
     imageLoaded() { }
@@ -106,8 +105,6 @@ export class BannerEditComponent implements OnInit {
                 console.log(banner);
                 this.bannerForm.patchValue(this.bannerResult);
                 this.updateForm();
-
-                console.log(this.updateForm())
             },
                 (error) => {
                     let message = '';
@@ -152,19 +149,19 @@ export class BannerEditComponent implements OnInit {
         this.bannerForm = this.fb.group({
 
             id: [id],
-            nomeImagemDesktop: [this.bannerResult.nomeImagemDesktop, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            titulo: [this.bannerResult.titulo, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            subtitulo: [this.bannerResult.subtitulo, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            area: [this.bannerResult.area, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            tempoExibicao: [this.bannerResult.tempoExibicao, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            descricao: [this.bannerResult.descricao, [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            nomeImagemDesktop: [this.bannerResult.nomeImagemDesktop, Validators.compose([Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator])],
+            titulo: [this.bannerResult.titulo, Validators.compose([Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator])],
+            subtitulo: [this.bannerResult.subtitulo, Validators.compose([Validators.maxLength(100), FormControlError.noWhitespaceValidator])],
+            area: [this.bannerResult.area, Validators.compose([Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator])],
+            tempoExibicao: [this.bannerResult.tempoExibicao, Validators.compose([Validators.maxLength(100), FormControlError.noWhitespaceValidator])],
+            descricao: [this.bannerResult.descricao, Validators.compose([Validators.maxLength(255), FormControlError.noWhitespaceValidator])],
             rota: [this.bannerResult.rota],
             link: [this.bannerResult.rota],
-            nomeLink: [this.bannerResult.rota, [Validators.required, FormControlError.noWhitespaceValidator]],
-            linkExterno: [this.bannerResult.linkExterno, [Validators.required, FormControlError.noWhitespaceValidator]],
-            ativo: [this.bannerResult.ativo, [Validators.required, FormControlError.noWhitespaceValidator]],
-            arquivo: [],
-            arquivoMobile: []
+            nomeLink: [this.bannerResult.rota, Validators.compose([Validators.required, FormControlError.noWhitespaceValidator])],
+            linkExterno: [this.bannerResult.linkExterno, Validators.compose([Validators.required, FormControlError.noWhitespaceValidator])],
+            ativo: [this.bannerResult.ativo, Validators.compose([Validators.required, FormControlError.noWhitespaceValidator])],
+            arquivo: [,],
+            arquivoMobile: [,]
         });
     }
 
@@ -178,7 +175,6 @@ export class BannerEditComponent implements OnInit {
      */
     onSubmit() {
         this.submitted = true;
-        console.log(this.bannerForm);
         if (this.bannerForm.valid) {
             this.btnSubmitDisable = true;
             const id = this.activatedRoute.snapshot.paramMap.get('id');

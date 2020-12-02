@@ -135,7 +135,6 @@ export class BannerComponent implements OnInit {
                 this.loaded = true;
                 this.bannerResult = banners.result;
                 this.bannerCount = banners.count;
-                console.log(this.bannerResult);
                 this.bannerResult.caminhoCompletoDesktop;
             },
                 error => {
