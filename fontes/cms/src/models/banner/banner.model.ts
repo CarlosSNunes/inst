@@ -11,6 +11,7 @@ export class BannerModel {
     usuarioId: number;
     dataCadastro: Date;
     rota: string;
+    link: string;
     linkExterno: string;
     caminhoDesktop: string;
     caminhoCompletoDesktop: string;
