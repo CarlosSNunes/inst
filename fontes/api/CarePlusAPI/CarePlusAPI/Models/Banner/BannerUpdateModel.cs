@@ -34,6 +34,8 @@ namespace CarePlusAPI.Models.Banner
         [StringLength(255)]
         public string CaminhoDesktop { get; set; }
         [StringLength(255)]
+        public string NomeLink { get; set; }
+        [StringLength(255)]
         public string NomeImagemDesktop { get; set; }
         [StringLength(255)]
         public string CaminhoMobile { get; set; }

@@ -55,6 +55,7 @@ export class DetalheDoPostComponent implements OnInit {
 
     private async refreshData(slug?: string) {
         if (this.slug != slug) {
+            this.iconCardsSectionModel.cards = [];
             this.slug = slug
             this.breadcrumbs = [
                 new BreadcrumbModel({
@@ -76,6 +77,7 @@ export class DetalheDoPostComponent implements OnInit {
                 })
             );
             this.setSEOInfos();
+            this.cdr.detectChanges();
         }
     }
 
@@ -87,7 +89,6 @@ export class DetalheDoPostComponent implements OnInit {
                 getDateDifferences: true,
             });
             this.getRelatedPosts(apiPost);
-            this.cdr.detectChanges();
         } catch (error) {
             if (this.isBrowser) {
                 this.errorHandler.ShowError(error.error);
