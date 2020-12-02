@@ -14,6 +14,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { BannerRoutingModule } from './banner-edit/banner-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 
@@ -35,6 +36,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ImageCropperModule,
     NgxPaginationModule,
     ModalModule,
+    TabsModule.forRoot(),
   ],
   providers: [
     BannerService,

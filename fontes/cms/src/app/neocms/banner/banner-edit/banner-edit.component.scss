@@ -1,3 +1,50 @@
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#editBanner {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+    h1 {
+      font-size: getSize("h2");
+    }
+    a {
+      color: getColor(_bupa, _digital-cian);
+      margin: auto 0;
+    }
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: getColor(_bupa, _black);
+      height: 1px;
+      width: 100%;
+    }
+  }
+  form {
+    margin-top: 50px;
+    .areaBanner {
+      margin-top: 30px;
+    }
+    .btn{
+      padding: 10px 15px;
+    }
+    .form-check{
+      label{
+        margin: 0;
+      }
+    }
+    .is-danger{
+      margin-top: 5px;
+      font-size: getSize('sbm');
+      color: #ff3e1d;
+    }
+  }
+}
+
 @import './../../../../assets/sass/animations.scss';
 
 img.arrow-return {
