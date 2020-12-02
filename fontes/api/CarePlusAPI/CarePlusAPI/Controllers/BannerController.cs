@@ -74,7 +74,7 @@ namespace CarePlusAPI.Controllers
                 {
                     if (item.CaminhoDesktop != null)
                     {
-                        item.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{item.NomeImagem}";
+                        item.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{item.CaminhoDesktop}";
                     }
                     else
                     {
@@ -83,7 +83,7 @@ namespace CarePlusAPI.Controllers
 
                     if (item.CaminhoMobile != null)
                     {
-                        item.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{item.NomeImagem}";
+                        item.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{item.CaminhoMobile}";
                     }
                     else
                     {
@@ -130,6 +130,25 @@ namespace CarePlusAPI.Controllers
 
                 BannerModel model = _mapper.Map<BannerModel>(banner);
 
+
+                if (model.CaminhoDesktop != null)
+                {
+                    model.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{model.CaminhoDesktop}";
+                }
+                else
+                {
+                    model.CaminhoCompletoDesktop = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                }
+
+                if (model.CaminhoMobile != null)
+                {
+                    model.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{model.CaminhoMobile}";
+                }
+                else
+                {
+                    model.CaminhoCompletoMobile = $"{_appSettings.UrlDefault}{_appSettings.PostImageRelativePathDefault}";
+                }
+
                 return Ok(model);
             }
             catch (Exception ex)
@@ -169,7 +188,7 @@ namespace CarePlusAPI.Controllers
                 {
                     if (item.CaminhoDesktop != null)
                     {
-                        item.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{item.NomeImagem}";
+                        item.CaminhoCompletoDesktop = $"{_appSettings.PathToGet}{item.CaminhoDesktop}";
                     }
                     else
                     {
@@ -178,7 +197,7 @@ namespace CarePlusAPI.Controllers
 
                     if (item.CaminhoMobile != null)
                     {
-                        item.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{item.NomeImagem}";
+                        item.CaminhoCompletoMobile = $"{_appSettings.PathToGet}{item.CaminhoMobile}";
                     }
                     else
                     {

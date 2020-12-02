@@ -124,7 +124,7 @@ namespace CarePlusAPI.Helpers
                     base.Entry(e.Entity).Property("DataCadastro").IsModified = false;
                 }
 
-                if (usuarioId != null && HttpUser.UsuarioId != null)
+                if (usuarioId != null && HttpUser.UsuarioId != null && (usuarioId.GetValue(e.Entity) == null || (int)usuarioId.GetValue(e.Entity) == 0))
                 {
                     usuarioId.SetValue(e.Entity, HttpUser.UsuarioId, null);
                 }
@@ -155,7 +155,7 @@ namespace CarePlusAPI.Helpers
                     base.Entry(e.Entity).Property("DataCadastro").IsModified = false;
                 }
 
-                if (usuarioId != null && HttpUser.UsuarioId != null && usuarioId.GetValue(e.Entity) == null)
+                if (usuarioId != null && HttpUser.UsuarioId != null && (usuarioId.GetValue(e.Entity) == null || (int)usuarioId.GetValue(e.Entity) == 0))
                 {
                     usuarioId.SetValue(e.Entity, HttpUser.UsuarioId, null);
                 }
