@@ -73,7 +73,7 @@ export class CareplusMaisComponent implements OnInit {
             });
             this.filterRecentPosts(lastPosts);
             this.cdr.detectChanges();
-        } 
+        }
         // Se não houver um post principal, ele utilizará o primeiro post como principal.
         else if (lastPosts.length > 0) {
             this.highLightPost =
@@ -103,7 +103,7 @@ export class CareplusMaisComponent implements OnInit {
         this.cdr.detectChanges();
     }
 
-    private async getAllPosts(newRequest: boolean = false) {
+    private async getAllPosts() {
         this.loadingAllPosts = true;
         try {
             const allPostsPaginated = await this.blogService.getAllPostsPaginated(this.allPostsSkip, this.allPostsTake);
@@ -115,12 +115,9 @@ export class CareplusMaisComponent implements OnInit {
                         routerLink: `/careplus-mais/${post.slug}`
                     })
                 });
-                if (newRequest) {
-                    postCardObj.isNewRequest = true;
-                }
                 this.allPosts.push(postCardObj);
             });
-            if (this.allPosts.length === allPostsPaginated.count || allPostsPaginated.result.length < this.allPostsTake) {
+            if ((this.allPosts.length > 0 && this.allPosts.length + 7 === allPostsPaginated.count) || (allPostsPaginated.result.length < this.allPostsTake)) {
                 this.allPostsLoaded = true;
             }
             this.loadingAllPosts = false;
@@ -230,7 +227,7 @@ export class CareplusMaisComponent implements OnInit {
     loadMore() {
         if (!this.allPostsLoaded) {
             this.allPostsSkip += this.allPostsTake;
-            this.getAllPosts(true);
+            this.getAllPosts();
         }
     }
 

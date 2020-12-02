@@ -76,6 +76,7 @@ export class DetalheDoPostComponent implements OnInit {
                 })
             );
             this.setSEOInfos();
+            this.cdr.detectChanges();
         }
     }
 
@@ -87,7 +88,6 @@ export class DetalheDoPostComponent implements OnInit {
                 getDateDifferences: true,
             });
             this.getRelatedPosts(apiPost);
-            this.cdr.detectChanges();
         } catch (error) {
             if (this.isBrowser) {
                 this.errorHandler.ShowError(error.error);
