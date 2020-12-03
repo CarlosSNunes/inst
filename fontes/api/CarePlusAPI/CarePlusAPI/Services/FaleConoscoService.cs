@@ -136,6 +136,12 @@ namespace CarePlusAPI.Services
 
                 var dObj = JsonConvert.DeserializeObject<BuscarAssuntoOuvidoriaModel>(sObj);
 
+                // Adicionando validação para erro com status "200" do WS cliente 
+                if (dObj.Sucesso == false)
+                {
+                    throw new Exception(dObj.Erros);
+                }
+
                 return dObj;
             }
             catch (Exception ex)
@@ -173,6 +179,12 @@ namespace CarePlusAPI.Services
 
                 var dObj = JsonConvert.DeserializeObject<BuscarClassificacaoOuvidoriaModel>(sObj);
 
+                // Adicionando validação para erro com status "200" do WS cliente 
+                if (dObj.Sucesso == false)
+                {
+                    throw new Exception(dObj.Erros);
+                }
+
                 return dObj;
             }
             catch (Exception ex)
@@ -196,19 +208,23 @@ namespace CarePlusAPI.Services
 
                 List<AnexoByte> lstAnexoBytes = new List<AnexoByte>();
 
-                var files = model.LstAnexo.Arquivo;
-
-                foreach (var file in files)
+                if (model.LstAnexo != null)
                 {
-                    var bytes = await GetBytes(file);
 
-                    AnexoByte anexoByte = new AnexoByte()
+                    var files = model.LstAnexo.Arquivo;
+
+                    foreach (var file in files)
                     {
-                        FileBytes = bytes,
-                        FileName = file.FileName
-                    };
+                        var bytes = await GetBytes(file);
 
-                    lstAnexoBytes.Add(anexoByte);
+                        AnexoByte anexoByte = new AnexoByte()
+                        {
+                            FileBytes = bytes,
+                            FileName = file.FileName
+                        };
+
+                        lstAnexoBytes.Add(anexoByte);
+                    }
                 }
 
                 AnexoByte[] anexoBytes = lstAnexoBytes.ToArray();
@@ -236,6 +252,12 @@ namespace CarePlusAPI.Services
 
                 var result = await _partnerServiceClient.GravarFaleConoscoAsync(wSFiltro);
 
+                // Adicionando validação para erro com status "200" do WS cliente 
+                if (result.sucesso == false)
+                {
+                    throw new Exception(result.erros);
+                }
+
                 return result;
             }
             catch (Exception ex)
@@ -259,19 +281,24 @@ namespace CarePlusAPI.Services
 
                 List<AnexoByte> lstAnexoBytes = new List<AnexoByte>();
 
-                var files = model.LstAnexo.Arquivo;
-
-                foreach (var file in files)
+                if (model.LstAnexo != null)
                 {
-                    var bytes = await GetBytes(file);
 
-                    AnexoByte anexoByte = new AnexoByte()
+                    var files = model.LstAnexo.Arquivo;
+
+                    foreach (var file in files)
                     {
-                        FileBytes = bytes,
-                        FileName = file.FileName
-                    };
+                        var bytes = await GetBytes(file);
 
-                    lstAnexoBytes.Add(anexoByte);
+                        AnexoByte anexoByte = new AnexoByte()
+                        {
+                            FileBytes = bytes,
+                            FileName = file.FileName
+                        };
+
+                        lstAnexoBytes.Add(anexoByte);
+                    }
+
                 }
 
                 AnexoByte[] anexoBytes = lstAnexoBytes.ToArray();
@@ -294,6 +321,12 @@ namespace CarePlusAPI.Services
                 };
 
                 var result = await _partnerServiceClient.GravarCanalDenunciaAsync(wSFiltro);
+
+                // Adicionando validação para erro com status "200" do WS cliente 
+                if (result.sucesso == false)
+                {
+                    throw new Exception(result.erros);
+                }
 
                 return result;
             }
@@ -342,7 +375,7 @@ namespace CarePlusAPI.Services
                 {
                     Origem = WebServiceOrigem.Partner,
                     Token = token.ToString(),
-                    Certificado = _appSettings.WSPartnerCertificado,
+                    Certificado = model.CPF.ToString(),
                     DDDTelefoneCelular = model.DDDTelefoneCelular,
                     TelefoneCelular = model.TelefoneCelular,
                     DDDTelefoneResidencial = model.DDDTelefoneResidencial,
@@ -352,12 +385,19 @@ namespace CarePlusAPI.Services
                     IdClassificacao = model.IdClassificacao,
                     Mensagem = model.Mensagem,
                     Nome = model.Nome,
-                    CPF = model.CPF,
+                    //TODO Aguardar resposta do cliente referente ao campo CPF
+                    //CPF = model.CPF,
                     ProtocoloAtendimento = model.ProtocoloAtendimento,
                     Anexo = anexoBytes
                 };
 
                 var result = await _partnerServiceClient.GravarOuvidoriaAsync(wSFiltro);
+
+                // Adicionando validação para erro com status "200" do WS cliente 
+                if (result.Sucesso == false)
+                {
+                    throw new Exception(result.Erros);
+                }
 
                 return result;
             }
