@@ -15,6 +15,8 @@ import { BannerRoutingModule } from './banner-edit/banner-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BannerOrderComponent } from './banner-order/banner-order.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -24,6 +26,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     BannerCreateComponent,
     BannerEditComponent,
     BannerDeleteComponent,
+    BannerOrderComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +40,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     NgxPaginationModule,
     ModalModule,
     TabsModule.forRoot(),
+    DragDropModule
   ],
   providers: [
     BannerService,
@@ -45,6 +49,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
       useClass: HttpHandlerService,
       multi: true,
     }
+  ],
+  exports:[
+    DragDropModule
   ]
 })
 export class BannerModule { }

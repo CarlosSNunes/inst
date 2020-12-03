@@ -43,7 +43,7 @@ export class BannerComponent implements OnInit {
     paginaAtual = 1;
     showBannerDelete: boolean;
     thumbnail: string;
-
+    selectedFilter: string = "Beneficiario";
 
     constructor(
         private bannerService: BannerService,
@@ -153,4 +153,8 @@ export class BannerComponent implements OnInit {
         this.paginaAtual = page;
         this.getBanners();
     }
+    filter(newFilter) {
+        this.selectedFilter = newFilter;
+        this.getBanners()
+      }
 }
