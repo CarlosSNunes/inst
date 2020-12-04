@@ -30,7 +30,11 @@ namespace CarePlusAPI.Helpers
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseOracle(Startup.ConnectionString);
+            {
+                string decryptedConnection = GetCipher.Decrypt(Startup.ConnectionString);
+
+                optionsBuilder.UseOracle(decryptedConnection);
+            }
         }
 
         ///<summary>

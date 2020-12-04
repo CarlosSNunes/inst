@@ -46,7 +46,7 @@ namespace CarePlusAPI.Controllers
             _bannerService = bannerService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            Tinify.Key = _appSettings.TinyPngKey;
+            Tinify.Key = GetCipher.Decrypt(_appSettings.TinyPngKey);
             _seriLog = new SeriLog(appSettings);
         }
 

@@ -50,12 +50,15 @@ namespace CarePlusAPI.Services
         {
             try
             {
+                string decryptedToken = GetCipher.Decrypt(_appSettings.WSPartnerToken);
+                string decryptedLogin = GetCipher.Decrypt(_appSettings.WSPartnerLogin);
+                string decryptedPass = GetCipher.Decrypt(_appSettings.WSPartnerSenha);
                 LoginPartnerOut loginPartnerOut = new LoginPartnerOut()
                 {
                     Origem = WebServiceOrigem.Partner,
-                    Token = _appSettings.WSPartnerToken,
-                    Login = _appSettings.WSPartnerLogin,
-                    Senha = _appSettings.WSPartnerSenha,
+                    Token = decryptedToken,
+                    Login = decryptedLogin,
+                    Senha = decryptedPass,
                     TokenTransacao = ""
                 };
 
@@ -235,7 +238,7 @@ namespace CarePlusAPI.Services
                     Token = token.ToString(),
                     Assunto = model.Assunto,
                     CPFCNPJ = model.CPFCNPJ,
-                    Certificado = _appSettings.WSPartnerCertificado,
+                    Certificado = GetCipher.Decrypt(_appSettings.WSPartnerCertificado),
                     CodigoCarePlus = model.CodigoCarePlus,
                     Comentario = model.Comentario,
                     DDDTelefone1 = model.DDDTelefone1,
@@ -308,7 +311,7 @@ namespace CarePlusAPI.Services
                     Origem = WebServiceOrigem.Partner,
                     Token = token.ToString(),
                     CPFCNPJ = model.CPFCNPJ,
-                    Certificado = _appSettings.WSPartnerCertificado,
+                    Certificado = GetCipher.Decrypt(_appSettings.WSPartnerCertificado),
                     Mensagem = model.Mensagem,
                     DDDTelefone = model.DDDTelefone,
                     Telefone = model.Telefone,
