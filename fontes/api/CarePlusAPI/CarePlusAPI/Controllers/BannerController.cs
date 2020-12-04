@@ -1,5 +1,4 @@
 using AutoMapper;
-
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Banner;
@@ -59,12 +58,17 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         [HttpGet("{page}/{pageSize}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> Get(int page, int pageSize)
+        public async Task<IActionResult> Get(
+            int page, 
+            int pageSize,
+            [FromQuery(Name = "ativo")] char? ativo,
+            [FromQuery(Name = "area")] string? area
+            )
         {
             string origem = Request.Headers["Custom"];
             try
             {
-                var result = await _bannerService.Listar(page, pageSize);
+                var result = await _bannerService.Listar(page, pageSize, ativo, area);
 
                 List<BannerModel> model = _mapper.Map<List<BannerModel>>(result.Item2);
 
