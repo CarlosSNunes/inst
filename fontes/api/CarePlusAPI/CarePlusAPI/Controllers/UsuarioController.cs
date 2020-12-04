@@ -86,7 +86,8 @@ namespace CarePlusAPI.Controllers
                 //}
 
                 JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-                byte[] key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+                string secret = GetCipher.Decrypt(_appSettings.Secret);
+                byte[] key = Encoding.ASCII.GetBytes(secret);
                 SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[] {

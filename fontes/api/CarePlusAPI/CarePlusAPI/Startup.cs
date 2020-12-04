@@ -63,7 +63,8 @@ namespace CarePlusAPI
             services.Configure<AppSettings>(appSettingsSection);
 
             AppSettings appSettings = appSettingsSection.Get<AppSettings>();
-            byte[] key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            string secret = GetCipher.Decrypt(appSettings.Secret);
+            byte[] key = Encoding.ASCII.GetBytes(secret);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -94,7 +95,6 @@ namespace CarePlusAPI
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ValidateLifetime = true,
-                    ClockSkew = TimeSpan.Zero
             };
             });
 
