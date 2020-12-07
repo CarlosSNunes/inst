@@ -43,7 +43,7 @@ namespace CarePlusAPI.Controllers
             _postService = noticiaService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            Tinify.Key = _appSettings.TinyPngKey;
+            Tinify.Key = GetCipher.Decrypt(_appSettings.TinyPngKey);
             _seriLog = new SeriLog(appSettings);
         }
 
@@ -65,7 +65,6 @@ namespace CarePlusAPI.Controllers
         {
             try
             {
-
                 var result = await _postService.Listar(page, pageSize, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
