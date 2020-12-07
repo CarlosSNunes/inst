@@ -312,4 +312,5 @@ export class PostsBlogCreateComponent implements OnInit {
     getErrors(control: AbstractControl, controlName?: string) {
         return FormControlError.GetErrors(control, controlName);
     }
+
 }

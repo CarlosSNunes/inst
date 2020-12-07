@@ -36,10 +36,13 @@
       font-size: getSize("p");
     }
     input,
-    textarea,
     ckeditor,
     .image-preview {
       margin-bottom: 25px;
+    }
+    textarea{
+      margin-bottom: 10px;
+
     }
     .image-preview {
       width: 100%;
@@ -117,7 +120,12 @@
     p {
       &.is-danger {
         color: #ff3e1d;
+        font-size: getSize('p14');
       }
+    }
+    .contador{
+      font-size: getSize('p14') !important;
+      margin-bottom: 5px;
     }
     .ckeditor-errors {
       margin-top: 15px;

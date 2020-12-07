@@ -95,10 +95,15 @@
                                         [ngClass]="{ 'is-success': submitted && !f.descricaoPrevia.errors, 'is-danger' : submitted && f.descricaoPrevia.errors }"
                                         class="form-control textarea" placeholder="" rows="3">
                                                 </textarea>
+                                    <p class="contador" [class.is-danger]="f.descricaoPrevia.value.length > 250">
+                                        {{f.descricaoPrevia.value.length}}/250
+                                    </p>
                                     <div *ngIf="submitted" class="errors">
+
                                         <p *ngFor="let error of getErrors(f.descricaoPrevia)" class="help is-danger">
                                             {{error}}
                                         </p>
+
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -156,7 +161,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                         </tab>
@@ -179,6 +184,9 @@
                                     <textarea formControlName="descricaoPaginaSEO"
                                         [ngClass]="{ 'is-success': submitted && !f.descricaoPaginaSEO.errors, 'is-danger' : submitted && f.descricaoPaginaSEO.errors }"
                                         class="form-control textarea" placeholder="" rows="4"></textarea>
+                                        <p class="contador" [class.is-danger]="f.descricaoPaginaSEO.value.length > 200">
+                                            {{f.descricaoPaginaSEO.value.length}}/200
+                                        </p>
                                     <div *ngIf="submitted" class="errors">
                                         <p *ngFor="let error of getErrors(f.descricaoPaginaSEO)" class="help is-danger">
                                             {{error}}
