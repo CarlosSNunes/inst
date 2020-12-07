@@ -110,17 +110,6 @@
                 </div>
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label for="my-input">Texto do Botão</label>
-                    <input formControlName="nomeLink" class="form-control" type="text" placeholder="Texto do Botão">
-                    <div *ngIf="submitted" class="errors">
-                      <p *ngFor="let error of getErrors(f.nomeLink)" class="help is-danger">
-                        {{error}}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-lg-6">
-                  <div class="form-group">
                     <label for="my-input">Subtítulo</label>
                     <input formControlName="subtitulo" class="form-control" type="text"
                       placeholder="Subtítulo do Banner"
@@ -131,6 +120,18 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-md-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="my-input">Texto do Botão</label>
+                    <input formControlName="nomeLink" class="form-control" type="text" placeholder="Texto do Botão">
+                    <div *ngIf="submitted" class="errors">
+                      <p *ngFor="let error of getErrors(f.nomeLink)" class="help is-danger">
+                        {{error}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
                     <label for="my-input">Tempo de Exibição</label>
@@ -168,23 +169,23 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <ng-container *ngIf="isLinkExternoSelected === true; else elseTemplate">
                       <div class="col-md-12 col-lg-6">
                         <div class="form-group">
                           <label for="my-input">link*</label>
                           <input formControlName="link" class="form-control" type="text" placeholder="">
-    
+
                         </div>
                       </div>
                     </ng-container>
                     <ng-template #elseTemplate>
                       <div class="col-md-12 col-lg-6">
-    
+
                         <div class="form-group">
                           <label for="my-input">Rota*</label>
                           <input formControlName="rota" class="form-control" type="text" placeholder="">
-    
+
                         </div>
                       </div>
                     </ng-template>
@@ -193,22 +194,24 @@
                       <div class="form-group">
                         <div class="form-check form-check-inline">
                           <input id="ativo" type="radio" class="form-check-input" checked value="0" name="ativo"
-                            formControlName="ativo" [ngClass]="{'is-danger': !isBannerAtivo, 'is-selected': !isBannerAtivo}"
+                            formControlName="ativo"
+                            [ngClass]="{'is-danger': !isBannerAtivo, 'is-selected': !isBannerAtivo}"
                             (click)="changeStatusBanner('0', false)">
                           <label for="ativo">Não</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input id="ativo1" type="radio" class="form-check-input" value="1" name="ativo"
-                            formControlName="ativo" [ngClass]="{'is-success': isBannerAtivo, 'is-selected': isBannerAtivo}"
+                            formControlName="ativo"
+                            [ngClass]="{'is-success': isBannerAtivo, 'is-selected': isBannerAtivo}"
                             (click)="changeStatusBanner('1',true)">
                           <label for="ativo">Sim</label>
                         </div>
                       </div>
                     </div>
                   </div>
-                  
+
                 </div>
-                
+
 
 
 
@@ -247,7 +250,7 @@
                     </div>
                   </div>
                 </div> -->
-                
+
               </div>
 
               <div class="col-md-12 w-100 text-right">

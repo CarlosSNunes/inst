@@ -43,7 +43,7 @@ export class BannerComponent implements OnInit {
     paginaAtual = 1;
     showBannerDelete: boolean;
     thumbnail: string;
-    selectedFilter: string = "Beneficiario";
+    selectedFilter: string = "beneficiario";
 
     constructor(
         private bannerService: BannerService,
@@ -130,12 +130,15 @@ export class BannerComponent implements OnInit {
     getBanners() {
         const offset = (this.paginaAtual - 1) * this.contador;
         this.bannerService
-            .getAll(offset, this.contador)
+            .getAll(offset, this.contador, this.selectedFilter)
             .subscribe(banners => {
-                this.loaded = true;
+                this.loaded = false;
+
                 this.bannerResult = banners.result;
                 this.bannerCount = banners.count;
                 this.bannerResult.caminhoCompletoDesktop;
+                this.loaded = true;
+
             },
                 error => {
                     let message = '';
@@ -146,6 +149,7 @@ export class BannerComponent implements OnInit {
                     }
                     this.toastrService.error(message);
                     this.loaded = true;
+
                 });
     }
 
@@ -154,7 +158,8 @@ export class BannerComponent implements OnInit {
         this.getBanners();
     }
     filter(newFilter) {
+        console.log('entrou')
         this.selectedFilter = newFilter;
-        this.getBanners()
-      }
+        this.getBanners();
+    }
 }

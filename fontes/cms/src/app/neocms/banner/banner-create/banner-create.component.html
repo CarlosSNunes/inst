@@ -91,6 +91,35 @@
                   <div class="row">
                     <div class="col-md-12 col-lg-6">
                       <div class="form-group">
+                        <label for="my-input">Título*</label>
+                        <input formControlName="titulo" class="form-control" type="text" placeholder="Título do Banner"
+                          [ngClass]="{ 'is-success': submitted &&
+                                                                  !f.titulo.errors, 'is-danger' :
+                                                                  submitted && f.titulo.errors }">
+                        <div *ngIf="submitted" class="errors">
+                          <p *ngFor="let error of
+                                                                      getErrors(f.titulo)" class="help
+                                                                      is-danger">
+                            {{error}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                      <div class="form-group">
+                        <label for="my-input">Subtítulo</label>
+                        <textarea formControlName="subtitulo" class="form-control" type="text"
+                          placeholder="Subtítulo do Banner" [ngClass]="{ 'is-success': submitted &&
+                                                                  !f.subtitulo.errors, 'is-danger' :
+                                                                  submitted && f.subtitulo.errors }"> </textarea>
+                        <div *ngIf="submitted" class="errors">
+                          <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
+                            {{error}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                      <div class="form-group">
                         <label for="my-input">Nome do Banner*</label>
                         <input formControlName="nomeImagem" class="form-control" type="text"
                           placeholder="Nome do Banner"
@@ -113,35 +142,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-12 col-lg-6">
-                      <div class="form-group">
-                        <label for="my-input">Título*</label>
-                        <input formControlName="titulo" class="form-control" type="text" placeholder="Título do Banner"
-                          [ngClass]="{ 'is-success': submitted &&
-                                                                  !f.titulo.errors, 'is-danger' :
-                                                                  submitted && f.titulo.errors }">
-                        <div *ngIf="submitted" class="errors">
-                          <p *ngFor="let error of
-                                                                      getErrors(f.titulo)" class="help
-                                                                      is-danger">
-                            {{error}}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                      <div class="form-group">
-                        <label for="my-input">Subtítulo</label>
-                        <input formControlName="subtitulo" class="form-control" type="text"
-                          placeholder="Subtítulo do Banner" [ngClass]="{ 'is-success': submitted &&
-                                                                  !f.subtitulo.errors, 'is-danger' :
-                                                                  submitted && f.subtitulo.errors }">
-                        <div *ngIf="submitted" class="errors">
-                          <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
-                            {{error}}</p>
-                        </div>
-                      </div>
-                    </div>
+
                     <div class="col-md-12 col-lg-6">
                       <div class="form-group">
                         <label for="my-input">Tempo de Exibição</label>
@@ -253,19 +254,19 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-                  <div class="row">
-                    <div class="col-md-4 mx-auto">
-                      <h4 class="titulo-visualizacao">visualização</h4>
-                      <div *ngIf="croppedImage" class="shadow thumbnail-image-box previous">
-                        <h1 class="titulo-banner">{{f.titulo.value}}</h1>
-                        <h3 class="subtitulo-banner">{{f.subtitulo.value}}</h3>
-                        <a _ngcontent-serverapp-c8="" class="btn btn-digital-cian primary medium">
-                          {{f.nomeLink.value}}
-                        </a>
-                        <img class="thumbnail-image" [src]="croppedImage" alt="Cropped image" />
-                      </div>
+
+                  <h4 class="titulo-visualizacao">visualização</h4>
+                  <div *ngIf="croppedImage" class="banner-perview">
+                    <div class="banner-content">
+                      <h1 class="titulo-banner">{{f.titulo.value}}</h1>
+                      <h3 class="subtitulo-banner">{{f.subtitulo.value}}</h3>
+                      <a _ngcontent-serverapp-c8="" class="btn blue">
+                        {{f.nomeLink.value}}
+                      </a>
                     </div>
+                    <img  [src]="croppedImage" alt="Cropped image" />
                   </div>
+
                 </div>
 
 

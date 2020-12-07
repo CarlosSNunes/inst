@@ -20,41 +20,41 @@
           <h5 class="filter-title">Filtros</h5>
           <ul class="filter">
               <li>
-                  <button class="btn blue" [class.active]="selectedFilter === 'Beneficiario'"
-                      (click)="filter('Beneficiario')">
+                  <button class="btn blue" [class.active]="selectedFilter === 'beneficiario'"
+                      (click)="filter('beneficiario')">
                       Home - Beneficiário
                   </button>
               </li>
               <li>
-                  <button class="btn blue" [class.active]="selectedFilter === 'Blog'" (click)="filter('Blog')">
+                  <button class="btn blue" [class.active]="selectedFilter === 'blog'" (click)="filter('blog')">
                       Home - Blog
                   </button>
               </li>
               <li>
-                  <button class="btn blue" [class.active]="selectedFilter === 'Corretor'"
-                      (click)="filter('Corretor')">
+                  <button class="btn blue" [class.active]="selectedFilter === 'corretor'"
+                      (click)="filter('corretor')">
                       Home - Corretor
                   </button>
               </li>
               <li>
-                  <button class="btn blue" [class.active]="selectedFilter === 'Credenciado'"
-                      (click)="filter('Credenciado')">
+                  <button class="btn blue" [class.active]="selectedFilter === 'credenciado'"
+                      (click)="filter('credenciado')">
                       Home - Credenciado
                   </button>
               </li>
               <li>
-                  <button class="btn blue" [class.active]="selectedFilter === 'Diferenciais'"
-                      (click)="filter('Diferenciais')">
+                  <button class="btn blue" [class.active]="selectedFilter === 'diferenciais'"
+                      (click)="filter('diferenciais')">
                       Home - Diferenciais
                   </button>
               </li>
               <li>
-                  <button class="btn blue" [class.active]="selectedFilter === 'Home'" (click)="filter('Home')">
+                  <button class="btn blue" [class.active]="selectedFilter === 'home'" (click)="filter('home')">
                       Home - Home
                   </button>
               </li>
               <li>
-                  <button class="btn blue" [class.active]="selectedFilter === 'RH'" (click)="filter('RH')">
+                  <button class="btn blue" [class.active]="selectedFilter === 'rh'" (click)="filter('rh')">
                       Home - RH
                   </button>
               </li>
@@ -155,11 +155,6 @@
             </tr>
           </tbody>
         </table>
-        <div class="text-center">
-          <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
-            nextLabel="Próximo">
-          </pagination-controls>
-        </div>
         <div *ngIf="bannerCount == 0 && !loaded" class="load">
           <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
@@ -171,6 +166,12 @@
             </path>
           </svg>
         </div>
+        <div class="text-center">
+          <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
+            nextLabel="Próximo">
+          </pagination-controls>
+        </div>
+        
       </div>
     </div>
   </div>

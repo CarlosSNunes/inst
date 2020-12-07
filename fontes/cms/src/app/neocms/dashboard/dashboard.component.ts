@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
 
   getBanners() {
     this.bannerServices
-      .getAll(0, 100)
+      .getAll(0, 100, '')
       .subscribe(res => {
         this.loaded = true;
         this.bannerCount = res.count;

@@ -1,5 +1,6 @@
 @import "~src/assets/sass/variables";
 @import "~src/assets/sass/styleguide";
+@import "./../../../../assets/sass/animations.scss";
 
 #createBanner {
   .header {
@@ -29,23 +30,48 @@
     .areaBanner {
       margin-top: 30px;
     }
-    .btn{
+    .btn {
       padding: 10px 15px;
     }
-    .form-check{
-      label{
+    .form-check {
+      label {
         margin: 0;
       }
     }
-    .is-danger{
+    .is-danger {
       margin-top: 5px;
-      font-size: getSize('sbm');
+      font-size: getSize("sbm");
       color: #ff3e1d;
+    }
+    .banner-perview {
+      position: relative;
+      margin-bottom: 40px;
+      .banner-content {
+        position: absolute;
+        left: 5%;
+        bottom: 30%;
+        h1 {
+          font-style: normal;
+          font-weight: 600;
+          font-size: getSize("h3");
+          line-height: 120%;
+          color: #00335b;
+        }
+        h3 {
+          font-style: normal;
+          font-weight: 500;
+          font-size: getSize("p");
+          line-height: 150%;
+          color: #333;
+        }
+      }
+      img {
+        width: 100%;
+      }
     }
   }
 }
 
-@import "./../../../../assets/sass/animations.scss";
 
 img.arrow-return {
   width: 35px;
@@ -191,44 +217,44 @@ div.shadow.thumbnail-image-box-mobile {
   width: 75%;
 }
 
-h4.titulo-visualizacao-mobile {
-  padding: 10px 10px 0px 10px !important;
-  text-transform: capitalize;
-}
+// h4.titulo-visualizacao-mobile {
+//   padding: 10px 10px 0px 10px !important;
+//   text-transform: capitalize;
+// }
 
 //BOTÃO PREVIEW
-.btn.btn-digital-cian.primary {
-  border: 3px solid #0079c8;
-  color: #fff;
-  background-color: #0079c8;
-  outline: 0;
-  text-align: center;
-  font-size: 50%;
-  position: absolute;
-  top: 200px;
-  left: 42px;
-  min-width: 100px;
-  width: auto;
-  min-height: 15px !important;
-  padding: 2px 7px !important;
-  text-shadow: 2px 2px 2px #282828;
-}
+// .btn.btn-digital-cian.primary {
+//   border: 3px solid #0079c8;
+//   color: #fff;
+//   background-color: #0079c8;
+//   outline: 0;
+//   text-align: center;
+//   font-size: 50%;
+//   position: absolute;
+//   top: 200px;
+//   left: 42px;
+//   min-width: 100px;
+//   width: auto;
+//   min-height: 15px !important;
+//   padding: 2px 7px !important;
+//   text-shadow: 2px 2px 2px #282828;
+// }
 
-h1.titulo-banner {
-  font-style: normal;
-  font-weight: 800;
-  font-size: 1.2rem;
-  line-height: 120%;
-  color: #00335b;
-  position: absolute;
-  top: 156px;
-  left: 40px;
-}
+// h1.titulo-banner {
+//   font-style: normal;
+//   font-weight: 800;
+//   font-size: 1.2rem;
+//   line-height: 120%;
+//   color: #00335b;
+//   position: absolute;
+//   top: 156px;
+//   left: 40px;
+// }
 
-h3.subtitulo-banner {
-  position: absolute;
-  top: 180px;
-  left: 42px;
-  font-size: 10px;
-  font-weight: 800;
-}
+// h3.subtitulo-banner {
+//   position: absolute;
+//   top: 180px;
+//   left: 42px;
+//   font-size: 10px;
+//   font-weight: 800;
+// }

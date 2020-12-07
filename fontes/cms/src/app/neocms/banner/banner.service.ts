@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { ClassHelper } from './../../../../src/utils/class-helper';
 import { BannerListModel, BannerModel } from './../../../../src/models/banner/banner.model';
 import { BannerCreateModel } from './../../../../src/models/banner/banner-create.model';
@@ -19,8 +19,13 @@ export class BannerService {
     private http: HttpClient
   ) { }
 
-  getAll(page: number, pageSize: number): Observable<BannerListModel> {
-    return this.http.get<BannerListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
+  getAll(page: number, pageSize: number, filterArea: string): Observable<BannerListModel> {
+    let options = {
+      params: {
+        area: filterArea
+      }
+    }
+    return this.http.get<BannerListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize, options);
   }
 
   getById(id: string): Observable<BannerListModel> {

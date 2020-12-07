@@ -20,41 +20,41 @@
                 <h5 class="filter-title">Filtros</h5>
                 <ul class="filter">
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'Beneficiario'"
-                            (click)="filter('Beneficiario')">
+                        <button class="btn blue" [class.active]="selectedFilter === 'beneficiario'"
+                            (click)="filter('beneficiario')">
                             Home - Beneficiário
                         </button>
                     </li>
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'Blog'" (click)="filter('Blog')">
+                        <button class="btn blue" [class.active]="selectedFilter === 'blog'" (click)="filter('blog')">
                             Home - Blog
                         </button>
                     </li>
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'Corretor'"
-                            (click)="filter('Corretor')">
+                        <button class="btn blue" [class.active]="selectedFilter === 'corretor'"
+                            (click)="filter('corretor')">
                             Home - Corretor
                         </button>
                     </li>
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'Credenciado'"
-                            (click)="filter('Credenciado')">
+                        <button class="btn blue" [class.active]="selectedFilter === 'credenciado'"
+                            (click)="filter('credenciado')">
                             Home - Credenciado
                         </button>
                     </li>
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'Diferenciais'"
-                            (click)="filter('Diferenciais')">
+                        <button class="btn blue" [class.active]="selectedFilter === 'diferenciais'"
+                            (click)="filter('diferenciais')">
                             Home - Diferenciais
                         </button>
                     </li>
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'Home'" (click)="filter('Home')">
+                        <button class="btn blue" [class.active]="selectedFilter === 'home'" (click)="filter('home')">
                             Home - Home
                         </button>
                     </li>
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'RH'" (click)="filter('RH')">
+                        <button class="btn blue" [class.active]="selectedFilter === 'rh'" (click)="filter('rh')">
                             Home - RH
                         </button>
                     </li>
@@ -65,7 +65,7 @@
             <div class="col-12">
                 <div class="area">
                     <h2>Home - {{selectedFilter}}</h2>
-                    
+
                 </div>
             </div>
         </div>
@@ -118,21 +118,21 @@
                         <div class="drag-item" *cdkDragPlaceholder>
                         </div>
                         <div>
-                               <img src="assets/img/ordem.svg" alt="">
+                            <img class="order" src="assets/img/ordem.svg" alt="">
+                        </div>
+                        <div>
+                            <img class="thumbnail-banner" src="{{ apiPath + banner.caminhoDesktop}}"
+                                [alt]="banner.titulo">
+
                         </div>
                         <div>
                             <p>
-                                {{banner.image}}
+                                {{banner.titulo}}
                             </p>
                         </div>
                         <div>
                             <p>
-                                {{banner.title}}
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                {{banner.active}}
+                                {{banner.dataCadastro | date: 'dd/MM/yyyy'}}
                             </p>
                         </div>
                         <!-- <div>

@@ -94,7 +94,7 @@ export class BannerCreateComponent implements OnInit {
         this.bannerForm = this.fb.group({
             nomeImagem: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-            subtitulo: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            subtitulo: ['', [Validators.maxLength(250), FormControlError.noWhitespaceValidator]],
             area: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             tempoExibicao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
