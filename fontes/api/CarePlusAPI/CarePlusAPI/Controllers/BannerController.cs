@@ -45,7 +45,7 @@ namespace CarePlusAPI.Controllers
             _bannerService = bannerService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            Tinify.Key = _appSettings.TinyPngKey;
+            Tinify.Key = GetCipher.Decrypt(_appSettings.TinyPngKey);
             _seriLog = new SeriLog(appSettings);
         }
 
@@ -57,7 +57,7 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         [HttpGet("{page}/{pageSize}")]
-        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [Authorize(Roles = "Visualizador, Editor, Administrador")]
         public async Task<IActionResult> Get(
             int page, 
             int pageSize,
@@ -121,7 +121,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="id">Id do Banner</param>
         [HttpGet("{id}")]
-        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        [Authorize(Roles = "Visualizador, Editor, Administrador")]
         public async Task<IActionResult> GetById(int id)
         {
             string origem = Request.Headers["Custom"];
@@ -175,7 +175,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="area">Id do Banner</param>
         [HttpGet("getByArea/{area}")]
-        [Authorize(Roles = "Editor, Visualizador, Administrador")]
+        //[Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetByArea(string area)
         {
             string origem = Request.Headers["Custom"];
@@ -300,8 +300,6 @@ namespace CarePlusAPI.Controllers
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
                 Banner banner = _mapper.Map<Banner>(model);
                 await _bannerService.Criar(banner);
-
-               
 
                 return Ok(new
                 {
@@ -443,6 +441,126 @@ namespace CarePlusAPI.Controllers
                 });
             }
         }
+
+        ///<summary>
+        ///
+        ///Esse método serve para atualizar um Banner na base, primeiro mapeando
+        ///o objeto recebido para o objeto esperado na base.
+        ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão PUT.
+        ///
+        ///</summary>
+        ///<param name="model">Model de atualização de um Banner</param>
+        //[HttpPut]
+        //[Authorize(Roles = "Editor, Administrador")]
+        //public async Task<IActionResult> AtualizarOrdem([FromBody
+        //    ] BannerUpdateModel model)
+        //{
+        //    string fullPathDesk = string.Empty;
+        //    string fullPathMobile = string.Empty;
+        //    string directoryNameDesk = string.Empty;
+        //    string directoryNameMobile = string.Empty;
+        //    string origem = Request.Headers["Custom"];
+
+        //    if (model == null)
+        //        throw new AppException("O Banner não pode estar nulo");
+
+        //    var bannerPath = "Src/Images/Banner/";
+        //    var arquivo = model.Arquivo;
+
+        //    var arquivoMobile = model.ArquivoMobile;
+        //    string fileName = string.Empty;
+        //    string fileNameMobile = string.Empty;
+        //    try
+        //    {
+
+        //        //Banner banner = _mapper.Map<Banner>(model);
+        //        Banner banner = await _bannerService.Buscar((int)model.Id);
+
+        //        if (model.Arquivo != null)
+        //        {
+
+        //            var file = model.Arquivo;
+        //            var fileMobile = model.ArquivoMobile;
+        //            var fullRelativePath = _appSettings.PathToSave + "\\Banner";
+        //            var stringArr = fullRelativePath.Split("\\");
+        //            var folderName = Path.Combine(stringArr);
+        //            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+        //            if (file.Length > 0)
+        //            {
+        //                var fileOriginalNameDesk = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+        //                directoryNameDesk = Path.Combine(pathToSave, fileOriginalNameDesk);
+        //                await using (var stream = new FileStream(directoryNameDesk, FileMode.Create))
+        //                {
+        //                    await file.CopyToAsync(stream);
+        //                }
+        //                var extensionDesk = Path.GetExtension(directoryNameDesk).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+        //                //Renomeando Arquivo Desktop
+        //                fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameDesk)}{extensionDesk}";
+        //                var renamedDirectory = Path.Combine(pathToSave, fileName);
+        //                System.IO.File.Move(directoryNameDesk, renamedDirectory);
+        //            }
+
+        //            if (fileMobile
+        //                .Length > 0)
+        //            {
+        //                var fileOriginalNameMobile = ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+        //                directoryNameMobile = Path.Combine(pathToSave, fileOriginalNameMobile);
+        //                await using (var stream = new FileStream(directoryNameMobile, FileMode.Create))
+        //                {
+        //                    await file.CopyToAsync(stream);
+        //                }
+        //                var extensionMobile = Path.GetExtension(directoryNameMobile).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+        //                //Renomeando Arquivo Mobile
+        //                fileNameMobile = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
+        //                var renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
+        //                System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
+        //            }
+        //            fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
+        //            fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+        //            directoryNameDesk = $"{_appSettings.VirtualPath}/Banner/{fileName}";
+        //            directoryNameMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+
+        //            model.NomeImagemDesktop = fileName;
+        //            model.NomeImagemMobile = fileNameMobile;
+        //            model.CaminhoDesktop = $"{_appSettings.VirtualPath}/Banner/{fileName}";
+        //            model.CaminhoMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+        //        }
+        //        else
+        //        {
+        //            model.CaminhoDesktop = banner.CaminhoDesktop;
+        //            model.NomeImagemDesktop = banner.NomeImagemDesktop;
+        //            model.CaminhoMobile = banner.CaminhoMobile;
+        //            model.NomeImagemMobile = banner.NomeImagemMobile;
+        //        }
+        //        model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
+        //        banner = _mapper.Map<Banner>(model);
+        //        await _bannerService.Atualizar(banner);
+
+        //        return Ok(new
+        //        {
+        //            directoryNameDesk,
+        //            directoryNameMobile,
+        //            fullPathDesk,
+        //            fullPathMobile
+        //        });
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+        //        if (System.IO.File.Exists(bannerPath))
+        //            System.IO.File.Delete(bannerPath);
+
+        //        return BadRequest(new
+        //        {
+        //            message = ex.Message
+        //        });
+        //    }
+        //}
+
+
+
 
         ///<summary>
         ///

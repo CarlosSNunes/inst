@@ -21,6 +21,7 @@ namespace CarePlusAPI.Services
         Task<Banner> Buscar(int id);
         Task Criar(Banner model);
         Task Atualizar(Banner model);
+        Task AtualizarOrdem(Banner model);
         Task Excluir(int id);
         Task<Tuple<string, string>> SalvaImagem(string pathTosave, IFormFile arquivo);
     }
@@ -60,7 +61,7 @@ namespace CarePlusAPI.Services
                 {
                     query = (IOrderedQueryable<Banner>)query.Where(at => at.Ativo == ativo);
                 }
-                
+
                 if (area != null)
                 {
                     query = (IOrderedQueryable<Banner>)query.Where(ar => ar.Area == area).Where(at => at.Ativo == ativo);
@@ -165,6 +166,22 @@ namespace CarePlusAPI.Services
         ///</summary>
         ///<param name="banner">Model de banner para ser atualizado</param>
         public async Task Atualizar(Banner banner)
+        {
+            if (banner == null)
+                throw new AppException("O banner não pode estar nulo");
+
+            Db.Set<Banner>().Update(banner);
+
+            await Db.SaveChangesAsync();
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve atualizar um banner na base.
+        ///
+        ///</summary>
+        ///<param name="banner">Model de banner para ser atualizado</param>
+        public async Task AtualizarOrdem(Banner banner)
         {
             if (banner == null)
                 throw new AppException("O banner não pode estar nulo");

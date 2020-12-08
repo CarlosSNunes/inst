@@ -5,6 +5,18 @@
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
+        },
+        "Docker": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Docker"
+            }
+        },
+        "Homolog": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Homolog"
+            }
         }
     }
 }

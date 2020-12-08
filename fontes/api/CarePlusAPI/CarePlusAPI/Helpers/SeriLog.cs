@@ -26,13 +26,13 @@ namespace CarePlusAPI.Helpers
             switch (origem)
             {
                 case "institucional":
-                    tag = _appSettings.SeqTokenInst;
+                    tag = GetCipher.Decrypt(_appSettings.SeqTokenInst);
                     break;
                 case "instadministrativo":
-                    tag = _appSettings.SeqTokenAdmin;
+                    tag = GetCipher.Decrypt(_appSettings.SeqTokenAdmin);
                     break;
                 default:
-                    tag = _appSettings.SeqTokenAPI;
+                    tag = GetCipher.Decrypt(_appSettings.SeqTokenAPI);
                     break;
             }
 

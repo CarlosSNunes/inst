@@ -197,7 +197,7 @@
                                     <label class="label">Tags</label>
                                     <div class="tags-container">
                                         <button *ngFor="let t of resultTag?.result" type="button" (click)="toggleTag(t)"
-                                            class="btn blue" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+                                            class="btn blue" btnCheckbox [class.active]="t?.selected">
                                             <img src="assets/img/tag.svg" alt="Tags">
                                             {{t.descricao}}
                                         </button>

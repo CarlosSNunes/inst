@@ -26,6 +26,7 @@ namespace CarePlusAPI
         private readonly IWebHostEnvironment Env;
         public readonly IConfiguration Configuration;
         public static string ConnectionString { get; private set; }
+        public static string CiphersPath { get; private set; }
 
         ///<summary>
         ///
@@ -40,6 +41,7 @@ namespace CarePlusAPI
             Env = env;
             Configuration = configuration;
             ConnectionString = Configuration.GetConnectionString("OracleExpressDatabase");
+            CiphersPath = Configuration.GetValue<string>("AppSettings:CiphersPath");
         }
 
         ///<summary>
@@ -61,7 +63,8 @@ namespace CarePlusAPI
             services.Configure<AppSettings>(appSettingsSection);
 
             AppSettings appSettings = appSettingsSection.Get<AppSettings>();
-            byte[] key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            string secret = GetCipher.Decrypt(appSettings.Secret);
+            byte[] key = Encoding.ASCII.GetBytes(secret);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -92,7 +95,6 @@ namespace CarePlusAPI
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ValidateLifetime = true,
-                    ClockSkew = TimeSpan.Zero
             };
             });
 

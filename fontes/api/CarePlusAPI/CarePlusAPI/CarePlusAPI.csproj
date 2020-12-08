@@ -6,6 +6,8 @@
 		<UserSecretsId>4e14879d-b662-4495-9f1a-eec9a1642a5c</UserSecretsId>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Development' " />
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Homolog' " />
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Docker' " />
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="9.0.0" />
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
