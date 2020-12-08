@@ -19,13 +19,16 @@ export class BannerService {
     private http: HttpClient
   ) { }
 
-  getAll(page: number, pageSize: number, filterArea: string): Observable<BannerListModel> {
-    let options = {
-      params: {
-        area: filterArea
-      }
+  getAll(page: number, pageSize: number, filterArea?, ativo?): Observable<BannerListModel> {
+    let params = new HttpParams();
+    if (filterArea != undefined) {
+     params =  params.append('area', filterArea)
     }
-    return this.http.get<BannerListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize, options);
+    if (ativo != undefined){
+     params = params.append('ativo', ativo)
+    }
+      return this.http.get<BannerListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize, {params});
+   
   }
 
   getById(id: string): Observable<BannerListModel> {
@@ -46,5 +49,9 @@ export class BannerService {
 
   delete(id: number) {
     return this.http.delete(this.API_ENDPOINT + '/' + id);
+  }
+  changeOrder(order){
+    return this.http.put(this.API_ENDPOINT + '/banner-order', order);
+
   }
 }

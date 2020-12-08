@@ -18,8 +18,8 @@ export class BannerOrderComponent implements OnInit {
 
   }
   ngOnInit() {
-   this.getBanners()
-   
+    this.getBanners()
+
   }
   drop(event: CdkDragDrop<string[]>) {
 
@@ -32,16 +32,14 @@ export class BannerOrderComponent implements OnInit {
     this.getBanners()
   }
   getBanners() {
-    
     this.bannerService
-      .getAll(0, 4, this.selectedFilter)
+      .getAll(0, 4, this.selectedFilter, 1)
       .subscribe(response => {
         this.loaded = false;
         this.banners = []
         this.banners = response.result;
         this.banners.caminhoCompletoDesktop;
         this.loaded = true;
-        console.log(this.banners)
 
       },
         error => {
@@ -57,39 +55,26 @@ export class BannerOrderComponent implements OnInit {
         });
   }
   saveBanners() {
-    this.getBanners();
-    // setTimeout(() => {
-    //   this.banners = [
-    //     {
-    //       order: 1,
-    //       image: 'Teste',
-    //       title: 'titulo',
-    //       active: '03/12/2020',
-    //       area: 'home'
-    //     },
-    //     {
-    //       order: 2,
-    //       image: 'Teste',
-    //       title: 'titulo',
-    //       active: '03/12/2020',
-    //       area: 'home'
-    //     },
-    //     {
-    //       order: 3,
-    //       image: 'Teste',
-    //       title: 'titulo',
-    //       active: '03/12/2020',
-    //       area: 'home'
-    //     },
-    //     {
-    //       order: 4,
-    //       image: 'Teste',
-    //       title: 'titulo',
-    //       active: '03/12/2020',
-    //       area: 'home'
-    //     }
-    //   ];
-    //   this.loaded = true;
-    // }, 5000)
+    let newBannerList = [];
+
+    this.banners.map((banner, index) => {
+      newBannerList.push({
+        "bannerId": banner.id,
+        "ativo": "1",
+        "ordem": index
+      })
+    })
+
+    let newOrder = {
+      "area": {
+        "areaName": this.selectedFilter,
+        "banners": newBannerList
+      }
+    }
+
+    this.bannerService.changeOrder(newOrder).subscribe(response => {
+      this.getBanners();
+    })
+
   }
 }
