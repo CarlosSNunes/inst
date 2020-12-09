@@ -65,6 +65,11 @@ export class FooterComponent implements OnInit, AfterViewInit {
         if (this.isBrowser) {
             this.setSiteBlindadoButton();
             this.setGoDaddyButton();
+            // TODO aguardando pessoal da Dun & Bradstreet
+            // this.setDunAndBradstreet();
+        } else {
+            // TODO aguardando pessoal da Dun & Bradstreet
+            // this.setDunAndBradstreet();
         }
     }
 
@@ -110,6 +115,14 @@ export class FooterComponent implements OnInit, AfterViewInit {
         this.siteBlindadoScript.src = '//cdn.siteblindado.com/aw.js';
         this.siteBlindadoScript.type = 'text/javascript';
         this.document.body.appendChild(this.siteBlindadoScript);
+    }
+
+    setDunAndBradstreet() {
+        this.dunAndBrandstreetScript = this.document.createElement('script') as HTMLScriptElement;
+        this.dunAndBrandstreetScript.src = 'https://dunsregistered.dnb.com';
+        this.dunAndBrandstreetScript.type = 'text/javascript';
+        const seloDun = this.elementRef.nativeElement.querySelector('#dun-and-brandstreet-button');
+        seloDun.appendChild(this.dunAndBrandstreetScript);
     }
 
     setGoDaddyButton() {

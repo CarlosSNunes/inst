@@ -1,4 +1,5 @@
 using AutoMapper;
+using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -7,14 +8,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -181,12 +185,86 @@ namespace CarePlusAPI
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());
 
+            var context = app.ApplicationServices.GetService<DataContext>();
+
+            createUser(context);
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarePlusAPI");
             });
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para criar o perfil de Administrador e o usuário admin assim que a api é iniciada.
+        ///
+        ///</summary>
+        ///<param name="context">Contexto do banco de dados</param>
+        private void createUser(DataContext context)
+        {
+            try
+            {
+                Perfil perfil = new Perfil
+                {
+                    Descricao = "Administrador",
+                    Prioridade = 1
+                };
+
+                Perfil foundProfile = context.Set<Perfil>().AsNoTracking().Where(p => p.Descricao == "Administrador").FirstOrDefault();
+
+                if (foundProfile == null)
+                {
+
+                    context.Set<Perfil>().Add(perfil);
+
+                    context.SaveChanges();
+                    Console.Write("PerfilCriado");
+                }
+                else
+                {
+                    perfil = foundProfile;
+                }
+
+                string senha = "C@rePlusAdm!";
+
+                UsuarioService.CriarSenha(senha, out byte[] senhaHash, out byte[] senhaSalt);
+
+                ICollection<UsuarioPerfil> usuarioPerfis = new List<UsuarioPerfil>();
+
+                usuarioPerfis.Add(new UsuarioPerfil
+                {
+                    PerfilId = perfil.Id,
+
+                });
+
+                Usuario usuario = new Usuario
+                {
+                    Nome = "Administrador",
+                    Email = "admin@admin.com",
+                    SenhaHash = senhaHash,
+                    SenhaSalt = senhaSalt,
+                    Ativo = '1',
+                    UsuarioPerfil = usuarioPerfis
+                };
+
+                Usuario foundUser = context.Set<Usuario>().AsNoTracking().Where(u => u.Email == usuario.Email).FirstOrDefault();
+
+                if (foundUser == null)
+                {
+                    context.Set<Usuario>().Add(usuario);
+                    context.SaveChanges();
+
+                    Console.Write("Usuario Criado");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write("ERRO AO CRIAR USUÁRIO INICIAL", ex.StackTrace);
+            }
         }
 
         public IConfiguration GetConfiguration()

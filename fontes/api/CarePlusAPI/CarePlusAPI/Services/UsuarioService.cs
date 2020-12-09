@@ -258,7 +258,7 @@ namespace CarePlusAPI.Services
         ///<param name="senha">Senha a ser criptografada</param>
         ///<param name="senhaHash">Array de byte do hash da senha criada</param>
         ///<param name="senhaSalt">Array de byte do salt da senha criada</param>
-        private static void CriarSenha(string senha, out byte[] senhaHash, out byte[] senhaSalt)
+        public static void CriarSenha(string senha, out byte[] senhaHash, out byte[] senhaSalt)
         {
             System.Security.Cryptography.HMACSHA512 hmac = new System.Security.Cryptography.HMACSHA512();
             senhaSalt = hmac.Key;

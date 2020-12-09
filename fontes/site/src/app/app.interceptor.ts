@@ -14,7 +14,6 @@ import { DefaultErrors } from './models';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformServer } from '@angular/common';
 
-
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
     private token: string = '';
@@ -70,7 +69,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                                 retry(retryTimes),
                                 catchError((error: HttpErrorResponse) => {
                                     let errorMessage = '';
-                                    if (error.error instanceof ErrorEvent) {
+                                    if (error.error && (error.error instanceof DefaultErrors) && !(error.status === 401 || error.status === 403)) {
                                         // client-side error
                                         errorMessage = `Error: ${error.error.message}`;
                                         return throwError(
@@ -87,7 +86,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                                             this.localStorageService.removeItem('token');
                                             if (!this.retried) {
                                                 this.retried = true;
-                                                return this.authFunction(request, next, 1)
+                                                return this.authFunction(request, next, this.retryTimes);
                                             } else {
                                                 return throwError(
                                                     new DefaultErrors({
@@ -95,9 +94,9 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                                                     })
                                                 );
                                             }
-                                        } else {
-                                            return throwError(error);
                                         }
+
+                                        return throwError(error);
                                     }
 
                                 })
@@ -109,7 +108,6 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                     }
                 }))
     }
-
 
     private async getToken() {
         try {

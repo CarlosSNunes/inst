@@ -15,7 +15,11 @@ class LocalStorage implements Storage {
         return undefined;
     }
     key(index: number): string | null { return undefined; }
-    removeItem(key: string): void { }
+    removeItem(key: string): void {
+        if (key === 'token') {
+            LocalStorage.token = undefined;
+        }
+    }
     setItem(key: string, value: string): void {
         if (key === 'token') {
             LocalStorage.token = value;
