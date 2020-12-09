@@ -300,7 +300,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
-                        routerLink: '/a-careplus/materiais'
+                        routerLink: '/a-careplus/materiais-de-saude'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',
@@ -554,7 +554,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
-                        routerLink: '/a-careplus/materiais'
+                        routerLink: '/a-careplus/materiais-de-saude'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',
