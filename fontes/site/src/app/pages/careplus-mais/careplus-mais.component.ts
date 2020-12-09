@@ -81,8 +81,8 @@ export class CareplusMaisComponent implements OnInit {
                     ...lastPosts[0],
                     getDateDifferences: true,
                 });
-            lastPosts.splice(0, 1);
-            this.filterRecentPosts(lastPosts);
+            const recentPosts = lastPosts.slice(1, lastPosts.length);
+            this.filterRecentPosts(recentPosts);
         }
     }
 
