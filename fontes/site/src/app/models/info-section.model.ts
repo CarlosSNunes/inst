@@ -8,6 +8,7 @@ export class InfoSectionModel<T = any> {
 
     smallTitle: string;
     bigTitle: string;
+    isH1:boolean = false;
     description: string;
     subDescription: string;
     subDescriptions?: string[] = [];
