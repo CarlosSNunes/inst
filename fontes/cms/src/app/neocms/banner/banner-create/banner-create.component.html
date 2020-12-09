@@ -43,13 +43,13 @@
                     {{nomeDaImagem}}
                     <div class="text-center m-3 card-crop">
                       <h3>Imagem Grande</h3>
-                      <small>Dimensões: 1440 x 630 px</small>
+                      <small>Dimensões: 1440 x 683 px</small>
                       <input type="file" class="text-truncate" (change)="fileChangeEvent($event)" />
                       <div class="p-0 m-auto">
                         <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
                           [containWithinAspectRatio]="false" [autoCrop]="true" [onlyScaleDown]="false"
-                          [aspectRatio]="16/7" [resizeToWidth]="1440" [cropperMinWidth]="1440" [cropperMinHeight]="630"
-                          [cropperMinHeight]="630" format="png" (imageCropped)="imageCropped($event)"
+                          [aspectRatio]="16/7" [resizeToWidth]="1440" [cropperMinWidth]="1440" [cropperMinHeight]="683"
+                          [cropperMinHeight]="683" format="png" (imageCropped)="imageCropped($event)"
                           (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
                           (loadImageFailed)="loadImageFailed()">
                         </image-cropper>
