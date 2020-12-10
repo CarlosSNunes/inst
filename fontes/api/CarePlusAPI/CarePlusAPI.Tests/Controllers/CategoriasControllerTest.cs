@@ -13,7 +13,6 @@ using System;
 using System.IO;
 using Xunit;
 using Microsoft.AspNetCore.Http;
-using TinifyAPI;
 
 namespace CarePlusAPI.Tests.Controllers
 {

@@ -13,7 +13,6 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using CarePlusAPI.Models.Categorias;
-using TinifyAPI;
 
 namespace CarePlusAPI.Controllers
 {
@@ -45,7 +44,6 @@ namespace CarePlusAPI.Controllers
             _bannerService = bannerService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            Tinify.Key = GetCipher.Decrypt(_appSettings.TinyPngKey);
             _seriLog = new SeriLog(appSettings);
         }
 

@@ -130,7 +130,6 @@ namespace CarePlusAPI.Tests.Controllers
 
             _appSettings.Value.PathToSave = Directory.GetCurrentDirectory() + "\\";
             _appSettings.Value.PathToGet = Directory.GetCurrentDirectory() + "\\";
-            _appSettings.Value.TinyPngKey = "9s2ckS71CFJ3hQGYM83GJYy5DDThKgHf";
         }
 
         private IFormFile CreateFile()

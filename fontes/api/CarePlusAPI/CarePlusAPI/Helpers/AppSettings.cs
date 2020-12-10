@@ -13,7 +13,6 @@ namespace CarePlusAPI.Helpers
         public string PostImageRelativePathDefault { get; set; }
         public string PathToSaveMobile { get; set; }
         public string PathToGetMobile { get; set; }
-        public string TinyPngKey { get; set; }
         public string WSPartnerToken { get; set; }
         public string WSPartnerLogin { get; set; }
         public string WSPartnerSenha { get; set; }

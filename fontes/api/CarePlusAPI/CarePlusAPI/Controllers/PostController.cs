@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using TinifyAPI;
 
 namespace CarePlusAPI.Controllers
 {
@@ -43,7 +42,6 @@ namespace CarePlusAPI.Controllers
             _postService = noticiaService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            Tinify.Key = GetCipher.Decrypt(_appSettings.TinyPngKey);
             _seriLog = new SeriLog(appSettings);
         }
 
@@ -459,6 +457,9 @@ namespace CarePlusAPI.Controllers
                         await file.CopyToAsync(stream);
                     }
 
+                    // Comprimindo imagem
+                    Compress.CompressImage(directoryName);
+
                     // Renomeando
                     var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                     fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
@@ -530,6 +531,9 @@ namespace CarePlusAPI.Controllers
                         {
                             await file.CopyToAsync(stream);
                         }
+
+                        // Comprimindo imagem
+                        Compress.CompressImage(directoryName);
 
                         // Renomeando
                         var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
@@ -606,6 +610,9 @@ namespace CarePlusAPI.Controllers
                         {
                             await file.CopyToAsync(stream);
                         }
+
+                        // Comprimindo imagem
+                        Compress.CompressImage(directoryName);
 
                         // Renomeando
                         var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
