@@ -113,15 +113,15 @@
                 </div>
                 <ul *ngIf="loaded && banners.length > 0" class="content" cdkDropList
                     (cdkDropListDropped)="drop($event)">
-                    <li class="drag-box" [class.disabled]="savingBanners" *ngFor="let banner of banners" cdkDrag
-                        [cdkDragDisabled]="savingBanners">
+                    <li class="drag-box" [class.disabled]="banner.ativo == '0'" *ngFor="let banner of banners" cdkDrag
+                        [cdkDragDisabled]="banner.ativo == '0'">
                         <div class="drag-item" *cdkDragPlaceholder>
                         </div>
                         <div>
                             <img class="order" src="assets/img/ordem.svg" alt="">
                         </div>
                         <div>
-                            <img class="thumbnail-banner" src="{{ apiPath + banner.caminhoDesktop}}"
+                            <img class="thumbnail-banner" src="{{ banner.caminhoCompletoDesktop}}"
                                 [alt]="banner.titulo">
 
                         </div>
