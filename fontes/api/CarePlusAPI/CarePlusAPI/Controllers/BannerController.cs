@@ -336,6 +336,7 @@ namespace CarePlusAPI.Controllers
         public async Task<IActionResult> Put([FromForm] BannerUpdateModel model)
         {
             bool reorderBanners = false;
+            bool activeChanged = false;
             string fullPathDesk = string.Empty;
             string fullPathMobile = string.Empty;
             string directoryNameDesk = string.Empty;
@@ -417,10 +418,15 @@ namespace CarePlusAPI.Controllers
                 if (banner.Ativo.ToString() == "0" && model.Ativo.ToString() == "1")
                 {
                     reorderBanners = true;
+                    activeChanged = true;
+                } else if (banner.Ativo.ToString() != model.Ativo.ToString()) {
+                    activeChanged = true;
                 }
 
+                model.Ordem = banner.Ordem;
+
                 banner = _mapper.Map<Banner>(model);
-                await _bannerService.Atualizar(banner, reorderBanners);
+                await _bannerService.Atualizar(banner, reorderBanners, activeChanged);
 
                 return Ok(new
                 {
