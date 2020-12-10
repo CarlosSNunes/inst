@@ -136,7 +136,8 @@ export class DetalheDoPostComponent implements OnInit {
         this.meta.updateTag({ name: 'twitter:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
         this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
 
-        this.meta.updateTag({ name: 'twitter:image', content: `${this.post.caminhoCompleto}?${new Date().getTime()}` });
+        // TODO imagem mockada por enquanto, será necessário crop futuramente.
+        this.meta.updateTag({ name: 'twitter:image', content: `${environment.API_URL}/Src/Images/Default/Post/post_default_twitter_image.jpg?${new Date().getTime()}` });
         this.meta.updateTag({ name: 'twitter:description', content: this.post.descricaoPrevia });
 
         this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}/careplus-mais/${this.post.slug}` });
@@ -144,13 +145,16 @@ export class DetalheDoPostComponent implements OnInit {
         // Facebook e demais redes sociais
         this.meta.updateTag({ name: 'og:title', content: `${this.post.tituloPaginaSEO} | Care Plus +` });
         this.meta.updateTag({ name: 'og:type', content: 'website' });
-        this.meta.updateTag({ name: 'og:image', content: this.post.caminhoCompleto });
+
+        // TODO imagem mockada por enquanto, será necessário crop futuramente.
+        this.meta.updateTag({ name: 'og:image', content: `${environment.API_URL}/Src/Images/Default/Post/post_default_facebook_image.jpg` });
         this.meta.updateTag({ name: 'og:description', content: this.post.descricaoPrevia });
 
         this.meta.updateTag({ name: 'og:url', content: `${environment.SELF_URL}/careplus-mais/${this.post.slug}` });
 
         // Imagem linkedin
-        this.meta.updateTag({ name: 'image', property: 'og:image', content: this.post.caminhoCompleto });
+        // TODO imagem mockada por enquanto, será necessário crop futuramente.
+        this.meta.updateTag({ name: 'image', property: 'og:image', content: `${environment.API_URL}/Src/Images/Default/Post/post_default_facebook_image.jpg` });
 
     }
 
