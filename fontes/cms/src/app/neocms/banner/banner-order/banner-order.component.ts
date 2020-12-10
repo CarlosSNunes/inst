@@ -11,7 +11,7 @@ export class BannerOrderComponent implements OnInit {
 
   banners: any = [];
   loaded: boolean = false
-  selectedFilter: string = "Beneficiario";
+  selectedFilter: string = "beneficiario";
   constructor(private bannerService: BannerService,
 
     private toastrService: ToastrService,) {
