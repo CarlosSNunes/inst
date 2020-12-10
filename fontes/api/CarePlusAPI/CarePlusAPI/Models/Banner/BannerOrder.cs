@@ -13,6 +13,6 @@ namespace CarePlusAPI.Models.Banner
         [Required]
         public int BannerId { get; set; }
         public char? Ativo { get; set; }
-        public int? Ordem { get; set; }
+        public int Ordem { get; set; }
     }
 }

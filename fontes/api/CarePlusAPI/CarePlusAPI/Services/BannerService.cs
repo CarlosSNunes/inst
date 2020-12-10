@@ -20,8 +20,9 @@ namespace CarePlusAPI.Services
         Task<List<Banner>> BuscarPorArea(string area);
         Task<Banner> Buscar(int id);
         Task Criar(Banner model);
-        Task Atualizar(Banner model);
-        Task AtualizarOrdem(Banner model);
+        Task Atualizar(Banner model, bool reorderBanners);
+        Task AtualizarDiversos(List<Banner> banners);
+        Task<List<Banner>> GetBannersInIds(string area, List<int> ids);
         Task Excluir(int id);
         Task<Tuple<string, string>> SalvaImagem(string pathTosave, IFormFile arquivo);
     }
@@ -54,18 +55,19 @@ namespace CarePlusAPI.Services
             {
                 IQueryable<Banner> query = Db.Banner.AsQueryable();
                 query = query
-                    .AsNoTracking()
-                    .OrderByDescending(x => x.DataCadastro);
+                    .AsNoTracking();
 
                 if (ativo != null)
                 {
-                    query = (IOrderedQueryable<Banner>)query.Where(at => at.Ativo == ativo);
+                    query = (IOrderedQueryable<Banner>)query.Where(b => b.Ativo == ativo);
                 }
 
                 if (area != null)
                 {
-                    query = (IOrderedQueryable<Banner>)query.Where(ar => ar.Area == area).Where(at => at.Ativo == ativo);
+                    query = (IOrderedQueryable<Banner>)query.Where(b => b.Area == area);
                 }
+
+                query = query.OrderBy(x => x.Ordem);
 
                 var count = await query.CountAsync();
                 var result = await PagingResults.GetPaged<Banner>(query, page, pageSize);
@@ -88,7 +90,7 @@ namespace CarePlusAPI.Services
             List<Banner> filtroOrdem = await Db.Set<Banner>()
                 .AsNoTracking()
                 .Where(x => x.Ativo.Equals('1'))
-                .OrderByDescending(x => x.Ordem)
+                .OrderBy(x => x.Ordem)
                 .ToListAsync();
 
             return filtroOrdem;
@@ -108,7 +110,7 @@ namespace CarePlusAPI.Services
             List<Banner> listaBanner = await Db.Set<Banner>()
                 .AsNoTracking()
                 .Where(x => x.Ativo.Equals('1') && x.Area == area)
-                .OrderByDescending(x => x.DataCadastro)
+                .OrderBy(x => x.Ordem)
                 .ToListAsync();
 
             if (listaBanner == null)
@@ -155,7 +157,32 @@ namespace CarePlusAPI.Services
             if (banner == null)
                 throw new AppException("O banner não pode estar nulo");
 
+            if (banner.Ativo.ToString() == "1")
+            {
+                List<Banner> banners = await Db.Set<Banner>().AsNoTracking().IgnoreQueryFilters().ToListAsync();
+
+                banners.ForEach(banner =>
+                {
+                    banner.Ordem = banner.Ordem + 1;
+
+                    if (banner.Ordem > 3)
+                    {
+                        banner.Ativo = '0';
+                    }
+                });
+
+                Db.Set<Banner>().UpdateRange(banners);
+
+                banner.Ordem = 0;
+            } else
+            {
+                Banner lastBanner = await Db.Set<Banner>().AsNoTracking().IgnoreQueryFilters().OrderByDescending(B => B.Ordem).FirstOrDefaultAsync();
+
+                banner.Ordem = lastBanner.Ordem + 1;
+            }
+
             await Db.Set<Banner>().AddAsync(banner);
+
             await Db.SaveChangesAsync();
         }
 
@@ -165,10 +192,59 @@ namespace CarePlusAPI.Services
         ///
         ///</summary>
         ///<param name="banner">Model de banner para ser atualizado</param>
-        public async Task Atualizar(Banner banner)
+        public async Task Atualizar(Banner banner, bool reorderBanners)
         {
             if (banner == null)
                 throw new AppException("O banner não pode estar nulo");
+
+            List<Banner> banners = new List<Banner>();
+
+            int order = 0;
+
+            if (reorderBanners)
+            {
+                banners = await Db.Set<Banner>().AsNoTracking().Where(b => b.Id != banner.Id).OrderBy(b => b.Ordem).ToListAsync();
+                order = 1;
+                banners.ForEach(banner =>
+                {
+                    banner.Ordem = order;
+
+                    if (banner.Ordem > 3)
+                    {
+                        banner.Ativo = '0';
+                    }
+
+                    order = order + 1;
+                });
+
+                Db.Set<Banner>().UpdateRange(banners);
+
+                await Db.SaveChangesAsync();
+
+                banner.Ordem = 0;
+            } else
+            {
+                banners = await Db.Set<Banner>().AsNoTracking().Where(b => b.Id != banner.Id).OrderBy(b => b.Ordem).ToListAsync();
+                order = 0;
+                banners.ForEach(banner =>
+                {
+                    banner.Ordem = order;
+
+                    if (banner.Ordem > 3)
+                    {
+                        banner.Ativo = '0';
+                    }
+
+                    order = order + 1;
+                });
+
+                Db.Set<Banner>().UpdateRange(banners);
+
+                await Db.SaveChangesAsync();
+
+                Banner lastBanner = await Db.Set<Banner>().AsNoTracking().IgnoreQueryFilters().OrderByDescending(B => B.Ordem).FirstOrDefaultAsync();
+                banner.Ordem = lastBanner.Ordem + 1;
+            }
 
             Db.Set<Banner>().Update(banner);
 
@@ -181,14 +257,25 @@ namespace CarePlusAPI.Services
         ///
         ///</summary>
         ///<param name="banner">Model de banner para ser atualizado</param>
-        public async Task AtualizarOrdem(Banner banner)
+        public async Task AtualizarDiversos(List<Banner> banners)
         {
-            if (banner == null)
-                throw new AppException("O banner não pode estar nulo");
-
-            Db.Set<Banner>().Update(banner);
+            Db.Set<Banner>().UpdateRange(banners);
 
             await Db.SaveChangesAsync();
+        }
+
+
+        ///<summary>
+        ///
+        ///Esse método serve para pegar os banners que possuem os ids solicitados
+        ///
+        ///</summary>
+        ///<param name="ids">Ids dos banners</param>
+        public async Task<List<Banner>> GetBannersInIds(string area, List<int> ids)
+        {
+            List<Banner> banners = await Db.Set<Banner>().AsQueryable().AsNoTracking().Where(b => (b.Area == area) && ids.Contains(b.Id)).ToListAsync();
+
+            return banners;
         }
 
         ///<summary>
@@ -207,6 +294,20 @@ namespace CarePlusAPI.Services
             if (entity != null)
             {
                 Db.Set<Banner>().Remove(entity);
+
+                await Db.SaveChangesAsync();
+
+                List<Banner> banners = await Db.Set<Banner>().AsNoTracking().IgnoreQueryFilters().OrderBy(b => b.Ordem).ToListAsync();
+
+                var index = 0;
+
+                banners.ForEach(banner =>
+                {
+                    banner.Ordem = index;
+                    index++;
+                });
+
+                Db.Set<Banner>().UpdateRange(banners);
 
                 await Db.SaveChangesAsync();
             }
