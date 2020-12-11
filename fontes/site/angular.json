@@ -55,7 +55,9 @@
                             "src/robots.txt",
                             "src/sitemap.xml",
                             "src/manifest.webmanifest",
-                            "src/web.config"
+                            "src/web.config",
+                            { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
+                            { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" }                           
                         ],
                         "styles": [
                             "src/styles.scss",
@@ -304,6 +306,11 @@
                         "main": "src/main.server.ts",
                         "tsConfig": "tsconfig.server.json"
                     },
+                    "assets":[
+                        { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
+                        { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" }
+
+                    ],
                     "configurations": {
                         "production": {
                             "fileReplacements": [{
