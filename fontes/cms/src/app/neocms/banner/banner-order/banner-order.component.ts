@@ -74,7 +74,19 @@ export class BannerOrderComponent implements OnInit {
 
     this.bannerService.changeOrder(newOrder).subscribe(response => {
       this.getBanners();
-    })
+      this.toastrService.success("Ordem alterada com sucesso!");
+    },
+    error => {
+      let message = '';
+      if (error.error) {
+        message = error.error.message || 'Erro Interno no servidor';
+      } else {
+        message = error.message || 'Erro Interno';
+      }
+      this.toastrService.error(message);
+      this.loaded = true;
+
+    });
 
   }
 }
