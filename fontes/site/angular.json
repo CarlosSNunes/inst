@@ -57,7 +57,8 @@
                             "src/manifest.webmanifest",
                             "src/web.config",
                             { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
-                            { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" }                           
+                            { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
+                            { "glob": "**/*", "input": "src/welcomeback", "output": "/welcomeback/" }                                     
                         ],
                         "styles": [
                             "src/styles.scss",
@@ -308,7 +309,8 @@
                     },
                     "assets":[
                         { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
-                        { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" }
+                        { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
+                        { "glob": "**/*", "input": "src/welcomeback", "output": "/welcomeback/" }  
 
                     ],
                     "configurations": {
