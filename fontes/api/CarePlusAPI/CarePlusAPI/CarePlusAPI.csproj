@@ -8,6 +8,7 @@
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Development' " />
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Homolog' " />
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Docker' " />
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'DockerJoao' " />
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="9.0.0" />
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
