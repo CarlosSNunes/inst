@@ -24,13 +24,11 @@ namespace CarePlusAPI.Services
         Task AtualizarDiversos(List<Banner> banners);
         Task<List<Banner>> GetBannersInIds(string area, List<int> ids);
         Task Excluir(int id);
-        Task<Tuple<string, string>> SalvaImagem(string pathTosave, IFormFile arquivo);
     }
 
     public class BannerService : IBannerService
     {
         private readonly DataContext Db;
-        private readonly AppSettings _appSettings = new AppSettings();
 
         ///<summary>
         ///
@@ -203,67 +201,85 @@ namespace CarePlusAPI.Services
             if (banner == null)
                 throw new AppException("O banner não pode estar nulo");
 
-            List<Banner> banners = new List<Banner>();
-
-            int order = 0;
-
-            if (reorderBanners && activeChanged == true)
-            {
-                banners = await Db.Set<Banner>().AsNoTracking().Where(b => b.Area.Equals(banner.Area) && b.Id != banner.Id).OrderBy(b => b.Ordem).ToListAsync();
-                order = 1;
-                banners.ForEach(banner =>
-                {
-                    banner.Ordem = order;
-
-                    if (banner.Ordem > 3)
-                    {
-                        banner.Ativo = '0';
-                    }
-
-                    order = order + 1;
-                });
-
-                Db.Set<Banner>().UpdateRange(banners);
-
-                await Db.SaveChangesAsync();
-
-                banner.Ordem = 0;
-            } else if (reorderBanners == false && activeChanged == true)
-            {
-                banners = await Db.Set<Banner>().AsNoTracking().Where(b => b.Area.Equals(banner.Area) && b.Id != banner.Id).OrderBy(b => b.Ordem).ToListAsync();
-                order = 0;
-                banners.ForEach(banner =>
-                {
-                    banner.Ordem = order;
-
-                    if (banner.Ordem > 3)
-                    {
-                        banner.Ativo = '0';
-                    }
-
-                    order = order + 1;
-                });
-
-                Db.Set<Banner>().UpdateRange(banners);
-
-                await Db.SaveChangesAsync();
-
-                Banner lastBanner = await Db.Set<Banner>().AsNoTracking().Where(b => b.Area.Equals(banner.Area)).OrderByDescending(B => B.Ordem).FirstOrDefaultAsync();
-
-                if (lastBanner != null)
-                {
-                    banner.Ordem = lastBanner.Ordem + 1;
-                }
-                else
-                {
-                    banner.Ordem = 0;
-                }
-
-            }
+            await changeBannersOrder(banner, reorderBanners, activeChanged);
 
             Db.Set<Banner>().Update(banner);
 
             await Db.SaveChangesAsync();
+        }
+
+
+        ///<summary>
+        ///
+        ///Esse método serve reordenar os banners na base
+        ///
+        ///</summary>
+        ///<param name="banner">Model de banner para ser atualizado</param>
+        ///<param name="reorderBanners">Caso verdadeiro significa que o parâmetro "Ativo" do banner era '0' e agora está como '1', então adicionamos este banner em primeiro lugar na lista e descemos os demais uma casa para baixo, caso o contrario nós deixamos o seguinte banner em ultimo na ordem e realizamos reordenamos todos os demais banners</param>
+        ///<param name="activeChanged">Parâmetro para verificar se houve alguma mudança no parâmetro "ativo" da model de banner</param>
+        private async Task changeBannersOrder (Banner banner, bool reorderBanners, bool activeChanged)
+        {
+            List<Banner> banners = new List<Banner>();
+
+            int order = 0;
+
+            if (activeChanged == true)
+            {
+                banners = await Db.Set<Banner>().AsNoTracking().Where(b => b.Area.Equals(banner.Area) && b.Id != banner.Id).OrderBy(b => b.Ordem).ToListAsync();
+
+                if (reorderBanners)
+                {
+                    order = 1;
+                    banners.ForEach(b =>
+                    {
+                        b.Ordem = order;
+
+                        if (b.Ordem > 3)
+                        {
+                            b.Ativo = '0';
+                        }
+
+                        order = order + 1;
+                    });
+
+                    Db.Set<Banner>().UpdateRange(banners);
+
+                    await Db.SaveChangesAsync();
+
+                    banner.Ordem = 0;
+                }
+                else if (reorderBanners == false)
+                {
+                    order = 0;
+                    banners.ForEach(b =>
+                    {
+                        b.Ordem = order;
+
+                        if (b.Ordem > 3)
+                        {
+                            b.Ativo = '0';
+                        }
+
+                        order = order + 1;
+                    });
+
+                    Db.Set<Banner>().UpdateRange(banners);
+
+                    await Db.SaveChangesAsync();
+
+                    Banner lastBanner = await Db.Set<Banner>().AsNoTracking().Where(b => b.Area.Equals(banner.Area)).OrderByDescending(B => B.Ordem).FirstOrDefaultAsync();
+
+                    if (lastBanner != null)
+                    {
+                        banner.Ordem = lastBanner.Ordem + 1;
+                    }
+                    else
+                    {
+                        banner.Ordem = 0;
+                    }
+
+                }
+            }
         }
 
         ///<summary>
@@ -329,50 +345,6 @@ namespace CarePlusAPI.Services
             else
             {
                 throw new AppException("banner não encontrado");
-            }
-        }
-
-        /// <summary>
-        /// Método para criação de imagens em seus respectivos diretorios.
-        /// </summary>
-        /// <param name="pathTosave"></param>        
-        /// <param name="arquivo"></param>
-        /// <returns></returns>
-        public async Task<Tuple<string, string>> SalvaImagem(string pathTosave, IFormFile arquivo)
-        {
-            string fileName = string.Empty;
-            string path = string.Empty;
-            string directoryName = string.Empty;
-
-            try
-            {
-                var file = arquivo;
-
-                var folderName = pathTosave;
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
-                if (file.Length > 0)
-                {
-                    fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                    directoryName = Path.Combine(pathToSave, fileName);
-
-                    if (!Directory.Exists(pathToSave))
-                        Directory.CreateDirectory(pathToSave);
-
-                    using (var stream = new FileStream(directoryName, FileMode.Create))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
-                }
-
-                return new Tuple<string, string>(fileName, pathTosave);
-            }
-            catch (System.Exception ex)
-            {
-                if (File.Exists(path))
-                    File.Delete(path);
-
-                throw ex;
             }
         }
     }
