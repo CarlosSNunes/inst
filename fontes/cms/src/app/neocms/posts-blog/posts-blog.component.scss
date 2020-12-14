@@ -2,68 +2,71 @@
 @import "~src/assets/sass/styleguide";
 
 #posts {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin-bottom: 20px;
-    h1 {
-      font-size: getSize("h2");
+    .header {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 20px;
+        h1 {
+            font-size: getSize("h2");
+        }
+        a {
+            color: getColor(_bupa, _digital-cian);
+            margin: auto 0;
+        }
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            background-color: getColor(_bupa, _black);
+            height: 1px;
+            width: 100%;
+        }
     }
-    a {
-      color: getColor(_bupa, _digital-cian);
-      margin: auto 0;
+    .createPost {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+            padding: 10px 15px;
+        }
     }
-    &:before {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      content: "";
-      background-color: getColor(_bupa, _black);
-      height: 1px;
-      width: 100%;
+    table {
+        thead {
+            background-color: getColor(_bupa, _grey-3);
+        }
+        th {
+            width: 25%;
+            &:last-child {
+                min-width: 190px;
+            }
+        }
+        td {
+            vertical-align: middle;
+            height: 60px;
+            img {
+                width: 100px;
+            }
+            .yellowStar {
+                color: gold;
+            }
+        }
+        .favorite {
+            width: 100px;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+        }
     }
-  }
-  .createPost {
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: flex-end;
-    button {
-      padding: 10px 15px;
+    .load {
+        width: 100%;
+        display: flex;
+        svg {
+            margin: auto;
+        }
     }
-  }
-  table {
-    thead {
-      background-color: getColor(_bupa, _grey-3);
-    }
-    th {
-      width: 25%;
-      &:last-child {
-        min-width: 190px;
-      }
-    }
-    td{
-      vertical-align: middle;
-      height: 60px;
-      img{
-        width: 100px;
-      }
-    }
-    .favorite {
-      width: 100px;
-    }
-    .actions {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-  .load {
-    width: 100%;
-    display: flex;
-    svg {
-      margin: auto;
-    }
-  }
 }
 
 // @import './../../../assets/sass/animations.scss';
