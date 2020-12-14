@@ -168,7 +168,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
                         {
                             text: 'Rede Credenciada Odonto Master, Livre Escolha e Care Plus Clinic.'
                         }
-                    ]
+                    ],
+                    detalhe:'*somente plano Coletivo Empresarial'
                 },
                 {
                     type: 'default',
