@@ -135,27 +135,8 @@ namespace CarePlusAPI.Tests.Services
             var page = 0;
             var pageSize = 5;
 
-            var result = await _postService.BuscarMaisLidos(page, pageSize, null, "institucional");
+            var result = await _postService.BuscarMaisLidos(page, pageSize, '1', "institucional");
             Assert.NotEmpty(result.Item2);
-        }
-
-        [Fact]
-        public async Task BuscarMaisLidosErro()
-        {
-            try
-            {
-
-                var page = 0;
-                var pageSize = 5;
-
-                var result = await _postService.BuscarMaisLidos(page, pageSize, null, "institucional");
-
-            }
-            catch (Exception ex)
-            {
-
-                Assert.Null(ex.Message);
-            }
         }
 
         [Fact]

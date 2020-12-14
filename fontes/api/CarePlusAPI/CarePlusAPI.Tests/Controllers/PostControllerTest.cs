@@ -687,6 +687,16 @@ namespace CarePlusAPI.Tests.Controllers
         }
 
         [Fact]
+        public async void ExcluirErroNull()
+        {
+            PostController controller = new PostController(_postService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            await Assert.ThrowsAsync<AppException>(() => controller.Delete(null, "CarePlus"));
+        }
+
+        [Fact]
         public async void ExcluirErro()
         {
             PostController controller = new PostController(_postService, _mapper, _appSettings);

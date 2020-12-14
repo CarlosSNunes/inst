@@ -48,43 +48,35 @@ namespace CarePlusAPI.Services
         ///</summary>
         public async Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo, string origem)
         {
-            try
-            {
-                IQueryable<Post> query = Db.Post.AsQueryable();
+            IQueryable<Post> query = Db.Post.AsQueryable();
 
-                query = query.AsNoTracking();
+            query = query.AsNoTracking();
                     
 
-                if (ativo != null)
-                {
-                    query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
-                }
-
-                if (origem != null && origem == "institucional")
-                {
-                    query = (IOrderedQueryable<Post>)query.Where(
-                        p => p.DataPublicacao <= DateTime.Now
-                        || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
-                    );
-                }
-
-                query = query
-                    .Include("Categoria")
-                    .Include("PostTag.Tag")
-                    .OrderByDescending(p => p.Destaque)
-                    .ThenByDescending(p => p.DataCadastro);
-
-                var count = await query.CountAsync();
-
-                var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
-
-                return new Tuple<int, List<Post>>(count, result.Results);
-            }
-            catch (Exception ex)
+            if (ativo != null)
             {
-
-                throw ex;
+                query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
             }
+
+            if (origem != null && origem == "institucional")
+            {
+                query = (IOrderedQueryable<Post>)query.Where(
+                    p => p.DataPublicacao <= DateTime.Now
+                    || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
+                );
+            }
+
+            query = query
+                .Include("Categoria")
+                .Include("PostTag.Tag")
+                .OrderByDescending(p => p.Destaque)
+                .ThenByDescending(p => p.DataCadastro);
+
+            var count = await query.CountAsync();
+
+            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+
+            return new Tuple<int, List<Post>>(count, result.Results);
         }
 
         ///<summary>
@@ -241,10 +233,6 @@ namespace CarePlusAPI.Services
                 .Include("Categoria")
                 .Include("PostTag.Tag");
 
-
-            if (query == null)
-                throw new AppException("Posts não localizados");
-
             var count = await query.CountAsync();
 
             var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
@@ -254,8 +242,6 @@ namespace CarePlusAPI.Services
 
         public async Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int page, int pageSize, string slug, char? ativo, string? origem)
         {
-            if (id == 0)
-                throw new AppException("O id da categoria não pode ser igual a 0");
 
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
@@ -280,10 +266,6 @@ namespace CarePlusAPI.Services
             query = query.OrderBy(c => c.DataCadastro)
                 .Include("Categoria")
                 .Include("PostTag.Tag");
-
-
-            if (query == null)
-                throw new AppException("Posts não localizados");
 
             var count = await query.CountAsync();
 
@@ -326,10 +308,6 @@ namespace CarePlusAPI.Services
                                 .Include("PostTag.Tag")
                                 .OrderBy(c => c.DataCadastro);
 
-
-            if (query == null)
-                throw new AppException("Posts não localizados");
-
             var count = await query.CountAsync();
 
             var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
@@ -360,8 +338,6 @@ namespace CarePlusAPI.Services
                             .OrderByDescending(p => p.Vizualizacoes)
                             .ThenBy(p => p.DataCadastro);
 
-            if (query == null)
-                throw new AppException("Posts não localizados");
 
             var count = await query.CountAsync();
 
@@ -398,8 +374,6 @@ namespace CarePlusAPI.Services
         ///<param name="id">Id do Post a ser excluído</param>
         public async Task Excluir(string slug)
         {
-            if (string.IsNullOrWhiteSpace(slug))
-                throw new AppException("O slug do Post não pode ser estar vazio");
 
             Post entity = await Db.Set<Post>()
                                         .FirstOrDefaultAsync(n => n.Slug == slug);
@@ -440,8 +414,6 @@ namespace CarePlusAPI.Services
        
         private async Task RegistraHit(Post post)
         {
-            if (post == null)
-                throw new AppException("O Post não pode estar nulo");
 
             DetachLocal(x => x.Id == post.Id);
 
@@ -483,8 +455,6 @@ namespace CarePlusAPI.Services
         [ExcludeFromCodeCoverage]
         private async Task AtualizaDestaque(IList<Post> posts)
         {
-            if (posts == null)
-                throw new AppException("Lista de Post não pode estar nulo");
 
             foreach (var post in posts)
             {
