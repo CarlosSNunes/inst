@@ -1,0 +1,83 @@
+// @import "node_modules/bootstrap/scss/bootstrap-grid";
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap");
+
+// Pixels X REM
+$browser-context: 16;
+@function rem($pixels, $context: $browser-context) {
+	@return #{$pixels/$context}rem;
+}
+
+/* Paths*/
+$asset-base-path: '..';
+
+/* All default colors */
+$color-map: (
+    _blue: (base:#0079C8,dark:#00335B,light:#a2cfe2),
+    _green: (base:#00837B,dark:#006660,light:#B3D59C),
+    _white: #ffffff,
+    //social: (base: #4A68AD,facebook: #4A68AD,instagram:transparent,medium:#25c56b,linkedin: #0e76a8),
+    _black: #000000,
+    _gray: (base:#333333,light:#A8A7A4)
+);
+
+/* Default font */
+$montserrat: 'Montserrat', sans-serif;
+
+/* A function to create all type of assets path */
+@function asset($type, $file) {
+    @return url($asset-base-path + '/' + $type + '/' + $file);
+}
+/* A function to create image Path */
+@function getImage($file) {
+    @return asset('img', $file);
+}
+/* A function to get color from color map */
+@function getColor($color, $shade: 'base', $map : $color-map) {
+    // check color exists
+    @if (map-has-key($map, $color)) {
+        $value: map-get($map, unquote($color));
+        // check if color or map
+        @if type-of($value) == color {
+            // return color
+            @return $value;
+        }
+        // check shade of color exists
+        @if (map-has-key($value, $shade)) {
+            // return shade of color
+            @return map-get($value, $shade);
+        }
+    }
+    // else do nothing
+    @return null;
+}
+@function ruleOfTree($currentValue) {
+    @return ($currentValue * 1330)/1920;
+}
+
+@mixin transition {
+	transition: all .4s ease;
+	transition-property: all;
+	transition-duration: 0.4s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+}
+
+@mixin underlineAnimation ($color) {
+    &:after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: -5px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: $color;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+
+    &:hover:after {
+        width: 100%;
+        left: 0;
+    }
+}
