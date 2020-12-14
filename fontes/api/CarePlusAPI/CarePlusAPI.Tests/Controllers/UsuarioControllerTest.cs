@@ -25,6 +25,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly IOptions<AppSettings> AppSettings;
         private readonly DbContextOptions<DataContext> DbOptions;
         private readonly SqliteConnection Connection;
+        private SeriLog seriLog;
         private readonly IConfiguration Configuration;
         private readonly Usuario Usuario = new Usuario
         {
@@ -228,6 +229,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarErroZero()
         {
+
             UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();

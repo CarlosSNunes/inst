@@ -128,7 +128,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ListarPostsMaisLidosSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
             var result = await _dashboardService.ListarPostsMaisLidos();
             Assert.NotEmpty(result);
@@ -176,7 +176,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ListaTotalPostsSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
             var result = await _dashboardService.TotalPostsBlog();
             Assert.NotEqual(0, result);

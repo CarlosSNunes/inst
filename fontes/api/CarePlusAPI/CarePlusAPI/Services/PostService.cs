@@ -119,8 +119,6 @@ namespace CarePlusAPI.Services
         ///<param name="slug">Slug do Post</param>
         public async Task<Post> BuscarPorSlugCriacao(string slug)
         {
-            if (string.IsNullOrWhiteSpace(slug))
-                throw new AppException("O slug do Post não pode ser estar vazio");
 
             Post post = await Db.Set<Post>()
                                         .AsNoTracking()
@@ -228,12 +226,12 @@ namespace CarePlusAPI.Services
 
             if (ativo != null)
             {
-                query.Where(p => p.Ativo == ativo);
+                query = query.Where(p => p.Ativo == ativo);
             }
 
             if (origem != null && origem == "institucional")
             {
-                query.Where(
+                query = query.Where(
                     p => p.DataPublicacao <= DateTime.Now
                     || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
                 );
@@ -429,9 +427,6 @@ namespace CarePlusAPI.Services
         ///<param name="id">Id do post a ser excluído</param>
         private async Task ExcluirTags(int id)
         {
-            if (id == 0)
-                throw new AppException("O id do post não pode ser igual a 0");
-
             List<PostTag> tags = await Db.PostTag.Where(b => b.PostId == id).ToListAsync();
             Db.RemoveRange(tags);
         }

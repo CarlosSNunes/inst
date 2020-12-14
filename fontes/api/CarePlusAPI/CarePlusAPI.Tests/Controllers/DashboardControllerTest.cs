@@ -139,7 +139,23 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListarPostsMaisLidosSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
+
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            var result = await controller.Get();
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async void ListarPostsMaisLidosSemImagemSucesso()
+        {
+            Post postSemImagem = _post;
+            postSemImagem.CaminhoImagem = null;
+            postSemImagem.NomeImagem = null;
+            await _postService.Criar(postSemImagem, null);
 
             DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
             controller.ControllerContext = new ControllerContext();
@@ -200,7 +216,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListaTotalPostsSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
             DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
             controller.ControllerContext = new ControllerContext();

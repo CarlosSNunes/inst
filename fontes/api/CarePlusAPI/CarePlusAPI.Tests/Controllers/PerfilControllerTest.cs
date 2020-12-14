@@ -50,11 +50,11 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly List<PerfilUpdateModel> PerfisUpdateModel = new List<PerfilUpdateModel>
         {
             new PerfilUpdateModel {
-                Id = 1,
+                PerfilId = 1,
                 Descricao = "ADM"
             },
             new PerfilUpdateModel {
-                Id = 2,
+                PerfilId = 2,
                 Descricao = "Marketing"
             },
         };

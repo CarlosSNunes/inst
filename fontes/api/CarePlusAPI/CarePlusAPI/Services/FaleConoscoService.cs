@@ -50,9 +50,10 @@ namespace CarePlusAPI.Services
         {
             try
             {
-                string decryptedToken = GetCipher.Decrypt(_appSettings.WSPartnerToken);
-                string decryptedLogin = GetCipher.Decrypt(_appSettings.WSPartnerLogin);
-                string decryptedPass = GetCipher.Decrypt(_appSettings.WSPartnerSenha);
+                GetCipher cipher = new GetCipher();
+                string decryptedToken = cipher.Decrypt(_appSettings.WSPartnerToken);
+                string decryptedLogin = cipher.Decrypt(_appSettings.WSPartnerLogin);
+                string decryptedPass = cipher.Decrypt(_appSettings.WSPartnerSenha);
                 LoginPartnerOut loginPartnerOut = new LoginPartnerOut()
                 {
                     Origem = WebServiceOrigem.Partner,
@@ -231,14 +232,14 @@ namespace CarePlusAPI.Services
                 }
 
                 AnexoByte[] anexoBytes = lstAnexoBytes.ToArray();
-
+                GetCipher cipher = new GetCipher();
                 WSFiltroFaleConosco wSFiltro = new WSFiltroFaleConosco()
                 {
                     Origem = WebServiceOrigem.Partner,
                     Token = token.ToString(),
                     Assunto = model.Assunto,
                     CPFCNPJ = model.CPFCNPJ,
-                    Certificado = GetCipher.Decrypt(_appSettings.WSPartnerCertificado),
+                    Certificado = cipher.Decrypt(_appSettings.WSPartnerCertificado),
                     CodigoCarePlus = model.CodigoCarePlus,
                     Comentario = model.Comentario,
                     DDDTelefone1 = model.DDDTelefone1,
@@ -305,13 +306,13 @@ namespace CarePlusAPI.Services
                 }
 
                 AnexoByte[] anexoBytes = lstAnexoBytes.ToArray();
-
+                GetCipher cipher = new GetCipher();
                 WSFiltroCanalDenuncia wSFiltro = new WSFiltroCanalDenuncia()
                 {
                     Origem = WebServiceOrigem.Partner,
                     Token = token.ToString(),
                     CPFCNPJ = model.CPFCNPJ,
-                    Certificado = GetCipher.Decrypt(_appSettings.WSPartnerCertificado),
+                    Certificado = cipher.Decrypt(_appSettings.WSPartnerCertificado),
                     Mensagem = model.Mensagem,
                     DDDTelefone = model.DDDTelefone,
                     Telefone = model.Telefone,

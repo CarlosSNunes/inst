@@ -36,6 +36,46 @@ namespace CarePlusAPI.Tests.Services
             Destaque = '1' 
         };
 
+        private readonly Post _post2 = new Post
+        {
+            PostTag = new List<PostTag> {
+                new PostTag{
+                    TagId = 3
+                }
+            },
+            DataCadastro = DateTime.Now,
+            DataExpiracao = DateTime.Now.AddDays(7),
+            DataPublicacao = DateTime.Now.AddDays(1),
+            DescricaoPrevia = "Post Teste",
+            CaminhoImagem = "",
+            Subtitulo = "Subtitulo teste",
+            Titulo = "teste",
+            CategoriaId = 2,
+            Ativo = '1',
+            Slug = "teste",
+            Destaque = '1'
+        };
+
+        private readonly Post _post3 = new Post
+        {
+            PostTag = new List<PostTag> {
+                new PostTag{
+                    TagId = 3
+                }
+            },
+            DataCadastro = DateTime.Now,
+            DataExpiracao = DateTime.Now.AddDays(7),
+            DataPublicacao = DateTime.Now.AddDays(1),
+            DescricaoPrevia = "Post Teste",
+            CaminhoImagem = "",
+            Subtitulo = "Subtitulo teste",
+            Titulo = "teste 1",
+            CategoriaId = 2,
+            Ativo = '1',
+            Slug = "teste-1",
+            Destaque = '1'
+        };
+
         public PostServiceTest()
         {
             Connection = new SqliteConnection("DataSource=:memory:");
@@ -66,24 +106,36 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ListaSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
-            var page = 1;
+            var page = 0;
             var pageSize = 5;
 
-            var result = await _postService.Listar(page, pageSize);
+            var result = await _postService.Listar(page, pageSize, null, null);
+            Assert.NotEmpty(result.Item2);
+        }
+
+        [Fact]
+        public async Task ListaSucessoAtivoOrigem()
+        {
+            await _postService.Criar(_post, null);
+
+            var page = 0;
+            var pageSize = 5;
+
+            var result = await _postService.Listar(page, pageSize, '1', "institucional");
             Assert.NotEmpty(result.Item2);
         }
 
         [Fact]
         public async Task BuscarMaisLidos()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
-            var page = 1;
+            var page = 0;
             var pageSize = 5;
 
-            var result = await _postService.BuscarMaisLidos(page, pageSize);
+            var result = await _postService.BuscarMaisLidos(page, pageSize, null, "institucional");
             Assert.NotEmpty(result.Item2);
         }
 
@@ -93,10 +145,10 @@ namespace CarePlusAPI.Tests.Services
             try
             {
 
-                var page = 1;
+                var page = 0;
                 var pageSize = 5;
 
-                var result = await _postService.BuscarMaisLidos(page, pageSize);
+                var result = await _postService.BuscarMaisLidos(page, pageSize, null, "institucional");
 
             }
             catch (Exception ex)
@@ -109,13 +161,13 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ListaPorTermoSucesso()
         {
-            await _postService.Criar(_post);
-            var page = 1;
+            await _postService.Criar(_post, null);
+            var page = 0;
             var pageSize = 5;
 
             string termo = "teste";
 
-            var result = await _postService.BuscarPorTermo(termo, page, pageSize);
+            var result = await _postService.BuscarPorTermo(termo, page, pageSize, null, "institucional");
             Assert.NotEmpty(result.Item2);
         }
 
@@ -124,12 +176,12 @@ namespace CarePlusAPI.Tests.Services
         {
             try
             {
-                var page = 1;
+                var page = 0;
                 var pageSize = 5;
 
                 string termo = "teste";
 
-                var result = await _postService.BuscarPorTermo(termo, page, pageSize);
+                var result = await _postService.BuscarPorTermo(termo, page, pageSize, null, "institucional");
             }
             catch (Exception ex)
             {
@@ -141,7 +193,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task BuscarPorSlugHitSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
             string slug = "titulo-teste";
 
@@ -168,7 +220,44 @@ namespace CarePlusAPI.Tests.Services
         {
             try
             {
-                await _postService.Criar(_post);
+                await _postService.Criar(_post, null);
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Null(ex.Message);
+            }
+        }
+
+        [Fact]
+        public async Task CriarErroNull()
+        {
+            await Assert.ThrowsAsync<AppException>(() => _postService.Criar(null, null));
+        }
+
+        [Fact]
+        public async Task CriarSucessoSlugExistente()
+        {
+            try
+            {
+                using (DataContext context = new DataContext(Options))
+                {
+                    Post _createPost2 = _post2;
+                    await context.Set<Post>().AddAsync(_createPost2);
+
+                    await context.SaveChangesAsync();
+
+                    Post _createPost3 = _post3;
+                    await context.Set<Post>().AddAsync(_createPost3);
+
+                    await context.SaveChangesAsync();
+
+
+                    Post _createPost = _post;
+
+                    _createPost.Titulo = "teste";
+                    await _postService.Criar(_createPost, false);
+                }
                 return;
             }
             catch (Exception ex)
@@ -183,7 +272,7 @@ namespace CarePlusAPI.Tests.Services
         {
             try
             {
-                await _postService.Criar(_post);
+                await _postService.Criar(_post, null);
                 await _postService.Atualizar(_post);
                 return;
             }
@@ -194,11 +283,109 @@ namespace CarePlusAPI.Tests.Services
         }
 
         [Fact]
+        public async Task AtualizarPostNuloErro()
+        {
+            await Assert.ThrowsAsync<AppException>(() => _postService.Atualizar(null));
+        }
+
+        [Fact]
+        public async Task AtualizarSucessoSlugExistente()
+        {
+            try
+            {
+                using (DataContext context = new DataContext(Options))
+                {
+                    Post _updatePost = _post;
+                    await context.Set<Post>().AddAsync(_updatePost);
+
+                    await context.SaveChangesAsync();
+
+                    Post _updatePost2 = _post2;
+                    await context.Set<Post>().AddAsync(_post2);
+
+                    await context.SaveChangesAsync();
+
+                    Post _updatePost3 = _post3;
+                    await context.Set<Post>().AddAsync(_post3);
+
+                    await context.SaveChangesAsync();
+
+                    _updatePost.Titulo = "teste";
+                    await _postService.Atualizar(_updatePost);
+                }
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Null(ex.Message);
+            }
+        }
+
+        [Fact]
+        public async Task BuscarPorCategoriaSucessoAtivoEOrigem()
+        {
+            try
+            {
+                await _postService.Criar(_post, false);
+                await _postService.BuscarPorCategoria(1, 0, 50, '1', "institucional");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Null(ex.Message);
+            }
+        }
+
+
+        [Fact]
+        public async Task BuscarPostsRelacionadosSucessoAtivoEOrigem()
+        {
+            try
+            {
+                await _postService.Criar(_post, false);
+                await _postService.BuscarPostsRelacionados(1, 0, 50, "titulo-teste", '1', "institucional");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Null(ex.Message);
+            }
+        }
+
+        [Fact]
+        public async Task BuscarPorCategoriaErroIdZero()
+        {
+            await Assert.ThrowsAsync<AppException>(() => _postService.BuscarPorCategoria(0, 0, 50, null, null));
+        }
+
+
+        [Fact]
+        public async Task BuscarPorTermoAtivo()
+        {
+            try
+            {
+                await _postService.Criar(_post, false);
+                await _postService.BuscarPorTermo("teste", 0, 50, '1', "institucional");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Null(ex.Message);
+            }
+        }
+
+        [Fact]
+        public async Task BuscarPorTermoErroNull()
+        {
+            await Assert.ThrowsAsync<AppException>(() => _postService.BuscarPorTermo(null, 0, 50, '1', "institucional"));
+        }
+
+        [Fact]
         public async Task ExcluirSucesso()
         {
             try
             {
-                await _postService.Criar(_post);
+                await _postService.Criar(_post, null);
                 await _postService.Excluir("titulo-teste");
                 return;
             }
@@ -211,7 +398,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ExcluirErro()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
             await Assert.ThrowsAsync<AppException>(() => _postService.Excluir("test"));
         }
 

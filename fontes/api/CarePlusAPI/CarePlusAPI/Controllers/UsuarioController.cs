@@ -41,7 +41,8 @@ namespace CarePlusAPI.Controllers
         public UsuarioController(
             IUsuarioService userService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings)
+            IOptions<AppSettings> appSettings
+            )
         {
             _userService = userService;
             _mapper = mapper;
@@ -86,7 +87,8 @@ namespace CarePlusAPI.Controllers
                 //}
 
                 JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-                string secret = GetCipher.Decrypt(_appSettings.Secret);
+                GetCipher cipher = new GetCipher();
+                string secret = cipher.Decrypt(_appSettings.Secret);
                 byte[] key = Encoding.ASCII.GetBytes(secret);
                 SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
                 {

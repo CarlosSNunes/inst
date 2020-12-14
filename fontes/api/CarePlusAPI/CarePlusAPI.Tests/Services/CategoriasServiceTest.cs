@@ -41,7 +41,7 @@ namespace CarePlusAPI.Tests.Services
         public async Task ListaSucesso()
         {
             await _categoriasService.Criar(_categoria);
-            int page = 1;
+            int page = 0;
             int pageSize = 2;
             var result = await _categoriasService.Listar(page, pageSize);
             Assert.NotEmpty(result.Item2);

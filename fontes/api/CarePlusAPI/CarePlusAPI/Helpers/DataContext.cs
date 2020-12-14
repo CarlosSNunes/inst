@@ -31,7 +31,8 @@ namespace CarePlusAPI.Helpers
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string decryptedConnection = GetCipher.Decrypt(Startup.ConnectionString);
+                GetCipher cipher = new GetCipher();
+                string decryptedConnection = cipher.Decrypt(Startup.ConnectionString);
 
                 optionsBuilder.UseOracle(decryptedConnection);
             }

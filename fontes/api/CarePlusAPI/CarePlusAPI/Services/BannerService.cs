@@ -1,14 +1,9 @@
 using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
-
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace CarePlusAPI.Services
@@ -16,7 +11,6 @@ namespace CarePlusAPI.Services
     public interface IBannerService
     {
         Task<Tuple<int, List<Banner>>> Listar(int page, int pageSize, char? ativo, string? area);
-        Task<List<Banner>> ListarPorOrdem();
         Task<List<Banner>> BuscarPorArea(string area);
         Task<Banner> Buscar(int id);
         Task Criar(Banner model);
@@ -49,8 +43,6 @@ namespace CarePlusAPI.Services
         ///</summary>
         public async Task<Tuple<int, List<Banner>>> Listar(int page, int pageSize, char? ativo, string? area)
         {
-            try
-            {
                 IQueryable<Banner> query = Db.Banner.AsQueryable();
                 query = query
                     .AsNoTracking();
@@ -70,28 +62,6 @@ namespace CarePlusAPI.Services
                 var count = await query.CountAsync();
                 var result = await PagingResults.GetPaged<Banner>(query, page, pageSize);
                 return new Tuple<int, List<Banner>>(count, result.Results);
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        ///<summary>
-        ///
-        ///Esse método serve para listar todos os Banners por Ordem, da base.
-        ///
-        ///</summary>
-        public async Task<List<Banner>> ListarPorOrdem()
-        {
-            List<Banner> filtroOrdem = await Db.Set<Banner>()
-                .AsNoTracking()
-                .Where(x => x.Ativo.Equals('1'))
-                .OrderBy(x => x.Ordem)
-                .ToListAsync();
-
-            return filtroOrdem;
         }
 
         ///<summary>
@@ -102,8 +72,6 @@ namespace CarePlusAPI.Services
         ///<param name="area">Area do banner</param>
         public async Task<List<Banner>> BuscarPorArea(string area)
         {
-            if (string.IsNullOrEmpty(area))
-                throw new AppException("O area não pode ser igual a 'null' ou 'empty'");
 
             List<Banner> listaBanner = await Db.Set<Banner>()
                 .AsNoTracking()
@@ -267,7 +235,7 @@ namespace CarePlusAPI.Services
 
                     await Db.SaveChangesAsync();
 
-                    Banner lastBanner = await Db.Set<Banner>().AsNoTracking().Where(b => b.Area.Equals(banner.Area)).OrderByDescending(B => B.Ordem).FirstOrDefaultAsync();
+                    Banner lastBanner = await Db.Set<Banner>().AsNoTracking().Where(b => b.Area.Equals(banner.Area) && b.Id != banner.Id).OrderByDescending(B => B.Ordem).FirstOrDefaultAsync();
 
                     if (lastBanner != null)
                     {

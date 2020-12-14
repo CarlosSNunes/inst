@@ -12,13 +12,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using CarePlusAPI.Models.Categorias;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
+    [ExcludeFromCodeCoverage]
     public class BannerController : ControllerBase
     {
         private readonly IBannerService _bannerService;
@@ -243,6 +244,8 @@ namespace CarePlusAPI.Controllers
             string fullPathMobile = string.Empty;
             string directoryNameDesk = string.Empty;
             string directoryNameMobile = string.Empty;
+            string renamedDirectoryDesktop = string.Empty;
+            string renamedDirectoryMobile = string.Empty;
 
             if (model == null) throw new AppException("O banner não pode estar nulo");
             try
@@ -276,26 +279,31 @@ namespace CarePlusAPI.Controllers
 
                 //Renomeando Arquivo Desktop
                 var fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameDesk)}{extensionDesk}";
-                var renamedDirectory = Path.Combine(pathToSave, fileName);
-                System.IO.File.Move(directoryNameDesk, renamedDirectory);
+                renamedDirectoryDesktop = Path.Combine(pathToSave, fileName);
+                System.IO.File.Move(directoryNameDesk, renamedDirectoryDesktop);
 
 
                 //Renomeando Arquivo Mobile
                 var fileMobileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
-                renamedDirectory = Path.Combine(pathToSave, fileMobileName);
-                System.IO.File.Move(directoryNameMobile, renamedDirectory);
+                renamedDirectoryMobile = Path.Combine(pathToSave, fileMobileName);
+                System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
 
-
+                // Caminho completo no desktop e no mobile
                 fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
                 fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileMobileName}";
+
+                // Caminho relativo no desktop e no mobile
                 directoryNameDesk = $"{_appSettings.VirtualPath}/Banner/{fileName}";
                 directoryNameMobile = $"{_appSettings.VirtualPath}/Banner/{fileMobileName}";
 
+                // Salvando informações sobre os caminhos na model
                 model.NomeImagemDesktop = fileName;
                 model.NomeImagemMobile = fileMobileName;
-                model.CaminhoDesktop = $"{_appSettings.VirtualPath}/Banner/{fileName}";
-                model.CaminhoMobile = $"{_appSettings.VirtualPath}/Banner/{fileMobileName}";
+                model.CaminhoDesktop = directoryNameDesk;
+                model.CaminhoMobile = directoryNameMobile;
+
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
+
                 Banner banner = _mapper.Map<Banner>(model);
                 await _bannerService.Criar(banner);
 
@@ -314,8 +322,8 @@ namespace CarePlusAPI.Controllers
                 if (System.IO.File.Exists(directoryNameDesk))
                     System.IO.File.Delete(directoryNameDesk);
 
-                if (System.IO.File.Exists(directoryNameMobile))
-                    System.IO.File.Delete(directoryNameMobile);
+                if (System.IO.File.Exists(renamedDirectoryMobile))
+                    System.IO.File.Delete(renamedDirectoryMobile);
                 return BadRequest(new
                 {
                     message = ex.Message
@@ -342,6 +350,8 @@ namespace CarePlusAPI.Controllers
             string directoryNameDesk = string.Empty;
             string directoryNameMobile = string.Empty;
             string origem = Request.Headers["Custom"];
+            string renamedDirectoryDesktop = string.Empty;
+            string renamedDirectoryMobile = string.Empty;
 
             if (model == null)
                 throw new AppException("O Banner não pode estar nulo");
@@ -377,8 +387,8 @@ namespace CarePlusAPI.Controllers
                         var extensionDesk = Path.GetExtension(directoryNameDesk).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                         //Renomeando Arquivo Desktop
                         fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameDesk)}{extensionDesk}";
-                        var renamedDirectory = Path.Combine(pathToSave, fileName);
-                        System.IO.File.Move(directoryNameDesk, renamedDirectory);
+                        renamedDirectoryDesktop = Path.Combine(pathToSave, fileName);
+                        System.IO.File.Move(directoryNameDesk, renamedDirectoryDesktop);
                     }
                     
                     if(fileMobile
@@ -393,7 +403,7 @@ namespace CarePlusAPI.Controllers
                         var extensionMobile = Path.GetExtension(directoryNameMobile).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                         //Renomeando Arquivo Mobile
                         fileNameMobile = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
-                        var renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
+                        renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
                         System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
                     } 
                     fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
@@ -440,8 +450,11 @@ namespace CarePlusAPI.Controllers
             {
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
-                if (System.IO.File.Exists(bannerPath))
-                    System.IO.File.Delete(bannerPath);
+                if (System.IO.File.Exists(directoryNameDesk))
+                    System.IO.File.Delete(directoryNameDesk);
+
+                if (System.IO.File.Exists(renamedDirectoryMobile))
+                    System.IO.File.Delete(renamedDirectoryMobile);
 
                 return BadRequest(new
                 {

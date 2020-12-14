@@ -343,9 +343,10 @@ namespace CarePlusAPI.Services
         {
             try
             {
-                string decryptedToken = GetCipher.Decrypt(_appSettings.WSPartnerToken);
-                string decryptedLogin = GetCipher.Decrypt(_appSettings.WSPartnerLogin);
-                string decryptedPass = GetCipher.Decrypt(_appSettings.WSPartnerSenha);
+                GetCipher cipher = new GetCipher();
+                string decryptedToken = cipher.Decrypt(_appSettings.WSPartnerToken);
+                string decryptedLogin = cipher.Decrypt(_appSettings.WSPartnerLogin);
+                string decryptedPass = cipher.Decrypt(_appSettings.WSPartnerSenha);
                 LoginPartnerOut loginPartnerOut = new LoginPartnerOut()
                 {
                     Origem = WebServiceOrigem.Partner,

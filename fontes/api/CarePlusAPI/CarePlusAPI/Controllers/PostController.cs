@@ -263,10 +263,11 @@ namespace CarePlusAPI.Controllers
          )
         {
 
+            if (id == 0)
+                throw new AppException("O id da categoria não pode ser igual a 0");
+
             try
             {
-                if (id == 0)
-                    throw new AppException("O id do Post não pode ser igual a 0");
 
                 var result = await _postService.BuscarPorCategoria(id, page, pageSize, ativo, origem);
 
@@ -322,10 +323,11 @@ namespace CarePlusAPI.Controllers
          )
         {
 
+            if (id == 0)
+                throw new AppException("O id da categoria não pode ser igual a 0");
+
             try
             {
-                if (id == 0)
-                    throw new AppException("O id do Post não pode ser igual a 0");
 
                var result = await _postService.BuscarPostsRelacionados(id, page, pageSize, slug, ativo, origem);
 
@@ -379,10 +381,11 @@ namespace CarePlusAPI.Controllers
             [FromHeader(Name = "Custom")] string? origem)
         {
 
+            if (string.IsNullOrWhiteSpace(term))
+                throw new AppException("O termo não estar vazio");
+
             try
             {
-                if (string.IsNullOrWhiteSpace(term))
-                    throw new AppException("O termo não estar vazio");
 
                 var result = await _postService.BuscarPorTermo(term, page, pageSize, ativo, origem);
 
@@ -440,6 +443,7 @@ namespace CarePlusAPI.Controllers
             string fileName = string.Empty;
             string fullPath = string.Empty;
             string directoryName = string.Empty;
+            string renamedDirectory = string.Empty;
 
             try
             {
@@ -464,7 +468,7 @@ namespace CarePlusAPI.Controllers
                     // Renomeando
                     var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                     fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
-                    var renamedDirectory = Path.Combine(pathToSave, fileName);
+                    renamedDirectory = Path.Combine(pathToSave, fileName);
                     System.IO.File.Move(directoryName, renamedDirectory);
 
                     fullPath = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Post/{fileName}";
@@ -480,8 +484,8 @@ namespace CarePlusAPI.Controllers
             {
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
-                if (System.IO.File.Exists(directoryName))
-                    System.IO.File.Delete(directoryName);
+                if (System.IO.File.Exists(renamedDirectory))
+                    System.IO.File.Delete(renamedDirectory);
 
                 return BadRequest(new
                 {
@@ -511,6 +515,7 @@ namespace CarePlusAPI.Controllers
 
             string fileName = string.Empty;
             string directoryName = string.Empty;
+            string renamedDirectory = string.Empty;
 
             try
             {
@@ -539,7 +544,7 @@ namespace CarePlusAPI.Controllers
                         // Renomeando
                         var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                         fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
-                        var renamedDirectory = Path.Combine(pathToSave, fileName);
+                        renamedDirectory = Path.Combine(pathToSave, fileName);
                         System.IO.File.Move(directoryName, renamedDirectory);
                     }
 
@@ -555,11 +560,11 @@ namespace CarePlusAPI.Controllers
             }
             catch (System.Exception ex)
             {
-                System.Console.Write(ex);
+
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
-                if (System.IO.File.Exists(directoryName))
-                    System.IO.File.Delete(directoryName);
+                if (System.IO.File.Exists(renamedDirectory))
+                    System.IO.File.Delete(renamedDirectory);
 
                 return BadRequest(new
                 {
@@ -589,6 +594,7 @@ namespace CarePlusAPI.Controllers
 
             string fileName = string.Empty;
             string directoryName = string.Empty;
+            string renamedDirectory = string.Empty;
 
             try
             {
@@ -618,7 +624,7 @@ namespace CarePlusAPI.Controllers
                         // Renomeando
                         var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
                         fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
-                        var renamedDirectory = Path.Combine(pathToSave, fileName);
+                        renamedDirectory = Path.Combine(pathToSave, fileName);
                         System.IO.File.Move(directoryName, renamedDirectory);
                     }
 
@@ -641,8 +647,8 @@ namespace CarePlusAPI.Controllers
             {
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
-                if (System.IO.File.Exists(directoryName))
-                    System.IO.File.Delete(directoryName);
+                if (System.IO.File.Exists(renamedDirectory))
+                    System.IO.File.Delete(renamedDirectory);
 
                 return BadRequest(new
                 {
@@ -665,10 +671,12 @@ namespace CarePlusAPI.Controllers
             [FromHeader(Name = "Custom")] string? origem
             )
         {
+
+            if (string.IsNullOrWhiteSpace(slug))
+                throw new AppException("O slug do Post não pode estar vazio");
+
             try
             {
-                if (string.IsNullOrWhiteSpace(slug))
-                    throw new AppException("O slug do Post não pode estar vazio");
 
                 Post post = await _postService.BuscarPorSlug(slug);
 
@@ -725,11 +733,11 @@ namespace CarePlusAPI.Controllers
             [FromHeader(Name = "Custom")] string? origem
             )
         {
+            if (string.IsNullOrWhiteSpace(slug))
+                throw new AppException("O slug do Post não pode estar vazio");
+
             try
             {
-                if (string.IsNullOrWhiteSpace(slug))
-                    throw new AppException("O slug do Post não pode estar vazio");
-
                 Post post = await _postService.BuscarPorSlug(slug);
 
                 if (System.IO.File.Exists(post.CaminhoImagem))
