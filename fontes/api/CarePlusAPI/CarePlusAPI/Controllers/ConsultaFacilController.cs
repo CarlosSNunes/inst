@@ -22,7 +22,7 @@ namespace CarePlusAPI.Controllers
         private readonly IConsultaFacilService _consultaFacilService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        private readonly SeriLog _seriLog;
+        private readonly ISeriLog _seriLog;
 
         ///<summary>
         ///
@@ -36,12 +36,14 @@ namespace CarePlusAPI.Controllers
         public ConsultaFacilController(
             IConsultaFacilService consultaFacilService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings)
+            IOptions<AppSettings> appSettings,
+            ISeriLog seriLog
+            )
         {
             _consultaFacilService = consultaFacilService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            _seriLog = new SeriLog(appSettings);
+            _seriLog = seriLog;
         }
 
         ///<summary>

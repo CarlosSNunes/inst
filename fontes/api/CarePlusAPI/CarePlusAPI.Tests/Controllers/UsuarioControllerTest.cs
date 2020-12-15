@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using CarePlusAPI.Models.Perfil;
 using Microsoft.AspNetCore.Http;
+using Moq;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -25,6 +26,8 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly IOptions<AppSettings> AppSettings;
         private readonly DbContextOptions<DataContext> DbOptions;
         private readonly SqliteConnection Connection;
+        private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
+        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
         private SeriLog seriLog;
         private readonly IConfiguration Configuration;
         private readonly Usuario Usuario = new Usuario
@@ -79,6 +82,8 @@ namespace CarePlusAPI.Tests.Controllers
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
 
+            _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
+
             DbOptions = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(Connection)
                     .Options;
@@ -105,7 +110,9 @@ namespace CarePlusAPI.Tests.Controllers
 
             AppSettings = Options.Create<AppSettings>(appSettings);
 
-            UsuarioService = new UsuarioService(new DataContext(DbOptions), AppSettings);
+            _getCipherMock.Setup(s => s.Decrypt(AppSettings.Value.Secret)).Returns("SECRET API CAREPLUS TESTE");
+
+            UsuarioService = new UsuarioService(new DataContext(DbOptions), AppSettings, _getCipherMock.Object);
 
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
@@ -118,14 +125,14 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public void ConstrutorSucesso()
         {
-            var result = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            var result = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             Assert.NotNull(result);
         }
 
         [Fact]
         public async void ListaSucesso()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -137,7 +144,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarSucesso()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -149,7 +156,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarErro()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -160,7 +167,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void BuscarErroZero()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -171,7 +178,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void CriarSucesso()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -182,7 +189,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void CriarErro()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -194,7 +201,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void CriarErroNulo()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -206,7 +213,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarSucesso()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -218,7 +225,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarErro()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -230,7 +237,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AtualizarErroZero()
         {
 
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -241,7 +248,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarErroNulo()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -253,7 +260,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirSucesso()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -265,7 +272,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirErro()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -276,7 +283,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ExcluirErroZero()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -288,7 +295,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AutenticarSucesso()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -300,7 +307,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void AutenticarErro()
         {
             await UsuarioService.Criar(Usuario, "123");
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -312,7 +319,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AutenticarErroNulo()
         {
-            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings);
+            UsuarioController controller = new UsuarioController(UsuarioService, Mapper, AppSettings, _seriLogMock.Object, _getCipherMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";

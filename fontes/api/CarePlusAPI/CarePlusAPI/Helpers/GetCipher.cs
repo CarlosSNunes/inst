@@ -6,8 +6,12 @@ using Microsoft.Extensions.Options;
 
 namespace CarePlusAPI.Helpers
 {
+    public interface IGetCipher {
+        public string Decrypt(string info);
+    }
+
     [ExcludeFromCodeCoverage]
-    public class GetCipher
+    public class GetCipher: IGetCipher
     {
         protected static string CiphersPath;
 

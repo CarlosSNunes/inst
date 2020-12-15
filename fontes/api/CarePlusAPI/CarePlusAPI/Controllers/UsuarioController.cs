@@ -27,7 +27,8 @@ namespace CarePlusAPI.Controllers
         private readonly IUsuarioService _userService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        private readonly SeriLog _seriLog;
+        private readonly ISeriLog _seriLog;
+        private readonly IGetCipher _getCipher;
 
         ///<summary>
         ///
@@ -41,13 +42,16 @@ namespace CarePlusAPI.Controllers
         public UsuarioController(
             IUsuarioService userService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings
-            )
+            IOptions<AppSettings> appSettings,
+            ISeriLog seriLog,
+            IGetCipher getCipher
+        )
         {
             _userService = userService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            _seriLog = new SeriLog(appSettings);
+            _seriLog = seriLog;
+            _getCipher = getCipher;
         }
 
         ///<summary>
@@ -87,8 +91,7 @@ namespace CarePlusAPI.Controllers
                 //}
 
                 JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-                GetCipher cipher = new GetCipher();
-                string secret = cipher.Decrypt(_appSettings.Secret);
+                string secret = _getCipher.Decrypt(_appSettings.Secret);
                 byte[] key = Encoding.ASCII.GetBytes(secret);
                 SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
                 {

@@ -12,20 +12,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    [ExcludeFromCodeCoverage]
     public class BannerController : ControllerBase
     {
         private readonly IBannerService _bannerService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        private readonly SeriLog _seriLog;
+        private readonly ISeriLog _seriLog;
 
         ///<summary>
         ///
@@ -39,13 +37,14 @@ namespace CarePlusAPI.Controllers
         public BannerController(
             IBannerService bannerService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings
+            IOptions<AppSettings> appSettings,
+            ISeriLog seriLog
         )
         {
             _bannerService = bannerService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            _seriLog = new SeriLog(appSettings);
+            _seriLog = seriLog;
         }
 
         ///<summary>
@@ -124,10 +123,12 @@ namespace CarePlusAPI.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             string origem = Request.Headers["Custom"];
+
+            if (id == 0)
+                throw new AppException("O id não pode ser igual a 0");
+
             try
             {
-                if (id == 0)
-                    throw new AppException("O id não pode ser igual a 0");
 
                 Banner banner = await _bannerService.Buscar(id);
 
@@ -181,6 +182,7 @@ namespace CarePlusAPI.Controllers
 
             try
             {
+
                 if (string.IsNullOrEmpty(area))
                     throw new AppException("O area não pode ser igual a null ou empty");
 
@@ -258,7 +260,7 @@ namespace CarePlusAPI.Controllers
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                 var fileOriginalNameDesk = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                var fileOriginalNameMobile = ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                var fileOriginalNameMobile = $"mobile-{ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_")}";
 
                 directoryNameDesk = Path.Combine(pathToSave, fileOriginalNameDesk);
                 directoryNameMobile = Path.Combine(pathToSave, fileOriginalNameMobile);
@@ -319,8 +321,8 @@ namespace CarePlusAPI.Controllers
             {
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
-                if (System.IO.File.Exists(directoryNameDesk))
-                    System.IO.File.Delete(directoryNameDesk);
+                if (System.IO.File.Exists(renamedDirectoryDesktop))
+                    System.IO.File.Delete(renamedDirectoryDesktop);
 
                 if (System.IO.File.Exists(renamedDirectoryMobile))
                     System.IO.File.Delete(renamedDirectoryMobile);
@@ -356,13 +358,11 @@ namespace CarePlusAPI.Controllers
             if (model == null)
                 throw new AppException("O Banner não pode estar nulo");
 
-            var bannerPath = "Src/Images/Banner/";
             string fileName = string.Empty;
             string fileNameMobile = string.Empty;
             try
             {
 
-                //Banner banner = _mapper.Map<Banner>(model);
                 Banner banner = await _bannerService.Buscar((int)model.Id);
 
                 if (model.Arquivo != null)
@@ -394,7 +394,7 @@ namespace CarePlusAPI.Controllers
                     if(fileMobile
                         .Length > 0)
                     {
-                        var fileOriginalNameMobile = ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                        var fileOriginalNameMobile = $"mobile-{ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_")}";
                         directoryNameMobile = Path.Combine(pathToSave, fileOriginalNameMobile);
                         await using (var stream = new FileStream(directoryNameMobile, FileMode.Create))
                         {
@@ -425,11 +425,11 @@ namespace CarePlusAPI.Controllers
                 }
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
 
-                if (banner.Ativo.ToString() == "0" && model.Ativo.ToString() == "1")
+                if (banner.Ativo == '0' && model.Ativo == '1')
                 {
                     reorderBanners = true;
                     activeChanged = true;
-                } else if (banner.Ativo.ToString() != model.Ativo.ToString()) {
+                } else if (banner.Ativo != model.Ativo) {
                     activeChanged = true;
                 }
 
@@ -450,8 +450,8 @@ namespace CarePlusAPI.Controllers
             {
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
-                if (System.IO.File.Exists(directoryNameDesk))
-                    System.IO.File.Delete(directoryNameDesk);
+                if (System.IO.File.Exists(renamedDirectoryDesktop))
+                    System.IO.File.Delete(renamedDirectoryDesktop);
 
                 if (System.IO.File.Exists(renamedDirectoryMobile))
                     System.IO.File.Delete(renamedDirectoryMobile);
@@ -475,7 +475,14 @@ namespace CarePlusAPI.Controllers
         [Authorize(Roles = "Editor, Administrador")]
         public async Task<IActionResult> AtualizarOrdem([FromBody] AreaUpdateOrder orderedBanners, [FromHeader(Name = "Custom")] string? origem)
         {
+
             try {
+
+                if (orderedBanners == null)
+                {
+                    throw new AppException("O body da requisição não pode ser nulo");
+                }
+
                 List<int> bannersIds = new List<int>();
                 ICollection<Banner> banners = new List<Banner>();
 
@@ -582,10 +589,11 @@ namespace CarePlusAPI.Controllers
         {
             string origem = Request.Headers["Custom"];
 
+            if (id == 0)
+                throw new AppException("O id não pode ser igual a 0");
+
             try
             {
-                if (id == 0)
-                    throw new AppException("O id não pode ser igual a 0");
 
                 try
                 {

@@ -4,14 +4,19 @@ using ImageMagick;
 
 namespace CarePlusAPI.Helpers
 {
+    public interface ICompress
+    {
+        void CompressImage(string directoryName);
+    }
+
     [ExcludeFromCodeCoverage]
-    public class Compress
+    public class Compress: ICompress
     {
         public Compress()
         {
         }
 
-        public static void CompressImage(string directoryName)
+        public virtual void CompressImage(string directoryName)
         {
             var fileInfo = new FileInfo(directoryName);
 

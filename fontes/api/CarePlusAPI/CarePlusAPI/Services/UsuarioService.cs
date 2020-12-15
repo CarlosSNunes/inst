@@ -40,8 +40,9 @@ namespace CarePlusAPI.Services
         private readonly AppSettings _appSettings;
         private readonly EndpointConfiguration _endpointConfiguration;
         private readonly PartnerServiceClient _partnerServiceClient;
+        private readonly IGetCipher _getCipher;
 
-        public UsuarioService(DataContext context, IOptions<AppSettings> appSettings)
+        public UsuarioService(DataContext context, IOptions<AppSettings> appSettings, IGetCipher getCipher)
         {
             _endpointConfiguration = EndpointConfiguration.SOAPEndPointPartner;
 
@@ -49,6 +50,7 @@ namespace CarePlusAPI.Services
 
             Context = context;
             _appSettings = appSettings.Value;
+            _getCipher = getCipher;
         }
 
         ///<summary>
@@ -344,9 +346,9 @@ namespace CarePlusAPI.Services
             try
             {
                 GetCipher cipher = new GetCipher();
-                string decryptedToken = cipher.Decrypt(_appSettings.WSPartnerToken);
-                string decryptedLogin = cipher.Decrypt(_appSettings.WSPartnerLogin);
-                string decryptedPass = cipher.Decrypt(_appSettings.WSPartnerSenha);
+                string decryptedToken = _getCipher.Decrypt(_appSettings.WSPartnerToken);
+                string decryptedLogin = _getCipher.Decrypt(_appSettings.WSPartnerLogin);
+                string decryptedPass = _getCipher.Decrypt(_appSettings.WSPartnerSenha);
                 LoginPartnerOut loginPartnerOut = new LoginPartnerOut()
                 {
                     Origem = WebServiceOrigem.Partner,

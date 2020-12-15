@@ -79,9 +79,6 @@ namespace CarePlusAPI.Services
                 .OrderBy(x => x.Ordem)
                 .ToListAsync();
 
-            if (listaBanner == null)
-                throw new AppException("banner não encontrado");
-
             return listaBanner;
         }
 

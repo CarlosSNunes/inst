@@ -101,6 +101,10 @@ namespace CarePlusAPI
             };
             });
 
+            services.AddTransient<ICompress, Compress>();
+            services.AddTransient<ISeriLog, SeriLog>();
+            services.AddTransient<IGetCipher, GetCipher>();
+
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IPerfilService, PerfilService>();
             services.AddScoped<IBannerService, BannerService>();

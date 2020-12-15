@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Options;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -19,6 +20,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly DbContextOptions<DataContext> _options;
         private readonly SqliteConnection Connection;
         private readonly IOptions<AppSettings> _appSettings;
+        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
         private IConfiguration _configuration;
 
 
@@ -40,6 +42,8 @@ namespace CarePlusAPI.Tests.Services
 
         public UsuarioServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt("aaaa")).Returns("aaaaa");
+
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
 
@@ -69,7 +73,7 @@ namespace CarePlusAPI.Tests.Services
             
             _appSettings = Options.Create<AppSettings>(appSettings);
 
-            UsuarioService = new UsuarioService(new DataContext(_options), _appSettings);
+            UsuarioService = new UsuarioService(new DataContext(_options), _appSettings, _getCipherMock.Object);
         }
 
         [Fact]

@@ -13,6 +13,7 @@ using System;
 using System.IO;
 using Xunit;
 using Microsoft.AspNetCore.Http;
+using Moq;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -24,6 +25,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly DbContextOptions<DataContext> _dbOptions;
         private readonly SqliteConnection _connection;
         private readonly IConfiguration _configuration;
+        private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly Categoria _categorias = new Categoria
         {
             Id = 1,
@@ -55,6 +57,8 @@ namespace CarePlusAPI.Tests.Controllers
                     .UseSqlite(_connection)
                     .Options;
 
+            _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
+
             using (DataContext context = new DataContext(_dbOptions))
                 context.Database.EnsureCreated();
 
@@ -83,14 +87,14 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public void ConstrutorSucesso()
         {
-            var result = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            var result = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             Assert.NotNull(result);
         }
 
         [Fact]
         public async void ListarSucesso()
         {
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -104,7 +108,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarSucesso()
         {
             await _categoriasService.Criar(_categorias);
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -116,7 +120,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarErro()
         {
             await _categoriasService.Criar(_categorias);
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -128,7 +132,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarErroZero()
         {
             await _categoriasService.Criar(_categorias);
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -139,7 +143,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void CriarSucesso()
         {
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -157,7 +161,7 @@ namespace CarePlusAPI.Tests.Controllers
                     .Options;
             var categoriasService = new CategoriasService(new DataContext(dbOptions));
 
-            CategoriasController controller = new CategoriasController(categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -168,7 +172,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void CriarErroNulo()
         {
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -178,7 +182,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarSucesso()
         {
-            var c = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            var c = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -187,7 +191,7 @@ namespace CarePlusAPI.Tests.Controllers
             using (DataContext context = new DataContext(_dbOptions))
             {
                 CategoriasService service = new CategoriasService(context);
-                CategoriasController controller = new CategoriasController(service, _mapper, _appSettings);
+                CategoriasController controller = new CategoriasController(service, _mapper, _appSettings, _seriLogMock.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -199,7 +203,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarErro()
         {
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -210,7 +214,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarErroNulo()
         {
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -220,13 +224,13 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ExcluirSucesso()
         {
-            var c = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            var c = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_categoriasCreateModel);
 
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -238,7 +242,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirErro()
         {
             await _categoriasService.Criar(_categorias);
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -250,7 +254,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirErroZero()
         {
             await _categoriasService.Criar(_categorias);
-            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings);
+            CategoriasController controller = new CategoriasController(_categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";

@@ -10,6 +10,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,6 +25,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly IOptions<AppSettings> AppSettings;
         private readonly DbContextOptions<DataContext> DbOptions;
         private readonly SqliteConnection Connection;
+        private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly IConfiguration Configuration;
         private readonly List<Perfil> Perfis = new List<Perfil>
         {
@@ -72,6 +74,8 @@ namespace CarePlusAPI.Tests.Controllers
             using (DataContext context = new DataContext(DbOptions))
                 context.Database.EnsureCreated();
 
+            _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
+
             PerfilService = new PerfilService(new DataContext(DbOptions));
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -97,7 +101,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public void Contrutor()
         {
-            var controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            var controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -107,7 +111,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void GetSucesso()
         {
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -119,7 +123,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetByIdSucesso()
         {
             await PerfilService.Criar(Perfis);
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -131,7 +135,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetByIdErro()
         {
             await PerfilService.Criar(Perfis);
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -143,7 +147,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetByIdErroZero()
         {
             await PerfilService.Criar(Perfis);
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -154,7 +158,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PostSucesso()
         {
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -165,7 +169,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PostErro()
         {
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -176,7 +180,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PostErroNulo()
         {
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -192,7 +196,7 @@ namespace CarePlusAPI.Tests.Controllers
             using (DataContext context = new DataContext(DbOptions))
             {
                 PerfilService service = new PerfilService(context);
-                PerfilController controller = new PerfilController(service, Mapper, AppSettings);
+                PerfilController controller = new PerfilController(service, Mapper, AppSettings, _seriLogMock.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -204,7 +208,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PutErro()
         {
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -215,7 +219,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PutErroNulo()
         {
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -227,7 +231,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void DeleteSucesso()
         {
             await PerfilService.Criar(Perfis);
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -239,7 +243,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void DeleteErro()
         {
             await PerfilService.Criar(Perfis);
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -251,7 +255,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void DeleteErroZero()
         {
             await PerfilService.Criar(Perfis);
-            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings);
+            PerfilController controller = new PerfilController(PerfilService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";

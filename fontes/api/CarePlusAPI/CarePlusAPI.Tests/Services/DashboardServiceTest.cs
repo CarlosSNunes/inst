@@ -11,6 +11,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -24,6 +25,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly PostService _postService;
         private readonly IConfiguration _configuration;
         private readonly IOptions<AppSettings> _appSettings;
+        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
         private readonly Post _post = new Post
         {
             Id = 1,
@@ -80,6 +82,8 @@ namespace CarePlusAPI.Tests.Services
 
         public DashboardServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt("aaaa")).Returns("aaaaa");
+
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
 
@@ -118,7 +122,7 @@ namespace CarePlusAPI.Tests.Services
 
             _postService = new PostService(new DataContext(_options));
 
-            _usuarioService = new UsuarioService(new DataContext(_options), _appSettings);
+            _usuarioService = new UsuarioService(new DataContext(_options), _appSettings, _getCipherMock.Object);
 
             _bannerService = new BannerService(new DataContext(_options));
 

@@ -8,14 +8,23 @@ using System.IO;
 
 namespace CarePlusAPI.Helpers
 {
+    public interface ISeriLog
+    {
+        void Log(EnumLogType logtype, object message, string origem);
+    }
+
     [ExcludeFromCodeCoverage]
-    public class SeriLog
+    public class SeriLog: ISeriLog
     {
         private readonly AppSettings _appSettings;
 
         public SeriLog(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
+        }
+
+        public SeriLog()
+        {
         }
 
 

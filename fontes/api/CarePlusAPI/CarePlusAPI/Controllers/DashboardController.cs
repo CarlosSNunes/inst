@@ -18,7 +18,7 @@ namespace CarePlusAPI.Controllers
     {
         private readonly IDashboardService _dashboardService;
         private readonly IMapper _mapper;
-        private readonly SeriLog _seriLog;
+        private readonly ISeriLog _seriLog;
         private readonly AppSettings _appSettings;
 
         ///<summary>
@@ -32,12 +32,13 @@ namespace CarePlusAPI.Controllers
         public DashboardController(
             IDashboardService dashboardService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings
+            IOptions<AppSettings> appSettings,
+            ISeriLog seriLog
         )
         {
             _dashboardService = dashboardService;
             _mapper = mapper;
-            _seriLog = new SeriLog(appSettings);
+            _seriLog = seriLog;
             _appSettings = appSettings.Value;
         }
 

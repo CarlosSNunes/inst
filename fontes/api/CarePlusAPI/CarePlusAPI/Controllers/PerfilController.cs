@@ -20,7 +20,7 @@ namespace CarePlusAPI.Controllers
         private readonly IPerfilService _perfilService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        private readonly SeriLog _seriLog;
+        private readonly ISeriLog _seriLog;
 
 
         ///<summary>
@@ -35,12 +35,14 @@ namespace CarePlusAPI.Controllers
         public PerfilController(
             IPerfilService perfilService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings)
+            IOptions<AppSettings> appSettings,
+            ISeriLog seriLog
+            )
         {
             _perfilService = perfilService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            _seriLog = new SeriLog(appSettings);
+            _seriLog = seriLog;
         }
 
         ///<summary>

@@ -24,8 +24,8 @@ namespace CarePlusAPI.Controllers
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        private readonly SeriLog _seriLog;
-
+        private readonly ISeriLog _seriLog;
+        private readonly ICompress _compress;
         ///<summary>
         ///
         ///Esse método construtor é utilizado para pegar os objetos de injeção de dependencia
@@ -38,12 +38,16 @@ namespace CarePlusAPI.Controllers
         public PostController(
             IPostService noticiaService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings)
+            IOptions<AppSettings> appSettings,
+            ICompress compress,
+            ISeriLog seriLog
+            )
         {
             _postService = noticiaService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            _seriLog = new SeriLog(appSettings);
+            _compress = compress;
+            _seriLog = seriLog;
         }
 
         ///<summary>
@@ -263,11 +267,11 @@ namespace CarePlusAPI.Controllers
          )
         {
 
-            if (id == 0)
-                throw new AppException("O id da categoria não pode ser igual a 0");
-
             try
             {
+
+                if (id == 0)
+                    throw new AppException("O id da categoria não pode ser igual a 0");
 
                 var result = await _postService.BuscarPorCategoria(id, page, pageSize, ativo, origem);
 
@@ -323,13 +327,13 @@ namespace CarePlusAPI.Controllers
          )
         {
 
-            if (id == 0)
-                throw new AppException("O id da categoria não pode ser igual a 0");
-
             try
             {
 
-               var result = await _postService.BuscarPostsRelacionados(id, page, pageSize, slug, ativo, origem);
+                if (id == 0)
+                    throw new AppException("O id da categoria não pode ser igual a 0");
+
+                var result = await _postService.BuscarPostsRelacionados(id, page, pageSize, slug, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -381,11 +385,11 @@ namespace CarePlusAPI.Controllers
             [FromHeader(Name = "Custom")] string? origem)
         {
 
-            if (string.IsNullOrWhiteSpace(term))
-                throw new AppException("O termo não estar vazio");
-
             try
             {
+
+                if (string.IsNullOrWhiteSpace(term))
+                    throw new AppException("O termo não estar vazio");
 
                 var result = await _postService.BuscarPorTermo(term, page, pageSize, ativo, origem);
 
@@ -437,9 +441,6 @@ namespace CarePlusAPI.Controllers
             )
         {
 
-            if (file == null)
-                throw new AppException("O Arquivo não pode estar nulo");
-
             string fileName = string.Empty;
             string fullPath = string.Empty;
             string directoryName = string.Empty;
@@ -447,6 +448,9 @@ namespace CarePlusAPI.Controllers
 
             try
             {
+                if (file == null)
+                    throw new AppException("O Arquivo não pode estar nulo");
+
                 var fullRelativePath = _appSettings.PathToSave + "\\Post";
                 var stringArr = fullRelativePath.Split("\\");
                 var folderName = Path.Combine(stringArr);
@@ -463,7 +467,7 @@ namespace CarePlusAPI.Controllers
                     }
 
                     // Comprimindo imagem
-                    Compress.CompressImage(directoryName);
+                    _compress.CompressImage(directoryName);
 
                     // Renomeando
                     var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
@@ -539,7 +543,7 @@ namespace CarePlusAPI.Controllers
                         }
 
                         // Comprimindo imagem
-                        Compress.CompressImage(directoryName);
+                        _compress.CompressImage(directoryName);
 
                         // Renomeando
                         var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
@@ -619,7 +623,7 @@ namespace CarePlusAPI.Controllers
                         }
 
                         // Comprimindo imagem
-                        Compress.CompressImage(directoryName);
+                        _compress.CompressImage(directoryName);
 
                         // Renomeando
                         var extension = Path.GetExtension(directoryName).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
