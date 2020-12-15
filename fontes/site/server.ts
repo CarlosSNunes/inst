@@ -121,9 +121,9 @@ app.get('/institucional.aspx', (req, res) => {
     res.redirect(301,'/a-careplus');
 });
 
-app.get('/ocupacional', (req, res) => {
-    res.redirect(301,'/planos-e-produtos/medicina-ocupacional');
-});
+// app.get('/ocupacional', (req, res) => {
+//     res.redirect(301,'/planos-e-produtos/medicina-ocupacional');
+// });
 
 app.get('/biblioteca-da-saude/gestacao.aspx', (req, res) => {
     res.redirect(301,'/a-careplus');
