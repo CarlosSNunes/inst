@@ -58,7 +58,7 @@
                             "src/web.config",
                             { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
                             { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
-                            { "glob": "**/*", "input": "src/welcomeback", "output": "/welcomeback/" }                                     
+                            { "glob": "**/*", "input": "src/welcome-back", "output": "/welcome-back/" }                                     
                         ],
                         "styles": [
                             "src/styles.scss",
@@ -310,7 +310,7 @@
                     "assets":[
                         { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
                         { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
-                        { "glob": "**/*", "input": "src/welcomeback", "output": "/welcomeback/" }  
+                        { "glob": "**/*", "input": "src/welcome-back", "output": "/welcome-back/" }  
 
                     ],
                     "configurations": {
