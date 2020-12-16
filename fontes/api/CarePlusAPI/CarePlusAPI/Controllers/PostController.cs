@@ -225,6 +225,7 @@ namespace CarePlusAPI.Controllers
 
                 PostModel model = _mapper.Map<PostModel>(result);
 
+                // Adicionando tratativa para devolver caminho da imagem com base na variável de ambiente.
                 if (model.CaminhoImagem != null)
                 {
                     model.CaminhoCompleto = $"{_appSettings.PathToGet}{model.CaminhoImagem}";
