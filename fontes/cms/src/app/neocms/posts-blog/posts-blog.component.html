@@ -36,7 +36,7 @@
             <tr
               *ngFor="let post of postsBlog | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: postCount }">
               <td scope="col" class=" text-center favorite">
-                <fa-icon [icon]="faStar" [ngClass]="{yellowStar: post.destaque == '1'}">
+                <fa-icon [icon]="faStar" [class.yellowStar]="post.destaque == '1'">
                 </fa-icon>
               </td>
               <td class=" text-center text-truncate img-post">
