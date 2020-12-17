@@ -19,7 +19,7 @@ namespace CarePlusAPI.Controllers
     {
         private readonly IFaleConoscoService _faleConoscoService;
         private readonly IMapper _mapper;
-        private readonly SeriLog _seriLog;
+        private readonly ISeriLog _seriLog;
 
         ///<summary>
         ///
@@ -33,12 +33,13 @@ namespace CarePlusAPI.Controllers
         public FaleConoscoController(
             IFaleConoscoService faleConoscoService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings
+            IOptions<AppSettings> appSettings,
+            ISeriLog seriLog
         )
         {
             _faleConoscoService = faleConoscoService;
             _mapper = mapper;
-            _seriLog = new SeriLog(appSettings);
+            _seriLog = seriLog;
         }
 
         ///<summary>

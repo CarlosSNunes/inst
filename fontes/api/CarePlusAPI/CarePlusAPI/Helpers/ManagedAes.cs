@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Security.Cryptography;
 namespace CarePlusAPI.Helpers
 {
+    [ExcludeFromCodeCoverage]
     public class ManagedAes
     {
         public static byte[] Encrypt(string plainText, byte[] Key, byte[] IV)

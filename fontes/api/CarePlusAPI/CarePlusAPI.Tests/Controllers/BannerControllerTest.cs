@@ -15,7 +15,7 @@ using System.IO;
 using System.Threading;
 using Xunit;
 using Microsoft.Data.Sqlite;
-using System.Net;
+using System.Collections.Generic;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -28,6 +28,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly SqliteConnection _connection;
         private readonly IConfiguration _configuration;
         private readonly FileStream _stream;
+        private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly Banner _banner = new Banner
         {
             Id = 1,
@@ -39,6 +40,37 @@ namespace CarePlusAPI.Tests.Controllers
             Rota = "/campanha/cancer",
             Titulo = "Faça seus exames",
             UsuarioId = 1,
+            Area = "home",
+            Ativo = '1'
+        };
+
+        private readonly List<Banner> _banners = new List<Banner>() {
+            new Banner {
+                DataCadastro = DateTime.Now,
+                Descricao = "Campanha contra o cancer",
+                NomeImagemDesktop = "",
+                NomeImagemMobile = "",
+                LinkExterno = '0',
+                Rota = "/campanha/cancer",
+                Titulo = "Faça seus exames",
+                UsuarioId = 1,
+                Area = "home",
+                Ativo = '1',
+                Ordem = 0,
+            },
+            new Banner {
+                DataCadastro = DateTime.Now,
+                Descricao = "Campanha contra o cancer",
+                NomeImagemDesktop = "",
+                NomeImagemMobile = "",
+                LinkExterno = '0',
+                Rota = "/campanha/cancer",
+                Titulo = "Faça seus exames",
+                UsuarioId = 1,
+                Area = "home",
+                Ativo = '1',
+                Ordem = 1,
+            }
         };
 
 
@@ -51,6 +83,8 @@ namespace CarePlusAPI.Tests.Controllers
             LinkExterno = '0',
             Rota = "/campanha/cancer",
             Titulo = "Faça seus exames",
+            Area = "home",
+            Ativo = '1'
         };
 
         private readonly BannerUpdateModel _bannerUpdateModel = new BannerUpdateModel
@@ -61,11 +95,15 @@ namespace CarePlusAPI.Tests.Controllers
             NomeImagemMobile = "",
             LinkExterno = '0',
             Rota = "/campanha/cancer",
-            Titulo = "Faça seus exames"
+            Titulo = "Faça seus exames",
+            Area = "home",
+            Ativo = '1'
         };
 
         public BannerControllerTest()
         {
+            _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
+
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
@@ -99,7 +137,7 @@ namespace CarePlusAPI.Tests.Controllers
 
             _mapper = config.CreateMapper();
 
-            _stream = File.OpenRead("Src/Banner/cerebro.jpg");
+            _stream = File.OpenRead("Src/Images/mock/cerebro.jpg");
 
             _bannerCreateModel.Arquivo = CreateFile();
 
@@ -108,60 +146,67 @@ namespace CarePlusAPI.Tests.Controllers
             _bannerUpdateModel.Arquivo = CreateFile();
 
             _bannerUpdateModel.ArquivoMobile = CreateFile();
-
-            _appSettings.Value.PathToSave = Directory.GetCurrentDirectory() + "\\";
-            _appSettings.Value.PathToGet = Directory.GetCurrentDirectory() + "\\";
-
-            _appSettings.Value.PathToSaveMobile = Directory.GetCurrentDirectory() + "\\";
-            _appSettings.Value.PathToGetMobile = Directory.GetCurrentDirectory() + "\\";
-
-
         }
 
         private IFormFile CreateFile()
         {
-            var file = new Mock<IFormFile>();
+            var formFile = new Mock<IFormFile>();
             var ms = new MemoryStream();
             var writer = new StreamWriter(ms);
             writer.Write(_stream);
             writer.Flush();
             ms.Position = 0;
             var fileName = "cerebro.jpg";
-            var Length = 300;
             var contentDisposition = "form-data; name=\"Arquivo\"; filename=\"cerebro.jpg\"";
-            var contentType = "image/png";
-            var headers = new HeaderDictionary();
-            file.Setup(f => f.ContentDisposition).Returns(contentDisposition).Verifiable();
-            file.Setup(f => f.Length).Returns(Length).Verifiable();
-            file.Setup(f => f.ContentType).Returns(contentType).Verifiable();
-            file.Setup(f => f.Headers).Returns(headers).Verifiable();
-            file.Setup(f => f.FileName).Returns(fileName).Verifiable();
-            file.Setup(_ => _.CopyToAsync(It.IsAny<Stream>(), It.IsAny<CancellationToken>()))
-                .Returns((Stream stream, CancellationToken token) => ms.CopyToAsync(stream))
-                .Verifiable();
 
-            var inputFile = file.Object;
+            formFile.Setup(_ => _.FileName).Returns(fileName);
+            formFile.Setup(_ => _.Length).Returns(ms.Length);
+            formFile.Setup(_ => _.OpenReadStream()).Returns(ms);
+            formFile.Setup(_ => _.ContentDisposition).Returns(contentDisposition);
+            formFile.Setup(_ => _.ContentType).Returns("image/jpeg");
+            formFile.Setup(_ => _.CopyToAsync(ms, CancellationToken.None)).Returns(System.Threading.Tasks.Task.CompletedTask);
+            formFile.Verify();
 
-            return inputFile;
+            return formFile.Object;
         }
 
         [Fact]
         public void ConstrutorSucesso()
         {
 
-            var result = new BannerController(_bannerService, _mapper, _appSettings);
+            var result = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             Assert.NotNull(result);
         }
 
         [Fact]
         public async void ListarSucesso()
-        { 
-            
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+        {
+            await _bannerService.Criar(_banner);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var result = await controller.Get();
+            int page = 0;
+            int pageSize = 50;
+            var result = await controller.Get(page, pageSize, null, null);
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+
+        [Fact]
+        public async void ListarSucessoComImagem()
+        {
+            Banner bannerComImagem = _banner;
+            bannerComImagem.CaminhoDesktop = "/Src/Img/Banner/cerebro.jpg";
+            bannerComImagem.CaminhoMobile = "/Src/Img/Banner/cerebro.jpg";
+            await _bannerService.Criar(bannerComImagem);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            int page = 0;
+            int pageSize = 50;
+            var result = await controller.Get(page, pageSize, null, null);
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -169,7 +214,22 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarSucesso()
         {
             await _bannerService.Criar(_banner);
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetById(1);
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async void BuscarSucessoComImagem()
+        {
+            Banner bannerComImagem = _banner;
+            bannerComImagem.CaminhoDesktop = "/Src/Img/Banner/cerebro.jpg";
+            bannerComImagem.CaminhoMobile = "/Src/Img/Banner/cerebro.jpg";
+            await _bannerService.Criar(bannerComImagem);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -181,53 +241,84 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarErro()
         {
             await _bannerService.Criar(_banner);
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            await Assert.ThrowsAsync<AppException>(() => controller.GetById(999));
+            IActionResult result = await controller.GetById(999);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void BuscarErroZero()
         {
             await _bannerService.Criar(_banner);
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings); controller.ControllerContext = new ControllerContext();
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object); controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await Assert.ThrowsAsync<AppException>(() => controller.GetById(0));
         }
 
         [Fact]
-        public async void CriarSucesso()
+        public async void GetByAreaSucesso()
         {
-            var controller = new BannerController(_bannerService, _mapper, _appSettings);
+            await _bannerService.Criar(_banner);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            IActionResult result = await controller.Post(_bannerCreateModel);
-            Assert.IsType<OkResult>(result);
+            IActionResult result = await controller.GetByArea("home");
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async void GetByAreaSucessoComImagem()
+        {
+            Banner bannerComImagem = _banner;
+            bannerComImagem.CaminhoDesktop = "/Src/Img/Banner/cerebro.jpg";
+            bannerComImagem.CaminhoMobile = "/Src/Img/Banner/cerebro.jpg";
+            await _bannerService.Criar(bannerComImagem);
+
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetByArea("home");
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async void GetByAreaErro()
+        {
+            await _bannerService.Criar(_banner);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.GetByArea(null);
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async void CriarSucesso()
+        {
+            var controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            IActionResult result = await controller.Post(_bannerCreateModel, "CarePlus");
+            Assert.IsType<OkObjectResult>(result);
         }
 
         [Fact]
         public async void CriarSucessoDiretorioNovo()
         {
-            _appSettings.Value.PathToSave += new Guid() + "\\";
-
-            if (Directory.Exists(_appSettings.Value.PathToSave))
-                Directory.Delete(_appSettings.Value.PathToSave, true);
-
-            _appSettings.Value.PathToSaveMobile += new Guid() + "\\";
-
-            if (Directory.Exists(_appSettings.Value.PathToSaveMobile))
-                Directory.Delete(_appSettings.Value.PathToSaveMobile, true);
-
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            IActionResult result = await controller.Post(_bannerCreateModel);
-            Assert.IsType<OkResult>(result);
+            IActionResult result = await controller.Post(_bannerCreateModel, "CarePlus");
+            Assert.IsType<OkObjectResult>(result);
         }
 
         [Fact]
@@ -240,104 +331,124 @@ namespace CarePlusAPI.Tests.Controllers
                     .Options;
             var bannerService = new BannerService(new DataContext(dbOptions));
 
-            BannerController controller = new BannerController(bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            IActionResult result = await controller.Post(_bannerCreateModel);
+            IActionResult result = await controller.Post(_bannerCreateModel, "CarePlus");
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
         public async void CriarErroNulo()
         {
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            await Assert.ThrowsAsync<AppException>(() => controller.Post(null));
+            await Assert.ThrowsAsync<AppException>(() => controller.Post(null, "CarePlus"));
         }
 
         [Fact]
         public async void AtualizarSucesso()
         {
-            var c = new BannerController(_bannerService, _mapper, _appSettings);
+            var c = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
 
-            await c.Post(_bannerCreateModel);
+            await c.Post(_bannerCreateModel, "CarePlus");
 
             using (DataContext context = new DataContext(_dbOptions))
             {
                 BannerService service = new BannerService(context);
-                BannerController controller = new BannerController(service, _mapper, _appSettings);
+                BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-                IActionResult result = await controller.Put(_bannerUpdateModel);
-                Assert.IsType<OkResult>(result);
+                BannerUpdateModel bannerToUpdate = _bannerUpdateModel;
+                bannerToUpdate.Ativo = '0';
+                IActionResult result = await controller.Put(bannerToUpdate);
+                Assert.IsType<OkObjectResult>(result);
+            }
+        }
+
+        [Fact]
+        public async void AtualizarSucessoBannerInativo()
+        {
+            var c = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            c.ControllerContext = new ControllerContext();
+            c.ControllerContext.HttpContext = new DefaultHttpContext();
+            c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+
+            BannerCreateModel bannerToCreate = _bannerCreateModel;
+            bannerToCreate.Ativo = '0';
+            await c.Post(_bannerCreateModel, "CarePlus");
+
+            using (DataContext context = new DataContext(_dbOptions))
+            {
+                BannerService service = new BannerService(context);
+                BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+                BannerUpdateModel bannerToUpdate = _bannerUpdateModel;
+                bannerToUpdate.Ativo = '1';
+                IActionResult result = await controller.Put(bannerToUpdate);
+                Assert.IsType<OkObjectResult>(result);
             }
         }
 
         [Fact]
         public async void AtualizarSucessoNovoDiretorio()
         {
-            _appSettings.Value.PathToSave += new Guid() + "\\";
 
-            if (Directory.Exists(_appSettings.Value.PathToSave))
-                Directory.Delete(_appSettings.Value.PathToSave, true);
-
-            _appSettings.Value.PathToSave += new Guid() + "\\";
-
-            if (Directory.Exists(_appSettings.Value.PathToSave))
-                Directory.Delete(_appSettings.Value.PathToSave, true);
-
-            var c = new BannerController(_bannerService, _mapper, _appSettings);
+            var c = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            await c.Post(_bannerCreateModel);
+
+            await c.Post(_bannerCreateModel, "CarePlus");
 
             using (DataContext context = new DataContext(_dbOptions))
             {
                 BannerService service = new BannerService(context);
-                BannerController controller = new BannerController(service, _mapper, _appSettings);
+                BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 IActionResult result = await controller.Put(_bannerUpdateModel);
-                Assert.IsType<OkResult>(result);
+                Assert.IsType<OkObjectResult>(result);
             }
         }
 
         [Fact]
         public async void AtualizarSucessoArquivoNulo()
         {
-            var c = new BannerController(_bannerService, _mapper, _appSettings);
+            var c = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            await c.Post(_bannerCreateModel);
+            await c.Post(_bannerCreateModel, "CarePlus");
 
             using (DataContext context = new DataContext(_dbOptions))
             {
                 BannerService service = new BannerService(context);
-                BannerController controller = new BannerController(service, _mapper, _appSettings);
+                BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
                 _bannerUpdateModel.Arquivo = null;
                 _bannerUpdateModel.ArquivoMobile = null;
                 IActionResult result = await controller.Put(_bannerUpdateModel);
-                Assert.IsType<OkResult>(result);
+                Assert.IsType<OkObjectResult>(result);
             }
         }
 
         [Fact]
         public async void AtualizarErro()
         {
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -348,23 +459,121 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarErroNulo()
         {
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await Assert.ThrowsAsync<AppException>(() => controller.Put(null));
         }
 
+
         [Fact]
-        public async void ExcluirSucesso()
+        public async void AtualizarOrdem()
         {
-            var c = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController c = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            await c.Post(_bannerCreateModel);
 
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            await c.Post(_bannerCreateModel, "CarePlus");
+            await c.Post(_bannerCreateModel, "CarePlus");
+
+            using (DataContext context = new DataContext(_dbOptions))
+            {
+
+                BannerService service = new BannerService(context);
+                BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
+                controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+
+                AreaUpdateOrder updateOrderModel = new AreaUpdateOrder()
+                {
+                    Area = new BannerUpdateOrder()
+                    {
+                        AreaName = "home",
+                        Banners = new List<BannerOrder>()
+                        {
+                            new BannerOrder()
+                            {
+                                BannerId = 1,
+                                Ordem = 1,
+                                Ativo = '1'
+                            },
+                            new BannerOrder()
+                            {
+                                BannerId = 2,
+                                Ordem = 0,
+                                Ativo = '1'
+                            }
+                        }
+                    },
+                };
+
+                IActionResult result = await controller.AtualizarOrdem(updateOrderModel, "CarePlus");
+                Assert.IsType<OkObjectResult>(result);
+            }
+        }
+
+        [Fact]
+        public async void AtualizarOrdemErroNulo()
+        {
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+
+            IActionResult result = await controller.AtualizarOrdem(null, "CarePlus");
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async void DuplicarSucesso()
+        {
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+
+            await controller.Post(_bannerCreateModel, "CarePlus");
+            IActionResult result = await controller.Duplicate(1, "CarePlus");
+            Assert.IsType<OkResult>(result);
+        }
+
+        [Fact]
+        public async void DuplicarErroZero()
+        {
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+
+            IActionResult result = await controller.Duplicate(0, "CarePlus");
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async void DuplicarErroNotFound()
+        {
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+
+            IActionResult result = await controller.Duplicate(2, "CarePlus");
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async void ExcluirSucesso()
+        {
+            var c = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
+            c.ControllerContext = new ControllerContext();
+            c.ControllerContext.HttpContext = new DefaultHttpContext();
+            c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            await c.Post(_bannerCreateModel, "CarePlus");
+
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -375,20 +584,20 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ExcluirErro()
         {
-            await _bannerService.Criar(_banner);
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            await Assert.ThrowsAsync<AppException>(() => controller.Delete(999));
+            IActionResult result = await controller.Delete(1);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
-       
+
 
         [Fact]
         public async void ExcluirErroZero()
         {
             await _bannerService.Criar(_banner);
-            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings);
+            BannerController controller = new BannerController(_bannerService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";

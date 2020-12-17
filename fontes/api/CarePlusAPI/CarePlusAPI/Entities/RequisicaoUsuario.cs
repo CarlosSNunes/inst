@@ -5,17 +5,15 @@ using System.Diagnostics.CodeAnalysis;
 namespace CarePlusAPI.Entities
 {
     [ExcludeFromCodeCoverage]
-    [Table("TB_REQUISISAO_USUARIO")]
+    [Table("TB_REQUISICAO_USUARIO")]
     public class RequisicaoUsuario
     {
         [Column("ID")]
         public int Id { get; set; }
-        [Column("USUARIO_NOME")]
-        public string UsuarioNome { get; set; }
-        [Column("USUARIO_EMAIL")]
-        public string UsuarioEmail { get; set; }
-        [Column("USUARIO_SENHA")]
-        public string UsuarioSenha { get; set; }
+        [Column("NOME")]
+        public string Nome { get; set; }
+        [Column("NOME_USUARIO")]
+        public string NomeUsuario { get; set; }
         [Column("TOKEN")]
         public string Token { get; set; }
         [Column("SUCESSO")]

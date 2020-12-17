@@ -2,13 +2,15 @@ import { CareplusPerfilCreateModel } from '../careplus-perfil/careplus-perfil-cr
 
 
 export class UsuarioCreateModel {
-  public constructor(init?: Partial<UsuarioCreateModel>) {
-    Object.assign(this, init);
-    this.usuarioPerfil = [];
-    init.usuarioPerfil.forEach(user => this.usuarioPerfil.push(new CareplusPerfilCreateModel(user)));
-  }
-  nome: string;
-  email: string;
-  senha: string;
-  usuarioPerfil: CareplusPerfilCreateModel[];
+    public constructor(init?: Partial<UsuarioCreateModel>) {
+        Object.assign(this, init);
+        this.usuarioPerfil = [];
+        if (init.usuarioPerfil) {
+            init.usuarioPerfil.forEach(user => this.usuarioPerfil.push(new CareplusPerfilCreateModel(user)));
+        }
+    }
+    nome: string;
+    nomeUsuario: string;
+    senha: string;
+    usuarioPerfil: CareplusPerfilCreateModel[];
 }

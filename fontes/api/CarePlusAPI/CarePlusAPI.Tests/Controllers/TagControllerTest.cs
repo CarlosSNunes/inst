@@ -14,6 +14,7 @@ using CarePlusAPI.Models.Tag;
 using CarePlusAPI.Services;
 using CarePlusAPI.Controllers;
 using Microsoft.AspNetCore.Http;
+using Moq;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -24,6 +25,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly IOptions<AppSettings> AppSettings;
         private readonly DbContextOptions<DataContext> DbOptions;
         private readonly SqliteConnection Connection;
+        private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly IConfiguration Configuration;
         private readonly List<Tag> Tags = new List<Tag>
         {
@@ -65,6 +67,8 @@ namespace CarePlusAPI.Tests.Controllers
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
 
+            _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
+
             DbOptions = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(Connection)
                     .Options;
@@ -97,7 +101,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public void Construtor()
         {
-            var result = new TagController(TagService, Mapper, AppSettings);
+            var result = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             Assert.NotNull(result);
         }
 
@@ -105,7 +109,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetSucesso()
         {
             await TagService.Criar(Tags);
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -119,7 +123,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetByIdSucesso()
         {
             await TagService.Criar(Tags);
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -131,7 +135,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetByIdErro()
         {
             await TagService.Criar(Tags);
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -143,7 +147,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetByIdErroZero()
         {
             await TagService.Criar(Tags);
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -154,7 +158,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PostSucesso()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -165,7 +169,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PostErroNulo()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -176,7 +180,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PostErroVazio()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -192,7 +196,7 @@ namespace CarePlusAPI.Tests.Controllers
             using (DataContext context = new DataContext(DbOptions))
             {
                 TagService service = new TagService(context);
-                TagController controller = new TagController(service, Mapper, AppSettings);
+                TagController controller = new TagController(service, Mapper, AppSettings, _seriLogMock.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -204,7 +208,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PutErroNulo()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -215,7 +219,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void PutErroVazio()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -227,7 +231,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void DeleteSucesso()
         {
             await TagService.Criar(Tags);
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -238,7 +242,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void DeleteErro()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings); 
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object); 
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -249,7 +253,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void DeleteErroZero()
         {
-            TagController controller = new TagController(TagService, Mapper, AppSettings);
+            TagController controller = new TagController(TagService, Mapper, AppSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";

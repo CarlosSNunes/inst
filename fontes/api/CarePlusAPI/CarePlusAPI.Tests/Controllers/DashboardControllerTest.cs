@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using Moq;
 
 namespace CarePlusAPI.Tests.Controllers
 {
@@ -26,6 +27,8 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly DbContextOptions<DataContext> _dbOptions;
         private readonly SqliteConnection _connection;
         private readonly DashboardService _dashboardService;
+        private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
+        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
         private readonly IOptions<AppSettings> _appSettings;
         private readonly IConfiguration _configuration;
         private readonly Post _post = new Post
@@ -86,6 +89,10 @@ namespace CarePlusAPI.Tests.Controllers
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
 
+            _getCipherMock.Setup(s => s.Decrypt("aaaa")).Returns("aaaaa");
+
+            _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
+
             _dbOptions = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(_connection)
                     .Options;
@@ -130,7 +137,7 @@ namespace CarePlusAPI.Tests.Controllers
 
             _postService = new PostService(new DataContext(_dbOptions));
 
-            UsuarioService = new UsuarioService(new DataContext(_dbOptions), _appSettings);
+            UsuarioService = new UsuarioService(new DataContext(_dbOptions), _appSettings, _getCipherMock.Object);
 
             _bannerService = new BannerService(new DataContext(_dbOptions));
         }
@@ -139,9 +146,25 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListarPostsMaisLidosSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
+            controller.ControllerContext = new ControllerContext();
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
+            var result = await controller.Get();
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async void ListarPostsMaisLidosSemImagemSucesso()
+        {
+            Post postSemImagem = _post;
+            postSemImagem.CaminhoImagem = null;
+            postSemImagem.NomeImagem = null;
+            await _postService.Criar(postSemImagem, null);
+
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -152,7 +175,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListarPostsMaisLidosErro()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -164,7 +187,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListarPostsMaisLidosErroBadRequest()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -177,7 +200,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _bannerService.Criar(_banner);
 
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -188,7 +211,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void TotalBannersAtivosErro()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -200,9 +223,9 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListaTotalPostsSucesso()
         {
-            await _postService.Criar(_post);
+            await _postService.Criar(_post, null);
 
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -213,7 +236,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListaTotalPostsErro()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -226,7 +249,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ListaTotalUsuariosSucesso()
         {
             await UsuarioService.Criar(Usuario, "123");
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -239,7 +262,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListaTotalUsuariosErro()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -252,7 +275,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void TotalBannersAtivosErroBadRequest()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -264,7 +287,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void TotalPostsBlogErroBadRequest()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -275,7 +298,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void TotalUsuariosErroBadRequest()
         {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings);
+            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";

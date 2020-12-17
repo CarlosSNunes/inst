@@ -13,7 +13,7 @@ export class UsuarioUpdateModel {
   }
   id: string;
   nome: string;
-  email: string;
+  nomeUsuario: string;
   dataCadastro: Date;
   SenhaHash: string;
   SenhaSalt: string;

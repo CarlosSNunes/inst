@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace CarePlusAPI.Helpers
 {
+    [ExcludeFromCodeCoverage]
     public class UniqueHash
     {
         public static string ReturnUniqueValue(DateTime date, string ID)

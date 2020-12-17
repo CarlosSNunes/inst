@@ -10,6 +10,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Moq;
 using System;
 using System.IO;
 using Xunit;
@@ -24,6 +25,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly DbContextOptions<DataContext> _dbOptions;
         private readonly SqliteConnection _connection;
         private readonly IConfiguration _configuration;
+        private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly Newsletter _newsletter = new Newsletter
         {
             Id = 1,
@@ -51,6 +53,8 @@ namespace CarePlusAPI.Tests.Controllers
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
+
+            _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
             _dbOptions = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(_connection)
@@ -84,7 +88,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public void ConstrutorSucesso()
         {
-            var controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            var controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -95,7 +99,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ListarSucesso()
         {
             await _newsletterService.Criar(_newsletter);
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -106,7 +110,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ListarErro()
         {
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -118,7 +122,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarSucesso()
         {
             await _newsletterService.Criar(_newsletter);
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -130,7 +134,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarErro()
         {
             await _newsletterService.Criar(_newsletter);
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -142,7 +146,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void BuscarErroZero()
         {
             await _newsletterService.Criar(_newsletter);
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -153,7 +157,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void CriarSucesso()
         {
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -171,7 +175,7 @@ namespace CarePlusAPI.Tests.Controllers
                     .Options;
             var newsletterService = new NewsletterService(new DataContext(dbOptions));
 
-            NewsletterController controller = new NewsletterController(newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -182,7 +186,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void CriarErroNulo()
         {
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -193,7 +197,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarSucesso()
         {
-            var c = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            var c = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -202,7 +206,7 @@ namespace CarePlusAPI.Tests.Controllers
             using (DataContext context = new DataContext(_dbOptions))
             {
                 NewsletterService service = new NewsletterService(context);
-                NewsletterController controller = new NewsletterController(service, _mapper, _appSettings);
+                NewsletterController controller = new NewsletterController(service, _mapper, _appSettings, _seriLogMock.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -214,7 +218,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarErro()
         {
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -225,7 +229,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void AtualizarErroNulo()
         {
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -236,13 +240,13 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ExcluirSucesso()
         {
-            var c = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            var c = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             c.ControllerContext = new ControllerContext();
             c.ControllerContext.HttpContext = new DefaultHttpContext();
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_newsletterCreateModel);
 
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -254,7 +258,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirErro()
         {
             await _newsletterService.Criar(_newsletter);
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -266,7 +270,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void ExcluirErroZero()
         {
             await _newsletterService.Criar(_newsletter);
-            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings);
+            NewsletterController controller = new NewsletterController(_newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";

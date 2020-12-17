@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Models.Banner
 {
+    [ExcludeFromCodeCoverage]
     public class AreaUpdateOrder
     {
         [Required]

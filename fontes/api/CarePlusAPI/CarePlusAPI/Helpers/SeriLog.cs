@@ -8,8 +8,13 @@ using System.IO;
 
 namespace CarePlusAPI.Helpers
 {
+    public interface ISeriLog
+    {
+        void Log(EnumLogType logtype, object message, string origem);
+    }
+
     [ExcludeFromCodeCoverage]
-    public class SeriLog
+    public class SeriLog: ISeriLog
     {
         private readonly AppSettings _appSettings;
 
@@ -18,21 +23,25 @@ namespace CarePlusAPI.Helpers
             _appSettings = appSettings.Value;
         }
 
+        public SeriLog()
+        {
+        }
 
-        public void Log(EnumLogType logtype, object message, string origem)
+
+        public virtual void Log(EnumLogType logtype, object message, string origem)
         {
             var tag = "";
-
+            GetCipher cipher = new GetCipher();
             switch (origem)
             {
                 case "institucional":
-                    tag = GetCipher.Decrypt(_appSettings.SeqTokenInst);
+                    tag = cipher.Decrypt(_appSettings.SeqTokenInst);
                     break;
                 case "instadministrativo":
-                    tag = GetCipher.Decrypt(_appSettings.SeqTokenAdmin);
+                    tag = cipher.Decrypt(_appSettings.SeqTokenAdmin);
                     break;
                 default:
-                    tag = GetCipher.Decrypt(_appSettings.SeqTokenAPI);
+                    tag = cipher.Decrypt(_appSettings.SeqTokenAPI);
                     break;
             }
 

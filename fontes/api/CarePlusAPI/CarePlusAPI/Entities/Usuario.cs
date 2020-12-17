@@ -13,8 +13,8 @@ namespace CarePlusAPI.Entities
         public int Id { get; set; }
         [Column("NOME")]
         public string Nome { get; set; }
-        [Column("EMAIL")]
-        public string Email { get; set; }
+        [Column("NOME_USUARIO")]
+        public string NomeUsuario { get; set; }
         [Column("DATA_CADASTRO")]
         public DateTime DataCadastro { get; set; }
         [Column("SENHA_HASH")]
@@ -23,6 +23,8 @@ namespace CarePlusAPI.Entities
         public byte[] SenhaSalt { get; set; }
         [Column("ATIVO")]
         public char Ativo { get; set; }
+        [Column("USUARIO_ROOT")]
+        public char UsuarioRoot { get; set; }
 
         public virtual ICollection<UsuarioPerfil> UsuarioPerfil { get; set; }
 

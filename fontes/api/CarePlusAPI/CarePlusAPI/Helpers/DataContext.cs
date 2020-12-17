@@ -31,7 +31,8 @@ namespace CarePlusAPI.Helpers
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string decryptedConnection = GetCipher.Decrypt(Startup.ConnectionString);
+                GetCipher cipher = new GetCipher();
+                string decryptedConnection = cipher.Decrypt(Startup.ConnectionString);
 
                 optionsBuilder.UseOracle(decryptedConnection);
             }
@@ -46,6 +47,10 @@ namespace CarePlusAPI.Helpers
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("APP_INSTITUCIONAL");
+
+            modelBuilder.Entity<Usuario>()
+                .Property(u => u.UsuarioRoot)
+                .HasDefaultValue('0');
 
             modelBuilder.Entity<UsuarioPerfil>()
                 .HasOne(p => p.Usuario)

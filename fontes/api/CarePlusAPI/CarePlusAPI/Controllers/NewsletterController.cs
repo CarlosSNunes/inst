@@ -19,7 +19,7 @@ namespace CarePlusAPI.Controllers
         private readonly INewsletterService _newsletterService;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        private readonly SeriLog _seriLog;
+        private readonly ISeriLog _seriLog;
 
         ///<summary>
         ///
@@ -33,13 +33,14 @@ namespace CarePlusAPI.Controllers
         public NewsletterController(
             INewsletterService newsletterService,
             IMapper mapper,
-            IOptions<AppSettings> appSettings
+            IOptions<AppSettings> appSettings,
+            ISeriLog seriLog
         )
         {
             _newsletterService = newsletterService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-            _seriLog = new SeriLog(appSettings);
+            _seriLog = seriLog;
         }
 
         ///<summary>
