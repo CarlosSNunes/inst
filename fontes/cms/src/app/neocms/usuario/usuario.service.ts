@@ -6,6 +6,7 @@ import { UsuarioUpdateModel } from './../../../models/usuario/usuario-update.mod
 import { LoginModel } from '../../../models/login.model';
 import { environment } from 'src/environments/environment';
 import { ClassHelper } from 'src/utils/class-helper';
+import { CareplusPerfilModel } from 'src/models/careplus-perfil/careplus-perfil.model';
 
 @Injectable({
     providedIn: 'root'
@@ -25,6 +26,9 @@ export class UsuarioService {
      */
     getAll() {
         return this.http.get<UsuarioModel[]>(this.API_ENDPOINT);
+    }
+    getPending(offset, limit) {
+        return this.http.get<UsuarioModel[]>(`${this.API_ENDPOINT}/requisicoes-pendentes/${offset}/${limit}`);
     }
     /**
      * @method GETBYID() - Método retorna usuários por id.
@@ -79,7 +83,7 @@ export class UsuarioService {
      * @memberOf UsuarioService
      */
     put(usuario: UsuarioUpdateModel) {
-        return this.http.put(this.API_ENDPOINT, usuario);
+        return this.http.put(this.API_ENDPOINT + `/${usuario.id}`, usuario);
     }
     /**
      * @method POST() - Método para gerar requisição de acesso ao sistema
@@ -99,4 +103,18 @@ export class UsuarioService {
         return this.http.delete(this.API_ENDPOINT + '/' + id);
     }
 
+    getPermissions() {
+        return this.http.get<CareplusPerfilModel[]>(environment.API + '/Perfil');
+    }
+    deactivate(name) {
+        return this.http.put(`${this.API_ENDPOINT}/inativar-usuario`, { nomeUsuario: name })
+    }
+    approve(token){
+        return this.http.get(`${this.API_ENDPOINT}/valida-requisicao/${token}`)
+
+    }
+    reprove(token){
+        return this.http.delete(`${this.API_ENDPOINT}/remove-requisicao/${token}`)
+
+    }
 }
