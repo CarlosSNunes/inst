@@ -392,15 +392,14 @@ namespace CarePlusAPI.Services
                     IdClassificacao = model.IdClassificacao,
                     Mensagem = model.Mensagem,
                     Nome = model.Nome,
-                    //TODO Aguardar resposta do cliente referente ao campo CPF
-                    //CPF = model.CPF,
+                    CPF = model.CPF,
                     ProtocoloAtendimento = model.ProtocoloAtendimento,
                     Anexo = anexoBytes
                 };
 
                 var result = await _partnerServiceClient.GravarOuvidoriaAsync(wSFiltro);
 
-                // Adicionando validação para erro com status "200" do WS cliente 
+                // Adicionando validação para erro com status "200" do WS cliente
                 if (result.Sucesso == false)
                 {
                     throw new Exception(result.Erros);

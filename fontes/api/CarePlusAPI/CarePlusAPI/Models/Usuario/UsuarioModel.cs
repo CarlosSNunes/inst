@@ -10,7 +10,8 @@ namespace CarePlusAPI.Models.Usuario
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Email { get; set; }
+        public string NomeUsuario { get; set; }
+        public char Ativo { get; set; }
         public List<PerfilModel> UsuarioPerfil { get; set; }
     }
 }

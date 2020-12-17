@@ -12,8 +12,8 @@ namespace CarePlusAPI.Entities
         public int Id { get; set; }
         [Column("ID_REQUISITANTE")]
         public int Id_Requisitante { get; set; }
-        [Column("EMAIL")]
-        public string Email { get; set; }
+        [Column("NOME_USUARIO")]
+        public string NomeUsuario { get; set; }
         [Column("DATA_CADASTRO")]
         public DateTime DataCadastro { get; set; }
     }

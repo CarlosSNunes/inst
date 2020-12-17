@@ -70,27 +70,65 @@ namespace CarePlusAPI.Controllers
             try
             {
 
-
                 if (model == null)
                     throw new AppException("O usuário não pode estar nulo");
 
-                //if (!_userService.ValidaUsuario(model.Email, model.Senha).Result)
-                //{
-                //    throw new AppException("O usuário não foi encontrado");
-                //}
+                Usuario usuario = await _userService.BuscarPorNomeUsuario(model.NomeUsuario);
 
-                Usuario usuario = await _userService.Autenticar(model.Email, model.Senha);
+                if (usuario != null)
+                {
+                    if (usuario.Ativo == '0')
+                    {
+                        return new UnauthorizedObjectResult(new
+                        {
+                            message = "Acesso negado."
+                        });
+                    }
 
-                //if (usuario == null)
-                //{
-                //    throw new AppException(Newtonsoft.Json.JsonConvert.SerializeObject(new
-                //    {
-                //        Mensagem = "Usuario não encontrado na base de dados. Por favor complete o cadastro.",
-                //        Dados = model
-                //    }));
-                //}
+                    if (usuario.UsuarioRoot == '1')
+                    {
+                        await _userService.Autenticar(model.NomeUsuario, model.Senha);
 
-                JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+                    }
+                    else if (usuario.UsuarioRoot == '0')
+                    {
+                        if (!_userService.ValidaUsuario(model.NomeUsuario, model.Senha).Result)
+                        {
+                            return new NotFoundObjectResult(new
+                                {
+                                    message = "Usuário e/ou senha incorretos"
+                                }
+                            );
+                        }
+                    }
+                }
+                else if (usuario == null)
+                {
+                    bool userExistsOnAd = _userService.ValidaUsuario(model.NomeUsuario, model.Senha).Result;
+                    bool requisiçãoUsuario = await _userService.BuscarRequisicoesCadastroPorNomeUsuario(model.NomeUsuario);
+                    if (userExistsOnAd && !requisiçãoUsuario)
+                    {
+                        return Accepted(new
+                        {
+                            code = 1,
+                            message = "Primeiro acesso? Solicite seu acesso ao administrador(a) do sistema."
+                        });
+                    } else if (userExistsOnAd && requisiçãoUsuario) {
+                        return Accepted(new
+                        {
+                            code = 2,
+                            message = "Acesso já solicitado, aguardando aprovação do administrador(a)."
+                        });
+                    } else
+                    {
+                        return new NotFoundObjectResult(new
+                        {
+                            message = "Usuário e/ou senha incorretos"
+                        });
+                    }
+                }
+
+                    JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
                 string secret = _getCipher.Decrypt(_appSettings.Secret);
                 byte[] key = Encoding.ASCII.GetBytes(secret);
                 SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
@@ -133,7 +171,7 @@ namespace CarePlusAPI.Controllers
         ///</summary>
         ///<param name="model">Model de criação de um usuário</param>
         [HttpPost("gera-requisicao")]
-        [Authorize(Roles = "Administrador")]
+        [AllowAnonymous]
         public async Task<IActionResult> GenerateUserRequisition(UsuarioCreateModel model)
         {
             string origem = Request.Headers["Custom"];
@@ -184,8 +222,6 @@ namespace CarePlusAPI.Controllers
                 Usuario usuario = _mapper.Map<Usuario>(model);
 
                 await _userService.Criar(usuario, model.Senha);
-
-                //await _userService.EnviarEmailConfirmacao(usuario);
 
                 return Ok();
             }
@@ -352,15 +388,9 @@ namespace CarePlusAPI.Controllers
             {
                 var requisicaoValidada = _userService.ValidateTokenRequisition(token).Result;
 
-                Usuario novoUsuario = new Usuario()
-                {
-                    Nome = requisicaoValidada.UsuarioNome,
-                    Email = requisicaoValidada.UsuarioEmail
-                };
-
-                await _userService.Criar(novoUsuario, requisicaoValidada.UsuarioSenha);
-
-                return Ok("Cadastro com sucesso!");
+                return Ok(new {
+                    message = "Cadastro com sucesso!"
+                });
             }
             catch (Exception ex)
             {
@@ -428,13 +458,13 @@ namespace CarePlusAPI.Controllers
 
         [HttpPost("inativar-usuario")]
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> InativarUsuario([FromBody] string userEmail)
+        public async Task<IActionResult> InativarUsuario([FromBody] string nomeUsuario)
         {
             string origem = Request.Headers["Custom"];
             try
             {                
                 int userId = int.Parse(this.User.Claims.First(i => i.Type == "UserId").Value);
-                await _userService.InativarUsuario(userEmail, userId);
+                await _userService.InativarUsuario(nomeUsuario, userId);
                 return Ok();
             }
             catch (Exception ex)

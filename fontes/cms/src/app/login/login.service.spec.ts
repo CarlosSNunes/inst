@@ -7,7 +7,7 @@ import { LoginModel } from 'src/models/login.model';
 describe('LoginService', () => {
   let httpTestingController: HttpTestingController;
   let service: LoginService;
-  const usuario: LoginModel = new LoginModel({ email: 'email@email.com.br', senha: '123456' });
+  const usuario: LoginModel = new LoginModel({ nomeUsuario: 'test.careplus', senha: '123456' });
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -27,18 +27,5 @@ describe('LoginService', () => {
     const result = service.login(usuario);
     expect(result).not.toBeNull();
     done();
-  });
-
-  it('login error', () => {
-    service.login(usuario).subscribe(
-      data => fail('Should have failed with 404 error'),
-      (error: HttpErrorResponse) => {
-        expect(error).not.toBeNull();
-      }
-    );
-
-    const req = httpTestingController.expectOne('http://localhost:8081/Usuario/Autenticar');
-
-    req.flush('404 error', { status: 404, statusText: 'Not Found' });
   });
 });

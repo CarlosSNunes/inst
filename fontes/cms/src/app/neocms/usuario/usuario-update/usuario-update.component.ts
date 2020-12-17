@@ -8,15 +8,10 @@ import { CareplusPerfilService } from '../../careplus-perfil/careplus-perfil.ser
 import { UsuarioService } from '../usuario.service';
 import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
 import { FormControlError } from './../../../../../src/utils/form-control-error';
-import { UsuarioCreateModel } from '../../../../models/usuario/usuario-create.model';
-import { NgSelectConfig } from '@ng-select/ng-select';
-import { ɵs } from '@ng-select/ng-select';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { UsuarioUpdateModel } from 'src/models/usuario/usuario-update.model';
-import { stream } from 'xlsx/types';
 import { UsuarioModel } from 'src/models/usuario/usuario.model';
 import { ToastrService } from 'ngx-toastr';
-import { modalConfigDefaults } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
   selector: 'app-usuario-update',

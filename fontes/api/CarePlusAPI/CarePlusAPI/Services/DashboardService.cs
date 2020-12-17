@@ -116,7 +116,7 @@ namespace CarePlusAPI.Services
             try
             {
                 IQueryable<Usuario> query = Db.Set<Usuario>().AsNoTracking()
-                                                    .Where(p => !p.Email.Equals(null));
+                                                    .Where(p => !p.NomeUsuario.Equals(null));
 
 
 

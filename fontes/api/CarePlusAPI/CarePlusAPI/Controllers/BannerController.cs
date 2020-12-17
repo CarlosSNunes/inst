@@ -405,7 +405,7 @@ namespace CarePlusAPI.Controllers
                         fileNameMobile = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
                         renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
                         System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
-                    } 
+                    }
                     fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
                     fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
                     directoryNameDesk = $"{_appSettings.VirtualPath}/Banner/{fileName}";

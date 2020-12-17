@@ -210,26 +210,39 @@ namespace CarePlusAPI
         {
             try
             {
-                Perfil perfil = new Perfil
+                // Lista de perfis
+                List<Perfil> profiles = new List<Perfil>()
                 {
-                    Descricao = "Administrador",
-                    Prioridade = 1
+                    new Perfil {
+                        Descricao = "Administrador",
+                        Prioridade = 1
+                    },
+                    new Perfil {
+                        Descricao = "Editor",
+                        Prioridade = 2
+                    },
+                    new Perfil {
+                        Descricao = "Visualizador",
+                        Prioridade = 3
+                    },
                 };
 
-                Perfil foundProfile = context.Set<Perfil>().AsNoTracking().Where(p => p.Descricao == "Administrador").FirstOrDefault();
-
-                if (foundProfile == null)
+                // Criação de perfis
+                foreach (var profile in profiles)
                 {
+                    Perfil foundProfile = context.Set<Perfil>().AsNoTracking().Where(p => p.Descricao == profile.Descricao).FirstOrDefault();
 
-                    context.Set<Perfil>().Add(perfil);
+                    if (foundProfile == null)
+                    {
 
-                    context.SaveChanges();
-                    Console.Write("PerfilCriado");
+                        context.Set<Perfil>().Add(profile);
+
+                        context.SaveChanges();
+                        Console.Write("PerfilCriado");
+                    }
                 }
-                else
-                {
-                    perfil = foundProfile;
-                }
+
+                Perfil admProfile = context.Set<Perfil>().AsNoTracking().Where(p => p.Descricao == "Administrador").FirstOrDefault();
 
                 string senha = "C@rePlusAdm!";
 
@@ -239,22 +252,24 @@ namespace CarePlusAPI
 
                 usuarioPerfis.Add(new UsuarioPerfil
                 {
-                    PerfilId = perfil.Id,
+                    PerfilId = admProfile.Id,
 
                 });
 
                 Usuario usuario = new Usuario
                 {
                     Nome = "Administrador",
-                    Email = "admin@admin.com",
+                    NomeUsuario = "root.careplus",
                     SenhaHash = senhaHash,
                     SenhaSalt = senhaSalt,
                     Ativo = '1',
-                    UsuarioPerfil = usuarioPerfis
+                    UsuarioPerfil = usuarioPerfis,
+                    UsuarioRoot = '1'
                 };
 
-                Usuario foundUser = context.Set<Usuario>().AsNoTracking().Where(u => u.Email == usuario.Email).FirstOrDefault();
+                Usuario foundUser = context.Set<Usuario>().AsNoTracking().Where(u => u.NomeUsuario == usuario.NomeUsuario).FirstOrDefault();
 
+                // Criação de usuario root
                 if (foundUser == null)
                 {
                     context.Set<Usuario>().Add(usuario);

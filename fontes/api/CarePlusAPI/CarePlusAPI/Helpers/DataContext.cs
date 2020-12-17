@@ -48,6 +48,10 @@ namespace CarePlusAPI.Helpers
         {
             modelBuilder.HasDefaultSchema("APP_INSTITUCIONAL");
 
+            modelBuilder.Entity<Usuario>()
+                .Property(u => u.UsuarioRoot)
+                .HasDefaultValue('0');
+
             modelBuilder.Entity<UsuarioPerfil>()
                 .HasOne(p => p.Usuario)
                 .WithMany(x => x.UsuarioPerfil)

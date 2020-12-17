@@ -18,6 +18,7 @@ namespace CarePlusAPI.Services
         Task<Usuario> Autenticar(string email, string senha);
         Task<List<Usuario>> Listar();
         Task<Usuario> Buscar(int id);
+        Task<Usuario> BuscarPorNomeUsuario(string id);
         bool Validar(int id);
         Task<Usuario> Criar(Usuario model, string senha);
         Task Atualizar(Usuario model, string senha = null);
@@ -29,9 +30,10 @@ namespace CarePlusAPI.Services
         Task<string> SalvarRequisicao(UsuarioCreateModel usuarioAutenticadoModel);
         Task<RequisicaoUsuario> ValidateTokenRequisition(string token);
         Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastro();
+        Task<bool> BuscarRequisicoesCadastroPorNomeUsuario(string nomeUsuario);
         Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastroPendente();
         Task<IList<LogUsuarioDesativado>> ListarAcoesDesativacaoUsuarios();
-        Task InativarUsuario(string userEmail, int idUserRequest);
+        Task InativarUsuario(string nomeUsuario, int idUserRequest);
     }
     [ExcludeFromCodeCoverage]
     public class UsuarioService : IUsuarioService
@@ -58,17 +60,17 @@ namespace CarePlusAPI.Services
         ///Esse método serve para autenticar um usuário através do usuário e senha
         ///
         ///</summary>
-        ///<param name="email">Email do usuário</param>
+        ///<param name="nomeUsuario">] Nome de usuário do usuário</param>
         ///<param name="senha">Senha do usuário</param>
-        public async Task<Usuario> Autenticar(string email, string senha)
+        public async Task<Usuario> Autenticar(string nomeUsuario, string senha)
         {
-            if (string.IsNullOrWhiteSpace(email))
-                throw new AppException("O email é de preenchimento obrigatório");
+            if (string.IsNullOrWhiteSpace(nomeUsuario))
+                throw new AppException("O nome de usuário é de preenchimento obrigatório");
 
             if (string.IsNullOrWhiteSpace(senha))
                 throw new AppException("A senha é de preenchimento obrigatório");
 
-            Usuario usuario = await Context.Set<Usuario>().AsNoTracking().Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(x => x.Email == email);
+            Usuario usuario = await Context.Set<Usuario>().AsNoTracking().Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(x => x.NomeUsuario == nomeUsuario);
 
             if (usuario == null)
             {
@@ -108,6 +110,29 @@ namespace CarePlusAPI.Services
                 throw new AppException("Usuario não encontrado");
 
             return usuario;
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para buscar um usuário por nome de usuário.
+        ///
+        ///</summary>
+        ///<param name="nomeUsuario">Nome unico do usuário</param>
+        public async Task<Usuario> BuscarPorNomeUsuario(string nomeUsuario) => await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(u => u.NomeUsuario == nomeUsuario);
+
+        ///<summary>
+        ///
+        ///Esse método serve para buscar uma lista de usuários que pediram requisição ao sistema. 
+        ///
+        ///</summary>        
+        public async Task<bool> BuscarRequisicoesCadastroPorNomeUsuario(string numeUsuario)
+        {
+            RequisicaoUsuario req = await Context.RequisicaoUsuario.Where(ru => ru.NomeUsuario == numeUsuario && ru.Sucesso == '0' && ru.Expirado == '0').FirstOrDefaultAsync();
+
+            if (req == null)
+                return false;
+
+            return true;
         }
 
         ///<summary>
@@ -166,19 +191,40 @@ namespace CarePlusAPI.Services
             if (model == null)
                 throw new AppException("O usuário não pode estar nulo");
 
-            if (string.IsNullOrWhiteSpace(senha))
-                throw new AppException("A senha tem que estar preenchida");
+            if (await Context.Set<Usuario>().AnyAsync(x => x.NomeUsuario == model.NomeUsuario))
+                throw new AppException($"Nome de usuário {model.NomeUsuario} ja utilizado");
 
-            if (await Context.Set<Usuario>().AnyAsync(x => x.Email == model.Email))
-                throw new AppException($"Email {model.Email} ja utilizado");
+            if (model.UsuarioRoot == '1')
+            {
+                CriarSenha(senha, out byte[] senhaHash, out byte[] senhaSalt);
 
-            CriarSenha(senha, out byte[] senhaHash, out byte[] senhaSalt);
+                model.SenhaHash = senhaHash;
+                model.SenhaSalt = senhaSalt;
+            }
 
-            model.SenhaHash = senhaHash;
-            model.SenhaSalt = senhaSalt;
+
             model.Ativo = '1';
 
-            await Context.Set<Usuario>().AddAsync(model);
+            Usuario userToSave = new Usuario{
+                Nome = model.Nome,
+                NomeUsuario = model.NomeUsuario,
+                SenhaHash = model.SenhaHash,
+                SenhaSalt = model.SenhaSalt,
+                Ativo = model.Ativo,
+                UsuarioRoot = model.UsuarioRoot
+            };
+
+            await Context.Set<Usuario>().AddAsync(userToSave);
+
+            await Context.SaveChangesAsync();
+
+            UsuarioPerfil profileToSave = new UsuarioPerfil
+            {
+                PerfilId = model.UsuarioPerfil.FirstOrDefault().PerfilId,
+                UsuarioId = userToSave.Id
+            };
+
+            await Context.Set<UsuarioPerfil>().AddAsync(profileToSave);
 
             await Context.SaveChangesAsync();
 
@@ -202,12 +248,12 @@ namespace CarePlusAPI.Services
             if (usuario == null)
                 throw new AppException("Usuário não encontrado!");
 
-            if (!string.IsNullOrWhiteSpace(model.Email) && model.Email != usuario.Email)
+            if (!string.IsNullOrWhiteSpace(model.NomeUsuario) && model.NomeUsuario != usuario.NomeUsuario)
             {
-                if (await Context.Set<Usuario>().AnyAsync(x => x.Email == model.Email))
-                    throw new AppException($"Email { model.Email } ja utilizado");
+                if (await Context.Set<Usuario>().AnyAsync(x => x.NomeUsuario == model.NomeUsuario))
+                    throw new AppException($"Nome de usuário { model.NomeUsuario } ja utilizado");
 
-                usuario.Email = model.Email;
+                usuario.NomeUsuario = model.NomeUsuario;
             }
 
             if (!string.IsNullOrWhiteSpace(model.Nome))
@@ -317,11 +363,11 @@ namespace CarePlusAPI.Services
                 throw new AppException("O usuário cadastrado está como nulo ou não foi encontrado");
 
             string token = Logar().Result;
-
+            // TODO ver com o gustavo o que deverá ser feito neste caso.
             WSParametroEmail email = new WSParametroEmail()
             {
                 Assunto = "",
-                Para = usuario.Email,
+                Para = usuario.NomeUsuario,
                 CopiaOculta = "rafael.henrique@neotix.com.br",
                 Corpo = $"Bem vindo {usuario.Nome}!!",
                 CodigoTipoEmail = 1,
@@ -389,7 +435,7 @@ namespace CarePlusAPI.Services
 
                 var result = await _partnerServiceClient.ValidarLoginADAsync(loginADOut, 0);
 
-                if (result.CodigoMensagem == 0)
+                if (result.CodigoMensagem != 200)
                 {
                     return false;
                 }
@@ -415,14 +461,32 @@ namespace CarePlusAPI.Services
                     Para = _appSettings.AdministratorEmail,
                     Copia = "",
                     CopiaOculta = "",
-                    Assunto = $"Requisição de Cadastro de Usuario - {usuarioAutenticadoModel.Email}",
-                    Corpo = $"A URL para o novo cadastro é:  http://localhost:9090/Usuario/valida-requisicao/{token}",
-                    CodigoTipoEmail = 0,
+                    Assunto = $"Requisição de Cadastro de Usuario - {usuarioAutenticadoModel.NomeUsuario}",
+                    Corpo = $"A URL para o novo cadastro é:  {_appSettings.CMSUrl}/neocms/usuarios/{token}",
+                    CodigoTipoEmail = 1359,
                     ListaAnexosPorByte = new AnexoByte[0]
 
                 };
 
-                await _partnerServiceClient.EnviarEmailAsync(parametroEmail);
+                WSRetornoEnvioEmail result = await _partnerServiceClient.EnviarEmailAsync(parametroEmail);
+
+               if (!result.Sucesso)
+                {
+                    RequisicaoUsuario requisicaoUsuario = await Context.Set<RequisicaoUsuario>()
+                                                                    .AsNoTracking()
+                                                                    .Where(ru =>
+                                                                    ru.NomeUsuario == usuarioAutenticadoModel.NomeUsuario
+                                                                    && ru.Sucesso == '0'
+                                                                    && ru.Expirado == '0')
+                                                                    .FirstOrDefaultAsync();
+
+                    if (requisicaoUsuario != null) {
+                        Context.Set<RequisicaoUsuario>().Remove(requisicaoUsuario);
+
+                        await Context.SaveChangesAsync();
+                     }
+                    throw new AppException("Falha no envio do E-mail");
+                }
 
                 return;
             }
@@ -440,17 +504,25 @@ namespace CarePlusAPI.Services
 
             try
             {
+                RequisicaoUsuario requisicaoExistente = await Context.Set<RequisicaoUsuario>().AsNoTracking().Where(rq => rq.NomeUsuario == usuario.NomeUsuario && rq.Sucesso == '0' && rq.Expirado == '0').FirstOrDefaultAsync();
+
+                if (requisicaoExistente != null)
+                    throw new AppException("Solicitação já realizada, aguarde a ação o administrador.");
+
                 RequisicaoUsuario rq = new RequisicaoUsuario()
                 {
-                    UsuarioNome = usuario.Nome,
-                    UsuarioEmail = usuario.Email,
-                    UsuarioSenha = usuario.Senha,
+                    Nome = usuario.Nome,
+                    NomeUsuario = usuario.NomeUsuario,  
                     Token = Guid.NewGuid().ToString(),
-                    Sucesso = '0'
+                    Sucesso = '0',
+                    Expirado = '0'
                 };
 
                 await Context.RequisicaoUsuario.AddAsync(rq);
+
                 await Context.SaveChangesAsync();
+
+                Context.Entry<RequisicaoUsuario>(rq).State = EntityState.Detached;
 
                 return rq.Token;
             }
@@ -473,12 +545,23 @@ namespace CarePlusAPI.Services
                 if (requisicao != null)
                 {
 
+                    Perfil perfil = await Context.Set<Perfil>().AsNoTracking().Where(p => p.Descricao == "Visualizador").FirstOrDefaultAsync();
+
+                    await Criar(new Usuario() {
+                        Nome = requisicao.Nome,
+                        NomeUsuario = requisicao.NomeUsuario,
+                        UsuarioRoot = '0',
+                        UsuarioPerfil = new List<UsuarioPerfil> {
+                            new UsuarioPerfil {
+                               PerfilId = perfil.Id,
+                            }
+                        }
+                    }, null);
+
                     requisicao.Expirado = '1';
                     Context.RequisicaoUsuario.Update(requisicao);
+
                     await Context.SaveChangesAsync();
-
-
-                    //await Criar(new Usuario() { Nome = requisicao.UsuarioNome, Email = requisicao.UsuarioEmail }, requisicao.UsuarioSenha);
 
                     return requisicao;
                 }
@@ -517,12 +600,12 @@ namespace CarePlusAPI.Services
         /// </summary>
         /// <param name="userEmail"></param>
         /// <returns></returns>
-        public async Task InativarUsuario(string userEmail, int idUserRequest)
+        public async Task InativarUsuario(string nomeUsuario, int idUserRequest)
         {
-            if (string.IsNullOrWhiteSpace(userEmail))
-                throw new AppException("O e-mail do usuário não pode estar vazio.");
+            if (string.IsNullOrWhiteSpace(nomeUsuario))
+                throw new AppException("O nome de usuário do usuário não pode estar vazio.");
 
-            Usuario usuario = await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").FirstOrDefaultAsync(u => u.Email == userEmail);
+            Usuario usuario = await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").AsNoTracking().FirstOrDefaultAsync(u => u.NomeUsuario == nomeUsuario);
 
             if (usuario == null)
                 throw new AppException("Usuario não encontrado");
@@ -534,7 +617,7 @@ namespace CarePlusAPI.Services
             LogUsuarioDesativado logUsr = new LogUsuarioDesativado()
             {        
                 Id_Requisitante = idUserRequest,
-                Email = userEmail,
+                NomeUsuario = nomeUsuario,
                 DataCadastro = DateTime.Now
             };
 

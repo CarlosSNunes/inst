@@ -5,7 +5,7 @@ export class UsuarioModel {
   }
   id: number;
   nome: string;
-  email: string;
+  nomeUsuario: string;
   SenhaHash: string;
   SenhaSalt: string;
   usuarioPerfil: [];
