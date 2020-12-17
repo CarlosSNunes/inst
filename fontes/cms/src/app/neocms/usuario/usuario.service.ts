@@ -27,6 +27,9 @@ export class UsuarioService {
     getAll() {
         return this.http.get<UsuarioModel[]>(this.API_ENDPOINT);
     }
+    getPending(offset, limit) {
+        return this.http.get<UsuarioModel[]>(`${this.API_ENDPOINT}/requisicoes-pendentes/${offset}/${limit}`);
+    }
     /**
      * @method GETBYID() - Método retorna usuários por id.
      * @param id: string

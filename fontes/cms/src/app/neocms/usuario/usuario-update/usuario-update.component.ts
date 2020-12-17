@@ -20,46 +20,9 @@ import { TabHeadingDirective } from 'ngx-bootstrap/tabs';
   styleUrls: ['./usuario-update.component.scss']
 })
 export class UsuarioUpdateComponent implements OnInit {
-  // [x: string]: any;
+
   userForm: FormGroup;
 
-  // ? --------- Configuração 'ng-wizard' ---------
-  // configUser: NgWizardConfig = {
-  //   toolbarSettings: {
-  //     showNextButton: false,
-  //     showPreviousButton: false,
-  //   },
-  //   selected: 0,
-  //   theme: THEME.dots
-  // };
-  // faUserShield = faUserShield;
-  // ngWizardService: any;
-  // prf89 = null;
-  // userForm;
-  // btnSubmitDisable = false;
-  // submitted: boolean;
-  // perfilName = '';
-  // perfilId = 0;
-  // usuario: UserAuthenticateModel;
-  // senhaErro = false;
-  // currentIndex = 0;
-  // perfisSelect;
-  // selectedDevice = null;
-  // selectedQuantity = '10';
-  // perfisForm: FormGroup;
-  // perfis: CareplusPerfilModel[] = [];
-  // usuarios: UsuarioModel[] = [];
-  // perfilCheck = false;
-  // error;
-  // selectedPerfil;
-  // messageError: boolean;
-
-  // dismissible = true;
-  // defaultAlerts: any[];
-  // alerts;
-  // userId: string;
-  // usuarioSelecionado: any;
-  // perfilSelecionado;
   perfilList = [];
   loaded: boolean = true;
 
@@ -84,31 +47,8 @@ export class UsuarioUpdateComponent implements OnInit {
     });
     this.getUsuario();
     this.getPermissions();
-    // // this.getPerfis();
-    // this.createForm();
+  
   }
-
-
-  // createForm() {
-  //   this.userForm = this.fb.group({
-  //     nome: [''],
-  //     ativo: ['1', Validators.required],
-  //     usuarioPerfil: ['']
-  //   });
-  // }
-
-  // updateForm() {
-
-  //   this.userForm = this.fb.group({
-  //     nome: [this.usuarioSelecionado.nome],
-  //     ativo: ['1', Validators.required],
-  //     usuarioPerfil: this.fb.group,
-  //   });
-  //   console.log(this.usuarioSelecionado)
-
-  // }
-
-
 
   get f() {
     return this.userForm.controls;
@@ -133,37 +73,11 @@ export class UsuarioUpdateComponent implements OnInit {
       })
   }
 
-  // }
-  // get perfilControls() {
-  //   return this.userForm.get('usuarioPerfil');
-  // }
-
-  // chancePerfil(perfil: CareplusPerfilModel) {
-  //   this.addPerfil(perfil.id, perfil.descricao);
-  //   console.log(perfil);
-  // }
-
-  // perfilChecked(event) {
-  //   console.log(event);
-  //   this.perfilCheck = true;
-  // }
-
-  // addPerfil(id: number, descricao: string) {
-  //   this.perfilControls.setValue([{
-  //     perfilId: id,
-  //     descricao,
-  //   }]
-  //   );
-  // }
 
   onSubmit() {
     console.log(this.userForm)
     if (this.userForm.valid) {
 
-
-      // this.btnSubmitDisable = true;
-      // const model = new UsuarioUpdateModel(this.userForm.value);
-      // model.id = this.usuarioSelecionado.id;
 
 
       this.usuarioService.put(this.userForm.value)
@@ -184,22 +98,6 @@ export class UsuarioUpdateComponent implements OnInit {
         .add(() => this.loaded = !this.loaded);
     }
   }
-
-  // onClosed(dismissedAlert: any): void {
-  //   this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
-  // }
-
-  // getErrors(control: AbstractControl) {
-  //   return FormControlError.GetErrors(control);
-  // }
-
-  // setTheme(theme: THEME) {
-  //   this.ngWizardService.theme(theme);
-  // }
-
-  // stepChanged(args: StepChangedArgs) {
-  //   console.log(args.step);
-  // }
 
   getPermissions() {
     this.usuarioService.getPermissions().subscribe((response) => {
@@ -245,7 +143,6 @@ export class UsuarioUpdateComponent implements OnInit {
         .subscribe(() => {
           this.loaded = !this.loaded;
           this.toastrService.success('Usuário atualizado com sucesso!');
-          this.router.navigate(['/neocms/usuarios']);
         },
           error => {
             let message = '';

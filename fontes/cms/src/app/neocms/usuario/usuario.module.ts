@@ -12,12 +12,15 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { UsuarioAprovacaoComponent } from './usuario-aprovacao/usuario-aprovacao.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
     UsuarioComponent,
     UsuarioCreateComponent,
-    UsuarioUpdateComponent
+    UsuarioUpdateComponent,
+    UsuarioAprovacaoComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     FontAwesomeModule,
     NgWizardModule,
     NgSelectModule,
+    NgxPaginationModule,
     FormsModule,
     ButtonsModule,
     AlertModule
