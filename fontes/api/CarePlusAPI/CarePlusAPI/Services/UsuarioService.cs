@@ -25,13 +25,13 @@ namespace CarePlusAPI.Services
         Task Excluir(int id);
         Task ExcluirPerfis(int id);
         Task EnviarEmailConfirmacao(Usuario user);
-        Task<bool> ValidaUsuario(string email, string senha);
+        Task<bool> ValidaUsuario(string nomeUsuario, string senha);
         Task EnviarEmail(UsuarioCreateModel usuarioAutenticadoModel, string token);
         Task<string> SalvarRequisicao(UsuarioCreateModel usuarioAutenticadoModel);
         Task<RequisicaoUsuario> ValidateTokenRequisition(string token);
         Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastro();
         Task<bool> BuscarRequisicoesCadastroPorNomeUsuario(string nomeUsuario);
-        Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastroPendente();
+        Task<Tuple<int, List<RequisicaoUsuario>>> BuscarRequisicoesCadastroPendente(int offset, int limit);
         Task<IList<LogUsuarioDesativado>> ListarAcoesDesativacaoUsuarios();
         Task InativarUsuario(string nomeUsuario, int idUserRequest);
     }
@@ -155,14 +155,17 @@ namespace CarePlusAPI.Services
         ///Esse método serve para buscar uma lista de usuários que pediram requisição ao sistema e ainda está pendente. 
         ///
         /// ///</summary>        
-        public async Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastroPendente()
+        public async Task<Tuple<int, List<RequisicaoUsuario>>> BuscarRequisicoesCadastroPendente(int offset, int limit)
         {
-            IList<RequisicaoUsuario> req = await Context.RequisicaoUsuario.Where(x => x.Sucesso == '0' && x.Expirado == '0').AsNoTracking().ToListAsync();
 
-            if (req == null)
-                throw new AppException("Usuarios não encontrados");
+            var query = Context.RequisicaoUsuario.Where(x => x.Sucesso == '0' && x.Expirado == '0').AsNoTracking();
 
-            return req;
+            var result = await PagingResults.GetPaged<RequisicaoUsuario>(query, offset, limit);
+
+
+            int count = await query.CountAsync();
+
+            return new Tuple<int, List<RequisicaoUsuario>>(count, result.Results);
         }
 
         ///<summary>
@@ -423,13 +426,13 @@ namespace CarePlusAPI.Services
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        public async Task<bool> ValidaUsuario(string email, string senha)
+        public async Task<bool> ValidaUsuario(string nomeUsuario, string senha)
         {
             try
             {
                 LoginADOut loginADOut = new LoginADOut()
                 {
-                    Email = email,
+                    Email = nomeUsuario,
                     Senha = senha
                 };
 

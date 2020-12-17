@@ -434,15 +434,18 @@ namespace CarePlusAPI.Controllers
         /// Esse método serve para listar requisições de cadastro pend.
         /// </summary>
         /// <returns></returns>
-        [HttpGet("requisicoes-pendentes")]
+        [HttpGet("requisicoes-pendentes/{offset}/{limit}")]
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> ListarRequisicoesPendentes()
+        public async Task<IActionResult> ListarRequisicoesPendentes(int offset, int limit)
         {
             string origem = Request.Headers["Custom"];
             try
             {
-                var listaRequisicoes = await _userService.BuscarRequisicoesCadastroPendente();
-                return Ok(listaRequisicoes);
+                var listaRequisicoes = await _userService.BuscarRequisicoesCadastroPendente(offset, limit);
+                return Ok(new {
+                    result = listaRequisicoes.Item2,
+                    count = listaRequisicoes.Item1
+                });
             }
             catch (Exception ex)
             {
@@ -463,7 +466,7 @@ namespace CarePlusAPI.Controllers
             string origem = Request.Headers["Custom"];
             try
             {                
-                int userId = int.Parse(this.User.Claims.First(i => i.Type == "UserId").Value);
+                int userId = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value);
                 await _userService.InativarUsuario(usuarioDesativarModel.NomeUsuario, userId);
                 return Ok();
             }
