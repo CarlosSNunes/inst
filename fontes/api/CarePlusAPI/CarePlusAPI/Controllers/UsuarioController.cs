@@ -404,6 +404,37 @@ namespace CarePlusAPI.Controllers
 
         }
 
+
+        ///<summary>
+        ///
+        ///Esse método serve para excluir uma requisição na base.
+        ///
+        ///</summary>
+        ///<param name="token">Token da requisição</param>
+        [HttpDelete("remove-requisicao/{token}")]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> RemoveRequisition(string token)
+        {
+            string origem = Request.Headers["Custom"];
+
+            try
+            {
+                var requisicao = _userService.RemoveRequisition(token).Result;
+
+                return Ok(requisicao);
+            }
+            catch (Exception ex)
+            {
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+            }
+
+        }
+
         /// <summary>
         /// Esse método serve para listar requisições de cadastro.
         /// </summary>
