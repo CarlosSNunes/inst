@@ -91,7 +91,7 @@ namespace CarePlusAPI.Services
         ///</summary>
         public async Task<List<Usuario>> Listar()
         {
-            return await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").Where(x => x.Ativo == '1').AsNoTracking().ToListAsync();
+            return await Context.Set<Usuario>().Include("UsuarioPerfil.Perfil").AsNoTracking().ToListAsync();
         }
 
         ///<summary>
@@ -275,6 +275,13 @@ namespace CarePlusAPI.Services
 
             usuario.UsuarioPerfil = model.UsuarioPerfil;
 
+            if (usuario.Ativo == '0' && model.Ativo == '1')
+            {
+                usuario.Ativo = model.Ativo;
+            }
+
+            usuario.Ativo = model.Ativo;
+
             Context.Set<Usuario>().Update(usuario);
             await Context.SaveChangesAsync();
         }
@@ -431,13 +438,22 @@ namespace CarePlusAPI.Services
         {
             try
             {
+
+                string auth = Logar().Result;
+
                 LoginADOut loginADOut = new LoginADOut()
                 {
                     Email = nomeUsuario,
                     Senha = senha
                 };
 
-                var result = await _partnerServiceClient.ValidarLoginADAsync(loginADOut, 0);
+                WSFiltro filtro = new WSFiltro {
+                    Origem = WebServiceOrigem.Partner,
+                    CodSeg = 59,
+                    Token = auth,
+                };
+
+                var result = await _partnerServiceClient.ValidarLoginADAsync(filtro, loginADOut, 0);
 
                 if (result.CodigoMensagem != 200)
                 {
