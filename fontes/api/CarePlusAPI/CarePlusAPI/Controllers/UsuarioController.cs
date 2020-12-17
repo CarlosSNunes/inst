@@ -456,15 +456,15 @@ namespace CarePlusAPI.Controllers
 
         }
 
-        [HttpPost("inativar-usuario")]
+        [HttpPut("inativar-usuario")]
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> InativarUsuario([FromBody] string nomeUsuario)
+        public async Task<IActionResult> InativarUsuario([FromBody] UsuarioDesativarModel usuarioDesativarModel)
         {
             string origem = Request.Headers["Custom"];
             try
             {                
                 int userId = int.Parse(this.User.Claims.First(i => i.Type == "UserId").Value);
-                await _userService.InativarUsuario(nomeUsuario, userId);
+                await _userService.InativarUsuario(usuarioDesativarModel.NomeUsuario, userId);
                 return Ok();
             }
             catch (Exception ex)

@@ -32,8 +32,6 @@ export class NeocmsHeaderComponent implements OnInit {
     }
 
     logOff() {
-        // this.authenticationService.state = null;
-        // EventEmitterService.get('logout').emit();
         localStorage.clear();
         sessionStorage.clear();
         this.authenticationService.state = undefined;

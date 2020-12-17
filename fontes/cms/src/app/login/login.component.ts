@@ -3,7 +3,7 @@ import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { LoginModel } from '../../../src/models/login.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserWaitingApprovalModel } from 'src/models/usuario/user-waiting-approval.model';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -27,14 +27,22 @@ export class LoginComponent implements OnInit {
     modalRef: BsModalRef;
     @ViewChild('modalTemplate', { static: true }) modalTemplate: TemplateRef<any>;
     resultMessage: string;
+    returnUrl: string;
 
     constructor(
         private loginService: LoginService,
         private router: Router,
         private toastrService: ToastrService,
         private bsModal: BsModalService,
-        private usuarioService: UsuarioService
-    ) { }
+        private usuarioService: UsuarioService,
+        private activatedRoute: ActivatedRoute
+    ) {
+        this.activatedRoute.queryParams.subscribe(params => {
+            if (params.returnUrl) {
+                this.returnUrl = params.returnUrl;
+            }
+        })
+    }
 
     ngOnInit() {
     }
@@ -95,6 +103,10 @@ export class LoginComponent implements OnInit {
     }
 
     goTo(route) {
-        this.router.navigate([route]);
+        if (this.returnUrl) {
+            this.router.navigate([this.returnUrl]);
+        } else {
+            this.router.navigate([route]);
+        }
     }
 }

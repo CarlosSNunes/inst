@@ -244,10 +244,6 @@ namespace CarePlusAPI
 
                 Perfil admProfile = context.Set<Perfil>().AsNoTracking().Where(p => p.Descricao == "Administrador").FirstOrDefault();
 
-                string senha = "C@rePlusAdm!";
-
-                UsuarioService.CriarSenha(senha, out byte[] senhaHash, out byte[] senhaSalt);
-
                 ICollection<UsuarioPerfil> usuarioPerfis = new List<UsuarioPerfil>();
 
                 usuarioPerfis.Add(new UsuarioPerfil
@@ -259,12 +255,10 @@ namespace CarePlusAPI
                 Usuario usuario = new Usuario
                 {
                     Nome = "Administrador",
-                    NomeUsuario = "root.careplus",
-                    SenhaHash = senhaHash,
-                    SenhaSalt = senhaSalt,
+                    NomeUsuario = "hugo.silva",
                     Ativo = '1',
                     UsuarioPerfil = usuarioPerfis,
-                    UsuarioRoot = '1'
+                    UsuarioRoot = '0'
                 };
 
                 Usuario foundUser = context.Set<Usuario>().AsNoTracking().Where(u => u.NomeUsuario == usuario.NomeUsuario).FirstOrDefault();

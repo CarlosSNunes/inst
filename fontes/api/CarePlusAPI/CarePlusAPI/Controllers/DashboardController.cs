@@ -95,7 +95,7 @@ namespace CarePlusAPI.Controllers
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet("banner-ativo")]
+        [HttpGet("banners-count")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetBanners()
         {
@@ -126,7 +126,7 @@ namespace CarePlusAPI.Controllers
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet("post-ativo")]
+        [HttpGet("posts-count")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetPosts()
         {
@@ -157,7 +157,7 @@ namespace CarePlusAPI.Controllers
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet("usuario-ativo")]
+        [HttpGet("usuarios")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetUsuarios()
         {
