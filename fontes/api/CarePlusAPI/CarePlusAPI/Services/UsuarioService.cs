@@ -29,6 +29,7 @@ namespace CarePlusAPI.Services
         Task EnviarEmail(UsuarioCreateModel usuarioAutenticadoModel, string token);
         Task<string> SalvarRequisicao(UsuarioCreateModel usuarioAutenticadoModel);
         Task<RequisicaoUsuario> ValidateTokenRequisition(string token);
+        Task<RequisicaoUsuario> RemoveRequisition(string token);
         Task<IList<RequisicaoUsuario>> BuscarRequisicoesCadastro();
         Task<bool> BuscarRequisicoesCadastroPorNomeUsuario(string nomeUsuario);
         Task<Tuple<int, List<RequisicaoUsuario>>> BuscarRequisicoesCadastroPendente(int offset, int limit);
@@ -571,6 +572,37 @@ namespace CarePlusAPI.Services
                 else
                 {
                     throw new AppException("Requisição não encontrada no banco de dados ou token ja utilizado");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<RequisicaoUsuario> RemoveRequisition(string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+                throw new AppException("O token não pode estar nulo ou vazio");
+
+            try
+            {
+                var requisicao = await Context.RequisicaoUsuario.Where(x => x.Token == token && x.Expirado == '0' && x.Sucesso == '0').AsNoTracking().FirstOrDefaultAsync();
+
+                if (requisicao != null)
+                {
+
+                    Context.Set<RequisicaoUsuario>().Remove(requisicao);
+
+                    await Context.SaveChangesAsync();
+
+                    return requisicao;
+                }
+                else
+                {
+                    throw new AppException("Requisição não encontrada.");
                 }
 
             }

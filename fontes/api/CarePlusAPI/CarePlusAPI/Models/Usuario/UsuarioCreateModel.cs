@@ -17,6 +17,9 @@ namespace CarePlusAPI.Models.Usuario
         public string NomeUsuario { get; set; }
 
         public string Senha { get; set; }
+
+        public char UsuarioRoot { get; set; }
+
         [Required]
         public List<Perfil.PerfilCreateModel> UsuarioPerfil { get; set; }
     }
