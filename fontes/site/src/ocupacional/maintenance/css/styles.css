@@ -1,0 +1,120 @@
+body {
+    background: url('../img/body-bg.png') no-repeat top right;
+    background-size: cover;
+}
+
+.header {
+    height: 20vh;
+}
+
+.content {
+    height: 75vh;
+}
+
+.footer {
+    height: 5vh;
+}
+
+.pagina-manutencao .logo {
+    margin: 20px 0 0 0;
+}
+
+.pagina-manutencao h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 59px;
+    color: #333333;
+}
+
+.pagina-manutencao p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #4F4F4F;
+}
+
+.pagina-manutencao .linha {
+    border: 1px solid #0069B5;
+    width: 78px;
+    height: 2px;
+    display: block;
+    margin: 40px 0;
+}
+
+.pagina-manutencao .links a {
+    padding-left: 35px;
+    display: block;
+    margin-bottom: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #4F4F4F;
+}
+
+.pagina-manutencao .links a.email {
+    background: url('../img/icon-email.png') no-repeat left center;
+}
+
+.pagina-manutencao .links a.telefone {
+    background: url('../img/icon-telefone.png') no-repeat left center;
+}
+
+.pagina-manutencao .footer {
+    /* position: absolute;
+    bottom: 0;
+    width: 88%; */
+}
+
+.pagina-manutencao .footer p {
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/*==========================================
+Media Querys
+============================================*/
+
+@media (max-width: 480px) {
+    .header {
+        height: auto;
+        margin-bottom: 40px;
+    }
+    .content {
+        height: auto;
+        margin-bottom: 40px;
+    }
+    .content img {
+        margin-bottom: 20px;
+    }
+    .footer {
+        height: auto;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 991px) {
+    .content img {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .header {
+        height: 15vh;
+    }
+    .content {
+        height: 70vh;
+    }
+    .footer {
+        height: 15vh;
+        padding: 10px 0;
+    }
+    .pagina-manutencao .footer p {
+        margin-top: 50px;
+        font-size: 12px;
+    }
+}

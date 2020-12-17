@@ -1,0 +1,15 @@
+//importar todos os scss para cá
+
+//CSS Default
+@import "default/variables.scss";
+@import "default/base.scss";
+
+//Includes
+@import "includes/header.scss";
+@import "includes/footer.scss";
+
+//CSS Pages
+@import "pages/home.scss";
+
+
+

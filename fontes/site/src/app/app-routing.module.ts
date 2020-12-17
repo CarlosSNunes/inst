@@ -78,7 +78,7 @@ const routes: Routes = [
     { path: 'planos-odontologicos/nossos-diferenciais.aspx', redirectTo: '/planos-e-produtos' },
     { path: 'planos-de-saude/soho.aspx"', redirectTo: '/planos-e-produtos/careplus-soho' },
     { path: 'institucional.aspx', redirectTo: '/a-careplus' },
-    { path: 'ocupacional', redirectTo: '/planos-e-produtos/medicina-ocupacional' },
+    // { path: 'ocupacional', redirectTo: '/planos-e-produtos/medicina-ocupacional' },
     { path: 'biblioteca-da-saude/gestacao.aspx', redirectTo: '/a-careplus' },
     { path: 'planos-de-saude/care-plus-200.aspx', redirectTo: '/planos-e-produtos/clube-careplus' },
     { path: 'nossos-diferenciais/corretor.aspx', redirectTo: '/a-careplus/diferenciais' },

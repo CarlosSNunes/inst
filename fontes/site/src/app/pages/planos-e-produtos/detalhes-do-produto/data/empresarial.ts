@@ -248,7 +248,8 @@ export default {
                         {
                             text: 'Rede Credenciada Odonto Master, Livre Escolha e Care Plus Clinic.'
                         }
-                    ]
+                    ],
+                    detalhe:'*somente plano Coletivo Empresarial'
                 },
                 {
                     type: 'default',

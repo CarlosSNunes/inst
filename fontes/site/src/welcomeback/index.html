@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome Back e Volta ao Trabalho | Care Plus</title>
+    <base href="/welcomeback/">
+    <meta name="description" content="A Care Plus disponibiliza o Welcome Back, um programa com informações importantes sobre a volta ao trabalho. Baixe conteúdos didáticos para colaboradores e RHs das empresas."/>
+	<link rel="canonical" href="https://www.careplus.com.br/ocupacional/welcomeback">
+	<link rel="manifest" href="./manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- packages -->
+    <link rel="stylesheet" href="public/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/plugins/slick/slick-theme.min.css">
+    <link rel="stylesheet" href="public/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="public/plugins/aos/aos.min.css">
+    <!-- fim packages -->
+
+    <link rel="stylesheet" href="public/css/main.min.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21801811-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-21801811-5');
+    </script>
+</head>
+
+<body class="home" id="home" data-spy="scroll" data-target=".menu-scroll">
+	<header>
+        <div class="container">
+            <div class="row align-items-center menu-topo">
+                <div class="col-7 col-lg-3">
+                    <a class="logo" href="./" title="Care Plus Voltar ao topo">
+                        <img class="d-none d-lg-block" alt="Care Plus Voltar ao topo" title="Care Plus Voltar ao topo" src="public/img/logo-care-plus.svg">
+                        <img class="d-block d-lg-none" alt="Care Plus Voltar ao topo" title="Care Plus Voltar ao topo" src="public/img/logo-branco.svg">
+                    </a>
+                </div>
+                <div class="col-lg-9 d-none d-lg-block">
+                    <nav class="menu-principal menu-scroll">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link scroll" href="#welcome" title="Welcome Back">Welcome Back</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll" href="#orientacoesColaboradores" title="Orientações para colaboradores">Orientações para Colaboradores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll" href="#orientacoesRh" title="Orientações para RHs">Orientações para RHs</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link scroll" href="#apoio" title="Materiais de Apoio">Materiais de Apoio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll" href="#faq" title="FAQ">FAQ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-5 d-block d-lg-none">
+                    <input id="menu-check" type="checkbox">
+                    <label class="label-menu" for="menu-check">
+                        <div class="menu-mobile">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="row" id="menuMobile">
+                <div class="col-12">
+                    <nav class="menu-scroll">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link scroll-mobile" href="#welcome" title="Welcome Back">WELCOME BACK</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll-mobile" href="#orientacoesColaboradores" title="Orientações para colaboradores">ORIENTAÇÕES PARA COLABORADORES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll-mobile" href="#orientacoesRh" title="Orientações para RHs">ORIENTAÇÕES PARA RHs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link scroll-mobile" href="#faq" title="FAQ">FAQ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="banner">
+        <div class="degrade-mobile">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6" data-enllax-ratio="-.3" data-enllax-type="foreground">
+                        <h1 class="title1">Retorno eficaz e seguro ao trabalho presencial.</h1>
+                        <p class="title3">Criamos o Welcome Back para apoiar empresas e colaboradores, através de conteúdos com curadoria, no retorno ao trabalho presencial.</p>
+                        <a class="btn scroll d-none d-md-inline-block" href="#orientacoesColaboradores" title="Veja as orientações de segurança">VEJA AS ORIENTAÇÕES DE SEGURANÇA</a>
+                        <a class="link-seta scroll d-inline-block d-md-none" href="#orientacoesColaboradores" title="Veja as orientações de segurança">
+                            VEJA AS ORIENTAÇÕES<br>
+                            DE SEGURANÇA <span class="icon-seta"></span>
+                        </a>
+                    </div>
+                </div>
+                <a class="scroll mouse" href="#welcome" title="Veja as orientações de segurança">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="welcome">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-5 offset-lg-1" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="title2">A covid-19 chegou e impactou o mundo, o Brasil e as empresas também.</h2>
+                    <p class="title3">Tivemos de nos reinventar para enfrentar os desafios de uma nova realidade</p>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <div class="grafismo" data-aos="fade-left" data-aos-duration="1000"></div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <ul>
+                        <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300"><span class="icon-empresa"></span> Empresas fechadas</li>
+                        <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"><span class="icon-mascara"></span> Colaboradores em segurança</li>
+                        <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500"><span class="icon-desk"></span> Trabalho remoto</li>
+                        <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600"><span class="icon-note"></span> Videoconferências</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conseguimos" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <h2 class="title2">E conseguimos!</h2>
+                                <p class="title3">Nos adaptamos em curto tempo e protegemos a todos.</p>
+                            </div>
+                        </div>
+                        <div class="grafismo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos">
+        <div class="bg">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-5" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="title2">E agora, como voltar ao trabalho presencial?</h2>
+                        <p>Contamos com uma série de vídeos de infectologistas  para esclarecer todas suas dúvidas sobre o Coronavírus e o retorno ao trabalho presencial.</p>
+                        <a class="scroll link-seta d-none d-sm-inline-block" href="#faq" title=" Veja as dúvidas frequentes">
+                            VEJA AS DÚVIDAS FREQUENTES <span class="icon-seta"></span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <div class="slider-videos" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                            <div class="item">
+                                <a class="abre-video" href="javascript:void(0);" param="https://www.youtube.com/embed/2FjtXOx2ifo?autoplay=1" title="Care Plus - Orientações de retorno ao trabalho presencial.">
+                                    <img class="img-video img-fluid" alt="Care Plus - Orientações de retorno ao trabalho presencial." title="Care Plus - Orientações de retorno ao trabalho presencial." src="public/img/video-1.jpg">
+                                    <h4>Care Plus - Orientações de retorno ao trabalho presencial.</h4>
+                                    <img class="play" alt="Care Plus - Orientações de retorno ao trabalho presencial." src="public/img/play.svg">
+                                    <span class="faixa"></span>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a class="abre-video" href="javascript:void(0);" param="https://www.youtube.com/embed/WVcRo6iWffM?autoplay=1" title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)">
+                                    <img class="img-video img-fluid" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)." title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/video-2.jpg">
+                                    <h4>Care Plus - Informações sobre o Coronavírus (Covid - 19).</h4>
+                                    <img class="play" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/play.svg">
+                                    <span class="faixa"></span>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a class="abre-video" href="javascript:void(0);" param="https://www.youtube.com/embed/XvqoBBan3wg?autoplay=1" title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)">
+                                    <img class="img-video img-fluid" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)." title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/video-3.jpg">
+                                    <h4>Care Plus - Amamentação</h4>
+                                    <img class="play" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/play.svg">
+                                    <span class="faixa"></span>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a class="abre-video" href="javascript:void(0);" param="https://www.youtube.com/embed/iHYaQXeFRwk?autoplay=1" title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)">
+                                    <img class="img-video img-fluid" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)." title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/video-4.jpg">
+                                    <h4>Care Plus - Infectologista.</h4>
+                                    <img class="play" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/play.svg">
+                                    <span class="faixa"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-sm-none" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="slider-nav">
+                            <div class="item">
+                                <div class="thumb">
+                                    <img class="img-fluid" alt="Care Plus - Orientações de retorno ao trabalho presencial." title="Care Plus - Orientações de retorno ao trabalho presencial." src="public/img/video-1.jpg">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <img class="img-fluid" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)." title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/video-2.jpg">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <img class="img-fluid" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)." title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/video-3.jpg">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb">
+                                    <img class="img-fluid" alt="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)." title="CARE PLUS - Informações sobre o Coronavírus (Covid - 19)" src="public/img/video-4.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-sm-none" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                        <a class="link-seta scroll" href="#faq" title=" Veja as dúvidas frequentes">
+                            VEJA AS DÚVIDAS FREQUENTES <span class="icon-seta"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="orientacoesColaboradores">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-12 col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                    <h4>PARA OS COLABORADORES</h4>
+                    <h2 class="title2">Orientações gerais para os colaboradores</h2>
+                    <img class="img-fluid d-block d-lg-none" alt="Orientações gerais para os colaboradores" title="Orientações gerais para os colaboradores" src="public/img/img-colaboradores.jpg">
+                    <p>
+                        Após o período de isolamento social, em decorrência da COVID-19, você retornará ao trabalho em sua empresa.<br>
+                        Aqui você encontra as orientações que precisa para ficar mais seguro, pois apesar de não estar mais isolado, ainda é necessário manter os cuidados para evitar a infecção pelo novo coronavírus.
+                    </p>
+                    <a class="btn" href="https://www4.careplus.com.br/mkt/WelcomeBack/eBookColaboradorCarePlus.pdf" target="_blank" title="Baixar manual">BAIXAR MANUAL <span class="icon-download"></span></a>
+                </div>
+                <div class="d-none d-lg-block col-lg-7 order-lg-first" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
+                    <img class="img-fluid" alt="Orientações gerais para os colaboradores" title="Orientações gerais para os colaboradores" src="public/img/img-colaboradores.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="orientacoesRh">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-12 col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+                    <h4>PARA O RH</h4>
+                    <h2 class="title2">Orientações gerais para a área de Recursos Humanos</h2>
+                    <img class="img-fluid d-block d-lg-none" alt="Orientações gerais para a área de Recursos Humanos" title="Orientações gerais para a área de Recursos Humanos" src="public/img/img-rh.png">
+                    <p>Diversas medidas são essenciais para promover o achatamento da curva de contágio e permitir que todos os indivíduos doentes tenham a oportunidade de receber a assistência adequada. Portanto, a Care Plus elaborou uma cartilha para auxiliar a área de Recursos Humanos das empresas a vivenciar isso da melhor forma possível.</p>
+                    <a class="btn" href="https://www4.careplus.com.br/mkt/WelcomeBack/eBookRHscarePlus.pdf" target="_blank" title="Baixar manual">BAIXAR MANUAL <span class="icon-download"></span></a>
+                </div>
+                <div class="d-none d-lg-block col-lg-7" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">
+                    <img class="img-fluid" alt="Orientações gerais para a área de Recursos Humanos" title="Orientações gerais para a área de Recursos Humanos" src="public/img/img-rh.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apoio">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 class="title1">Materiais de apoio</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                    <div class="slider-apoio">
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/A_validade_dos_exercicios_fisicos.png" target="_blank" title="A validade dos exercícios físicos.">
+                                        <span class="title">A validade dos exercícios físicos.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Amamentacao_em%20_periodos_de_covid-19.png" target="_blank" title="Amamentação em períodos de covid-19.">
+                                        <span class="title">Amamentação em períodos de covid-19.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Como_se_proteger_do_coronavirus.png" target="_blank" title="Como se proteger do Coronavirus?">
+                                        <span class="title">Como se proteger do Coronavirus?</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Como_trabalhar_em_home_office.png" target="_blank" title="Como trabalhar em home office.">
+                                        <span class="title">Como trabalhar em home office.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Cuidados_caseiros.png" target="_blank" title="Cuidados caseiros.">
+                                        <span class="title">Cuidados caseiros.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Cuidados_com_a_visao.png" target="_blank" title="Cuidados com a visão.">
+                                        <span class="title">Cuidados com a visão.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Cuidados_com_o_Phishing.png" target="_blank" title="Cuidados com o Phishing.">
+                                        <span class="title">Cuidados com o Phishing.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Dicas_para_o_transporte_publico.png" target="_blank" title="Dicas para o transporte público.">
+                                        <span class="title">Dicas para o transporte público.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Equilibrio_emocional.png" target="_blank" title="A validade dos exercícios físicos.">
+                                        <span class="title">Equilíbrio emocional.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Eu_nao_corro_o_risco_do_coronavirus.png" target="_blank" title="Amamentação em períodos de covid-19.">
+                                        <span class="title">Eu não corro o risco do coronavírus.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Exames_do_covid-19.png" target="_blank" title="Como se proteger do Coronavirus?">
+                                        <span class="title">Exames do covid-19.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Higiene_no_supermercado.png" target="_blank" title="Como trabalhar em home office.">
+                                        <span class="title">Higiene no supermercado.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Mascaras_caseiras.png" target="_blank" title="Cuidados caseiros.">
+                                        <span class="title">Máscaras caseiras.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/O_que_e_a_covid-19.png" target="_blank" title="Cuidados com a visão.">
+                                        <span class="title">O que é a covid-19.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/O_que_vestir_em_tempos_de_covid-19.jpg" target="_blank" title="Cuidados com o Phishing.">
+                                        <span class="title">O que vestir em tempos de covid-19.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Prevencoes_e_atitudes.jpg" target="_blank" title="Dicas para o transporte público.">
+                                        <span class="title">Prevenções e atitudes.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Previna-se_do_coronavirus.png" target="_blank" title="A validade dos exercícios físicos.">
+                                        <span class="title">Previna-se do coronavírus.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Qual_o_melhor_caminho.png" target="_blank" title="Amamentação em períodos de covid-19.">
+                                        <span class="title">Qual o melhor caminho.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Trabalho_presencial.png" target="_blank" title="Como se proteger do Coronavirus?">
+                                        <span class="title">Trabalho presencial.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a class="box-apoio" href="https://www4.careplus.com.br/mkt/WelcomeBack/Tratamentos_e_medicamentos_para%20_o_covid-19.png" target="_blank" title="Como trabalhar em home office.">
+                                        <span class="title">Tratamentos e medicamentos para o covid-19.</span>
+                                        <span class="download">Veja Mais <span class="icon-download"></span></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="corona">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-corona" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="texto">
+                            <h4>CORONAVÍRUS</h4>
+                            <h3 class="title2">Tudo que você precisa saber sobre o coronavírus</h3>
+                            <p>Confira nossa página dedicada a esclarecer todas as dúvidas sobre o novo coronavírus.</p>
+                        </div>
+                        <a class="btn btn-seta d-none d-lg-inline-block" href="https://www.careplus.com.br/coronavirus/" title="Ir para a página" target="_blank">IR PARA A PÁGINA <span class="icon-seta"></span></a>
+                        <a class="link-seta d-inline-block d-lg-none" href="https://www.careplus.com.br/coronavirus/" title="Ir para a página" target="_blank">IR PARA A PÁGINA <span class="icon-seta"></span></a>
+                        <span class="faixa d-none d-lg-block"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="faixa d-block d-lg-none"></span>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <h2 class="title1" data-aos="fade-up" data-aos-duration="1000">Perguntas frequentes</h2>
+
+                    <div class="accordion" id="accordionFaq" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="card">
+                            <h3 id="heading1" class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                O que é coronavírus?
+                            </h3>
+                            <div id="collapse1" class="resposta collapse" aria-labelledby="heading1" data-parent="#accordionFaq">
+                                <p>O coronavírus é uma família de vírus que pode causar infecções respiratórias de graus variados. Chamado pela Organização Mundial de Saúde (OMS) de SARS-CoV-2, o novo coronavírus é o agente causador da doença denominada covid-19.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading2" class="collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                Qual é a gravidade da doença?
+                            </h3>
+                            <div id="collapse2" class="resposta collapse" aria-labelledby="heading2" data-parent="#accordionFaq">
+                                <p>O coronavírus provoca, frequentemente, infecções respiratórias leves e moderadas, parecidas com um resfriado comum. Mas, em alguns indivíduos, considerados parte do grupo de risco, os casos podem se agravar e levar ao óbito.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading3" class="collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                Onde e como o SARS-CoV-2 surgiu?
+                            </h3>
+                            <div id="collapse3" class="resposta collapse" aria-labelledby="heading3" data-parent="#accordionFaq">
+                                <p>O primeiro caso do novo coronavírus foi identificado em dezembro de 2019, na cidade de Wuhan, na província de Hubei, na China, quando surgiram diversos casos de pneumonia viral de origem desconhecida. A partir da análise genética do vírus, constatou-se que se tratava de um novo betacoronavírus, inicialmente chamado de 2019-n-CoV pela Organização Mundial da Saúde (OMS). Ainda não há confirmação sobre a origem do vírus, mas a suspeita é de que ele tenha sido transmitido por morcegos.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading4" class="collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                Quando foi registrado o primeiro caso no Brasil?
+                            </h3>
+                            <div id="collapse4" class="resposta collapse" aria-labelledby="heading4" data-parent="#accordionFaq">
+                                <p>O Brasil registrou o primeiro caso de coronavírus no dia 26 de fevereiro de 2020, na cidade de São Paulo, em um homem, de 62 anos, que havia viajado para a Itália.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading5" class="collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                Como o coronavírus é transmitido?
+                            </h3>
+                            <div id="collapse5" class="resposta collapse" aria-labelledby="heading5" data-parent="#accordionFaq">
+                                <p>A transmissão do coronavírus ocorre pelo ar e através do contato com secreções expelidas pela boca e nariz quando uma pessoa infectada tosse, espirra ou fala. As gotículas podem ficar depositadas nos objetos ou nas superfícies e outras pessoas podem adquirir o vírus ao tocar esses objetos ou superfícies contaminadas e depois tocar o nariz, a boca ou os olhos. Contato direto com toque ou aperto de mão também pode transmitir a Covid-19.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading6" class="collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                Quem faz parte do grupo de risco?
+                            </h3>
+                            <div id="collapse6" class="resposta collapse" aria-labelledby="heading6" data-parent="#accordionFaq">
+                                <p>Os indivíduos mais suscetíveis a apresentar complicações graves são os idosos, as pessoas com condições pré-existentes (cardiopatias, pressão alta, diabetes, doenças respiratórias, insuficiência renal crônica, imunossupressão, obesidade, entre outras), gestação de alto risco.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading7" class="collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                Os animais domésticos podem contrair a doença?
+                            </h3>
+                            <div id="collapse7" class="resposta collapse" aria-labelledby="heading7" data-parent="#accordionFaq">
+                                <p>Por ora, não há nenhuma evidência de que os animais domésticos possam contrair o coronavírus e transmiti-lo para os seres humanos.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading8" class="collapsed" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                Quanto tempo o SARS-CoV-2 sobrevive nas superfícies?
+                            </h3>
+                            <div id="collapse8" class="resposta collapse" aria-labelledby="heading8" data-parent="#accordionFaq">
+                                <p>Não se sabe ao certo quanto tempo o vírus sobrevive nas superfícies. Alguns estudos sugerem que o vírus pode sobreviver nas superfícies por algumas horas ou até vários dias. Isso pode variar conforme as diferentes condições, como o tipo de superfície, a temperatura e a umidade do ambiente.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading9" class="collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                Quais são os sintomas da covid-19?
+                            </h3>
+                            <div id="collapse9" class="resposta collapse" aria-labelledby="heading9" data-parent="#accordionFaq">
+                                <p>Os sintomas mais comuns da doença são febre, tosse e dificuldade para respirar. No entanto, em alguns casos, os pacientes podem apresentar dor de garganta, cansaço, dor no corpo, mal-estar geral, coriza, diarreia, dor de cabeça, dor no peito, náuseas, vômitos, congestão conjuntival, redução ou perda do olfato.</p>
+                                <p>Os sintomas geralmente são leves e começam gradualmente. Algumas pessoas não apresentam sintomas.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading10" class="collapsed" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                Qual é o período de incubação do vírus?
+                            </h3>
+                            <div id="collapse10" class="resposta collapse" aria-labelledby="heading10" data-parent="#accordionFaq">
+                                <p>O período de incubação é o tempo que leva para os primeiros sintomas aparecerem desde a infecção. No caso do coronavírus, varia entre 2 e 14 dias.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading11" class="collapsed" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                Como agir em caso de suspeita da doença?
+                            </h3>
+                            <div id="collapse11" class="resposta collapse" aria-labelledby="heading11" data-parent="#accordionFaq">
+                                <p>Na presença de sintomas brandos da doença, compatíveis com gripe, a orientação é permanecer em casa, em repouso e isolamento por 14 dias. Se as manifestações forem graves, como febre persistente (mais de 48hs) e dificuldade para respirar, a recomendação é procurar atendimento médico.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading12" class="collapsed" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                                Qualquer hospital pode receber pacientes com coronavírus?
+                            </h3>
+                            <div id="collapse12" class="resposta collapse" aria-labelledby="heading12" data-parent="#accordionFaq">
+                                <p>De acordo com o Ministério da Saúde, apenas os casos graves devem ser encaminhados aos hospitais de referência, para que seja feito o isolamento, a investigação diagnóstica e o tratamento adequado. Já os casos leves podem ser acompanhados ambulatorialmente (não precisam de avaliação em ambiente hospitalar e internação).</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading13" class="collapsed" data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                                Quais são os cuidados para prevenir a covid-19?
+                            </h3>
+                            <div id="collapse13" class="resposta collapse" aria-labelledby="heading13" data-parent="#accordionFaq">
+                                <p>Algumas medidas são essenciais para evitar o contágio e a transmissão do coronavírus:</p>
+                                <ul>
+                                    <li>Lave frequentemente as mãos com água e sabão até a altura dos punhos. Esfregue bem as unhas e entre os dedos ou higienize com álcool em gel 70% </li>
+                                    <li>Não compartilhe itens de uso pessoal como talheres, toalhas, pratos e copos</li>
+                                    <li>Evite aglomerações e contato próximo com as pessoas, ou seja, manter uma distância de pelo menos dois metros </li>
+                                    <li>Procure não tocar no rosto, especialmente nos olhos, nariz e boca com as mãos não lavadas</li>
+                                    <li>Evite beijos, abraços e apertos de mãos. Adote um comportamento amigável, mas sem contato físico</li>
+                                    <li>Pratique a etiqueta respiratória, ou seja, cubra a boca e o nariz com o antebraço ao tossir ou espirrar ou cubra com lenços descartáveis, desprezando-os imediatamente após o uso em uma lixeira fechada. Em seguida, higienize bem as mãos. </li>
+                                    <li>Limpe e desinfete, frequentemente, os objetos </li>
+                                    <li>Mantenha os ambientes limpos e ventilados</li>
+                                    <li>Durma bem e alimente-se adequadamente</li>
+                                    <li>Use máscaras caseiras feitas de tecido ao sair de casa</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading14" class="collapsed" data-toggle="collapse" data-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                                Por que é importante ficar em casa?
+                            </h3>
+                            <div id="collapse14" class="resposta collapse" aria-labelledby="heading14" data-parent="#accordionFaq">
+                                <p>A disseminação do coronavírus é bastante rápida. Sendo assim, ao ficar em casa, as chances de contágio e transmissão são muito menores.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading15" class="collapsed" data-toggle="collapse" data-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
+                                O uso de máscaras é realmente necessário e eficaz?
+                            </h3>
+                            <div id="collapse15" class="resposta collapse" aria-labelledby="heading15" data-parent="#accordionFaq">
+                                <p>Pesquisas têm apontado que a utilização de máscaras caseiras impede a disseminação de gotículas expelidas do nariz ou da boca do usuário no ambiente, garantindo uma barreira física para evitar a propagação da doença e diminuição do número de casos. Nesse sentido, o Ministério da Saúde sugere que as pessoas produzam suas próprias máscaras caseiras, utilizando tecidos que podem assegurar uma boa efetividade se forem bem desenhadas e higienizadas corretamente. Recomenda-se que máscaras cirúrgicas e N95/PFF2 sejam utilizadas pelos profissionais de saúde.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading16" class="collapsed" data-toggle="collapse" data-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
+                                Gestantes e lactantes devem ter algum cuidado especial?
+                            </h3>
+                            <div id="collapse16" class="resposta collapse" aria-labelledby="heading16" data-parent="#accordionFaq">
+                                <p>A amamentação não deve ser interrompida frente a um quadro de síndrome gripal!</p>
+                                <p>A Organização Mundial da Saúde (OMS) orienta a manutenção da amamentação por falta de elementos que comprovem que o leite materno possa disseminar o novo coronavírus.</p>
+                                <p>O Centers for Disease Control and Prevention (CDC) destaca que os benefícios da amamentação superam quaisquer riscos potenciais de transmissão do vírus através do leite materno (transmissão de anticorpos maternos protetores ao bebê).</p>
+                                <p>Recomendações para as mães que amamentam e estão com sintomas de gripe:</p>
+                                <ul>
+                                    <li> Lavar as mãos por pelo menos 20 segundos antes de tocar o bebê e iniciar as mamadas</li>
+                                    <li>Usar máscara facial durante as mamadas</li>
+                                    <li>Evitar falar ou tossir durante a amamentação para não expor o bebê</li>
+                                    <li>Trocar a máscara em caso de tosse ou espirro e a cada nova mamada</li>
+                                </ul>
+                                <p>No caso de a mãe não se sentir à vontade para amamentar a criança, elapoderá extrair o seu leite manualmente ou usar bombas de extração láctea (com higieneadequada), e um cuidador saudável poderá oferecer o leite ao bebê por copinho,xícara ou colher.</p>
+                                <p>Quem faz doação de leite deverá buscar informações diretamente no banco de leite.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading17" class="collapsed" data-toggle="collapse" data-target="#collapse17" aria-expanded="false" aria-controls="collapse17">
+                                Existe vacina para o coronavírus?
+                            </h3>
+                            <div id="collapse17" class="resposta collapse" aria-labelledby="heading17" data-parent="#accordionFaq">
+                                <p>Ainda não há vacina ou qualquer tipo de imunização contra o novo coronavírus, embora estudos e testes estejam sendo realizados. Entretanto, recomenda-se manter o calendário vacinal em dia para evitar infecções que podem ser confundidas com a COVID-19 ou que podem debilitar o organismo e agravar uma possível infecção por esse agente</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading18" class="collapsed" data-toggle="collapse" data-target="#collapse18" aria-expanded="false" aria-controls="collapse18">
+                                A vacina contra a gripe também protege do coronavírus?
+                            </h3>
+                            <div id="collapse18" class="resposta collapse" aria-labelledby="heading18" data-parent="#accordionFaq">
+                                <p>Não. A vacina da gripe protege contra outro tipo de vírus, o Influenza. Ela é importante, neste momento, para evitar que dois vírus circulem ao mesmo tempo na população.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading19" class="collapsed" data-toggle="collapse" data-target="#collapse19" aria-expanded="false" aria-controls="collapse19">
+                                Como é feito o diagnóstico do coronavírus?
+                            </h3>
+                            <div id="collapse19" class="resposta collapse" aria-labelledby="heading19" data-parent="#accordionFaq">
+                                <p>O diagnóstico da Covid-19 é realizado através da presença de sinais e sintomas de Síndrome Gripal (tosse, febre – pode ou não estar presente no momento da consulta, dor de garganta, coriza e/ou dificuldade respiratória) ou da presença de Síndrome Respiratória Aguda Grave - SRAG (dificuldade para respirar, pressão no tórax, saturação de oxigênio menor do que 95% em ar ambiente e/ou coloração azulada dos lábios ou rosto). Em crianças, além dos sintomas/sinais anteriores, podem estar presentes desidratação, redução do apetite e batimentos da asa do nariz.</p>
+                                <p>Na presença de suspeita clínica, o profissional de saúde poderá solicitar exames laboratoriais.</p>
+                                <ul>
+                                    <li> Biologia molecular (RT-PCR): detecta o RNA do vírus</li>
+                                    <li>Imunológico: teste rápido ou sorologia clássica para a detecção dos anticorpos a partir do sétimo dia do início dos sintomas (idealmente a partir do décimo dia). Resultado positivo para anticorpos IgM e/ou IgG</li>
+                                </ul>
+                                <p>O diagnóstico da Covid-19 também pode ser realizado a partir do histórico de contato domiciliar ou próximo nos últimos 14 dias antes do aparecimento dos sintomas com caso confirmado laboratorialmente e que não foi possível realizar a investigação laboratorial específica. </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading20" class="collapsed" data-toggle="collapse" data-target="#collapse20" aria-expanded="false" aria-controls="collapse20">
+                                Quem apresenta sintomas de gripe deve fazer o teste?
+                            </h3>
+                            <div id="collapse20" class="resposta collapse" aria-labelledby="heading20" data-parent="#accordionFaq">
+                                <p>Devido à disponibilidade reduzida, os testes diagnósticos são realizados em pessoas que apresentam manifestações clínicas graves da doença (pacientes internados).</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading21" class="collapsed" data-toggle="collapse" data-target="#collapse21" aria-expanded="false" aria-controls="collapse21">
+                                A Care Plus tem cobertura para os exames que investigam o coronavírus?
+                            </h3>
+                            <div id="collapse21" class="resposta collapse" aria-labelledby="heading21" data-parent="#accordionFaq">
+                                <p>Sim. O exame para detecção do coronavírus (PESQUISA POR RT-PCR) foi incluído no Rol de procedimentos da ANS (Agência Nacional de Saúde Suplementar) e deve ser coberto por todas as operadoras de saúde.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading22" class="collapsed" data-toggle="collapse" data-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
+                                Existe tratamento para combater a covid-19?
+                            </h3>
+                            <div id="collapse22" class="resposta collapse" aria-labelledby="heading22" data-parent="#accordionFaq">
+                                <p>Até o momento, não existe um tratamento específico para prevenir ou tratar a covid-19. As pessoas infectadas devem receber medicações para aliviar os sintomas. Os casos mais graves devem ser tratados em nível hospitalar. Vários estudos vêm sendo conduzidos para buscar alternativas terapêuticas para o novo coronavírus. Algumas medicações estão sendo estudadas, como antivirais e antimaláricos.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading23" class="collapsed" data-toggle="collapse" data-target="#collapse23" aria-expanded="false" aria-controls="collapse23">
+                                Existe alguma contraindicação para o uso de medicamentos?
+                            </h3>
+                            <div id="collapse23" class="resposta collapse" aria-labelledby="heading23" data-parent="#accordionFaq">
+                                <p>A automedicação nunca deve ser feita. Converse com o seu médico antes de usar alguma medicação.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 id="heading24" class="collapsed" data-toggle="collapse" data-target="#collapse24" aria-expanded="false" aria-controls="collapse24">
+                                Qual a indicação para usar a cloroquina e a hidroxicloroquina no tratamento da covid-19?
+                            </h3>
+                            <div id="collapse24" class="resposta collapse" aria-labelledby="heading24" data-parent="#accordionFaq">
+                                <p>Até o momento, a cloroquina e a hidroxicloroquina são indicadas para o tratamento de pacientes graves hospitalizados. O Ministério da Saúde está monitorando os estudos de eficácia e segurança da cloroquina e da hidroxicloroquina em pacientes com covid-19 e, em qualquer momento, poderá modificar sua recomendação quanto ao uso destes fármacos, baseando-se na melhor evidência disponível.</p>
+                            </div>
+                        </div>
+                         <div class="card">
+                            <h3 id="heading25" class="collapsed" data-toggle="collapse" data-target="#collapse25" aria-expanded="false" aria-controls="collapse25">
+                                Estando com o covid-19, em isolamento domiciliar, que orientações devo seguir?
+                            </h3>
+                            <div id="collapse25" class="resposta collapse" aria-labelledby="heading25" data-parent="#accordionFaq">
+                                <div class="inner">
+                                    <ul>
+                                        <li>
+                                            Permaneça em quarto isolado e bem ventilado
+                                        </li>
+                                        <li>
+                                            Caso não seja possível ficar isolado em um quarto único, manter pelo menos 1 metro de distância das outras pessoas
+                                        </li>
+                                        <li>Dormir em camas separadas (exceção: mães que estão amamentando devem utilizar a máscara e medidas de higiene, como a lavagem constante de mãos)
+                                        </li>
+                                        <li>Limite a sua movimentação pela casa. Locais da casa compartilhados como cozinha, banheiro e sala devem estar bem ventilados
+                                        </li>
+                                        <li>Utilize máscara cirúrgica todo o tempo
+                                        </li>
+                                        <li>Troque a máscara cirúrgica sempre que esta estiver úmida ou danificada
+                                        </li>
+                                        <li> Em idas ao banheiro ou outro ambiente obrigatório, sempre usar a máscara
+                                        </li>
+                                        <li> Realize a higiene frequente das mãos, com água e sabão ou álcool em gel (70 INPM), especialmente antes de comer ou cozinhar e após ir ao banheiro
+                                        </li>
+                                        <li>Não receber visitas
+                                        </li>
+                                        <li> Sair de casa só em casos de emergência. Caso necessário, sair com máscara e evitar multidões, preferindo transportes individuais ou a pé, sempre que possível
+                                        </li>
+                                        <li> Toda vez que lavar as mãos com água e sabão, dar preferência ao papel-toalha. Caso não seja possível, utilizar toalha de tecido, trocá-la toda vez que ficar úmida e não compartilhar esta toalha com outras pessoas da
+                                            casa
+                                        </li>
+                                        <li> Todos os moradores da casa devem cobrir a boca e o nariz quando forem tossir ou espirrar, seja com as mãos ou máscaras. Logo após, sempre lavar as mãos;
+                                        </li>
+                                        <li>Evitar o contato com as secreções de quem estiver doente
+                                        </li>
+                                        <li> Quando for descartar o lixo, sempre utilizar luvas descartáveis
+                                        </li>
+                                        <li>Limpar frequentemente (mais de uma vez por dia) as superfícies que são frequentemente utilizadas com solução contendo alvejante (1 parte de alvejante para 99 partes de água). Faça o mesmo para os cômodos de uso comum
+                                        </li>
+                                        <li> Lave roupas pessoais, roupas de cama e roupas de banho do paciente com sabão comum e água entre 60ºC e 90ºC, deixando secar totalmente para reutilizar.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="referencias">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8" data-aos="fade-left" data-aos-duration="1000">
+                    <h4>Referências</h4>
+                    <h2 class="title2">Referências para os conteúdos</h2>
+                    <img class="img-fluid d-block d-lg-none" alt="Referências para os conteúdos" title="Referências para os conteúdos" src="public/img/img-referencias.png">
+                    <ul class="items">
+                        <li>
+                            Ministério da Saúde – Portaria Nº 3.523 DE 28 DE AGOSTO DE 1998
+                        </li>
+                        <li>
+                            Ministério da Saúde – Coronavirus (<a href="https://coronavirus.saude.gov.br/" target="_blank">www.coronavirus.saude.gov.br/</a> e <a href="http://www.saude.gov.br/" target="_blank">www.saude.gov.br</a>)
+                        </li>
+                         <li>
+                            Resolução nº 9, de 16 de janeiro de 2003, da Agência Nacional de Vigilância Sanitária/ANVISA
+                        </li>
+                         <li>
+                            SIT – Subsecretaria de Inspeção do Trabalho
+                        </li>
+                         <li>
+                            Family-Friendly Policies and Other Good Workplace Practices in the Context of Covid-19: Key steps employers can take
+                        </li>
+                        <li>
+                            Limpeza e Desinfecção de Superfícies – Agência Nacional de Vigilância Sanitária (ANVISA)
+                        </li>
+                        <li>
+                            Getting your workplace ready for COVID-1 – World Health Organization
+                        </li>
+                        <li>
+                            Occupational Safety Health Administration (OSHA)
+                        </li>
+                        <li>
+                            CDC – Centers for Disease Control and Prevention – Coronavirus Disease 2019
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-none d-lg-block col-lg-4" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
+                    <img class="img-fluid" alt="Referências para os conteúdos" title="Referências para os conteúdos" src="public/img/img-referencias.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-app col-12 col-lg-6 order-lg-last">
+                    <span>Baixe o app Care Plus</span>
+                    <a href="https://apps.apple.com/br/app/care-plus/id899562421" title="Baixe o App Ios" target="_blank"><img alt="Baixe o App Ios" title="Baixe o App Ios" src="public/img/appstore.svg"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.careplus.mobile&hl=pt_BR" title="Baixe o App Android" target="_blank"><img alt="Baixe o App Android" title="Baixe o App Android" src="public/img/googleplay.svg"></a>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p>© Care Plus Medicina Assistencial LTDA | Todos os direitos reservados - CNPJ: 02.725.347/0001-27</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a class="back scroll" href="#banner" title="Voltar ao topo"><span class="icon-top"></span></a>
+
+    <div class="socialBox" >
+			<ul>
+				<li class="linkedin">
+					<a href="https://br.linkedin.com/company/care-plus" target="_blank">
+						<img src="public/img/linkedin.svg" alt="Logo do linkedin">
+					</a>
+
+				</li>
+				<li class="instagram">
+					<a href="https://www.instagram.com/careplusoficial/" target="_blank">
+						<img src="public/img/instagram.svg" alt="logo do Instagram">
+					</a>
+
+				</li>
+				<li class="youtube">
+					<a href="https://www.youtube.com/user/careplusnarede" target="_blank">
+						<img src="public/img/youtube.svg" alt="Logo do youtube">
+					</a>
+
+				</li>
+				<li class="facebook">
+					<a href="https://www.facebook.com/careplusnarede/" target="_blank">
+						<img src="public/img/facebook.svg" alt="Logo do Facebook">
+					</a>
+
+				</li>
+			</ul>
+		</div>
+
+    <!-- Modal Videos -->
+    <div class="modal fade" id="modalVideo" tabindex="-1" role="dialog" aria-labelledby="modalVideoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="icon-close"></span>
+                    </button>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- packages:js -->
+    <script src="public/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="public/plugins/slick/slick.min.js"></script>
+    <script src="public/plugins/aos/aos.min.js"></script>
+    <script src="public/plugins/enllax/jquery.enllax.min.js"></script>
+    <script src="public/plugins/mask/jquery.mask.min.js"></script>
+    <!-- endpackages -->
+
+    <!-- Scripts -->
+    <script src="public/js/main.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+

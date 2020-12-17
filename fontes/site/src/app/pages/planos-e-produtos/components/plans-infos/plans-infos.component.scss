@@ -108,6 +108,11 @@ section#plans-details {
                                     }
                                 }
                             }
+                            .card-detalhe{
+                                color:getColor('_carePlus', '_error');
+                                font-size: getSize('sbm');
+                                padding-left: 27px;
+                             }
                         }
                     }
                 }

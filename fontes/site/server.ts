@@ -357,6 +357,12 @@ app.get('*.*', express.static(DIST_FOLDER, {
 app.get('/coronavirus', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/coronavirus/index.html');
 });
+app.get('/ocupacional', (req, res) => {
+    res.sendFile(process.cwd() + '/dist/browser/ocupacional/index.html');
+});
+app.get('/welcomeback', (req, res) => {
+    res.sendFile(process.cwd() + '/dist/browser/welcomeback/index.html');
+});
 
 app.get('*', (req, res) => {
     res.render('index', { req, res });
