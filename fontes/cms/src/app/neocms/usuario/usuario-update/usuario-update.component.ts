@@ -45,7 +45,6 @@ export class UsuarioUpdateComponent implements OnInit {
   perfilName = '';
   perfilId = 0;
   usuario: UserAuthenticateModel;
-  loaded = false;
   senhaErro = false;
   currentIndex = 0;
   perfisSelect;
@@ -65,7 +64,8 @@ export class UsuarioUpdateComponent implements OnInit {
   userId: string;
   usuarioSelecionado: any;
   perfilSelecionado;
-
+  perfilList = [];
+  loaded: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -81,8 +81,9 @@ export class UsuarioUpdateComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getUsuario()
-    this.getPerfis();
+    this.getUsuario();
+    this.getPermissions();
+    // this.getPerfis();
     this.createForm();
   }
 
@@ -92,6 +93,7 @@ export class UsuarioUpdateComponent implements OnInit {
       nome: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       email: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
       senha: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
+      ativo: ['1', Validators.required],
       usuarioPerfil: ['', [Validators.required]]
     });
   }
@@ -119,35 +121,39 @@ export class UsuarioUpdateComponent implements OnInit {
     this.usuarioService
       .getById(id)
       .subscribe(user => {
+        this.loaded = false;
+
         this.usuarioSelecionado = user;
         console.log(this.perfilSelecionado)
         this.updateForm();
+        this.loaded = true;
+
       })
 
   }
 
 
-  getPerfis() {
-    this.usuario = this.authenticateService.state;
-    this.careplusPerfilService
-      .getAll()
-      .subscribe(perfis =>
-        this.perfis = perfis,
+  // getPerfis() {
+  //   this.usuario = this.authenticateService.state;
+  //   this.careplusPerfilService
+  //     .getAll()
+  //     .subscribe(perfis =>
+  //       this.perfis = perfis,
 
-        error => {
-          this.messageError = true;
-          this.error = error.error.message;
-          this.defaultAlerts = [
-            {
-              type: 'danger',
-              msg: 'ERRO: ' + this.error,
-            }
-          ];
-          this.alerts = this.defaultAlerts;
+  //       error => {
+  //         this.messageError = true;
+  //         this.error = error.error.message;
+  //         this.defaultAlerts = [
+  //           {
+  //             type: 'danger',
+  //             msg: 'ERRO: ' + this.error,
+  //           }
+  //         ];
+  //         this.alerts = this.defaultAlerts;
 
-        });
+  //       });
 
-  }
+  // }
 
 
   get perfilControls() {
@@ -222,4 +228,28 @@ export class UsuarioUpdateComponent implements OnInit {
     console.log(args.step);
   }
 
+  getPermissions() {
+    this.usuarioService.getPermissions().subscribe((response) => {
+      this.perfilList = response;
+    },
+      error => {
+        let message = '';
+        if (error.error) {
+          message = error.error.message || 'Erro Interno no servidor';
+        } else {
+          message = error.message || 'Erro Interno';
+        }
+        this.toastrService.error(message);
+      })
+  }
+  active() {
+    if(this.userForm.controls.ativo == 1){
+      this.userForm.controls.ativo = 0;
+    }else{
+      this.userForm.controls.ativo = 1;
+      
+    }
+   
+    console.log(this.userForm.controls)
+  }
 }

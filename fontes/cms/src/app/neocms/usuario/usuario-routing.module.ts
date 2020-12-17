@@ -17,11 +17,11 @@ const routes: Routes = [
   //   canActivate: [AuthGuard],
   //   component: UsuarioCreateComponent
   // },
-  // {
-  //   path: 'edit/:id',
-  //   canActivate: [AuthGuard],
-  //   component: UsuarioUpdateComponent
-  // },
+  {
+    path: 'edit/:id',
+    canActivate: [AuthGuard],
+    component: UsuarioUpdateComponent
+  },
   {
     path: '**',
     canActivate: [AuthGuard],

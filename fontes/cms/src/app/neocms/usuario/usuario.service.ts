@@ -6,6 +6,7 @@ import { UsuarioUpdateModel } from './../../../models/usuario/usuario-update.mod
 import { LoginModel } from '../../../models/login.model';
 import { environment } from 'src/environments/environment';
 import { ClassHelper } from 'src/utils/class-helper';
+import { CareplusPerfilModel } from 'src/models/careplus-perfil/careplus-perfil.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class UsuarioService {
    */
   getAll() {
     return this.http.get<UsuarioModel[]>(this.API_ENDPOINT);
+  }
+
+  getPermissions() {
+    return this.http.get<CareplusPerfilModel[]>(environment.API + '/Perfil');
   }
   /**
    * @method GETBYID() - Método retorna usuários por id.
