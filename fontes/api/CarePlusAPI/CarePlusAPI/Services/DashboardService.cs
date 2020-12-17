@@ -79,9 +79,6 @@ namespace CarePlusAPI.Services
 
             var totalBanner = await query.ToListAsync();
 
-            if (totalBanner.Count == 0)
-                throw new AppException("Banners não encontrados");
-
             return totalBanner.Count;
 
 
@@ -98,9 +95,6 @@ namespace CarePlusAPI.Services
                                                     .Where(p => p.Ativo.Equals('1'));
 
                 var totalPostsBlog = await query.ToListAsync();
-
-                if (totalPostsBlog.Count == 0)
-                    throw new AppException("Posts não encontrados");
 
                 return totalPostsBlog.Count;
             }
@@ -121,9 +115,6 @@ namespace CarePlusAPI.Services
 
 
                 var totalUsuarios = await query.ToListAsync();
-
-                if (totalUsuarios.Count == 0)
-                    throw new AppException("Usuários não encontrados");
 
                 return totalUsuarios.Count;
             }

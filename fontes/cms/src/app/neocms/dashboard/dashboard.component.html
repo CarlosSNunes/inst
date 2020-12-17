@@ -36,10 +36,10 @@
                                 fill="white" />
                         </svg>
 
-                        <h1 *ngIf="blogCount !== undefined">
-                            {{blogCount}}</h1>
+                        <h1 *ngIf="postsAtivos !== undefined">
+                            {{postsAtivos}}</h1>
 
-                            <div *ngIf="blogCount === undefined" class="load">
+                            <div *ngIf="postsAtivos === undefined" class="load">
                                 <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
                                     viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -81,9 +81,9 @@
                         </svg>
 
 
-                        <h1 *ngIf="bannerCount !== undefined">
-                            {{bannerCount}}</h1>
-                            <div *ngIf="bannerCount === undefined" class="load">
+                        <h1 *ngIf="bannersAtivos !== undefined">
+                            {{bannersAtivos}}</h1>
+                            <div *ngIf="bannersAtivos === undefined" class="load">
                                 <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
                                     viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -159,7 +159,7 @@
                     <div class="body">
                         <ul>
 
-                            <li role="button" *ngFor="let post of postsMaisLidos | slice:0:100; index as i;"
+                            <li role="button" *ngFor="let post of postsMaisLidos; index as i;"
                                 (click)="changePost(post.id)">
                                 <a>
                                     <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
