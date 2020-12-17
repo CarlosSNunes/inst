@@ -80,7 +80,7 @@ export class UsuarioService {
      * @memberOf UsuarioService
      */
     put(usuario: UsuarioUpdateModel) {
-        return this.http.put(this.API_ENDPOINT, usuario);
+        return this.http.put(this.API_ENDPOINT + `/${usuario.id}`, usuario);
     }
     /**
      * @method POST() - Método para gerar requisição de acesso ao sistema
@@ -100,4 +100,10 @@ export class UsuarioService {
         return this.http.delete(this.API_ENDPOINT + '/' + id);
     }
 
+    getPermissions() {
+        return this.http.get<CareplusPerfilModel[]>(environment.API + '/Perfil');
+    }
+    deactivate(name) {
+        return this.http.put(`${this.API_ENDPOINT}/inativar-usuario`, { nomeUsuario: name })
+    }
 }

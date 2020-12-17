@@ -12,6 +12,7 @@ import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { UsuarioUpdateModel } from 'src/models/usuario/usuario-update.model';
 import { UsuarioModel } from 'src/models/usuario/usuario.model';
 import { ToastrService } from 'ngx-toastr';
+import { TabHeadingDirective } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'app-usuario-update',
@@ -19,46 +20,46 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./usuario-update.component.scss']
 })
 export class UsuarioUpdateComponent implements OnInit {
-  [x: string]: any;
-
+  // [x: string]: any;
+  userForm: FormGroup;
 
   // ? --------- Configuração 'ng-wizard' ---------
-  configUser: NgWizardConfig = {
-    toolbarSettings: {
-      showNextButton: false,
-      showPreviousButton: false,
-    },
-    selected: 0,
-    theme: THEME.dots
-  };
-  faUserShield = faUserShield;
-  ngWizardService: any;
-  prf89 = null;
-  userForm;
-  btnSubmitDisable = false;
-  submitted: boolean;
-  perfilName = '';
-  perfilId = 0;
-  usuario: UserAuthenticateModel;
-  senhaErro = false;
-  currentIndex = 0;
-  perfisSelect;
-  selectedDevice = null;
-  selectedQuantity = '10';
-  perfisForm: FormGroup;
-  perfis: CareplusPerfilModel[] = [];
-  usuarios: UsuarioModel[] = [];
-  perfilCheck = false;
-  error;
-  selectedPerfil;
-  messageError: boolean;
+  // configUser: NgWizardConfig = {
+  //   toolbarSettings: {
+  //     showNextButton: false,
+  //     showPreviousButton: false,
+  //   },
+  //   selected: 0,
+  //   theme: THEME.dots
+  // };
+  // faUserShield = faUserShield;
+  // ngWizardService: any;
+  // prf89 = null;
+  // userForm;
+  // btnSubmitDisable = false;
+  // submitted: boolean;
+  // perfilName = '';
+  // perfilId = 0;
+  // usuario: UserAuthenticateModel;
+  // senhaErro = false;
+  // currentIndex = 0;
+  // perfisSelect;
+  // selectedDevice = null;
+  // selectedQuantity = '10';
+  // perfisForm: FormGroup;
+  // perfis: CareplusPerfilModel[] = [];
+  // usuarios: UsuarioModel[] = [];
+  // perfilCheck = false;
+  // error;
+  // selectedPerfil;
+  // messageError: boolean;
 
-  dismissible = true;
-  defaultAlerts: any[];
-  alerts;
-  userId: string;
-  usuarioSelecionado: any;
-  perfilSelecionado;
+  // dismissible = true;
+  // defaultAlerts: any[];
+  // alerts;
+  // userId: string;
+  // usuarioSelecionado: any;
+  // perfilSelecionado;
   perfilList = [];
   loaded: boolean = true;
 
@@ -66,8 +67,6 @@ export class UsuarioUpdateComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private authenticateService: AuthenticationService,
-    private careplusPerfilService: CareplusPerfilService,
     private usuarioService: UsuarioService,
     private toastrService: ToastrService
 
@@ -76,34 +75,38 @@ export class UsuarioUpdateComponent implements OnInit {
 
 
   ngOnInit() {
+    this.userForm = this.fb.group({
+      id: [''],
+      nome: [''],
+      nomeUsuario: [''],
+      ativo: [''],
+      usuarioPerfil: [[]],
+    });
     this.getUsuario();
     this.getPermissions();
-    // this.getPerfis();
-    this.createForm();
+    // // this.getPerfis();
+    // this.createForm();
   }
 
 
-  createForm() {
-    this.userForm = this.fb.group({
-      nome: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      email: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      senha: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-      ativo: ['1', Validators.required],
-      usuarioPerfil: ['', [Validators.required]]
-    });
-  }
+  // createForm() {
+  //   this.userForm = this.fb.group({
+  //     nome: [''],
+  //     ativo: ['1', Validators.required],
+  //     usuarioPerfil: ['']
+  //   });
+  // }
 
-  updateForm() {
+  // updateForm() {
 
-    this.userForm = this.fb.group({
-      nome: [this.usuarioSelecionado.nome, [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      email: [this.usuarioSelecionado.email, [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
-      senha: [this.usuarioSelecionado.SenhaHash, [Validators.required, FormControlError.noWhitespaceValidator]],
-      usuarioPerfil: this.fb.group,
-    });
-    console.log(this.usuarioSelecionado)
+  //   this.userForm = this.fb.group({
+  //     nome: [this.usuarioSelecionado.nome],
+  //     ativo: ['1', Validators.required],
+  //     usuarioPerfil: this.fb.group,
+  //   });
+  //   console.log(this.usuarioSelecionado)
 
-  }
+  // }
 
 
 
@@ -117,79 +120,57 @@ export class UsuarioUpdateComponent implements OnInit {
       .getById(id)
       .subscribe(user => {
         this.loaded = false;
-
-        this.usuarioSelecionado = user;
-        console.log(this.perfilSelecionado)
-        this.updateForm();
+        this.userForm.get('id').setValue(user.id);
+        this.userForm.get('nome').setValue(user.nome);
+        this.userForm.get('nomeUsuario').setValue(user.nomeUsuario);
+        this.userForm.get('ativo').setValue(user.ativo);
+        console.log(user.usuarioPerfil)
+        this.userForm.get('usuarioPerfil').setValue([{
+          perfilId: user.usuarioPerfil[0].id,
+          descricao: user.usuarioPerfil[0].descricao
+        }]);
         this.loaded = true;
-
       })
-
   }
-
-
-  // getPerfis() {
-  //   this.usuario = this.authenticateService.state;
-  //   this.careplusPerfilService
-  //     .getAll()
-  //     .subscribe(perfis =>
-  //       this.perfis = perfis,
-
-  //       error => {
-  //         this.messageError = true;
-  //         this.error = error.error.message;
-  //         this.defaultAlerts = [
-  //           {
-  //             type: 'danger',
-  //             msg: 'ERRO: ' + this.error,
-  //           }
-  //         ];
-  //         this.alerts = this.defaultAlerts;
-
-  //       });
 
   // }
+  // get perfilControls() {
+  //   return this.userForm.get('usuarioPerfil');
+  // }
 
+  // chancePerfil(perfil: CareplusPerfilModel) {
+  //   this.addPerfil(perfil.id, perfil.descricao);
+  //   console.log(perfil);
+  // }
 
-  get perfilControls() {
-    return this.userForm.get('usuarioPerfil');
-  }
+  // perfilChecked(event) {
+  //   console.log(event);
+  //   this.perfilCheck = true;
+  // }
 
-  chancePerfil(perfil: CareplusPerfilModel) {
-    this.addPerfil(perfil.id, perfil.descricao);
-    console.log(perfil);
-  }
-
-  perfilChecked(event) {
-    console.log(event);
-    this.perfilCheck = true;
-  }
-
-  addPerfil(id: number, descricao: string) {
-    this.perfilControls.setValue([{
-      perfilId: id,
-      descricao,
-    }]
-    );
-  }
+  // addPerfil(id: number, descricao: string) {
+  //   this.perfilControls.setValue([{
+  //     perfilId: id,
+  //     descricao,
+  //   }]
+  //   );
+  // }
 
   onSubmit() {
-    if (this.senhaErro === false) {
-      this.submitted = true;
-    }
-    console.log(this.userForm);
+    console.log(this.userForm)
     if (this.userForm.valid) {
 
 
-      this.btnSubmitDisable = true;
-      const model = new UsuarioUpdateModel(this.userForm.value);
-      model.id = this.usuarioSelecionado.id;
+      // this.btnSubmitDisable = true;
+      // const model = new UsuarioUpdateModel(this.userForm.value);
+      // model.id = this.usuarioSelecionado.id;
 
 
-      this.usuarioService.put(model)
+      this.usuarioService.put(this.userForm.value)
         .subscribe(() => {
-          this.toastrService.success('Post editado com sucesso!!!');
-          this.router.navigate(['/neocms/posts-blog/index']);
+          this.loaded = !this.loaded;
+          this.toastrService.success('Usuário atualizado com sucesso!');
+          this.router.navigate(['/neocms/usuarios']);
         },
           error => {
             let message = '';
@@ -200,28 +181,25 @@ export class UsuarioUpdateComponent implements OnInit {
             }
             this.toastrService.error(message);
           })
-        .add(() => this.btnSubmitDisable = false);
-
-
-
+        .add(() => this.loaded = !this.loaded);
     }
   }
 
-  onClosed(dismissedAlert: any): void {
-    this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
-  }
+  // onClosed(dismissedAlert: any): void {
+  //   this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
+  // }
 
-  getErrors(control: AbstractControl) {
-    return FormControlError.GetErrors(control);
-  }
+  // getErrors(control: AbstractControl) {
+  //   return FormControlError.GetErrors(control);
+  // }
 
-  setTheme(theme: THEME) {
-    this.ngWizardService.theme(theme);
-  }
+  // setTheme(theme: THEME) {
+  //   this.ngWizardService.theme(theme);
+  // }
 
-  stepChanged(args: StepChangedArgs) {
-    console.log(args.step);
-  }
+  // stepChanged(args: StepChangedArgs) {
+  //   console.log(args.step);
+  // }
 
   getPermissions() {
     this.usuarioService.getPermissions().subscribe((response) => {
@@ -237,14 +215,31 @@ export class UsuarioUpdateComponent implements OnInit {
         this.toastrService.error(message);
       })
   }
+
   active() {
-    if(this.userForm.controls.ativo == 1){
-      this.userForm.controls.ativo = 0;
-    }else{
-      this.userForm.controls.ativo = 1;
-      
+    if (this.userForm.get('ativo').value == '1') {
+      this.userForm.patchValue({
+        ativo: '0'
+      })
+      this.usuarioService.deactivate(this.userForm.get('nome').value).subscribe(() => {
+        this.toastrService.success("Usuário desativado com sucesso!")
+      },
+        error => {
+          let message = '';
+          if (error.error) {
+            message = error.error.message || 'Erro Interno no servidor';
+          } else {
+            message = error.message || 'Erro Interno';
+          }
+          this.toastrService.error(message);
+        })
+
+    } else {
+      this.userForm.patchValue({
+        ativo: '1'
+      })
+      this.onSubmit();
     }
-   
-    console.log(this.userForm.controls)
   }
+
 }

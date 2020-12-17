@@ -5,9 +5,10 @@ export class UsuarioModel {
   }
   id: number;
   nome: string;
+  ativo:string;
   nomeUsuario: string;
   SenhaHash: string;
   SenhaSalt: string;
-  usuarioPerfil: [];
+  usuarioPerfil: any;
 }
 
