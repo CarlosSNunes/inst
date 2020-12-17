@@ -4,7 +4,7 @@
         <div class="col-12">
           <div class="header">
             <h1>
-              Usuários
+                Aprovar usuários
             </h1>
             <a routerLink="/neocms">
               Voltar
@@ -24,27 +24,25 @@
                 <th scope="col" class="text-center hidden">Id</th>
                 <th scope="col" class="text-center">Nome</th>
                 <th scope="col" class="text-center">Nome do usuário</th>
-                <th scope="col" class="text-center">Perfil</th>
                 <th scope="col" class="text-center">Ação</th>
               </tr>
             </thead>
             <tbody>
   
               <td class="has-text-centered" *ngIf="users.length == 0 && loaded" colspan="6">
-                Não há banners cadastrados
+                Não há solicitações cadastradas
               </td>
-              <tr *ngFor="let user of usuarios" class="table-cell text-center">
+              <tr *ngFor="let user of users" class="table-cell text-center">
                 <td class="py-3 align-middle text-center hidden">{{user.id}}</td>
                 <td>{{user.nome}}</td>
                 <td>{{user.nomeUsuario}}</td>
-                <td>{{user.usuarioPerfil[0].descricao}}</td>
   
                 <td class="py-3 align-middle text-center">
-                  <a (click)="reprove()" routerLinkActive="active" title="Editar">
-                    <fa-icon class="icon-action text-dark" [icon]="faPencilAlt"></fa-icon>
+                  <a (click)="reprove(user)" routerLinkActive="active" title="Editar" class="reprove">
+                    <fa-icon class="icon-action " [icon]="faTrash"></fa-icon>
                   </a>
-                  <a (click)="approve()" routerLinkActive="active" title="Editar">
-                    <fa-icon class="icon-action text-dark" [icon]="faPencilAlt"></fa-icon>
+                  <a (click)="approve(user)" routerLinkActive="active" title="Editar" class="approve">
+                    <fa-icon class="icon-action" [icon]="faCheck"></fa-icon>
                   </a>
                 </td>
               </tr>

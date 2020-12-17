@@ -16,6 +16,7 @@ import {
   faEdit,
   faMoneyCheckAlt,
   faImages,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -40,6 +41,7 @@ export class NeocmsMenuLateralComponent implements OnInit {
   faEdit = faEdit;
   faMoneyCheckAlt = faMoneyCheckAlt;
   faImages = faImages;
+  faCheck= faCheck;
 
   constructor(
 

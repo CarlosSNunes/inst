@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
+
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../usuario.service';
 
@@ -12,6 +14,9 @@ export class UsuarioAprovacaoComponent implements OnInit {
   offset: number = 0;
   limit: number = 5;
   loaded: boolean;
+  faTrash = faTrash;
+  faCheck = faCheck;
+
   constructor(private userService: UsuarioService,
     private toastrService: ToastrService) { }
 
@@ -19,8 +24,9 @@ export class UsuarioAprovacaoComponent implements OnInit {
     this.getUsers()
   }
   getUsers() {
-    this.userService.getPending(this.offset, this.limit).subscribe((response) => {
-      this.users = response;
+    this.userService.getPending(this.offset, this.limit).subscribe((response: any) => {
+      this.users = response.result;
+      this.loaded = !this.loaded
     },
       error => {
         let message = '';
@@ -35,5 +41,38 @@ export class UsuarioAprovacaoComponent implements OnInit {
   onPageChange(page: number) {
     this.offset = page;
     this.getUsers();
+  }
+  approve(user) {
+    this.userService.approve(user.token).subscribe(() => {
+      this.loaded = !this.loaded
+      this.toastrService.success("Usuario aprovado com sucesso!");
+      this.getUsers();
+    },
+      error => {
+        let message = '';
+        if (error.error) {
+          message = error.error.message || 'Erro Interno no servidor';
+        } else {
+          message = error.message || 'Erro Interno';
+        }
+        this.toastrService.error(message);
+      })
+  }
+  reprove(user) {
+    this.userService.reprove(user.token).subscribe(() => {
+      this.loaded = !this.loaded
+      this.toastrService.success("Usuario reprovado com sucesso!");
+      this.getUsers();
+    },
+      error => {
+        let message = '';
+        if (error.error) {
+          message = error.error.message || 'Erro Interno no servidor';
+        } else {
+          message = error.message || 'Erro Interno';
+        }
+        this.toastrService.error(message);
+      })
+
   }
 }

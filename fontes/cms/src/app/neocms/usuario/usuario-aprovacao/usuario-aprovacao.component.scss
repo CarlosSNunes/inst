@@ -2,57 +2,65 @@
 @import "~src/assets/sass/styleguide";
 
 #users {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin-bottom: 20px;
-    h1 {
-      font-size: getSize("h2");
+    .header {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 20px;
+        h1 {
+            font-size: getSize("h2");
+        }
+        a {
+            color: getColor(_bupa, _digital-cian);
+            margin: auto 0;
+        }
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            background-color: getColor(_bupa, _black);
+            height: 1px;
+            width: 100%;
+        }
     }
-    a {
-      color: getColor(_bupa, _digital-cian);
-      margin: auto 0;
+    .createUser {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+            padding: 10px 15px;
+        }
     }
-    &:before {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      content: "";
-      background-color: getColor(_bupa, _black);
-      height: 1px;
-      width: 100%;
+    table {
+        thead {
+            background-color: getColor(_bupa, _grey-3);
+        }
+        tbody {
+            cursor: pointer;
+        }
+        td {
+            vertical-align: middle;
+            .approve {
+                color: getColor("_bupa", "_digital-lime");
+                margin-left: 15px;
+
+            }
+            .reprove {
+                color: getColor("_bupa", "_red");
+            }
+        }
     }
-  }
-  .createUser {
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: flex-end;
     button {
-      padding: 10px 15px;
+        padding: 10px 15px;
     }
-  }
-  table {
-    thead {
-      background-color: getColor(_bupa, _grey-3);
+    .load {
+        width: 100%;
+        display: flex;
+        svg {
+            margin: auto;
+        }
     }
-    tbody {
-      cursor: pointer;
-    }
-    td {
-      vertical-align: middle;
-    }
-  }
-  button {
-    padding: 10px 15px;
-  }
-  .load {
-    width: 100%;
-    display: flex;
-    svg {
-      margin: auto;
-    }
-  }
 }
 
 // .hidden {

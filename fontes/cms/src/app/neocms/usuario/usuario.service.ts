@@ -109,4 +109,12 @@ export class UsuarioService {
     deactivate(name) {
         return this.http.put(`${this.API_ENDPOINT}/inativar-usuario`, { nomeUsuario: name })
     }
+    approve(token){
+        return this.http.get(`${this.API_ENDPOINT}/valida-requisicao/${token}`)
+
+    }
+    reprove(token){
+        return this.http.delete(`${this.API_ENDPOINT}/remove-requisicao/${token}`)
+
+    }
 }
