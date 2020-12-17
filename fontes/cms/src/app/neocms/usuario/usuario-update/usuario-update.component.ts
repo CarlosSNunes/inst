@@ -221,7 +221,7 @@ export class UsuarioUpdateComponent implements OnInit {
       this.userForm.patchValue({
         ativo: '0'
       })
-      this.usuarioService.deactivate(this.userForm.get('nome').value).subscribe(() => {
+      this.usuarioService.deactivate(this.userForm.get('nomeUsuario').value).subscribe(() => {
         this.toastrService.success("Usuário desativado com sucesso!")
       },
         error => {
@@ -232,14 +232,35 @@ export class UsuarioUpdateComponent implements OnInit {
             message = error.message || 'Erro Interno';
           }
           this.toastrService.error(message);
+          this.userForm.patchValue({
+            ativo: '1'
+          })
         })
 
     } else {
       this.userForm.patchValue({
         ativo: '1'
       })
-      this.onSubmit();
+      this.usuarioService.put(this.userForm.value)
+        .subscribe(() => {
+          this.loaded = !this.loaded;
+          this.toastrService.success('Usuário atualizado com sucesso!');
+          this.router.navigate(['/neocms/usuarios']);
+        },
+          error => {
+            let message = '';
+            if (error.error) {
+              message = error.error.message || 'Erro Interno no servidor';
+            } else {
+              message = error.message || 'Erro Interno';
+            }
+            this.toastrService.error(message);
+            this.userForm.patchValue({
+              ativo: '0'
+            })
+          })
+        .add(() => this.loaded = !this.loaded);
     }
   }
-
 }
+
