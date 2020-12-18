@@ -26,5 +26,8 @@ namespace CarePlusAPI.Helpers
         public string SeqTokenInst { get; set; }
         public string SeqTokenAPI { get; set; }
         public string CMSUrl { get; set; }
+        public string AssetsServerUrl { get; set; }
+        public bool HasAssetsServer { get; set; }
+        public string AssetsServerIp { get; set; }
     }
 }
