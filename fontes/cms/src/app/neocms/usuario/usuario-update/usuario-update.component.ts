@@ -1,11 +1,12 @@
 import { CareplusPerfilModel } from './../../../../models/careplus-perfil/careplus-perfil.model';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
 import { UsuarioUpdateModel } from 'src/models/usuario/usuario-update.model';
 import { UsuarioModel } from 'src/models/usuario/usuario.model';
 import { ToastrService } from 'ngx-toastr';
+import { FormControlError } from 'src/utils/form-control-error';
 
 @Component({
     selector: 'app-usuario-update',
@@ -18,6 +19,7 @@ export class UsuarioUpdateComponent implements OnInit {
     loaded: boolean = true;
     usuarioModel: UsuarioModel;
     selectedProfile: CareplusPerfilModel;
+    submitted: boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -64,6 +66,7 @@ export class UsuarioUpdateComponent implements OnInit {
     }
 
     onSubmit() {
+        this.submitted = true;
         if (this.userForm.valid) {
             const perfil = this.perfilList.find(p => p.id == this.userForm.get('perfil').value);
             const user = new UsuarioUpdateModel({
@@ -164,6 +167,9 @@ export class UsuarioUpdateComponent implements OnInit {
                     })
                 .add(() => this.loaded = !this.loaded);
         }
+    }
+    getErrors(control: AbstractControl) {
+        return FormControlError.GetErrors(control);
     }
 }
 

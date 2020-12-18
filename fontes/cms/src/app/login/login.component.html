@@ -35,7 +35,6 @@
             </form>
             <ng-template #modalTemplate>
                 <div class="modal-body text-center">
-                    <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
                     <p>{{resultMessage}}</p>
                     <button type="button" class="btn btn-default" (click)="onRequestCanceled()">Cancelar</button>
                     <button type="button" class="btn btn-primary" (click)="onRequestConfirm()">Enviar</button>
