@@ -102,7 +102,6 @@ export class BannerEditComponent implements OnInit {
         this.bannerService.getById(id)
             .subscribe(banner => {
                 this.bannerResult = banner;
-                console.log(banner);
                 this.bannerForm.patchValue(this.bannerResult);
                 this.updateForm();
             },
@@ -214,7 +213,6 @@ export class BannerEditComponent implements OnInit {
 
         this.bannerForm.controls.arquivo.setValue(this.arquivo);
         this.bannerForm.controls.nome.setValue(this.arquivoNome);
-        console.log(this.bannerForm.controls.nome.setValue(this.arquivoNome))
     }
 
     /**
@@ -296,7 +294,6 @@ export class BannerEditComponent implements OnInit {
      * @memberOf BannerEditComponent
      */
     stepChanged(args: StepChangedArgs) {
-        console.log(args.step);
     }
 
     /**

@@ -9,9 +9,13 @@
 
 namespace CarePlusHomolog
 {
+    using System;
+    using System.IO;
     using System.Runtime.Serialization;
-    
-    
+    using CarePlusAPI.Helpers;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Options;
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="WSTokenOrigem", Namespace="http://schemas.datacontract.org/2004/07/CAREPLUS.WS.Model")]
@@ -6607,15 +6611,41 @@ namespace CarePlusHomolog
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
+            var value = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            string variableFile = string.Empty;
+
+            if (value != null && value != "")
+            {
+                variableFile = $"appsettings.{value}.json";
+            }
+            else
+            {
+                variableFile = "appsettings.json";
+            }
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile(variableFile, optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            IConfigurationRoot configuration = builder.Build();
+
+            IConfigurationSection appSettingsSection = configuration.GetSection("AppSettings");
+
+            var appSettings = appSettingsSection.Get<AppSettings>();
+
+            IOptions<AppSettings> _appSettings = Options.Create<AppSettings>(appSettings);
+
             if ((endpointConfiguration == EndpointConfiguration.SOAPEndPointPartnerHTTPS))
             {
-                return new System.ServiceModel.EndpointAddress("https://hmlcwip.careplus.com.br/wsCarePlus05/PartnerService.svc/soap");
+                return new System.ServiceModel.EndpointAddress(_appSettings.Value.WSPartnerURLHTTPS);
             }
             if ((endpointConfiguration == EndpointConfiguration.SOAPEndPointPartner))
             {
-                return new System.ServiceModel.EndpointAddress("http://hmlcwip.careplus.com.br/wsCarePlus05/PartnerService.svc/soap");
+                return new System.ServiceModel.EndpointAddress(_appSettings.Value.WSPartnerURL);
             }
-            throw new System.InvalidOperationException(string.Format("Não foi possível encontrar o ponto de extremidade com o nome \'{0}\'.", endpointConfiguration));
+            throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
         
         public enum EndpointConfiguration

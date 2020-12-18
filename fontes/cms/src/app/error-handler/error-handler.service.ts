@@ -5,37 +5,36 @@ import { throwError } from 'rxjs';
 import { AuthenticationService } from '../authentication/authentication.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ErrorHandlerService {
 
-  constructor(
-    private injector: Injector
-  ) { }
-  handleError(error: any) {
-    if (error instanceof HttpErrorResponse) {
-      if (error.error instanceof ErrorEvent) {
-        console.error('Error Event');
-      } else {
-        console.log(`error status : ${error.status} ${error.statusText}`);
-        const router = this.injector.get(Router);
-        const authenticationService = this.injector.get(AuthenticationService);
+    constructor(
+        private injector: Injector
+    ) { }
+    handleError(error: any) {
+        if (error instanceof HttpErrorResponse) {
+            if (error.error instanceof ErrorEvent) {
+                console.error('Error Event');
+            } else {
+                console.log(`error status : ${error.status} ${error.statusText}`);
+                const router = this.injector.get(Router);
+                const authenticationService = this.injector.get(AuthenticationService);
 
-        switch (error.status) {
-          case 401:
-            authenticationService.state = null;
-            router.navigate(['/login']);
-            break;
-          case 403:
-            authenticationService.state = null;
-            router.navigate(['/unauthorized']);
-            break;
+                switch (error.status) {
+                    case 401:
+                        authenticationService.state = null;
+                        router.navigate(['/login']);
+                        break;
+                    case 403:
+                        authenticationService.state = null;
+                        router.navigate(['/login']);
+                        break;
+                }
+            }
+        } else {
+            console.log(error)
         }
-      }
-    } else {
-      // console.error('some thing else happened');]
-      console.log(error)
+        return throwError(error);
     }
-    return throwError(error);
-  }
 }

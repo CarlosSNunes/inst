@@ -67,7 +67,6 @@ export class DashboardComponent implements OnInit {
             .subscribe(resp => {
                 this.loaded = true;
                 this.postsAtivos = resp;
-                console.log(resp)
             },
                 error => {
                     this.loaded = true;
