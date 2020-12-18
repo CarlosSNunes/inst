@@ -1,0 +1,56 @@
+<section class="hero is-dark is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Cadastrar novas tags
+            </h1>
+        </div>
+    </div>
+</section>
+<form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="card-content">
+            <div class="columns">
+                <div *ngFor="let tag of tags.controls; let i=index" class="column" formArrayName="tags">
+                    <div [formGroupName]="i" class="field has-addons">
+                        <p class="control">
+                            <input formControlName="descricao" class="input" type="text" placeholder=""
+                                [ngClass]="{ 'is-success': submitted && !tag.get('descricao').errors, 'is-danger' : submitted && tag.get('descricao').errors }">
+                        </p>
+                        <p *ngIf="tags.length > 1" class="control">
+                            <button type="button" class="button delete is-dark" (click)="removeTag(i)">
+
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <button (click)="addTag()" class="button is-link" type="button">
+                    Adcionar Tag
+                </button>
+                <p *ngIf="submitted && f.invalid" class="errors">
+                    <label class="help is-danger">
+                        É necessário preencher o nome das tags adicionadas
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <button routerLink="/neocms/noticia/tag" routerLinkActive="active" class="button is-light"
+                    type="button">
+                    Fechar &nbsp;
+                    <fa-icon [icon]="faTimes"></fa-icon>
+                </button>
+            </p>
+            <p class="card-footer-item">
+                <button class="button is-primary" type="submit">
+                    Gravar &nbsp;
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </button>
+            </p>
+        </footer>
+    </div>
+</form>

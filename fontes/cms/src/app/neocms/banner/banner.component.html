@@ -1,0 +1,203 @@
+<section id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="header">
+          <h1>
+            Banners
+          </h1>
+          <a routerLink="/neocms">
+            Voltar
+          </a>
+        </div>
+        <div class="createBanner">
+          <button type="button" class="btn blue " routerLink="/neocms/banner/create">Novo Banner</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h5 class="filter-title">Filtros</h5>
+        <ul class="filter">
+          <li>
+            <button class="btn blue" [class.active]="selectedFilter === 'beneficiario'"
+              (click)="filter('beneficiario')">
+              Home - Beneficiário
+            </button>
+          </li>
+          <li>
+            <button class="btn blue" [class.active]="selectedFilter === 'blog'" (click)="filter('blog')">
+              Home - Blog
+            </button>
+          </li>
+          <li>
+            <button class="btn blue" [class.active]="selectedFilter === 'corretor'" (click)="filter('corretor')">
+              Home - Corretor
+            </button>
+          </li>
+          <li>
+            <button class="btn blue" [class.active]="selectedFilter === 'credenciado'" (click)="filter('credenciado')">
+              Home - Credenciado
+            </button>
+          </li>
+          <li>
+            <button class="btn blue" [class.active]="selectedFilter === 'diferenciais'"
+              (click)="filter('diferenciais')">
+              Home - Diferenciais
+            </button>
+          </li>
+          <li>
+            <button class="btn blue" [class.active]="selectedFilter === 'home'" (click)="filter('home')">
+              Home - Home
+            </button>
+          </li>
+          <li>
+            <button class="btn blue" [class.active]="selectedFilter === 'rh'" (click)="filter('rh')">
+              Home - RH
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class=row>
+      <div class="col-12">
+        <div class="area">
+          <h2>Home - {{selectedFilter}}</h2>
+
+        </div>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-12">
+        <table id="bannerTable" class="table table-hover">
+          <caption>Banners</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">Imagem</th>
+              <th scope="col" class="text-center title">Título</th>
+              <th scope="col" class="text-center">Ativo</th>
+              <th scope="col" class="text-center">Area</th>
+              <th scope="col" class="text-center">Cadastrado em:</th>
+              <th scope="col" class="text-center">Tempo de Exibição</th>
+              <th scope="col" class="text-center actions">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <td class="has-text-centered" *ngIf="bannerCount == 0 && loaded" colspan="6">
+              Não há banners cadastrados
+            </td>
+            <tr
+              *ngFor="let banner of bannerResult | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: bannerCount }"
+              class="table-cell text-center">
+              <!-- <td class="hidden">{{banner.id}}</td> -->
+              <td class="">
+                <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active ">
+                  <img class="thumbnail-banner" src="{{ apiPath + banner.caminhoDesktop}}" [alt]="banner.titulo">
+                </a>
+              </td>
+              <td class="py-3 align-middle text-center">
+                {{banner.titulo}}
+              </td>
+              <td class="py-3 align-middle text-center">
+                <div class="custom-control custom-switch">
+
+                  <input type="checkbox" class="custom-control-input" [checked]="banner.ativo == '1'">
+                  <label class="custom-control-label" for="customSwitch1"></label>
+                </div>
+              </td>
+              <td class="py-3 align-middle text-center">
+                {{banner.area}}
+              </td>
+              <td class="py-3 align-middle text-center">
+                {{banner.dataCadastro | date: 'dd/MM/yyyy'}}
+              </td>
+              <td class="py-3 align-middle text-center">
+                <span class="badge badge-dark shadow-sm p-2">{{banner.tempoExibicao}} segundos</span>
+              </td>
+              <td class="py-3 align-middle text-center">
+                <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active" title="Editar">
+                  <fa-icon class="icon-action text-dark" [icon]="faPencilAlt"></fa-icon>
+                </a>
+                <a class="text-right text-danger px-3" (click)="openModal(template)">
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                </a>
+                <a (click)="openModalDuplicarBanner(templateDuplicar)" type="button" class="info-icon"
+                  alt="Duplicar Banner">
+                  <fa-icon [icon]="faClone"></fa-icon>
+                </a>
+                <ng-template #templateDuplicar>
+                  <div class="modal-body text-center  modal-md">
+                    <header class="modal-card-head">
+                      <p class="modal-card-title">Tem certeza que deseja duplicar esse Banner?
+                      </p>
+                    </header>
+                    <section class="modal-card-body">
+                      <p>
+                        <strong>Título:</strong> {{ banner.titulo }}
+                      </p>
+                    </section>
+                    <button type="button" class="btn btn-default ml-3" (click)="confirmDuplicar(banner)">Sim</button>
+                    <button type="button" class="btn btn-primary ml-3" (click)="decline()">Não</button>
+                  </div>
+                </ng-template>
+                <ng-template #template>
+                  <div class="modal-body text-center">
+                    <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
+                    <p>Deseja exluir o banner: <span class="tag-descricao-del">{{banner.titulo}}</span>?</p>
+                    <button type="button" class="btn btn-default" (click)="confirm(banner.id)">Sim</button>
+                    <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
+                  </div>
+                </ng-template>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="bannerCount == 0 && !loaded" class="load">
+          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
+            xml:space="preserve">
+            <path fill="#0079c8"
+              d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+              <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+            </path>
+          </svg>
+        </div>
+        <div class="text-center">
+          <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
+            nextLabel="Próximo">
+          </pagination-controls>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="card my-2" id="card-header">
+  <div class="card-body">
+    <div class="row">
+      <div class="link-title">
+        <a [routerLink]="['/neocms']">
+          <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
+          <span class="title-banner">Banners</span>
+        </a>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary btn-novo-post" routerLink="/neocms/banner/create"
+          routerLinkActive="active">Novo Banner</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        
+      </div>
+    </div>
+  </div>
+</div> -->
+<app-banner-delete *ngIf="showBannerDelete" [banner]="banner" (onClose)="getBanners()"></app-banner-delete>

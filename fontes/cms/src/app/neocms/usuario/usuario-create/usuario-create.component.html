@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-header">
+    criação de Usuário
+  </div>
+  <div class="card-body">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <ng-wizard [config]="configUser" (stepChanged)="stepChanged($event)">
+        <ng-wizard-step [title]="'Usuário'" [description]="'Novo Usuário'">
+          <div class="row">
+            <div class="col-md-12 col-lg-4 m-auto">
+              <div *ngFor="let alert of alerts">
+                <alert class="bold" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
+                  {{ alert.msg }}
+                </alert>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label class="label">Nome Completo</label>
+                  <input formControlName="nome" class="form-control" type="text" placeholder=""
+                    [ngClass]="{ 'is-success': submitted && !f.nome.errors, 'is-danger' : submitted && f.nome.errors }">
+                  <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">
+                      {{error}}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class=" label">Perfil</label>
+
+                  <div class="card">
+                    <div class="card-body">
+                      <div *ngFor="let perfil of perfis">
+                        <ul>
+                          <li>
+                            <input id="r1" type="radio" name="radio" required (change)="chancePerfil(perfil)">
+                            <label for="r1">{{perfil.descricao}}</label>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class="label">E-mail</label>
+                  <input formControlName="email" class="form-control" type="email" placeholder=""
+                    [ngClass]="{ 'is-su.ccess': submitted && !f.email.errors, 'is-danger' : submitted && f.email.errors }">
+                  <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.email)" class="help is-danger">{{error}}</p>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label class="label">Senha</label>
+                  <input formControlName="senha" class="form-control" type="password" placeholder=""
+                    [ngClass]="{ 'is-success': submitted && !f.senha.errors, 'is-danger' : submitted && f.senha.errors }">
+                  <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.senha)" class="help is-danger">{{error}}
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-12 w-100 text-right">
+                  <button class="badge badge-dark shadow p-3" type="submit">
+                    SALVAR ALTERAÇÕES
+                  </button>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </ng-wizard-step>
+      </ng-wizard>
+    </form>
+  </div>
+</div>

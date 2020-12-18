@@ -1,0 +1,45 @@
+<div class="container" id="containerLogin">
+    <div class="shadow-sm fade-in login">
+        <div class="login-header">
+            <img class=" img-logo-carePlus" src="assets/img/carePlus-logo.svg" alt="CarePlus">
+            <img class=" img-logo-cms" src="assets/img/neocms-white.png" alt="NeoCMS">
+        </div>
+        <div class="login-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-content">
+                    <div class="form-group form-row">
+                        <label for="username" class="text-white">Nome do usuário</label>
+                        <input type="email" class="form-control" placeholder="Nome do usuário"
+                            formControlName="nomeUsuario" id="username" aria-describedby="emailHelp"
+                            [ngClass]="{ 'is-success': submitted && !f.nomeUsuario?.errors, 'is-danger' : submitted && f.nomeUsuario?.errors || error }">
+                        <p *ngIf="submitted && f.nomeUsuario?.errors?.required" class="help is-danger">
+                            Nome do usuário é obrigatório
+                        </p>
+                        <p *ngIf="error" class="help is-danger">
+                            {{error.message}}
+                        </p>
+                    </div>
+                    <div class="form-group form-row mt-3">
+                        <label for="exampleInputPassword1" class="text-white">Senha</label>
+                        <input type="password" placeholder="Senha" class="form-control" id="exampleInputPassword1"
+                            formControlName="senha"
+                            [ngClass]="{ 'is-success': submitted && !f.senha.errors, 'is-danger' : submitted && f.senha.errors || error }">
+                        <p *ngIf="submitted && f.senha.errors?.required" class="help is-danger ">
+                            Senha é obrigatória
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <button class="btn white btnLogin">Entrar</button>
+                </div>
+            </form>
+            <ng-template #modalTemplate>
+                <div class="modal-body text-center">
+                    <p>{{resultMessage}}</p>
+                    <button type="button" class="btn btn-default" (click)="onRequestCanceled()">Cancelar</button>
+                    <button type="button" class="btn btn-primary" (click)="onRequestConfirm()">Enviar</button>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

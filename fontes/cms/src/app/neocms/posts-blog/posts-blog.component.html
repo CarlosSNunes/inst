@@ -1,0 +1,147 @@
+<section id="posts">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="header">
+          <h1>
+            Blog Post Careplus +
+          </h1>
+          <a routerLink="/neocms">
+            Voltar
+          </a>
+        </div>
+        <div class="createPost">
+          <button type="button" class="btn blue " routerLink="/neocms/posts-blog/create">Novo Post</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-hover text-nowrap">
+          <caption>Posts</caption>
+          <thead class="">
+            <th scope="col" class="  text-center favorite">Favorito</th>
+            <th scope="col" class="  text-center">Imagem</th>
+            <th scope="col" class=" text-center">Titulo</th>
+            <th scope="col" class="  text-center">Data Publicação</th>
+            <th scope="col" class="  text-center">Categoria</th>
+            <th scope="col" class="  text-center">Ações</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="has-text-centered" *ngIf="postCount == 0 && loaded" colspan="6">
+                Não há posts cadastrados
+              </td>
+            </tr>
+            <tr
+              *ngFor="let post of postsBlog | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: postCount }">
+              <td scope="col" class=" text-center favorite">
+                <fa-icon [icon]="faStar" [class.yellowStar]="post.destaque == '1'">
+                </fa-icon>
+              </td>
+              <td class=" text-center text-truncate img-post">
+                <img *ngIf="post.caminhoCompleto" src="{{ post.caminhoCompleto}}" [alt]="post.titulo">
+                <img *ngIf="!post.caminhoCompleto" src="assets/img/image-placeholder.png">
+              </td>
+              <td scope="col" class=" text-center">
+                {{post.titulo}}</td>
+              <td scope="col" class=" text-center">
+                {{post.dataPublicacao | date:'dd/MM/yyyy'}}
+              </td>
+              <td class=" text-center text-truncate">
+                {{post.categoria}}
+              </td>
+              <td class="text-center">
+                <div class="actions" *ngIf="post.status != 'pendente'">
+                  <a [routerLink]="['/neocms/posts-blog/preview', post.slug]" routerLinkActive="active"
+                    class="info-icon text-dark" alt="Visualizar post">
+                    <fa-icon [icon]="faEye"></fa-icon>
+                  </a>
+                  <a [routerLink]="['/neocms/posts-blog/edit', post.slug]" routerLinkActive="active"
+                    class="info-icon text-dark" alt="Editar post">
+                    <fa-icon [icon]="faEdit"></fa-icon>
+                  </a>
+                  <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon text-danger"
+                    alt="Excluir post">
+                    <fa-icon [icon]="faTrashAlt"></fa-icon>
+                  </a>
+                  <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon "
+                    alt="Duplicar post">
+                    <fa-icon [icon]="faClone"></fa-icon>
+                  </a>
+                  <ng-template #templateDuplicar>
+                    <div class="modal-body text-center  modal-md">
+                      <header class="modal-card-head">
+                        <p class="modal-card-title">Tem certeza que deseja duplicar esse post?
+                        </p>
+                      </header>
+                      <section class="modal-card-body">
+                        <p>
+                          <strong>Título:</strong> {{ post?.titulo }}
+                        </p>
+                      </section>
+                      <button type="button" class="btn btn-default ml-3" (click)="confirmDuplicar(post)">Sim</button>
+                      <button type="button" class="btn btn-primary ml-3" (click)="decline()">Não</button>
+                    </div>
+                  </ng-template>
+                  <ng-template #templateDelete>
+                    <div class="modal-body text-center  modal-md">
+                      <header class="modal-card-head">
+                        <p class="modal-card-title">Tem certeza que deseja excluir esse post?
+                        </p>
+                      </header>
+                      <section class="modal-card-body">
+                        <p>
+                          <strong>Título:</strong> {{ post?.titulo }}
+                        </p>
+                      </section>
+                      <button type="button" class="btn btn-default ml-3" (click)="confirmExcluir(post)">Sim</button>
+                      <button type="button" class="btn btn-primary ml-3" (click)="decline()">Não</button>
+                    </div>
+                  </ng-template>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+        <div *ngIf="postCount == 0 && !loaded" class="load">
+          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
+            xml:space="preserve">
+            <path fill="#0079c8"
+              d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+              <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+            </path>
+          </svg>
+        </div>
+
+
+        <div class="text-center">
+          <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
+            nextLabel="Próximo">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="card my-2" id="card-header">
+    <div class="card-body">
+        <div class="row">
+            <div class="link-title">
+                <a [routerLink]="['/neocms']">
+                    <img class="arrow-return" src="assets/img/arrow.png" alt="Arrow return">
+                    <span class="title-banner">Blog Post Careplus +</span>
+                </a>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary btn-novo-post" routerLink="/neocms/posts-blog/create"
+                    routerLinkActive="active">Novo Post</button>
+            </div>
+        </div>
+    </div>
+</div> -->

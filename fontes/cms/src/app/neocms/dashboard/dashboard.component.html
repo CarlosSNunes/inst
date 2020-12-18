@@ -1,0 +1,212 @@
+<section id="dashboard">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a routerLink="/neocms/posts-blog/index">
+
+                    <div class="card posts">
+                        <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M467 0H45C20.187 0 0 20.187 0 45V467C0 491.813 20.187 512 45 512H467C491.813 512 512 491.813 512 467V45C512 20.187 491.813 0 467 0ZM482 467C482 475.271 475.271 482 467 482H45C36.729 482 30 475.271 30 467V150H482V467ZM482 120H30V45C30 36.729 36.729 30 45 30H467C475.271 30 482 36.729 482 45V120Z"
+                                fill="white" />
+                            <path
+                                d="M75 90C83.2843 90 90 83.2843 90 75C90 66.7157 83.2843 60 75 60C66.7157 60 60 66.7157 60 75C60 83.2843 66.7157 90 75 90Z"
+                                fill="white" />
+                            <path
+                                d="M135 90C143.284 90 150 83.2843 150 75C150 66.7157 143.284 60 135 60C126.716 60 120 66.7157 120 75C120 83.2843 126.716 90 135 90Z"
+                                fill="white" />
+                            <path
+                                d="M195 90C203.284 90 210 83.2843 210 75C210 66.7157 203.284 60 195 60C186.716 60 180 66.7157 180 75C180 83.2843 186.716 90 195 90Z"
+                                fill="white" />
+                            <path
+                                d="M225 180H75C66.716 180 60 186.716 60 195V317C60 325.284 66.716 332 75 332H225C233.284 332 240 325.284 240 317V195C240 186.716 233.284 180 225 180ZM210 302H90V210H210V302Z"
+                                fill="white" />
+                            <path
+                                d="M437 302H285C276.716 302 270 308.716 270 317C270 325.284 276.716 332 285 332H437C445.284 332 452 325.284 452 317C452 308.716 445.284 302 437 302Z"
+                                fill="white" />
+                            <path
+                                d="M437 241H285C276.716 241 270 247.716 270 256C270 264.284 276.716 271 285 271H437C445.284 271 452 264.284 452 256C452 247.716 445.284 241 437 241Z"
+                                fill="white" />
+                            <path
+                                d="M437 362H75C66.716 362 60 368.716 60 377C60 385.284 66.716 392 75 392H437C445.284 392 452 385.284 452 377C452 368.716 445.284 362 437 362Z"
+                                fill="white" />
+                            <path
+                                d="M437 422H75C66.716 422 60 428.716 60 437C60 445.284 66.716 452 75 452H437C445.284 452 452 445.284 452 437C452 428.716 445.284 422 437 422Z"
+                                fill="white" />
+                        </svg>
+
+                        <h1 *ngIf="postsAtivos !== undefined">
+                            {{postsAtivos}}</h1>
+
+                            <div *ngIf="postsAtivos === undefined" class="load">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                    <path fill="#0079c8"
+                                        d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+
+                        <h5>
+                            Posts no Blog Care Plus+</h5>
+                    </div>
+
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a routerLink="/neocms/banner">
+                    <div class="card banners">
+                        <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M453.332 448H58.668C26.3047 448 0 421.695 0 389.332V122.668C0 90.3047 26.3047 64 58.668 64H453.332C485.695 64 512 90.3047 512 122.668V389.332C512 421.695 485.695 448 453.332 448V448ZM58.668 96C43.9687 96 32 107.969 32 122.668V389.332C32 404.031 43.9687 416 58.668 416H453.332C468.031 416 480 404.031 480 389.332V122.668C480 107.969 468.031 96 453.332 96H58.668Z"
+                                    fill="white" />
+                                <path
+                                    d="M106.668 213.332C83.1367 213.332 64 194.199 64 170.668C64 147.137 83.1367 128 106.668 128C130.199 128 149.332 147.137 149.332 170.668C149.332 194.199 130.199 213.332 106.668 213.332ZM106.668 160C100.777 160 96 164.777 96 170.668C96 176.555 100.777 181.332 106.668 181.332C112.555 181.332 117.332 176.555 117.332 170.668C117.332 164.777 112.555 160 106.668 160Z"
+                                    fill="white" />
+                                <path
+                                    d="M16 405.332C11.9023 405.332 7.80859 403.777 4.69141 400.641C-1.55859 394.391 -1.55859 384.258 4.69141 378.004L122.879 259.82C137.473 245.227 161.215 245.227 175.785 259.82L202.668 286.699L304.215 185.152C318.805 170.559 342.551 170.559 357.121 185.152L507.309 335.34C513.559 341.59 513.559 351.723 507.309 357.973C501.055 364.223 490.922 364.223 484.672 357.973L334.484 207.785C332.395 205.695 328.895 205.695 326.828 207.785L213.973 320.641C207.723 326.891 197.59 326.891 191.34 320.641L153.152 282.453C150.441 279.742 148.203 279.742 145.492 282.453L27.3086 400.641C24.1914 403.777 20.0977 405.332 16 405.332Z"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="512" height="512" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+
+                        <h1 *ngIf="bannersAtivos !== undefined">
+                            {{bannersAtivos}}</h1>
+                            <div *ngIf="bannersAtivos === undefined" class="load">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                    <path fill="#0079c8"
+                                        d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+
+                        <h5>
+                            Banners ativos</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a routerLink="/neocms/usuarios">
+                    <div class="card users">
+                        <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M256 207C303.972 207 343 167.972 343 120C343 72.028 303.972 33 256 33C208.028 33 169 72.028 169 120C169 167.972 208.028 207 256 207ZM256 63C287.43 63 313 88.57 313 120C313 151.43 287.43 177 256 177C224.57 177 199 151.43 199 120C199 88.57 224.57 63 256 63Z"
+                                    fill="white" />
+                                <path
+                                    d="M432 207C462.327 207 487 182.327 487 152C487 121.673 462.327 97 432 97C401.673 97 377 121.673 377 152C377 182.327 401.673 207 432 207ZM432 127C445.785 127 457 138.215 457 152C457 165.785 445.785 177 432 177C418.215 177 407 165.785 407 152C407 138.215 418.215 127 432 127Z"
+                                    fill="white" />
+                                <path
+                                    d="M444.1 241H420.9C393.561 241 369.961 257.152 359.207 280.352C337.066 256.182 305.263 241 269.979 241H242.022C206.738 241 174.935 256.182 152.794 280.352C142.039 257.152 118.439 241 91.1 241H67.9C30.46 241 0 271.276 0 308.49V417.7C0 433.856 13.194 447 29.412 447H121.139C122.677 464.9 137.729 479 156.022 479H355.979C374.271 479 389.323 464.9 390.862 447H481.541C498.337 447 512.001 433.39 512.001 416.66V308.49C512 271.276 481.54 241 444.1 241V241ZM30 308.49C30 287.818 47.002 271 67.9 271H91.1C111.998 271 129 287.818 129 308.49V318.761C118.913 345.025 121 360.765 121 417H30V308.49ZM361 443.979C361 446.748 358.748 449 355.979 449H156.021C153.252 449 151 446.747 151 443.979V362.022C151 311.832 191.832 271 242.021 271H269.978C320.168 271 361 311.832 361 362.021V443.979ZM482 416.66C482 417.177 487.592 417 391 417C391 360.349 393.071 344.982 383 318.761V308.49C383 287.818 400.002 271 420.9 271H444.1C464.998 271 482 287.818 482 308.49V416.66Z"
+                                    fill="white" />
+                                <path
+                                    d="M80 207C110.327 207 135 182.327 135 152C135 121.673 110.327 97 80 97C49.673 97 25 121.673 25 152C25 182.327 49.673 207 80 207ZM80 127C93.785 127 105 138.215 105 152C105 165.785 93.785 177 80 177C66.215 177 55 165.785 55 152C55 138.215 66.215 127 80 127Z"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="512" height="512" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+
+                        <h1  *ngIf="userCount !== undefined">
+                            {{userCount}}</h1>
+                            <div *ngIf="userCount === undefined" class="load">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                    <path fill="#0079c8"
+                                        d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+                        <h5>
+                            Usuários
+                        </h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card posts-mais-lidos">
+                    <div class="header">
+                        <h5>
+                            Posts mais lidos no Blog
+                        </h5>
+                    </div>
+                    <div class="body">
+                        <ul>
+
+                            <li role="button" *ngFor="let post of postsMaisLidos; index as i;"
+                                (click)="changePost(post.id)">
+                                <a>
+                                    <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 30V482H512V30H0ZM482 452H30V120H482V452ZM482 90H30V60H482V90Z"
+                                            fill="white" />
+                                        <path d="M271 160V412H452V160H271ZM422 382H301V190H422V382Z" fill="white" />
+                                        <path d="M241 160H60V190H241V160Z" fill="white" />
+                                        <path d="M181 220H60V250H181V220Z" fill="white" />
+                                        <path d="M241 300H60V330H241V300Z" fill="white" />
+                                        <path d="M181 360H60V390H181V360Z" fill="white" />
+                                    </svg>
+
+                                    <span class="text-item">{{post.titulo}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="post-content">
+                            <div *ngIf="postSelecionado" class="post-image crop">
+                                <img [src]="postSelecionado.CaminhoCompleto"
+                                    [alt]="postSelecionado.titulo">
+                            </div>
+                            <div *ngIf="!postSelecionado" class="post-image">
+                                <img src="assets/img/image-placeholder.png">
+                            </div>
+
+                            <div class="post-body">
+                                <h5 *ngIf="postSelecionado" class="post-title">
+                                    {{ postSelecionado.titulo }}</h5>
+
+                                <p *ngIf="postSelecionado" class="post-subtitle">
+                                    {{postSelecionado.subtitulo}}
+                                </p>
+
+                                <p *ngIf="postSelecionado" class="post-description">
+                                    {{postSelecionado.descricaoPrevia}}
+                                </p>
+                                
+                            </div>
+                            <a *ngIf="postSelecionado"
+                            [routerLink]="['/neocms/posts-blog/edit', postSelecionado.slug]">
+                            <button class="btn blue">Editar</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

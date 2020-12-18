@@ -1,0 +1,225 @@
+<section id="previewPost">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>Criar Previsualização Post: {{post?.titulo}}</h1>
+                    <a routerLink="neocms/post-blog/index">
+                        Voltar
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="category">
+                    <h2>
+                        {{post?.categoria}}
+                    </h2>
+                </div>
+                <div class="post-header">
+                    <ul class="social-icons">
+                        <li>
+                            <a title="Compartilhe no linkedin"
+                                [href]="'https://www.linkedin.com/sharing/share-offsite/?url='+pageURL" target="_blank">
+                                <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                            </a>
+                        </li>
+                        <li>
+                            <a [href]="'https://www.facebook.com/sharer/sharer.php?u='+pageURL" target="_blank"
+                                title="Compartilhe no facebook">
+                                <img src="assets/svg/facebook-second-logo.svg" alt="Facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a [href]="'mailto:?body='+pageURL" title="Compartilhe por e-mail" target="_blank">
+                                <img src="assets/svg/mail.svg" alt="E-mail">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="publish-and-views">
+                        <div class="publish">
+                            <span class="has-tooltip-top image"
+                                [attr.data-tooltip]="'Publicado há '+ post?.dateDifferences?.diffResponseMessage">
+                                <img src="assets/svg/clock.svg" alt="Icon tempo de publicação">
+                            </span>
+                            <span>
+                                {{post?.dateDifferences?.diffResponseMessage}}
+                            </span>
+                        </div>
+                        <div class="views">
+                            <span class="has-tooltip-top image"
+                                [attr.data-tooltip]="post?.vizualizacoes + ' visualizações'">
+                                <img src="assets/svg/eye.svg" alt="Visualizações">
+                            </span>
+                            <span>
+                                {{post?.vizualizacoes}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <h3 class="big-title no-margin">
+                        {{post?.titulo}}
+                    </h3>
+                    <p class="description">
+                        {{post?.descricaoPrevia}}
+                    </p>
+
+                    <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo" class="post-image">
+                    <div class="post-content" [innerHTML]="post?.descricao"></div>
+                </div>
+                <div class="post-footer">
+                    <ul class="social-icons">
+                        <li>
+                            <a title="Compartilhe no linkedin"
+                                [href]="'https://www.linkedin.com/sharing/share-offsite/?url='+pageURL" target="_blank">
+                                <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                            </a>
+                        </li>
+                        <li>
+                            <a [href]="'https://www.facebook.com/sharer/sharer.php?u='+pageURL" target="_blank"
+                                title="Compartilhe no facebook">
+                                <img src="assets/svg/facebook-second-logo.svg" alt="Facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a [href]="'mailto:?body='+pageURL" title="Compartilhe por e-mail" target="_blank">
+                                <img src="assets/svg/mail.svg" alt="E-mail">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="post-tags">
+                        <li class="post-tag" *ngFor="let tag of post?.postTag">
+                            <a [title]="tag?.descricao">{{tag?.descricao}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <div class="card my-2" id="card-header">
+    <div class="card-body">
+        <div class="row">
+            <div class="link-title">
+                <a [routerLink]="['/neocms/posts-blog/index']">
+                    <img class="arrow-return" src="assets/img/arrow.png" alt="">
+                    <span class="title-banner">Previsualização Post: {{post?.titulo}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="category-section">
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 title-column blue-background-color">
+                    <h2 class="h3 big-title">
+                        {{post?.categoria}}
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="post-info">
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="post-header">
+                        <ul class="social-icons">
+                            <li>
+                                <a title="Compartilhe no linkedin"
+                                    [href]="'https://www.linkedin.com/sharing/share-offsite/?url='+pageURL"
+                                    target="_blank">
+                                    <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                                </a>
+                            </li>
+                            <li>
+                                <a [href]="'https://www.facebook.com/sharer/sharer.php?u='+pageURL" target="_blank"
+                                    title="Compartilhe no facebook">
+                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a [href]="'mailto:?body='+pageURL" title="Compartilhe por e-mail" target="_blank">
+                                    <img src="assets/svg/mail.svg" alt="E-mail">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="publish-and-views">
+                            <div class="publish">
+                                <span class="has-tooltip-top image"
+                                    [attr.data-tooltip]="'Publicado há '+ post?.dateDifferences?.diffResponseMessage">
+                                    <img src="assets/svg/clock.svg" alt="Icon tempo de publicação">
+                                </span>
+                                <span>
+                                    {{post?.dateDifferences?.diffResponseMessage}}
+                                </span>
+                            </div>
+                            <div class="views">
+                                <span class="has-tooltip-top image"
+                                    [attr.data-tooltip]="post?.vizualizacoes + ' visualizações'">
+                                    <img src="assets/svg/eye.svg" alt="Visualizações">
+                                </span>
+                                <span>
+                                    {{post?.vizualizacoes}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-body">
+                        <h3 class="big-title no-margin">
+                            {{post?.titulo}}
+                        </h3>
+                        <p class="description">
+                            {{post?.descricaoPrevia}}
+                        </p>
+
+                        <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo" class="post-image">
+                        <div class="post-content" [innerHTML]="post?.descricao"></div>
+                    </div>
+
+                    <div class="post-footer">
+                        <ul class="social-icons">
+                            <li>
+                                <a title="Compartilhe no linkedin"
+                                    [href]="'https://www.linkedin.com/sharing/share-offsite/?url='+pageURL"
+                                    target="_blank">
+                                    <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                                </a>
+                            </li>
+                            <li>
+                                <a [href]="'https://www.facebook.com/sharer/sharer.php?u='+pageURL" target="_blank"
+                                    title="Compartilhe no facebook">
+                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a [href]="'mailto:?body='+pageURL" title="Compartilhe por e-mail" target="_blank">
+                                    <img src="assets/svg/mail.svg" alt="E-mail">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="post-tags">
+                            <li class="post-tag" *ngFor="let tag of post?.postTag">
+                                <a [title]="tag?.descricao">{{tag?.descricao}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section> -->

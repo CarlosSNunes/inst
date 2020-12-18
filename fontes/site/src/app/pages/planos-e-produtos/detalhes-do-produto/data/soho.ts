@@ -35,7 +35,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
-                plano: 'soho'
+                plano: 'careplus-soho',
+                planoSaude:true
             }
         }),
         parallax: true
@@ -108,7 +109,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
                             text: 'Opção: Ortodontia e Prótese.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
+                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
                         }
                     ]
                 },
@@ -221,8 +222,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
-                plano: 'soho',
-                planoOdontologico: true
+                plano: 'careplus-soho',
+                planoOdontologico:true
             }
         })
     }),
@@ -331,7 +332,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
             text: 'Clique e solicite cotação',
             target: '_self',
             queryParams: {
-                plano: 'careplus-soho'
+                plano: 'careplus-soho',
+                planoSaude:true
             }
         }),
         backgroundColorClass: 'blue-background-color',

@@ -1,0 +1,41 @@
+@import "~src/assets/sass/variables";
+
+nav {
+  background-color: getColor(_bupa, _white);
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  height: 80px;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  // -webkit-box-shadow: 0px 55px 70px -36px rgba(0, 0, 0, 0.72);
+  // -moz-box-shadow: 0px 55px 70px -36px rgba(0, 0, 0, 0.72);
+  // box-shadow: 0px 55px 70px -36px rgba(0, 0, 0, 0.72);
+  .logos {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px calc(1rem + 10px);
+    margin: 0;
+    .img-logo-carePlus {
+      width: 60px;
+      height: 100%;
+      margin-right: 20px;
+    }
+    .img-logo-cms {
+      width: 131px;
+      height: 40px;
+      margin: auto;
+    }
+  }
+  .logout {
+    margin: 0;
+    padding: 10px calc(1rem + 10px);
+    color: getColor(_bupa, _digital-cian);
+    span {
+      font-size: 1.5rem;
+    }
+  }
+}
+

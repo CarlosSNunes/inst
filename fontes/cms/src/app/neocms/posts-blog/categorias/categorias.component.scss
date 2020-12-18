@@ -1,0 +1,145 @@
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#categories {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+    h1 {
+      font-size: getSize("h2");
+    }
+    button {
+      padding: 10px 15px;
+      margin: auto 0;
+    }
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: getColor(_bupa, _black);
+      height: 1px;
+      width: 100%;
+    }
+  }
+  table{
+    thead{
+      background-color: getColor(_bupa, _grey-3);
+    }
+  }
+  .load{
+    width: 100%;
+    display: flex;
+    svg{
+      margin: auto;
+    }
+  }
+}
+// .hidden {
+//   display: none;
+// }
+
+// img.thumbnail-banner {
+//   width     : 13rem;
+//   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.32);
+//   cursor    : pointer;
+// }
+
+// input.custom-control-input:checked~.custom-control-label::before {
+//   color           : #fff;
+//   border-color    : #1e7e34;
+//   background-color: #1e7e34;
+// }
+
+// fa-icon.icon-action.ng-fa-icon {
+//   color : #343a40;
+//   cursor: pointer;
+// }
+
+// a.badge.badge-dark.shadow.p-3 {
+//   position: absolute;
+//   right   : 15px;
+//   top     : 0px;
+// }
+
+// h4.titulo-visualizacao {
+//   padding       : 10px 10px 0px 10px !important;
+//   text-transform: capitalize;
+// }
+
+// img.thumbnail-image-mobile {
+//   width  : 100%;
+//   padding: 10px;
+// }
+
+// div.shadow.thumbnail-image-box-mobile {
+//   margin: 60px auto;
+//   width : 75%;
+// }
+
+// h4.titulo-visualizacao-mobile {
+//   padding       : 10px 10px 0px 10px !important;
+//   text-transform: capitalize;
+// }
+
+// .card-body {
+//   flex      : 1 1 auto;
+//   min-height: 1px;
+//   padding   : 1.10rem;
+// }
+
+// .label {
+//   font-weight: bolder;
+//   color      : #00335B;
+// }
+
+// .btn-primary {
+//   background-color: #073457 !important;
+// }
+
+// span.tag-descricao-del {
+//   font-weight: 700;
+//   color      : #d00000;
+// }
+
+// fa-icon.trash-icon.ng-fa-icon {
+//   color    : #d00000;
+//   font-size: 1.5rem;
+// }
+
+// button.btn.btn-primary.is-primary {
+//   position: absolute !important;
+//   right   : 20px !important;
+// }
+
+// img.arrow-return {
+//   width   : 35px;
+//   position: absolute;
+//   left    : 15px;
+//   top     : 0px;
+// }
+
+// h4.card-title {
+//   padding    : 2px 0px 0px 40px;
+//   font-weight: 600;
+// }
+
+// table#tagTable {
+//   width : -webkit-fill-available;
+//   margin: 30px 30px 30px 30px;
+// }
+
+// span.title-banner {
+//   position   : absolute;
+//   left       : 60px;
+//   top        : 0px;
+//   color      : #073457;
+//   font-weight: bolder;
+//   font-size  : 20px;
+// }
+
+// div#card-header {
+//   height: 75px;
+// }

@@ -12,54 +12,74 @@
         line-height: getLineHeight("sbm");
         color: getColor(_bupa, _digital-cian);
         text-transform: uppercase;
+        font-weight: 500;
         margin-bottom: 8px;
     }
+
     .description {
         font-size: getSize("mbt");
         line-height: getLineHeight("mbt");
+        font-weight: 600;
         color: getColor(_bupa, _navy);
         margin-bottom: 16px;
     }
+
     .post {
         display: flex;
         position: relative;
         cursor: pointer;
         margin-bottom: 8px;
         height: 80px;
+
+        img {
+            width: 40%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
         .title {
+            width: 60%;
             padding: 0 16px;
             display: flex;
             margin-bottom: 0;
-
+            transition: background-color 0.3s ease-in-out;
             p {
                 color: getColor(_bupa, _grey-2);
                 align-self: center;
+                transition: 0.3s ease-in-out;
             }
         }
-    }
-    .post:after {
-        left: 0px;
-        position: absolute;
-        content: "";
-        display: none;
-        height: 80px;
-        width: 3px;
-        background-color: getColor(_bupa, _digital-cian);
-    }
-    .post:hover {
-        .title {
-            background-color: #f4f9fc;
-            p {
-                color: getColor(_bupa, _digital-cian);
+
+        &::after {
+            left: 0px;
+            position: absolute;
+            content: "";
+            display: block;
+            height: 80px;
+            width: 3px;
+            opacity: 0;
+            background-color: getColor(_bupa, _digital-cian);
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        &:hover {
+            .title {
+                background-color: #f4f9fc;
+                p {
+                    color: getColor(_bupa, _digital-cian);
+                }
+            }
+
+            &:after {
+                opacity: 1;
             }
         }
+
+        &:last-child {
+            margin-bottom: 24px;
+        }
     }
-    .post:hover:after {
-        display: block;
-    }
-    .post:last-child {
-        margin-bottom: 24px;
-    }
+
     .btn.tertiary {
         justify-content: flex-end;
     }

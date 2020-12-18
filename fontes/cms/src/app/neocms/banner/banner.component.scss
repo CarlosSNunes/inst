@@ -1,0 +1,189 @@
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#banner {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: getSize("h2");
+    }
+
+    a {
+      color: getColor(_bupa, _digital-cian);
+      margin: auto 0;
+    }
+
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: getColor(_bupa, _black);
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  .createBanner {
+    // margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      padding: 10px 15px;
+    }
+  }
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    li {
+      border: none;
+      margin: 7.5px 7.5px 15px 0;
+      margin-right: 8px;
+      padding: 0;
+      width: fit-content;
+      button {
+        padding: 5px;
+        height: 50px;
+
+        &.active {
+          border: 3px solid #00548c;
+          background-color: #00548c;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .filter-title {
+    // margin-top: 20px;
+    font-size: getSize("mbt");
+  }
+  .area {
+    width: 100%;
+    text-align: center;
+    h2 {
+        font-size: getSize("h4");
+        margin: 30px;
+        text-transform: capitalize;
+    }
+}
+  table {
+    thead {
+      background-color: getColor(_bupa, _grey-3);
+      tr {
+        th {
+          vertical-align: middle;
+          & .title {
+            width: 200px;
+          }
+          &.actions {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+
+  .load {
+    width: 100%;
+    display: flex;
+
+    svg {
+      margin: auto;
+    }
+  }
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #1e7e34;
+  background-color: #1e7e34;
+}
+
+// @import '~src/assets/sass/animations.scss';
+
+// img.arrow-return {
+//   width   : 35px;
+//   position: absolute;
+//   left    : 15px;
+//   top     : 0px;
+// }
+
+// h4.card-title {
+//   padding    : 2px 0px 0px 40px;
+//   font-weight: 600;
+// }
+
+// span.title-banner {
+//   position   : absolute;
+//   left       : 60px;
+//   top        : 0px;
+//   color      : #073457;
+//   font-weight: bolder;
+//   font-size  : 20px;
+// }
+
+// .hidden {
+//   display: none;
+// }
+
+img.thumbnail-banner {
+  width: 13rem;
+  box-shadow: 0px 0px 6px -1px rgb(0 0 0 / 32%);
+  cursor: pointer;
+  border: 4px solid #fff;
+}
+
+// fa-icon.icon-action.ng-fa-icon {
+//   color : #343a40;
+//   cursor: pointer;
+// }
+
+// a.badge.badge-dark.shadow.p-3 {
+//   position: absolute;
+//   right   : 15px;
+//   top     : 0px;
+// }
+
+// .icon-action {
+//   cursor: pointer;
+// }
+
+// div#card-header {
+//   height: 75px;
+// }
+
+// button.btn.btn-primary.btn-novo-post {
+//   position: absolute;
+//   right   : 20px;
+// }
+
+// .btn-primary {
+//   background-color: #073457 !important;
+// }
+
+// .btn-outline-primary {
+//   color: #073457 !important;
+// }
+
+// button.btn.btn-primary.btn-novo-post {
+//   position: absolute;
+//   right   : 20px;
+// }
+
+// .link-title {
+//   position: absolute;
+//   width   : 100%;
+// }
+
+// span.badge.badge-dark {
+//   width      : initial !important;
+//   height     : 30px !important;
+//   line-height: 20px !important;
+//   padding    : 5px 5px 5px 5px !important;
+// }

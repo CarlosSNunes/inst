@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             this.width = this.windowRef.nativeWindow.innerWidth;
 
             if (this.windowRef.nativeWindow.innerWidth <= 1024) {
-                localStorage.setItem('elementOffset', '72')
+                localStorage.setItem('elementOffset', '111')
             } else {
                 localStorage.setItem('elementOffset', '0')
             }

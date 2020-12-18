@@ -1,0 +1,50 @@
+<section id="highlight-post">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-full is-6-desktop image-col" [ngClass]="[post?.tipoImagem]">
+                    <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo">
+                        <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo">
+                    </a>
+                </div>
+                <div class="column is-full is-6-desktop info-col">
+                    <p class="small-title">
+                        {{post?.categoria}}
+                        <span class="separator">|</span>
+                        <span class="posted">
+                            <span class="has-tooltip-top"
+                                [attr.data-tooltip]="'Publicado há '+ post?.dateDifferences?.diffResponseMessage">
+                                <img src="assets/svg/clock.svg" alt="Icone relogio">
+                            </span>
+                            <span class="text">
+                                {{post?.dateDifferences?.diffResponseMessage}}
+                            </span>
+                        </span>
+                    </p>
+
+                    <h2 class="h4 big-title">
+                        {{post?.titulo}}
+                    </h2>
+
+                    <p class="description">
+                        {{post?.subtitulo}}
+                    </p>
+
+                    <p class="sub-description">
+                        {{post?.descricaoPrevia}}
+                    </p>
+
+                    <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo"
+                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
+                        Leia agora
+                    </a>
+
+                    <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo"
+                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop">
+                        Leia agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

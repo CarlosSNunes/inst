@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title my-2">Perfis</h1>
+                <a routerLink="/neocms/careplus-perfil/create" routerLinkActive="active"
+                    class="badge badge-dark shadow p-3">
+                    Adicionar Perfil
+                </a>
+                <table id="bannerTable" class="table table-hover">
+                    <caption>Perfis</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center hidden">Id</th>
+                            <th scope="col" class="text-center">Descrição</th>
+                            <th scope="col" class="text-center">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td *ngIf="careplusPerfils.length == 0 && !loaded" colspan="6">
+                            <progress class="progress is-large is-info" max="100">60%</progress>
+                        </td>
+                        <td class="has-text-centered" *ngIf="careplusPerfils.length == 0 && loaded" colspan="6">
+                            Não há perfis cadastrados
+                        </td>
+                        <tr *ngFor="let p of careplusPerfils" class="table-cell text-center">
+                            <td class="hidden">{{p.id}}</td>
+                            <td class="py-3 align-middle text-center">
+                                {{p.descricao}}
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                <a [routerLink]="[ '/neocms/careplus-perfil/edit', p.id]" routerLinkActive="active"
+                                    title="Editar">
+                                    <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

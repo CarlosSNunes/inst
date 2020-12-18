@@ -31,6 +31,7 @@ export const infoSections: InfoSectionModel[] = [
     new InfoSectionModel({
         smallTitle: 'GESTÃO DE SAÚDE',
         bigTitle: 'Conheça a Gestão de Saúde, uma iniciativa exclusiva da Care Plus',
+        isH1:true,
         subDescription: 'A Gestão de Saúde conta com programas e serviços especiais feitos na medida para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva.',
         mobileImageHeight: 'auto',
         imageSrc: 'assets/img/conheca-gestao-saude.png',

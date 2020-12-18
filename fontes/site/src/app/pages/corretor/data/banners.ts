@@ -1,39 +1,65 @@
 import { BannerModel } from 'src/app/models';
 
-export const bannersMock =  [
+export const bannersMock = [
     new BannerModel({
-        caminhoImagem:
-            'assets/img/banner-corretor.jpg',
+        caminhoImagem: 'assets/img/banner-corretor.jpg',
+        caminhoDesktop: 'assets/img',
+        nomeImagemDesktop: 'banner-corretor.jpg',
+        caminhoCompletoDesktop: 'assets/img/banner-corretor.jpg',
+        caminhoMobile: 'assets/img',
+        nomeImagemMobile: 'banner-corretor.jpg',
+        caminhoCompletoMobile: 'assets/img/banner-corretor.jpg',
         titulo: 'O cuidado com a sua saúde, no conforto de sua casa',
         descricao:
             'Com o Saúde em Casa, a Care Plus proporciona aos seus beneficiários consultas domiciliares nas especialidades de pediatria e clínico geral',
         slideAtual: true,
-        tempo: 5000
+        tempoExibicao: 5000
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home1.png",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'banner_home1.png',
+        caminhoCompletoDesktop: "assets/img/banner_home1.png",
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'banner_home1.png',
+        caminhoCompletoMobile: "assets/img/banner_home1.png",
         titulo: "Cuidado da Família",
         descricao: "Oferecemos um canal de acolhimento para crianças portadoras de Transtorno do Espectro Autista, Síndrome de Down e/ou outras condições específicas",
-        tempo: 5000,
+        tempoExibicao: 5000,
+        linkExterno: '0',
         rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
         nomeLink: 'Conheça o Cuidado da Família',
         ancora: 'cuidado-da-familia'
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home2.png",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'banner_home2.png',
+        caminhoCompletoDesktop: "assets/img/banner_home2.png",
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'banner_home2.png',
+        caminhoCompletoMobile: "assets/img/banner_home2.png",
         titulo: "Mental Health",
         descricao: "Possuímos um canal exclusivo 24 por 7, inclusive aos finais de semana e feriados para acompanhamento e direcionamento em situações de crise psicológica, tanto pessoais e/ou profissionais",
+        linkExterno: '0',
         nomeLink: 'Conheça o Mental Health',
         rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
         ancora: 'mental-health',
-        tempo: 5000,
+        tempoExibicao: 5000,
     }),
     new BannerModel({
         caminhoImagem: "assets/img/banner_home3.png",
+        caminhoDesktop: "assets/img",
+        nomeImagemDesktop: 'banner_home3.png',
+        caminhoCompletoDesktop: "assets/img/banner_home3.png",
+        caminhoMobile: "assets/img",
+        nomeImagemMobile: 'banner_home3.png',
+        caminhoCompletoMobile: "assets/img/banner_home3.png",
         titulo: "Coronavírus e Covid-19",
         descricao: "O coronavírus é uma família de vírus que pode causar infecções respiratórias de graus variados",
+        linkExterno: '1',
         nomeLink: 'Saiba mais informações',
-        linkExterno: 'https://www.careplus.com.br/coronavirus/',
-        tempo: 5000,
+        link: 'https://www.careplus.com.br/coronavirus/',
+        tempoExibicao: 5000,
     }),
 ];

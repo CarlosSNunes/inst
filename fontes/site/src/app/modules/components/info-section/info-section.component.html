@@ -7,7 +7,10 @@
                     <p class="small-title" *ngIf="sectionInfo?.smallTitle">
                         {{sectionInfo.smallTitle}}
                     </p>
-                    <h2 class="h4 big-title" *ngIf="sectionInfo?.bigTitle">
+                    <h1 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.isH1">
+                        {{sectionInfo.bigTitle}}
+                    </h1>
+                    <h2 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && !sectionInfo?.isH1">
                         {{sectionInfo.bigTitle}}
                     </h2>
                     <div class="img-mobile-box is-hidden-desktop" [class.no-line]="sectionInfo?.removeLine">
@@ -36,7 +39,7 @@
 
                     <ng-content select=".extra-content"></ng-content>
 
-                    <!-- With routerLink-->
+                    <!-- Botões com routerLink-->
 
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
                         [queryParams]="sectionInfo?.button?.queryParams" class="btn medium is-hidden-touch"
@@ -50,7 +53,7 @@
                         {{sectionInfo?.button?.text}}
                     </a>
 
-                    <!-- With href-->
+                    <!-- Botões com href-->
 
                     <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
                         class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class"
@@ -64,7 +67,7 @@
                         {{sectionInfo?.button?.text}}
                     </a>
 
-                    <!-- With Action -->
+                    <!-- Botões com Action -->
                     <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"
                         class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class"
                         [attr.title]="sectionInfo?.button?.text">

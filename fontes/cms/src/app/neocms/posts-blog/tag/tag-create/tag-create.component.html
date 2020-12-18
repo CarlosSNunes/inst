@@ -1,0 +1,53 @@
+<section id="createTag">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Criar Nova Tag
+                    </h1>
+                    <a routerLink="/neocms/posts-blog/tag">
+                        Voltar
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+                    <div class="buttons">
+                        <button class="btn blue" type="submit">
+                            Salvar Tags
+                        </button>
+                        
+                    </div>
+                    <p *ngIf="submitted && tagForm.invalid" class="errors">
+                        <label class="help is-danger">
+                            É necessário preencher o nome das tags adicionadas
+                        </label>
+                    </p>
+                    <div *ngFor="let tag of tags.controls; let i=index" class="column" formArrayName="tags">
+                        <p>Nova Tag</p>
+                        <div [formGroupName]="i" class="field has-addons">
+                            <p class="control">
+                                <input formControlName="descricao" class="form-control input" type="text" placeholder=""
+                                    [ngClass]="{ 'is-success': submitted && !tag.get('descricao').errors, 'is-danger' : submitted && tag.get('descricao').errors }">
+                            </p>
+                            <p *ngIf="tags.length > 1" class="control">
+                                <button type="button" class="btn orange remove-button" (click)="removeTag(i)">
+                                    remover tag
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button (click)="addTag()" class="btn blue add-tag" type="button">
+                            Adicionar Tag
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

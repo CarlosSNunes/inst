@@ -1,0 +1,74 @@
+<section id="edit-user">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Edição de usuário
+                    </h1>
+                    <a routerLink="/neocms/usuarios">
+                        Voltar
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <form class="row" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group col-md-4">
+                <label class="label">Nome</label>
+                <input formControlName="nome" class="form-control" type="text" placeholder=""
+                    [ngClass]="{ 'is-success': submitted && !f.nome.errors, 'is-danger' : submitted && f.nome.errors }">
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.nome)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="label">Nome Usuario</label>
+                <input formControlName="nomeUsuario" class="form-control" type="text" placeholder=""
+                    [ngClass]="{ 'is-success': submitted && !f.nomeUsuario.errors, 'is-danger' : submitted && f.nomeUsuario.errors }"
+                    disabled>
+                <div *ngIf="submitted" class="errors">
+                    <p *ngFor="let error of getErrors(f.nomeUsuario)" class="help is-danger">
+                        {{error}}
+                    </p>
+                </div>
+            </div>
+            <div class="permission col-md-4">
+                <h5 class="label">Permissão</h5>
+                <select formControlName="perfil" class="form-control" name="Permissão">
+                    <option [value]="perfil.id" *ngFor="let perfil of perfilList">
+                        {{perfil.descricao}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <h5 class=" label">Ativo</h5>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"
+                        [checked]="userForm.controls.ativo.value == '1'">
+                    <label (click)="active()" class="custom-control-label" for="customSwitch1"></label>
+                </div>
+            </div>
+            <div class="col-md-12 w-100 text-right">
+                <button class="btn blue" type="submit">
+                    <span *ngIf="loaded">SALVAR</span>
+                    <div *ngIf="!loaded" class="load">
+                        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                            viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                            <path fill="#ffffff"
+                                d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                <animateTransform attributeType="xml" attributeName="transform" type="rotate"
+                                    from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                            </path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+
+
+        </form>
+
+    </div>
+</section>

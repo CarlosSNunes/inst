@@ -188,7 +188,7 @@ p,
     position: fixed;
     width: 300px;
     height: 60px;
-    background-color: getColor(_bupa, _white);
+    background-color: getColor(_bupa, _fuchsia);
     display: flex;
     padding: 16px 24px;
     right: 32px;
@@ -199,19 +199,21 @@ p,
     border: 3px solid getColor(_bupa, _fuchsia);
     border-bottom-width: 0;
     transition: background-color 0.3s ease-in-out;
+    
 
     &:hover {
-        background-color: getColor(_bupa, _fuchsia);
+        background-color: getColor(_bupa, _white);
+       
 
         .text {
-            color: getColor(_bupa, _white);
+            color: getColor(_bupa, _fuchsia);
         }
     }
 
     .text {
         align-self: center;
         margin: 0;
-        color: getColor(_bupa, _fuchsia);
+        color: getColor(_bupa, _white);
         font-size: getSize("p");
         line-height: getLineHeight("p");
         font-weight: 600;

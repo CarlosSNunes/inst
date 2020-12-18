@@ -1,6 +1,6 @@
 import { ButtonModel } from './button.model';
 
-export class InfoSectionModel {
+export class InfoSectionModel<T = any> {
     public constructor(init?: Partial<InfoSectionModel>) {
         this.objectFit = 'cover';
         Object.assign(this, init);
@@ -8,6 +8,7 @@ export class InfoSectionModel {
 
     smallTitle: string;
     bigTitle: string;
+    isH1:boolean = false;
     description: string;
     subDescription: string;
     subDescriptions?: string[] = [];
@@ -24,6 +25,7 @@ export class InfoSectionModel {
     removeLine?: boolean = false;
     objectFit?: string = 'cover';
     hasModal?: boolean = false;
+    modalContent: T;
     parallax?: boolean = false;
     mobileImageHeight: string = '208px';
     backgroundColorClass: string = 'white-background-color';

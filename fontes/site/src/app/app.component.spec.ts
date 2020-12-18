@@ -2,8 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { WindowRef } from 'src/utils/window-ref';
-import { HeaderComponent } from 'src/app/modules/header/header.component';
-import { FooterComponent } from 'src/app/modules/footer/footer.component';
 
 describe('AppComponent', () => {
 
@@ -14,8 +12,6 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        HeaderComponent,
-        FooterComponent
       ],
       providers: [
         WindowRef

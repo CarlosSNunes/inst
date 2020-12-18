@@ -1,6 +1,6 @@
 import { Injectable, ApplicationRef, Injector, ComponentFactoryResolver, EmbeddedViewRef, Inject } from '@angular/core';
 import { ModalComponent } from 'src/app/modules/components/modal/modal.component';
-import { ModalModel, ContentModalModel, FeedbackModalModel, ErrorModalModel, TableModalModel } from 'src/app/models/modal.model';
+import { ModalModel, ContentModalModel, FeedbackModalModel, ErrorModalModel, TableModalModel } from 'src/app/models';
 import { WindowRef } from 'src/utils/window-ref';
 import { DOCUMENT } from '@angular/common';
 

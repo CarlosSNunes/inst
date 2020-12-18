@@ -1,0 +1,43 @@
+<section id="all-posts">
+    <article>
+        <div class="container">
+            <div class="columns flex-wrap is-mobile posts-columns">
+                <div class="column is-full">
+                    <p class="small-title">
+                        todas as publicações
+                    </p>
+                    <h2 class="h4 big-title">
+                        Confira todos os nossos artigos
+                    </h2>
+                </div>
+                <div class="column is-full is-paddingless">
+                    <div class="columns flex-wrap is-flex-between-tablet">
+                        <div class="column is-4-desktop is-full is-6-between-tablet" [class.is-new]="post?.isNewRequest"
+                            *ngFor="let post of posts">
+                            <app-card [card]="post"></app-card>
+                        </div>
+                        <div class="column is-full" *ngIf="posts.length == 0">
+                            <p class="h4 no-posts-found">
+                                Nenhum resultado encontrado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-full is-button buttons-column" *ngIf="!allPostsLoaded && posts.length > 0">
+                    <button (click)="loadMore.emit()"
+                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [disabled]="loading"
+                        [class.loading]="loading">
+                        Carregar mais
+                    </button>
+
+                    <button (click)="loadMore.emit()"
+                        class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [disabled]="loading"
+                        [class.loading]="loading">
+                        Carregar mais
+                    </button>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

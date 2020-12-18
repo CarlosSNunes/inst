@@ -82,15 +82,15 @@
     <a [routerLink]="[card?.button?.routerLink]" *ngIf="card.type === 'post'" [attr.title]="card.post.titulo">
         <div class="card image-card">
 
-            <div class="img" [style.background]="'url(' + card.post.caminhoImagem + ')'"
+            <div class="img" [style.background]="'url(' + card?.post?.caminhoCompleto + ')'"
                 [style.background-position]="'center'">
             </div>
             <div class="tags" *ngIf="card.post.postTag">
                 <p *ngFor="let tag of card.post.postTag | slice:0:2">{{tag?.descricao}}</p>
             </div>
             <div class="content">
-                <p class="card-title"> {{card.post.titulo}}</p>
-                <p class="card-description">{{card.post.subtitulo}}</p>
+                <p class="card-title"> {{card.post.titulo | substring: 40}}</p>
+                <p class="card-description">{{card.post.descricaoPrevia | substring: 60}}</p>
 
                 <!--
                     Botão com routerLink

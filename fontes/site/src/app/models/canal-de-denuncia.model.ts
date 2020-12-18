@@ -1,4 +1,3 @@
-import { Anexo } from './anexo.model';
 
 export class GravarCanalDenunciaEntrada {
     constructor(init?: Partial<GravarCanalDenunciaEntrada>) {
@@ -17,8 +16,8 @@ export class GravarCanalDenunciaEntrada {
     Email: string;
     NomeContato: string;
     // TokenAutenticacao deverá ser enviado pelo backend.
-    lstAnexo: {
-        AnexoByte: Array<Anexo>; // lista de arquivos.
+    LstAnexo: {
+        Arquivo: Array<File>; // lista de arquivos.
     };
 }
 

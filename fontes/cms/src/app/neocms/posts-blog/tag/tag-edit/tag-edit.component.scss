@@ -1,0 +1,116 @@
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#editTag {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+    h1 {
+      font-size: getSize("h2");
+    }
+    a {
+      color: getColor(_bupa, _digital-cian);
+      margin: auto 0;
+    }
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: getColor(_bupa, _black);
+      height: 1px;
+      width: 100%;
+    }
+  }
+  form {
+
+    .errors{
+      margin: 10px 0 0;
+      font-size: getSize('sbm');
+      color:  #ff3e1d;
+    }
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 15px;
+      button{
+        padding: 10px 15px;
+      }
+    }
+  }
+}
+
+// @import './../../assets/sass/animations.scss';
+
+// img.arrow-return {
+//   width   : 35px;
+//   position: absolute;
+//   left    : 15px;
+//   top     : 0px;
+// }
+
+// h4.card-title {
+//   padding    : 2px 0px 0px 40px;
+//   font-weight: 600;
+// }
+
+// div.card.card-bg {
+//   background-color: #f9f9f9;
+//   box-shadow      : inset 0px 0px 20px 0px rgb(0 0 0 / 16%)
+// }
+
+
+// span.label-dimension {
+//   position   : relative;
+//   font-weight: 700;
+//   display    : flex;
+//   width      : 100%;
+// }
+
+// span.title-banner {
+//   position   : absolute;
+//   left       : 60px;
+//   top        : 0px;
+//   color      : #073457;
+//   font-weight: bolder;
+//   font-size  : 20px;
+// }
+
+// div#card-header {
+//   height: 75px;
+// }
+
+// #cardAread {
+//   animation : fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+//   transition: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+// }
+
+// h4.titulo-visualizacao {
+//   padding       : 10px 10px 0px 10px !important;
+//   text-transform: capitalize;
+// }
+
+// h4.titulo-visualizacao-mobile {
+//   padding       : 10px 10px 0px 10px !important;
+//   text-transform: capitalize;
+// }
+
+// .card-body {
+//   flex: 1 1 auto;
+//   min-height: 1px;
+//   padding: 1.10rem;
+// }
+// .button.delete{
+//     min-height: 100%;
+// }
+
+// .label{
+//     font-weight: bolder;
+//     color: #00335B;
+// }
+
+// .btn-primary{
+//     background-color: #073457 !important;
+// }

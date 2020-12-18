@@ -11,6 +11,10 @@ const routes: Routes = [
     path: ':id',
     component: FaleConoscoComponent
   },
+  {
+    path: ':id/obrigado',
+    loadChildren: () => import('./obrigado/obrigado.module').then(m => m.ObrigadoModule)
+  },
 ];
 
 @NgModule({

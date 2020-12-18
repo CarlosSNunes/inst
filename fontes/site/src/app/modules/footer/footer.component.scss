@@ -53,7 +53,8 @@
 
 @media (max-width: 991px) {
     .is-hidden-down-tablet {
-        display: none !important;
+        // display: none !important;
+        visibility: hidden;
     }
 }
 

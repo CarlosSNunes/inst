@@ -225,8 +225,7 @@
         height: 100%;
         position: absolute;
         z-index: 1009;
-        right: -100%;
-        transition: right 0.4s;
+        transform: translateX(100%);
         background: getColor(_bupa, _navy);
         &.open {
             right: 0%;
@@ -239,14 +238,10 @@
         position: relative;
         background: getColor(_bupa, _digital-cian);
         z-index: 1033;
-        right: -100%;
-        transition: right 0.4s;
+        transform: translateX(100%);
         color: #fff;
         padding: 0 32px 11px 32px;
         overflow: auto;
-        &.open {
-            right: 0%;
-        }
         .times-icon {
             position: absolute;
             top: 30px;

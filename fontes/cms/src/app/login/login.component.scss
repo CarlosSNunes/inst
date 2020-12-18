@@ -1,0 +1,66 @@
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#containerLogin {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .login {
+    width: 100%;
+    height: 100%;
+    max-width: 372px;
+    max-height: 559px;
+    border-radius: 7px;
+    background-color: getColor(_bupa, _digital-cian);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    .login-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      .img-logo-carePlus {
+        width: 25%;
+      }
+      .img-logo-cms {
+        width: 40%;
+        margin: auto;
+        margin-top: 0;
+        margin-right: 0;
+      }
+    }
+    .login-body {
+      width: 100%;
+      height: 100%;
+      form {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        .form-content {
+          .help {
+            font-size: 0.95rem;
+            padding: 0;
+            margin: 0.75rem;
+            font-weight: 600;
+
+            &.is-danger {
+              color: #ffffff;
+            }
+            &.is-success {
+              color: #49b869;
+            }
+          }
+        }
+        .btnLogin {
+          margin: auto;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
