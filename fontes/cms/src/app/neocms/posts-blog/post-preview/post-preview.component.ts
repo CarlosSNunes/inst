@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { PostBlogUpdateModel } from 'src/models/posts-blog/posts-blog-update-model';
 import { PostBlogModel } from 'src/models/posts-blog/posts-blog.model';
@@ -17,6 +18,7 @@ export class PostPreviewComponent implements OnInit {
     constructor(
         private activatedRoute: ActivatedRoute,
         private postBlogService: PostsBlogService,
+        private toastrService: ToastrService
     ) {
         this.activatedRoute.params.subscribe(params => this.refreshData(params.slug));
     }
@@ -41,7 +43,13 @@ export class PostPreviewComponent implements OnInit {
                 getDateDifferences: true,
             });
         } catch (error) {
-            console.log(error)
+            let message = '';
+            if (error.error) {
+                message = error.error.message || 'Erro Interno no servidor';
+            } else {
+                message = error.message || 'Erro Interno';
+            }
+            this.toastrService.error(message);
         }
     }
 

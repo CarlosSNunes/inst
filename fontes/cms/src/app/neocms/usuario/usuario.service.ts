@@ -62,21 +62,6 @@ export class UsuarioService {
     }
 
     /**
-     * @method POST() - Método valida se usuario tenm autorização para acessar o sistema.
-     * @param id: string
-     * @returns UsuarioModel
-     * @memberOf UsuarioService
-     */
-    valida(login: LoginModel) {
-        return this.http.post(this.API_ENDPOINT, [login])
-            .subscribe(
-                result => {
-                    console.log(result);
-                },
-                error => console.log(error));
-    }
-
-    /**
      * @method PUT() - Método atualizar um usuário.
      * @param id: string
      * @returns UsuarioModel
@@ -109,11 +94,11 @@ export class UsuarioService {
     deactivate(name) {
         return this.http.put(`${this.API_ENDPOINT}/inativar-usuario`, { nomeUsuario: name })
     }
-    approve(token){
+    approve(token) {
         return this.http.get(`${this.API_ENDPOINT}/valida-requisicao/${token}`)
 
     }
-    reprove(token){
+    reprove(token) {
         return this.http.delete(`${this.API_ENDPOINT}/remove-requisicao/${token}`)
 
     }

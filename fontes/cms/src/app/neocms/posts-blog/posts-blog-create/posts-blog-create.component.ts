@@ -112,7 +112,13 @@ export class PostsBlogCreateComponent implements OnInit {
                 .toPromise();
             this.categorias = categorias.result;
         } catch (error) {
-            console.log(error)
+            let message = '';
+            if (error.error) {
+                message = error.error.message || 'Erro Interno no servidor';
+            } else {
+                message = error.message || 'Erro Interno';
+            }
+            this.toastrService.error(message);
         }
     }
 
@@ -126,7 +132,13 @@ export class PostsBlogCreateComponent implements OnInit {
                 .getAll(0, 1000).toPromise();
             this.resultTag = tags;
         } catch (error) {
-            console.log(error)
+            let message = '';
+            if (error.error) {
+                message = error.error.message || 'Erro Interno no servidor';
+            } else {
+                message = error.message || 'Erro Interno';
+            }
+            this.toastrService.error(message);
         }
 
     }
@@ -173,7 +185,6 @@ export class PostsBlogCreateComponent implements OnInit {
 
         this.submitted = true;
 
-        console.log(this.postsBlogForm)
         if (this.postsBlogForm.valid) {
 
             this.postsBlogForm.controls.dataPublicacao.setValue(dataPublicacao);

@@ -92,7 +92,6 @@ export class LoginComponent implements OnInit {
             this.modalRef.hide();
             this.loginForm.reset();
         } catch (error) {
-            console.log(error)
             if (error && error.error && error.error.message)
                 this.toastrService.error(error.error.message);
         }

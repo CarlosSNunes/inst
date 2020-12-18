@@ -104,7 +104,6 @@ export class CareplusPerfilCreateComponent implements OnInit {
   }
 
   stepChanged(args: StepChangedArgs) {
-    console.log(args.step);
   }
 
 }

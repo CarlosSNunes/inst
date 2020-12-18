@@ -131,7 +131,6 @@ export class BannerCreateComponent implements OnInit {
      * @memberOf BannerCreateComponent
      */
     onSubmit(): void {
-        console.log(this.bannerForm.value);
         this.submitted = true;
         if (this.bannerForm.valid) {
             this.btnSubmitDisable = true;
@@ -199,7 +198,7 @@ export class BannerCreateComponent implements OnInit {
      * @memberOf BannerCreateComponent
      */
     stepChanged(args: StepChangedArgs) {
-        console.log(args.step);
+
     }
 
     /**
@@ -227,7 +226,6 @@ export class BannerCreateComponent implements OnInit {
      */
     fileChangeEventMobile(event): void {
         this.imageChangedEventMobile = event;
-        console.log(this.imageChangedEventMobile.target.files[0]);
         this.fileNameMobile = 'small-' + event.target.files[0].name;
     }
 

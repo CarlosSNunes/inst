@@ -21,14 +21,9 @@ export class NeocmsHeaderComponent implements OnInit {
         private authenticationService: AuthenticationService,
         public router: Router
     ) {
-        // EventEmitterService.get('login').subscribe(usuario => {
-        //     this.usuario = usuario;
-        // });
     }
 
     ngOnInit() {
-        // console.log('aqui',this.authenticationService.state)
-        // this.usuario = this.authenticationService.state;
     }
 
     logOff() {

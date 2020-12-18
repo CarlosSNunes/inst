@@ -153,7 +153,13 @@ export class PostsBlogEditComponent implements OnInit {
             this.changeStatusDestaque(this.resultPostBlog.destaque, this.resultPostBlog.destaque == '1' ? true : false);
             this.preview()
         } catch (error) {
-            console.log(error)
+            let message = '';
+            if (error.error) {
+                message = error.error.message || 'Erro Interno no servidor';
+            } else {
+                message = error.message || 'Erro Interno';
+            }
+            this.toastrService.error(message);
         }
     }
 
@@ -168,7 +174,13 @@ export class PostsBlogEditComponent implements OnInit {
             this.categorias = categorias.result;
             this.resultCategoria = categorias.result;
         } catch (error) {
-            console.log(error)
+            let message = '';
+            if (error.error) {
+                message = error.error.message || 'Erro Interno no servidor';
+            } else {
+                message = error.message || 'Erro Interno';
+            }
+            this.toastrService.error(message);
         }
     }
 
@@ -218,9 +230,14 @@ export class PostsBlogEditComponent implements OnInit {
                 .getAll(0, 1000).toPromise();
             this.tags = tags.result;
             this.resultTags = tags;
-            console.log(this.resultTags)
         } catch (error) {
-            console.log(error)
+            let message = '';
+            if (error.error) {
+                message = error.error.message || 'Erro Interno no servidor';
+            } else {
+                message = error.message || 'Erro Interno';
+            }
+            this.toastrService.error(message);
         }
 
     }

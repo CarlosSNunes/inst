@@ -1,6 +1,6 @@
 import { CareplusPerfilModel } from './../../../../models/careplus-perfil/careplus-perfil.model';
-import { Component, OnInit, EventEmitter, ViewChild } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
 import { UserAuthenticateModel } from '../../../../models/user-authenticate.model';
@@ -105,11 +105,9 @@ export class UsuarioCreateComponent implements OnInit {
 
     chancePerfil(perfil: CareplusPerfilModel) {
         this.addPerfil(perfil.id, perfil.descricao);
-        console.log(perfil);
     }
 
     perfilChecked(event) {
-        console.log(event);
         this.perfilCheck = true;
     }
 
@@ -125,7 +123,7 @@ export class UsuarioCreateComponent implements OnInit {
         if (this.senhaErro === false) {
             this.submitted = true;
         }
-        console.log(this.userForm);
+
         if (this.userForm.valid) {
 
 
@@ -166,7 +164,6 @@ export class UsuarioCreateComponent implements OnInit {
     }
 
     stepChanged(args: StepChangedArgs) {
-        console.log(args.step);
     }
 
 }

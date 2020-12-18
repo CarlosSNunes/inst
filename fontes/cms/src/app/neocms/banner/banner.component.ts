@@ -158,7 +158,6 @@ export class BannerComponent implements OnInit {
         this.getBanners();
     }
     filter(newFilter) {
-        console.log('entrou')
         this.selectedFilter = newFilter;
         this.getBanners();
     }
