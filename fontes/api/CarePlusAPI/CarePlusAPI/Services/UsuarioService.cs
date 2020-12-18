@@ -449,11 +449,10 @@ namespace CarePlusAPI.Services
 
                 WSFiltro filtro = new WSFiltro {
                     Origem = WebServiceOrigem.Partner,
-                    CodSeg = 59,
                     Token = auth,
                 };
 
-                var result = await _partnerServiceClient.ValidarLoginADAsync(filtro, loginADOut, 0);
+                var result = await _partnerServiceClient.ValidarLoginADAsync(filtro, loginADOut, 60);
 
                 if (result.CodigoMensagem != 200)
                 {
