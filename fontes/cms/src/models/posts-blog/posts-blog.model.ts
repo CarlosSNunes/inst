@@ -25,10 +25,9 @@ export class PostBlogModel {
     titulo: string;
     tituloPaginaSEO: string;
     vizualizacoes: number;
-
-    CaminhoImagem: string;
-    CaminhoCompleto: string;
-    CaminhoCompleto_build: string;
+    caminhoImagem: string;
+    caminhoCompleto: string;
+    caminhoCompleto_build: string;
     slug: string;
 }
 
@@ -42,4 +41,4 @@ export class PostListModel {
     result: PostBlogModel[];
 }
 
-/*//* Atualizado  - 17/11/2020  */
+/*//* Atualizado  - 04/01/2021  */
