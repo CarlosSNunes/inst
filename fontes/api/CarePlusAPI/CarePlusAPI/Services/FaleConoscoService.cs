@@ -53,7 +53,6 @@ namespace CarePlusAPI.Services
         {
             try
             {
-                GetCipher cipher = new GetCipher();
                 string decryptedToken = _getCipher.Decrypt(_appSettings.WSPartnerToken);
                 string decryptedLogin = _getCipher.Decrypt(_appSettings.WSPartnerLogin);
                 string decryptedPass = _getCipher.Decrypt(_appSettings.WSPartnerSenha);

@@ -48,9 +48,9 @@ namespace CarePlusAPI.Helpers
 
             var text = File.ReadAllText(CiphersPath);
 
-            var key = text.Substring(text.IndexOf("Chave="), text.IndexOf("\nVetor=")).Replace("Chave=", "");
+            var key = text.Substring(text.IndexOf("Chave="), text.IndexOf("\nVetor=")).Replace("Chave=", "").Replace("\r", "");
 
-            var iv = text.Replace($"{key}", "").Replace("\n", "").Replace("Chave=", "").Replace("Vetor=", "");
+            var iv = text.Replace($"{key}", "").Replace("\n", "").Replace("Chave=", "").Replace("Vetor=", "").Replace("\r", "");
 
             return new Tuple<string, string>(key, iv);
         }
