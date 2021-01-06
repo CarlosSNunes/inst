@@ -1,5 +1,6 @@
 using AutoMapper;
 using CarePlusAPI.Entities;
+using CarePlusAPI.Enums;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Models.Usuario;
 using CarePlusAPI.Services;
@@ -72,6 +73,22 @@ namespace CarePlusAPI.Controllers
 
                 if (model == null)
                     throw new AppException("O usuário não pode estar nulo");
+
+                if (origem == OriginEnumerator.institucional.ToDescriptionString())
+                {
+                    try
+                    {
+                        model.NomeUsuario = _getCipher.Decrypt(model.NomeUsuario);
+                        model.Senha = _getCipher.Decrypt(model.Senha);
+                    }
+                    catch(Exception ex)
+                    {
+                        return new UnauthorizedObjectResult(new
+                        {
+                            message = "Usuário e/ou senha incorretos"
+                        });
+                    }
+                }
 
                 Usuario usuario = await _userService.BuscarPorNomeUsuario(model.NomeUsuario);
 

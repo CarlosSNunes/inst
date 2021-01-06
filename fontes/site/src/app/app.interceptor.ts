@@ -42,6 +42,11 @@ export class HttpRequestInterceptor implements HttpInterceptor {
             this.retried = false;
             return this.authFunction(request, next, this.retryTimes);
         } else {
+            request = request.clone({
+                setHeaders: {
+                    Custom: 'institucional'
+                }
+            });
             return next.handle(request)
                 .pipe(
                     timeout(this.timeout),
