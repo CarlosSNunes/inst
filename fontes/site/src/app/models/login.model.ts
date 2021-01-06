@@ -3,7 +3,7 @@ export class LoginModel {
         Object.assign(this, init);
     }
 
-    email: string;
+    nomeUsuario: string;
     senha: string;
 }
 

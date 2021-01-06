@@ -14,7 +14,7 @@ export class UsuarioService {
 
     authenticate(): Promise<UserloginResponse> {
         const login: LoginModel = new LoginModel({
-            email: environment.API_USER,
+            nomeUsuario: environment.API_USER,
             senha: environment.API_PASSWORD
         });
         return this.httpClient.post<UserloginResponse>(this.apiUrl, login).toPromise();

@@ -238,7 +238,7 @@ namespace CarePlusAPI
                         context.Set<Perfil>().Add(profile);
 
                         context.SaveChanges();
-                        Console.Write("PerfilCriado");
+                        Console.Write("PerfilCriado", profile.Descricao);
                     }
                 }
 
@@ -269,7 +269,7 @@ namespace CarePlusAPI
                     context.Set<Usuario>().Add(usuario);
                     context.SaveChanges();
 
-                    Console.Write("Usuario Criado");
+                    Console.Write("Usuario Criado", usuario.NomeUsuario);
                 }
 
             }

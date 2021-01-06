@@ -12,6 +12,7 @@ namespace CarePlusAPI.Helpers
     [ExcludeFromCodeCoverage]
     public class DataContext : DbContext
     {
+        protected static string decryptedConnection;
         ///<summary>
         ///
         ///Esse método serve para iniciar a instancia do construtor ja recebendo suas configurações iniciais.
@@ -31,8 +32,11 @@ namespace CarePlusAPI.Helpers
         {
             if (!optionsBuilder.IsConfigured)
             {
-                GetCipher cipher = new GetCipher();
-                string decryptedConnection = cipher.Decrypt(Startup.ConnectionString);
+                if (decryptedConnection == null)
+                {
+                    GetCipher cipher = new GetCipher();
+                    decryptedConnection = cipher.Decrypt(Startup.ConnectionString);
+                }
 
                 optionsBuilder.UseOracle(decryptedConnection);
             }

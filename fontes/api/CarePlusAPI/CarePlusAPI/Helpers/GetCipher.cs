@@ -14,6 +14,7 @@ namespace CarePlusAPI.Helpers
     public class GetCipher: IGetCipher
     {
         protected static string CiphersPath;
+        protected static Tuple<string, string> KeyAndIv; 
 
         public GetCipher() {
             var value = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -45,14 +46,18 @@ namespace CarePlusAPI.Helpers
 
         protected virtual Tuple<string, string> Read ()
         {
+            if (KeyAndIv == null)
+            {
+                var text = File.ReadAllText(CiphersPath);
 
-            var text = File.ReadAllText(CiphersPath);
+                var key = text.Substring(text.IndexOf("Chave="), text.IndexOf("\nVetor=")).Replace("Chave=", "").Replace("\r", "");
 
-            var key = text.Substring(text.IndexOf("Chave="), text.IndexOf("\nVetor=")).Replace("Chave=", "").Replace("\r", "");
+                var iv = text.Replace($"{key}", "").Replace("\n", "").Replace("Chave=", "").Replace("Vetor=", "").Replace("\r", "");
 
-            var iv = text.Replace($"{key}", "").Replace("\n", "").Replace("Chave=", "").Replace("Vetor=", "").Replace("\r", "");
+                KeyAndIv = new Tuple<string, string>(key, iv);
+            }
 
-            return new Tuple<string, string>(key, iv);
+            return KeyAndIv;
         }
 
 
