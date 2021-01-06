@@ -36,13 +36,13 @@ namespace CarePlusAPI.Services
         Task<IList<LogUsuarioDesativado>> ListarAcoesDesativacaoUsuarios();
         Task InativarUsuario(string nomeUsuario, int idUserRequest);
     }
-    [ExcludeFromCodeCoverage]
+
     public class UsuarioService : IUsuarioService
     {
         private readonly DataContext Context;
         private readonly AppSettings _appSettings;
-        private readonly EndpointConfiguration _endpointConfiguration;
         private readonly PartnerServiceClient _partnerServiceClient;
+        private readonly EndpointConfiguration _endpointConfiguration;
         private readonly IGetCipher _getCipher;
 
         public UsuarioService(DataContext context, IOptions<AppSettings> appSettings, IGetCipher getCipher)
@@ -145,9 +145,6 @@ namespace CarePlusAPI.Services
         {
             IList<RequisicaoUsuario> req = await Context.RequisicaoUsuario.ToListAsync();
 
-            if (req == null)
-                throw new AppException("Usuarios não encontrados");
-
             return req;
         }
 
@@ -194,6 +191,9 @@ namespace CarePlusAPI.Services
         {
             if (model == null)
                 throw new AppException("O usuário não pode estar nulo");
+
+            if (model.UsuarioRoot == '1' && (senha == null || senha == ""))
+                throw new AppException("A senha não pode estar nula");
 
             if (await Context.Set<Usuario>().AnyAsync(x => x.NomeUsuario == model.NomeUsuario))
                 throw new AppException($"Nome de usuário {model.NomeUsuario} ja utilizado");
@@ -434,7 +434,7 @@ namespace CarePlusAPI.Services
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        public async Task<bool> ValidaUsuario(string nomeUsuario, string senha)
+        public virtual async Task<bool> ValidaUsuario(string nomeUsuario, string senha)
         {
             try
             {
@@ -637,10 +637,6 @@ namespace CarePlusAPI.Services
         public async Task<IList<LogUsuarioDesativado>> ListarAcoesDesativacaoUsuarios()
         {
             IList<LogUsuarioDesativado> listaRequisicoes = await Context.LogUsuarioDesativado.ToListAsync();
-
-            if (listaRequisicoes == null)
-                throw new AppException("Requisicoes de desativação não encontradas");
-
 
             return listaRequisicoes;
         }

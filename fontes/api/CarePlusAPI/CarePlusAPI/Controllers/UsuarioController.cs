@@ -22,7 +22,6 @@ namespace CarePlusAPI.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    [ExcludeFromCodeCoverage]
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioService _userService;

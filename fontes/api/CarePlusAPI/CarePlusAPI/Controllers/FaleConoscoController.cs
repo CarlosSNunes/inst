@@ -14,7 +14,6 @@ namespace CarePlusAPI.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    [ExcludeFromCodeCoverage]
     public class FaleConoscoController : ControllerBase
     {
         private readonly IFaleConoscoService _faleConoscoService;

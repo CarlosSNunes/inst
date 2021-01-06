@@ -475,6 +475,9 @@ namespace CarePlusAPI.Services
         private static string GeraSlug(string slug)
         {
             string str = RemoveAcentuacao(slug).ToLower();
+
+            // remove hyphens           
+            str = str.Replace("-", "");
             // invalid chars           
             str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
             // convert multiple spaces into one space   

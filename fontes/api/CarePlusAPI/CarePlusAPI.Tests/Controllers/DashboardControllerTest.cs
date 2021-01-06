@@ -69,7 +69,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly Usuario Usuario = new Usuario
         {
             DataCadastro = DateTime.Now,
-            Email = "thiago@email.com",
+            NomeUsuario = "teste.careplus",
             Id = 1,
             Nome = "Thiago",
             UsuarioPerfil = new List<UsuarioPerfil>
@@ -270,42 +270,6 @@ namespace CarePlusAPI.Tests.Controllers
             result = null;
             Assert.Null(result);
         }
-
-
-        [Fact]
-        public async void TotalBannersAtivosErroBadRequest()
-        {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
-            controller.ControllerContext = new ControllerContext();
-            controller.ControllerContext.HttpContext = new DefaultHttpContext();
-            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var result = await controller.GetBanners();
-            Assert.IsType<BadRequestObjectResult>(result);
-        }
-
-
-        [Fact]
-        public async void TotalPostsBlogErroBadRequest()
-        {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
-            controller.ControllerContext = new ControllerContext();
-            controller.ControllerContext.HttpContext = new DefaultHttpContext();
-            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var result = await controller.GetPosts();
-            Assert.IsType<BadRequestObjectResult>(result);
-        }
-
-        [Fact]
-        public async void TotalUsuariosErroBadRequest()
-        {
-            DashboardController controller = new DashboardController(_dashboardService, _mapper, _appSettings, _seriLogMock.Object);
-            controller.ControllerContext = new ControllerContext();
-            controller.ControllerContext.HttpContext = new DefaultHttpContext();
-            controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var result = await controller.GetUsuarios();
-            Assert.IsType<BadRequestObjectResult>(result);
-        }
-
 
         public void Dispose()
         {
