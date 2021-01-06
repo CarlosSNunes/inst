@@ -10,8 +10,8 @@
             Voltar
           </a>
         </div>
-        <div class="createPost">
-          <button type="button" class="btn blue " routerLink="/neocms/posts-blog/create">Novo Post</button>
+        <div class="createPost" *ngIf="userPermission != 'Visualizador'">
+          <button type="button" class="btn blue " routerLink="/neocms/posts-blog/create" >Novo Post</button>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
             <th scope="col" class=" text-center">Titulo</th>
             <th scope="col" class="  text-center">Data Publicação</th>
             <th scope="col" class="  text-center">Categoria</th>
-            <th scope="col" class="  text-center">Ações</th>
+            <th scope="col" class="  text-center" >Ações</th>
           </thead>
           <tbody>
             <tr>
@@ -58,15 +58,15 @@
                     <fa-icon [icon]="faEye"></fa-icon>
                   </a>
                   <a [routerLink]="['/neocms/posts-blog/edit', post.slug]" routerLinkActive="active"
-                    class="info-icon text-dark" alt="Editar post">
+                    class="info-icon text-dark" alt="Editar post" *ngIf="userPermission != 'Visualizador'">
                     <fa-icon [icon]="faEdit"></fa-icon>
                   </a>
                   <a (click)="openModalDuplicarPost(templateDelete)" type="button" class="info-icon text-danger"
-                    alt="Excluir post">
+                    alt="Excluir post" *ngIf="userPermission != 'Visualizador'">
                     <fa-icon [icon]="faTrashAlt"></fa-icon>
                   </a>
                   <a (click)="openModalDuplicarPost(templateDuplicar)" type="button" class="info-icon "
-                    alt="Duplicar post">
+                    alt="Duplicar post" *ngIf="userPermission != 'Visualizador'">
                     <fa-icon [icon]="faClone"></fa-icon>
                   </a>
                   <ng-template #templateDuplicar>

@@ -26,6 +26,7 @@ export class TagEditComponent implements OnInit {
     usuario: UserAuthenticateModel;
     tag: TagModel;
     tagResult: { id: number; descricao: string; dataCadastro: Date; usuarioId: number; selected: boolean; };
+    userPermission: string;
 
     constructor(
         private tagService: TagService,
@@ -37,6 +38,11 @@ export class TagEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
+        if(this.userPermission == 'Visualizador'){
+            this.router.navigate(['dashboard'])
+        }
         this.usuario = this.authenticateService.state;
         this.createForm();
         this.getTag();

@@ -36,6 +36,7 @@ export class CategoriasCreateComponent implements OnInit {
     };
 
     ngWizardService: any;
+    userPermission: string;
 
     constructor(
         private authenticateService: AuthenticationService,
@@ -46,6 +47,11 @@ export class CategoriasCreateComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
+        if(this.userPermission == 'Visualizador'){
+            this.router.navigate(['dashboard'])
+        }
         this.usuario = this.authenticateService.state;
         this.createForm();
     }

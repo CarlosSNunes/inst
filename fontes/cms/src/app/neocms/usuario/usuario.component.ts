@@ -22,6 +22,7 @@ export class UsuarioComponent implements OnInit {
     perfis: CareplusPerfilModel[];
     usuarioPerfil: any;
     loaded: boolean;
+    userPermission: string;
 
     constructor(
         private usuarioService: UsuarioService,
@@ -37,6 +38,11 @@ export class UsuarioComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+        if(this.userPermission == 'Visualizador'){
+            this.router.navigate(['dashboard'])
+        }
+
         this.getUsuarios();
     }
 

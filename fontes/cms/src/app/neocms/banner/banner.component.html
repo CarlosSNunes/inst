@@ -11,7 +11,7 @@
           </a>
         </div>
         <div class="createBanner">
-          <button type="button" class="btn blue " routerLink="/neocms/banner/create">Novo Banner</button>
+          <button type="button" class="btn blue " routerLink="/neocms/banner/create" *ngIf="userPermission != 'Visualizador'">Novo Banner</button>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
               <th scope="col" class="text-center">Area</th>
               <th scope="col" class="text-center">Cadastrado em:</th>
               <th scope="col" class="text-center">Tempo de Exibição</th>
-              <th scope="col" class="text-center actions">Ação</th>
+              <th scope="col" class="text-center actions"  *ngIf="userPermission != 'Visualizador'">Ação</th>
             </tr>
           </thead>
           <tbody>
@@ -115,7 +115,7 @@
               <td class="py-3 align-middle text-center">
                 <span class="badge badge-dark shadow-sm p-2">{{banner.tempoExibicao}} segundos</span>
               </td>
-              <td class="py-3 align-middle text-center">
+              <td class="py-3 align-middle text-center"  *ngIf="userPermission != 'Visualizador'">
                 <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active" title="Editar">
                   <fa-icon class="icon-action text-dark" [icon]="faPencilAlt"></fa-icon>
                 </a>
@@ -174,30 +174,4 @@
     </div>
   </div>
 </section>
-
-<!-- <div class="card my-2" id="card-header">
-  <div class="card-body">
-    <div class="row">
-      <div class="link-title">
-        <a [routerLink]="['/neocms']">
-          <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-          <span class="title-banner">Banners</span>
-        </a>
-      </div>
-      <div>
-        <button type="button" class="btn btn-primary btn-novo-post" routerLink="/neocms/banner/create"
-          routerLinkActive="active">Novo Banner</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-12">
-        
-      </div>
-    </div>
-  </div>
-</div> -->
 <app-banner-delete *ngIf="showBannerDelete" [banner]="banner" (onClose)="getBanners()"></app-banner-delete>

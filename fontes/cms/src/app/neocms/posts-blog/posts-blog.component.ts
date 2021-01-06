@@ -28,6 +28,8 @@ export class PostsBlogComponent implements OnInit {
     postCount: number = 0;
     paginaAtual = 1;
     contador = 5;
+    userPermission: string;
+
 
     private readonly API_ENDPOINT = environment.API;
 
@@ -43,6 +45,8 @@ export class PostsBlogComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
         this.usuario = this.authenticationService.state;
         this.getPosts();
     }

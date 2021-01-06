@@ -24,6 +24,8 @@ export class CategoriasComponent implements OnInit {
     modalRef: BsModalRef;
     message: string;
     cat: CategoriasModel;
+    userPermission: string;
+
     /**
      * 
      * @param pagination
@@ -41,6 +43,8 @@ export class CategoriasComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
         this.getCategorias();
     }
     getCategorias() {

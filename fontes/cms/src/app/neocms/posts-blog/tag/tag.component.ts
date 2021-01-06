@@ -24,6 +24,7 @@ export class TagComponent implements OnInit {
     paginaAtual = 1;
     contador = 5;
     tagCount: number = 0;
+    userPermission: string;
 
     constructor(
         private tagService: TagService,
@@ -32,6 +33,8 @@ export class TagComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
         this.getTags();
     }
 

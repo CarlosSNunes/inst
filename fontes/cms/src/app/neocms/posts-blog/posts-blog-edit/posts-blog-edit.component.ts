@@ -51,6 +51,7 @@ export class PostsBlogEditComponent implements OnInit {
     resultPostBlog: PostBlogUpdateModel;
     resultTags: TagModelList;
     resultCategoria: CategoriasModel[];
+    userPermission: string;
 
     constructor(
         private authenticateService: AuthenticationService,
@@ -67,6 +68,11 @@ export class PostsBlogEditComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
+        if(this.userPermission == 'Visualizador'){
+            this.router.navigate(['dashboard'])
+        }
         this.localeService.use('pt-br')
         this.user = this.authenticateService.state;
 

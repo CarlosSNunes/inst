@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { BannerService } from '../banner.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-banner-order',
   templateUrl: './banner-order.component.html',
@@ -12,12 +13,19 @@ export class BannerOrderComponent implements OnInit {
   banners: any = [];
   loaded: boolean = false
   selectedFilter: string = "beneficiario";
+  userPermission: string;
+
   constructor(private bannerService: BannerService,
 
-    private toastrService: ToastrService,) {
+    private toastrService: ToastrService,
+    private router: Router) {
 
   }
   ngOnInit() {
+    this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+    if(this.userPermission == 'Visualizador'){
+        this.router.navigate(['dashboard'])
+    }
     this.getBanners()
 
   }

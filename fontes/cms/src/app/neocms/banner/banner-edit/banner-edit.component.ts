@@ -69,6 +69,8 @@ export class BannerEditComponent implements OnInit {
     fileUpDesk: File;
     fileUpMobile: any;
     bannerCount: number;
+    userPermission: string;
+
     constructor(
         private bannerService: BannerService,
         private fb: FormBuilder,
@@ -84,6 +86,11 @@ export class BannerEditComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
+        if(this.userPermission == 'Visualizador'){
+            this.router.navigate(['dashboard'])
+        }
         this.createForm();
         this.getBanner();
     }

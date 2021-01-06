@@ -76,6 +76,7 @@ export class BannerCreateComponent implements OnInit {
     submitted: boolean;
     thumbnailImage: File;
     usuario: UserAuthenticateModel;
+    userPermission: string;
 
     constructor(
         private bannerService: BannerService,
@@ -122,6 +123,10 @@ export class BannerCreateComponent implements OnInit {
      * @memberOf BannerCreateComponent
      */
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+        if(this.userPermission == 'Visualizador'){
+            this.router.navigate(['dashboard'])
+        }
         this.usuario = this.authenticateService.state;
         this.createForm();
     }
