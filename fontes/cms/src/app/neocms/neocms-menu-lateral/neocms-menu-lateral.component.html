@@ -18,7 +18,7 @@
           </p>
         </a>
       </li>
-      <li class="menu-item">
+      <li class="menu-item" *ngIf="userPermission != 'Visualizador'">
         <a routerLink="/neocms/usuarios" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
           <img src="assets/img/users.svg" alt="Usuarios">
 
@@ -27,7 +27,7 @@
           </p>
         </a>
       </li>
-      <li class="menu-item">
+      <li class="menu-item" *ngIf="userPermission == 'Administrador'">
         <a routerLink="/neocms/usuarios/aprovacao" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
           <fa-icon class="icon-action" [icon]="faCheck"></fa-icon>
           <p>
@@ -48,7 +48,7 @@
 
         </a>
       </li>
-      <li class="menu-item">
+      <li class="menu-item" *ngIf="userPermission != 'Visualizador'">
         <a routerLink="/neocms/banner/order" routerLinkActive="is-active">
           <img src="assets/img/banner.svg" alt="Banners">
           <p>

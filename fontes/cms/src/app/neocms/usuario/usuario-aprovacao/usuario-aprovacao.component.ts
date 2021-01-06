@@ -3,6 +3,7 @@ import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../usuario.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-aprovacao',
@@ -16,11 +17,18 @@ export class UsuarioAprovacaoComponent implements OnInit {
   loaded: boolean;
   faTrash = faTrash;
   faCheck = faCheck;
+  
+  userPermission: string;
 
   constructor(private userService: UsuarioService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private router: Router) { }
 
   ngOnInit() {
+    this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+    if(this.userPermission != 'Administrador'){
+        this.router.navigate(['dashboard'])
+    }
     this.getUsers()
   }
   getUsers() {

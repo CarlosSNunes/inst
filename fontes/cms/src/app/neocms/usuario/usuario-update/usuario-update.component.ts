@@ -21,6 +21,8 @@ export class UsuarioUpdateComponent implements OnInit {
     selectedProfile: CareplusPerfilModel;
     submitted: boolean = false;
 
+    userPermission: string;
+    
     constructor(
         private fb: FormBuilder,
         private router: Router,
@@ -40,6 +42,10 @@ export class UsuarioUpdateComponent implements OnInit {
 
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+        if(this.userPermission != 'Administrador'){
+            this.router.navigate(['dashboard'])
+        }
         this.getUsuario();
         this.getPermissions();
 

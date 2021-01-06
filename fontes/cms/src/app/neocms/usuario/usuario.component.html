@@ -25,7 +25,7 @@
               <th scope="col" class="text-center">Nome</th>
               <th scope="col" class="text-center">Nome do usuário</th>
               <th scope="col" class="text-center">Perfil</th>
-              <th scope="col" class="text-center">Ação</th>
+              <th scope="col" class="text-center" *ngIf="userPermission == 'Administrador'">Ação</th>
             </tr>
           </thead>
           <tbody>
@@ -39,7 +39,7 @@
               <td>{{user.nomeUsuario}}</td>
               <td>{{user.usuarioPerfil[0].descricao}}</td>
 
-              <td class="py-3 align-middle text-center">
+              <td class="py-3 align-middle text-center"  *ngIf="userPermission == 'Administrador'">
                 <a [routerLink]="[ './edit', user.id]" routerLinkActive="active" title="Editar">
                   <fa-icon class="icon-action text-dark" [icon]="faPencilAlt"></fa-icon>
                 </a>

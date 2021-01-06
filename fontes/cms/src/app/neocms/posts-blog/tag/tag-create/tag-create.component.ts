@@ -22,6 +22,7 @@ export class TagCreateComponent implements OnInit {
     faPlus = faPlus;
     submitted: boolean;
     usuario: UserAuthenticateModel;
+    userPermission: string;
 
     constructor(
         private tagService: TagService,
@@ -32,6 +33,11 @@ export class TagCreateComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
+        if(this.userPermission == 'Visualizador'){
+            this.router.navigate(['dashboard'])
+        }
         this.usuario = this.authenticateService.state;
 
         this.createForm();

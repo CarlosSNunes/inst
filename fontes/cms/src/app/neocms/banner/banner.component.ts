@@ -44,6 +44,7 @@ export class BannerComponent implements OnInit {
     showBannerDelete: boolean;
     thumbnail: string;
     selectedFilter: string = "beneficiario";
+    userPermission: string;
 
     constructor(
         private bannerService: BannerService,
@@ -52,6 +53,8 @@ export class BannerComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
+
         this.getBanners();
     }
 

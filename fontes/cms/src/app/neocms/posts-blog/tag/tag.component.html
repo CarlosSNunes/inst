@@ -10,7 +10,7 @@
                         Voltar
                     </a>
                 </div>
-                <div class="createTag">
+                <div class="createTag" *ngIf="userPermission != 'Visualizador'">
                     <button type="button" class="btn blue " routerLink="/neocms/posts-blog/tag/create">Nova Tag</button>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                         <tr>
                             <th id="">Id</th>
                             <th class="text-center" id="">Descrição</th>
-                            <th class="text-right" id="">Ação</th>
+                            <th class="text-right" id="" *ngIf="userPermission != 'Visualizador'">Ação</th>
                         </tr>
                     </thead>
 
@@ -41,7 +41,7 @@
                             *ngFor="let tag of tags | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: tagCount }">
                             <td>{{tag.id}}</td>
                             <td class="text-truncate text-center">{{tag.descricao}}</td>
-                            <td class="text-right text-dark">
+                            <td class="text-right text-dark" *ngIf="userPermission != 'Visualizador'">
                                 <a class="" [routerLink]="['/neocms/posts-blog/tag/edit', tag.id]"
                                     routerLinkActive="active">
                                     <fa-icon class="text-dark" [icon]="faPencilAlt"></fa-icon>

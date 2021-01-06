@@ -41,13 +41,15 @@ export class NeocmsMenuLateralComponent implements OnInit {
   faEdit = faEdit;
   faMoneyCheckAlt = faMoneyCheckAlt;
   faImages = faImages;
-  faCheck= faCheck;
+  faCheck = faCheck;
+  userPermission: string;
 
   constructor(
 
   ) { }
 
   ngOnInit() {
+    this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
   }
 
 }

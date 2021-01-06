@@ -7,7 +7,7 @@
                         Categorias
                     </h1>
                     <button class="btn blue" type="button" routerLink="/neocms/posts-blog/categorias/create"
-                        routerLinkActive="active">
+                        routerLinkActive="active" *ngIf="userPermission != 'Visualizador'">
                         Nova Categoria
                     </button>
                 </div>
@@ -21,7 +21,7 @@
                         <tr>
                             <th scope="col" class="text-center">Categoria</th>
                             <th scope="col" class="text-center">Descrição</th>
-                            <th scope="col" class="text-center">Ação</th>
+                            <th scope="col" class="text-center"  *ngIf="userPermission != 'Visualizador'">Ação</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +39,7 @@
                             <td class="py-3 align-middle text-center">
                                 <span class="p-2">{{c.descricao}}</span>
                             </td>
-                            <td class="py-3 align-middle text-center">
+                            <td class="py-3 align-middle text-center"  *ngIf="userPermission != 'Visualizador'">
                                 <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', c.id]"
                                     routerLinkActive="active">
                                     <fa-icon class="text-dark icon-action" [icon]="faPencilAlt"></fa-icon>
