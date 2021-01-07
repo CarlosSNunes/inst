@@ -6,6 +6,8 @@
 //using System.IO;
 //using System.Threading.Tasks;
 //using Xunit;
+//using Moq;
+//using CarePlusHomolog;
 
 //namespace CarePlusAPI.Tests.Services
 //{
@@ -14,6 +16,8 @@
 //        private readonly IOptions<AppSettings> _appSettings;
 //        private FaleConoscoService _faleConoscoService;
 //        private IConfiguration _configuration;
+//        private Mock<GetCipher> _getCipherMock;
+//        private Mock<PartnerServiceClient> _partnerServiceClient;
 
 //        public FaleConescoServiceTest()
 //        {
@@ -30,7 +34,21 @@
 
 //            _appSettings = Options.Create<AppSettings>(appSettings);
 
-//            _faleConoscoService = new FaleConoscoService(_appSettings);
+//            _getCipherMock = new Mock<GetCipher>();
+
+//            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("SECRET API CAREPLUS TESTE");
+
+//            _partnerServiceClient = new Mock<PartnerServiceClient>();
+
+//            _partnerServiceClient.Setup(ps => ps.LogarAsync(It.IsAny<LoginPartnerOut>())).ReturnsAsync(new WSRetornoLoginPartner() {
+//                Mensagem = "sucesso",
+//                LoginPartner = new LoginPartnerOut()
+//                {
+//                    TokenTransacao = "aaaaaa"
+//                }
+//            });
+
+//            _faleConoscoService = new FaleConoscoService(_appSettings, _getCipherMock.Object);
 //        }
 
 //        [Fact]
