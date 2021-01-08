@@ -22,7 +22,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly DbContextOptions<DataContext> _options;
         private readonly SqliteConnection Connection;
         private readonly IOptions<AppSettings> _appSettings;
-        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private IConfiguration _configuration;
 
 
