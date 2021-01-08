@@ -105,7 +105,7 @@ As variáveis de ambiente são controladas pelo arquivo appsettings.json, onde j
 
 * `appsettings.json` - Para desenvolvimento local
 * `appsettings.Development.json` - Para desenvolvimento local
-* `appsettings.Docker.json` - Para desenvolvimento local com o banco de dados em imagem docker em sistemas unix.
+* `appsettings.Docker.json` - Para desenvolvimento local com o banco de dados em imagem docker em sistemas unix. [link](https://hub.docker.com/_/oracle-database-enterprise-edition/purchase?plan=08cf8677-bb8f-453c-b667-6b0c24a388d4)
 * `appsettings.Homolog.json` - para o ambiente de homologação da Neotix.
 * `appsettings.Staging.json` - para o ambiente de homologação da Care Plus.
 
