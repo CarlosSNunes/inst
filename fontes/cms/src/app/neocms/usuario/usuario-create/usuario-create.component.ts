@@ -9,22 +9,16 @@ import { UsuarioService } from '../usuario.service';
 import { AuthenticationService } from './../../../../../src/app/authentication/authentication.service';
 import { FormControlError } from './../../../../../src/utils/form-control-error';
 import { UsuarioCreateModel } from '../../../../models/usuario/usuario-create.model';
-import { NgSelectConfig } from '@ng-select/ng-select';
-import { ɵs } from '@ng-select/ng-select';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-usuario-create',
     templateUrl: './usuario-create.component.html',
     styleUrls: ['./usuario-create.component.scss'],
-    providers: [CareplusPerfilService, NgSelectConfig, ɵs],
+    providers: [CareplusPerfilService],
 })
 
 export class UsuarioCreateComponent implements OnInit {
-
-
-
-
     // ? --------- Configuração 'ng-wizard' ---------
     configUser: NgWizardConfig = {
         toolbarSettings: {

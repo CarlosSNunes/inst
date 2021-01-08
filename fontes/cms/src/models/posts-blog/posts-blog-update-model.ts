@@ -19,10 +19,10 @@ export class PostBlogUpdateModel {
         if (init) {
             if (init.postTag && init.postTag.length > 0) {
                 init.postTag.forEach(tag => this.postTag.push(new PostsTagCreateModel(tag)));
+            }
 
-                if (init.getDateDifferences) {
-                    this.dateDifferences = getDifferences(new Date(), init.dataPublicacao);
-                }
+            if (init.getDateDifferences) {
+                this.dateDifferences = getDifferences(new Date(), init.dataPublicacao);
             }
         }
     }
