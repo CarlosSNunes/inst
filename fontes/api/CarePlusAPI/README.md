@@ -134,7 +134,7 @@ Clique em "Import Data", logo após "From File" e selecione o arquivo na pasta "
 
 ## Estrutura da base de dados
 
-* O script que monta a estrutura da base de dados está localizado em `scripts/sql`, e é o arquivo [export.sql](./scripts/sql/export/sql), este script monta toda a estrutura de tabelas, relacinamentos e constraints do banco de dados, caso um banco de dados novo sem nenhum dado tenha que ser gerado, rode este script.
+* O script que monta a estrutura da base de dados está localizado em `scripts/sql`, e é o arquivo [export.sql](../../../scripts/sql/export.sql), este script monta toda a estrutura de tabelas, relacinamentos e constraints do banco de dados, caso um banco de dados novo sem nenhum dado tenha que ser gerado, rode este script.
 
 ## Autores
 
