@@ -128,6 +128,14 @@ Clique em "Import Data", logo após "From File" e selecione o arquivo na pasta "
 * [XUnit](https://docs.microsoft.com/pt-br/dotnet/core/testing/unit-testing-with-dotnet-test) - Criar nova solução junto com projeto de teste
 * [Code Coverage](https://medium.com/@lorranpalmeira/code-coverage-no-c-com-vscode-cfa3cb6c89d0) - Como adicionar cobertura de código do C# no VSCode
 
+## Dump da base de dados
+
+* O dump da base de dados está localizado em `scripts/dump` e possuí dois arquivos, o `export.dmp` que é dump de fato e o `export.log` que é o arquivo de log do dump, a cada novo dump estes dois arquivos são atualizados.
+
+## Estrutura da base de dados
+
+* O script que monta a estrutura da base de dados está localizado em `scripts/sql`, e é o arquivo [export.sql](./scripts/sql/export/sql), este script monta toda a estrutura de tabelas, relacinamentos e constraints do banco de dados, caso um banco de dados novo sem nenhum dado tenha que ser gerado, rode este script.
+
 ## Autores
 
 * **Thiago de Sa** - *Desenvolvimento Inicial* - [Github](https://github.com/neotix-wendel-thiago)
