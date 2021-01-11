@@ -1,3 +1,58 @@
+<div class="mobile-sitemap is-mobile is-hidden-up-tablet" [ngClass]="openned ? 'open' : ''">
+        <h3 (click)="openned=!openned">Sitemap</h3>
+        <ul>
+            <li><strong>Home</strong></li>
+            <li><a routerLink="/sou-beneficiario" title="Para o Beneficiário" (click)="openned=!openned">Para o Beneficiário</a></li>
+            <li><a routerLink="/sou-rh" title="Para o RHs" (click)="openned=!openned">Para o RH</a></li>
+            <li><a routerLink="/sou-corretor" title="Para o Corretor" (click)="openned=!openned">Para o Corretor</a></li>
+            <li><a routerLink="/sou-credenciado" title="Para o Credenciado" (click)="openned=!openned">Para o Credenciado</a></li>
+        </ul>
+        <ul>
+            <li><strong>A Care Plus</strong></li>
+            <li><a routerLink="/a-careplus/diferenciais" title="Diferenciais" (click)="openned=!openned">Diferenciais</a></li>
+            <li><a routerLink="/a-careplus/responsabilidade-social" title="Sustentabilidade / Responsabilidade Social" (click)="openned=!openned">Responsabilidade Social</a></li>
+            <li><a routerLink="/a-careplus/rede-plus" title="Rede Plus" (click)="openned=!openned">Rede Plus</a></li>
+            <li><a routerLink="/a-careplus/perguntas-frequentes" title="Perguntas Frequentes" (click)="openned=!openned">Perguntas Frequentes</a></li>
+            <li><a routerLink="/a-careplus/resultados-financeiros" title="Resultados Financeiros" (click)="openned=!openned">Resultados Financeiros</a></li>
+            <li><a routerLink="/a-careplus/materiais-de-saude" title="Materiais de Saúde" (click)="openned=!openned">Materiais de Saúde</a></li>
+            <li><a routerLink="/a-careplus/termos-e-condicoes" title="Termos e Condições" (click)="openned=!openned">Termos e Condições</a></li>
+            <li><a routerLink="/a-careplus/diferenciais" title="Diferenciais" (click)="openned=!openned">Diferenciais</a></li>
+            <li><a routerLink="/a-careplus/politica-de-privacidade" title="Política de Privacidade" (click)="openned=!openned">Política de Privacidade</a></li>
+
+        </ul>
+        <ul>
+            <li><strong>Planos</strong></li>
+            <li><a routerLink="/planos-e-produtos" fragment="careplus-soho" title="Care Plus Soho" (click)="openned=!openned">Care Plus SoHo</a></li>
+            <li><a routerLink="/planos-e-produtos" title="Clube Care Plus" fragment="clube-careplus" (click)="openned=!openned">Clube Care Plus</a></li>
+            <li><a routerLink="/planos-e-produtos" title="Care Plus Empresarial" fragment="careplus-empresarial" (click)="openned=!openned">Care Plus Empresarial</a></li>
+        </ul>
+        <ul>
+            <li><strong>Produtos</strong></li>
+            <li><a routerLink="/planos-e-produtos/medicina-ocupacional" title="Medicina Ocupacional" (click)="openned=!openned">Medicina Ocupacional</a></li>
+            <li><a routerLink="/planos-e-produtos/gestao-de-saude" title="Gestão de Saúde" (click)="openned=!openned">Gestão de Saúde</a></li>
+            <li><a href="">Master International</a></li>
+        </ul>
+        <ul>
+            <li><strong>Carreiras</strong></li>
+            <li><a routerLink="/carreiras/vagas" title="Vagas" (click)="openned=!openned">Vagas</a></li>
+        </ul>
+        <ul>
+            <li><strong>Documentos</strong></li>
+            <li><a routerLink="/compliance" title="Compliance" (click)="openned=!openned">Compliance</a></li>
+            <li><a routerLink="/idss" title="IDSS" (click)="openned=!openned">IDSS</a></li>
+            <li><a routerLink="/pesquisa-satisfacao" title="Pesquisa de Satisfação" (click)="openned=!openned">Pesquisa de Satisfação</a></li>
+        </ul>
+        <ul>
+            <li><strong>Fale Conosco</strong></li>
+            <li><a routerLink="/fale-conosco/solicite-uma-cotacao" title="Solicite uma Cotação" (click)="openned=!openned">Solicite uma Cotação</a></li>
+            <li><a routerLink="/fale-conosco/contato" title="Contato" (click)="openned=!openned">Contato</a></li>
+            <li><a routerLink="/fale-conosco/canal-de-denuncias" title="Canal de Denúncias" (click)="openned=!openned">Canal de Denúncias</a></li>
+            <li><a routerLink="/fale-conosco/ouvidoria" title="Ouvidoria" (click)="openned=!openned">Ouvidoria</a></li>
+            <li><a title="Simule Planos e Produtos" (click)="openSimulator()" (click)="openned=!openned">Simule Planos e Produtos</a></li>
+            <li><a href="https://www8.careplus.com.br/portal/portal/modulos/rede/pesquisaRedeCP.aspx" target="_blank" rel="noopener noreferrer" title="Rede Credenciada" (click)="openned=!openned">Rede Credenciada</a></li>
+            <li><a href="https://www8.careplus.com.br/portal/substituicaorede.aspx" target="_blank" rel="noopener noreferrer" title="Substituição de Rede" (click)="openned=!openned">Substituição de Rede</a></li>
+        </ul>
+</div>
 <footer class="footer" id="footer">
     <div class="content has-text-centered">
         <div class="columns buttons display-flex is-mobile is-hidden-up-tablet">
@@ -37,6 +92,37 @@
                 </a>
             </div>
         </div>
+        <div class="privacy-section columns is-hidden-up-tablet">
+            <div class="is-6">
+                <a routerLink="/a-careplus/politica-de-privacidade" title="Política de Privacidade">
+                   Política de Privacidade
+                </a>
+            </div>
+            <li></li>
+            <div class="is-6">
+                <a routerLink="/a-careplus/termos-e-condicoes" title="Termos e Condições">
+                    Termos & Condições
+                </a>
+            </div>
+        </div>
+        <div class="sitemap-section columns is-hidden-up-tablet">
+            <div class="is-4">
+                <a routerLink="/carreiras" title="Carreiras">
+                  Carreiras
+                </a>
+            </div>
+            <div class="is-4">
+                <a href="https://www.bupaglobal.com/en/facilities/finder" target="_blank" title="Facilities Finder">
+                    Facilities finder
+                </a>
+            </div>
+            <div class="is-4">
+                <a title="Sitemap" (click)="openned=!openned">
+                    Sitemap
+                </a>
+            </div>
+        </div>
+
         <div class="columns is-hidden-down-tablet">
             <div class="column is-paddingless-vertical">
                 <h3 class="entre-em-contato">Entre em Contato</h3>
