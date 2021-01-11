@@ -7,6 +7,7 @@ export default [
         button: new ButtonModel({
             link: 'assets/documents/careplusresulfin2019.pdf',
         }),
+        size:'328',
         category: '2019'
     }),
     new CardModel({

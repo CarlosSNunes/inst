@@ -14,6 +14,7 @@ export class CardModel {
     id: any;
     button?: ButtonModel;
     routerLink: string;
+    size:string;
 }
 
 export class IconCardModel extends CardModel {
