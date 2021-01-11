@@ -3,9 +3,9 @@
         <app-card class="app-card" [card]="document">
             <div class="card-content">
                 <p class="card-title">
-                    {{document.title}} <span class="size" *ngIf="document?.size?.length > 0"> ({{document.size}}kb)</span>
+                    {{document.title}} <span class="size" *ngIf="document?.size?.placeholder"> {{document.size.placeholder}}</span>
                 </p>
-                <a [attr.href]="document?.button?.link" title="Download" class="download-link" download [type]="document?.type == 'default' ? document?.size != undefined ? 'application/pdf,' + 'length=' + document.size : 'application/pdf' : document?.size != undefined ? document.type + ','  + 'length=' + document.size : document.type" > 
+                <a [attr.href]="document?.button?.link" title="Download" class="download-link" download [type]="document?.type == 'default' ? document?.size?.file_size != undefined ? 'application/pdf,' + 'length=' + document.size?.file_size : 'application/pdf' : document?.size?.file_size != undefined ? document.type + ','  + 'length=' + document.size?.file_size : document.type" > 
                     Download <span>{{document?.type == 'default'? 'PDF' : document.type}}</span> 
                     <span>
                         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
