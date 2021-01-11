@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         private activatedRoute: ActivatedRoute
     ) {
         this.activatedRoute.queryParams.subscribe(params => {
+            this.returnUrl = undefined;
             if (params.returnUrl) {
                 this.returnUrl = params.returnUrl;
             }

@@ -1,7 +1,7 @@
 export const environment = {
     production: true,
-    API_URL: 'http://ip-c6136b09.corp.amazonworkspaces.com:8081',
-    SELF_URL: 'https://careplus.homolog.neotix.com.br',
+    API_URL: 'http://homolog-windows.neotix.com.br:8081',
+    SELF_URL: 'http://homolog-windows.neotix.com.br',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
     API_USER: '1NJugPtxBoUY+a2s6jGMbA==',
