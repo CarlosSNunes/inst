@@ -29,6 +29,12 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Staging"
       }
+    },
+    "StagingCp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "StagingCp"
+      }
     }
   }
 }

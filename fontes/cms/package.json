@@ -8,6 +8,7 @@
     "build:prod": "ng build --prod",
     "build:homolog": "ng build --configuration=homolog",
     "build:staging": "ng build --configuration=staging",
+    "build:staging-cp": "ng build --configuration=staging-cp",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
