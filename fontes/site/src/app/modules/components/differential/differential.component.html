@@ -3,7 +3,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column left-column is-hidden-touch" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
-                    <img [src]="differential.image" [alt]="differentials[currentDifferential]?.title"/>
+                    <img [src]="differential.image" [alt]="'Diferenciais de ' + differentials[currentDifferential]?.title"/>
                     <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
                         Conheça nossos Diferenciais
                     </a>

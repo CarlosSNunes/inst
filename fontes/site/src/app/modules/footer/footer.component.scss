@@ -13,7 +13,7 @@
 
 @media (max-width: 1399px) {
     .footer {
-        padding-bottom: 100px !important;
+        padding-bottom: 16px !important;
         .site-map {
             .certificacoes {
                 a {
@@ -53,7 +53,7 @@
 
 @media (max-width: 991px) {
     .is-hidden-down-tablet {
-        // display: none !important;
+        display: none !important;
         visibility: hidden;
     }
 }
@@ -64,6 +64,71 @@
     }
     .footer {
         padding: 52px 75px 60px 75px !important;
+    }
+}
+
+.mobile-sitemap {
+    background-color: #fff;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 110px;
+    right: -1000px;
+    padding-bottom: 200px;
+    z-index: 10;
+    padding: 32px 16px;
+    overflow: auto;
+    transition: all .4s ease-in-out;
+    &.open {
+        right: 0;
+    }
+    div {
+        height: 210%;
+    }
+
+    h3 {
+        text-align: left;
+        font-size: 24px;
+        color: #00335B;
+        position: relative;
+        margin-bottom: 40px;
+
+        &::after {
+            content: "";
+            width: 145px;
+            position: absolute;
+            height: 4px;
+            bottom: -16px;
+            left: 0;
+            background: #0079C8;
+        }
+    }
+
+    ul {
+        text-align: left;
+        list-style: none;
+        margin: 24px 0;
+
+        strong {
+            font-size: 20px;
+            color: #00335B;
+            font-weight: 500;
+        }
+
+        a {
+            color: #333333;
+        }
+
+        li {
+            margin: 16px 0;
+        }
+
+        li + li {
+            margin: 8px 0;
+        }
+        &:last-of-type {
+            margin-bottom: 200px;
+        }
     }
 }
 
@@ -155,6 +220,41 @@
             }
         }
     }
+    .privacy-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 16px;
+
+        a {
+            font-size: 14px;
+        }
+
+        li {
+            color: #fff;
+            font-size: 14px;
+            margin: 0;
+            margin-left: 17px;
+        }
+    }
+    .sitemap-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        padding: 0 16px;
+        margin-top: 32px;
+
+        a {
+            margin-right: 16px;
+            font-size: 14px;
+        }
+
+        a + a {
+            margin-right: 0;
+            margin-left: 16px;
+        }
+    }
+
     .entre-em-contato {
         white-space: nowrap;
         font-style: normal;
@@ -412,6 +512,7 @@
         }
     }
 }
+
 
 @media (max-width: 1023px) {
     .footer {
