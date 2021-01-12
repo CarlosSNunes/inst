@@ -40,6 +40,8 @@ namespace CarePlusAPI.Helpers
                 ftpPassword = _getCipher.Decrypt(_appSettings.AssetsServerPass);
             }
 
+            byte[] fileBytes = File.ReadAllBytes(filePath);
+
 
             // Get the object used to communicate with the server.
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create($"ftp://{_appSettings.AssetsServerIp}/{folder}/{filename}");
@@ -47,19 +49,14 @@ namespace CarePlusAPI.Helpers
 
             // This example assumes the FTP site uses anonymous logon.
             request.Credentials = new NetworkCredential(ftpUser, ftpPassword);
+            request.UsePassive = true;
+            request.UseBinary = true;
 
-            // Copy the contents of the file to the request stream.
-            byte[] fileContents;
-            using (StreamReader sourceStream = new StreamReader(filePath))
-            {
-                fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
-            }
-
-            request.ContentLength = fileContents.Length;
+            request.ContentLength = fileBytes.Length;
 
             using (Stream requestStream = request.GetRequestStream())
             {
-                requestStream.Write(fileContents, 0, fileContents.Length);
+                requestStream.Write(fileBytes, 0, fileBytes.Length);
             }
 
             using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())

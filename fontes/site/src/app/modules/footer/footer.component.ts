@@ -40,7 +40,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
     width: number = 1400;
     addedOnDesktop: boolean = true;
     addedOnMobile: boolean = false;
-
+    openned: boolean = false;
+    
     constructor(
         private simuladoresService: SimuladoresService,
         @Inject(DOCUMENT) private document: Document,
