@@ -1,0 +1,163 @@
+;;; 
+Export: Release 12.2.0.1.0 - Production on Mon Jan 11 19:54:16 2021
+
+Copyright (c) 1982, 2017, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+;;; Legacy Mode Active due to the following parameters:
+;;; Legacy Mode Parameter: "file=export.dmp" Location: Command Line, Replaced with: "dumpfile=export.dmp"
+;;; Legacy Mode Parameter: "grants=FALSE" Location: Command Line, Replaced with: "exclude=grant"
+;;; Legacy Mode Parameter: "indexes=FALSE" Location: Command Line, Replaced with: "exclude=index"
+;;; Legacy Mode Parameter: "log=export.log" Location: Command Line, Replaced with: "logfile=export.log"
+;;; Legacy Mode Parameter: "triggers=FALSE" Location: Command Line, Replaced with: "exclude=trigger"
+;;; Legacy Mode has set reuse_dumpfiles=true parameter.
+Starting "SYS"."SYS_EXPORT_FULL_02":  sys/******** AS SYSDBA dumpfile=export.dmp logfile=export.log exclude=grant exclude=trigger exclude=index full=y directory=CCT_IMPORT VERSION=12.1.0.2.0 reuse_dumpfiles=true 
+Processing object type DATABASE_EXPORT/EARLY_OPTIONS/VIEWS_AS_TABLES/TABLE_DATA
+Processing object type DATABASE_EXPORT/NORMAL_OPTIONS/TABLE_DATA
+Processing object type DATABASE_EXPORT/NORMAL_OPTIONS/VIEWS_AS_TABLES/TABLE_DATA
+Processing object type DATABASE_EXPORT/SCHEMA/TABLE/TABLE_DATA
+Processing object type DATABASE_EXPORT/SCHEMA/TABLE/STATISTICS/TABLE_STATISTICS
+Processing object type DATABASE_EXPORT/STATISTICS/MARKER
+Processing object type DATABASE_EXPORT/PRE_SYSTEM_IMPCALLOUT/MARKER
+Processing object type DATABASE_EXPORT/PRE_INSTANCE_IMPCALLOUT/MARKER
+Processing object type DATABASE_EXPORT/TABLESPACE
+Processing object type DATABASE_EXPORT/PROFILE
+Processing object type DATABASE_EXPORT/SYS_USER/USER
+Processing object type DATABASE_EXPORT/RADM_FPTM
+Processing object type DATABASE_EXPORT/SCHEMA/DEFAULT_ROLE
+Processing object type DATABASE_EXPORT/SCHEMA/ON_USER_GRANT
+Processing object type DATABASE_EXPORT/SCHEMA/TABLESPACE_QUOTA
+Processing object type DATABASE_EXPORT/RESOURCE_COST
+Processing object type DATABASE_EXPORT/SCHEMA/DB_LINK
+Processing object type DATABASE_EXPORT/TRUSTED_DB_LINK
+Processing object type DATABASE_EXPORT/DIRECTORY/DIRECTORY
+Processing object type DATABASE_EXPORT/SYSTEM_PROCOBJACT/PRE_SYSTEM_ACTIONS/PROCACT_SYSTEM
+Processing object type DATABASE_EXPORT/SYSTEM_PROCOBJACT/PROCOBJ
+Processing object type DATABASE_EXPORT/SYSTEM_PROCOBJACT/POST_SYSTEM_ACTIONS/PROCACT_SYSTEM
+Processing object type DATABASE_EXPORT/SCHEMA/PROCACT_SCHEMA
+Processing object type DATABASE_EXPORT/EARLY_OPTIONS/VIEWS_AS_TABLES/TABLE
+Processing object type DATABASE_EXPORT/EARLY_POST_INSTANCE_IMPCALLOUT/MARKER
+Processing object type DATABASE_EXPORT/NORMAL_OPTIONS/TABLE
+Processing object type DATABASE_EXPORT/NORMAL_OPTIONS/VIEWS_AS_TABLES/TABLE
+Processing object type DATABASE_EXPORT/NORMAL_POST_INSTANCE_IMPCALLOUT/MARKER
+>>> DBMS_AW_EXP: SYS.AW$EXPRESS: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWMD: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWCREATE: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWCREATE10G: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWXML: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWREPORT: OLAP not enabled
+Processing object type DATABASE_EXPORT/SCHEMA/TABLE/TABLE
+Processing object type DATABASE_EXPORT/SCHEMA/TABLE/IDENTITY_COLUMN
+Processing object type DATABASE_EXPORT/SCHEMA/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type DATABASE_EXPORT/SCHEMA/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processing object type DATABASE_EXPORT/FINAL_POST_INSTANCE_IMPCALLOUT/MARKER
+>>> DBMS_AW_EXP: SYS.AW$EXPRESS: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWMD: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWCREATE: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWCREATE10G: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWXML: OLAP not enabled
+>>> DBMS_AW_EXP: SYS.AW$AWREPORT: OLAP not enabled
+Processing object type DATABASE_EXPORT/SCHEMA/POST_SCHEMA/PROCACT_SCHEMA
+Processing object type DATABASE_EXPORT/AUDIT_UNIFIED/AUDIT_POLICY_ENABLE
+Processing object type DATABASE_EXPORT/POST_SYSTEM_IMPCALLOUT/MARKER
+. . exported "SYS"."KU$_USER_MAPPING_VIEW"               6.156 KB      40 rows
+. . exported "SYSTEM"."REDO_DB"                          25.59 KB       1 rows
+. . exported "ORDDATA"."ORDDCM_DOCS"                     252.9 KB       9 rows
+. . exported "WMSYS"."WM$WORKSPACES_TABLE$"              12.10 KB       1 rows
+. . exported "WMSYS"."WM$HINT_TABLE$"                    9.984 KB      97 rows
+. . exported "LBACSYS"."OLS$INSTALLATIONS"               6.960 KB       2 rows
+. . exported "WMSYS"."WM$WORKSPACE_PRIV_TABLE$"          7.078 KB      11 rows
+. . exported "SYS"."DAM_CONFIG_PARAM$"                   6.531 KB      14 rows
+. . exported "SYS"."TSDP_SUBPOL$"                        6.328 KB       1 rows
+. . exported "WMSYS"."WM$NEXTVER_TABLE$"                 6.375 KB       1 rows
+. . exported "LBACSYS"."OLS$PROPS"                       6.234 KB       5 rows
+. . exported "WMSYS"."WM$ENV_VARS$"                      5.976 KB       2 rows
+. . exported "SYS"."TSDP_PARAMETER$"                     5.953 KB       1 rows
+. . exported "SYS"."TSDP_POLICY$"                        5.921 KB       1 rows
+. . exported "WMSYS"."WM$VERSION_HIERARCHY_TABLE$"       5.984 KB       1 rows
+. . exported "WMSYS"."WM$EVENTS_INFO$"                   5.812 KB      12 rows
+. . exported "LBACSYS"."OLS$AUDIT_ACTIONS"               5.757 KB       8 rows
+. . exported "LBACSYS"."OLS$DIP_EVENTS"                  5.539 KB       2 rows
+. . exported "LBACSYS"."OLS$AUDIT"                           0 KB       0 rows
+. . exported "LBACSYS"."OLS$COMPARTMENTS"                    0 KB       0 rows
+. . exported "LBACSYS"."OLS$DIP_DEBUG"                       0 KB       0 rows
+. . exported "LBACSYS"."OLS$GROUPS"                          0 KB       0 rows
+. . exported "LBACSYS"."OLS$LAB"                             0 KB       0 rows
+. . exported "LBACSYS"."OLS$LEVELS"                          0 KB       0 rows
+. . exported "LBACSYS"."OLS$POL"                             0 KB       0 rows
+. . exported "LBACSYS"."OLS$POLICY_ADMIN"                    0 KB       0 rows
+. . exported "LBACSYS"."OLS$POLS"                            0 KB       0 rows
+. . exported "LBACSYS"."OLS$POLT"                            0 KB       0 rows
+. . exported "LBACSYS"."OLS$PROFILE"                         0 KB       0 rows
+. . exported "LBACSYS"."OLS$PROFILES"                        0 KB       0 rows
+. . exported "LBACSYS"."OLS$PROG"                            0 KB       0 rows
+. . exported "LBACSYS"."OLS$SESSINFO"                        0 KB       0 rows
+. . exported "LBACSYS"."OLS$USER"                            0 KB       0 rows
+. . exported "LBACSYS"."OLS$USER_COMPARTMENTS"               0 KB       0 rows
+. . exported "LBACSYS"."OLS$USER_GROUPS"                     0 KB       0 rows
+. . exported "LBACSYS"."OLS$USER_LEVELS"                     0 KB       0 rows
+. . exported "SYS"."AUD$"                                    0 KB       0 rows
+. . exported "SYS"."DAM_CLEANUP_EVENTS$"                     0 KB       0 rows
+. . exported "SYS"."DAM_CLEANUP_JOBS$"                       0 KB       0 rows
+. . exported "SYS"."TSDP_ASSOCIATION$"                       0 KB       0 rows
+. . exported "SYS"."TSDP_CONDITION$"                         0 KB       0 rows
+. . exported "SYS"."TSDP_FEATURE_POLICY$"                    0 KB       0 rows
+. . exported "SYS"."TSDP_PROTECTION$"                        0 KB       0 rows
+. . exported "SYS"."TSDP_SENSITIVE_DATA$"                    0 KB       0 rows
+. . exported "SYS"."TSDP_SENSITIVE_TYPE$"                    0 KB       0 rows
+. . exported "SYS"."TSDP_SOURCE$"                            0 KB       0 rows
+. . exported "SYSTEM"."REDO_LOG"                             0 KB       0 rows
+. . exported "WMSYS"."WM$BATCH_COMPRESSIBLE_TABLES$"         0 KB       0 rows
+. . exported "WMSYS"."WM$CONSTRAINTS_TABLE$"                 0 KB       0 rows
+. . exported "WMSYS"."WM$CONS_COLUMNS$"                      0 KB       0 rows
+. . exported "WMSYS"."WM$LOCKROWS_INFO$"                     0 KB       0 rows
+. . exported "WMSYS"."WM$MODIFIED_TABLES$"                   0 KB       0 rows
+. . exported "WMSYS"."WM$MP_GRAPH_WORKSPACES_TABLE$"         0 KB       0 rows
+. . exported "WMSYS"."WM$MP_PARENT_WORKSPACES_TABLE$"        0 KB       0 rows
+. . exported "WMSYS"."WM$NESTED_COLUMNS_TABLE$"              0 KB       0 rows
+. . exported "WMSYS"."WM$RESOLVE_WORKSPACES_TABLE$"          0 KB       0 rows
+. . exported "WMSYS"."WM$RIC_LOCKING_TABLE$"                 0 KB       0 rows
+. . exported "WMSYS"."WM$RIC_TABLE$"                         0 KB       0 rows
+. . exported "WMSYS"."WM$RIC_TRIGGERS_TABLE$"                0 KB       0 rows
+. . exported "WMSYS"."WM$UDTRIG_DISPATCH_PROCS$"             0 KB       0 rows
+. . exported "WMSYS"."WM$UDTRIG_INFO$"                       0 KB       0 rows
+. . exported "WMSYS"."WM$VERSION_TABLE$"                     0 KB       0 rows
+. . exported "WMSYS"."WM$VT_ERRORS_TABLE$"                   0 KB       0 rows
+. . exported "WMSYS"."WM$WORKSPACE_SAVEPOINTS_TABLE$"        0 KB       0 rows
+. . exported "SYS"."AUDTAB$TBS$FOR_EXPORT"               5.953 KB       2 rows
+. . exported "SYS"."DBA_SENSITIVE_DATA"                      0 KB       0 rows
+. . exported "SYS"."DBA_TSDP_POLICY_PROTECTION"              0 KB       0 rows
+. . exported "SYS"."FGA_LOG$FOR_EXPORT"                      0 KB       0 rows
+. . exported "SYS"."NACL$_ACE_EXP"                           0 KB       0 rows
+. . exported "SYS"."NACL$_HOST_EXP"                      6.976 KB       2 rows
+. . exported "SYS"."NACL$_WALLET_EXP"                        0 KB       0 rows
+. . exported "SYS"."SQL$TEXT_DATAPUMP"                       0 KB       0 rows
+. . exported "SYS"."SQL$_DATAPUMP"                           0 KB       0 rows
+. . exported "SYS"."SQLOBJ$AUXDATA_DATAPUMP"                 0 KB       0 rows
+. . exported "SYS"."SQLOBJ$DATA_DATAPUMP"                    0 KB       0 rows
+. . exported "SYS"."SQLOBJ$PLAN_DATAPUMP"                    0 KB       0 rows
+. . exported "SYS"."SQLOBJ$_DATAPUMP"                        0 KB       0 rows
+. . exported "SYSTEM"."SCHEDULER_JOB_ARGS"               8.671 KB       4 rows
+. . exported "SYSTEM"."SCHEDULER_PROGRAM_ARGS"           10.29 KB      23 rows
+. . exported "WMSYS"."WM$EXP_MAP"                        7.718 KB       3 rows
+. . exported "WMSYS"."WM$METADATA_MAP"                       0 KB       0 rows
+. . exported "APP_INSTITUCIONAL"."TB_POST"               2.043 MB     201 rows
+. . exported "APP_INSTITUCIONAL"."TB_BANNER"                 0 KB       0 rows
+. . exported "APP_INSTITUCIONAL"."TB_TAG"                13.11 KB     226 rows
+. . exported "APP_INSTITUCIONAL"."TB_POST_TAG"           11.02 KB     339 rows
+. . exported "APP_INSTITUCIONAL"."TB_USUARIO"            8.109 KB       1 rows
+. . exported "APP_INSTITUCIONAL"."TB_CATEGORIA"          6.617 KB       6 rows
+. . exported "APP_INSTITUCIONAL"."TB_NEWSLETTER"         6.531 KB       3 rows
+. . exported "APP_INSTITUCIONAL"."TB_PERFIL"             6.476 KB       4 rows
+. . exported "APP_INSTITUCIONAL"."TB_USUARIO_PERFIL"     5.984 KB       1 rows
+. . exported "APP_INSTITUCIONAL"."TB_LOG_USUARIO_DESATIVADO"      0 KB       0 rows
+. . exported "APP_INSTITUCIONAL"."TB_REQUISICAO_USUARIO"      0 KB       0 rows
+Master table "SYS"."SYS_EXPORT_FULL_02" successfully loaded/unloaded
+******************************************************************************
+Dump file set for SYS.SYS_EXPORT_FULL_02 is:
+  /u01/export.dmp
+Job "SYS"."SYS_EXPORT_FULL_02" successfully completed at Mon Jan 11 19:58:12 2021 elapsed 0 00:03:49
+*******************************************************************
+Dump file set for SYS.SYS_EXPORT_FULL_01 is:
+  /u01/export.dmp
+Job "SYS"."SYS_EXPORT_FULL_01" successfully completed at Mon Jan 11 19:57:41 2021 elapsed 0 00:04:22

@@ -24,7 +24,6 @@ namespace CarePlusAPI.Services
         Task<OuvidoriaOut> GravarOuvidoria(GravarOuvidoriaEntradaModel model);
     }
 
-    [ExcludeFromCodeCoverage]
     public class FaleConoscoService : IFaleConoscoService
     {
         private readonly EndpointConfiguration _endpointConfiguration;

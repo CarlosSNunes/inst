@@ -165,6 +165,15 @@ namespace CarePlusAPI
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
+            DirectoryInfo di = new DirectoryInfo("Src");
+
+            if (di.Exists == false) {
+                di.Create();
+                DirectoryInfo imagesDirectory = di.CreateSubdirectory("Images");
+                imagesDirectory.CreateSubdirectory("Post");
+                imagesDirectory.CreateSubdirectory("Banner");
+            }
+
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
             {

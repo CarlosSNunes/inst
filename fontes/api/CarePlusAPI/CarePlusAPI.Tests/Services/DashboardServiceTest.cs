@@ -53,7 +53,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly Usuario Usuario = new Usuario
         {
             DataCadastro = DateTime.Now,
-            Email = "thiago@email.com",
+            NomeUsuario = "teste.careplus",
             Id = 1,
             Nome = "Thiago",
             UsuarioPerfil = new List<UsuarioPerfil>

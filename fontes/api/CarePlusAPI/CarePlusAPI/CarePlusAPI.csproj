@@ -10,6 +10,7 @@
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Homolog' " />
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Docker' " />
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'DockerJoao' " />
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'StagingCp' " />
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="9.0.0" />
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
@@ -33,10 +34,12 @@
 		<PackageReference Include="System.ServiceModel.Security" Version="4.4.*" />
 		<PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.1" />
 		<PackageReference Include="Magick.NET-Q16-AnyCPU" Version="7.22.2.2" />
+		<PackageReference Include="System.Private.ServiceModel" Version="4.8.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Src\Images\Banner\" />
 		<Folder Include="Src\Images\Default\" />
+		<Folder Include="Enums\" />
 	</ItemGroup>
 	<ItemGroup>
 		<WCFMetadata Include="Connected Services" />

@@ -1,4 +1,5 @@
 using CarePlusAPI.Entities;
+using CarePlusAPI.Enums;
 using CarePlusAPI.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -58,8 +59,8 @@ namespace CarePlusAPI.Services
                 query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
             }
 
-            if (origem != null && origem == "institucional")
-            {
+            if (origem != null && origem == OriginEnumerator.institucional.ToDescriptionString())
+                {
                 query = (IOrderedQueryable<Post>)query.Where(
                     p => p.DataPublicacao <= DateTime.Now
                     || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
@@ -221,7 +222,7 @@ namespace CarePlusAPI.Services
                 query = query.Where(p => p.Ativo == ativo);
             }
 
-            if (origem != null && origem == "institucional")
+            if (origem != null && origem == OriginEnumerator.institucional.ToDescriptionString())
             {
                 query = query.Where(
                     p => p.DataPublicacao <= DateTime.Now
@@ -255,7 +256,7 @@ namespace CarePlusAPI.Services
                 query.Where(p => p.Ativo == ativo);
             }
 
-            if (origem != null && origem == "institucional")
+            if (origem != null && origem == OriginEnumerator.institucional.ToDescriptionString())
             {
                 query.Where(
                     p => p.DataPublicacao <= DateTime.Now
@@ -296,7 +297,7 @@ namespace CarePlusAPI.Services
                 query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
             }
 
-            if (origem != null && origem == "institucional")
+            if (origem != null && origem == OriginEnumerator.institucional.ToDescriptionString())
             {
                 query = (IOrderedQueryable<Post>)query.Where(
                     p => p.DataPublicacao <= DateTime.Now
@@ -324,7 +325,7 @@ namespace CarePlusAPI.Services
                 query = (IOrderedQueryable<Post>)query.Where(p => p.Ativo == ativo);
             }
 
-            if (origem != null && origem == "institucional")
+            if (origem != null && origem == OriginEnumerator.institucional.ToDescriptionString())
             {
                 query = (IOrderedQueryable<Post>)query.Where(
                     p => p.DataPublicacao <= DateTime.Now
@@ -474,6 +475,9 @@ namespace CarePlusAPI.Services
         private static string GeraSlug(string slug)
         {
             string str = RemoveAcentuacao(slug).ToLower();
+
+            // remove hyphens           
+            str = str.Replace("-", "");
             // invalid chars           
             str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
             // convert multiple spaces into one space   

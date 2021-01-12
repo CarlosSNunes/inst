@@ -180,6 +180,33 @@
                                 }
                             ]
                         },
+                        "staging-cp": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.staging-cp.ts"
+                            }],
+                            "baseHref": "/",
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        },
                         "es5": {
                             "tsConfig": "./tsconfig.es5.json"
                         }
@@ -203,6 +230,9 @@
                         },
                         "staging": {
                             "browserTarget": "Care-plus:build:staging"
+                        },
+                        "staging-cp": {
+                            "browserTarget": "Care-plus:build:staging-cp"
                         },
                         "es5": {
                             "browserTarget": "Care-plus:build:es5"
@@ -298,6 +328,9 @@
                         },
                         "staging": {
                             "devServerTarget": "Care-plus:serve:staging"
+                        },
+                        "staging-cp": {
+                            "devServerTarget": "Care-plus:serve:staging-cp"
                         }
                     }
                 },
@@ -352,6 +385,17 @@
                             "fileReplacements": [{
                                 "replace": "src/environments/environment.ts",
                                 "with": "src/environments/environment.staging.ts"
+                            }],
+                            "sourceMap": false,
+                            "optimization": {
+                                "scripts": false,
+                                "styles": true
+                            }
+                        },
+                        "staging-cp": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.staging-cp.ts"
                             }],
                             "sourceMap": false,
                             "optimization": {

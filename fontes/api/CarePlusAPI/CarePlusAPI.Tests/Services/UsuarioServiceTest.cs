@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.Extensions.Options;
 using Moq;
+using CarePlusAPI.Models.Usuario;
+using CarePlusAPI.Models.Perfil;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -20,22 +22,38 @@ namespace CarePlusAPI.Tests.Services
         private readonly DbContextOptions<DataContext> _options;
         private readonly SqliteConnection Connection;
         private readonly IOptions<AppSettings> _appSettings;
-        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private IConfiguration _configuration;
 
 
         private readonly Usuario Usuario = new Usuario
         {
             DataCadastro = DateTime.Now,
-            Email = "thiago@email.com",
+            NomeUsuario = "teste.careplus",
             Id = 1,
             Nome = "Thiago",
+            UsuarioRoot = '1',
             UsuarioPerfil = new List<UsuarioPerfil>
             {
                 new UsuarioPerfil
                 {
                     Id = 1,
                     PerfilId = 1
+                }
+            }
+        };
+
+        private readonly UsuarioCreateModel _usuarioCreateModel = new UsuarioCreateModel
+        {
+            NomeUsuario = "teste.careplus",
+            Nome = "Thiago",
+            UsuarioRoot = '1',
+            UsuarioPerfil = new List<PerfilCreateModel>
+            {
+                new PerfilCreateModel
+                {
+                    PerfilId = 3,
+                    Descricao = "Vizualizador"
                 }
             }
         };
@@ -79,7 +97,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task AutenticacaoErro()
         {
-            string email = "thiago@email.com";
+            string email = "teste.careplus";
             string senha = "123456";
 
             await UsuarioService.Criar(Usuario, "123");
@@ -90,10 +108,10 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task AutenticacaoSucesso()
         {
-            string email = "thiago@email.com";
+            string email = "teste.careplus";
             string senha = "123";
 
-            await UsuarioService.Criar(Usuario, "123");
+            await UsuarioService.Criar(Usuario, senha);
 
             var result = await UsuarioService.Autenticar(email, senha);
             Assert.NotNull(result);
@@ -187,12 +205,6 @@ namespace CarePlusAPI.Tests.Services
         }
 
         [Fact]
-        public async Task CriarUsuarioNovoSenhaApenasEspaco()
-        {
-            await Assert.ThrowsAsync<AppException>(() => UsuarioService.Criar(Usuario, "     "));
-        }
-
-        [Fact]
         public async Task CriarUsuarioExistente()
         {
             await UsuarioService.Criar(Usuario, "123");
@@ -227,7 +239,7 @@ namespace CarePlusAPI.Tests.Services
             Usuario usuarioModel = new Usuario
             {
                 DataCadastro = DateTime.Now,
-                Email = "wendel@email.com",
+                NomeUsuario = "teste.carepluss",
                 Id = 1,
                 Nome = "Thiago",
                 UsuarioPerfil = new List<UsuarioPerfil>
@@ -244,13 +256,13 @@ namespace CarePlusAPI.Tests.Services
         }
 
         [Fact]
-        public async Task AtualizarNovosDadosEmailExistente()
+        public async Task AtualizarNovosDadosNomeUsuarioExistente()
         {
             await UsuarioService.Criar(Usuario, "123");
             Usuario usuarioModel = new Usuario
             {
                 DataCadastro = DateTime.Now,
-                Email = "wendel@email.com",
+                NomeUsuario = "teste.carepluss",
                 Id = 2,
                 Nome = "Wendel",
                 UsuarioPerfil = new List<UsuarioPerfil>
@@ -263,10 +275,10 @@ namespace CarePlusAPI.Tests.Services
                 }
             };
             await UsuarioService.Criar(usuarioModel, "123");
-            Usuario usuarioEmailRepetido = new Usuario
+            Usuario usuarioNomeUsuarioRepetido = new Usuario
             {
                 DataCadastro = DateTime.Now,
-                Email = "wendel@email.com",
+                NomeUsuario = "teste.carepluss",
                 Id = 1,
                 Nome = "Wendel",
                 UsuarioPerfil = new List<UsuarioPerfil>
@@ -278,7 +290,7 @@ namespace CarePlusAPI.Tests.Services
                     }
                 }
             };
-            await Assert.ThrowsAsync<AppException>(() => UsuarioService.Atualizar(usuarioEmailRepetido, "123"));
+            await Assert.ThrowsAsync<AppException>(() => UsuarioService.Atualizar(usuarioNomeUsuarioRepetido, "123"));
         }
 
         [Fact]
@@ -306,6 +318,222 @@ namespace CarePlusAPI.Tests.Services
         public async Task ExcluirPerfisIdZero()
         {
             await Assert.ThrowsAsync<AppException>(() => UsuarioService.ExcluirPerfis(0));
+        }
+
+        [Fact]
+        public async Task BuscarRequisicoesCadastroPorNomeUsuarioFalse()
+        {
+            bool requisicao = await UsuarioService.BuscarRequisicoesCadastroPorNomeUsuario("teste.careplus");
+            Assert.Equal(requisicao, false);
+            Assert.IsType<bool>(requisicao);
+        }
+
+        [Fact]
+        public async Task BuscarRequisicoesCadastroPorNomeUsuarioTrue()
+        {
+            await UsuarioService.Criar(Usuario, "123");
+            using (DataContext context = new DataContext(_options))
+            {
+
+                context.RequisicaoUsuario.Add(new RequisicaoUsuario {
+                    NomeUsuario = "teste.careplus",
+                    Nome = "teste.careplus",
+                    Token = "dfdfdf",
+                    Sucesso = '0',
+                    Expirado = '0',
+                    DataCadastro = DateTime.Now
+                });
+                context.SaveChanges();
+            }
+            bool requisicao = await UsuarioService.BuscarRequisicoesCadastroPorNomeUsuario("teste.careplus");
+            Assert.Equal(requisicao, true);
+            Assert.IsType<bool>(requisicao);
+        }
+
+
+        [Fact]
+        public async Task BuscarRequisicoesCadastro()
+        {
+            IList<RequisicaoUsuario> requisicoes = await UsuarioService.BuscarRequisicoesCadastro();
+            Assert.IsType<List<RequisicaoUsuario>>(requisicoes);
+        }
+
+        [Fact]
+        public async Task BuscarRequisicoesCadastroPendente()
+        {
+            Tuple<int, List<RequisicaoUsuario>> requisicoes = await UsuarioService.BuscarRequisicoesCadastroPendente(0, 10);
+            Assert.IsType<Tuple<int, List<RequisicaoUsuario>>>(requisicoes);
+        }
+
+        [Fact]
+        public async Task SalvarRequisicao()
+        {
+            using (DataContext context = new DataContext(_options))
+            {
+
+                context.Perfil.Add(new Perfil
+                {
+                    Descricao = "Visualizador",
+                    Prioridade = 3,
+                });
+
+                context.SaveChanges();
+            }
+            string requisicao = await UsuarioService.SalvarRequisicao(_usuarioCreateModel);
+            Assert.IsType<string>(requisicao);
+        }
+
+        [Fact]
+        public async Task SalvarRequisicaoErro()
+        {
+            using (DataContext context = new DataContext(_options))
+            {
+
+                context.Perfil.Add(new Perfil
+                {
+                    Descricao = "Visualizador",
+                    Prioridade = 3,
+                });
+
+                context.SaveChanges();
+
+                context.RequisicaoUsuario.Add(new RequisicaoUsuario
+                {
+                    NomeUsuario = "teste.careplus",
+                    Nome = "teste.careplus",
+                    Token = "dfdfdf",
+                    Sucesso = '0',
+                    Expirado = '0',
+                    DataCadastro = DateTime.Now,
+                });
+                context.SaveChanges();
+            }
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.SalvarRequisicao(_usuarioCreateModel));
+        }
+
+        [Fact]
+        public async Task SalvarRequisicaoNulo()
+        {
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.SalvarRequisicao(null));
+        }
+
+        [Fact]
+        public async Task ValidateTokenRequisition()
+        {
+            using (DataContext context = new DataContext(_options))
+            {
+
+                context.Perfil.Add(new Perfil
+                {
+                    Descricao = "Visualizador",
+                    Prioridade = 3,
+                });
+
+                context.SaveChanges();
+
+                context.RequisicaoUsuario.Add(new RequisicaoUsuario
+                {
+                    NomeUsuario = "teste.careplus",
+                    Nome = "teste.careplus",
+                    Token = "dfdfdf",
+                    Sucesso = '0',
+                    Expirado = '0',
+                    DataCadastro = DateTime.Now,
+                });
+                context.SaveChanges();
+            }
+            RequisicaoUsuario requisicao = await UsuarioService.ValidateTokenRequisition("dfdfdf");
+            Assert.IsType<RequisicaoUsuario>(requisicao);
+        }
+
+
+        [Fact]
+        public async Task ValidateTokenRequisitionErro()
+        {
+            using (DataContext context = new DataContext(_options))
+            {
+
+                context.Perfil.Add(new Perfil
+                {
+                    Descricao = "Visualizador",
+                    Prioridade = 3,
+                });
+
+                context.SaveChanges();
+            }
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.ValidateTokenRequisition("dfdfdf"));
+        }
+
+        [Fact]
+        public async Task ValidateTokenRequisitionNulo()
+        {
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.ValidateTokenRequisition(null));
+        }
+
+        [Fact]
+        public async Task RemoveRequisition()
+        {
+            await UsuarioService.Criar(Usuario, "123");
+            using (DataContext context = new DataContext(_options))
+            {
+
+                context.RequisicaoUsuario.Add(new RequisicaoUsuario
+                {
+                    NomeUsuario = "teste.careplus",
+                    Nome = "teste.careplus",
+                    Token = "dfdfdf",
+                    Sucesso = '0',
+                    Expirado = '0',
+                    DataCadastro = DateTime.Now
+                });
+                context.SaveChanges();
+            }
+            RequisicaoUsuario requisicao = await UsuarioService.RemoveRequisition("dfdfdf");
+            Assert.IsType<RequisicaoUsuario>(requisicao);
+        }
+
+        [Fact]
+        public async Task RemoveRequisitioNulo()
+        {
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.RemoveRequisition(null));
+        }
+
+
+        [Fact]
+        public async Task RemoveRequisitioNotFound()
+        {
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.RemoveRequisition("sddfsf"));
+        }
+
+        [Fact]
+        public async Task ListarAcoesDesativacaoUsuariosSucesso()
+        {
+            await UsuarioService.ListarAcoesDesativacaoUsuarios();
+        }
+
+        [Fact]
+        public async Task InativarUsuarioSucesso()
+        {
+            using (DataContext context = new DataContext(_options))
+            {
+                context.Usuario.Add(Usuario);
+                await context.SaveChangesAsync();
+            }
+
+
+            await UsuarioService.InativarUsuario(Usuario.NomeUsuario, Usuario.Id);
+        }
+
+        [Fact]
+        public async Task InativarUsuarioErro()
+        {
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.InativarUsuario(Usuario.NomeUsuario, Usuario.Id));
+        }
+
+        [Fact]
+        public async Task InativarUsuarioNulo()
+        {
+            Assert.ThrowsAsync<AppException>(() => UsuarioService.InativarUsuario(null, Usuario.Id));
         }
 
         public void Dispose()

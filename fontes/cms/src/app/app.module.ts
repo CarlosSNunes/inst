@@ -19,7 +19,6 @@ import { PostsBlogModule } from './neocms/posts-blog/posts-blog.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PostsBlogDeleteComponent } from './neocms/posts-blog/posts-blog-delete/posts-blog-delete.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { HttpRequestInterceptor } from './app.interceptor';
@@ -59,7 +58,6 @@ const ngWizardConfig: NgWizardConfig = {
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     PaginationModule.forRoot(),
-    NgSelectModule,
     FormsModule,
     AlertModule.forRoot(),
     ToastrModule.forRoot(),
