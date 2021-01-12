@@ -1,7 +1,7 @@
 export const environment = {
     production: true,
     API_URL: 'http://uat7institucional.careplus.com.br/apiinstitucional',
-    SELF_URL: 'http://uat7institucional.careplus.com.br/institucional/',
+    SELF_URL: 'http://uat7institucional.careplus.com.br/institucional',
     CAREPLUS_URL: 'https://hml.careplus.com.br/homolog23/',
     BASE_HREF: '/',
     API_USER: '1NJugPtxBoUY+a2s6jGMbA==',
