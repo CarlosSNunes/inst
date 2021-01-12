@@ -8,7 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NotificationComponent implements OnInit {
     @Input() type: string = 'success';
     @Input() message: string = '';
-
+    @Input() positionOptions: {} = {
+        top: '32px'
+    }
     constructor() { }
 
     ngOnInit() {
