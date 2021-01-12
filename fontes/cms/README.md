@@ -119,7 +119,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 
 ``` json
 {
-    "production": false,
+    "production": true,
     "API": "http://52.3.44.106:8081",
     "INSTITUCIONAL_URL": "http://careplus.homolog.neotix.com.br"
 }
@@ -129,9 +129,19 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 
 ``` json
 {
-    "production": false,
+    "production": true,
     "API": "https://uatp.careplus.com.br/apiinstitucional/",
     "INSTITUCIONAL_URL": "https://uatp.careplus.com.br/institucional/"
+}
+```
+
+* O [environment.staging-cp](src/environments/environment.staging-cp.ts) possuí as configurações de staging do projeto.
+
+``` json
+{
+    "production": true,
+    "API": "http://uat7institucional.careplus.com.br/apiinstitucional/",
+    "INSTITUCIONAL_URL": "http://uat7institucional.careplus.com.br/institucional/"
 }
 ```
 
@@ -139,7 +149,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 
 ``` json
 {
-    "production": false,
+    "production": true,
     "API": "???",
     "INSTITUCIONAL_URL": "???"
 }

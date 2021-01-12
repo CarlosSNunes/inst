@@ -141,7 +141,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 ``` json
 {
     "production": false,
-    "API_URL": "http://ip-c6136b09.corp.amazonworkspaces.com:8081",
+    "API_URL": "https://localhost:4000",
     "SELF_URL": "http://localhost:4300",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
     "BASE_HREF": "/",
@@ -161,8 +161,8 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 ``` json
 {
     "production": false,
-    "API_URL": "http://ip-c6136b09.corp.amazonworkspaces.com:8081",
-    "SELF_URL": "https://careplus.homolog.neotix.com.br",
+    "API_URL": "http://homolog-windows.neotix.com.br:8081",
+    "SELF_URL": "https://homolog-windows.neotix.com.br",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
     "BASE_HREF": "/",
     "API_USER": "admin@admin.com",
@@ -181,8 +181,28 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 ``` json
 {
     "production": false,
-    "API_URL": "http://52.3.44.106:8081",
+    "API_URL": "https://uatp.careplus.com.br/apiinstitucional",
     "SELF_URL": "https://uatp.careplus.com.br/institucional",
+    "CAREPLUS_URL": "https://hml.careplus.com.br/homolog23/",
+    "BASE_HREF": "/institucional/",
+    "API_USER": "admin@admin.com",
+    "API_PASSWORD": "123",
+    "HAS_SSL_CERTIFIED": false,
+    "CERT_PATH": {
+        "key": "Caminho para o arquivo com extensão .key do certificado.",
+        "cert": "Caminho para o arquivo com extensão .cert do certificado.",
+        "ca": "Caminho para o arquivo com extensão .ca do certificado."
+    }
+}
+```
+
+* O [environment.staging-cp](src/environments/environment.staging-cp.ts) possuí as configurações de staging interno da Care Plus do projeto.
+
+``` json
+{
+    "production": false,
+    "API_URL": "http://uat7institucional.careplus.com.br/apiinstitucional",
+    "SELF_URL": "http://uat7institucional.careplus.com.br/institucional",
     "CAREPLUS_URL": "https://hml.careplus.com.br/homolog23/",
     "BASE_HREF": "/institucional/",
     "API_USER": "admin@admin.com",
