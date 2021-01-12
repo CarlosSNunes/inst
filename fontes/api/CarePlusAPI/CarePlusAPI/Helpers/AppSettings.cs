@@ -29,5 +29,7 @@ namespace CarePlusAPI.Helpers
         public string AssetsServerUrl { get; set; }
         public bool HasAssetsServer { get; set; }
         public string AssetsServerIp { get; set; }
+        public string AssetsServerUser { get; set; }
+        public string AssetsServerPass { get; set; }
     }
 }

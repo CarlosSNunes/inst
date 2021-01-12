@@ -26,6 +26,8 @@ namespace CarePlusAPI.Controllers
         private readonly AppSettings _appSettings;
         private readonly ISeriLog _seriLog;
         private readonly ICompress _compress;
+        private readonly IFtpUpload _ftpUpload;
+
         ///<summary>
         ///
         ///Esse método construtor é utilizado para pegar os objetos de injeção de dependencia
@@ -40,7 +42,8 @@ namespace CarePlusAPI.Controllers
             IMapper mapper,
             IOptions<AppSettings> appSettings,
             ICompress compress,
-            ISeriLog seriLog
+            ISeriLog seriLog,
+            IFtpUpload ftpUpload
             )
         {
             _postService = noticiaService;
@@ -48,6 +51,7 @@ namespace CarePlusAPI.Controllers
             _appSettings = appSettings.Value;
             _compress = compress;
             _seriLog = seriLog;
+            _ftpUpload = ftpUpload;
         }
 
         ///<summary>
@@ -478,6 +482,12 @@ namespace CarePlusAPI.Controllers
 
                     fullPath = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Post/{fileName}";
                     directoryName = $"{_appSettings.VirtualPath}/Post/{fileName}";
+
+                    // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                    if (_appSettings.HasAssetsServer == true)
+                    {
+                        _ftpUpload.Upload(renamedDirectory, "Src/Images/Post", fileName);
+                    }
                 }
 
                 return Ok(new {
@@ -551,6 +561,12 @@ namespace CarePlusAPI.Controllers
                         fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
                         renamedDirectory = Path.Combine(pathToSave, fileName);
                         System.IO.File.Move(directoryName, renamedDirectory);
+
+                        // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                        if (_appSettings.HasAssetsServer == true)
+                        {
+                            _ftpUpload.Upload(renamedDirectory, "Src/Images/Post", fileName);
+                        }
                     }
 
                     model.NomeImagem = fileName;
@@ -631,6 +647,12 @@ namespace CarePlusAPI.Controllers
                         fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalName)}{extension}";
                         renamedDirectory = Path.Combine(pathToSave, fileName);
                         System.IO.File.Move(directoryName, renamedDirectory);
+
+                        // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                        if (_appSettings.HasAssetsServer == true)
+                        {
+                            _ftpUpload.Upload(renamedDirectory, "Src/Images/Post", fileName);
+                        }
                     }
 
                     model.NomeImagem = fileName;

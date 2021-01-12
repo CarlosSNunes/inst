@@ -24,6 +24,7 @@ namespace CarePlusAPI.Controllers
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
         private readonly ISeriLog _seriLog;
+        private readonly IFtpUpload _ftpUpload;
 
         ///<summary>
         ///
@@ -38,13 +39,15 @@ namespace CarePlusAPI.Controllers
             IBannerService bannerService,
             IMapper mapper,
             IOptions<AppSettings> appSettings,
-            ISeriLog seriLog
+            ISeriLog seriLog,
+            IFtpUpload ftpUpload
         )
         {
             _bannerService = bannerService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
             _seriLog = seriLog;
+            _ftpUpload = ftpUpload;
         }
 
         ///<summary>
@@ -290,6 +293,13 @@ namespace CarePlusAPI.Controllers
                 renamedDirectoryMobile = Path.Combine(pathToSave, fileMobileName);
                 System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
 
+                // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                if (_appSettings.HasAssetsServer == true)
+                {
+                    _ftpUpload.Upload(renamedDirectoryDesktop, "Src/Images/Banner", fileName);
+                    _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileName);
+                }
+
                 // Caminho completo no desktop e no mobile
                 fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
                 fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileMobileName}";
@@ -389,6 +399,12 @@ namespace CarePlusAPI.Controllers
                         fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameDesk)}{extensionDesk}";
                         renamedDirectoryDesktop = Path.Combine(pathToSave, fileName);
                         System.IO.File.Move(directoryNameDesk, renamedDirectoryDesktop);
+
+                        // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                        if (_appSettings.HasAssetsServer == true)
+                        {
+                            _ftpUpload.Upload(renamedDirectoryDesktop, "Src/Images/Banner", fileName);
+                        }
                     }
                     
                     if(fileMobile
@@ -405,6 +421,12 @@ namespace CarePlusAPI.Controllers
                         fileNameMobile = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
                         renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
                         System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
+
+                        // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                        if (_appSettings.HasAssetsServer == true)
+                        {
+                            _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileName);
+                        }
                     }
                     fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
                     fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileNameMobile}";

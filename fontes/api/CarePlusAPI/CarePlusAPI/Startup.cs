@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,7 @@ namespace CarePlusAPI
     {
         private readonly IWebHostEnvironment Env;
         public readonly IConfiguration Configuration;
+        private AppSettings _appSettings;
         public static string ConnectionString { get; private set; }
 
         ///<summary>
@@ -64,9 +66,9 @@ namespace CarePlusAPI
             IConfigurationSection appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 
-            AppSettings appSettings = appSettingsSection.Get<AppSettings>();
+            _appSettings = appSettingsSection.Get<AppSettings>();
             GetCipher cipher = new GetCipher();
-            string secret = cipher.Decrypt(appSettings.Secret);
+            string secret = cipher.Decrypt(_appSettings.Secret);
             byte[] key = Encoding.ASCII.GetBytes(secret);
             services.AddAuthentication(x =>
             {
@@ -104,6 +106,7 @@ namespace CarePlusAPI
             services.AddTransient<ICompress, Compress>();
             services.AddTransient<ISeriLog, SeriLog>();
             services.AddTransient<IGetCipher, GetCipher>();
+            services.AddTransient<IFtpUpload, FtpUpload>();
 
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IPerfilService, PerfilService>();
@@ -165,21 +168,17 @@ namespace CarePlusAPI
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
-            DirectoryInfo di = new DirectoryInfo("Src");
+            createDirectories();
 
-            if (di.Exists == false) {
-                di.Create();
-                DirectoryInfo imagesDirectory = di.CreateSubdirectory("Images");
-                imagesDirectory.CreateSubdirectory("Post");
-                imagesDirectory.CreateSubdirectory("Banner");
-            }
-
-            app.UseStaticFiles();
-            app.UseStaticFiles(new StaticFileOptions()
+            if (_appSettings.HasAssetsServer == false)
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Src")),
-                RequestPath = new PathString("/Src")
-            });
+                app.UseStaticFiles();
+                app.UseStaticFiles(new StaticFileOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Src")),
+                    RequestPath = new PathString("/Src")
+                });
+            }
 
 
             app.UseAuthentication();
@@ -207,6 +206,25 @@ namespace CarePlusAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarePlusAPI");
             });
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para criar/ verificar se já existem os diretórios para armazenar os arquivos, seja via FTP ou local.
+        ///
+        ///</summary>
+        ///<param name="directory">Caminho do diretório.</param>
+        private void createDirectories()
+        {
+            DirectoryInfo di = new DirectoryInfo("Src");
+
+            if (di.Exists == false)
+            {
+                di.Create();
+                DirectoryInfo imagesDirectory = di.CreateSubdirectory("Images");
+                imagesDirectory.CreateSubdirectory("Post");
+                imagesDirectory.CreateSubdirectory("Banner");
+            }
         }
 
         ///<summary>

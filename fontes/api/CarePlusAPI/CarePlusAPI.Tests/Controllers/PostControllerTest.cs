@@ -31,6 +31,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly IConfiguration _configuration;
         private readonly FileStream _stream;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
+        private readonly Mock<IFtpUpload> _ftpUpload = new Mock<IFtpUpload>();
         private readonly Post _post = new Post
         {
             PostTag = new List<PostTag> {
@@ -164,6 +165,8 @@ namespace CarePlusAPI.Tests.Controllers
             _postCreateModel.Arquivo = CreateFile();
 
             _postUpdateModel.Arquivo = CreateFile();
+
+            _ftpUpload.Setup(ftp => ftp.Upload(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
         }
 
         private IFormFile CreateFile()
@@ -192,7 +195,7 @@ namespace CarePlusAPI.Tests.Controllers
         public void ConstrutorSucesso()
         {
 
-            var result = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            var result = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             Assert.NotNull(result);
         }
 
@@ -203,7 +206,7 @@ namespace CarePlusAPI.Tests.Controllers
 
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -220,7 +223,7 @@ namespace CarePlusAPI.Tests.Controllers
             postSemImagem.CaminhoImagem = null;
             await _postService.Criar(postSemImagem, false);
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -235,7 +238,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post, false);
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -252,7 +255,7 @@ namespace CarePlusAPI.Tests.Controllers
             postSemImagem.CaminhoImagem = null;
             await _postService.Criar(postSemImagem, false);
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -269,7 +272,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(_post, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -285,7 +288,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(postSemImagem, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -299,7 +302,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -312,7 +315,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -326,7 +329,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(_post, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -342,7 +345,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(postSemImagem, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -356,7 +359,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -369,7 +372,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -383,7 +386,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(_post, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -402,7 +405,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(postSemImagem, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -418,7 +421,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -441,7 +444,7 @@ namespace CarePlusAPI.Tests.Controllers
             }
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -474,7 +477,7 @@ namespace CarePlusAPI.Tests.Controllers
             }
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -490,7 +493,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -506,7 +509,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(_post, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -525,7 +528,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(postSemImagem, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -541,7 +544,7 @@ namespace CarePlusAPI.Tests.Controllers
             await _postService.Criar(_post, false);
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -561,7 +564,7 @@ namespace CarePlusAPI.Tests.Controllers
             // Mocando classe serilog
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -575,7 +578,7 @@ namespace CarePlusAPI.Tests.Controllers
             _appSettings.Value.PathToSave = null;
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);            
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);            
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -593,7 +596,7 @@ namespace CarePlusAPI.Tests.Controllers
             // Mocando Serilog
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object, _ftpUpload.Object);
 
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
@@ -608,7 +611,7 @@ namespace CarePlusAPI.Tests.Controllers
             _postCreateModel.Arquivo = null;
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -622,7 +625,7 @@ namespace CarePlusAPI.Tests.Controllers
             _appSettings.Value.PathToSave = null;
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
 
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
@@ -646,7 +649,7 @@ namespace CarePlusAPI.Tests.Controllers
                 seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
                 PostService service = new PostService(context);
-                PostController controller = new PostController(service, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object);
+                PostController controller = new PostController(service, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object, _ftpUpload.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -669,7 +672,7 @@ namespace CarePlusAPI.Tests.Controllers
             Mock<SeriLog> seriLogMock = new Mock<SeriLog>();
                 seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
-                PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+                PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -693,7 +696,7 @@ namespace CarePlusAPI.Tests.Controllers
                 seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
                 PostService service = new PostService(context);
-                PostController controller = new PostController(service, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object);
+                PostController controller = new PostController(service, _mapper, _appSettings, compressMock.Object, _seriLogMock.Object, _ftpUpload.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -722,7 +725,7 @@ namespace CarePlusAPI.Tests.Controllers
                 seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
                 PostService service = new PostService(context);
-                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object);
+                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -745,7 +748,7 @@ namespace CarePlusAPI.Tests.Controllers
                 seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
                 PostService service = new PostService(context);
-                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object);
+                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -765,7 +768,7 @@ namespace CarePlusAPI.Tests.Controllers
             Mock<SeriLog> seriLogMock = new Mock<SeriLog>();
                 seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
-                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object);
+                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -786,7 +789,7 @@ namespace CarePlusAPI.Tests.Controllers
             Mock<SeriLog> seriLogMock = new Mock<SeriLog>();
                 seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
-                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object);
+                PostController controller = new PostController(service, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
                 controller.ControllerContext = new ControllerContext();
                 controller.ControllerContext.HttpContext = new DefaultHttpContext();
                 controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -800,7 +803,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post, null);
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
 
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
@@ -815,7 +818,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
 
 
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
@@ -825,7 +828,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void ExcluirErro()
         {
-            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object);
+            PostController controller = new PostController(_postService, _mapper, _appSettings, null, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
