@@ -8,9 +8,9 @@ namespace CarePlusAPI.Models.Usuario
     public class UsuarioAutenticadoModel
     {
         [Required]
-        [StringLength(50)]
         public string NomeUsuario { get; set; }
 
+        [Required]
         public string Senha { get; set; }
     }
 }
