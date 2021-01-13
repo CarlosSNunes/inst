@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Models.Usuario
 {
+    [ExcludeFromCodeCoverage]
     public class UsuarioDesativarModel
     {
         [Required]

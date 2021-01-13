@@ -574,7 +574,7 @@ namespace CarePlusAPI.Controllers
                         Rota = banner.Rota,
                         LinkExterno = banner.LinkExterno,
                         Link = banner.Link,
-                        Ativo = "0".ToCharArray()[0],
+                        Ativo = '0',
                         CaminhoDesktop = banner.CaminhoDesktop,
                         NomeLink = banner.NomeLink,
                         NomeImagemDesktop = banner.NomeImagemDesktop,

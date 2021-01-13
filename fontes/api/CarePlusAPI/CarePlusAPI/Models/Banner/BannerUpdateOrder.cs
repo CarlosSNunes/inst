@@ -11,6 +11,7 @@ namespace CarePlusAPI.Models.Banner
         public BannerUpdateOrder Area { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class BannerUpdateOrder
     {
         [Required]

@@ -14,16 +14,19 @@ namespace CarePlusAPI.Helpers
     public class GetCipher: IGetCipher
     {
         protected static string CiphersPath;
-        protected static Tuple<string, string> KeyAndIv; 
+        protected static Tuple<string, string> KeyAndIv;
 
-        public GetCipher() {
+        public GetCipher()
+        {
             var value = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
             string variableFile = string.Empty;
 
-            if (value != null && value != "") {
+            if (value != null && value != "")
+            {
                 variableFile = $"appsettings.{value}.json";
-            } else
+            }
+            else
             {
                 variableFile = "appsettings.json";
             }
@@ -69,9 +72,7 @@ namespace CarePlusAPI.Helpers
 
             byte[] ivBytes = System.Text.Encoding.ASCII.GetBytes(infos.Item2);
 
-            byte[] encryptedInfo = Convert.FromBase64String(info);
-
-            string decrytedInfo = ManagedAes.Decrypt(encryptedInfo, keyBytes, ivBytes);
+            string decrytedInfo = ManagedAes.Decrypt(info, keyBytes, ivBytes);
 
             return decrytedInfo;
         }

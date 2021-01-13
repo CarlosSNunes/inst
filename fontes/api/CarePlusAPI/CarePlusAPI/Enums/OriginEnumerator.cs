@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Enums
 {
@@ -11,6 +12,7 @@ namespace CarePlusAPI.Enums
         gerinstitucional = 2
     }
 
+    [ExcludeFromCodeCoverage]
     public static class OriginEnumExtension
     {
         public static string ToDescriptionString(this OriginEnumerator val)

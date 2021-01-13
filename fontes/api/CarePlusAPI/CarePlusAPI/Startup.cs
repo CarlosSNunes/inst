@@ -19,7 +19,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -69,6 +68,7 @@ namespace CarePlusAPI
             _appSettings = appSettingsSection.Get<AppSettings>();
             GetCipher cipher = new GetCipher();
             string secret = cipher.Decrypt(_appSettings.Secret);
+
             byte[] key = Encoding.ASCII.GetBytes(secret);
             services.AddAuthentication(x =>
             {
