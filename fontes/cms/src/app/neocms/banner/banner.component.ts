@@ -11,9 +11,6 @@ import { faPencilAlt, faTrash, faPlus, faArrowsAltV, faEllipsisV, faEye, faClone
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { environment } from 'src/environments/environment';
-// import { UserAuthenticateModel } from 'src/models/user-authenticate.model';
-
 
 @Component({
     selector: 'app-banner',
@@ -30,7 +27,6 @@ export class BannerComponent implements OnInit {
     faPencilAlt = faPencilAlt;
     faPlus = faPlus;
     faTrash = faTrash;
-    apiPath = environment.API;
     banners: BannerModel[] = [];
     banner: BannerModel;
     bannerForm: FormGroup;

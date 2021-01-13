@@ -93,7 +93,7 @@
               <!-- <td class="hidden">{{banner.id}}</td> -->
               <td class="">
                 <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active ">
-                  <img class="thumbnail-banner" src="{{ apiPath + banner.caminhoDesktop}}" [alt]="banner.titulo">
+                  <img class="thumbnail-banner" [src]="banner?.caminhoCompletoDesktop" [alt]="banner.titulo">
                 </a>
               </td>
               <td class="py-3 align-middle text-center">
