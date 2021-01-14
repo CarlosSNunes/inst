@@ -18,7 +18,6 @@
     transform: unset;
 }
 
-
 /*
     Content scss
 */
@@ -36,7 +35,8 @@ nav.navbar:not(.is-home) {
     .navbar-menu {
         position: relative;
         a {
-            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
             &.logo {
                 width: 53px;
                 .item-label {
@@ -86,7 +86,8 @@ nav.navbar:not(.is-home) {
                 transform: scaleY(0);
                 transition: -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
                 transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
-                transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s, -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
+                transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s,
+                    -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.075s;
                 -webkit-transform-origin: center bottom;
                 -ms-transform-origin: center bottom;
                 transform-origin: center bottom;
@@ -283,6 +284,15 @@ nav.navbar:not(.is-home) {
                 padding: 0;
                 .buttons {
                     margin-bottom: 0;
+                    .item-label {
+                        &.dash {
+                            padding: 0 10px;
+                            display: inline-flex;
+                            height: 100%;
+                            line-height: 52px;
+                            color: getColor(_bupa, _white);
+                        }
+                    }
                 }
             }
             .login {
@@ -313,7 +323,7 @@ nav.is-home {
         width: 57px;
         height: 72px;
         max-width: 57px;
-        padding: .5rem 0;
+        padding: 0.5rem 0;
         margin-left: 16px;
 
         .img-careplus {
@@ -336,11 +346,11 @@ nav.is-home {
             cursor: unset;
             position: relative;
             z-index: 999;
-            
+
             &:hover {
                 background-color: unset;
                 .sub-menu,
-                +.sub-menu {
+                + .sub-menu {
                     display: flex;
                 }
             }
@@ -368,7 +378,7 @@ nav.is-home {
                 }
             }
             .sub-menu,
-            +.sub-menu {
+            + .sub-menu {
                 display: none;
                 position: absolute;
                 background-color: getColor(_bupa, _white);

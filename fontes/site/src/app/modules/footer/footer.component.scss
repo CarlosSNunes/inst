@@ -286,6 +286,10 @@
         display: flex;
         align-items: center;
         color: getColor(_bupa, _white);
+
+        &.second {
+            margin-top: 10px;
+        }
     }
     .horario-atendimento {
         font-weight: bold;

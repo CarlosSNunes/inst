@@ -78,6 +78,14 @@
                             0800-013-2992
                         </span>
                     </a>
+                    <span class="item-label dash">
+                        -
+                    </span>
+                    <a class="button is-navbar-button is-telefone" href="tel:0800 771 7750" title="Contato">
+                        <span class="item-label phone">
+                            0800 771 7750
+                        </span>
+                    </a>
                     <a class="button is-navbar-button login bupa-digital-cyan" rel="noopener noreferrer"
                         [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
                         <span class="item-label">
@@ -153,8 +161,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a *ngIf="subMenu.id == 'default'" class="btn btn-purple primary small"
-                        (click)="openSimulator()">
+                    <a *ngIf="subMenu.id == 'default'" class="btn btn-purple primary small" (click)="openSimulator()">
                         Simule Planos e Produtos
                     </a>
 
@@ -169,8 +176,7 @@
                         Solicite uma Cotação
                     </a>
 
-                    <a *ngIf="subMenu.id == 'corretor'" class="btn btn-purple primary small"
-                        rel="noopener noreferrer"
+                    <a *ngIf="subMenu.id == 'corretor'" class="btn btn-purple primary small" rel="noopener noreferrer"
                         [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Seja um Corretor
                     </a>
