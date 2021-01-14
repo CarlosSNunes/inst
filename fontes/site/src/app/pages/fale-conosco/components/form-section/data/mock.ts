@@ -63,27 +63,6 @@ export const chanelForms: FormSectionModel[] = [
                 active: true
             })
         ]
-    }),
-    new FormSectionModel({
-        title: 'Ouvidoria',
-        id: 4,
-        active: false,
-        slug: 'ouvidoria',
-        breadcrumbs: [
-            new BreadcrumbModel({
-                name: 'Home',
-                link: '/',
-            }),
-            new BreadcrumbModel({
-                name: 'Fale Conosco',
-                link: '/fale-conosco',
-            }),
-            new BreadcrumbModel({
-                name: 'Ouvidoria',
-                link: '/fale-conosco/ouvidoria',
-                active: true
-            })
-        ]
     })
 ];
 

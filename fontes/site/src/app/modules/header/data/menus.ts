@@ -118,10 +118,6 @@ export default [
                         title: 'Canal de Denúncias',
                         routerLink: '/fale-conosco/canal-de-denuncias',
                     }),
-                    new SubMenuItem({
-                        title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
-                    }),
                 ]
             }),
         ]
@@ -259,10 +255,6 @@ export default [
                         title: 'Canal de Denúncias',
                         routerLink: '/fale-conosco/canal-de-denuncias',
                     }),
-                    new SubMenuItem({
-                        title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
-                    }),
                 ]
             }),
         ]
@@ -388,10 +380,6 @@ export default [
                         title: 'Canal de Denúncias',
                         routerLink: '/fale-conosco/canal-de-denuncias',
                     }),
-                    new SubMenuItem({
-                        title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
-                    }),
                 ]
             }),
         ]
@@ -513,10 +501,6 @@ export default [
                         title: 'Canal de Denúncias',
                         routerLink: '/fale-conosco/canal-de-denuncias',
                     }),
-                    new SubMenuItem({
-                        title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
-                    }),
                 ]
             }),
         ]
@@ -637,10 +621,6 @@ export default [
                     new SubMenuItem({
                         title: 'Canal de Denúncias',
                         routerLink: '/fale-conosco/canal-de-denuncias',
-                    }),
-                    new SubMenuItem({
-                        title: 'Ouvidoria',
-                        routerLink: '/fale-conosco/ouvidoria',
                     }),
                 ]
             }),
