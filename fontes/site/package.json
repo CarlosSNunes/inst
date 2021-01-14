@@ -66,6 +66,7 @@
     "tslib": "^1.10.0",
     "typeface-montserrat": "0.0.75",
     "videogular2": "^7.0.1",
+    "x-frame-options": "^1.0.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
