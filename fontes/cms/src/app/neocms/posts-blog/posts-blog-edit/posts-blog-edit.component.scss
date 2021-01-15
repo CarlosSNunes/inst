@@ -37,7 +37,7 @@
     }
     input,
     textarea,
-    ckeditor,
+    .ckeditor,
     .image-preview {
       margin-bottom: 25px;
     }
@@ -108,7 +108,7 @@
       }
     }
     input,
-    ckeditor,
+   .ckeditor,
     textarea {
       &.is-danger {
         border-color: #ff3e1d;

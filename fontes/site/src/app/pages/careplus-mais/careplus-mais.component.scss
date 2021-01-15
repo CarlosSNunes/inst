@@ -1,6 +1,6 @@
 @import "~src/scss/_variables";
 
-::ng-deep app-banner.blog-banners {
+::ng-deep .blog-banners {
     section.home-banner #carousel-banner .item .container:not(.breadcrumb-container) {
         padding-bottom: 120px;
     }
@@ -111,7 +111,7 @@ section {
 }
 
 @media (min-width: 1440px) {
-    app-banner ::ng-deep {
+    .blog-banners ::ng-deep {
         .section.home-banner {
             height: 450px;
             #carousel-banner {
@@ -151,25 +151,23 @@ section {
                 padding-bottom: 0;
             }
 
-            ::ng-deep app-newsletter {
+            ::ng-deep .app-newsletter {
                 #newsletter {
                     margin-bottom: 0;
                 }
             }
         }
-        app-cross-content-section {
+        .blog-cross-content section.cross-content-section {
             display: block;
-            &.blog-cross-content section.cross-content-section {
-                padding-top: 0;
-                .container {
-                    .columns {
-                        .column {
-                            padding-top: 0;
-                        }
+            padding-top: 0;
+            .container {
+                .columns {
+                    .column {
+                        padding-top: 0;
                     }
-                    .content-info {
-                        margin-top: 0 !important;
-                    }
+                }
+                .content-info {
+                    margin-top: 0 !important;
                 }
             }
         }
@@ -222,7 +220,7 @@ section {
 }
 
 @media (max-width: 1023px) {
-    app-banner {
+    .blog-banners {
         ::ng-deep {
             .section.home-banner {
                 height: calc(100vh - 156px);
@@ -238,7 +236,7 @@ section {
         }
     }
 
-    ::ng-deep app-banner.blog-banners {
+    ::ng-deep .blog-banners {
         section.home-banner #carousel-banner .item .container:not(.breadcrumb-container) {
             padding-bottom: 0;
         }

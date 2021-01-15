@@ -109,7 +109,7 @@ export class ContatoComponent implements OnInit {
             value: undefined
         });
         const tipoAssunto = this.subjectTypes.tipoAssunto.find(tipo => tipo.id == type.value);
-        tipoAssunto.assunto.map(assunto => {
+        tipoAssunto.assunto.forEach(assunto => {
             this.subjects.push(
                 new DropDownItem({
                     title: assunto.titulo,
@@ -205,7 +205,7 @@ export class ContatoComponent implements OnInit {
     changeFormStructureAndValidation() {
         this.mountForm();
 
-        Object.keys(this.formFields).map(key => {
+        Object.keys(this.formFields).forEach(key => {
             if (this.contatoForm.controls[key]) {
                 this.contatoForm.controls[key].setValidators(
                     this.formFields[key].validators

@@ -132,10 +132,8 @@ export class BannerComponent implements OnInit {
             .getAll(offset, this.contador, this.selectedFilter)
             .subscribe(banners => {
                 this.loaded = false;
-
                 this.bannerResult = banners.result;
                 this.bannerCount = banners.count;
-                this.bannerResult.caminhoCompletoDesktop;
                 this.loaded = true;
 
             },

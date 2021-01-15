@@ -46,7 +46,6 @@ export class BannerOrderComponent implements OnInit {
         this.loaded = false;
         this.banners = []
         this.banners = response.result;
-        this.banners.caminhoCompletoDesktop;
         this.loaded = true;
 
       },
