@@ -20,7 +20,7 @@ body {
 }
 
 .pagina-manutencao h2 {
-    font-family: 'Montserrat';
+    /* font-family: 'Montserrat'; */
     font-style: normal;
     font-weight: 600;
     font-size: 48px;
@@ -29,7 +29,7 @@ body {
 }
 
 .pagina-manutencao p {
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -48,7 +48,7 @@ body {
     padding-left: 35px;
     display: block;
     margin-bottom: 10px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 20px;

@@ -1,4 +1,4 @@
-/*! project-name v0.0.1 | (c) 2020 YOUR NAME | MIT License | http://link-to-your-git-repo.com */
+/*! project-name v0.0.1 | (c) 2021 YOUR NAME | MIT License | http://link-to-your-git-repo.com */
 /*!
  * MoveTo - A lightweight scroll animation javascript library without any dependency.
  * Version 1.8.2 (28-06-2019 14:30)

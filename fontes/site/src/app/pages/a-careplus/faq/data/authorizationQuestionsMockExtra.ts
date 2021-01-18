@@ -17,12 +17,6 @@ export default [
                 menu Autorizações > Solicitação de Autorizações.
             </p>
             
-            <p class="sub-description no-margin">
-                <strong>2. Por e-mail </strong> - enviar para o e-mail <a
-                    href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br.</a>
-            </p>
-            
-            
             <p class="sub-description">
                 <strong>Documentos necessários:</strong>
             </p>
@@ -74,11 +68,7 @@ export default [
             </p>
             
             <p class="sub-description">
-                <strong> 1. E-mail - </strong> <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br.</a>
-            </p>
-            
-            <p class="sub-description">
-                <strong> 2. Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
+                <strong> 1. Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
             </p>
             
             <p class="sub-description">
@@ -148,13 +138,6 @@ export default [
     {
         title: 'DIU',
         description: `
-            <p class="sub-description no-margin">
-            Para solicitar uma autorização, envie os documentos digitalizados para uma destas opções:
-            <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a> ou pelo site <a
-                href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu "Autorizações" > "Solicitação
-            de Autorizações".
-            </p>
-            
             
             <p class="sub-description">
                 <strong>
@@ -256,14 +239,6 @@ export default [
                     Na indicação de alguma internação ou cirurgia, é necessário pedir que lhe seja entregue 2 pedidos/relatórios
                     médicos, sendo um para que a equipe médica realize a cirurgia e outro para a internação hospitalar.
                 </strong>
-            </p>
-            
-            <p class="sub-description">
-                Para solicitar uma autorização, envie os documentos digitalizados para uma destas opções:
-                <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a> ou pelo site <a
-                    href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu <strong>"Autorizações" >
-                    "Solicitação
-                    de Autorizações".</strong>
             </p>
             
             <p class="sub-description">
@@ -426,13 +401,6 @@ export default [
                 A partir do 9ª Ultrasson
             </p>
             
-            <p class="sub-description no-margin">
-                A análise da autorização será realizada mediante o envio da prescrição médica (conforme citado no item 1 e 2 acima),
-                por email <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>, ao departamento responsável
-                que realizará a análise em até 24 horas úteis. Essa rotina é comum entre as operadoras de saúde, portanto, no dia da
-                consulta solicite esse documento ao seu médico juntamente com o tempo gestacional (semanas) em que você está.
-            </p>
-            
             <p class="sub-description">
                 <strong>Importante:</strong> No caso de outros procedimentos, como ultrassonografia morfológica, ultrassonografia
                 obstétrica com Doppler, dopplerfluxometria, tococardiografia, dentre outros, a documentação será a mesma relacionada
@@ -528,11 +496,8 @@ export default [
             site:
             </p>
             
-            <p class="sub-description">
-                1. <strong>E-mail - </strong> <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-            </p>
             <p class="sub-description no-margin">
-                2. <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações >
+                1. <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações >
                 Solicitação de Autorizações.
             </p>
             
@@ -750,9 +715,6 @@ export default [
             
             <ul class="disc">
                 <li>
-                    <strong>E-mail - </strong> <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
-                <li>
                     <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações >
                     Solicitação de Autorizações.
                 </li>
@@ -832,12 +794,6 @@ export default [
             </p>
             
             <ul class="disc m-t-22">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
             
                 <li>
                     <strong>
@@ -888,12 +844,6 @@ export default [
             </p>
             
             <ul class="disc m-t-22">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
             
                 <li>
                     <strong>

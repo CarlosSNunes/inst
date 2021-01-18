@@ -21,7 +21,7 @@ $(document).ready(function(){
 
     $("#menu-check").on('change',function(){
         $('header').toggleClass('active');
-    })
+    });
 
     //bloqueia body com menu mobile aberto
     $('#menu-check').change(function(){
@@ -31,7 +31,7 @@ $(document).ready(function(){
         else{
             $('body').removeClass('blocked');
         }
-    })
+    });
 
     
     // fixar e diminuir altura do menu no scroll
@@ -132,12 +132,12 @@ $(document).ready(function(){
         var url = $(this).attr('param');
         $('#modalVideo').modal('show');
         $('#modalVideo').on('shown.bs.modal', function (e) {
-            $('.embed-responsive-item').attr('src', url)
-        })
+            $('.embed-responsive-item').attr('src', url);
+        });
         $('#modalVideo').on('hidden.bs.modal', function (e) {
-            $('.embed-responsive-item').attr('src', '')
-        })
-    })
+            $('.embed-responsive-item').attr('src', '');
+        });
+    });
     
 
     //mascaras formulario
@@ -145,4 +145,4 @@ $(document).ready(function(){
     $('.tel').mask('(00) 0000-0000');
 
 
-})
+});

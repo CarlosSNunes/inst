@@ -1,4 +1,4 @@
-/*! project-name v0.0.1 | (c) 2020 YOUR NAME | MIT License | http://link-to-your-git-repo.com */
+/*! project-name v0.0.1 | (c) 2021 YOUR NAME | MIT License | http://link-to-your-git-repo.com */
 // global variables
 
 var submitBTN_available = false;
@@ -303,9 +303,10 @@ function sendForm() {
     return err === true;
   }
 
-  var formHasError = formFields.some((function (x) {
-    checkError(x.hasError);
-  }));
+  var formHasError = false;
+  formFields.foreach((function (x) {
+     formHasError = checkError(x.hasError);
+   }));
 
   if (formHasError) {
     sendToast(

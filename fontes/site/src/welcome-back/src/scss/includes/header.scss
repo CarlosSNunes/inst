@@ -168,13 +168,12 @@ header{
                     width: 100%;
                     text-align: center;
                     a {
-                        margin-bottom: 0;
                         color: getColor(_white);
                         font-family: $montserrat;
                         font-size: rem(20);
                         text-decoration: none;
                         display: inline-block;
-                        margin: 0 20px 50px;
+                        margin: 0 20px 50px 20px;
                         position: relative;
                         text-transform: uppercase;
                     }

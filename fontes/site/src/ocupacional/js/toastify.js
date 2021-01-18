@@ -1,4 +1,4 @@
-/*! project-name v0.0.1 | (c) 2020 YOUR NAME | MIT License | http://link-to-your-git-repo.com */
+/*! project-name v0.0.1 | (c) 2021 YOUR NAME | MIT License | http://link-to-your-git-repo.com */
 /*!
  * Toastify js 1.6.2
  * https://github.com/apvarun/toastify-js
