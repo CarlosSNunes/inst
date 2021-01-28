@@ -297,7 +297,7 @@ namespace CarePlusAPI.Controllers
                 if (_appSettings.HasAssetsServer == true)
                 {
                     _ftpUpload.Upload(renamedDirectoryDesktop, "Src/Images/Banner", fileName);
-                    _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileName);
+                    _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileMobileName);
                 }
 
                 // Caminho completo no desktop e no mobile
@@ -425,7 +425,7 @@ namespace CarePlusAPI.Controllers
                         // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
                         if (_appSettings.HasAssetsServer == true)
                         {
-                            _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileName);
+                            _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileNameMobile);
                         }
                     }
                     fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
