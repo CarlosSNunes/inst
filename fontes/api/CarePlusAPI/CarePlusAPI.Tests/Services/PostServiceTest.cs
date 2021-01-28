@@ -108,10 +108,10 @@ namespace CarePlusAPI.Tests.Services
         {
             await _postService.Criar(_post, null);
 
-            var page = 0;
-            var pageSize = 5;
+            var offset = 0;
+            var limit = 5;
 
-            var result = await _postService.Listar(page, pageSize, null, null);
+            var result = await _postService.Listar(offset, limit, null, null);
             Assert.NotEmpty(result.Item2);
         }
 
@@ -120,10 +120,10 @@ namespace CarePlusAPI.Tests.Services
         {
             await _postService.Criar(_post, null);
 
-            var page = 0;
-            var pageSize = 5;
+            var offset = 0;
+            var limit = 5;
 
-            var result = await _postService.Listar(page, pageSize, '1', "institucional");
+            var result = await _postService.Listar(offset, limit, '1', "institucional");
             Assert.NotEmpty(result.Item2);
         }
 
@@ -132,10 +132,10 @@ namespace CarePlusAPI.Tests.Services
         {
             await _postService.Criar(_post, null);
 
-            var page = 0;
-            var pageSize = 5;
+            var offset = 0;
+            var limit = 5;
 
-            var result = await _postService.BuscarMaisLidos(page, pageSize, '1', "institucional");
+            var result = await _postService.BuscarMaisLidos(offset, limit, '1', "institucional");
             Assert.NotEmpty(result.Item2);
         }
 
@@ -143,12 +143,12 @@ namespace CarePlusAPI.Tests.Services
         public async Task ListaPorTermoSucesso()
         {
             await _postService.Criar(_post, null);
-            var page = 0;
-            var pageSize = 5;
+            var offset = 0;
+            var limit = 5;
 
             string termo = "teste";
 
-            var result = await _postService.BuscarPorTermo(termo, page, pageSize, null, "institucional");
+            var result = await _postService.BuscarPorTermo(termo, offset, limit, null, "institucional");
             Assert.NotEmpty(result.Item2);
         }
 
@@ -157,12 +157,12 @@ namespace CarePlusAPI.Tests.Services
         {
             try
             {
-                var page = 0;
-                var pageSize = 5;
+                var offset = 0;
+                var limit = 5;
 
                 string termo = "teste";
 
-                var result = await _postService.BuscarPorTermo(termo, page, pageSize, null, "institucional");
+                var result = await _postService.BuscarPorTermo(termo, offset, limit, null, "institucional");
             }
             catch (Exception ex)
             {

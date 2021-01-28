@@ -13,11 +13,11 @@ namespace CarePlusAPI.Services
 {
     public interface IPostService
     {
-        Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo, string? origem);
-        Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo, string? origem);
-        Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int page, int pageSize, string slug, char? ativo, string? origem);
-        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, char? ativo, string? origem);
-        Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> Listar(int offset, int limit, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarMaisLidos(int offset, int limit, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int offset, int limit, string slug, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int offset, int limit, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int offset, int limit, char? ativo, string? origem);
         Task<Post> BuscarPorSlug(string slug);
         Task<Post> BuscarPorSlugHit(string slug);
 
@@ -47,7 +47,7 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todos os Post da base.
         ///
         ///</summary>
-        public async Task<Tuple<int, List<Post>>> Listar(int page, int pageSize, char? ativo, string origem)
+        public async Task<Tuple<int, List<Post>>> Listar(int offset, int limit, char? ativo, string origem)
         {
             IQueryable<Post> query = Db.Post.AsQueryable();
 
@@ -75,7 +75,7 @@ namespace CarePlusAPI.Services
 
             var count = await query.CountAsync();
 
-            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+            var result = await PagingResults.GetPaged<Post>(query, offset, limit);
 
             return new Tuple<int, List<Post>>(count, result.Results);
         }
@@ -206,7 +206,7 @@ namespace CarePlusAPI.Services
             await Db.SaveChangesAsync();
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int page, int pageSize, char? ativo, string? origem)
+        public async Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int offset, int limit, char? ativo, string? origem)
         {
             if (id == 0)
                 throw new AppException("O id da categoria não pode ser igual a 0");
@@ -236,12 +236,12 @@ namespace CarePlusAPI.Services
 
             var count = await query.CountAsync();
 
-            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+            var result = await PagingResults.GetPaged<Post>(query, offset, limit);
 
             return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int page, int pageSize, string slug, char? ativo, string? origem)
+        public async Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int offset, int limit, string slug, char? ativo, string? origem)
         {
 
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
@@ -270,12 +270,12 @@ namespace CarePlusAPI.Services
 
             var count = await query.CountAsync();
 
-            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+            var result = await PagingResults.GetPaged<Post>(query, offset, limit);
 
             return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int page, int pageSize, char? ativo, string? origem)
+        public async Task<Tuple<int, List<Post>>> BuscarPorTermo(string term, int offset, int limit, char? ativo, string? origem)
         {
             if (string.IsNullOrWhiteSpace(term))
                 throw new AppException("O termo não pode estar vazio");
@@ -311,12 +311,12 @@ namespace CarePlusAPI.Services
 
             var count = await query.CountAsync();
 
-            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+            var result = await PagingResults.GetPaged<Post>(query, offset, limit);
 
             return new Tuple<int, List<Post>>(count, result.Results);
         }
 
-        public async Task<Tuple<int, List<Post>>> BuscarMaisLidos(int page, int pageSize, char? ativo, string? origem)
+        public async Task<Tuple<int, List<Post>>> BuscarMaisLidos(int offset, int limit, char? ativo, string? origem)
         {
             IQueryable<Post> query = Db.Set<Post>().AsQueryable();
 
@@ -342,7 +342,7 @@ namespace CarePlusAPI.Services
 
             var count = await query.CountAsync();
 
-            var result = await PagingResults.GetPaged<Post>(query, page, pageSize);
+            var result = await PagingResults.GetPaged<Post>(query, offset, limit);
 
             return new Tuple<int, List<Post>>(count, result.Results);
         }

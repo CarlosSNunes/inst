@@ -189,9 +189,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            int page = 0;
-            int pageSize = 50;
-            var result = await controller.Get(page, pageSize, null, null);
+            int offset = 0;
+            int limit = 50;
+            var result = await controller.Get(offset, limit, null, null);
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -207,9 +207,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            int page = 0;
-            int pageSize = 50;
-            var result = await controller.Get(page, pageSize, null, null);
+            int offset = 0;
+            int limit = 50;
+            var result = await controller.Get(offset, limit, null, null);
             Assert.IsType<OkObjectResult>(result);
         }
 

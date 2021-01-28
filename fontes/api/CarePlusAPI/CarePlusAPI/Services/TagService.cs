@@ -10,7 +10,7 @@ namespace CarePlusAPI.Services
 {
     public interface ITagService
     {
-        Task<Tuple<int, List<Tag>>> Listar(int page, int pageSize);
+        Task<Tuple<int, List<Tag>>> Listar(int offset, int limit);
         Task<Tag> Buscar(int id);
         Task Criar(List<Tag> model);
         Task Atualizar(List<Tag> model);
@@ -38,7 +38,7 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todas as tags da base.
         ///
         ///</summary>
-        public async Task<Tuple<int, List<Tag>>> Listar(int page, int pageSize)
+        public async Task<Tuple<int, List<Tag>>> Listar(int offset, int limit)
         {
             IQueryable<Tag> query = Db.Tag.AsQueryable();
 
@@ -47,7 +47,7 @@ namespace CarePlusAPI.Services
 
             var count = await query.CountAsync();
 
-            var result = await PagingResults.GetPaged<Tag>(query, page, pageSize);
+            var result = await PagingResults.GetPaged<Tag>(query, offset, limit);
 
             return new Tuple<int, List<Tag>>(count, result.Results);
         }

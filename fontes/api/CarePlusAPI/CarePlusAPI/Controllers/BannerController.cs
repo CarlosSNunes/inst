@@ -57,11 +57,11 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet("{page}/{pageSize}")]
+        [HttpGet("{offset}/{limit}")]
         [Authorize(Roles = "Visualizador, Editor, Administrador")]
         public async Task<IActionResult> Get(
-            int page, 
-            int pageSize,
+            int offset, 
+            int limit,
             [FromQuery(Name = "ativo")] char? ativo,
             [FromQuery(Name = "area")] string? area
             )
@@ -69,7 +69,7 @@ namespace CarePlusAPI.Controllers
             string origem = Request.Headers["Custom"];
             try
             {
-                var result = await _bannerService.Listar(page, pageSize, ativo, area);
+                var result = await _bannerService.Listar(offset, limit, ativo, area);
 
                 List<BannerModel> model = _mapper.Map<List<BannerModel>>(result.Item2);
 

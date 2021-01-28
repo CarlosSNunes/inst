@@ -10,7 +10,7 @@ namespace CarePlusAPI.Services
 {
     public interface IBannerService
     {
-        Task<Tuple<int, List<Banner>>> Listar(int page, int pageSize, char? ativo, string? area);
+        Task<Tuple<int, List<Banner>>> Listar(int offset, int limit, char? ativo, string? area);
         Task<List<Banner>> BuscarPorArea(string area);
         Task<Banner> Buscar(int id);
         Task Criar(Banner model);
@@ -41,7 +41,7 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todos os Banners por data, da base.
         ///
         ///</summary>
-        public async Task<Tuple<int, List<Banner>>> Listar(int page, int pageSize, char? ativo, string? area)
+        public async Task<Tuple<int, List<Banner>>> Listar(int offset, int limit, char? ativo, string? area)
         {
                 IQueryable<Banner> query = Db.Banner.AsQueryable();
                 query = query
@@ -60,7 +60,7 @@ namespace CarePlusAPI.Services
                 query = query.OrderBy(x => x.Ordem);
 
                 var count = await query.CountAsync();
-                var result = await PagingResults.GetPaged<Banner>(query, page, pageSize);
+                var result = await PagingResults.GetPaged<Banner>(query, offset, limit);
                 return new Tuple<int, List<Banner>>(count, result.Results);
         }
 

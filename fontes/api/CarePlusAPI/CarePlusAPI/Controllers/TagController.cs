@@ -51,15 +51,15 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet("{page}/{pageSize}")]
+        [HttpGet("{offset}/{limit}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
-        public async Task<IActionResult> Get(int page, int pageSize)
+        public async Task<IActionResult> Get(int offset, int limit)
         {
             string origem = Request.Headers["Custom"];
 
             try
             {
-                var result = await _tagService.Listar(page, pageSize);
+                var result = await _tagService.Listar(offset, limit);
 
                 List<TagModel> model = _mapper.Map<List<TagModel>>(result.Item2);
 

@@ -10,7 +10,7 @@ namespace CarePlusAPI.Services
 {
     public interface ICategoriasService
     {
-        Task<Tuple<int, List<Categoria>>> Listar(int page, int pageSize);
+        Task<Tuple<int, List<Categoria>>> Listar(int offset, int limit);
         Task<Categoria> Buscar(int id);
         Task Criar(Categoria model);
         Task Atualizar(Categoria model);
@@ -38,7 +38,7 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todas as Categorias por data, da base.
         ///
         ///</summary>
-        public async Task<Tuple<int, List<Categoria>>> Listar(int page, int pageSize)
+        public async Task<Tuple<int, List<Categoria>>> Listar(int offset, int limit)
         {
             IQueryable<Categoria> query = Db.Categoria.AsQueryable();
 
@@ -48,7 +48,7 @@ namespace CarePlusAPI.Services
 
             var count = await query.CountAsync();
 
-            var result = await PagingResults.GetPaged<Categoria>(query, page, pageSize);
+            var result = await PagingResults.GetPaged<Categoria>(query, offset, limit);
 
             return new Tuple<int, List<Categoria>>(count, result.Results);
 

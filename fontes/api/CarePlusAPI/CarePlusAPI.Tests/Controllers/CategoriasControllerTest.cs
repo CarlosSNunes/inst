@@ -98,9 +98,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            int page = 1;
-            int pageSize = 5;
-            var result = await controller.Get(page, pageSize);
+            int offset = 0;
+            int limit = 5;
+            var result = await controller.Get(offset, limit);
             Assert.IsType<OkObjectResult>(result);
         }
 

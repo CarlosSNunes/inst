@@ -61,18 +61,18 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>        
-        [HttpGet("{page}/{pageSize}")]
+        [HttpGet("{offset}/{limit}")]
         [Authorize(Roles = "Visualizador, Editor, Administrador")]
         public async Task<IActionResult> Get(
-            int page,
-            int pageSize,
+            int offset,
+            int limit,
             [FromQuery(Name = "ativo")] char? ativo,
             [FromHeader(Name = "Custom")] string? origem
             )
         {
             try
             {
-                var result = await _postService.Listar(page, pageSize, ativo, origem);
+                var result = await _postService.Listar(offset, limit, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -113,18 +113,18 @@ namespace CarePlusAPI.Controllers
         ///Esse método pode ser acessado sem estar logado e é preciso ser um tipo de requisão GET.
         ///
         ///</summary>
-        [HttpGet("maisLidos/{page}/{pageSize}")]        
+        [HttpGet("maisLidos/{offset}/{limit}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetMostsRead(
-            int page,
-            int pageSize,
+            int offset,
+            int limit,
             [FromQuery(Name = "ativo")] char? ativo,
             [FromHeader(Name = "Custom")] string? origem
         )
         {
             try
             {
-                var result = await _postService.BuscarMaisLidos(page, pageSize, ativo, origem);
+                var result = await _postService.BuscarMaisLidos(offset, limit, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -261,12 +261,12 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>
-        [HttpGet("categoria-id/{id}/{page}/{pageSize}")]
+        [HttpGet("categoria-id/{id}/{offset}/{limit}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> getByCategoryId(
             int id,
-            int page,
-            int pageSize,
+            int offset,
+            int limit,
             [FromQuery(Name = "ativo")] char? ativo,
             [FromHeader(Name = "Custom")] string? origem
          )
@@ -278,7 +278,7 @@ namespace CarePlusAPI.Controllers
                 if (id == 0)
                     throw new AppException("O id da categoria não pode ser igual a 0");
 
-                var result = await _postService.BuscarPorCategoria(id, page, pageSize, ativo, origem);
+                var result = await _postService.BuscarPorCategoria(id, offset, limit, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -320,12 +320,12 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>
-        [HttpGet("categoria/{id}/{page}/{pageSize}/{slug}")]
+        [HttpGet("categoria/{id}/{offset}/{limit}/{slug}")]
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> getRelativePosts(
             int id,
-            int page,
-            int pageSize,
+            int offset,
+            int limit,
             string slug,
             [FromQuery(Name = "ativo")] char? ativo,
             [FromHeader(Name = "Custom")] string? origem
@@ -338,7 +338,7 @@ namespace CarePlusAPI.Controllers
                 if (id == 0)
                     throw new AppException("O id da categoria não pode ser igual a 0");
 
-                var result = await _postService.BuscarPostsRelacionados(id, page, pageSize, slug, ativo, origem);
+                var result = await _postService.BuscarPostsRelacionados(id, offset, limit, slug, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -380,12 +380,12 @@ namespace CarePlusAPI.Controllers
         ///
         ///</summary>
         ///<param name="id">Id do Post</param>
-        [HttpGet("term/{term}/{page}/{pageSize}")]        
+        [HttpGet("term/{term}/{offset}/{limit}")]        
         [Authorize(Roles = "Editor, Visualizador, Administrador")]
         public async Task<IActionResult> GetByTerm(
             string term,
-            int page,
-            int pageSize,
+            int offset,
+            int limit,
             [FromQuery(Name = "ativo")] char? ativo,
             [FromHeader(Name = "Custom")] string? origem)
         {
@@ -396,7 +396,7 @@ namespace CarePlusAPI.Controllers
                 if (string.IsNullOrWhiteSpace(term))
                     throw new AppException("O termo não estar vazio");
 
-                var result = await _postService.BuscarPorTermo(term, page, pageSize, ativo, origem);
+                var result = await _postService.BuscarPorTermo(term, offset, limit, ativo, origem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 

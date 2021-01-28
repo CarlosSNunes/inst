@@ -117,9 +117,9 @@ namespace CarePlusAPI.Tests.Services
         {
             await _bannerService.Criar(_banner);
 
-            int page = 0;
-            int pageSize = 20;
-            var result = await _bannerService.Listar(page, pageSize, null, null);
+            int offset = 0;
+            int limit = 20;
+            var result = await _bannerService.Listar(offset, limit, null, null);
             Assert.NotEmpty(result.Item2);
         }
 
@@ -129,9 +129,9 @@ namespace CarePlusAPI.Tests.Services
         {
             await _bannerService.Criar(_banner);
 
-            int page = 0;
-            int pageSize = 20;
-            var result = await _bannerService.Listar(page, pageSize, '1', "home");
+            int offset = 0;
+            int limit = 20;
+            var result = await _bannerService.Listar(offset, limit, '1', "home");
             Assert.NotEmpty(result.Item2);
         }
 

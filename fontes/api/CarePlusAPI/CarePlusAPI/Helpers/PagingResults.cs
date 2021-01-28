@@ -12,17 +12,17 @@ namespace CarePlusAPI.Helpers
     public static class PagingResults
     {
         public static async Task<PagedResult<T>> GetPaged<T>(this IQueryable<T> query,
-            int page, int pageSize) where T : class
+            int offset, int limit) where T : class
         {
             var result = new PagedResult<T>();
-            result.CurrentPage = page;
-            result.PageSize = pageSize;
+            result.CurrentPage = offset;
+            result.PageSize = limit;
             result.RowCount = await query.CountAsync();
 
-            var pageCount = (double)result.RowCount / pageSize;
+            var pageCount = (double)result.RowCount / limit;
             result.PageCount = (int)Math.Ceiling(pageCount);
 
-            query = query.Skip(page).Take(pageSize);
+            query = query.Skip(offset).Take(limit);
             List<T> items = await query.ToListAsync();
             result.Results = items;
 

@@ -210,9 +210,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0; 
-            var pageSize = 5;
-            var result = await controller.Get(page, pageSize, null, "CarePlus");
+            var offset = 0; 
+            var limit = 5;
+            var result = await controller.Get(offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -227,9 +227,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.Get(page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.Get(offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -242,9 +242,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.GetMostsRead(page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.GetMostsRead(offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -259,9 +259,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.GetMostsRead(page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.GetMostsRead(offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -390,9 +390,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.getByCategoryId(1, page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.getByCategoryId(1, offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -409,9 +409,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.getByCategoryId(1, page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.getByCategoryId(1, offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -425,9 +425,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            IActionResult result = await controller.getByCategoryId(0, page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            IActionResult result = await controller.getByCategoryId(0, offset, limit, null, "CarePlus");
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
@@ -448,9 +448,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.getRelativePosts(1, page, pageSize, "titulo-teste", null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.getRelativePosts(1, offset, limit, "titulo-teste", null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -481,9 +481,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.getRelativePosts(1, page, pageSize, "titulo-teste", null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.getRelativePosts(1, offset, limit, "titulo-teste", null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -497,9 +497,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            IActionResult result = await controller.getRelativePosts(0, page, pageSize, "titulo-teste", null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            IActionResult result = await controller.getRelativePosts(0, offset, limit, "titulo-teste", null, "CarePlus");
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
@@ -513,9 +513,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.GetByTerm("titulo", page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.GetByTerm("titulo", offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -532,9 +532,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            var result = await controller.GetByTerm("titulo", page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            var result = await controller.GetByTerm("titulo", offset, limit, null, "CarePlus");
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -548,9 +548,9 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext = new ControllerContext();
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
-            var page = 0;
-            var pageSize = 5;
-            IActionResult result = await controller.GetByTerm("", page, pageSize, null, "CarePlus");
+            var offset = 0;
+            var limit = 5;
+            IActionResult result = await controller.GetByTerm("", offset, limit, null, "CarePlus");
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
