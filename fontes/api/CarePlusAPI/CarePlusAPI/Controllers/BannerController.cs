@@ -275,7 +275,7 @@ namespace CarePlusAPI.Controllers
 
                 await using (var stream = new FileStream(directoryNameMobile, FileMode.Create))
                 {
-                    await file.CopyToAsync(stream);
+                    await fileMobile.CopyToAsync(stream);
                 }
 
                 var extensionDesk = Path.GetExtension(directoryNameDesk).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
@@ -375,9 +375,6 @@ namespace CarePlusAPI.Controllers
 
                 Banner banner = await _bannerService.Buscar((int)model.Id);
 
-                if (model.Arquivo != null)
-                {
-
                     var file = model.Arquivo;
                     var fileMobile = model.ArquivoMobile;
                     var fullRelativePath = _appSettings.PathToSave + "\\Banner";
@@ -387,64 +384,75 @@ namespace CarePlusAPI.Controllers
 
 
 
-                    if(file.Length > 0){
-                        var fileOriginalNameDesk = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                        directoryNameDesk = Path.Combine(pathToSave, fileOriginalNameDesk);
-                        await using (var stream = new FileStream(directoryNameDesk, FileMode.Create))
-                        {
-                            await file.CopyToAsync(stream);
-                        }
-                        var extensionDesk = Path.GetExtension(directoryNameDesk).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                        //Renomeando Arquivo Desktop
-                        fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameDesk)}{extensionDesk}";
-                        renamedDirectoryDesktop = Path.Combine(pathToSave, fileName);
-                        System.IO.File.Move(directoryNameDesk, renamedDirectoryDesktop);
-
-                        // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
-                        if (_appSettings.HasAssetsServer == true)
-                        {
-                            _ftpUpload.Upload(renamedDirectoryDesktop, "Src/Images/Banner", fileName);
-                        }
-                    }
-                    
-                    if(fileMobile
-                        .Length > 0)
+                if(file != null && file.Length > 0){
+                    var fileOriginalNameDesk = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                    directoryNameDesk = Path.Combine(pathToSave, fileOriginalNameDesk);
+                    await using (var stream = new FileStream(directoryNameDesk, FileMode.Create))
                     {
-                        var fileOriginalNameMobile = $"mobile-{ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_")}";
-                        directoryNameMobile = Path.Combine(pathToSave, fileOriginalNameMobile);
-                        await using (var stream = new FileStream(directoryNameMobile, FileMode.Create))
-                        {
-                            await file.CopyToAsync(stream);
-                        }
-                        var extensionMobile = Path.GetExtension(directoryNameMobile).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
-                        //Renomeando Arquivo Mobile
-                        fileNameMobile = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
-                        renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
-                        System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
-
-                        // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
-                        if (_appSettings.HasAssetsServer == true)
-                        {
-                            _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileNameMobile);
-                        }
+                        await file.CopyToAsync(stream);
                     }
+                    var extensionDesk = Path.GetExtension(directoryNameDesk).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                    //Renomeando Arquivo Desktop
+                    fileName = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameDesk)}{extensionDesk}";
+                    renamedDirectoryDesktop = Path.Combine(pathToSave, fileName);
+                    System.IO.File.Move(directoryNameDesk, renamedDirectoryDesktop);
+
+                    // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                    if (_appSettings.HasAssetsServer == true)
+                    {
+                        _ftpUpload.Upload(renamedDirectoryDesktop, "Src/Images/Banner", fileName);
+                    }
+
                     fullPathDesk = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileName}";
-                    fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
                     directoryNameDesk = $"{_appSettings.VirtualPath}/Banner/{fileName}";
-                    directoryNameMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
 
                     model.NomeImagemDesktop = fileName;
-                    model.NomeImagemMobile = fileNameMobile;
                     model.CaminhoDesktop = $"{_appSettings.VirtualPath}/Banner/{fileName}";
-                    model.CaminhoMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
-                }
-                else
+                } else
                 {
+
+                    fullPathDesk = $"{_appSettings.PathToGet}{banner.CaminhoDesktop}";
+                    directoryNameDesk = banner.CaminhoDesktop;
+
                     model.CaminhoDesktop = banner.CaminhoDesktop;
                     model.NomeImagemDesktop = banner.NomeImagemDesktop;
+                }
+                    
+                if(fileMobile != null && fileMobile
+                    .Length > 0)
+                {
+                    var fileOriginalNameMobile = $"mobile-{ContentDispositionHeaderValue.Parse(fileMobile.ContentDisposition).FileName.Replace("\"", " ").Trim().ToLower().Replace(" ", "_")}";
+                    directoryNameMobile = Path.Combine(pathToSave, fileOriginalNameMobile);
+                    await using (var stream = new FileStream(directoryNameMobile, FileMode.Create))
+                    {
+                        await fileMobile.CopyToAsync(stream);
+                    }
+                    var extensionMobile = Path.GetExtension(directoryNameMobile).Replace("\"", " ").Trim().ToLower().Replace(" ", "_");
+                    //Renomeando Arquivo Mobile
+                    fileNameMobile = $"{UniqueHash.ReturnUniqueValue(System.DateTime.Now, fileOriginalNameMobile)}{extensionMobile}";
+                    renamedDirectoryMobile = Path.Combine(pathToSave, fileNameMobile);
+                    System.IO.File.Move(directoryNameMobile, renamedDirectoryMobile);
+
+                    // Sobe o arquivo via FTP e depois deleta o mesmo da maquina local.
+                    if (_appSettings.HasAssetsServer == true)
+                    {
+                        _ftpUpload.Upload(renamedDirectoryMobile, "Src/Images/Banner", fileNameMobile);
+                    }
+
+                    fullPathMobile = $"{_appSettings.PathToGet}{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+                    directoryNameMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+
+                    model.NomeImagemMobile = fileNameMobile;
+                    model.CaminhoMobile = $"{_appSettings.VirtualPath}/Banner/{fileNameMobile}";
+                } else
+                {
+                    fullPathMobile = $"{_appSettings.PathToGet}{banner.CaminhoMobile}";
+                    directoryNameMobile = banner.CaminhoMobile;
+
                     model.CaminhoMobile = banner.CaminhoMobile;
                     model.NomeImagemMobile = banner.NomeImagemMobile;
                 }
+
                 model.TempoExibicao = model.TempoExibicao <= 0 ? 10 : model.TempoExibicao;
 
                 if (banner.Ativo == '0' && model.Ativo == '1')

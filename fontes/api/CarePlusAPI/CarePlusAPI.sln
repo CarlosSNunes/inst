@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarePlusAPI", "CarePlusAPI\CarePlusAPI.csproj", "{2F22F962-CAE7-4657-AA19-CDFF1DEC8FE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarePlusAPI.Tests", "CarePlusAPI.Tests\CarePlusAPI.Tests.csproj", "{B113B35D-5738-45B2-AD5E-023FDC7BA5AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarePlusAPI.Tests", "CarePlusAPI.Tests\CarePlusAPI.Tests.csproj", "{B113B35D-5738-45B2-AD5E-023FDC7BA5AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
