@@ -96,6 +96,9 @@
                           [ngClass]="{ 'is-success': submitted &&
                                                                   !f.titulo.errors, 'is-danger' :
                                                                   submitted && f.titulo.errors }">
+                        <p class="contador" [class.is-danger]="f.titulo.value.length > 100">
+                          {{f.titulo.value.length}}/100
+                        </p>
                         <div *ngIf="submitted" class="errors">
                           <p *ngFor="let error of
                                                                       getErrors(f.titulo)" class="help
@@ -112,7 +115,11 @@
                           placeholder="Subtítulo do Banner" [ngClass]="{ 'is-success': submitted &&
                                                                   !f.subtitulo.errors, 'is-danger' :
                                                                   submitted && f.subtitulo.errors }"> </textarea>
+                        <p class="contador" [class.is-danger]="f.subtitulo.value.length > 150">
+                          {{f.subtitulo.value.length}}/150
+                        </p>
                         <div *ngIf="submitted" class="errors">
+
                           <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
                             {{error}}</p>
                         </div>
@@ -124,6 +131,9 @@
                         <input formControlName="nomeImagem" class="form-control" type="text"
                           placeholder="Nome do Banner"
                           [ngClass]="{ 'is-success': submitted && !f.nomeImagem.errors, 'is-danger' : submitted && f.nomeImagem.errors }">
+                        <p class="contador" [class.is-danger]="f.nomeImagem.value.length > 100">
+                          {{f.nomeImagem.value.length}}/100
+                        </p>
                         <div *ngIf="submitted" class="errors">
                           <p *ngFor="let error of getErrors(f.nomeImagem)" class="help is-danger">
                             {{error}}</p>
@@ -188,6 +198,10 @@
                           <input formControlName="link" class="form-control" type="text" placeholder="" [ngClass]="{ 'is-success': submitted &&
                                                                   !f.link.errors, 'is-danger' : submitted
                                                                   && f.link.errors }">
+                          <p class="contador" [class.is-danger]="f.link.value.length > 255">
+                            {{f.link.value.length}}/255
+                          </p>
+
                           <div *ngIf="submitted" class="errors">
                             <p *ngFor="let error of
                                                                       getErrors(f.link)" class="help
@@ -223,6 +237,9 @@
                           [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
                           class="form-control" placeholder="Descrição do Banner" rows="5">
                                               </textarea>
+                        <p class="contador" [class.is-danger]="f.descricao.value.length > 100">
+                          {{f.descricao.value.length}}/100
+                        </p>
                         <div *ngIf="submitted" class="errors">
                           <p *ngFor="let error of
                                                                   getErrors(f.descricao)" class="help is-danger">
@@ -264,7 +281,10 @@
                         {{f.nomeLink.value}}
                       </a>
                     </div>
-                    <img  [src]="croppedImage" alt="Cropped image" />
+                    <div class="whiteShadow">
+
+                    </div>
+                    <img [src]="croppedImage" alt="Cropped image" />
                   </div>
 
                 </div>

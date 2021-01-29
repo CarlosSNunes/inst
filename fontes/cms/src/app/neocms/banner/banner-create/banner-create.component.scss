@@ -50,6 +50,9 @@
         position: absolute;
         left: 5%;
         bottom: 30%;
+        z-index: 3;
+        width: 45%;
+
         h1 {
           font-style: normal;
           font-weight: 600;
@@ -65,13 +68,24 @@
           color: #333;
         }
       }
+      .whiteShadow {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        box-shadow: inset 470px -1px 499px 20px rgb(255 255 255 / 90%);
+        z-index: 2;
+      }
       img {
         width: 100%;
+        z-index: 1;
       }
+    }
+    .contador {
+      font-size: getSize("p14") !important;
+      margin: 5px 0;
     }
   }
 }
-
 
 img.arrow-return {
   width: 35px;

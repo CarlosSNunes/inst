@@ -99,6 +99,9 @@
                       [ngClass]="{ 'is-success': submitted &&
                                                                 !f.titulo.errors, 'is-danger' :
                                                                 submitted && f.titulo.errors }">
+                    <p class="contador" [class.is-danger]="f.titulo.value.length > 100">
+                      {{f.titulo.value.length}}/100
+                    </p>
                     <div *ngIf="submitted" class="errors">
                       <p *ngFor="let error of
                                                                     getErrors(f.titulo)" class="help
@@ -111,9 +114,14 @@
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
                     <label for="my-input">Subtítulo</label>
-                    <input formControlName="subtitulo" class="form-control" type="text"
-                      placeholder="Subtítulo do Banner"
-                      [ngClass]="{ 'is-success': submitted && !f.subtitulo.errors, 'is-danger' : submitted && f.subtitulo.errors }">
+                    <textarea formControlName="subtitulo" class="form-control" type="text"
+                      placeholder="Subtítulo do Banner" [ngClass]="{ 'is-success': submitted &&
+                                                            !f.subtitulo.errors, 'is-danger' :
+                                                            submitted && f.subtitulo.errors }"> </textarea>
+
+                    <p class="contador" [class.is-danger]="f.subtitulo.value.length > 150">
+                      {{f.subtitulo.value.length}}/150
+                    </p>
                     <div *ngIf="submitted" class="errors">
                       <p *ngFor="let error of getErrors(f.subtitulo)" class="help is-danger">
                         {{error}}</p>
@@ -131,7 +139,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
                     <label for="my-input">Tempo de Exibição</label>
@@ -148,6 +156,30 @@
                   </div>
                 </div>
 
+
+
+
+
+
+
+                <div class="col-md-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="my-input">Descrição</label>
+                    <textarea formControlName="descricao"
+                      [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
+                      class="form-control" placeholder="Descrição do Banner" rows="5">
+                                            </textarea>
+                    <p class="contador" [class.is-danger]="f.descricao.value.length > 100">
+                      {{f.descricao.value.length}}/100
+                    </p>
+                    <div *ngIf="submitted" class="errors">
+                      <p *ngFor="let error of
+                                                                getErrors(f.descricao)" class="help is-danger">
+                        {{error}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 <div class="col-md-12 col-lg-6">
                   <div class="row">
                     <div class="col-md-12 col-lg-6">
@@ -175,7 +207,16 @@
                         <div class="form-group">
                           <label for="my-input">link*</label>
                           <input formControlName="link" class="form-control" type="text" placeholder="">
-
+                          <p class="contador" [class.is-danger]="f.link.value.length > 255">
+                            {{f.link.value.length}}/255
+                          </p>
+                          <div *ngIf="submitted" class="errors">
+                            <p *ngFor="let error of
+                                                                      getErrors(f.link)" class="help
+                                                                      is-danger">
+                              {{error}}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </ng-container>
@@ -209,50 +250,8 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
-
-
-
-
-
-                <div class="col-md-12 col-lg-6">
-                  <div class="form-group">
-                    <label for="my-input">Descrição</label>
-                    <textarea formControlName="descricao"
-                      [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
-                      class="form-control" placeholder="Descrição do Banner" rows="5">
-                                            </textarea>
-                    <div *ngIf="submitted" class="errors">
-                      <p *ngFor="let error of
-                                                                getErrors(f.descricao)" class="help is-danger">
-                        {{error}}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <!-- <div class="col-md-12 col-lg-3 w-100">
-                  <label class="label">É um link externo?</label>
-                  <div class="form-group">
-                    <div class="form-check form-check-inline">
-                      <input id="naoLink" type="radio" class="form-check-input" checked value="0"
-                        formControlName="linkExterno" name="linkExterno"
-                        [ngClass]="{'is-danger': isLinkExternoSelected,'is-selected': !isLinkExternoSelected}"
-                        (click)="changeLinkExterno('0',false)">
-                      <label for="linkExterno">Não</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input id="simLink" type="radio" class="form-check-input" value="1" name="linkExterno"
-                        formControlName="linkExterno"
-                        [ngClass]="{'is-danger': isLinkExternoSelected, 'is-selected':  !isLinkExternoSelected}"
-                        (click)="changeLinkExterno('1',true)">
-                      <label for="linkExterno">Sim</label>
-                    </div>
-                  </div>
-                </div> -->
-
               </div>
-
               <div class="col-md-12 w-100 text-right">
                 <button class="btn blue" type="submit">
                   SALVAR ALTERAÇÕES
