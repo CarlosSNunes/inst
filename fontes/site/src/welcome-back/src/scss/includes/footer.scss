@@ -4,10 +4,8 @@ footer{
     &:before{
         content: "";
             /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-            background: #b3d59c; /* Old browsers */
-            background: -moz-linear-gradient(left, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(left, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to right, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            background: -webkit-gradient(linear, left top, right top, from(#CDECFD),to(#0079C8));
+            background: linear-gradient(to right,#CDECFD 0%, #0079C8 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c8', endColorstr='#b3d59c',GradientType=1 ); /* IE6-9 */
             display: block;
             height: 4px;
