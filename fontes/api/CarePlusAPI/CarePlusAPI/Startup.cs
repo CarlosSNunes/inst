@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
@@ -30,6 +31,7 @@ namespace CarePlusAPI
         private readonly IWebHostEnvironment Env;
         public readonly IConfiguration Configuration;
         private AppSettings _appSettings;
+        private IConfigurationSection _appSettingsSection;
         public static string ConnectionString { get; private set; }
 
         ///<summary>
@@ -40,11 +42,35 @@ namespace CarePlusAPI
         ///</summary>
         ///<param name="env">Ambiente em que a API está sendo executada, ex(Develop, Release, Production)</param>
         ///<param name="configuration">Configurações da API</param>
-        public Startup(IWebHostEnvironment env, IConfiguration configuration)
+        public Startup(IWebHostEnvironment env)
         {
+            var value = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
+
+            string variableFile = string.Empty;
+
+            if (value != null && value != "")
+            {
+                variableFile = $"appsettings.{value}.json";
+            }
+            else
+            {
+                variableFile = "appsettings.json";
+            }
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile(variableFile, optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            IConfigurationRoot configuration = builder.Build();
+
+            _appSettingsSection = configuration.GetSection("AppSettings");
+
+            _appSettings = _appSettingsSection.Get<AppSettings>();
+
             Env = env;
-            Configuration = configuration;
-            ConnectionString = Configuration.GetConnectionString("OracleExpressDatabase");
+            ConnectionString = _appSettings.OracleExpressDatabase;
         }
 
         ///<summary>
@@ -62,10 +88,8 @@ namespace CarePlusAPI
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            IConfigurationSection appSettingsSection = Configuration.GetSection("AppSettings");
-            services.Configure<AppSettings>(appSettingsSection);
+            services.Configure<AppSettings>(_appSettingsSection);
 
-            _appSettings = appSettingsSection.Get<AppSettings>();
             GetCipher cipher = new GetCipher();
             string secret = cipher.Decrypt(_appSettings.Secret);
 

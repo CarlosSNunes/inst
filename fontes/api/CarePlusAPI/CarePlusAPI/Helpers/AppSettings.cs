@@ -31,5 +31,6 @@ namespace CarePlusAPI.Helpers
         public string AssetsServerIp { get; set; }
         public string AssetsServerUser { get; set; }
         public string AssetsServerPass { get; set; }
+        public string OracleExpressDatabase { get; set; }
     }
 }
