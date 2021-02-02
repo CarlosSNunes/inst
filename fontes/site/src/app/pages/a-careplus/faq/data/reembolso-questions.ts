@@ -140,7 +140,7 @@ export default [
             
             <p class="sub-description">
                 Disponível para reembolso de fisioterapia, fonoaudiologia, acupuntura, psicoterapia, psicologia, escleroterapia,
-                exames simples, nutricionista, terapia ocupacional, exames simples e de alta complexibilidade, odontologia,  próteses oculares (conforme garantia adicional contratada)  , vacinas preventivas , contracepção (implante do DIU) medicamentos, além de consultas
+                exames simples, nutricionista, terapia ocupacional e de alta complexibilidade, odontologia,  próteses oculares (conforme garantia adicional contratada)  , vacinas preventivas , contracepção (implante do DIU) medicamentos, além de consultas
                 médicas eletivas.
             </p>
             
@@ -249,7 +249,7 @@ export default [
             
             <p class="sub-description">
                 Os reembolsos via internet são válidos para fisioterapia, fonoaudiologia, acupuntura, psicoterapia, psicologia,
-                escleroterapia, exames simples, nutricionista, terapia ocupacional, exames simples e de alta complexidade, odontologia, próteses oculares (conforme garantia adicional contratada), vacinas preventivas, contracepção (implante do DIU), além de consultas
+                escleroterapia, exames simples, nutricionista, terapia ocupacional e de alta complexidade, odontologia, próteses oculares (conforme garantia adicional contratada), vacinas preventivas, contracepção (implante do DIU), além de consultas
                 médicas e odontológicas.
             </p>
         `
@@ -271,7 +271,7 @@ export default [
                 </li>
                 <li>
                     <strong>
-                        Prazo para reembolso de até 5 dias úteis - </strong> para medicamentos, honorários médicos partos, cirurgias, visitas hospitalares,
+                        Prazo para reembolso de até 5 dias úteis - </strong> para medicamentos, honorários médicos, partos, cirurgias, visitas hospitalares,
                     despesas com quimioterapia e radioterapia. Estes prazos se iniciam a partir da entrega da documentação completa
                     na sede da Care Plus, na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040, ou a partir da data do recebimento da imagem do documento, caso seja via web, aplicativo, celular ou NFe.
                 </li>
@@ -613,7 +613,7 @@ export default [
                     Código do procedimento médico pela Tabela AMB;
                 </li>
                 <li>
-                    Nomes completos e nº de registros dos profissionais, com as funções (médico cirurgião; médico auxiliar; médico anestesista) a exerceram no ato cirúrgico.
+                    Nomes completos e nº de registros dos profissionais, com as funções (médico cirurgião; médico auxiliar; médico anestesista) que exerceram no ato cirúrgico.
                 </li>
                 <li>
                     Tempo de acompanhamento clínico e de existência da patologia.
@@ -637,7 +637,7 @@ export default [
                     Código do procedimento médico pela Tabela AMB;
                 </li>
                 <li>
-                    Nomes completos e nº de registros dos profissionais, com as funções (médico cirurgião; médico auxiliar; médico anestesista) a exerceram no ato cirúrgico.
+                    Nomes completos e nº de registros dos profissionais, com as funções (médico cirurgião; médico auxiliar; médico anestesista) que exerceram no ato cirúrgico.
                 </li>
                 <li>
                     Tempo de acompanhamento clínico e de existência da patologia.
