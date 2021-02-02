@@ -296,7 +296,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         ],
         button: new ButtonModel({
             text: 'Conheça a Care Plus Clinic',
-            link: 'https://careplusclinic.com.br'
+            link: 'https://www.careplusclinic.com.br'
         }),
         imageSrc: 'assets/img/bloco-clinicas.jpg',
         reverse: true,

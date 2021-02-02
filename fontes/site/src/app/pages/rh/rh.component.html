@@ -1,36 +1,12 @@
-<app-banner
-    [banners]="banners"
-    [area]="'rh'"
-    [hasAnchor]="true"
-    [breadcrumbs]="breadcrumbs"
-    (slideToNextElement)="slideToSection()"
-></app-banner>
-<app-info-section
-    #infoSection
-    [sectionInfo]="simulationSection"
-></app-info-section>
+<app-banner [banners]="banners" [area]="'rh'" [hasAnchor]="true" [breadcrumbs]="breadcrumbs"
+    (slideToNextElement)="slideToSection()"></app-banner>
+<app-info-section #infoSection [sectionInfo]="simulationSection"></app-info-section>
 <app-product></app-product>
-<app-icon-cards-section
-    [iconCardsSectionModel]="iconCardsSectionModel"
-    [backgroundColorClass]="'blue-background-color'"
->
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
+    [backgroundColorClass]="'blue-background-color'">
 </app-icon-cards-section>
 <app-differential [differentials]="differentials"></app-differential>
 <app-info-section [sectionInfo]="ocupationalSection"></app-info-section>
-<app-contact-schedule-a-visit
-    [backgroundColorClass]="'blue-background-color'"
-></app-contact-schedule-a-visit>
+<app-contact-schedule-a-visit [backgroundColorClass]="'blue-background-color'"></app-contact-schedule-a-visit>
 <app-materials></app-materials>
-
 <app-social-posts></app-social-posts>
-
-<a class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao">
-    <p class="text">
-        Solicite uma Cotação
-    </p>
-    <img class="girl" src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
-    <span class="icon">
-        <img src="assets/svg/telephone-icon.svg" alt="Solicite uma Cotação">
-    </span>
-</a>
-
