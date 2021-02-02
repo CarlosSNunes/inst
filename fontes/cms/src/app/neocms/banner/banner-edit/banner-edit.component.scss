@@ -26,6 +26,7 @@
   }
   form {
     margin-top: 50px;
+    margin-bottom: 50px;
     .areaBanner {
       margin-top: 30px;
     }
@@ -37,6 +38,9 @@
         margin: 0;
       }
     }
+    .card-crop{
+      margin-top: 30px;
+    }
     .is-danger{
       margin-top: 5px;
       font-size: getSize('sbm');
@@ -45,6 +49,10 @@
     .contador{
       font-size: getSize('p14') !important;
       margin: 5px 0;
+    }
+    .form-check-input{
+      margin-top: 0;
+      margin-bottom: 3px;
     }
   }
 }

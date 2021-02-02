@@ -6,12 +6,12 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     h1 {
       font-size: getSize("h2");
     }
-    button {
-      padding: 10px 15px;
+    a {
+      color: getColor(_bupa, _digital-cian);
       margin: auto 0;
     }
     &:before {
@@ -24,15 +24,23 @@
       width: 100%;
     }
   }
-  table{
-    thead{
+  .createCategorias {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      padding: 10px 27px;
+    }
+  }
+  table {
+    thead {
       background-color: getColor(_bupa, _grey-3);
     }
   }
-  .load{
+  .load {
     width: 100%;
     display: flex;
-    svg{
+    svg {
       margin: auto;
     }
   }

@@ -16,6 +16,7 @@ import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
 
 
 
@@ -25,6 +26,18 @@ import { ToastrService } from 'ngx-toastr';
     styleUrls: ['./posts-blog-create.component.scss']
 })
 export class PostsBlogCreateComponent implements OnInit {
+    // ?--------- Configuração 'ng-wizard' ---------
+    configBannerWin1: NgWizardConfig = {
+        selected: 0,
+        theme: THEME.dots,
+        lang: {
+            next: '🠞',
+            previous: '🠜'
+        }
+    };
+
+    ngWizardService: any;
+
     locale = 'pt-br';
     postsBlogForm: FormGroup;
     faTag = faTag;
@@ -329,5 +342,24 @@ export class PostsBlogCreateComponent implements OnInit {
     getErrors(control: AbstractControl, controlName?: string) {
         return FormControlError.GetErrors(control, controlName);
     }
+
+ /**
+     * @description Metodo que captuea a ação de selecionar etapa do wizard.
+     * @param {StepChangedArgs}
+     * @memberOf BannerEditComponent
+     */
+
+    setTheme(theme: THEME) {
+        this.ngWizardService.theme(theme);
+    }
+
+    /**
+     * @description Metodo que captuea a ação de avançar do wizard.
+     * @param {StepChangedArgs}
+     * @memberOf BannerEditComponent
+     */
+    stepChanged(args: StepChangedArgs) {
+    }
+
 
 }

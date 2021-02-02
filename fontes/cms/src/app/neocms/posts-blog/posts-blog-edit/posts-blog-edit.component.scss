@@ -28,6 +28,10 @@
     // .nav-tabs .nav-link {
 
     // }
+    tab {
+      border: 1px solid #212529;
+      border-radius: 0 0 5px 5px;
+    }
     h5 {
       font-size: getSize("mbt");
       margin-bottom: 20px;
@@ -41,12 +45,17 @@
     .image-preview {
       margin-bottom: 25px;
     }
+    textarea{
+      margin-bottom: 10px;
+
+    }
     .image-preview {
       width: 100%;
     }
 
     .buttons-label {
-      height: 48px;
+      height: 23px;
+      margin-bottom: 5px;
     }
 
     .buttons {
@@ -54,29 +63,41 @@
       justify-content: flex-start;
       button {
         margin-right: 15px;
-        padding: 5px 15px;
+        padding: 6px 30px;
+        &:last-child{
+          background-color: white;
+          border: 1px solid #064672;
+          color: #064672;
+        }
+       &.isSelected {
+          border: 1px solid #004573;
+          background-color: #004573;
+          color: getColor(_bupa, _white);
+        }
       }
-      .isSelected {
-        border: 3px solid #004573;
-        background-color: #004573;
-        color: getColor(_bupa, _white);
-      }
+
     }
 
     .tags {
       margin-bottom: 25px;
 
+      display: flex;
+      flex-wrap: wrap;
+      .label {
+        width: 100%;
+      }
       .tags-container {
-        margin-bottom: 25px;
         border: 1px solid #000000;
         border-radius: 6px;
         padding: 10px;
-
+        width: calc(100% - 250px);
+        margin-right: 30px;
         min-height: 72px;
+        min-height: 60px;
 
         button {
           margin: 5px 10px 5px 0;
-          padding: 5px 15px;
+          padding: 10px 27px;
           img {
             width: 15px;
             margin-right: 5px;
@@ -90,6 +111,12 @@
             color: getColor(_bupa, _white);
           }
         }
+      }
+      a {
+        width: 170px;
+        margin: auto;
+        padding: 10px 27px;
+        margin-right: 0;
       }
     }
     .save-post {
@@ -108,7 +135,7 @@
       }
     }
     input,
-   .ckeditor,
+    .ckeditor,
     textarea {
       &.is-danger {
         border-color: #ff3e1d;
@@ -119,6 +146,10 @@
       &.is-danger {
         color: #ff3e1d;
       }
+    }
+    .contador{
+      font-size: getSize('p14') !important;
+      margin-bottom: 5px;
     }
     .ckeditor-errors {
       margin-top: 15px;

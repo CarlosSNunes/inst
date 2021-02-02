@@ -97,7 +97,7 @@ export class BannerCreateComponent implements OnInit {
             titulo: ['', [Validators.required, Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             subtitulo: ['', [Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
             area: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-            tempoExibicao: ['', [ FormControlError.noWhitespaceValidator]],
+            tempoExibicao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             rota: [''],
             link: ['',[Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],

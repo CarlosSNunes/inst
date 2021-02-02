@@ -20,11 +20,15 @@ import { ToastrService } from 'ngx-toastr';
 export class BannerEditComponent implements OnInit {
 
     // ?--------- Configuração 'ng-wizard' ---------
-    configBannerEdit: NgWizardConfig = {
+    configBannerWin1: NgWizardConfig = {
         selected: 0,
         theme: THEME.dots,
-        lang: { next: '🠞', previous: '🠜' }
+        lang: {
+            next: '🠞',
+            previous: '🠜'
+        }
     };
+
     ngWizardService: any;
 
     // ?--------- Configuração 'DropDown' ---------

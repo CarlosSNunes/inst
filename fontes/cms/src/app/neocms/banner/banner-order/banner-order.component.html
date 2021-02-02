@@ -20,51 +20,54 @@
                 <h5 class="filter-title">Filtros</h5>
                 <ul class="filter">
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'beneficiario'"
-                            (click)="filter('beneficiario')">
-                            Home - Beneficiário
+                        <button class="btn blue" [class.active]="selectedFilter === 'home'" (click)="filter('home')">
+                            Home
                         </button>
                     </li>
                     <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'blog'" (click)="filter('blog')">
-                            Home - Blog
+                        <button class="btn blue" [class.active]="selectedFilter === 'beneficiario'"
+                            (click)="filter('beneficiario')">
+                            Beneficiário
                         </button>
                     </li>
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'rh'" (click)="filter('rh')">
+                            RH
+                        </button>
+                    </li>
+
                     <li>
                         <button class="btn blue" [class.active]="selectedFilter === 'corretor'"
                             (click)="filter('corretor')">
-                            Home - Corretor
+                            Corretor
                         </button>
                     </li>
                     <li>
                         <button class="btn blue" [class.active]="selectedFilter === 'credenciado'"
                             (click)="filter('credenciado')">
-                            Home - Credenciado
+                            Credenciado
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'blog'" (click)="filter('blog')">
+                            Blog
                         </button>
                     </li>
                     <li>
                         <button class="btn blue" [class.active]="selectedFilter === 'diferenciais'"
                             (click)="filter('diferenciais')">
-                            Home - Diferenciais
+                            Diferenciais
                         </button>
                     </li>
-                    <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'home'" (click)="filter('home')">
-                            Home - Home
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn blue" [class.active]="selectedFilter === 'rh'" (click)="filter('rh')">
-                            Home - RH
-                        </button>
-                    </li>
+
+               
                 </ul>
             </div>
         </div>
         <!-- <div class=row>
             <div class="col-12">
                 <div class="area">
-                    <h2>Home - {{selectedFilter}}</h2>
+                    <h2>{{selectedFilter}}</h2>
 
                 </div>
             </div>

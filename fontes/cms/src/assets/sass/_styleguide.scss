@@ -11,12 +11,12 @@
   transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
     color 0.3s ease-in-out, -webkit-transform 0.1s ease-in-out;
   &.white {
-    border: 3px solidgetColor(_bupa, _white);
+    border: 1px solidgetColor(_bupa, _white);
     color: getColor(_bupa, _digital-cian);
     background-color:getColor(_bupa, _white);
 
     &:hover {
-      border: 3px solid #e6e6e6;
+      border: 1px solid #e6e6e6;
       background-color: #e6e6e6;
     }
 
@@ -28,35 +28,35 @@
     }
   }
   &.blue {
-    border: 3px solid getColor(_bupa, _digital-cian);
+    border: 1px solid getColor(_bupa, _digital-cian);
     color: getColor(_bupa, _white);
     background-color:getColor(_bupa, _digital-cian);
 
     &:hover {
-      border: 3px solid #00548c;
+      border: 1px solid #00548c;
       background-color: #00548c;
       color: #fff;
     }
 
     &:active {
-      border: 3px solid getColor(_bupa, _digital-cian);
+      border: 1px solid getColor(_bupa, _digital-cian);
       background-color: #004573;
       color: getColor(_bupa, _white);
       transform: scale(0.95);
     }
   }
   &.orange{
-    border: 3px solid getColor(_bupa, _digital-orange);
+    border: 1px solid getColor(_bupa, _digital-orange);
     color: getColor(_bupa, _white);
     background-color: getColor(_bupa, _digital-orange);
 
     &:hover {
-      border: 3px solid #992805;
+      border: 1px solid #992805;
       background-color: #992805;
     }
 
     &:active {
-      border: 3px solid rgba(219,57,7,.3);
+      border: 1px solid rgba(219,57,7,.3);
       background-color: #802104;
       transform: scale(0.95);
     }

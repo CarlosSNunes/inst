@@ -11,8 +11,8 @@
             </div>
             <div class="col-12">
                 <form [formGroup]="postsBlogForm" (ngSubmit)="onSubmit()">
-                    <tabset>
-                        <tab heading="1 - Conteúdo" id="tabConteudo" class="card shadow mb-5 p-3">
+                    <ng-wizard [config]="configBannerWin1" (stepChanged)="stepChanged($event)">
+                        <ng-wizard-step [title]="'1 - Conteúdo'">
                             <div class="row">
                                 <!-- <h5 class="col-12">1 - Conteúdo</h5> -->
                                 <div class="col-md-6">
@@ -57,34 +57,36 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <label class="label buttons-label">Destacar postagem na Home?</label>
                                             <div class="buttons">
+                                                <button type="button" class="btn blue"
+                                                [ngClass]="{'isSelected': isPostDestaque}"
+                                                (click)="changeStatusDestaque('1', true)">
+                                                Sim
+                                            </button>
                                                 <button type="button" class="btn blue"
                                                     [ngClass]="{'isSelected': !isPostDestaque}"
                                                     (click)="changeStatusDestaque('0', false)">
                                                     Não
                                                 </button>
-                                                <button type="button" class="btn blue"
-                                                    [ngClass]="{'isSelected': isPostDestaque}"
-                                                    (click)="changeStatusDestaque('1', true)">
-                                                    Sim
-                                                </button>
+                                               
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <label class="label buttons-label">Ativar Post?</label>
                                             <div class="buttons">
-                                                <button type="button" class="btn blue"
-                                                    [ngClass]="{'isSelected': !isPostAtivo}"
-                                                    (click)="changeStatusPost('0', false)">
-                                                    Não
-                                                </button>
                                                 <button type="button" class="btn blue"
                                                     [ngClass]="{'isSelected': isPostAtivo}"
                                                     (click)="changeStatusPost('1', true)">
                                                     Sim
                                                 </button>
+                                                <button type="button" class="btn blue"
+                                                    [ngClass]="{'isSelected': !isPostAtivo}"
+                                                    (click)="changeStatusPost('0', false)">
+                                                    Não
+                                                </button>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -119,8 +121,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </tab>
-                        <tab heading="2 - Opções" id="tabOpcoes" class="card shadow mb-5 p-3">
+                        </ng-wizard-step>
+                        <ng-wizard-step [title]="'2 - Opções'">
                             <div class="row">
                                 <!-- <h5 class="col-12">2 - Opções</h5> -->
                                 <div class="col-md-12">
@@ -164,8 +166,8 @@
 
 
                             </div>
-                        </tab>
-                        <tab heading="3 - SEO" id="tabSeo" class="card shadow  mb-5 p-3">
+                        </ng-wizard-step>
+                        <ng-wizard-step [title]="'3 - SEO'">
                             <div class="row">
                                 <!-- <h5 class="col-12">3 - SEO</h5> -->
                                 <div class="col-md-12">
@@ -184,9 +186,9 @@
                                     <textarea formControlName="descricaoPaginaSEO"
                                         [ngClass]="{ 'is-success': submitted && !f.descricaoPaginaSEO.errors, 'is-danger' : submitted && f.descricaoPaginaSEO.errors }"
                                         class="form-control textarea" placeholder="" rows="4"></textarea>
-                                        <p class="contador" [class.is-danger]="f.descricaoPaginaSEO.value.length > 200">
-                                            {{f.descricaoPaginaSEO.value.length}}/200
-                                        </p>
+                                    <p class="contador" [class.is-danger]="f.descricaoPaginaSEO.value.length > 200">
+                                        {{f.descricaoPaginaSEO.value.length}}/200
+                                    </p>
                                     <div *ngIf="submitted" class="errors">
                                         <p *ngFor="let error of getErrors(f.descricaoPaginaSEO)" class="help is-danger">
                                             {{error}}
@@ -215,8 +217,9 @@
                                     </button>
                                 </div>
                             </div>
-                        </tab>
-                    </tabset>
+                        </ng-wizard-step>
+                    </ng-wizard>
+                 
                 </form>
             </div>
         </div>

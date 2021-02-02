@@ -27,9 +27,10 @@
   }
   form {
     margin-top: 50px;
-    .areaBanner {
-      margin-top: 30px;
-    }
+    margin-bottom: 50px;
+    // .areaBanner {
+    //   padding: 40px;
+    // }
     .btn {
       padding: 10px 15px;
     }
@@ -42,6 +43,9 @@
       margin-top: 5px;
       font-size: getSize("sbm");
       color: #ff3e1d;
+    }
+    .card-crop{
+      margin-top: 30px;
     }
     .banner-perview {
       position: relative;
@@ -79,6 +83,10 @@
         width: 100%;
         z-index: 1;
       }
+    }
+    .form-check-input{
+      margin-top: 0;
+      margin-bottom: 3px;
     }
     .contador {
       font-size: getSize("p14") !important;

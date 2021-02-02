@@ -18,7 +18,7 @@
                 <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
                     <div class="buttons">
                         <button class="btn blue" type="submit">
-                            Salvar Tags
+                            Salvar todas as Tags
                         </button>
                         
                     </div>
@@ -28,22 +28,25 @@
                         </label>
                     </p>
                     <div *ngFor="let tag of tags.controls; let i=index" class="column" formArrayName="tags">
-                        <p>Nova Tag</p>
+                        <p>Tag</p>
                         <div [formGroupName]="i" class="field has-addons">
-                            <p class="control">
+                            <p class="control tag-name">
                                 <input formControlName="descricao" class="form-control input" type="text" placeholder=""
                                     [ngClass]="{ 'is-success': submitted && !tag.get('descricao').errors, 'is-danger' : submitted && tag.get('descricao').errors }">
                             </p>
                             <p *ngIf="tags.length > 1" class="control">
                                 <button type="button" class="btn orange remove-button" (click)="removeTag(i)">
-                                    remover tag
+                                    Remover Tag
                                 </button>
                             </p>
                         </div>
                     </div>
                     <div class="buttons">
+                        <button class="btn blue add-tag" type="submit">
+                            Salvar todas as Tags
+                        </button>
                         <button (click)="addTag()" class="btn blue add-tag" type="button">
-                            Adicionar Tag
+                            Nova Tag
                         </button>
                     </div>
                 </form>
