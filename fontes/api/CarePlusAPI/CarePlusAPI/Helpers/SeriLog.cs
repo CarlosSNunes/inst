@@ -92,23 +92,6 @@ namespace CarePlusAPI.Helpers
             Serilog.Log.CloseAndFlush();
         }
 
-        public static IConfiguration AppSettings()
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables();
-
-            IConfiguration _configuration = builder.Build();
-
-            IConfigurationSection appSettingsSection = _configuration.GetSection("AppSettings");
-
-
-
-            return appSettingsSection;
-        }
-
-
     }
 }
 

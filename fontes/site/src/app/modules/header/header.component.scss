@@ -163,7 +163,7 @@ nav.navbar:not(.is-home) {
                 margin: 0 auto;
                 min-width: 50px;
                 cursor: unset;
-                .slider {
+                .slider-header {
                     position: absolute;
                     bottom: -44px;
                     height: 44px;
@@ -256,7 +256,7 @@ nav.navbar:not(.is-home) {
                     }
                 }
                 &:hover {
-                    .slider {
+                    .slider-header {
                         display: flex;
                     }
                     .brightness {

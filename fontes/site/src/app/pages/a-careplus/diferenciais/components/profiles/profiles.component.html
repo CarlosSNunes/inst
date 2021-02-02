@@ -10,34 +10,40 @@
                         A Care Plus tem um diferencial para cada perfil
                     </h2>
                     <p class="sub-description">
-                        Conheça cada um dos nossos diferenciais e entenda porque você merece ter Care Plus. Selecione abaixo qual o seu perfil.
+                        Conheça cada um dos nossos diferenciais e entenda porque você merece ter Care Plus. Selecione
+                        abaixo qual o seu perfil.
                     </p>
                 </div>
             </div>
             <div class="columns tabs-columns">
                 <div class="column">
                     <ul class="tabs">
-                        <li class="tab-title" #firstTab [class.active]="selectedTab === 1" tabindex="0" (click)="activeTab(1, $event.target)" (keyup.enter)="activeTab(1, $event.target)">
+                        <li class="tab-title" #firstTab [class.active]="selectedTab === 1" tabindex="0"
+                            (click)="activeTab(1, $event.target)" (keyup.enter)="activeTab(1, $event.target)">
                             <a title="Todos">
                                 Todos
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 2" tabindex="0" (click)="activeTab(2, $event.target)" (keyup.enter)="activeTab(2, $event.target)">
+                        <li class="tab-title" [class.active]="selectedTab === 2" tabindex="0"
+                            (click)="activeTab(2, $event.target)" (keyup.enter)="activeTab(2, $event.target)">
                             <a title="Beneficiário">
                                 Beneficiário
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 3" tabindex="0" (click)="activeTab(3, $event.target)" (keyup.enter)="activeTab(3, $event.target)">
+                        <li class="tab-title" [class.active]="selectedTab === 3" tabindex="0"
+                            (click)="activeTab(3, $event.target)" (keyup.enter)="activeTab(3, $event.target)">
                             <a>
                                 RH
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 4" tabindex="0" (click)="activeTab(4, $event.target)" (keyup.enter)="activeTab(4, $event.target)">
+                        <li class="tab-title" [class.active]="selectedTab === 4" tabindex="0"
+                            (click)="activeTab(4, $event.target)" (keyup.enter)="activeTab(4, $event.target)">
                             <a>
                                 Corretor
                             </a>
                         </li>
-                        <li class="tab-title" [class.active]="selectedTab === 5" tabindex="0" (click)="activeTab(5, $event.target)" (keyup.enter)="activeTab(5, $event.target)">
+                        <li class="tab-title" [class.active]="selectedTab === 5" tabindex="0"
+                            (click)="activeTab(5, $event.target)" (keyup.enter)="activeTab(5, $event.target)">
                             <a title="Credenciado">
                                 Credenciado
                             </a>
@@ -49,19 +55,72 @@
             <div class="columns flex-wrap">
                 <div class="column is-full is-4-desktop column-profile" *ngFor="let card of filteredCards">
                     <app-card class="app-card">
-                        <div class="card-content">
+
+                        <!-- Card com link de rota interna -->
+                        <a class="card-content" *ngIf="card.routerLink" [routerLink]="[card.routerLink]"
+                            [fragment]="card.fragment">
+                            <div>
+                                <p class="card-title">
+                                    {{card?.title}}
+                                    <a class="next is-hidden-desktop" *ngIf="card?.button"
+                                        [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.title">
+                                        <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title"
+                                            [alt]="card?.title">
+                                    </a>
+                                </p>
+                                <p class="sub-description">
+                                    {{card?.description }}
+                                </p>
+                                <a class="btn btn-digital-cian tertiary arrow-right is-hidden-touch"
+                                    *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]"
+                                    [attr.title]="card?.button?.text">
+                                    {{
+                                    card?.button?.text
+                                    }}
+                                </a>
+                            </div>
+                        </a>
+
+                        <!-- Card com link externo -->
+                        <a class="card-content" *ngIf="card.href" [href]="card.href">
+                            <div>
+                                <p class="card-title">
+                                    {{card?.title}}
+                                    <a class="next is-hidden-desktop" *ngIf="card?.button"
+                                        [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.title">
+                                        <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title"
+                                            [alt]="card?.title">
+                                    </a>
+                                </p>
+                                <p class="sub-description">
+                                    {{card?.description }}
+                                </p>
+                                <a class="btn btn-digital-cian tertiary arrow-right is-hidden-touch"
+                                    *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]"
+                                    [attr.title]="card?.button?.text">
+                                    {{
+                                    card?.button?.text
+                                    }}
+                                </a>
+                            </div>
+                        </a>
+
+                        <!-- Card sem link -->
+                        <div *ngIf="!card.routerLink && !card.href" class="card-content">
                             <p class="card-title">
                                 {{card?.title}}
-                                <a class="next is-hidden-desktop" *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.title">
+                                <a class="next is-hidden-desktop" *ngIf="card?.button"
+                                    [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.title">
                                     <img src="assets/svg/arrow-left.svg" [attr.alt]="card?.title" [alt]="card?.title">
                                 </a>
                             </p>
                             <p class="sub-description">
                                 {{card?.description }}
                             </p>
-                            <a class="btn btn-digital-cian tertiary arrow-right is-hidden-touch" *ngIf="card?.button" [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.button?.text">
+                            <a class="btn btn-digital-cian tertiary arrow-right is-hidden-touch" *ngIf="card?.button"
+                                [routerLink]="[card?.button?.routerLink]" [attr.title]="card?.button?.text">
                                 {{
-                                    card?.button?.text
+                                card?.button?.text
                                 }}
                             </a>
                         </div>
