@@ -49,12 +49,17 @@ section#materials {
                         color: getColor(_bupa, _digital-cian);
                         display: flex;
                         span {
+                            height: 17px;
                             margin-left: 10px;
                             align-self: center;
+
+                            svg {
+                                height: 17px;
+                            }
                         }
                     }
                 }
-                 ::ng-deep .app-card {
+                ::ng-deep .app-card {
                     .content {
                         .card.default {
                             padding: 25px 16px;
