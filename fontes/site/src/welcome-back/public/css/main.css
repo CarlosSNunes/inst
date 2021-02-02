@@ -763,13 +763,8 @@ footer {
 footer:before {
   content: "";
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-  background: #b3d59c;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#0079c8), color-stop(60%, #0079c8), color-stop(60%, #007777), color-stop(80%, #007777), color-stop(80%, #b3d59c), to(#b3d59c));
-  background: linear-gradient(to right, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#CDECFD), to(#0079C8));
+  background: linear-gradient(to right, #CDECFD 0%, #0079C8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c8', endColorstr='#b3d59c',GradientType=1 );
   /* IE6-9 */
   display: block;
@@ -780,75 +775,75 @@ footer:before {
   left: 0;
 }
 
-/* line 19, src/scss/includes/footer.scss */
+/* line 17, src/scss/includes/footer.scss */
 footer p {
   font-size: 0.75rem;
   line-height: 150%;
   margin-bottom: 0;
 }
 
-/* line 24, src/scss/includes/footer.scss */
+/* line 22, src/scss/includes/footer.scss */
 footer .col-app {
   text-align: right;
 }
 
-/* line 26, src/scss/includes/footer.scss */
+/* line 24, src/scss/includes/footer.scss */
 footer .col-app span {
   font-size: 1rem;
   line-height: 150%;
   padding-right: 60px;
 }
 
-/* line 31, src/scss/includes/footer.scss */
+/* line 29, src/scss/includes/footer.scss */
 footer .col-app a:first-of-type {
   margin-right: 30px;
 }
 
-/* line 32, src/scss/includes/footer.scss */
+/* line 30, src/scss/includes/footer.scss */
 footer .col-app img {
   width: 121px;
 }
 
 /*==================== MEDIA QUERIES ==================================*/
 @media (min-width: 1200px) {
-  /* line 40, src/scss/includes/footer.scss */
+  /* line 38, src/scss/includes/footer.scss */
   footer .container {
     max-width: 1300px;
   }
 }
 
 @media (max-width: 1199.98px) {
-  /* line 49, src/scss/includes/footer.scss */
+  /* line 47, src/scss/includes/footer.scss */
   footer p {
     margin-top: 11px;
   }
-  /* line 53, src/scss/includes/footer.scss */
+  /* line 51, src/scss/includes/footer.scss */
   footer .col-app span {
     padding-right: 22px;
   }
-  /* line 56, src/scss/includes/footer.scss */
+  /* line 54, src/scss/includes/footer.scss */
   footer .col-app a:first-of-type {
     margin-right: 1px;
   }
 }
 
 @media (max-width: 991.98px) {
-  /* line 64, src/scss/includes/footer.scss */
+  /* line 62, src/scss/includes/footer.scss */
   footer .col-app {
     text-align: center;
     margin-bottom: 30px;
   }
-  /* line 67, src/scss/includes/footer.scss */
+  /* line 65, src/scss/includes/footer.scss */
   footer .col-app span {
     display: block;
     padding: 0 0 10px;
   }
-  /* line 71, src/scss/includes/footer.scss */
+  /* line 69, src/scss/includes/footer.scss */
   footer .col-app a:first-of-type {
     float: left;
     margin-left: 15%;
   }
-  /* line 75, src/scss/includes/footer.scss */
+  /* line 73, src/scss/includes/footer.scss */
   footer .col-app a:last-of-type {
     float: right;
     margin-right: 15%;
@@ -856,11 +851,11 @@ footer .col-app img {
 }
 
 @media (max-width: 575.98px) {
-  /* line 92, src/scss/includes/footer.scss */
+  /* line 90, src/scss/includes/footer.scss */
   footer .col-app a:first-of-type {
     margin-left: 5%;
   }
-  /* line 95, src/scss/includes/footer.scss */
+  /* line 93, src/scss/includes/footer.scss */
   footer .col-app a:last-of-type {
     margin-right: 5%;
   }
@@ -943,13 +938,8 @@ footer .col-app img {
 /* line 51, src/scss/pages/home.scss */
 #welcome .grafismo {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-  background: #b3d59c;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#b3d59c), color-stop(20%, #b3d59c), color-stop(20%, #007777), color-stop(40%, #007777), color-stop(40%, #0079c8), to(#0079c8));
-  background: linear-gradient(to right, #b3d59c 0%, #b3d59c 20%, #007777 20%, #007777 40%, #0079c8 40%, #0079c8 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#CDECFD), to(#0079C8));
+  background: linear-gradient(to right, #CDECFD 0%, #0079C8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3d59c', endColorstr='#0079c8',GradientType=1 );
   /* IE6-9 */
   height: 4px;
@@ -958,7 +948,7 @@ footer .col-app img {
   margin-top: 13px;
 }
 
-/* line 64, src/scss/pages/home.scss */
+/* line 62, src/scss/pages/home.scss */
 #welcome ul li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -970,12 +960,12 @@ footer .col-app img {
   margin-bottom: 40px;
 }
 
-/* line 69, src/scss/pages/home.scss */
+/* line 67, src/scss/pages/home.scss */
 #welcome ul li:last-of-type {
   margin-bottom: 0;
 }
 
-/* line 70, src/scss/pages/home.scss */
+/* line 68, src/scss/pages/home.scss */
 #welcome ul li span {
   color: #00335B;
   font-size: 1.875rem;
@@ -989,7 +979,7 @@ footer .col-app img {
           justify-content: center;
 }
 
-/* line 82, src/scss/pages/home.scss */
+/* line 80, src/scss/pages/home.scss */
 #conseguimos .banner {
   background: url("../img/banner-conseguimos.jpg") no-repeat center top/cover;
   height: 450px;
@@ -1010,28 +1000,23 @@ footer .col-app img {
   position: relative;
 }
 
-/* line 91, src/scss/pages/home.scss */
+/* line 89, src/scss/pages/home.scss */
 #conseguimos .banner .title2 {
   color: #ffffff;
   font-size: 3rem;
 }
 
-/* line 95, src/scss/pages/home.scss */
+/* line 93, src/scss/pages/home.scss */
 #conseguimos .banner .title3 {
   color: #ffffff;
   margin-bottom: 0;
 }
 
-/* line 99, src/scss/pages/home.scss */
+/* line 97, src/scss/pages/home.scss */
 #conseguimos .banner .grafismo {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-  background: #b3d59c;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#b3d59c), color-stop(20%, #b3d59c), color-stop(20%, #007777), color-stop(40%, #007777), color-stop(40%, #0079c8), to(#0079c8));
-  background: linear-gradient(to right, #b3d59c 0%, #b3d59c 20%, #007777 20%, #007777 40%, #0079c8 40%, #0079c8 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#CDECFD), to(#0079C8));
+  background: linear-gradient(to right, #CDECFD 0%, #0079C8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3d59c', endColorstr='#0079c8',GradientType=1 );
   /* IE6-9 */
   height: 6px;
@@ -1041,12 +1026,12 @@ footer .col-app img {
   bottom: 0;
 }
 
-/* line 114, src/scss/pages/home.scss */
+/* line 110, src/scss/pages/home.scss */
 #videos {
   padding-top: 100px;
 }
 
-/* line 116, src/scss/pages/home.scss */
+/* line 112, src/scss/pages/home.scss */
 #videos .bg {
   background: #0079c8;
   background: -webkit-gradient(linear, left top, right top, from(rgba(0, 121, 200, 0)), color-stop(60%, rgba(0, 121, 200, 0)), color-stop(60%, rgba(0, 121, 200, 0.1)), to(rgba(0, 121, 200, 0.1)));
@@ -1054,28 +1039,28 @@ footer .col-app img {
   padding: 100px 0;
 }
 
-/* line 120, src/scss/pages/home.scss */
+/* line 116, src/scss/pages/home.scss */
 #videos .bg .container-fluid, #videos .bg .row {
   height: 100%;
 }
 
-/* line 124, src/scss/pages/home.scss */
+/* line 120, src/scss/pages/home.scss */
 #videos .bg .slider-videos .item {
   padding: 0 15px;
 }
 
-/* line 126, src/scss/pages/home.scss */
+/* line 122, src/scss/pages/home.scss */
 #videos .bg .slider-videos .item .abre-video {
   display: block;
   position: relative;
 }
 
-/* line 129, src/scss/pages/home.scss */
+/* line 125, src/scss/pages/home.scss */
 #videos .bg .slider-videos .item .abre-video .img-fluid {
   width: 100%;
 }
 
-/* line 132, src/scss/pages/home.scss */
+/* line 128, src/scss/pages/home.scss */
 #videos .bg .slider-videos .item .abre-video h4 {
   color: #ffffff;
   font-weight: 500;
@@ -1088,7 +1073,7 @@ footer .col-app img {
   z-index: 2;
 }
 
-/* line 143, src/scss/pages/home.scss */
+/* line 139, src/scss/pages/home.scss */
 #videos .bg .slider-videos .item .abre-video .play {
   position: absolute;
   left: calc(50% - 36.5px);
@@ -1106,16 +1091,11 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 150, src/scss/pages/home.scss */
+/* line 146, src/scss/pages/home.scss */
 #videos .bg .slider-videos .item .abre-video .faixa {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-  background: #b3d59c;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#0079c8), color-stop(60%, #0079c8), color-stop(60%, #007777), color-stop(80%, #007777), color-stop(80%, #b3d59c), to(#b3d59c));
-  background: linear-gradient(to right, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#CDECFD), to(#0079C8));
+  background: linear-gradient(to right, #CDECFD 0%, #0079C8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c8', endColorstr='#b3d59c',GradientType=1 );
   /* IE6-9 */
   height: 6px;
@@ -1125,24 +1105,24 @@ footer .col-app img {
   bottom: 0;
 }
 
-/* line 164, src/scss/pages/home.scss */
+/* line 158, src/scss/pages/home.scss */
 #videos .bg .slider-videos .item .abre-video:hover .play, #videos .bg .slider-videos .item .abre-video:focus .play {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
 }
 
-/* line 170, src/scss/pages/home.scss */
+/* line 164, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-list {
   padding-left: 0 !important;
 }
 
-/* line 173, src/scss/pages/home.scss */
+/* line 167, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow {
   top: calc(100% + 30px);
 }
 
-/* line 175, src/scss/pages/home.scss */
+/* line 169, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-prev {
   left: 15px;
   border: 1px solid #0079C8;
@@ -1170,7 +1150,7 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 185, src/scss/pages/home.scss */
+/* line 179, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-prev:before {
   color: #0079C8;
   content: "\e906";
@@ -1189,17 +1169,17 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 193, src/scss/pages/home.scss */
+/* line 187, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-prev:hover {
   border-color: #00335B;
 }
 
-/* line 195, src/scss/pages/home.scss */
+/* line 189, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-prev:hover:before {
   color: #00335B;
 }
 
-/* line 200, src/scss/pages/home.scss */
+/* line 194, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-next {
   right: auto;
   left: 70px;
@@ -1228,7 +1208,7 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 211, src/scss/pages/home.scss */
+/* line 205, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-next:before {
   color: #0079C8;
   content: "\e907";
@@ -1247,22 +1227,22 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 219, src/scss/pages/home.scss */
+/* line 213, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-next:hover {
   border-color: #00335B;
 }
 
-/* line 221, src/scss/pages/home.scss */
+/* line 215, src/scss/pages/home.scss */
 #videos .bg .slider-videos .slick-arrow.slick-next:hover:before {
   color: #00335B;
 }
 
-/* line 230, src/scss/pages/home.scss */
+/* line 224, src/scss/pages/home.scss */
 #orientacoesColaboradores {
   padding: 110px 0;
 }
 
-/* line 232, src/scss/pages/home.scss */
+/* line 226, src/scss/pages/home.scss */
 #orientacoesColaboradores h4 {
   color: #0079C8;
   font-weight: 500;
@@ -1270,7 +1250,7 @@ footer .col-app img {
   line-height: 120%;
 }
 
-/* line 238, src/scss/pages/home.scss */
+/* line 232, src/scss/pages/home.scss */
 #orientacoesColaboradores .title2 {
   margin-bottom: 32px;
   font-style: normal;
@@ -1279,20 +1259,20 @@ footer .col-app img {
   line-height: 120%;
 }
 
-/* line 245, src/scss/pages/home.scss */
+/* line 239, src/scss/pages/home.scss */
 #orientacoesColaboradores p {
   font-size: 1rem;
   line-height: 200%;
   margin-bottom: 48px;
 }
 
-/* line 251, src/scss/pages/home.scss */
+/* line 245, src/scss/pages/home.scss */
 #orientacoesRh {
   background-color: rgba(0, 121, 200, 0.05);
   padding: 110px 0;
 }
 
-/* line 254, src/scss/pages/home.scss */
+/* line 248, src/scss/pages/home.scss */
 #orientacoesRh h4 {
   color: #0079C8;
   font-weight: 500;
@@ -1300,7 +1280,7 @@ footer .col-app img {
   line-height: 120%;
 }
 
-/* line 260, src/scss/pages/home.scss */
+/* line 254, src/scss/pages/home.scss */
 #orientacoesRh .title2 {
   margin-bottom: 32px;
   font-style: normal;
@@ -1309,19 +1289,19 @@ footer .col-app img {
   line-height: 120%;
 }
 
-/* line 267, src/scss/pages/home.scss */
+/* line 261, src/scss/pages/home.scss */
 #orientacoesRh p {
   font-size: 1rem;
   line-height: 200%;
   margin-bottom: 48px;
 }
 
-/* line 273, src/scss/pages/home.scss */
+/* line 267, src/scss/pages/home.scss */
 #apoio {
   padding: 110px 0;
 }
 
-/* line 275, src/scss/pages/home.scss */
+/* line 269, src/scss/pages/home.scss */
 #apoio .title1 {
   text-align: center;
   margin-bottom: 60px;
@@ -1331,17 +1311,12 @@ footer .col-app img {
   line-height: 120%;
 }
 
-/* line 282, src/scss/pages/home.scss */
+/* line 276, src/scss/pages/home.scss */
 #apoio .title1:after {
   content: "";
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-  background: #b3d59c;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#0079c8), color-stop(60%, #0079c8), color-stop(60%, #007777), color-stop(80%, #007777), color-stop(80%, #b3d59c), to(#b3d59c));
-  background: linear-gradient(to right, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#CDECFD), to(#0079C8));
+  background: linear-gradient(to right, #CDECFD 0%, #0079C8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c8', endColorstr='#b3d59c',GradientType=1 );
   /* IE6-9 */
   display: block;
@@ -1350,7 +1325,7 @@ footer .col-app img {
   margin: 20px auto 0;
 }
 
-/* line 297, src/scss/pages/home.scss */
+/* line 289, src/scss/pages/home.scss */
 #apoio .slider-apoio .box-apoio {
   background-color: #ffffff;
   border: 1px solid #C9C9C9;
@@ -1379,7 +1354,7 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 307, src/scss/pages/home.scss */
+/* line 299, src/scss/pages/home.scss */
 #apoio .slider-apoio .box-apoio .title {
   color: #00335B;
   font-size: 1.25rem;
@@ -1396,7 +1371,7 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 313, src/scss/pages/home.scss */
+/* line 305, src/scss/pages/home.scss */
 #apoio .slider-apoio .box-apoio .download {
   color: #00335b;
   font-weight: 600;
@@ -1415,12 +1390,12 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 320, src/scss/pages/home.scss */
+/* line 312, src/scss/pages/home.scss */
 #apoio .slider-apoio .box-apoio .download span {
   margin-left: 8px;
 }
 
-/* line 322, src/scss/pages/home.scss */
+/* line 314, src/scss/pages/home.scss */
 #apoio .slider-apoio .box-apoio:hover, #apoio .slider-apoio .box-apoio:focus {
   background-color: #0079C8;
   border-color: #0079C8;
@@ -1428,18 +1403,18 @@ footer .col-app img {
   outline: none;
 }
 
-/* line 327, src/scss/pages/home.scss */
+/* line 319, src/scss/pages/home.scss */
 #apoio .slider-apoio .box-apoio:hover .title, #apoio .slider-apoio .box-apoio:hover .download, #apoio .slider-apoio .box-apoio:focus .title, #apoio .slider-apoio .box-apoio:focus .download {
   color: #ffffff;
 }
 
-/* line 330, src/scss/pages/home.scss */
+/* line 322, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow {
   top: 100%;
   z-index: 2;
 }
 
-/* line 333, src/scss/pages/home.scss */
+/* line 325, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-prev {
   left: 0;
   border: 1px solid #0079C8;
@@ -1467,7 +1442,7 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 343, src/scss/pages/home.scss */
+/* line 335, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-prev:before {
   color: #0079C8;
   content: "\e906";
@@ -1486,17 +1461,17 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 351, src/scss/pages/home.scss */
+/* line 343, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-prev:hover {
   border-color: #00335B;
 }
 
-/* line 353, src/scss/pages/home.scss */
+/* line 345, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-prev:hover:before {
   color: #00335B;
 }
 
-/* line 358, src/scss/pages/home.scss */
+/* line 350, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-next {
   right: 0;
   border: 1px solid #0079C8;
@@ -1524,7 +1499,7 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 368, src/scss/pages/home.scss */
+/* line 360, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-next:before {
   color: #0079C8;
   content: "\e907";
@@ -1543,33 +1518,33 @@ footer .col-app img {
           transition-delay: 0s;
 }
 
-/* line 376, src/scss/pages/home.scss */
+/* line 368, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-next:hover {
   border-color: #00335B;
 }
 
-/* line 378, src/scss/pages/home.scss */
+/* line 370, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-next:hover:before {
   color: #00335B;
 }
 
-/* line 383, src/scss/pages/home.scss */
+/* line 375, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-disabled {
   border-color: #A8A7A4;
   pointer-events: none;
 }
 
-/* line 386, src/scss/pages/home.scss */
+/* line 378, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-arrow.slick-disabled:before {
   color: #A8A7A4;
 }
 
-/* line 389, src/scss/pages/home.scss */
+/* line 381, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-dots {
   bottom: -13px;
 }
 
-/* line 391, src/scss/pages/home.scss */
+/* line 383, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-dots button {
   font-size: 0;
   line-height: 0;
@@ -1584,17 +1559,17 @@ footer .col-app img {
   background-color: transparent;
 }
 
-/* line 403, src/scss/pages/home.scss */
+/* line 395, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-dots button:before {
   display: none;
 }
 
-/* line 406, src/scss/pages/home.scss */
+/* line 398, src/scss/pages/home.scss */
 #apoio .slider-apoio .slick-dots .slick-active button {
   background-color: #0079C8;
 }
 
-/* line 414, src/scss/pages/home.scss */
+/* line 406, src/scss/pages/home.scss */
 #corona .banner-corona {
   background-color: rgba(0, 121, 200, 0.05);
   display: -webkit-box;
@@ -1610,12 +1585,12 @@ footer .col-app img {
   position: relative;
 }
 
-/* line 421, src/scss/pages/home.scss */
+/* line 413, src/scss/pages/home.scss */
 #corona .banner-corona .texto {
   max-width: 50%;
 }
 
-/* line 423, src/scss/pages/home.scss */
+/* line 415, src/scss/pages/home.scss */
 #corona .banner-corona .texto h4 {
   color: #0079C8;
   font-weight: 500;
@@ -1624,21 +1599,16 @@ footer .col-app img {
   margin: 0;
 }
 
-/* line 430, src/scss/pages/home.scss */
+/* line 422, src/scss/pages/home.scss */
 #corona .banner-corona .texto p {
   margin: 0;
 }
 
-/* line 435, src/scss/pages/home.scss */
+/* line 427, src/scss/pages/home.scss */
 #corona .faixa {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-  background: #b3d59c;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#0079c8), color-stop(60%, #0079c8), color-stop(60%, #007777), color-stop(80%, #007777), color-stop(80%, #b3d59c), to(#b3d59c));
-  background: linear-gradient(to right, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#CDECFD), to(#0079C8));
+  background: linear-gradient(to right, #CDECFD 0%, #0079C8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c8', endColorstr='#b3d59c',GradientType=1 );
   /* IE6-9 */
   height: 4.5px;
@@ -1648,12 +1618,12 @@ footer .col-app img {
   bottom: 0;
 }
 
-/* line 449, src/scss/pages/home.scss */
+/* line 439, src/scss/pages/home.scss */
 #faq {
   padding: 110px 0;
 }
 
-/* line 451, src/scss/pages/home.scss */
+/* line 441, src/scss/pages/home.scss */
 #faq .title1 {
   text-align: center;
   margin-bottom: 60px;
@@ -1663,17 +1633,12 @@ footer .col-app img {
   line-height: 120%;
 }
 
-/* line 458, src/scss/pages/home.scss */
+/* line 448, src/scss/pages/home.scss */
 #faq .title1:after {
   content: "";
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
-  background: #b3d59c;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#0079c8), color-stop(60%, #0079c8), color-stop(60%, #007777), color-stop(80%, #007777), color-stop(80%, #b3d59c), to(#b3d59c));
-  background: linear-gradient(to right, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -webkit-gradient(linear, left top, right top, from(#CDECFD), to(#0079C8));
+  background: linear-gradient(to right, #CDECFD 0%, #0079C8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c8', endColorstr='#b3d59c',GradientType=1 );
   /* IE6-9 */
   display: block;
@@ -1682,7 +1647,7 @@ footer .col-app img {
   margin: 20px auto 0;
 }
 
-/* line 473, src/scss/pages/home.scss */
+/* line 461, src/scss/pages/home.scss */
 #faq .card h3 {
   background-color: rgba(0, 121, 200, 0.1);
   border-left: 3px solid #0079C8;
@@ -1696,7 +1661,7 @@ footer .col-app img {
   position: relative;
 }
 
-/* line 484, src/scss/pages/home.scss */
+/* line 472, src/scss/pages/home.scss */
 #faq .card h3:after {
   content: "\e90a";
   font-family: 'icomoon' !important;
@@ -1707,32 +1672,32 @@ footer .col-app img {
   top: calc(50% - 8.5px);
 }
 
-/* line 493, src/scss/pages/home.scss */
+/* line 481, src/scss/pages/home.scss */
 #faq .card h3.collapsed {
   background-color: transparent;
   border-left: none;
   color: #333333;
 }
 
-/* line 497, src/scss/pages/home.scss */
+/* line 485, src/scss/pages/home.scss */
 #faq .card h3.collapsed:after {
   content: "\e909";
   color: #333333;
 }
 
-/* line 503, src/scss/pages/home.scss */
+/* line 491, src/scss/pages/home.scss */
 #faq .card .inner {
   padding: 0 22px 22px;
 }
 
-/* line 505, src/scss/pages/home.scss */
+/* line 493, src/scss/pages/home.scss */
 #faq .card .inner ul {
   padding-top: 0;
   margin-top: 0;
   padding-bottom: 30px;
 }
 
-/* line 510, src/scss/pages/home.scss */
+/* line 498, src/scss/pages/home.scss */
 #faq .card .inner ul li {
   font-style: normal;
   font-weight: 400;
@@ -1742,14 +1707,14 @@ footer .col-app img {
   color: grey;
 }
 
-/* line 520, src/scss/pages/home.scss */
+/* line 508, src/scss/pages/home.scss */
 #faq .card .resposta {
   background-color: rgba(0, 121, 200, 0.1);
   border-left: 3px solid #0079C8;
   margin: 0;
 }
 
-/* line 524, src/scss/pages/home.scss */
+/* line 512, src/scss/pages/home.scss */
 #faq .card .resposta p {
   line-height: 150%;
   font-weight: 400;
@@ -1759,30 +1724,30 @@ footer .col-app img {
   color: grey;
 }
 
-/* line 531, src/scss/pages/home.scss */
+/* line 519, src/scss/pages/home.scss */
 #faq .card .resposta p:last-of-type {
   margin-bottom: 30px;
 }
 
-/* line 535, src/scss/pages/home.scss */
+/* line 523, src/scss/pages/home.scss */
 #faq .card .resposta ul {
   list-style: outside disc;
   margin-bottom: 20px;
   padding-left: 30px;
 }
 
-/* line 539, src/scss/pages/home.scss */
+/* line 527, src/scss/pages/home.scss */
 #faq .card .resposta ul li {
   color: #808080;
   line-height: 210%;
 }
 
-/* line 547, src/scss/pages/home.scss */
+/* line 535, src/scss/pages/home.scss */
 #referencias {
   padding: 110px 0;
 }
 
-/* line 549, src/scss/pages/home.scss */
+/* line 537, src/scss/pages/home.scss */
 #referencias h4 {
   color: #0079C8;
   font-weight: 500;
@@ -1791,7 +1756,7 @@ footer .col-app img {
   text-transform: uppercase;
 }
 
-/* line 556, src/scss/pages/home.scss */
+/* line 544, src/scss/pages/home.scss */
 #referencias .title2 {
   margin-bottom: 32px;
   font-style: normal;
@@ -1800,19 +1765,19 @@ footer .col-app img {
   line-height: 120%;
 }
 
-/* line 563, src/scss/pages/home.scss */
+/* line 551, src/scss/pages/home.scss */
 #referencias p {
   font-size: 1rem;
   line-height: 200%;
   margin-bottom: 48px;
 }
 
-/* line 568, src/scss/pages/home.scss */
+/* line 556, src/scss/pages/home.scss */
 #referencias .img-fluid {
   max-width: 400px;
 }
 
-/* line 572, src/scss/pages/home.scss */
+/* line 560, src/scss/pages/home.scss */
 #referencias .items li {
   padding-left: 2.1875rem;
   position: relative;
@@ -1824,7 +1789,7 @@ footer .col-app img {
   color: #333333;
 }
 
-/* line 581, src/scss/pages/home.scss */
+/* line 569, src/scss/pages/home.scss */
 #referencias .items li:before {
   position: absolute;
   top: 0;
@@ -1840,11 +1805,11 @@ footer .col-app img {
 
 /*==================== MEDIA QUERIES ==================================*/
 @media (min-width: 1400px) {
-  /* line 600, src/scss/pages/home.scss */
+  /* line 588, src/scss/pages/home.scss */
   #banner {
     background-size: cover;
   }
-  /* line 604, src/scss/pages/home.scss */
+  /* line 592, src/scss/pages/home.scss */
   #videos .container-fluid {
     padding-left: calc((100% - 1110px) / 2);
     padding-right: 0;
@@ -1852,7 +1817,7 @@ footer .col-app img {
 }
 
 @media (max-width: 1399.98px) {
-  /* line 614, src/scss/pages/home.scss */
+  /* line 602, src/scss/pages/home.scss */
   #videos .container-fluid {
     padding-left: calc((100% - 1110px) / 2);
     padding-right: 0;
@@ -1860,15 +1825,15 @@ footer .col-app img {
 }
 
 @media (max-width: 1199.98px) {
-  /* line 623, src/scss/pages/home.scss */
+  /* line 611, src/scss/pages/home.scss */
   #banner {
     background-position: 75% 0;
   }
-  /* line 625, src/scss/pages/home.scss */
+  /* line 613, src/scss/pages/home.scss */
   #banner .btn {
     font-size: 0.875rem;
   }
-  /* line 630, src/scss/pages/home.scss */
+  /* line 618, src/scss/pages/home.scss */
   #videos .container-fluid {
     padding-left: calc((100% - 930px) / 2);
     padding-right: 0;
@@ -1876,141 +1841,141 @@ footer .col-app img {
 }
 
 @media (max-width: 991.98px) {
-  /* line 639, src/scss/pages/home.scss */
+  /* line 627, src/scss/pages/home.scss */
   #banner {
     background-position: 90% 0;
     padding-top: 0;
   }
-  /* line 642, src/scss/pages/home.scss */
+  /* line 630, src/scss/pages/home.scss */
   #banner .degrade-mobile {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(38, 50, 56, 0)), to(#263238));
     background: linear-gradient(180deg, rgba(38, 50, 56, 0) 0%, #263238 100%);
     padding-top: 100px;
   }
-  /* line 646, src/scss/pages/home.scss */
+  /* line 634, src/scss/pages/home.scss */
   #banner .title1, #banner .title3 {
     color: #ffffff;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  /* line 650, src/scss/pages/home.scss */
+  /* line 638, src/scss/pages/home.scss */
   #banner .mouse {
     border: 2px solid #ffffff;
   }
-  /* line 652, src/scss/pages/home.scss */
+  /* line 640, src/scss/pages/home.scss */
   #banner .mouse span {
     background-color: #ffffff;
   }
-  /* line 658, src/scss/pages/home.scss */
+  /* line 646, src/scss/pages/home.scss */
   #welcome .grafismo {
     margin: 23px 0 40px;
   }
-  /* line 663, src/scss/pages/home.scss */
+  /* line 651, src/scss/pages/home.scss */
   #conseguimos .banner {
     height: 370px;
   }
-  /* line 668, src/scss/pages/home.scss */
+  /* line 656, src/scss/pages/home.scss */
   #videos .container-fluid {
     padding-left: calc((100% - 690px) / 2);
     padding-right: 0;
   }
-  /* line 672, src/scss/pages/home.scss */
+  /* line 660, src/scss/pages/home.scss */
   #videos .link-seta {
     font-size: 0.75rem;
   }
-  /* line 674, src/scss/pages/home.scss */
+  /* line 662, src/scss/pages/home.scss */
   #videos .slider-videos .item {
     padding: 0 10px;
   }
-  /* line 680, src/scss/pages/home.scss */
+  /* line 668, src/scss/pages/home.scss */
   #orientacoesColaboradores img, #orientacoesRh img {
     margin: 0 auto 40px;
   }
-  /* line 686, src/scss/pages/home.scss */
+  /* line 674, src/scss/pages/home.scss */
   #apoio .slider-apoio .box-apoio {
     padding: 10px;
     height: 140px;
     margin-bottom: 24px;
   }
-  /* line 690, src/scss/pages/home.scss */
+  /* line 678, src/scss/pages/home.scss */
   #apoio .slider-apoio .box-apoio .title {
     font-size: 1.25rem;
   }
-  /* line 693, src/scss/pages/home.scss */
+  /* line 681, src/scss/pages/home.scss */
   #apoio .slider-apoio .box-apoio .download {
     font-weight: 500;
     font-size: 0.625rem;
   }
-  /* line 700, src/scss/pages/home.scss */
+  /* line 688, src/scss/pages/home.scss */
   #corona {
     background-color: rgba(0, 121, 200, 0.05);
     position: relative;
   }
-  /* line 703, src/scss/pages/home.scss */
+  /* line 691, src/scss/pages/home.scss */
   #corona .banner-corona {
     background-color: transparent;
     display: block;
     padding: 80px 0;
   }
-  /* line 707, src/scss/pages/home.scss */
+  /* line 695, src/scss/pages/home.scss */
   #corona .banner-corona .texto {
     max-width: 100%;
   }
-  /* line 709, src/scss/pages/home.scss */
+  /* line 697, src/scss/pages/home.scss */
   #corona .banner-corona .texto p {
     margin: 0 0 40px;
   }
-  /* line 713, src/scss/pages/home.scss */
+  /* line 701, src/scss/pages/home.scss */
   #corona .banner-corona .link-seta {
     font-size: 0.875rem;
   }
-  /* line 717, src/scss/pages/home.scss */
+  /* line 705, src/scss/pages/home.scss */
   #referencias .items {
     margin-top: 1.5rem;
   }
-  /* line 719, src/scss/pages/home.scss */
+  /* line 707, src/scss/pages/home.scss */
   #referencias .items li {
     padding-left: 1.375rem;
   }
-  /* line 724, src/scss/pages/home.scss */
+  /* line 712, src/scss/pages/home.scss */
   .socialBox {
     display: none;
   }
 }
 
 @media (max-width: 767.98px) {
-  /* line 729, src/scss/pages/home.scss */
+  /* line 717, src/scss/pages/home.scss */
   #banner {
     background: url("../img/banner-mobile.jpg") no-repeat center top;
     background-attachment: fixed;
     height: 814px;
   }
-  /* line 733, src/scss/pages/home.scss */
+  /* line 721, src/scss/pages/home.scss */
   #banner .link-seta {
     color: #ffffff;
     line-height: 200%;
   }
-  /* line 736, src/scss/pages/home.scss */
+  /* line 724, src/scss/pages/home.scss */
   #banner .link-seta:hover, #banner .link-seta:active {
     color: #ffffff;
   }
-  /* line 742, src/scss/pages/home.scss */
+  /* line 730, src/scss/pages/home.scss */
   #videos .title2 {
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
     line-height: 120%;
   }
-  /* line 748, src/scss/pages/home.scss */
+  /* line 736, src/scss/pages/home.scss */
   #videos .container-fluid {
     padding-left: calc((100% - 510px) / 2);
     padding-right: 0;
   }
-  /* line 752, src/scss/pages/home.scss */
+  /* line 740, src/scss/pages/home.scss */
   #videos .bg {
     background: #ffffff;
     padding: 0;
   }
-  /* line 756, src/scss/pages/home.scss */
+  /* line 744, src/scss/pages/home.scss */
   #videos .slider-videos {
     background: #0079c8;
     background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 121, 200, 0)), color-stop(10%, rgba(0, 121, 200, 0)), color-stop(10%, rgba(0, 121, 200, 0.1)), color-stop(90%, rgba(0, 121, 200, 0.1)), color-stop(90%, rgba(0, 121, 200, 0)), to(rgba(0, 121, 200, 0)));
@@ -2018,73 +1983,73 @@ footer .col-app img {
     margin-left: -15px;
     margin-top: 30px;
   }
-  /* line 764, src/scss/pages/home.scss */
+  /* line 752, src/scss/pages/home.scss */
   #orientacoesColaboradores img, #orientacoesRh img {
     width: 80%;
   }
 }
 
 @media (max-width: 575.98px) {
-  /* line 772, src/scss/pages/home.scss */
+  /* line 760, src/scss/pages/home.scss */
   #banner {
     height: 100vh;
   }
-  /* line 774, src/scss/pages/home.scss */
+  /* line 762, src/scss/pages/home.scss */
   #banner .link-seta {
     font-size: 0.75rem;
   }
-  /* line 778, src/scss/pages/home.scss */
+  /* line 766, src/scss/pages/home.scss */
   #welcome {
     padding: 80px 0;
   }
-  /* line 782, src/scss/pages/home.scss */
+  /* line 770, src/scss/pages/home.scss */
   #conseguimos .banner {
     background: url("../img/banner-conseguimos-mobile.jpg") no-repeat center top;
     height: 412px;
   }
-  /* line 785, src/scss/pages/home.scss */
+  /* line 773, src/scss/pages/home.scss */
   #conseguimos .banner .title2 {
     font-size: 2rem;
   }
-  /* line 788, src/scss/pages/home.scss */
+  /* line 776, src/scss/pages/home.scss */
   #conseguimos .banner .title3 {
     padding: 0 30px;
   }
-  /* line 791, src/scss/pages/home.scss */
+  /* line 779, src/scss/pages/home.scss */
   #videos {
     padding-top: 80px;
   }
-  /* line 793, src/scss/pages/home.scss */
+  /* line 781, src/scss/pages/home.scss */
   #videos .container-fluid {
     padding-left: 15px;
     padding-right: 0;
   }
-  /* line 797, src/scss/pages/home.scss */
+  /* line 785, src/scss/pages/home.scss */
   #videos .title2, #videos p {
     max-width: 100%;
     padding-right: 15px;
   }
-  /* line 801, src/scss/pages/home.scss */
+  /* line 789, src/scss/pages/home.scss */
   #videos .bg {
     background: #ffffff;
     padding: 0;
   }
-  /* line 805, src/scss/pages/home.scss */
+  /* line 793, src/scss/pages/home.scss */
   #videos .slider-videos {
     background: #0079c8;
     background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 121, 200, 0)), color-stop(10%, rgba(0, 121, 200, 0)), color-stop(10%, rgba(0, 121, 200, 0.1)), color-stop(90%, rgba(0, 121, 200, 0.1)), color-stop(90%, rgba(0, 121, 200, 0)), to(rgba(0, 121, 200, 0)));
     background: linear-gradient(0deg, rgba(0, 121, 200, 0) 0%, rgba(0, 121, 200, 0) 10%, rgba(0, 121, 200, 0.1) 10%, rgba(0, 121, 200, 0.1) 90%, rgba(0, 121, 200, 0) 90%, rgba(0, 121, 200, 0) 100%);
     margin-top: 10px;
   }
-  /* line 810, src/scss/pages/home.scss */
+  /* line 798, src/scss/pages/home.scss */
   #videos .slider-nav {
     margin: 20px 0 30px;
   }
-  /* line 812, src/scss/pages/home.scss */
+  /* line 800, src/scss/pages/home.scss */
   #videos .slider-nav .item {
     padding: 0 4px;
   }
-  /* line 814, src/scss/pages/home.scss */
+  /* line 802, src/scss/pages/home.scss */
   #videos .slider-nav .item .thumb {
     background-color: #000000;
     border-radius: 2px;
@@ -2110,71 +2075,71 @@ footer .col-app img {
     -webkit-transition-delay: 0s;
             transition-delay: 0s;
   }
-  /* line 823, src/scss/pages/home.scss */
+  /* line 811, src/scss/pages/home.scss */
   #videos .slider-nav .item .thumb img {
     opacity: .5;
   }
-  /* line 829, src/scss/pages/home.scss */
+  /* line 817, src/scss/pages/home.scss */
   #videos .slider-nav .item.slick-current .thumb img {
     opacity: 1;
   }
-  /* line 832, src/scss/pages/home.scss */
+  /* line 820, src/scss/pages/home.scss */
   #videos .slider-nav .item:focus {
     outline: none;
   }
-  /* line 834, src/scss/pages/home.scss */
+  /* line 822, src/scss/pages/home.scss */
   #videos .slider-nav .slick-list {
     padding-left: 0 !important;
   }
-  /* line 836, src/scss/pages/home.scss */
+  /* line 824, src/scss/pages/home.scss */
   #videos .link-seta {
     font-size: 0.75rem;
   }
-  /* line 841, src/scss/pages/home.scss */
+  /* line 829, src/scss/pages/home.scss */
   #orientacoesColaboradores .btn, #orientacoesRh .btn {
     width: 100%;
   }
-  /* line 843, src/scss/pages/home.scss */
+  /* line 831, src/scss/pages/home.scss */
   #apoio {
     padding: 80px 0;
   }
-  /* line 846, src/scss/pages/home.scss */
+  /* line 834, src/scss/pages/home.scss */
   #apoio .slider-apoio .box-apoio {
     height: 130px;
   }
-  /* line 852, src/scss/pages/home.scss */
+  /* line 840, src/scss/pages/home.scss */
   #corona .banner-corona {
     padding: 40px 0;
   }
-  /* line 855, src/scss/pages/home.scss */
+  /* line 843, src/scss/pages/home.scss */
   #corona .banner-corona .texto .title2 {
     font-weight: 600;
     font-style: normal;
     font-size: 32px;
     line-height: 120%;
   }
-  /* line 861, src/scss/pages/home.scss */
+  /* line 849, src/scss/pages/home.scss */
   #corona .banner-corona .texto p {
     font-size: 0.875rem;
     margin: 0 0 40px;
   }
-  /* line 866, src/scss/pages/home.scss */
+  /* line 854, src/scss/pages/home.scss */
   #corona .banner-corona .link-seta {
     font-size: 0.875rem;
   }
-  /* line 869, src/scss/pages/home.scss */
+  /* line 857, src/scss/pages/home.scss */
   #faq {
     padding: 80px 0;
   }
-  /* line 872, src/scss/pages/home.scss */
+  /* line 860, src/scss/pages/home.scss */
   #faq .card h3 {
     padding: 20px 35px 20px 20px;
   }
-  /* line 875, src/scss/pages/home.scss */
+  /* line 863, src/scss/pages/home.scss */
   #faq .card .resposta {
     padding: 0 20px;
   }
-  /* line 877, src/scss/pages/home.scss */
+  /* line 865, src/scss/pages/home.scss */
   #faq .card .resposta p {
     font-style: normal;
     font-weight: 400;
@@ -2184,7 +2149,7 @@ footer .col-app img {
     color: grey;
     padding-bottom: 30px;
   }
-  /* line 887, src/scss/pages/home.scss */
+  /* line 875, src/scss/pages/home.scss */
   #faq .card .resposta ul li {
     font-size: 0.75rem;
   }
