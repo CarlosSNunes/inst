@@ -17,4 +17,5 @@ export class ButtonModel {
     target: string;
     queryParams: { [key: string]: any }
     action?: Function;
+    fragment: string;
 }

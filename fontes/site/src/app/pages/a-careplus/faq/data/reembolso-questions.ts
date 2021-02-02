@@ -111,8 +111,7 @@ export default [
             </p>
             
             <p class="sub-description">
-                Além do site, a tabela também está disponível para consulta na sede da Care Plus, na Avenida Sagitário, 138 – 19ª
-                andar Torre City – Alpha Offices, em Alphaville, Barueri, São Paulo, ou através de consulta no Cartório de Registros
+                Além do site, a tabela também está disponível para consulta na sede da Care Plus, na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040, ou através de consulta no Cartório de Registros
                 de Títulos e Documentos e Civil de Pessoa Jurídica, localizado na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040.
             </p>
             

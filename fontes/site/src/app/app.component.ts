@@ -129,8 +129,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
         if (this.footer && this.footer != null) {
             const footerTop = this.footer.getBoundingClientRect().top + window.pageYOffset;
+            const footerBottom = this.footer.getBoundingClientRect().bottom + window.pageYOffset;
             const bottomTop = (this.windowRef.nativeWindow.innerHeight + this.scrollTop)
-            if (bottomTop > footerTop) {
+            if (bottomTop > footerTop && bottomTop < footerBottom) {
                 this.invertColors = true;
             } else {
                 this.invertColors = false;

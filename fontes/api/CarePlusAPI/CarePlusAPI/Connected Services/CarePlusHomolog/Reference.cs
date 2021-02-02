@@ -6611,7 +6611,7 @@ namespace CarePlusHomolog
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
-            var value = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var value = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
 
             string variableFile = string.Empty;
 
@@ -6626,6 +6626,7 @@ namespace CarePlusHomolog
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile(variableFile, optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
 

@@ -136,7 +136,7 @@
             </div>
             <div class="is-4">
                 <a rel="noopener" href="https://www.bupaglobal.com/en/facilities/finder" target="_blank" title="Facilities Finder">
-                    Facilities finder
+                    Facilities Finder
                 </a>
             </div>
             <div class="is-4">
@@ -197,7 +197,7 @@
         <div class="columns site-map-closed is-hidden-down-tablet site-map-ancor">
             <div class="column has-text-centered">
                 <a (click)="siteMapOpened = !siteMapOpened">
-                    {{!siteMapOpened ? 'Veja o mapa do site' : 'Fechar mapa do site'}} &nbsp;
+                    {{!siteMapOpened ? 'Ver o Sitemap' : 'Fechar o Sitemap'}} &nbsp;
                     <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"
                         [ngStyle]="siteMapOpened ? { transform: 'rotate(180deg)' } : {}">
                         <path
@@ -452,9 +452,9 @@
                 </a>
             </div>
         </div>
-        <hr class="last-divider is-hidden-down-tablet">
+        <hr class="is-hidden-down-tablet">
         <div class="columns careplus-dados-rodape">
-            <div class="column is-nowrap careplus is-6 is-hidden-down-tablet">
+            <div class="column is-nowrap careplus is-6">
                 <p>
                     © {{actualYear}} - Care Plus Medicina Assistencial LTDA | Todos os direitos reservados - CNPJ:
                     02.725.347/0001-27
@@ -463,6 +463,7 @@
                 </p>
 
             </div>
+            <hr class="last-divider is-hidden-up-tablet">
             <div class="column is-5 is-hidden-down-tablet">
                 <a routerLink="/a-careplus/politica-de-privacidade" title="Política de Privacidade">
                     Política de Privacidade

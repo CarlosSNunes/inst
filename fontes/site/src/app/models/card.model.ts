@@ -14,7 +14,9 @@ export class CardModel {
     id: any;
     button?: ButtonModel;
     routerLink: string;
+    fragment: string;
     size:any;
+    href: string;
 }
 
 export class IconCardModel extends CardModel {
