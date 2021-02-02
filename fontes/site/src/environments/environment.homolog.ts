@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    API_URL: 'http://homolog-windows.neotix.com.br:8081',
+    API_URL: 'http://careplushml.neotix.com.br:8081',
     SELF_URL: 'http://careplushml.neotix.com.br',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
