@@ -246,6 +246,24 @@ table {
   border-bottom: 0 !important;
 }
 
+table {
+  thead {
+
+    tr {
+      th {
+        font-weight: 600;
+        font-size: 16px;
+      }
+      th:first-child {
+        border-radius: 5px 0 0 5px;
+      }
+
+      th:last-child {
+        border-radius: 0 5px 5px 0;
+      }
+    }
+  }
+}
 
 @media (min-width: 1200px){
   .container, .container-lg, .container-md, .container-sm, .container-xl{

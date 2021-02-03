@@ -38,6 +38,15 @@
     }
     tbody {
       cursor: pointer;
+     
+    }
+    tr{
+      td:first-child {
+        width: 70px;
+      }
+      td:last-child{
+        width: 100px;
+      }
     }
   }
   .load {

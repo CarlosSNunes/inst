@@ -50,6 +50,16 @@
                 color: getColor("_bupa", "_red");
             }
         }
+        tr{
+            td:first-child {
+              width: 70px;
+            
+            }
+            th:first-child {
+              width: 70px;
+            
+            }
+          }
     }
     button {
         padding: 10px 15px;

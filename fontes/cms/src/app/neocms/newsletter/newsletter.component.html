@@ -36,6 +36,7 @@
                             <td>{{newsletter.email}}</td>
                             <td>{{newsletter.dataCadastro | date: 'dd/MM/yyyy'}}</td>
                         </tr>
+ 
                     </tbody>
                 </table>
                 <div *ngIf="newsletters.length == 0 && !loaded" class="load">

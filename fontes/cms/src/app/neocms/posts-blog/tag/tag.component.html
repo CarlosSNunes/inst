@@ -21,9 +21,9 @@
                     <caption>Tags</caption>
                     <thead>
                         <tr>
-                            <th id="">Id</th>
-                            <th class="text-center" id="">Descrição</th>
-                            <th class="text-right" id="" *ngIf="userPermission != 'Visualizador'">Ação</th>
+                            <th id="">ID</th>
+                            <th class="" id="">Descrição</th>
+                            <th class="text-center" id="" *ngIf="userPermission != 'Visualizador'">Ação</th>
                         </tr>
                     </thead>
 
@@ -40,13 +40,12 @@
                         <tr
                             *ngFor="let tag of tags | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: tagCount }">
                             <td>{{tag.id}}</td>
-                            <td class="text-truncate text-center">{{tag.descricao}}</td>
-                            <td class="text-right text-dark" *ngIf="userPermission != 'Visualizador'">
+                            <td class="text-truncate ">{{tag.descricao}}</td>
+                            <td class="text-dark text-right" *ngIf="userPermission != 'Visualizador'">
                                 <a class="" [routerLink]="['/neocms/posts-blog/tag/edit', tag.id]"
                                     routerLinkActive="active">
                                     <fa-icon class="text-dark" [icon]="faPencilAlt"></fa-icon>
                                 </a>
-                                &nbsp;
                                 <a class="text-right text-danger px-3" (click)="openModal(template)">
                                     <fa-icon [icon]="faTrash"></fa-icon>
                                 </a>
@@ -56,8 +55,7 @@
                                         <p>Deseja exluir a Tag: <span
                                                 class="tag-descricao-del">{{tag.descricao}}</span>?
                                         </p>
-                                        <button type="button" class="btn blue"
-                                            (click)="confirm(tag.id)">Sim</button>
+                                        <button type="button" class="btn blue" (click)="confirm(tag.id)">Sim</button>
                                         <button type="button" class="btn orange" (click)="decline()">Não</button>
                                     </div>
                                 </ng-template>

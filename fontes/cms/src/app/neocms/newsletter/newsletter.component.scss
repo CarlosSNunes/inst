@@ -26,29 +26,24 @@
   }
 
   table {
-
     thead {
       background-color: getColor(_bupa, _grey-3);
-
-      tr{
-        th{
-          font-weight: 600;
-          font-size: 16px;
-        }
-        th:first-child{
-          border-radius:5px 0 0 5px;
-        }
-        
-         th:last-child{
-          border-radius:0 5px 5px 0;
-        }
+    }
+    tr{
+      td {
+        vertical-align: middle;
+      
       }
-
+      td:first-child {
+        width: 70px;
+      
+      }
+      th:first-child {
+        width: 70px;
+      
+      }
     }
 
-    td {
-      vertical-align: middle;
-    }
   }
   button {
     padding: 10px 27px;

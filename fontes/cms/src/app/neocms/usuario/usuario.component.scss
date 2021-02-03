@@ -39,6 +39,17 @@
     tbody {
       cursor: pointer;
     }
+    tr{
+      td:first-child {
+        width: 70px;
+      
+      }
+      th:first-child {
+        width: 70px;
+      
+      }
+    }
+
     td {
       vertical-align: middle;
     }
