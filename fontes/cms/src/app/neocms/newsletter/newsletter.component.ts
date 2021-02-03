@@ -17,7 +17,7 @@ export class NewsletterComponent implements OnInit {
   faFileExcel = faFileExcel;
   loaded: boolean;
   fileName= 'Newsletters.xlsx';
-
+  paginaAtual = 1;
   constructor(
     private newsletterService: NewsletterService
   ) { }
@@ -46,4 +46,7 @@ export class NewsletterComponent implements OnInit {
 
        XLSX.writeFile(wb, this.fileName);			
     }
+    onPageChange(page: number) {
+      this.paginaAtual = page;
+  }
 }

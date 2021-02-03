@@ -6,9 +6,10 @@
         display: flex;
         justify-content: space-between;
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         h1 {
             font-size: getSize("h2");
+            margin-bottom: 24px;
         }
         a {
             color: getColor(_bupa, _digital-cian);
@@ -78,7 +79,7 @@
                 border-top: 1px solid #dee2e6;
                 border-bottom: 1px solid #dee2e6;
                 border-radius: 5px;
-                p{
+                p {
                     font-weight: 600;
                     font-size: 16px;
                 }
@@ -103,6 +104,7 @@
                 margin-right: 8px;
                 padding: 0;
                 width: fit-content;
+                margin-bottom: 40px;
                 button {
                     padding: 10px 27px;
                     height: 50px;
@@ -118,6 +120,7 @@
     .filter-title {
         margin-top: 20px;
         font-size: getSize("mbt");
+        margin-bottom: 24px;
     }
     .load {
         width: 100%;

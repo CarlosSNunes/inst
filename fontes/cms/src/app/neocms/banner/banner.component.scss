@@ -6,17 +6,15 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-bottom: 20px;
-
+    margin-bottom: 40px;
     h1 {
       font-size: getSize("h2");
+      margin-bottom: 24px;
     }
-
     a {
       color: getColor(_bupa, _digital-cian);
       margin: auto 0;
     }
-
     &:before {
       position: absolute;
       bottom: 0;
@@ -42,6 +40,7 @@
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
+    margin-bottom: 25px;
     li {
       border: none;
       margin: 7.5px 7.5px 15px 0;
@@ -63,6 +62,7 @@
   .filter-title {
     // margin-top: 20px;
     font-size: getSize("mbt");
+    margin-bottom: 16.5px;
   }
   .area {
     width: 100%;

@@ -6,9 +6,10 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     h1 {
       font-size: getSize("h2");
+      margin-bottom: 24px;
     }
     a {
       color: getColor(_bupa, _digital-cian);

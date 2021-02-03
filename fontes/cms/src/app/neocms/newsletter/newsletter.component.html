@@ -30,7 +30,7 @@
                                 Não há E-mails cadastradas
                             </td>
                         </tr>
-                        <tr *ngFor="let newsletter of newsletters">
+                        <tr *ngFor="let newsletter of newsletters | paginate: { itemsPerPage: 10, currentPage: paginaAtual, totalItems: newsletters.length }">
                             <td>{{newsletter.id}}</td>
                             <td>{{newsletter.nomeCompleto}}</td>
                             <td>{{newsletter.email}}</td>
@@ -50,6 +50,11 @@
                         </path>
                     </svg>
                 </div>
+                <div class="text-center" *ngIf="newsletters.length > 10 && loaded">
+                    <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
+                      nextLabel="Próximo">
+                    </pagination-controls>
+                  </div>
                 <button *ngIf="newsletters.length > 0" class="btn blue" (click)="exportExcel()">
                     Exportar Lista
                 </button>

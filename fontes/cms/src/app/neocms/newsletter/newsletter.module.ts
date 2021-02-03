@@ -7,7 +7,7 @@ import { HttpHandlerService } from 'src/app/http-handler/http-handler.service';
 import { NewsletterComponent } from './newsletter.component';
 import { NewsletterRoutingModule } from './newsletter-routing.module';
 import { NewsletterService } from './newsletter.service';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { NewsletterService } from './newsletter.service';
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NewsletterRoutingModule
+    NewsletterRoutingModule,
+    NgxPaginationModule
   ],
   providers: [
     NewsletterService,

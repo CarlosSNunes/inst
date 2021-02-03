@@ -6,24 +6,25 @@
         display: flex;
         justify-content: space-between;
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         h1 {
-            font-size: getSize("h2");
+          font-size: getSize("h2");
+          margin-bottom: 24px;
         }
         a {
-            color: getColor(_bupa, _digital-cian);
-            margin: auto 0;
+          color: getColor(_bupa, _digital-cian);
+          margin: auto 0;
         }
         &:before {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            content: "";
-            background-color: getColor(_bupa, _black);
-            height: 1px;
-            width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          content: "";
+          background-color: getColor(_bupa, _black);
+          height: 1px;
+          width: 100%;
         }
-    }
+      }
     .createUser {
         margin-bottom: 40px;
         display: flex;

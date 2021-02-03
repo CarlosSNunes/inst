@@ -122,7 +122,7 @@
         </div>
 
 
-        <div class="text-center">
+        <div class="text-center" *ngIf="postCount > 5 && loaded">
           <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
             nextLabel="Próximo">
           </pagination-controls>

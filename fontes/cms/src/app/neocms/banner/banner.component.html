@@ -167,7 +167,7 @@
             </path>
           </svg>
         </div>
-        <div class="text-center">
+        <div class="text-center" *ngIf="bannerCount > 4 && loaded">
           <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
             nextLabel="Próximo">
           </pagination-controls>
