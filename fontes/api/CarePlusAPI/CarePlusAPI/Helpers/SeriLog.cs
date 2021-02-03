@@ -17,10 +17,15 @@ namespace CarePlusAPI.Helpers
     public class SeriLog: ISeriLog
     {
         private readonly AppSettings _appSettings;
+        private readonly IGetCipher _getCipher;
 
-        public SeriLog(IOptions<AppSettings> appSettings)
+        public SeriLog(
+            IOptions<AppSettings> appSettings,
+            IGetCipher getCipher
+            )
         {
             _appSettings = appSettings.Value;
+            _getCipher = getCipher;
         }
 
         public SeriLog()
@@ -31,17 +36,16 @@ namespace CarePlusAPI.Helpers
         public virtual void Log(EnumLogType logtype, object message, string origem)
         {
             var tag = "";
-            GetCipher cipher = new GetCipher();
             switch (origem)
             {
                 case "institucional":
-                    tag = cipher.Decrypt(_appSettings.SeqTokenInst);
+                    tag = _getCipher.Decrypt(_appSettings.SeqTokenInst);
                     break;
                 case "instadministrativo":
-                    tag = cipher.Decrypt(_appSettings.SeqTokenAdmin);
+                    tag = _getCipher.Decrypt(_appSettings.SeqTokenAdmin);
                     break;
                 default:
-                    tag = cipher.Decrypt(_appSettings.SeqTokenAPI);
+                    tag = _getCipher.Decrypt(_appSettings.SeqTokenAPI);
                     break;
             }
 

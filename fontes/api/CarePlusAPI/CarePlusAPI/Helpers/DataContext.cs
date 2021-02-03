@@ -13,13 +13,19 @@ namespace CarePlusAPI.Helpers
     public class DataContext : DbContext
     {
         protected static string decryptedConnection;
+        private readonly IGetCipher _getCipher;
         ///<summary>
         ///
         ///Esse método serve para iniciar a instancia do construtor ja recebendo suas configurações iniciais.
         ///
         ///</summary>
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
-        { }
+        public DataContext(
+            DbContextOptions<DataContext> options,
+            IGetCipher getCipher
+            ) : base(options)
+        {
+            _getCipher = getCipher;
+        }
 
         ///<summary>
         ///
@@ -34,8 +40,7 @@ namespace CarePlusAPI.Helpers
             {
                 if (decryptedConnection == null)
                 {
-                    GetCipher cipher = new GetCipher();
-                    decryptedConnection = cipher.Decrypt(Startup.ConnectionString);
+                    decryptedConnection = _getCipher.Decrypt(Startup.ConnectionString);
                 }
 
                 optionsBuilder.UseOracle(decryptedConnection);

@@ -15,37 +15,14 @@ namespace CarePlusAPI.Helpers
     {
         protected static string CiphersPath;
         protected static Tuple<string, string> KeyAndIv;
+        private readonly AppSettings _appSettings;
 
-        public GetCipher()
+        public GetCipher(
+            IOptions<AppSettings> appSettings
+            )
         {
-            var value = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
-
-            string variableFile = string.Empty;
-
-            if (value != null && value != "")
-            {
-                variableFile = $"appsettings.{value}.json";
-            }
-            else
-            {
-                variableFile = "appsettings.json";
-            }
-
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile(variableFile, optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables();
-
-            IConfigurationRoot configuration = builder.Build();
-
-            IConfigurationSection appSettingsSection = configuration.GetSection("AppSettings");
-
-            var appSettings = appSettingsSection.Get<AppSettings>();
-
-            IOptions<AppSettings> _appSettings = Options.Create<AppSettings>(appSettings);
-
-            CiphersPath = _appSettings.Value.CiphersPath;
+            _appSettings = appSettings.Value;
+            CiphersPath = _appSettings.CiphersPath;
         }
 
         protected virtual Tuple<string, string> Read ()

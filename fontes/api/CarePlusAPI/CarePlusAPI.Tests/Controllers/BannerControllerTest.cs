@@ -30,6 +30,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly FileStream _stream;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly Mock<IFtpUpload> _ftpUpload = new Mock<IFtpUpload>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly Banner _banner = new Banner
         {
             Id = 1,
@@ -103,6 +104,7 @@ namespace CarePlusAPI.Tests.Controllers
 
         public BannerControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
             _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
@@ -113,10 +115,10 @@ namespace CarePlusAPI.Tests.Controllers
                     .UseSqlite(_connection)
                     .Options;
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            _bannerService = new BannerService(new DataContext(_dbOptions));
+            _bannerService = new BannerService(new DataContext(_dbOptions, _getCipherMock.Object));
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -332,7 +334,7 @@ namespace CarePlusAPI.Tests.Controllers
             var dbOptions = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(connection)
                     .Options;
-            var bannerService = new BannerService(new DataContext(dbOptions));
+            var bannerService = new BannerService(new DataContext(dbOptions, _getCipherMock.Object));
 
             BannerController controller = new BannerController(bannerService, _mapper, _appSettings, _seriLogMock.Object, _ftpUpload.Object);
             controller.ControllerContext = new ControllerContext();
@@ -362,7 +364,7 @@ namespace CarePlusAPI.Tests.Controllers
 
             await c.Post(_bannerCreateModel, "CarePlus");
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 BannerService service = new BannerService(context);
                 BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object, _ftpUpload.Object);
@@ -388,7 +390,7 @@ namespace CarePlusAPI.Tests.Controllers
             bannerToCreate.Ativo = '0';
             await c.Post(_bannerCreateModel, "CarePlus");
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 BannerService service = new BannerService(context);
                 BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object, _ftpUpload.Object);
@@ -413,7 +415,7 @@ namespace CarePlusAPI.Tests.Controllers
 
             await c.Post(_bannerCreateModel, "CarePlus");
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 BannerService service = new BannerService(context);
                 BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object, _ftpUpload.Object);
@@ -434,7 +436,7 @@ namespace CarePlusAPI.Tests.Controllers
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_bannerCreateModel, "CarePlus");
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 BannerService service = new BannerService(context);
                 BannerController controller = new BannerController(service, _mapper, _appSettings, _seriLogMock.Object, _ftpUpload.Object);
@@ -481,7 +483,7 @@ namespace CarePlusAPI.Tests.Controllers
             await c.Post(_bannerCreateModel, "CarePlus");
             await c.Post(_bannerCreateModel, "CarePlus");
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
 
                 BannerService service = new BannerService(context);

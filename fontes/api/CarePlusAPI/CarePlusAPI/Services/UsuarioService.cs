@@ -49,7 +49,7 @@ namespace CarePlusAPI.Services
         {
             _endpointConfiguration = EndpointConfiguration.SOAPEndPointPartner;
 
-            _partnerServiceClient = new PartnerServiceClient(_endpointConfiguration);
+            _partnerServiceClient = new PartnerServiceClient(_endpointConfiguration, appSettings.Value);
 
             Context = context;
             _appSettings = appSettings.Value;
@@ -402,7 +402,6 @@ namespace CarePlusAPI.Services
         {
             try
             {
-                GetCipher cipher = new GetCipher();
                 string decryptedToken = _getCipher.Decrypt(_appSettings.WSPartnerToken);
                 string decryptedLogin = _getCipher.Decrypt(_appSettings.WSPartnerLogin);
                 string decryptedPass = _getCipher.Decrypt(_appSettings.WSPartnerSenha);

@@ -6,6 +6,7 @@ using CarePlusAPI.Services;
 using System;
 using System.Threading.Tasks;
 using Xunit;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -14,6 +15,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly SqliteConnection _connection;
         private readonly DbContextOptions<DataContext> _options;
         private readonly NewsletterService _newsletterService;
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly Newsletter _news = new Newsletter
         {
             Id = 1,
@@ -24,6 +26,7 @@ namespace CarePlusAPI.Tests.Services
 
         public NewsletterServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
 
@@ -31,10 +34,10 @@ namespace CarePlusAPI.Tests.Services
                     .UseSqlite(_connection)
                     .Options;
 
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            _newsletterService = new NewsletterService(new DataContext(_options));
+            _newsletterService = new NewsletterService(new DataContext(_options, _getCipherMock.Object));
         }
 
         [Fact]

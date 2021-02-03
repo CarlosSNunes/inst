@@ -90,7 +90,7 @@ namespace CarePlusAPI
 
             services.Configure<AppSettings>(_appSettingsSection);
 
-            GetCipher cipher = new GetCipher();
+            GetCipher cipher = new GetCipher(Options.Create<AppSettings>(_appSettings));
             string secret = cipher.Decrypt(_appSettings.Secret);
 
             byte[] key = Encoding.ASCII.GetBytes(secret);

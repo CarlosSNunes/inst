@@ -26,6 +26,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly DbContextOptions<DataContext> DbOptions;
         private readonly SqliteConnection Connection;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly IConfiguration Configuration;
         private readonly List<Tag> Tags = new List<Tag>
         {
@@ -63,6 +64,7 @@ namespace CarePlusAPI.Tests.Controllers
 
         public TagControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
@@ -73,10 +75,10 @@ namespace CarePlusAPI.Tests.Controllers
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(DbOptions))
+            using (DataContext context = new DataContext(DbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            TagService = new TagService(new DataContext(DbOptions));
+            TagService = new TagService(new DataContext(DbOptions, _getCipherMock.Object));
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -193,7 +195,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await TagService.Criar(Tags);
 
-            using (DataContext context = new DataContext(DbOptions))
+            using (DataContext context = new DataContext(DbOptions, _getCipherMock.Object))
             {
                 TagService service = new TagService(context);
                 TagController controller = new TagController(service, Mapper, AppSettings, _seriLogMock.Object);

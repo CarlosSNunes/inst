@@ -7,6 +7,7 @@ using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Services;
 using Xunit;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -26,9 +27,12 @@ namespace CarePlusAPI.Tests.Services
                 Descricao = "Marketing"
             },
         };
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
 
         public PerfilServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
+
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
 
@@ -36,10 +40,10 @@ namespace CarePlusAPI.Tests.Services
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            PerfilService = new PerfilService(new DataContext(Options));
+            PerfilService = new PerfilService(new DataContext(Options, _getCipherMock.Object));
         }
 
         [Fact]

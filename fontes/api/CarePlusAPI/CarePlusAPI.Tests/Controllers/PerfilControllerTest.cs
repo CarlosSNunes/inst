@@ -27,6 +27,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly SqliteConnection Connection;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly IConfiguration Configuration;
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly List<Perfil> Perfis = new List<Perfil>
         {
             new Perfil {
@@ -63,6 +64,8 @@ namespace CarePlusAPI.Tests.Controllers
 
         public PerfilControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
+
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
@@ -71,12 +74,12 @@ namespace CarePlusAPI.Tests.Controllers
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(DbOptions))
+            using (DataContext context = new DataContext(DbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
             _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
-            PerfilService = new PerfilService(new DataContext(DbOptions));
+            PerfilService = new PerfilService(new DataContext(DbOptions, _getCipherMock.Object));
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -193,7 +196,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await PerfilService.Criar(Perfis);
 
-            using (DataContext context = new DataContext(DbOptions))
+            using (DataContext context = new DataContext(DbOptions, _getCipherMock.Object))
             {
                 PerfilService service = new PerfilService(context);
                 PerfilController controller = new PerfilController(service, Mapper, AppSettings, _seriLogMock.Object);

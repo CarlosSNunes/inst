@@ -33,6 +33,7 @@ namespace CarePlusAPI.Tests.Controllers
             Descricao = "DescricaoTeste",
             DataCadastro = DateTime.Now
         };
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
 
         private readonly CategoriasCreateModel _categoriasCreateModel = new CategoriasCreateModel
         {
@@ -49,6 +50,7 @@ namespace CarePlusAPI.Tests.Controllers
 
         public CategoriasControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
@@ -59,10 +61,10 @@ namespace CarePlusAPI.Tests.Controllers
 
             _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            _categoriasService = new CategoriasService(new DataContext(_dbOptions));
+            _categoriasService = new CategoriasService(new DataContext(_dbOptions, _getCipherMock.Object));
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -159,7 +161,7 @@ namespace CarePlusAPI.Tests.Controllers
             var dbOptions = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(connection)
                     .Options;
-            var categoriasService = new CategoriasService(new DataContext(dbOptions));
+            var categoriasService = new CategoriasService(new DataContext(dbOptions, _getCipherMock.Object));
 
             CategoriasController controller = new CategoriasController(categoriasService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
@@ -188,7 +190,7 @@ namespace CarePlusAPI.Tests.Controllers
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_categoriasCreateModel);
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 CategoriasService service = new CategoriasService(context);
                 CategoriasController controller = new CategoriasController(service, _mapper, _appSettings, _seriLogMock.Object);

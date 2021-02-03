@@ -6389,8 +6389,8 @@ namespace CarePlusHomolog
         /// <param name="clientCredentials">As credenciais do cliente</param>
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
         
-        public PartnerServiceClient(EndpointConfiguration endpointConfiguration) : 
-                base(PartnerServiceClient.GetBindingForEndpoint(endpointConfiguration), PartnerServiceClient.GetEndpointAddress(endpointConfiguration))
+        public PartnerServiceClient(EndpointConfiguration endpointConfiguration, AppSettings appSettings) : 
+                base(PartnerServiceClient.GetBindingForEndpoint(endpointConfiguration), PartnerServiceClient.GetEndpointAddress(endpointConfiguration, appSettings))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
@@ -6609,42 +6609,16 @@ namespace CarePlusHomolog
             throw new System.InvalidOperationException(string.Format("Não foi possível encontrar o ponto de extremidade com o nome \'{0}\'.", endpointConfiguration));
         }
         
-        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration, AppSettings _appSettings)
         {
-            var value = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
-
-            string variableFile = string.Empty;
-
-            if (value != null && value != "")
-            {
-                variableFile = $"appsettings.{value}.json";
-            }
-            else
-            {
-                variableFile = "appsettings.json";
-            }
-
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile(variableFile, optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables();
-
-            IConfigurationRoot configuration = builder.Build();
-
-            IConfigurationSection appSettingsSection = configuration.GetSection("AppSettings");
-
-            var appSettings = appSettingsSection.Get<AppSettings>();
-
-            IOptions<AppSettings> _appSettings = Options.Create<AppSettings>(appSettings);
 
             if ((endpointConfiguration == EndpointConfiguration.SOAPEndPointPartnerHTTPS))
             {
-                return new System.ServiceModel.EndpointAddress(_appSettings.Value.WSPartnerURLHTTPS);
+                return new System.ServiceModel.EndpointAddress(_appSettings.WSPartnerURLHTTPS);
             }
-            if ((endpointConfiguration == EndpointConfiguration.SOAPEndPointPartner))
+            else if ((endpointConfiguration == EndpointConfiguration.SOAPEndPointPartner))
             {
-                return new System.ServiceModel.EndpointAddress(_appSettings.Value.WSPartnerURL);
+                return new System.ServiceModel.EndpointAddress(_appSettings.WSPartnerURL);
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

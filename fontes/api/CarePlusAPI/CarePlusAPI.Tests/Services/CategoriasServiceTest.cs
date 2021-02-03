@@ -6,6 +6,7 @@ using CarePlusAPI.Services;
 using System;
 using System.Threading.Tasks;
 using Xunit;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -21,9 +22,11 @@ namespace CarePlusAPI.Tests.Services
             Descricao = "DescricaoTeste1",
             DataCadastro = DateTime.Now
         };
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
 
         public CategoriasServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
 
@@ -31,10 +34,10 @@ namespace CarePlusAPI.Tests.Services
                     .UseSqlite(_connection)
                     .Options;
 
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            _categoriasService = new CategoriasService(new DataContext(_options));
+            _categoriasService = new CategoriasService(new DataContext(_options, _getCipherMock.Object));
         }
 
         [Fact]

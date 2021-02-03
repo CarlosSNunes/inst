@@ -28,7 +28,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly SqliteConnection _connection;
         private readonly DashboardService _dashboardService;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
-        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly IOptions<AppSettings> _appSettings;
         private readonly IConfiguration _configuration;
         private readonly Post _post = new Post
@@ -85,6 +85,7 @@ namespace CarePlusAPI.Tests.Controllers
 
         public DashboardControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
@@ -97,10 +98,10 @@ namespace CarePlusAPI.Tests.Controllers
                     .UseSqlite(_connection)
                     .Options;
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 context.Categoria.Add(new Categoria { Id = 1, Descricao = "Saúde" });
                 context.Tag.Add(new Tag { Id = 1, Descricao = "Saúde" });
@@ -110,7 +111,7 @@ namespace CarePlusAPI.Tests.Controllers
                 context.SaveChanges();
             }
 
-            _dashboardService = new DashboardService(new DataContext(_dbOptions));
+            _dashboardService = new DashboardService(new DataContext(_dbOptions, _getCipherMock.Object));
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
@@ -135,11 +136,11 @@ namespace CarePlusAPI.Tests.Controllers
 
             _appSettings = Options.Create<AppSettings>(appSettings);
 
-            _postService = new PostService(new DataContext(_dbOptions));
+            _postService = new PostService(new DataContext(_dbOptions, _getCipherMock.Object));
 
-            UsuarioService = new UsuarioService(new DataContext(_dbOptions), _appSettings, _getCipherMock.Object);
+            UsuarioService = new UsuarioService(new DataContext(_dbOptions, _getCipherMock.Object), _appSettings, _getCipherMock.Object);
 
-            _bannerService = new BannerService(new DataContext(_dbOptions));
+            _bannerService = new BannerService(new DataContext(_dbOptions, _getCipherMock.Object));
         }
 
 

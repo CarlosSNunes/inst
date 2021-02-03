@@ -35,7 +35,7 @@ namespace CarePlusAPI.Services
         {
             _endpointConfiguration = EndpointConfiguration.SOAPEndPointPartner;
 
-            _partnerServiceClient = new PartnerServiceClient(_endpointConfiguration);
+            _partnerServiceClient = new PartnerServiceClient(_endpointConfiguration, appSettings.Value);
 
             _appSettings = appSettings.Value;
 
@@ -233,7 +233,6 @@ namespace CarePlusAPI.Services
                 }
 
                 AnexoByte[] anexoBytes = lstAnexoBytes.ToArray();
-                GetCipher cipher = new GetCipher();
                 WSFiltroFaleConosco wSFiltro = new WSFiltroFaleConosco()
                 {
                     Origem = WebServiceOrigem.Partner,
@@ -307,7 +306,6 @@ namespace CarePlusAPI.Services
                 }
 
                 AnexoByte[] anexoBytes = lstAnexoBytes.ToArray();
-                GetCipher cipher = new GetCipher();
                 WSFiltroCanalDenuncia wSFiltro = new WSFiltroCanalDenuncia()
                 {
                     Origem = WebServiceOrigem.Partner,

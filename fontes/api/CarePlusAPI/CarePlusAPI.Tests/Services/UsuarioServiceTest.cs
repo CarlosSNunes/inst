@@ -69,10 +69,10 @@ namespace CarePlusAPI.Tests.Services
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
                 context.Perfil.Add(new Perfil { Id = 1, Descricao = "ADM" });
                 context.SaveChanges();
@@ -91,7 +91,7 @@ namespace CarePlusAPI.Tests.Services
             
             _appSettings = Options.Create<AppSettings>(appSettings);
 
-            UsuarioService = new UsuarioService(new DataContext(_options), _appSettings, _getCipherMock.Object);
+            UsuarioService = new UsuarioService(new DataContext(_options, _getCipherMock.Object), _appSettings, _getCipherMock.Object);
         }
 
         [Fact]
@@ -332,7 +332,7 @@ namespace CarePlusAPI.Tests.Services
         public async Task BuscarRequisicoesCadastroPorNomeUsuarioTrue()
         {
             await UsuarioService.Criar(Usuario, "123");
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
 
                 context.RequisicaoUsuario.Add(new RequisicaoUsuario {
@@ -368,7 +368,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task SalvarRequisicao()
         {
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
 
                 context.Perfil.Add(new Perfil
@@ -386,7 +386,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task SalvarRequisicaoErro()
         {
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
 
                 context.Perfil.Add(new Perfil
@@ -420,7 +420,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ValidateTokenRequisition()
         {
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
 
                 context.Perfil.Add(new Perfil
@@ -450,7 +450,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ValidateTokenRequisitionErro()
         {
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
 
                 context.Perfil.Add(new Perfil
@@ -474,7 +474,7 @@ namespace CarePlusAPI.Tests.Services
         public async Task RemoveRequisition()
         {
             await UsuarioService.Criar(Usuario, "123");
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
 
                 context.RequisicaoUsuario.Add(new RequisicaoUsuario
@@ -514,7 +514,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task InativarUsuarioSucesso()
         {
-            using (DataContext context = new DataContext(_options))
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
             {
                 context.Usuario.Add(Usuario);
                 await context.SaveChangesAsync();

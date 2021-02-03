@@ -7,6 +7,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 using System.Collections.Generic;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -30,10 +31,11 @@ namespace CarePlusAPI.Tests.Services
         };
 
         private readonly List<Banner> _banners = new List<Banner>();
-       
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
 
         public BannerServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
 
@@ -41,10 +43,10 @@ namespace CarePlusAPI.Tests.Services
                     .UseSqlite(_connection)
                     .Options;
 
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            _bannerService = new BannerService(new DataContext(Options));
+            _bannerService = new BannerService(new DataContext(Options, _getCipherMock.Object));
 
 
             // banner 1
@@ -181,7 +183,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task CriarInativoComMaisDe4Banners()
         {
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
 
                 foreach (var banner in _banners)
@@ -217,7 +219,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task CriarAtivoComMaisDe4Banners()
         {
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
                 foreach (var banner in _banners)
                 {
@@ -254,7 +256,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task AtualizarSucessoTrocandoDeOrdemComMaisDe4BannersAtivo()
         {
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
                 List<Banner> bannersList = _banners;
                 bannersList.Add(new Banner
@@ -303,7 +305,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task AtualizarSucessoTrocandoDeOrdemComMaisDe4BannersInativo()
         {
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
                 List<Banner> bannersList = _banners;
                 bannersList.Add(new Banner
@@ -364,7 +366,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task AtualizarDiversosSucesso()
         {
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
                 List<Banner> bannersList = _banners;
 
@@ -378,7 +380,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task GetBannersInIdsSucesso()
         {
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
                 List<Banner> bannersList = _banners;
 
@@ -400,7 +402,7 @@ namespace CarePlusAPI.Tests.Services
         [Fact]
         public async Task ExcluirSucesso()
         {
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
                 List<Banner> bannersList = _banners;
                 bannersList.Add(new Banner

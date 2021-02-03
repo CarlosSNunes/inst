@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -16,6 +17,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly PostService _postService;
         private readonly DbContextOptions<DataContext> Options;
         private readonly SqliteConnection Connection;
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly Post _post = new Post
         {
             PostTag = new List<PostTag> {
@@ -78,6 +80,8 @@ namespace CarePlusAPI.Tests.Services
 
         public PostServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
+
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
 
@@ -87,10 +91,10 @@ namespace CarePlusAPI.Tests.Services
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
             {
                 context.Categoria.Add(new Categoria { Id = 2, Descricao = "Saúde" });
                 context.Tag.Add(new Tag { Id = 3, Descricao = "Saúde" });
@@ -100,7 +104,7 @@ namespace CarePlusAPI.Tests.Services
                 context.SaveChanges();
             }
 
-            _postService = new PostService(new DataContext(Options));
+            _postService = new PostService(new DataContext(Options, _getCipherMock.Object));
         }
 
         [Fact]
@@ -221,7 +225,7 @@ namespace CarePlusAPI.Tests.Services
         {
             try
             {
-                using (DataContext context = new DataContext(Options))
+                using (DataContext context = new DataContext(Options, _getCipherMock.Object))
                 {
                     Post _createPost2 = _post2;
                     await context.Set<Post>().AddAsync(_createPost2);
@@ -274,7 +278,7 @@ namespace CarePlusAPI.Tests.Services
         {
             try
             {
-                using (DataContext context = new DataContext(Options))
+                using (DataContext context = new DataContext(Options, _getCipherMock.Object))
                 {
                     Post _updatePost = _post;
                     await context.Set<Post>().AddAsync(_updatePost);

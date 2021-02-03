@@ -32,6 +32,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly FileStream _stream;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
         private readonly Mock<IFtpUpload> _ftpUpload = new Mock<IFtpUpload>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly Post _post = new Post
         {
             PostTag = new List<PostTag> {
@@ -116,6 +117,8 @@ namespace CarePlusAPI.Tests.Controllers
 
         public PostControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
+
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
@@ -126,10 +129,10 @@ namespace CarePlusAPI.Tests.Controllers
 
             _seriLogMock.Setup(s => s.Log(EnumLogType.Error, "aaaa", "CarePlus"));
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 context.Categoria.Add(new Categoria { Id = 1, Titulo = "Saúde" });
                 context.Tag.Add(new Tag { Id = 1, Descricao = "Saúde" });
@@ -137,7 +140,7 @@ namespace CarePlusAPI.Tests.Controllers
                 context.SaveChanges();
             }
 
-            _postService = new PostService(new DataContext(_dbOptions));
+            _postService = new PostService(new DataContext(_dbOptions, _getCipherMock.Object));
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -434,7 +437,7 @@ namespace CarePlusAPI.Tests.Controllers
         [Fact]
         public async void GetRelativePostsSucesso()
         {
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 List<Post> postsList = new List<Post>();
                 postsList.Add(_post);
@@ -459,7 +462,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void GetRelativePostsSemImagemSucesso()
         {
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 List<Post> postsList = new List<Post>();
 
@@ -638,7 +641,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post, null);
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 // Mocando classe compress
                 Mock<Compress> compressMock = new Mock<Compress>();
@@ -663,7 +666,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post, null);
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 _postUpdateModel.Arquivo = null;
                 PostService service = new PostService(context);
@@ -685,7 +688,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post, null);
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 // Mocando classe compress
                 Mock<Compress> compressMock = new Mock<Compress>();
@@ -713,7 +716,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post, null);
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 _postUpdateModel.Id = null;
                 _postUpdateModel.DescricaoPrevia = null;
@@ -740,7 +743,7 @@ namespace CarePlusAPI.Tests.Controllers
         {
             await _postService.Criar(_post, null);
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
 
                 // Mocando SeriLog
@@ -761,7 +764,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void DuplicarErro()
         {
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 PostService service = new PostService(context);
                 // Mocando SeriLog
@@ -781,7 +784,7 @@ namespace CarePlusAPI.Tests.Controllers
         public async void DuplicarErroSlug()
         {
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 PostService service = new PostService(context);
 

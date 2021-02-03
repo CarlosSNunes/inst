@@ -32,7 +32,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly DbContextOptions<DataContext> DbOptions;
         private readonly SqliteConnection Connection;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
-        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private SeriLog seriLog;
         private readonly IConfiguration Configuration;
         private readonly Usuario Usuario = new Usuario
@@ -84,6 +84,8 @@ namespace CarePlusAPI.Tests.Controllers
 
         public UsuarioControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
+
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
@@ -94,10 +96,10 @@ namespace CarePlusAPI.Tests.Controllers
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(DbOptions))
+            using (DataContext context = new DataContext(DbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            using (DataContext context = new DataContext(DbOptions))
+            using (DataContext context = new DataContext(DbOptions, _getCipherMock.Object))
             {
                 context.Perfil.Add(new Perfil { Id = 1, Descricao = "ADM" });
                 context.SaveChanges();
@@ -118,11 +120,11 @@ namespace CarePlusAPI.Tests.Controllers
 
             _getCipherMock.Setup(s => s.Decrypt(AppSettings.Value.Secret)).Returns("SECRET API CAREPLUS TESTE");
 
-            _usuarioService = new UsuarioService(new DataContext(DbOptions), AppSettings, _getCipherMock.Object);
+            _usuarioService = new UsuarioService(new DataContext(DbOptions, _getCipherMock.Object), AppSettings, _getCipherMock.Object);
 
             _partnerServiceClientMock = new Mock<PartnerServiceClient>(EndpointConfiguration.SOAPEndPointPartner); ;
 
-            usuarioServiceMock = new Mock<UsuarioService>(new DataContext(DbOptions), AppSettings, _getCipherMock.Object);
+            usuarioServiceMock = new Mock<UsuarioService>(new DataContext(DbOptions, _getCipherMock.Object), AppSettings, _getCipherMock.Object);
 
             usuarioServiceMock.Setup(us => us.ValidaUsuario("teste.careplus", "1234")).ReturnsAsync(true);
 

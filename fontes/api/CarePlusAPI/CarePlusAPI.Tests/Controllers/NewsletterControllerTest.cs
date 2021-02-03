@@ -26,6 +26,7 @@ namespace CarePlusAPI.Tests.Controllers
         private readonly SqliteConnection _connection;
         private readonly IConfiguration _configuration;
         private readonly Mock<SeriLog> _seriLogMock = new Mock<SeriLog>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly Newsletter _newsletter = new Newsletter
         {
             Id = 1,
@@ -50,6 +51,8 @@ namespace CarePlusAPI.Tests.Controllers
 
         public NewsletterControllerTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
+
             AutoMapperProfile mapperProfile = new AutoMapperProfile();
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
@@ -60,10 +63,10 @@ namespace CarePlusAPI.Tests.Controllers
                     .UseSqlite(_connection)
                     .Options;
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            _newsletterService = new NewsletterService(new DataContext(_dbOptions));
+            _newsletterService = new NewsletterService(new DataContext(_dbOptions, _getCipherMock.Object));
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -173,7 +176,7 @@ namespace CarePlusAPI.Tests.Controllers
             var dbOptions = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(connection)
                     .Options;
-            var newsletterService = new NewsletterService(new DataContext(dbOptions));
+            var newsletterService = new NewsletterService(new DataContext(dbOptions, _getCipherMock.Object));
 
             NewsletterController controller = new NewsletterController(newsletterService, _mapper, _appSettings, _seriLogMock.Object);
             controller.ControllerContext = new ControllerContext();
@@ -203,7 +206,7 @@ namespace CarePlusAPI.Tests.Controllers
             c.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             await c.Post(_newsletterCreateModel);
 
-            using (DataContext context = new DataContext(_dbOptions))
+            using (DataContext context = new DataContext(_dbOptions, _getCipherMock.Object))
             {
                 NewsletterService service = new NewsletterService(context);
                 NewsletterController controller = new NewsletterController(service, _mapper, _appSettings, _seriLogMock.Object);

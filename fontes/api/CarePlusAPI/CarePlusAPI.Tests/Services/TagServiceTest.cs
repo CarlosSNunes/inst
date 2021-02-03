@@ -7,6 +7,7 @@ using CarePlusAPI.Entities;
 using CarePlusAPI.Helpers;
 using CarePlusAPI.Services;
 using Xunit;
+using Moq;
 
 namespace CarePlusAPI.Tests.Services
 {
@@ -15,6 +16,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly TagService TagService;
         private readonly DbContextOptions<DataContext> Options;
         private readonly SqliteConnection Connection;
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly List<Tag> Tags = new List<Tag>
         {
             new Tag {
@@ -29,6 +31,8 @@ namespace CarePlusAPI.Tests.Services
 
         public TagServiceTest()
         {
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
+
             Connection = new SqliteConnection("DataSource=:memory:");
             Connection.Open();
 
@@ -36,10 +40,10 @@ namespace CarePlusAPI.Tests.Services
                     .UseSqlite(Connection)
                     .Options;
 
-            using (DataContext context = new DataContext(Options))
+            using (DataContext context = new DataContext(Options, _getCipherMock.Object))
                 context.Database.EnsureCreated();
 
-            TagService = new TagService(new DataContext(Options));
+            TagService = new TagService(new DataContext(Options, _getCipherMock.Object));
         }
 
         [Fact]

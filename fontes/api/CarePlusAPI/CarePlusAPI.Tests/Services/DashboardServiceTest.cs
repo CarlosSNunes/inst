@@ -25,7 +25,7 @@ namespace CarePlusAPI.Tests.Services
         private readonly PostService _postService;
         private readonly IConfiguration _configuration;
         private readonly IOptions<AppSettings> _appSettings;
-        private readonly Mock<GetCipher> _getCipherMock = new Mock<GetCipher>();
+        private readonly Mock<IGetCipher> _getCipherMock = new Mock<IGetCipher>();
         private readonly Post _post = new Post
         {
             Id = 1,
@@ -82,7 +82,7 @@ namespace CarePlusAPI.Tests.Services
 
         public DashboardServiceTest()
         {
-            _getCipherMock.Setup(s => s.Decrypt("aaaa")).Returns("aaaaa");
+            _getCipherMock.Setup(s => s.Decrypt(It.IsAny<string>())).Returns("aaaaa");
 
             _connection = new SqliteConnection("DataSource=:memory:");
             _connection.Open();
@@ -90,19 +90,6 @@ namespace CarePlusAPI.Tests.Services
             _options = new DbContextOptionsBuilder<DataContext>()
                     .UseSqlite(_connection)
                     .Options;
-
-            using (DataContext context = new DataContext(_options))
-                context.Database.EnsureCreated();
-
-            using (DataContext context = new DataContext(_options))
-            {
-                context.Categoria.Add(new Categoria { Id = 1, Descricao = "Saúde" });
-                context.Tag.Add(new Tag { Id = 1, Descricao = "Saúde" });
-
-                context.Perfil.Add(new Perfil { Id = 1, Descricao = "ADM" });
-
-                context.SaveChanges();
-            }
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -115,16 +102,30 @@ namespace CarePlusAPI.Tests.Services
 
             var appSettings = appSettingsSection.Get<AppSettings>();
 
+
+
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
+                context.Database.EnsureCreated();
+
+            using (DataContext context = new DataContext(_options, _getCipherMock.Object))
+            {
+                context.Categoria.Add(new Categoria { Id = 1, Descricao = "Saúde" });
+                context.Tag.Add(new Tag { Id = 1, Descricao = "Saúde" });
+
+                context.Perfil.Add(new Perfil { Id = 1, Descricao = "ADM" });
+
+                context.SaveChanges();
+            }
+
             _appSettings = Options.Create<AppSettings>(appSettings);
 
+            _dashboardService = new DashboardService(new DataContext(_options, _getCipherMock.Object));
 
-            _dashboardService = new DashboardService(new DataContext(_options));
+            _postService = new PostService(new DataContext(_options, _getCipherMock.Object));
 
-            _postService = new PostService(new DataContext(_options));
+            _usuarioService = new UsuarioService(new DataContext(_options, _getCipherMock.Object), _appSettings, _getCipherMock.Object);
 
-            _usuarioService = new UsuarioService(new DataContext(_options), _appSettings, _getCipherMock.Object);
-
-            _bannerService = new BannerService(new DataContext(_options));
+            _bannerService = new BannerService(new DataContext(_options, _getCipherMock.Object));
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
