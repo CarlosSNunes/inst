@@ -145,7 +145,8 @@
                                 </span>
                             </span>
                             <span class="file-name">
-                                {{filesNumber > 0 ? filesNumber + ' arquivo(s) selecionado(s)' :  'Nenhum arquivo selecionado'}}
+                                {{filesNumber > 0 ? filesNumber + ' arquivo(s) selecionado(s)' : 'Nenhum arquivo
+                                selecionado'}}
                             </span>
                         </label>
                         <p class="obs">
@@ -192,8 +193,12 @@
                     <label class="checkbox-label" for="aceiteDeTermos">
                         <span>
                             Eu aceito os
-                            <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos </a> de Política de
+                            <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos
+                                <span style="display: none;">
+                                    (opens in a new window)
+                                </span> </a> de Política de
                             Privacidade.
+
                         </span>
                     </label>
                 </div>
@@ -221,11 +226,13 @@
         </div>
 
         <div class="column is-full">
-            <button [disabled]="loading" [class.loading]="loading" class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">
+            <button [disabled]="loading" [class.loading]="loading"
+                class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">
                 Enviar
             </button>
 
-            <button [disabled]="loading" [class.loading]="loading" class="btn btn-digital-cian tertiary arrow-right is-hidden-desktop" (click)="sendForm()">
+            <button [disabled]="loading" [class.loading]="loading"
+                class="btn btn-digital-cian tertiary arrow-right is-hidden-desktop" (click)="sendForm()">
                 Enviar
             </button>
         </div>

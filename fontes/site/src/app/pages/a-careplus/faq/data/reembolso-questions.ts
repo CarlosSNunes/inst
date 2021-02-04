@@ -49,6 +49,17 @@ export default [
             
             <div class="tg-wrap">
                 <table border="1" table="" cellspacing="0" cellpadding="0">
+                <thead style="display: none;">
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+                </thead>
+
                     <colgroup>
                         <col width="79">
                         <col width="95">

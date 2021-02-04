@@ -59,6 +59,9 @@
             </label>
             <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
                 <img class="user-icon" src="assets/svg/user-digital-cian.svg" alt="User Icon">
+                <span style="display: none;">
+                    (opens in a new window)
+                </span>
             </a>
         </div>
     </div>
@@ -121,6 +124,9 @@
                         (click)="initTransition()" tabindex="0" [title]="menuItem.title"
                         *ngIf="(!menuItem.subItems || (menuItem.subItems && menuItem.subItems.length == 0)) && menuItem.href">
                         {{menuItem.title}}
+                        <span style="display: none;">
+                            (opens in a new window)
+                        </span>
                     </a>
 
                     <!-- Aparece somente quando houver sub-itens -->
@@ -140,6 +146,10 @@
                                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
                                     (click)="initTransition()" tabindex="0" [title]="menuSubItem.title">
                                     {{menuSubItem.title}}
+                                    <span style="display: none;">
+                                        (opens in a new window)
+                                    </span>
+                                    
                                 </a>
 
                                 <!-- Botão com href -->
@@ -147,6 +157,9 @@
                                     rel="noopener noreferrer" (click)="initTransition()" tabindex="0"
                                     [title]="menuSubItem.title">
                                     {{menuSubItem.title}}
+                                    <span style="display: none;">
+                                        (opens in a new window)
+                                    </span>
                                 </a>
                             </li>
                         </ul>
