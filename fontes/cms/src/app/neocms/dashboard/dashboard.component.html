@@ -171,7 +171,7 @@
                         <ul>
 
                             <li role="button" *ngFor="let post of postsMaisLidos; index as i;"
-                                (click)="changePost(post.id)" [class.active]="postSelecionado.id == post.id">
+                                (click)="changePost(post?.id)" [class.active]="postSelecionado?.id == post?.id">
                                 <a>
                                     <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -199,21 +199,24 @@
                             </div>
 
                             <div class="post-body">
-                                <h5 *ngIf="postSelecionado" class="post-title">
-                                    {{ postSelecionado.titulo }}</h5>
-
-                                <p *ngIf="postSelecionado" class="post-subtitle">
-                                    {{postSelecionado.subtitulo}}
-                                </p>
-
-                                <p *ngIf="postSelecionado" class="post-description">
-                                    {{postSelecionado.descricaoPrevia}}
-                                </p>
-                                
+                                <div>
+                                    <h5 *ngIf="postSelecionado" class="post-title">
+                                        {{ postSelecionado.titulo }}</h5>
+    
+                                    <p *ngIf="postSelecionado" class="post-subtitle">
+                                        {{postSelecionado.subtitulo}}
+                                    </p>
+    
+                                    <p *ngIf="postSelecionado" class="post-description">
+                                        {{postSelecionado.descricaoPrevia}}
+                                    </p>
+                                </div>
+                               
+                                <a *ngIf="postSelecionado"
+                                [routerLink]="['/neocms/posts-blog/edit', postSelecionado.slug]">
+                                <button class="btn blue">Editar</button></a>
                             </div>
-                            <a *ngIf="postSelecionado"
-                            [routerLink]="['/neocms/posts-blog/edit', postSelecionado.slug]">
-                            <button class="btn blue">Editar</button></a>
+                           
                         </div>
                         
                     </div>
