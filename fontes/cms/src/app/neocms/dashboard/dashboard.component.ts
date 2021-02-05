@@ -53,12 +53,13 @@ export class DashboardComponent implements OnInit {
             .subscribe(resp => {
                 this.loaded = true;
                 this.postsMaisLidos = resp;
+                console.log(this.postsMaisLidos)
             },
                 error => {
                     this.loaded = true;
                 });
 
-        this.postSelecionado = this.postsMaisLidos[0];
+        // this.postSelecionado = this.postsMaisLidos[0];
     }
 
     getPostsAtivos() {
