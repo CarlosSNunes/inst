@@ -10,7 +10,6 @@ import { NeocmsMenuLateralModule } from './neocms/neocms-menu-lateral/neocms-men
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpHandlerService } from './http-handler/http-handler.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -26,12 +25,11 @@ import { WindowRef } from 'src/utils/window-ref';
 import { ToastrModule } from 'ngx-toastr';
 import { BlankContainerComponent } from './layout/blank-container/blank-container.component';
 import { ContainerComponent } from './layout/container/container.component';
+import { BannerModule } from './neocms/banner/banner.module';
 
 
 
-const ngWizardConfig: NgWizardConfig = {
-  theme: THEME.circles,
-};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,9 +46,10 @@ const ngWizardConfig: NgWizardConfig = {
     NeocmsHeaderModule,
     NeocmsFooterModule,
     NeocmsMenuLateralModule,
+    BannerModule,
+    PostsBlogModule,
     ErrorHandlerModule,
     HttpClientModule,
-    NgWizardModule.forRoot(ngWizardConfig),
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BrowserAnimationsModule,
@@ -77,6 +76,7 @@ const ngWizardConfig: NgWizardConfig = {
       multi: true,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

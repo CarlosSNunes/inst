@@ -24,9 +24,10 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
-import { NgWizardModule } from 'ng-wizard';
-defineLocale('pt-br', ptBrLocale);
-
+import { NgWizardModule, NgWizardConfig, THEME  } from 'ng-wizard';
+const ngWizardConfig: NgWizardConfig = {
+  theme: THEME.dots
+};
 @NgModule({
   declarations: [
     PostsBlogComponent,
@@ -54,7 +55,7 @@ defineLocale('pt-br', ptBrLocale);
     NgxPaginationModule,
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
-    NgWizardModule
+    NgWizardModule.forRoot(ngWizardConfig),
   ],
   providers: [
     PostsBlogService,
@@ -68,6 +69,7 @@ defineLocale('pt-br', ptBrLocale);
       multi: true,
     },
 
-  ]
+  ],
+
 })
 export class PostsBlogModule { }

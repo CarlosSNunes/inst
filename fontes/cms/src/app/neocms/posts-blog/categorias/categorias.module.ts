@@ -10,7 +10,6 @@ import { CategoriasEditComponent } from './categorias-edit/categorias-edit.compo
 import { CategoriasRoutingModule } from './categorias-routing.module';
 import { CategoriasService } from './categorias.service';
 import { CategoriasDeleteComponent } from './categorias-delete/categorias-delete.component';
-import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -27,7 +26,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgWizardModule,
     PaginationModule,
     NgxPaginationModule,
     ModalModule

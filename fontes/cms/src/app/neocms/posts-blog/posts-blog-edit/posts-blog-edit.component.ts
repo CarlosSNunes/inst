@@ -16,7 +16,7 @@ import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { environment } from './../../../../../src/environments/environment';
 import { PostsTagCreateModel } from 'src/models/posts-blog/posts-tag-create.model';
 import { ToastrService } from 'ngx-toastr';
-import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
+import { NgWizardConfig } from 'ng-wizard';
 
 @Component({
     selector: 'app-posts-blog-edit',
@@ -28,14 +28,15 @@ export class PostsBlogEditComponent implements OnInit {
         // ?--------- Configuração 'ng-wizard' ---------
         configBannerWin1: NgWizardConfig = {
             selected: 0,
-            theme: THEME.dots,
             lang: {
-                next: '🠞',
-                previous: '🠜'
+                next: 'Avançar',
+                previous: 'Voltar'
+            },
+            anchorSettings:{
+                enableAllAnchors:true
             }
         };
     
-        ngWizardService: any;
     dataPublicacao;
     postsBlogForm: FormGroup;
     faTimes = faTimes;
@@ -416,22 +417,5 @@ export class PostsBlogEditComponent implements OnInit {
     }
 
 
-    /**
-     * @description Metodo que captuea a ação de selecionar etapa do wizard.
-     * @param {StepChangedArgs}
-     * @memberOf BannerEditComponent
-     */
-
-    setTheme(theme: THEME) {
-        this.ngWizardService.theme(theme);
-    }
-
-    /**
-     * @description Metodo que captuea a ação de avançar do wizard.
-     * @param {StepChangedArgs}
-     * @memberOf BannerEditComponent
-     */
-    stepChanged(args: StepChangedArgs) {
-    }
 
 }

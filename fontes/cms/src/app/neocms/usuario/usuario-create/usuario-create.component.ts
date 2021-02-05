@@ -2,7 +2,7 @@ import { CareplusPerfilModel } from './../../../../models/careplus-perfil/carepl
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
+// import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
 import { UserAuthenticateModel } from '../../../../models/user-authenticate.model';
 import { CareplusPerfilService } from '../../careplus-perfil/careplus-perfil.service';
 import { UsuarioService } from '../usuario.service';
@@ -19,17 +19,8 @@ import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class UsuarioCreateComponent implements OnInit {
-    // ? --------- Configuração 'ng-wizard' ---------
-    configUser: NgWizardConfig = {
-        toolbarSettings: {
-            showNextButton: false,
-            showPreviousButton: false,
-        },
-        selected: 0,
-        theme: THEME.dots
-    };
+
     faUserShield = faUserShield;
-    ngWizardService: any;
     prf89 = null;
     userForm;
     btnSubmitDisable = false;
@@ -153,11 +144,6 @@ export class UsuarioCreateComponent implements OnInit {
         return FormControlError.GetErrors(control);
     }
 
-    setTheme(theme: THEME) {
-        this.ngWizardService.theme(theme);
-    }
 
-    stepChanged(args: StepChangedArgs) {
-    }
 
 }

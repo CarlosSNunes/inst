@@ -16,7 +16,7 @@ import { PostsUploadAdapter } from 'src/plugins/posts-upload-adapter';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
-import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
+import { NgWizardConfig } from 'ng-wizard';
 
 
 
@@ -29,14 +29,15 @@ export class PostsBlogCreateComponent implements OnInit {
     // ?--------- Configuração 'ng-wizard' ---------
     configBannerWin1: NgWizardConfig = {
         selected: 0,
-        theme: THEME.dots,
         lang: {
-            next: '🠞',
-            previous: '🠜'
+            next: 'Avançar',
+            previous: 'Voltar'
+        },
+        anchorSettings:{
+            enableAllAnchors:true
         }
     };
 
-    ngWizardService: any;
 
     locale = 'pt-br';
     postsBlogForm: FormGroup;
@@ -349,17 +350,13 @@ export class PostsBlogCreateComponent implements OnInit {
      * @memberOf BannerEditComponent
      */
 
-    setTheme(theme: THEME) {
-        this.ngWizardService.theme(theme);
-    }
 
     /**
      * @description Metodo que captuea a ação de avançar do wizard.
      * @param {StepChangedArgs}
      * @memberOf BannerEditComponent
      */
-    stepChanged(args: StepChangedArgs) {
-    }
+
 
 
 }

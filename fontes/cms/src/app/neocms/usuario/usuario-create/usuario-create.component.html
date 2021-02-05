@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-      <ng-wizard [config]="configUser" (stepChanged)="stepChanged($event)">
+      <!-- <ng-wizard [config]="configUser" (stepChanged)="stepChanged($event)">
         <ng-wizard-step [title]="'Usuário'" [description]="'Novo Usuário'">
           <div class="row">
             <div class="col-md-12 col-lg-4 m-auto">
@@ -74,7 +74,7 @@
             </div>
           </div>
         </ng-wizard-step>
-      </ng-wizard>
+      </ng-wizard> -->
     </form>
   </div>
 </div>

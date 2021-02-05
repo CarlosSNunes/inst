@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControlError } from './../../../../../../src/utils/form-control-error';
 import { CategoriasModel } from './../../../../../../src/models/categorias/categorias.model';
 import { CategoriasUpdateModel } from './../../../../../../src/models/categorias/categorias-update.model';
-import { NgWizardConfig, THEME } from 'ng-wizard';
+// import { NgWizardConfig, THEME } from 'ng-wizard';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -27,15 +27,15 @@ export class CategoriasEditComponent implements OnInit {
     btnSubmitDisable = false;
     usuario: UserAuthenticateModel;
     categoria: CategoriasModel;
-    //*Configuração 'ng-wizard'
-    config: NgWizardConfig = {
-        selected: 0,
-        theme: THEME.dots,
-        toolbarSettings: {
-            showNextButton: false,
-            showPreviousButton: false
-        }
-    };
+    // //*Configuração 'ng-wizard'
+    // config: NgWizardConfig = {
+    //     selected: 0,
+    //     theme: THEME.dots,
+    //     toolbarSettings: {
+    //         showNextButton: false,
+    //         showPreviousButton: false
+    //     }
+    // };
     userPermission: string;
 
     constructor(

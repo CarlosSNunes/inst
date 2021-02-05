@@ -24,10 +24,9 @@
         <div class="row">
             <div class="col-12">
                 <form [formGroup]="postsBlogForm" (ngSubmit)="onSubmit()">
-                    <ng-wizard [config]="configBannerWin1" (stepChanged)="stepChanged($event)">
+                    <ng-wizard [config]="configBannerWin1" >
                         <ng-wizard-step [title]="'1 - Conteúdo'">
                             <div class="row">
-                                <!-- <h5 class="col-12">1 - Conteúdo</h5> -->
                                 <div class="col-md-6">
                                     <label class="label">Título</label>
                                     <input formControlName="titulo" class="form-control input" type="text"
@@ -135,7 +134,6 @@
                         </ng-wizard-step>
                         <ng-wizard-step [title]="'2 - Opções'">
                             <div class="row">
-                                <!-- <h5 class="col-12">2 - Opções</h5> -->
                                 <div class="col-md-12">
 
                                     <input type="file" class="text-truncate input-img"
@@ -180,7 +178,6 @@
                         </ng-wizard-step>
                         <ng-wizard-step [title]="'3 - SEO'">
                             <div class="row">
-                                <!-- <h5 class="col-12">3 - SEO</h5> -->
                                 <div class="col-md-12">
                                     <label class="label">Título para SEO</label>
                                     <input formControlName="tituloPaginaSEO" class="form-control input" type="text"

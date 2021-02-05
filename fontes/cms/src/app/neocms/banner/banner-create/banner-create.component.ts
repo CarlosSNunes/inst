@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faCheck, faPhotoVideo, faPlus, faSearch, faTimes, faUpload } from '@fortawesome/free-solid-svg-icons';
-import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
+import { NgWizardConfig } from 'ng-wizard';
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 import { ToastrService } from 'ngx-toastr';
 import { BannerService } from '../banner.service';
@@ -23,10 +23,12 @@ export class BannerCreateComponent implements OnInit {
     // ?--------- Configuração 'ng-wizard' ---------
     configBannerWin1: NgWizardConfig = {
         selected: 0,
-        theme: THEME.dots,
         lang: {
-            next: '🠞',
-            previous: '🠜'
+            next: 'Avançar',
+            previous: 'Voltar'
+        },
+        anchorSettings: {
+            enableAllAnchors: true
         }
     };
 
@@ -71,7 +73,6 @@ export class BannerCreateComponent implements OnInit {
     imageURL: string;
     isBannerAtivo: any = false;
     isLinkExternoSelected: any = false;
-    ngWizardService: any;
     nomeDaImagem: any;
     submitted: boolean;
     thumbnailImage: File;
@@ -100,7 +101,7 @@ export class BannerCreateComponent implements OnInit {
             tempoExibicao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             rota: [''],
-            link: ['',[Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            link: ['', [Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
             nomeLink: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
@@ -124,7 +125,7 @@ export class BannerCreateComponent implements OnInit {
      */
     ngOnInit() {
         this.userPermission = JSON.parse(localStorage.getItem('user_token')).perfis[0].descricao;
-        if(this.userPermission == 'Visualizador'){
+        if (this.userPermission == 'Visualizador') {
             this.router.navigate(['dashboard'])
         }
         this.usuario = this.authenticateService.state;
@@ -188,23 +189,7 @@ export class BannerCreateComponent implements OnInit {
         return FormControlError.GetErrors(control);
     }
 
-    /**
-     * @description Esse metodo define o tema que é usado no component wirzard de navegação
-     * @param theme 
-     * @memberOf BannerCreateComponent
-     */
-    setTheme(theme: THEME) {
-        this.ngWizardService.theme(theme);
-    }
 
-    /**
-     * @description Se necessário emite um evento ao avançar uma etapa do Wizard.
-     * @param args 
-     * @memberOf BannerCreateComponent
-     */
-    stepChanged(args: StepChangedArgs) {
-
-    }
 
     /**
      ** Instruções para usar o 'ngx-image-cropper'

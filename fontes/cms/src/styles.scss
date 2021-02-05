@@ -102,7 +102,9 @@ div#containerLogin {
 .ng-wizard-theme-dots > ul.step-anchor > li > a:focus {
   color: #50a1ff;
 }
-
+.ng-wizard-theme-dots>ul.step-anchor>li>a:after{
+  background: none;
+}
 .btn-group > .btn-group:not(:last-child) > .btn,
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
   background-color: #50a1ff;

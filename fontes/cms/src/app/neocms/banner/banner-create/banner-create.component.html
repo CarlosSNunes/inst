@@ -16,7 +16,7 @@
       <div class="col-12">
         <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
 
-          <ng-wizard [config]="configBannerWin1" (stepChanged)="stepChanged($event)">
+          <ng-wizard [config]="configBannerWin1" >
             <ng-wizard-step [title]="'1 - Área'">
               <div class="areaBanner fade-in">
                 <h5 class="card-title">Area do Banner</h5>

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { FormControlError } from 'src/utils/form-control-error';
 import { CategoriasCreateModel } from 'src/models/categorias/categorias-create.model';
-import { NgWizardConfig, THEME } from 'ng-wizard';
+// import { NgWizardConfig, THEME } from 'ng-wizard';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -25,17 +25,7 @@ export class CategoriasCreateComponent implements OnInit {
     usuario: UserAuthenticateModel;
     btnSubmitDisable = false;
 
-    //*Configuração 'ng-wizard'
-    config: NgWizardConfig = {
-        selected: 0,
-        theme: THEME.dots,
-        toolbarSettings: {
-            showNextButton: false,
-            showPreviousButton: false
-        }
-    };
-
-    ngWizardService: any;
+s
     userPermission: string;
 
     constructor(

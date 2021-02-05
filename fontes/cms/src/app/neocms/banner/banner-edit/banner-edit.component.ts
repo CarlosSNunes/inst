@@ -8,7 +8,7 @@ import { AuthenticationService } from './../../../../../src/app/authentication/a
 import { Router, ActivatedRoute } from '@angular/router';
 import { BannerService } from '../banner.service';
 import { BannerModel } from './../../../../../src/models/banner/banner.model';
-import { NgWizardConfig, StepChangedArgs, THEME } from 'ng-wizard';
+import { NgWizardConfig} from 'ng-wizard';
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 import { ToastrService } from 'ngx-toastr';
 
@@ -22,14 +22,16 @@ export class BannerEditComponent implements OnInit {
     // ?--------- Configuração 'ng-wizard' ---------
     configBannerWin1: NgWizardConfig = {
         selected: 0,
-        theme: THEME.dots,
         lang: {
-            next: '🠞',
-            previous: '🠜'
+            next: 'Avançar',
+            previous: 'Voltar'
+        },
+        anchorSettings:{
+            enableAllAnchors:true
         }
+        
     };
 
-    ngWizardService: any;
 
     // ?--------- Configuração 'DropDown' ---------
     dropdownOptions = [
@@ -294,17 +296,15 @@ export class BannerEditComponent implements OnInit {
      * @memberOf BannerEditComponent
      */
 
-    setTheme(theme: THEME) {
-        this.ngWizardService.theme(theme);
-    }
+
 
     /**
      * @description Metodo que captuea a ação de avançar do wizard.
      * @param {StepChangedArgs}
      * @memberOf BannerEditComponent
      */
-    stepChanged(args: StepChangedArgs) {
-    }
+    // stepChanged(args: StepChangedArgs) {
+    // }
 
     /**
      *  Usando o 'ngx-image-cropper'
