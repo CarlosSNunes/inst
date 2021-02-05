@@ -57,10 +57,10 @@ namespace CarePlusAPI.Services
 
                 return maisLidos;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -73,14 +73,13 @@ namespace CarePlusAPI.Services
         public async Task<int> TotalBannersAtivos()
         {
 
-            IQueryable<Banner> query = Db.Set<Banner>()
+            int bannersCount = await Db.Set<Banner>()
                                                 .AsNoTracking()
-                                                .Where(p => p.Ativo.Equals('1'));
+                                                .Where(p => p.Ativo.Equals('1'))
+                                                .CountAsync();
 
-            var totalBanner = await query.ToListAsync();
 
-            return totalBanner.Count;
-
+            return bannersCount;
 
         }
 
@@ -88,20 +87,17 @@ namespace CarePlusAPI.Services
         {
             try
             {
-                IQueryable<Post> query = Db.Set<Post>()
-                                                    .AsNoTracking()
-                                                    .Include(c => c.Categoria)
-                                                    .Include("PostTag.Tag")
-                                                    .Where(p => p.Ativo.Equals('1'));
+                int postsCount = await Db.Set<Post>()
+                                        .AsNoTracking()
+                                        .Where(p => p.Ativo.Equals('1')).CountAsync();
 
-                var totalPostsBlog = await query.ToListAsync();
 
-                return totalPostsBlog.Count;
+                return postsCount;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -109,19 +105,16 @@ namespace CarePlusAPI.Services
         {
             try
             {
-                IQueryable<Usuario> query = Db.Set<Usuario>().AsNoTracking()
-                                                    .Where(p => !p.NomeUsuario.Equals(null));
+                int usersCount = await Db.Set<Usuario>().AsNoTracking()
+                                                    .Where(p => !p.NomeUsuario.Equals(null))
+                                                    .CountAsync();
 
-
-
-                var totalUsuarios = await query.ToListAsync();
-
-                return totalUsuarios.Count;
+                return usersCount;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
     }
