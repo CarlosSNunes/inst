@@ -143,8 +143,8 @@ export class BannerEditComponent implements OnInit {
             tempoExibicao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             rota: [''],
-            link: ['',[Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+            link: ['',[ Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            linkExterno: ['0', [ FormControlError.noWhitespaceValidator]],
             ativo: ['1', [Validators.required, FormControlError.noWhitespaceValidator]],
             arquivo: [''],
             arquivoMobile: ['']
@@ -186,7 +186,7 @@ export class BannerEditComponent implements OnInit {
      */
     onSubmit() {
         this.submitted = true;
-        if (this.bannerForm.valid) {
+        if (this.bannerForm.valid && (this.bannerForm.controls.link.value != '' || this.bannerForm.controls.rota.value != '')) {
             this.btnSubmitDisable = true;
             const id = this.activatedRoute.snapshot.paramMap.get('id');
             this.bannerForm.controls['id'].setValue(id);
@@ -206,6 +206,9 @@ export class BannerEditComponent implements OnInit {
                         this.toastrService.error(message);
                     })
                 .add(() => this.btnSubmitDisable = false);
+        }
+        else{
+            this.toastrService.error('É nessessário preencher todos os campos * do formulário');
         }
     }
 

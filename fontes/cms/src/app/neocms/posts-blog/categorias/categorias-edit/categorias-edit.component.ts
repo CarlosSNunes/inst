@@ -139,6 +139,10 @@ export class CategoriasEditComponent implements OnInit {
                     })
                 .add(() => this.btnSubmitDisable = false);
         }
+        else{
+            this.toastrService.error('É nessessário preencher todos os campos * do formulário');
+
+        }
     }
 
     getErrors(control: AbstractControl) {

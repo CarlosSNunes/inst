@@ -96,6 +96,10 @@ export class TagCreateComponent implements OnInit {
                         this.toastrService.error(message);
                     });
         }
+        else{
+            this.toastrService.error('É nessessário preencher todos os campos * do formulário');
+
+        }
     }
 
     getErrors(control: AbstractControl) {

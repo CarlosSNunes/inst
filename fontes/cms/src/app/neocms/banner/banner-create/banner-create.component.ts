@@ -101,8 +101,8 @@ export class BannerCreateComponent implements OnInit {
             tempoExibicao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             descricao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
             rota: [''],
-            link: ['', [Validators.required, Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
-            linkExterno: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
+            link: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            linkExterno: ['0', [ FormControlError.noWhitespaceValidator]],
             nomeLink: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             ativo: ['0', [Validators.required, FormControlError.noWhitespaceValidator]],
             arquivo: ['', [Validators.required]],
@@ -138,7 +138,7 @@ export class BannerCreateComponent implements OnInit {
      */
     onSubmit(): void {
         this.submitted = true;
-        if (this.bannerForm.valid) {
+        if (this.bannerForm.valid && (this.bannerForm.controls.link.value != '' || this.bannerForm.controls.rota.value != '')) {
             this.btnSubmitDisable = true;
             const model = new BannerCreateModel(this.bannerForm.value);
             this.bannerService.post(model)
@@ -155,6 +155,9 @@ export class BannerCreateComponent implements OnInit {
                     this.toastrService.error(message);
                 })
                 .add(() => this.btnSubmitDisable = false);
+        }else{
+            this.toastrService.error('É nessessário preencher todos os campos * do formulário');
+
         }
     }
 
