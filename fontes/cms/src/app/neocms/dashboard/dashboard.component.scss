@@ -263,27 +263,28 @@
                 }
                 .post-content {
                     width: 65%;
-                    height: 410px;
+                    // height: 410px;
                     border: 1px solid #c4c4c4;
                     border-radius: 0.25rem;
-                    padding: 1rem;
+                    padding: 16px;
                     display: flex;
-                    // flex-direction: column;
-                    justify-content: space-between;
+                    flex-direction: column;
+                    // justify-content: space-between;
                     position: relative;
-                    flex-wrap: wrap;
+                    // flex-wrap: wrap;
                     .post-image {
-                        width: 45%;
-
+                        width: 100%;
                         &.crop {
                             // height: 170px;
-                            overflow: hidden;
-
+                            // overflow: hidden;
+                            // max-height: 200px;
+                            margin-bottom: 10px;
                             display: flex;
                         }
                         img {
                             width: 100%;
                             margin: auto;
+                            max-width: 400px;
                         }
                         &.placeholder {
                             position: absolute;
@@ -295,9 +296,10 @@
                         }
                     }
                     .post-body {
+                        // max-height: 170px;
                         height: 100%;
                         overflow: auto;
-                        width: 50%;
+                        width: 100%;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;

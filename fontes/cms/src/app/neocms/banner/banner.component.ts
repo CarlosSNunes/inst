@@ -39,7 +39,7 @@ export class BannerComponent implements OnInit {
     paginaAtual = 1;
     showBannerDelete: boolean;
     thumbnail: string;
-    selectedFilter: string = "beneficiario";
+    selectedFilter: string = "home";
     userPermission: string;
 
     constructor(

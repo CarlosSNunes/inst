@@ -12,7 +12,7 @@ export class BannerOrderComponent implements OnInit {
 
   banners: any = [];
   loaded: boolean = false
-  selectedFilter: string = "beneficiario";
+  selectedFilter: string = "home";
   userPermission: string;
 
   constructor(private bannerService: BannerService,
