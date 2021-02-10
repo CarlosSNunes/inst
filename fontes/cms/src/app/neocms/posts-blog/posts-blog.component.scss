@@ -78,6 +78,9 @@
                     display: none;
 
                     }
+                    &:last-child{
+                        min-width: 90px;
+                    }
                 }
                 // .img-post {
                 // }
