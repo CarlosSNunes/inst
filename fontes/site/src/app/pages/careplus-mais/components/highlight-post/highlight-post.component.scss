@@ -3,6 +3,18 @@
 section#highlight-post {
     .container {
         .columns {
+            padding-left: 16px;
+            .post {
+                display: flex;
+                box-shadow: 0 0 0 0 #0079c8;
+                border: 1px solid #c9c9c9;
+                box-sizing: border-box;
+                transition: box-shadow .4s ease-in-out,transform .4s ease-in-out,-webkit-transform .4s ease-in-out;
+                &:hover{
+                    box-shadow: -11px 9px 0 0 #0079c8;
+                    transform: translate(11px,-9px);
+                }
+            }
             .column {
                 &.info-col {
                     padding-left: 116px;
@@ -40,6 +52,7 @@ section#highlight-post {
                 }
 
                 &.image-col {
+                    padding: 0;
                     &.video {
                         position: relative;
                         display: flex;

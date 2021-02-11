@@ -73,7 +73,7 @@ export class BuscaPorCategoriaComponent implements OnInit {
                 link: '/careplus-mais'
             }),
             new BreadcrumbModel({
-                name: 'Resultado de busca',
+                name: 'Resultado de Busca',
                 link: `/careplus-mais/categoria/${this.categoryId}`,
                 active: true
             })

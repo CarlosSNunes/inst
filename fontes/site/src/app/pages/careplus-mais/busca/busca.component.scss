@@ -90,22 +90,23 @@ section {
                     }
 
                     a {
-                        width: 38px;
-                        height: 38px;
-                        display: inline-flex;
-                        border: 1px solid getColor(_bupa, _digital-cian);
-                        border-radius: 2px;
-                        padding: 13px 9px;
-                        position: absolute;
-                        right: 0;
-                        align-self: center;
-
+                       
                         &.disable {
                             opacity: 0.6;
                             cursor: not-allowed;
                         }
 
                         &.next {
+                            width: 38px;
+                            height: 38px;
+                            display: inline-flex;
+                            border: 1px solid getColor(_bupa, _digital-cian);
+                            border-radius: 2px;
+                            padding: 13px 9px;
+                            position: absolute;
+                            right: 0;
+                            align-self: center;
+    
                             margin-left: 18px;
                             img {
                                 transform: rotate(180deg);

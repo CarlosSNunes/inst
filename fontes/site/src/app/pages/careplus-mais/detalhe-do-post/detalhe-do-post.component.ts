@@ -122,7 +122,7 @@ export class DetalheDoPostComponent implements OnInit {
 
     private setSEOInfos() {
 
-        this.title.setTitle(`${this.post.tituloPaginaSEO} | Care Plus +`);
+        this.title.setTitle(`${this.post.tituloPaginaSEO} | Care Plus + | Care Plus`);
         this.meta.updateTag({
             name: 'description',
             content: this.post.descricaoPaginaSEO

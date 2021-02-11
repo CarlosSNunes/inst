@@ -135,10 +135,49 @@ export class CareplusMaisComponent implements OnInit {
             paginatedCategories.result.forEach(category => {
                 this.categories.push(new CategoryModel(category));
             })
+            this.changeCategoriesOrder(this.categories)
             this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.ShowError(error);
         }
+    }
+    private async changeCategoriesOrder(categories) {
+        let newOrder = []
+        categories.map(category => {
+            switch (category.titulo.toLowerCase()) {
+                case 'dicas de saúde':
+                    newOrder[0] = category
+                    break;
+                case 'atividade física':
+                    newOrder[1] = category
+
+                    break;
+                case 'dicas para o rh':
+                    newOrder[2] = category
+
+                    break;
+                case 'plano de saúde':
+                    newOrder[3] = category
+
+                    break;
+                case 'nutrição':
+                    newOrder[4] = category
+
+                    break;
+                case 'outros':
+                    newOrder[5] = category
+
+                    break;
+                default:
+                    newOrder.push(category)
+
+                    break;
+
+            }
+        })
+
+        this.categories = newOrder
+
     }
 
     getErrors(control: AbstractControl) {
@@ -157,15 +196,15 @@ export class CareplusMaisComponent implements OnInit {
 
     filter() {
         if (this.filterForm.value.search && this.filterForm.value.search != null && this.filterForm.value.search.length > 0) {
-            this.router.navigate(['/careplus-mais/busca', this.filterForm.value.search])
+            this.router.navigate(['/careplus-mais/resultado-de-busca', this.filterForm.value.search])
         }
     }
 
     setSEOInfos() {
-        this.title.setTitle('Care Plus +');
+        this.title.setTitle('Care Plus+ | Portal de Conteúdos e Informações de Saúde | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'O seu canal de notícias e conteúdos exclusivos no site da Care Plus.'
+            content: 'O Care Plus+ oferece conteúdos exclusivos de saúde, como entrevistas, análises, artigos e opiniões de quem entende do assunto.'
         });
 
         /* 

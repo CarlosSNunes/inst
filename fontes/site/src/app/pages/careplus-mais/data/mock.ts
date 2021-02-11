@@ -10,10 +10,10 @@ export const crossContentModel: CrossContentModel = new CrossContentModel({
         alt: 'Serviços On-line imagem 2'
     },
     boxContent: {
-        title: 'Voce conheçe os nossos Serviços On-line?',
-        description: 'Serviços à distância com qualidade, carinho e cuidado. Conheça os serviços que a Care Plus disponibilizar a distância para seus beneciários.',
+        title: 'Você conhece os nossos Serviços On-line?',
+        description: 'Serviços à distância com qualidade, carinho e cuidado. Conheça os serviços que a Care Plus disponibiliza à distância para seus beneficiários.',
         button: new ButtonModel({
-            text: 'Saiba mais',
+            text: 'Conheça os Serviços On-line',
             routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
         })
     }

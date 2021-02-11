@@ -59,16 +59,16 @@
                     </p>
 
                     <a routerLink="/careplus-mais" class="btn btn-digital-cian tertiary arrow-right small reverse"
-                        title="Voltar à navegação">
-                        VOLTAR À NAVEGAÇÃO
+                        title="Voltar à Care Plus +">
+                        Voltar à Care Plus +
                     </a>
 
                     <ul class="posts" *ngIf="count > 0" infiniteScroll [infiniteScrollDistance]="2"
                         [infiniteScrollThrottle]="20" (scrolled)="onScroll()">
                         <li class="post" *ngFor="let post of posts" (click)="goToPostMobile(post)">
-                            <p class="post-title">
+                            <a class="post-title" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
                                 {{post.titulo}}
-                            </p>
+                            </a>
                             <p class="post-description">
                                 {{post.descricaoPrevia}}
                             </p>

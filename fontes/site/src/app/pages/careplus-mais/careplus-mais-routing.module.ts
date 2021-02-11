@@ -11,11 +11,11 @@ const routes: Routes = [
         component: CareplusMaisComponent
     },
     {
-        path: 'busca',
+        path: 'resultado-de-busca',
         component: BuscaComponent
     },
     {
-        path: 'busca/:term',
+        path: 'resultado-de-busca/:term',
         component: BuscaComponent
     },
     {
