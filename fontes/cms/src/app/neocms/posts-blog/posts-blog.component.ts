@@ -63,7 +63,7 @@ export class PostsBlogComponent implements OnInit {
                 this.loaded = true;
                 this.postsBlog = postsBlog.result
                 this.postCount = postsBlog.count;
-                console.log(this.postsBlog)
+                // console.log(this.postsBlog)
                 this.filterPosts('data')
             },
                 error => {
@@ -134,78 +134,78 @@ export class PostsBlogComponent implements OnInit {
         console.log(filter)
         switch (filter) {
             case 'data':
-                if(this.dataFilter){
-                    this.postsBlog.sort((a, b) => {
-                        console.log(a.dataPublicacao, b.dataPublicacao)
-                        if (new Date(a.dataPublicacao).getTime() > new Date(b.dataPublicacao).getTime()) {
-                            return -1
-                        }
-                        if (new Date(a.dataPublicacao).getTime() < new Date(b.dataPublicacao).getTime()) {
-                            return 1;
-                        }
-                        return 0;
-                    })
-                }else{
-                    this.postsBlog.sort((a, b) => {
-                        console.log(a.dataPublicacao, b.dataPublicacao)
-                        if (new Date(a.dataPublicacao).getTime() > new Date(b.dataPublicacao).getTime()) {
-                            return 1
-                        }
-                        if (new Date(a.dataPublicacao).getTime() < new Date(b.dataPublicacao).getTime()) {
-                            return -1;
-                        }
-                        return 0;
-                    })
-                }
-                this.dataFilter = !this.dataFilter
+                // if(this.dataFilter){
+                //     this.postsBlog.sort((a, b) => {
+                //         console.log(a.dataPublicacao, b.dataPublicacao)
+                //         if (new Date(a.dataPublicacao).getTime() > new Date(b.dataPublicacao).getTime()) {
+                //             return -1
+                //         }
+                //         if (new Date(a.dataPublicacao).getTime() < new Date(b.dataPublicacao).getTime()) {
+                //             return 1;
+                //         }
+                //         return 0;
+                //     })
+                // }else{
+                //     this.postsBlog.sort((a, b) => {
+                //         console.log(a.dataPublicacao, b.dataPublicacao)
+                //         if (new Date(a.dataPublicacao).getTime() > new Date(b.dataPublicacao).getTime()) {
+                //             return 1
+                //         }
+                //         if (new Date(a.dataPublicacao).getTime() < new Date(b.dataPublicacao).getTime()) {
+                //             return -1;
+                //         }
+                //         return 0;
+                //     })
+                // }
+                // this.dataFilter = !this.dataFilter
                 break;
             case 'titulo':
-                if(this.tituloFilter){
-                    this.postsBlog.sort((a, b) => {
-                        if (a.titulo > b.titulo) {
-                            return -1
-                        }
-                        if (a.titulo < b.titulo)  {
-                            return 1;
-                        }
-                        return 0;
-                    })
-                }else{
-                    this.postsBlog.sort((a, b) => {
-                        if (a.titulo > b.titulo) {
-                            return 1
-                        }
-                        if (a.titulo < b.titulo) {
-                            return -1;
-                        }
-                        return 0;
-                    })
-                }
-                this.tituloFilter = !this.tituloFilter
+                // if(this.tituloFilter){
+                //     this.postsBlog.sort((a, b) => {
+                //         if (a.titulo > b.titulo) {
+                //             return -1
+                //         }
+                //         if (a.titulo < b.titulo)  {
+                //             return 1;
+                //         }
+                //         return 0;
+                //     })
+                // }else{
+                //     this.postsBlog.sort((a, b) => {
+                //         if (a.titulo > b.titulo) {
+                //             return 1
+                //         }
+                //         if (a.titulo < b.titulo) {
+                //             return -1;
+                //         }
+                //         return 0;
+                //     })
+                // }
+                // this.tituloFilter = !this.tituloFilter
                 break;
             case 'categoria':
-                if(this.catalogoFilter){
-                    this.postsBlog.sort((a, b) => {
-                        if (a.categoria > b.categoria) {
-                            return -1
-                        }
-                        if (a.categoria < b.categoria) {
-                            return 1;
-                        }
-                        return 0;
-                    })
-                }else{
-                    this.postsBlog.sort((a, b) => {
-                        if  (a.categoria > b.categoria) {
-                            return 1
-                        }
-                        if  (a.categoria < b.categoria) {
-                            return -1;
-                        }
-                        return 0;
-                    })
-                }
-                this.catalogoFilter = !this.catalogoFilter
+                // if(this.catalogoFilter){
+                //     this.postsBlog.sort((a, b) => {
+                //         if (a.categoria > b.categoria) {
+                //             return -1
+                //         }
+                //         if (a.categoria < b.categoria) {
+                //             return 1;
+                //         }
+                //         return 0;
+                //     })
+                // }else{
+                //     this.postsBlog.sort((a, b) => {
+                //         if  (a.categoria > b.categoria) {
+                //             return 1
+                //         }
+                //         if  (a.categoria < b.categoria) {
+                //             return -1;
+                //         }
+                //         return 0;
+                //     })
+                // }
+                // this.catalogoFilter = !this.catalogoFilter
                 break;
         }
     }
