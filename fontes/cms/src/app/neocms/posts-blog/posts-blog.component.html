@@ -23,9 +23,11 @@
             <tr>
               <th scope="col" class="  text-center favorite">Favorito</th>
               <th scope="col" class="  text-center img-post">Imagem</th>
-              <th scope="col" class=" text-center">Titulo</th>
-              <th scope="col" class="  text-center">Data Publicação</th>
-              <th scope="col" class="  text-center">Categoria</th>
+              <th scope="col" class=" text-center" style="cursor: pointer;" (click)="filterPosts('titulo')">Titulo</th>
+              <th scope="col" class="  text-center" style="cursor: pointer;" (click)="filterPosts('data')">Data
+                Publicação</th>
+              <th scope="col" class="  text-center" style="cursor: pointer;" (click)="filterPosts('categoria')">
+                Categoria</th>
               <th scope="col" class="  text-center">Ações</th>
             </tr>
 

@@ -11,6 +11,7 @@ export class PostBlogModel {
 
     id: number;
     ativo: string;
+    categoria:string;
     categoriaId: number;
     dataCadastro: string;
     dataExpiracao: string | null;

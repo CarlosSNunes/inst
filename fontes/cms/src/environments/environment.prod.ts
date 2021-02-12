@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    API: '???',
-    INSTITUCIONAL_URL: '???'
+    API: 'https://uatp.careplus.com.br/apiinstitucional',
+    INSTITUCIONAL_URL: 'https://uatp.careplus.com.br/institucional',
 };

@@ -29,6 +29,10 @@ export class PostsBlogComponent implements OnInit {
     paginaAtual = 1;
     contador = 5;
     userPermission: string;
+    dataFilter: boolean = false;
+    tituloFilter: boolean = false;
+    catalogoFilter: boolean = false;
+
 
 
     private readonly API_ENDPOINT = environment.API;
@@ -59,6 +63,8 @@ export class PostsBlogComponent implements OnInit {
                 this.loaded = true;
                 this.postsBlog = postsBlog.result
                 this.postCount = postsBlog.count;
+                console.log(this.postsBlog)
+                this.filterPosts('data')
             },
                 error => {
                     let message = '';
@@ -123,6 +129,85 @@ export class PostsBlogComponent implements OnInit {
     onPageChange(page: number) {
         this.paginaAtual = page;
         this.getPosts();
+    }
+    filterPosts(filter: string) {
+        console.log(filter)
+        switch (filter) {
+            case 'data':
+                if(this.dataFilter){
+                    this.postsBlog.sort((a, b) => {
+                        console.log(a.dataPublicacao, b.dataPublicacao)
+                        if (new Date(a.dataPublicacao).getTime() > new Date(b.dataPublicacao).getTime()) {
+                            return -1
+                        }
+                        if (new Date(a.dataPublicacao).getTime() < new Date(b.dataPublicacao).getTime()) {
+                            return 1;
+                        }
+                        return 0;
+                    })
+                }else{
+                    this.postsBlog.sort((a, b) => {
+                        console.log(a.dataPublicacao, b.dataPublicacao)
+                        if (new Date(a.dataPublicacao).getTime() > new Date(b.dataPublicacao).getTime()) {
+                            return 1
+                        }
+                        if (new Date(a.dataPublicacao).getTime() < new Date(b.dataPublicacao).getTime()) {
+                            return -1;
+                        }
+                        return 0;
+                    })
+                }
+                this.dataFilter = !this.dataFilter
+                break;
+            case 'titulo':
+                if(this.tituloFilter){
+                    this.postsBlog.sort((a, b) => {
+                        if (a.titulo > b.titulo) {
+                            return -1
+                        }
+                        if (a.titulo < b.titulo)  {
+                            return 1;
+                        }
+                        return 0;
+                    })
+                }else{
+                    this.postsBlog.sort((a, b) => {
+                        if (a.titulo > b.titulo) {
+                            return 1
+                        }
+                        if (a.titulo < b.titulo) {
+                            return -1;
+                        }
+                        return 0;
+                    })
+                }
+                this.tituloFilter = !this.tituloFilter
+                break;
+            case 'categoria':
+                if(this.catalogoFilter){
+                    this.postsBlog.sort((a, b) => {
+                        if (a.categoria > b.categoria) {
+                            return -1
+                        }
+                        if (a.categoria < b.categoria) {
+                            return 1;
+                        }
+                        return 0;
+                    })
+                }else{
+                    this.postsBlog.sort((a, b) => {
+                        if  (a.categoria > b.categoria) {
+                            return 1
+                        }
+                        if  (a.categoria < b.categoria) {
+                            return -1;
+                        }
+                        return 0;
+                    })
+                }
+                this.catalogoFilter = !this.catalogoFilter
+                break;
+        }
     }
 
 }
