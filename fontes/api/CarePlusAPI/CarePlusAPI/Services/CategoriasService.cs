@@ -44,7 +44,7 @@ namespace CarePlusAPI.Services
 
             query = query
                        .AsNoTracking()
-                       .OrderByDescending(x => x.DataCadastro);
+                       .OrderBy(x => x.Titulo);
 
             var count = await query.CountAsync();
 

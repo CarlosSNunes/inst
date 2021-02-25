@@ -67,12 +67,13 @@ namespace CarePlusAPI.Controllers
             int offset,
             int limit,
             [FromQuery(Name = "ativo")] char? ativo,
+             [FromQuery(Name = "ordem")] string? ordem,
             [FromHeader(Name = "Custom")] string? origem
             )
         {
             try
             {
-                var result = await _postService.Listar(offset, limit, ativo, origem);
+                var result = await _postService.Listar(offset, limit, ativo, origem, ordem);
 
                 List<PostModel> model = _mapper.Map<List<PostModel>>(result.Item2);
 
@@ -92,7 +93,8 @@ namespace CarePlusAPI.Controllers
                 return Ok(new
                 {
                     count = result.Item1,
-                    result = model
+                    result = model,
+                    ordem = ordem
                 });
             }
             catch (Exception ex)

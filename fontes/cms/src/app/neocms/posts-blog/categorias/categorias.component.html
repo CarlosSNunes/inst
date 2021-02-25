@@ -80,7 +80,7 @@
                     </svg>
                 </div>
 
-                <div class="text-center"  *ngIf="categorias.length > 5 && loaded">
+                <div class="text-center"  *ngIf="count > 5 && loaded">
                     <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
                         nextLabel="Próximo">
                     </pagination-controls>

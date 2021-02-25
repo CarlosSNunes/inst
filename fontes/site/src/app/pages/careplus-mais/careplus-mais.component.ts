@@ -131,11 +131,11 @@ export class CareplusMaisComponent implements OnInit {
     private async getAllCategoriesPaginated() {
         this.categories = []
         try {
-            const paginatedCategories = await this.categoriasService.getAllPaginated(0, 6);
+            const paginatedCategories = await this.categoriasService.getAllPaginated(0, 1000);
             paginatedCategories.result.forEach(category => {
                 this.categories.push(new CategoryModel(category));
             })
-            this.changeCategoriesOrder(this.categories)
+            // this.changeCategoriesOrder(this.categories)
             this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.ShowError(error);

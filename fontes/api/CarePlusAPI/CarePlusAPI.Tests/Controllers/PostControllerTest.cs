@@ -215,7 +215,7 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             var offset = 0; 
             var limit = 5;
-            var result = await controller.Get(offset, limit, null, "CarePlus");
+            var result = await controller.Get(offset, limit, null, "CarePlus", null);
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -232,7 +232,7 @@ namespace CarePlusAPI.Tests.Controllers
             controller.ControllerContext.HttpContext.Request.Headers["Custom"] = "CarePlus";
             var offset = 0;
             var limit = 5;
-            var result = await controller.Get(offset, limit, null, "CarePlus");
+            var result = await controller.Get(offset, limit, null, "CarePlus", null);
             Assert.IsType<OkObjectResult>(result);
         }
 

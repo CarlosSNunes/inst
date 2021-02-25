@@ -115,7 +115,7 @@ namespace CarePlusAPI.Tests.Services
             var offset = 0;
             var limit = 5;
 
-            var result = await _postService.Listar(offset, limit, null, null);
+            var result = await _postService.Listar(offset, limit, null, null, null);
             Assert.NotEmpty(result.Item2);
         }
 
@@ -127,7 +127,7 @@ namespace CarePlusAPI.Tests.Services
             var offset = 0;
             var limit = 5;
 
-            var result = await _postService.Listar(offset, limit, '1', "institucional");
+            var result = await _postService.Listar(offset, limit, '1', "institucional", null);
             Assert.NotEmpty(result.Item2);
         }
 

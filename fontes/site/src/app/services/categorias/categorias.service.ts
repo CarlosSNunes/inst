@@ -13,7 +13,7 @@ export class CategoriasService {
         private httpClient: HttpClient
     ) { }
 
-    getAllPaginated(skip: number, take: number): Promise<PaginatedCategoryModel> {
+    getAllPaginated(skip: number, take?: number): Promise<PaginatedCategoryModel> {
         return this.httpClient.get<PaginatedCategoryModel>(`${this.apiUrl}/${skip}/${take}`).toPromise();
     }
 

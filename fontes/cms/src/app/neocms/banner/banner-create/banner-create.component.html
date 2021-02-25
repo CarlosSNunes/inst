@@ -238,8 +238,8 @@
                           [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' :  submitted && f.descricao.errors }"
                           class="form-control" placeholder="Descrição do Banner" rows="5">
                                               </textarea>
-                        <p class="contador" [class.is-danger]="f.descricao.value.length > 100">
-                          {{f.descricao.value.length}}/100
+                        <p class="contador" [class.is-danger]="f.descricao.value.length > 150">
+                          {{f.descricao.value.length}}/150
                         </p>
                         <div *ngIf="submitted" class="errors">
                           <p *ngFor="let error of

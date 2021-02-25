@@ -141,7 +141,7 @@ export class BannerEditComponent implements OnInit {
             subtitulo: ['', [Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
             area: ['', [Validators.required,  FormControlError.noWhitespaceValidator]],
             tempoExibicao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-            descricao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            descricao: ['', [Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
             rota: [''],
             link: ['',[ Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             linkExterno: ['0', [ FormControlError.noWhitespaceValidator]],

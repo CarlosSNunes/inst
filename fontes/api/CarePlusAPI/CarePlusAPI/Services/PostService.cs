@@ -13,7 +13,7 @@ namespace CarePlusAPI.Services
 {
     public interface IPostService
     {
-        Task<Tuple<int, List<Post>>> Listar(int offset, int limit, char? ativo, string? origem);
+        Task<Tuple<int, List<Post>>> Listar(int offset, int limit, char? ativo, string? origem, string? ordem);
         Task<Tuple<int, List<Post>>> BuscarMaisLidos(int offset, int limit, char? ativo, string? origem);
         Task<Tuple<int, List<Post>>> BuscarPostsRelacionados(int id, int offset, int limit, string slug, char? ativo, string? origem);
         Task<Tuple<int, List<Post>>> BuscarPorCategoria(int id, int offset, int limit, char? ativo, string? origem);
@@ -47,7 +47,7 @@ namespace CarePlusAPI.Services
         ///Esse método serve para listar todos os Post da base.
         ///
         ///</summary>
-        public async Task<Tuple<int, List<Post>>> Listar(int offset, int limit, char? ativo, string origem)
+        public async Task<Tuple<int, List<Post>>> Listar(int offset, int limit, char? ativo, string origem, string? ordem)
         {
             IQueryable<Post> query = Db.Post.AsQueryable();
 
@@ -66,12 +66,37 @@ namespace CarePlusAPI.Services
                     || (p.DataExpiracao != null && p.DataExpiracao > DateTime.Now && p.DataPublicacao >= DateTime.Now)
                 );
             }
+            if(ordem != null){
+                  query = query
+                    .Include("Categoria")
+                    .Include("PostTag.Tag");
 
-            query = query
-                .Include("Categoria")
-                .Include("PostTag.Tag")
-                .OrderByDescending(p => p.Destaque)
-                .ThenByDescending(p => p.DataCadastro);
+                switch(ordem){
+                    case "data":
+                        query = query.OrderByDescending(p => p.DataPublicacao);
+                    break;
+                    case "titulo":
+                        query = query.OrderByDescending(p => p.Titulo);
+                    break;
+                    case "data-asc":
+                        query = query.OrderBy(p => p.DataPublicacao);
+                    break;
+                    case "titulo-asc":
+                        query = query.OrderBy(p => p.Titulo);
+                    break;
+      
+                   
+                }
+                             
+            }else{
+                query = query
+                    .Include("Categoria")
+                    .Include("PostTag.Tag")
+                    // .OrderByDescending(p => p.Destaque)
+                    .OrderByDescending(p => p.DataPublicacao);
+            }
+                   
+         
 
             var count = await query.CountAsync();
 

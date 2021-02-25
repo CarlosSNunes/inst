@@ -99,7 +99,7 @@ export class BannerCreateComponent implements OnInit {
             subtitulo: ['', [Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
             area: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
             tempoExibicao: ['', [Validators.required, FormControlError.noWhitespaceValidator]],
-            descricao: ['', [Validators.maxLength(100), FormControlError.noWhitespaceValidator]],
+            descricao: ['', [Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
             rota: [''],
             link: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             linkExterno: ['0', [ FormControlError.noWhitespaceValidator]],
@@ -141,6 +141,10 @@ export class BannerCreateComponent implements OnInit {
         if (this.bannerForm.valid && (this.bannerForm.controls.link.value != '' || this.bannerForm.controls.rota.value != '')) {
             this.btnSubmitDisable = true;
             const model = new BannerCreateModel(this.bannerForm.value);
+            if(model.linkExterno == '1'){
+                model.rota = '/'
+
+            }
             this.bannerService.post(model)
                 .subscribe(() => {
                     this.router.navigate(['/posts-blog/index']);

@@ -27,8 +27,8 @@ export class PostsBlogService {
     return this.http.post(this.API_ENDPOINT + '/DeleteImage', fileName);
   }
 
-  getAll(page: number, pageSize: number): Observable<PostListModel> {
-    return this.http.get<PostListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize);
+  getAll(page: number, pageSize: number, ordem:string): Observable<PostListModel> {
+      return this.http.get<PostListModel>(this.API_ENDPOINT + '/' + page + '/' + pageSize +'?ordem='+ ordem);
   }
 
   getBySlug(slug: string): Observable<PostBlogUpdateModel> {
