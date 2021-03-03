@@ -62,14 +62,7 @@
         </ul>
       </div>
     </div>
-    <!-- <div class=row>
-      <div class="col-12">
-        <div class="area">
-          <h2>Home - {{selectedFilter}}</h2>
 
-        </div>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col-12">
         <table id="bannerTable" class="table table-hover">
@@ -93,7 +86,6 @@
             <tr
               *ngFor="let banner of bannerResult | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: bannerCount }"
               class="table-cell text-center">
-              <!-- <td class="hidden">{{banner.id}}</td> -->
               <td class="">
                 <a [routerLink]="[ './edit', banner.id]" routerLinkActive="active ">
                   <img class="thumbnail-banner" [src]="banner?.caminhoCompletoDesktop" [alt]="banner.titulo">

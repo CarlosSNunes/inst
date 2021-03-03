@@ -10,9 +10,7 @@
             Voltar
           </a>
         </div>
-        <!-- <div class="createUser">
-                    <button type="button" class="btn blue" routerLink="/neocms/usuario/create">Novo Usuário</button>
-                </div> -->
+
       </div>
     </div>
     <div class="row">
@@ -58,9 +56,7 @@
             </path>
           </svg>
         </div>
-        <!-- <button *ngIf="usuarios.length > 0" class="btn blue" (click)="exportExcel()">
-                    Exportar Lista
-                </button> -->
+        
       </div>
     </div>
   </div>
@@ -68,47 +64,3 @@
 
 
 
-<!-- <div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="title my-2">Usuários</h1>
-                <a routerLink="/neocms/usuario/create" routerLinkActive="active" class="badge badge-dark shadow p-3">
-                    Adicionar Usuário
-                </a>
-                <table id="bannerTable" class="table table-hover">
-                    <caption>Usuarios</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center hidden">Id</th>
-                            <th scope="col" class="text-center">Nome</th>
-                            <th scope="col" class="text-center">Email</th>
-                            <th scope="col" class="text-center">Perfil</th>
-                            <th scope="col" class="text-center">Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td *ngIf="usuarios.length == 0 && !loaded" colspan="6">
-                            <progress class="progress is-large is-info" max="100">60%</progress>
-                        </td>
-                        <td class="has-text-centered" *ngIf="usuarios.length == 0 && loaded" colspan="6">
-                            Não há banners cadastrados
-                        </td>
-                        <tr *ngFor="let user of usuarios" class="table-cell text-center">
-                            <td class="py-3 align-middle text-center hidden">{{user.id}}</td>
-                            <td>{{user.nome}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.usuarioPerfil[0].descricao}}</td>
-                            <td class="hidden">{{user.id}}</td>
-                            <td class="py-3 align-middle text-center">
-                                <a [routerLink]="[ './edit', user.id]" routerLinkActive="active" title="Editar">
-                                    <fa-icon class="icon-action" [icon]="faPencilAlt"></fa-icon>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div> -->

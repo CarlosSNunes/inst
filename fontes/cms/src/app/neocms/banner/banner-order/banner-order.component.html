@@ -64,14 +64,7 @@
                 </ul>
             </div>
         </div>
-        <!-- <div class=row>
-            <div class="col-12">
-                <div class="area">
-                    <h2>{{selectedFilter}}</h2>
-
-                </div>
-            </div>
-        </div> -->
+        
         <div class=row>
             <div class="col-12">
                 <ul class="head">
@@ -96,11 +89,7 @@
                                 Cadastrado em:
                             </p>
                         </div>
-                        <!-- <div>
-                            <p>
-                                Area
-                            </p>
-                        </div> -->
+                        
                     </li>
                 </ul>
                 <div *ngIf="!loaded" class="load">
@@ -138,11 +127,7 @@
                                 {{banner.dataCadastro | date: 'dd/MM/yyyy'}}
                             </p>
                         </div>
-                        <!-- <div>
-                            <p>
-                                {{banner.area}}
-                            </p>
-                        </div> -->
+                        
                     </li>
                 </ul>
                 <div *ngIf="loaded && banners.length == 0">
