@@ -30,9 +30,7 @@
                     <tbody>
 
                         <tr>
-                            <!-- <td *ngIf="tags.length == 0 && !loaded" colspan="3">
-                                <progress class="progress is-large is-info" max="100">60%</progress>
-                            </td> -->
+                           
                             <td class="has-text-centered" *ngIf="tags.length == 0 && loaded" colspan="3">
                                 Não há tags cadastradas
                             </td>
@@ -84,21 +82,5 @@
     </div>
 </section>
 
-<!-- 
-<div class="card my-2" id="card-header">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-10">
-                <a [routerLink]="['/neocms/posts-blog/index']">
-                    <img class="arrow-return" src="./../../../../assets/img/arrow.png" alt="">
-                    <span class="title-banner">Tags</span>
-                </a>
-            </div>
-            <button class="btn btn-primary is-primary" type="button" routerLink="/neocms/posts-blog/tag/create"
-                routerLinkActive="active">
-                Nova Tag
-            </button>
-        </div>
-    </div>
-</div> -->
+
 

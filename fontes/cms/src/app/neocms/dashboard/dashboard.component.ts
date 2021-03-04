@@ -60,7 +60,6 @@ export class DashboardComponent implements OnInit {
                     this.loaded = true;
                 });
 
-        // this.postSelecionado = this.postsMaisLidos[0];
     }
 
     getPostsAtivos() {

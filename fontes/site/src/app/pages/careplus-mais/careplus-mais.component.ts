@@ -135,49 +135,11 @@ export class CareplusMaisComponent implements OnInit {
             paginatedCategories.result.forEach(category => {
                 this.categories.push(new CategoryModel(category));
             })
-            // this.changeCategoriesOrder(this.categories)
+           
             this.cdr.detectChanges();
         } catch (error) {
             this.errorHandler.ShowError(error);
         }
-    }
-    private async changeCategoriesOrder(categories) {
-        let newOrder = []
-        categories.map(category => {
-            switch (category.titulo.toLowerCase()) {
-                case 'dicas de saúde':
-                    newOrder[0] = category
-                    break;
-                case 'atividade física':
-                    newOrder[1] = category
-
-                    break;
-                case 'dicas para o rh':
-                    newOrder[2] = category
-
-                    break;
-                case 'plano de saúde':
-                    newOrder[3] = category
-
-                    break;
-                case 'nutrição':
-                    newOrder[4] = category
-
-                    break;
-                case 'outros':
-                    newOrder[5] = category
-
-                    break;
-                default:
-                    newOrder.push(category)
-
-                    break;
-
-            }
-        })
-
-        this.categories = newOrder
-
     }
 
     getErrors(control: AbstractControl) {

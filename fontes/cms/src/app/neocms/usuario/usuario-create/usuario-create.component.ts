@@ -2,7 +2,6 @@ import { CareplusPerfilModel } from './../../../../models/careplus-perfil/carepl
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { NgWizardConfig, THEME, StepChangedArgs } from 'ng-wizard';
 import { UserAuthenticateModel } from '../../../../models/user-authenticate.model';
 import { CareplusPerfilService } from '../../careplus-perfil/careplus-perfil.service';
 import { UsuarioService } from '../usuario.service';

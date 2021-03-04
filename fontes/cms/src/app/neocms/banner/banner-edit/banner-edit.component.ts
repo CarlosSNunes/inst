@@ -306,8 +306,7 @@ export class BannerEditComponent implements OnInit {
      * @param {StepChangedArgs}
      * @memberOf BannerEditComponent
      */
-    // stepChanged(args: StepChangedArgs) {
-    // }
+    
 
     /**
      *  Usando o 'ngx-image-cropper'

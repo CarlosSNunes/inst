@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { FormControlError } from 'src/utils/form-control-error';
 import { CategoriasCreateModel } from 'src/models/categorias/categorias-create.model';
-// import { NgWizardConfig, THEME } from 'ng-wizard';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

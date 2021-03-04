@@ -92,7 +92,6 @@ namespace CarePlusAPI.Services
                 query = query
                     .Include("Categoria")
                     .Include("PostTag.Tag")
-                    // .OrderByDescending(p => p.Destaque)
                     .OrderByDescending(p => p.DataPublicacao);
             }
                    

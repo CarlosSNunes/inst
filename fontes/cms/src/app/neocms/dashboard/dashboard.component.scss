@@ -50,13 +50,7 @@
             top: 1.25rem;
             right: 1.25rem;
 
-            // path {
-            //     transition: fill 0.3s ease-in-out;
-            //     transition-property: fill;
-            //     transition-duration: 0.3s;
-            //     transition-timing-function: ease-in-out;
-            //     transition-delay: 0s;
-            // }
+      
         }
         .load {
             svg {
@@ -87,7 +81,6 @@
         }
 
         &.posts {
-            // border: 1px solid getColor(_bupa, _teal);
             svg {
                 path {
                     fill: getColor(_bupa, _teal);
@@ -115,7 +108,6 @@
             }
         }
         &.banners {
-            // border: 1px solid getColor(_bupa, _navy);
             svg {
                 path {
                     fill: getColor(_bupa, _navy);
@@ -143,7 +135,6 @@
             }
         }
         &.users {
-            // border: 1px solid getColor(_bupa, _purple);
             svg {
                 path {
                     fill: getColor(_bupa, _purple);
@@ -173,7 +164,6 @@
         &.posts-mais-lidos {
             height: 100%;
             margin-top: 25px;
-            // border: 1px solid getColor(_bupa, _black);
             svg {
                 path {
                     fill: getColor(_bupa, _black);
@@ -209,9 +199,7 @@
                     margin-right: 5%;
                     overflow-y: auto;
                     li {
-                        // position: relative;
                         cursor: pointer;
-                        // border-bottom: 1px solid getColor(_bupa, _black);
                         margin: 15px 0;
                         border-radius: 2px;
                         padding-left: 10px;
@@ -235,7 +223,6 @@
                             }
                         }
                         &:hover {
-                            // background-color: getColor(_bupa, _grey-3);
                             a {
                                 svg {
                                     path {
@@ -263,15 +250,12 @@
                 }
                 .post-content {
                     width: 100%;
-                    // height: 410px;
                     border: 1px solid #c4c4c4;
                     border-radius: 0.25rem;
                     padding: 16px;
                     display: flex;
                     flex-direction: column;
-                    // justify-content: space-between;
                     position: relative;
-                    // flex-wrap: wrap;
                     max-width: 400px;
                     margin: auto;
                     margin-right: 0;
@@ -279,9 +263,7 @@
                     .post-image {
                         width: 100%;
                         &.crop {
-                            // height: 170px;
-                            // overflow: hidden;
-                            // max-height: 200px;
+                  
                             margin-bottom: 10px;
                             display: flex;
                         }
@@ -300,7 +282,6 @@
                         }
                     }
                     .post-body {
-                        // max-height: 170px;
                         height: 100%;
                         overflow: auto;
                         width: 100%;
@@ -332,128 +313,4 @@
     }
 }
 
-// .title-color {
-//     color: getColor(_bupa, _navy) !important;
-//     font-weight: 400;
-//     font-style: normal;
-// }
 
-// .card-body {
-//     height: 230px;
-//     width: 100%;
-//     margin: auto;
-
-//     .card-img-top {
-//         height: 360px;
-//         min-height: 360px;
-//         width: 100%;
-//         object-fit: cover;
-//         object-position: center top;
-//     }
-// }
-
-// .card-title {
-//     font-size: 8rem;
-//     position: absolute;
-//     left: 30px;
-//     top: 45px;
-//     font-weight: 700;
-// }
-
-// .list-group-flush {
-//     border-radius: 0;
-//     position: absolute;
-//     top: 45px;
-//     left: 35px;
-//     right: 0px;
-// }
-
-// .card-subtitle {
-//     left: 35px;
-//     right: 10px;
-//     position: absolute;
-//     bottom: 20px;
-//     text-align: justify;
-//     text-justify: auto;
-//     font-weight: 700;
-//     text-transform: math-auto;
-// }
-
-// .card-subtitle-top {
-//     left: 35px;
-//     right: 10px;
-//     position: absolute;
-//     top: 20px;
-//     font-weight: 700;
-//     text-transform: math-auto;
-// }
-
-// .card-title-post {
-//     width: 150px;
-//     top: 32px;
-//     font-size: 24px;
-//     font-style: normal;
-//     font-weight: bolder;
-//     line-height: 28px;
-//     position: absolute;
-// }
-
-// .post {
-//     width: 710px;
-//     left: 200px;
-//     height: 310px;
-//     display: flex;
-//     align-self: flex-end;
-//     margin-left: 20px;
-//     top: 27px;
-//     position: absolute;
-
-//     .card {
-//         background: url(../../../assets/img/image-placeholder.png) no-repeat center;
-//         background-size: cover;
-//     }
-// }
-
-// .post-title {
-//     margin-top: 30px;
-// }
-
-// .posts-ul {
-//     line-height: 1ch;
-// }
-
-// .icon-card {
-//     position: absolute;
-//     right: 30px;
-//     top: 15px;
-//     font-size: 40px;
-//     color: #9e7819;
-// }
-
-// .text-item {
-//     text-transform: uppercase;
-//     font-weight: 700;
-//     padding-left: 20px;
-// }
-
-// div.card-body.car-post {
-//     height: auto;
-//     min-height: 200px;
-// }
-
-// h5.card-color.title-color.card-details {
-//     color: rgb(60, 60, 60) !important;
-//     font-weight: 900 !important;
-//     position: relative;
-//     padding: 5px 10px;
-// }
-
-// .card.p-3.shadow-sm.card-posts {
-//     min-height: 315px;
-//     overflow-y: auto;
-// }
-
-// p.subtitulo {
-//     position: relative;
-//     padding: 5px 10px;
-// }
