@@ -16,7 +16,6 @@
     "WSPartnerToken": "",                       --enviado pela Care Plus
     "WSPartnerLogin": "=",                      --enviado pela Care Plus
     "WSPartnerSenha": "",                       --enviado pela Care Plus
-    "WSPartnerCertificado": "",                 --enviado pela Care Plus
     "WSPartnerURL": "",                         --enviado pela Care Plus
     "WSPartnerURLHTTPS": "",                    --enviado pela Care Plus
     "AdministratorEmail": "",                   --email do usuário administrador do sistema

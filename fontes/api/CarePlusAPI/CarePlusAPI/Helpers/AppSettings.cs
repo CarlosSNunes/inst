@@ -16,7 +16,6 @@ namespace CarePlusAPI.Helpers
         public string WSPartnerToken { get; set; }
         public string WSPartnerLogin { get; set; }
         public string WSPartnerSenha { get; set; }
-        public string WSPartnerCertificado { get; set; }
         public string WSPartnerURL { get; set; }
         public string WSPartnerURLHTTPS { get; set; }
         public string CiphersPath { get; set; }
