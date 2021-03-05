@@ -25,17 +25,16 @@
     "SeqTokenInst": "",                         --token para identificar o log do site institucional no SeqLog
     "SeqTokenAPI": "",                          --token para identificar o log da API no SeqLog
     "CiphersPath": "",                          --criptografia da string de conexão do banco
-    "CMSUrl": ""                                --url do cms (para ambiente de desenvolvimento)
+    "CMSUrl": "",                               --url do cms (para ambiente de desenvolvimento)
+    "OracleExpressDatabase":""
   },
-  "ConnectionStrings": {
-    "OracleExpressDatabase": ""
-  },
+
   "Logging": {
-    "LogLevel": {
-      "Default": "",
-      "Microsoft": "",
-      "Microsoft.Hosting.Lifetime": ""
-    }
-  },
-  "AllowedHosts": ""
+        "LogLevel": {
+            "Default": "",
+            "Microsoft": "",
+            "Microsoft.Hosting.Lifetime": ""
+        }
+    },
+    "AllowedHosts": "*"
 }
