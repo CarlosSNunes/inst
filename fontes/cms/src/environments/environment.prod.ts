@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    API: '???',
-    INSTITUCIONAL_URL: '???',
+    API: 'http://ws.careplus.com.br/apiinstitucional',
+    INSTITUCIONAL_URL: 'https://www.careplus.com.br',
 };
