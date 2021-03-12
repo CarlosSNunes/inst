@@ -19,6 +19,9 @@
             [queryParams]="card?.button?.queryParams" #link [class.collapsed]="collapsed"
             [class.hasCollapse]="card.hasCollapse" class="link" [attr.title]="card?.button?.text">
             {{card?.button?.text}}
+            <span style="display: none;">
+                (opens in a new window)
+            </span>
         </a>
 
         <!--
@@ -28,6 +31,9 @@
             [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse" class="link"
             [attr.title]="card?.button?.text">
             {{card?.button?.text}}
+            <span style="display: none;">
+                (opens in a new window)
+            </span>
         </a>
 
         <!--
@@ -82,37 +88,15 @@
     <a [routerLink]="[card?.button?.routerLink]" *ngIf="card.type === 'post'" [attr.title]="card.post.titulo">
         <div class="card image-card">
 
-            <div class="img" [style.background]="'url(' + card.post.caminhoImagem + ')'"
+            <div class="img" [style.background]="'url(' + card?.post?.caminhoCompleto + ')'"
                 [style.background-position]="'center'">
             </div>
             <div class="tags" *ngIf="card.post.postTag">
                 <p *ngFor="let tag of card.post.postTag | slice:0:2">{{tag?.descricao}}</p>
             </div>
             <div class="content">
-                <p class="card-title"> {{card.post.titulo}}</p>
-                <p class="card-description">{{card.post.subtitulo}}</p>
-
-                <!--
-                    Botão com routerLink
-                -->
-                <a *ngIf="card?.button?.routerLink" [routerLink]="[card?.button?.routerLink]"
-                    [queryParams]="card?.button?.queryParams" class="btn btn-digital-cian tertiary arrow-right medium"
-                    [attr.title]="card.button.text">
-                    {{card?.button?.text}}
-                </a>
-
-                <!--
-                    Botão com href
-                -->
-                <a *ngIf="card?.button?.link" [href]="card?.button?.link" [target]="card?.button?.target"
-                    class="btn btn-digital-cian tertiary arrow-right medium" [attr.title]="card.button.text">
-                    {{card?.button?.text}}
-                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.3492 0.938082C11.1433 1.24975 11.187 1.70309 11.4477 1.94993L13.2895 3.69461L15.7088 6.28211L0.600826 6.28211C0.268769 6.28211 -2.39681e-07 6.60482 -2.25521e-07 7.00246C-2.11362e-07 7.40009 0.268769 7.7228 0.600826 7.7228L15.5578 7.7228L11.3604 12.0703C11.1097 12.3297 11.0812 12.7849 11.2983 13.086C11.5154 13.3871 11.8947 13.4203 12.1459 13.16L17.6218 7.48797C17.7528 7.35254 17.8285 7.15613 17.8301 6.94867C17.8301 6.94675 17.8301 6.94483 17.8301 6.94291C17.8301 6.73737 17.7572 6.54191 17.6294 6.40553L14.0621 2.592L12.1932 0.819944C11.9328 0.573104 11.5551 0.625931 11.3492 0.938082Z"
-                            fill="#0079C8" />
-                    </svg>
-                </a>
+                <p class="card-title"> {{card.post.titulo | substring: 40}}</p>
+                <p class="card-description">{{card.post.descricaoPrevia | substring: 60}}</p>
             </div>
         </div>
     </a>

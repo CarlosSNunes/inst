@@ -16,7 +16,7 @@ form {
                 float: right;
             }
 
-            .btn-text {
+            .btn.tertiary {
                 padding-left: 0;
             }
 
@@ -40,6 +40,20 @@ form {
                         white-space: wrap;
                     }
                 }
+            }
+        }
+    }
+    .titulo-cotacao {
+        display: flex;
+        flex-direction: column;
+        label {
+            margin-bottom: 10px;
+
+            &:last-child {
+                font-size: 13px;
+                color: grey;
+                margin-bottom: 0;
+                font-style: italic;
             }
         }
     }

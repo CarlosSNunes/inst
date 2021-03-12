@@ -15,7 +15,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     ids = plansMock;
     selectedOptionId: number = 1;
     queryParams: any = {};
-    findedPlan: any = {};
+    foundPlan: any = {};
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -27,11 +27,13 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     ) {
         this.activatedRoute.params.subscribe(params => {
             this.id = params.id;
-            const findedId = this.ids.find(id => id.id === this.id);
-            this.findedPlan = findedId;
-            if (findedId) {
-                this.setSEOInfos(findedId);
+            const foundId = this.ids.find(id => id.id === this.id);
+            this.foundPlan = foundId;
+            if (foundId) {
+                this.setSEOInfos(foundId);
                 this.queryParams = {
+                    
+                    planoSaude:true,
                     plano: this.id
                 }
             } else {
@@ -99,13 +101,9 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
-            content: `${environment.SELF_URL}/${this.findedPlan.simpleBannerModel.image}`,
+            content: `${environment.SELF_URL}/${this.foundPlan.simpleBannerModel.image}`,
         });
 
         this.meta.updateTag({
@@ -115,7 +113,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/planos-e-produtos/${this.findedPlan.id}`,
+            content: `${environment.SELF_URL}/planos-e-produtos/${this.foundPlan.id}`,
         });
 
         /* 
@@ -133,13 +131,9 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
-            content: `${environment.SELF_URL}/${this.findedPlan.simpleBannerModel.image}`,
+            content: `${environment.SELF_URL}/${this.foundPlan.simpleBannerModel.image}`,
         });
 
         this.meta.updateTag({
@@ -149,7 +143,7 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/planos-e-produtos/${this.findedPlan.id}`,
+            content: `${environment.SELF_URL}/planos-e-produtos/${this.foundPlan.id}`,
         });
     }
 

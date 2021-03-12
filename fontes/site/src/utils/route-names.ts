@@ -22,12 +22,28 @@ export const routes: RouteModel[] = [
         description: 'Home - Credenciado'
     }),
     new RouteModel({
+        route: '/fale-conosco',
+        description: 'Fale Conosco - Solicite uma Cotação'
+    }),
+    new RouteModel({
         route: '/fale-conosco/solicite-uma-cotacao',
-        description: 'Home - Fale conosco'
+        description: 'Fale Conosco - Solicite uma Cotação'
+    }),
+    new RouteModel({
+        route: '/fale-conosco/contato',
+        description: 'Fale Conosco - Contato'
+    }),
+    new RouteModel({
+        route: '/fale-conosco/ouvidoria',
+        description: 'Fale Conosco - Ouvidoria'
+    }),
+    new RouteModel({
+        route: '/fale-conosco/canal-de-denuncias',
+        description: 'Fale Conosco - Canal de Denúncias'
     }),
     new RouteModel({
         route: '/a-careplus',
-        description: 'Home - A Care Plus'
+        description: 'A Care Plus - A Empresa'
     }),
     new RouteModel({
         route: '/a-careplus/diferenciais',
@@ -75,23 +91,23 @@ export const routes: RouteModel[] = [
     }),
     new RouteModel({
         route: '/planos-e-produtos',
-        description: 'Produtos e planos'
+        description: 'Planos e Produtos'
     }),
     new RouteModel({
         route: '/planos-e-produtos/clube-careplus',
-        description: 'Produtos e planos - Clube Care Plus'
+        description: 'Planos e Produtos - Clube Care Plus'
     }),
     new RouteModel({
         route: '/planos-e-produtos/careplus-soho',
-        description: 'Produtos e planos - Care Plus Soho'
+        description: 'Planos e Produtos - Care Plus Soho'
     }),
     new RouteModel({
         route: '/planos-e-produtos/careplus-empresarial',
-        description: 'Produtos e planos - Care Plus Empresarial'
+        description: 'Planos e Produtos - Care Plus Empresarial'
     }),
     new RouteModel({
         route: '/planos-e-produtos/medicina-ocupacional',
-        description: 'Produtos e planos - Medicina Ocupacional'
+        description: 'Planos e Produtos - Medicina Ocupacional'
     }),
     new RouteModel({
         route: '/planos-e-produtos/gestao-de-saude',

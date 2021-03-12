@@ -1,0 +1,64 @@
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#newsletter {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+    h1 {
+      font-size: getSize("h2");
+      margin-bottom: 24px;
+    }
+    a {
+      color: getColor(_bupa, _digital-cian);
+      margin: auto 0;
+    }
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      background-color: getColor(_bupa, _black);
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  table {
+    thead {
+      background-color: getColor(_bupa, _grey-3);
+    }
+    tr{
+      td {
+        vertical-align: middle;
+      
+      }
+      td:first-child {
+        width: 70px;
+      
+      }
+      th:first-child {
+        width: 70px;
+      
+      }
+    }
+
+  }
+  button {
+    padding: 10px 27px;
+    margin: auto;
+    display: flex;
+    margin-right: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .load {
+    width: 100%;
+    display: flex;
+    svg {
+      margin: auto;
+    }
+  }
+}

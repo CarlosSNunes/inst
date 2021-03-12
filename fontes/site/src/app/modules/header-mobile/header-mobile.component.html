@@ -59,14 +59,19 @@
             </label>
             <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
                 <img class="user-icon" src="assets/svg/user-digital-cian.svg" alt="User Icon">
+                <span style="display: none;">
+                    (opens in a new window)
+                </span>
             </a>
         </div>
     </div>
 </nav>
 
 <div #menu class="menu">
-    <div #firstLayer class="layer"></div>
-    <div #secondLayer class="container">
+    <div #firstLayer class="layer" [@layerAnimation]="layerAnimation" (@layerAnimation.done)="captureDoneEvent($event)">
+    </div>
+    <div #secondLayer class="container" [@containerAnimation]="containerAnimation"
+        (@containerAnimation.done)="captureDoneEvent($event)">
         <div class="times-icon">
             <input tabindex="-1" id="menu-check-container" type="checkbox" [checked]="checked">
             <label tabindex="-1" class="label-menu" (click)="initTransition()">
@@ -119,6 +124,9 @@
                         (click)="initTransition()" tabindex="0" [title]="menuItem.title"
                         *ngIf="(!menuItem.subItems || (menuItem.subItems && menuItem.subItems.length == 0)) && menuItem.href">
                         {{menuItem.title}}
+                        <span style="display: none;">
+                            (opens in a new window)
+                        </span>
                     </a>
 
                     <!-- Aparece somente quando houver sub-itens -->
@@ -138,6 +146,10 @@
                                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
                                     (click)="initTransition()" tabindex="0" [title]="menuSubItem.title">
                                     {{menuSubItem.title}}
+                                    <span style="display: none;">
+                                        (opens in a new window)
+                                    </span>
+                                    
                                 </a>
 
                                 <!-- Botão com href -->
@@ -145,10 +157,18 @@
                                     rel="noopener noreferrer" (click)="initTransition()" tabindex="0"
                                     [title]="menuSubItem.title">
                                     {{menuSubItem.title}}
+                                    <span style="display: none;">
+                                        (opens in a new window)
+                                    </span>
                                 </a>
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li>
+                    <a tabindex="0" title="Care Plus+" routerLink="/careplus-mais" (click)="initTransition()">
+                        Care Plus+
+                    </a>
                 </li>
             </ul>
         </div>
@@ -159,8 +179,7 @@
             </a>
 
             <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-white-to-digital-cian primary small"
-                rel="noopener noreferrer"
-                (click)="initTransition()"
+                rel="noopener noreferrer" (click)="initTransition()"
                 [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                 Entre em Contato
             </a>

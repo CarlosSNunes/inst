@@ -121,6 +121,12 @@ section {
     }
 }
 
+@media (min-width: 1280px) {
+    .get-price-box {
+        right: calc(100% - (100vw + 1216px) / 2);
+    }
+}
+
 @media (max-width: 1023px) {
     section {
         &#simulate-your-plan {
@@ -154,7 +160,7 @@ section {
 }
 
 @media (min-width: 505px) and (max-width: 1023px) {
-     ::ng-deep .app-hero-banner {
+    ::ng-deep .app-hero-banner {
         .container {
             padding-bottom: 30px;
         }

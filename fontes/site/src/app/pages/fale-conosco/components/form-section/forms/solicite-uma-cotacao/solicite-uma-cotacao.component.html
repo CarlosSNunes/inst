@@ -13,9 +13,12 @@
         </div>
 
 
-        <div class="column is-full is-4-desktop display-flex">
+        <div class="column is-full is-4-desktop display-flex titulo-cotacao">
             <label class="align-self-center">
                 Qual plano ou produto deseja cotar?
+            </label>
+            <label class="align-self-center">
+                * Planos somente para pessoa jurídica a partir de dois titulares sem vínculo familiar
             </label>
         </div>
 
@@ -55,7 +58,7 @@
                     <div class="field">
                         <div *ngIf="soliciteUmaCotacaoForm.touched && soliciteUmaCotacaoForm?.errors?.requireAtLeastOne" class="errors">
                             <p class="help is-danger">
-                                Ao menos um plano deve ser selecionado
+                                Você deve selecionar ao menos um serviço para cotação
                             </p>
                         </div>
                     </div>
@@ -185,7 +188,11 @@
                     <label class="checkbox-label" for="aceiteDeTermos">
                         <span>
                             Eu aceito os
-                            <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos </a> de Política de
+                            <a href="/a-careplus/politica-de-privacidade" target="_blank"> Termos
+                                <span style="display: none;">
+                                    (opens in a new window)
+                                </span>
+                            </a> de Política de
                             Privacidade.
                         </span>
                     </label>

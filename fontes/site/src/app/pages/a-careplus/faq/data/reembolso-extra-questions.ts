@@ -61,7 +61,7 @@ export default [
                             Data da alta médica;
                         </li>
                         <li>
-                            Datas de visitas clínicas;
+                            Datas de visitas clínicas com relatório em nome do médico visitador , ou em relatório destacando que essa fora realizada por médico da sua equipe, informando nome completo, n.º do CRM e especialidade para análise de cobertura do reembolso;
                         </li>
                         <li>
                             Prescrição de medicamentos e materiais utilizados;
@@ -81,7 +81,7 @@ export default [
                 <li>
                     <p class="sub-description">
                         <strong>
-                            Nota 3. fiscal original quitada com anexo indicando:
+                            Recibo/Nota fiscal original quitados discriminando por códigos de procedimentos; por função exercida pelo profissional no ato ; valor individual ou anexo indicando esses.
                         </strong>
                     </p>
                 </li>
@@ -121,9 +121,6 @@ export default [
                             Prescrição de medicamentos e materiais utilizados.
                         </li>
                     </ul>
-                </li>
-                <li>
-            
                 </li>
                 <li>
                     <p class="sub-description">
@@ -301,6 +298,16 @@ export default [
                         extração de cistos, nódulos ou qualquer peça cirúrgica.
                     </p>
                 </li>
+                <li>
+                    <p class="sub-description">
+                        Visitas hospitalares no período de internação é passível de reembolso se comprovado atuação a UMA VISTA HOSPITALAR por dia, por especialidade. Para informações sobre o seu plano, entre em contato com o Consultor de Atendimento.
+                    </p>
+                </li>
+                <li>
+                    <p class="sub-description">
+                        Visita hospitalar no pós operatório,  realizada pelo cirurgião ou membro da sua equipe,  não está passível de reembolso , em razão ao disposto de que no período de internação decorrente do Parto/Cirurgia já indenizados, estão incluídas nos índices atribuídos ao procedimento, até o 15º dia, não cabendo, portanto, reembolso de honorários de visita hospitalar nesse período. Em caso de dúvidas, entre em contato com o consultor de atendimento da Care Plus ou com o R.H. de sua empresa.
+                    </p>
+                </li>
             </ol>
         `
     },
@@ -322,7 +329,7 @@ export default [
                             Nome do paciente;
                         </li>
                         <li>
-                            Tratamento efetuado;
+                            Tratamento efetuado, ou seja, estar explicito tratar-se de consulta médica;
                         </li>
                         <li>
                             Especialidade;
@@ -376,6 +383,21 @@ export default [
                 <strong>Obs.:</strong> Caso o prestador emitente do recibo de despesas de atendimento esteja inscrito no Cadastro de
                 Contribuinte Municipal no regime de emissão obrigatória de Nota Fiscal de Serviços, será necessário apresentar uma
                 Nota Fiscal; neste caso, um recibo não será aceito para reembolso das despesas.
+            </p>
+            <p class="sub-description">
+                <strong>Obs.:</strong> Consulta com GENETICISTA, necessário relatório médico
+            </p>
+            <p class="sub-description">
+                <strong>Obs.:</strong> Consulta pré-natal com intervalo inferior a 16 dias é necessário o envio de relatório médico com a idade gestacional a partir das 36 semanas.
+            </p>
+            <p class="sub-description">
+                <strong>Obs.:</strong> Consulta com ENFERMEIRA OBSTETRIZ não passível de reembolso.
+            </p>
+            <p class="sub-description">
+                <strong>Obs.:</strong> Consulta domiciliar não é passível de reembolso.
+            </p>
+            <p class="sub-description">
+                <strong>Obs.:</strong> Consulta realizada durante a quarentena a partir de 23/03/2020 , informar no documento fiscal ou no protocolo da solicitação de reembolso gerado via WEB , se o atendimento foi presencial ou remoto/virtual. Na hipótese de atendimento remoto/virtual expor a tecnologia utilizada.
             </p>
         `
     },
@@ -457,7 +479,7 @@ export default [
                 </li>
                 <li>
                     <p class="sub-description">
-                        <span class="underline">Apenas para o hormonal mirena</span>, é necessário encaminhar também o Termo de Consentimento para Implante do DIU assinado pela paciente. O termo está disponível no site do beneficiário da Care Plus, menu 4. Impressos > Termo de Consentimento.
+                        O termo de consentimento não é mais critério de exigência no reembolso para o implante de DIU hormonal, assim como o de COBRE.
                     </p>
                 </li>
             </ol>
@@ -509,8 +531,7 @@ export default [
             
             <ol class="ol">
                 <li>
-                    Relatório do fonoaudiólogo com data, contendo a indicação clínica, tempo de acompanhamento e de existência da
-                    patologia;
+                    Relatório do fonoaudiólogo ou médico com data, contendo a indicação clínica/cid-10, tempo de acompanhamento e de existência da patologia; além do contrato com a empresa, têm Diretrizes de Utilização da ANS determinadas no Anexo II da Resolução Normativa 428/17;
                 </li>
                 <li>
                     Nota fiscal quitada e/ou recibo original, indicando:
@@ -564,7 +585,7 @@ export default [
             <ol class="ol">
                 <li>
                     Relatório do Médico solicitante com data contendo a indicação clínica, tempo de acompanhamento e de existência
-                    da patologia;
+                    da patologia e quantidade de sessão para ser realizada;
                 </li>
                 <li>
                     Laudos de exames que amparam a indicação e planejamento terapêutico para o tratamento ou acompanhamento;
@@ -585,16 +606,15 @@ export default [
             <p class="sub-description">
                 <strong>
                     Obs. 1:
-                </strong> Para tratamento de acupuntura, quem deverá solicitar e realizar o tratamento é somente o médico (detentor
-                de CRM).
-            </p>
-            
-            <p class="sub-description">
-                <strong>
-                    Obs. 2:
                 </strong> Recibos e notas Fiscais devem ser apresentados em até 365 dias a contar a partir da data de realização do
                 procedimento. Se forem apresentados fora deste prazo, não serão reembolsados.
                 de CRM).
+            </p>
+
+            <p class="sub-description">
+                <strong>
+                    Obs. 2:
+                </strong> SESSÃO realizada durante a quarentena a partir de 23/03/2020 , informar no documento fiscal ou no protocolo da solicitação de reembolso gerado via WEB , se o atendimento foi presencial ou remoto/virtual. Na hipótese de atendimento remoto/virtual expor a tecnologia utilizada.
             </p>
         `
     },
@@ -608,13 +628,13 @@ export default [
             
             <p class="sub-description">
                 <strong>
-                    Psicoterapia/ Psicologia:
+                    Psicoterapia/ Psicologia, além do contrato com a empresa, têm Diretrizes de Utilização da ANS determinadas no Anexo II da Resolução Normativa 428/17.
                 </strong>
             </p>
             
             <ul class="disc m-t-22">
                 <li>
-                    Para solicitações cujo CID informado dá direito a 18 sessões – relatório do psicólogo.
+                    Para solicitações cujo CID informado dá direito a 18 sessões – relatório do psicólogo, profissional habilitado com a inscrição ativa junto ao CRP (Conselho Regional de Psicologia).
                 </li>
                 <li>
                     Para solicitações cujo CID informado dá direito a 40 sessões - relatório do médico. No caso de CID F31 ou F33, é
@@ -626,7 +646,7 @@ export default [
             
             <p class="sub-description">
                 <strong>
-                    Nutrição:
+                    Nutrição, além do contrato com a empresa, têm Diretrizes de Utilização da ANS determinadas no Anexo II da Resolução Normativa 428/17.
                 </strong>
             </p>
             
@@ -639,6 +659,11 @@ export default [
                 <li>
                     Para reembolso de mais consultas/sessões, será necessário enviar também o relatório do profissional médico (CRM)
                     e/ou nutricionista (CRN) solicitante, constando CID-10 e/ou hipótese diagnostica.
+                </li>
+                <li>
+                    <strong>
+                        Obs.: SESSÃO realizada durante a quarentena a partir de 23/03/2020 , informar no documento fiscal ou no protocolo da solicitação de reembolso gerado via WEB , se o atendimento foi presencial ou remoto/virtual. Na hipótese de atendimento remoto/virtual expor a tecnologia utilizada.
+                    </strong>
                 </li>
             </ul>
         `
@@ -679,6 +704,12 @@ export default [
                 <li>
                     <strong>
                         Para vacina de gripe, </strong> não é necessário enviar a prescrição médica.
+                </li>
+                <li>
+                    <strong> Gesto vacinal </strong> (ato de aplicar) ou taxa de aplicação não é possível de reembolso.
+                </li>
+                <li>
+                    Necessário conter a identificação/nome(s)  do(s) beneficiário(s) atendido(s).
                 </li>
             </ol>
         `

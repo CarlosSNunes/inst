@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      <section class="hero is-dark is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Notícias
+            </h1>
+          </div>
+        </div>
+      </section>
+      <table id="noticiaTable" class="table">
+        <caption></caption>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Título</th>
+            <th scope="col">Subtítulo</th>
+            <th scope="col">Data de Publicação</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td *ngIf="noticias.length == 0 && !loaded" colspan="6">
+              <progress class="progress is-large is-info" max="100">60%</progress>
+            </td>
+            <td class="has-text-centered" *ngIf="noticias.length == 0 && loaded" colspan="6">
+              Não há notícias cadastradas
+            </td>
+          </tr>
+          <tr *ngFor="let noticia of noticias">
+            <td>{{noticia.id}}</td>
+            <td>{{noticia.titulo}}</td>
+            <td>{{noticia.subtitulo}}</td>
+            <td>{{noticia.dataPublicacao | date:'dd/MM/yyyy'}}</td>
+            <td>{{noticia.noticiaTipo?.descricao}}</td>
+            <td>
+              <a [routerLink]="['/neocms/noticia', noticia.id]" routerLinkActive="active">
+                <fa-icon [icon]="faPencilAlt"></fa-icon>
+              </a>
+              &nbsp;
+              <a (click)="openNoticiaDelete(noticia)">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a routerLink="/neocms/noticia/create" routerLinkActive="active" class="card-footer-item">
+      Criar nova notícia &nbsp;
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </a>
+  </footer>
+</div>
+
+<app-noticia-delete *ngIf="showNoticiaDelete" [noticia]="noticia" (onClose)="getNoticias()"></app-noticia-delete>

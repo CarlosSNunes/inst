@@ -1,0 +1,142 @@
+<section class="blue-background-color" id="category-section">
+    <article>
+        <div class="container">
+            <div class="columns flex-wrap">
+                <div class="column is-full is-paddingless-vertical">
+                    <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+                </div>
+                <div class="column is-full align-self-center title-column">
+                    <h2 class="h3 big-title">
+                        {{post?.categoria}}
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="post-info">
+    <article>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-full is-9-desktop">
+                    <div class="post-header">
+                        <ul class="social-icons">
+                            <li>
+                                <a href="https://api.whatsapp.com/send?text={{pageURL}}" target="_blank">
+                                    <img src="assets/svg/whatsapp.svg" alt="Whatsapp"
+                                        title="Compartilhe no whatsapp">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text={{pageURL}}" target="_blank">
+                                    <img src="assets/svg/twitter.svg" alt="Twitter"
+                                        title="Compartilhe no twitter">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank">
+                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook"
+                                        title="Compartilhe no facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a title="Compartilhe no linkedin"
+                                    href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
+                                    target="_blank">
+                                    <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:?body={{pageURL}}" title="Compartilhe por e-mail">
+                                    <img src="assets/svg/mail.svg" alt="E-mail">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="publish-and-views">
+                            <div class="publish">
+                                <span class="has-tooltip-top image"
+                                    [attr.data-tooltip]="'Publicado há '+ post?.dateDifferences?.diffResponseMessage">
+                                    <img src="assets/svg/clock.svg" alt="Icon tempo de publicação">
+                                </span>
+                                <span>
+                                    {{post?.dateDifferences?.diffResponseMessage}}
+                                </span>
+                            </div>
+                            <div class="views">
+                                <span class="has-tooltip-top image"
+                                    [attr.data-tooltip]="post?.vizualizacoes + ' visualizações'">
+                                    <img src="assets/svg/eye.svg" alt="Visualizações">
+                                </span>
+                                <span>
+                                    {{post?.vizualizacoes}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-body">
+                        <h1 class="big-title no-margin">
+                            {{post?.titulo}}
+                        </h1>
+                        <h2 class="description">
+                            {{post?.descricaoPrevia}}
+                        </h2>
+
+                        <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo" class="post-image">
+                        <div class="post-content" [innerHTML]="post?.descricao"></div>
+                    </div>
+
+                    <div class="post-footer">
+                        <ul class="social-icons">
+                            <li>
+                                <a href="https://api.whatsapp.com/send?text={{pageURL}}" target="_blank">
+                                    <img src="assets/svg/whatsapp.svg" alt="Whatsapp"
+                                        title="Compartilhe no whatsapp">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text={{pageURL}}" target="_blank">
+                                    <img src="assets/svg/twitter.svg" alt="Twitter"
+                                        title="Compartilhe no twitter">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank">
+                                    <img src="assets/svg/facebook-second-logo.svg" alt="Facebook"
+                                        title="Compartilhe no facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a title="Compartilhe no linkedin"
+                                    href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
+                                    target="_blank">
+                                    <img src="assets/svg/linkedin.svg" alt="Linkedin">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:?body={{pageURL}}" title="Compartilhe por e-mail">
+                                    <img src="assets/svg/mail.svg" alt="E-mail">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="post-tags">
+                            <li class="post-tag" *ngFor="let tag of post?.postTag">
+                                <a [title]="tag?.descricao">{{tag?.descricao}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column is-full is-3-desktop anounces">
+                    <app-most-read></app-most-read>
+
+                    <app-newsletter></app-newsletter>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<app-icon-cards-section *ngIf="iconCardsSectionModel?.cards?.length > 0" [iconCardsSectionModel]="iconCardsSectionModel"
+    [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
+<app-social-posts></app-social-posts>

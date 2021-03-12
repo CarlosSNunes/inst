@@ -39,7 +39,8 @@ export default {
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
-                plano: 'empresarial'
+                plano: 'careplus-empresarial',
+                planoSaude:true
             }
         }),
         parallax: true
@@ -188,7 +189,7 @@ export default {
                             text: 'Opção: Ortodontia e Prótese.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
+                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
                         }
                     ]
                 },
@@ -247,7 +248,8 @@ export default {
                         {
                             text: 'Rede Credenciada Odonto Master, Livre Escolha e Care Plus Clinic.'
                         }
-                    ]
+                    ],
+                    detalhe:'*somente plano Coletivo Empresarial'
                 },
                 {
                     type: 'default',
@@ -300,8 +302,8 @@ export default {
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
-                plano: 'empresarial',
-                planoOdontologico: true
+                plano: 'careplus-empresarial',
+                planoOdontologico:true
             }
         })
     }),
@@ -373,7 +375,7 @@ export default {
         ],
         button: new ButtonModel({
             text: 'Conheça a Care Plus Clinic',
-            link: 'https://careplusclinic.com.br'
+            link: 'https://www.careplusclinic.com.br'
         }),
         imageSrc: 'assets/img/bloco-clinicas.jpg',
         reverse: true,
@@ -410,7 +412,8 @@ export default {
             text: 'Clique e solicite cotação',
             target: '_self',
             queryParams: {
-                plano: 'careplus-empresarial'
+                plano: 'careplus-empresarial',
+                planoSaude:true
             }
         }),
         backgroundColorClass: 'blue-background-color',

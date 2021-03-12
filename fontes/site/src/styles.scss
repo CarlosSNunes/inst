@@ -34,6 +34,7 @@ body {
     body {
         min-height: calc(100vh - 111px);
         padding-top: 111px;
+        padding-bottom: 84px;
     }
 }
 
@@ -132,4 +133,9 @@ body {
 
 .flex-wrap {
     flex-wrap: wrap;
+}
+.post-content {
+    p{
+        margin: 20px 0;
+    }
 }

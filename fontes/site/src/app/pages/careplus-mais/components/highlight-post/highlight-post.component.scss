@@ -1,0 +1,123 @@
+@import "~src/scss/_variables";
+
+section#highlight-post {
+    .container {
+        .columns {
+            padding-left: 16px;
+            .post {
+                display: flex;
+                box-shadow: 0 0 0 0 #0079c8;
+                border: 1px solid #c9c9c9;
+                box-sizing: border-box;
+                transition: box-shadow .4s ease-in-out,transform .4s ease-in-out,-webkit-transform .4s ease-in-out;
+                &:hover{
+                    box-shadow: -11px 9px 0 0 #0079c8;
+                    transform: translate(11px,-9px);
+                }
+            }
+            .column {
+                &.info-col {
+                    padding-left: 116px;
+                    padding-top: 45px;
+                    .small-title {
+                        .separator {
+                            color: getColor(_bupa, _grey);
+                            margin: 0 15px;
+                        }
+                        .posted {
+                            img {
+                                margin-bottom: -4px;
+                            }
+
+                            .has-tooltip-top {
+                                text-transform: none;
+                            }
+
+                            .text {
+                                margin-left: 10px;
+                                font-weight: normal;
+                                font-size: getSize("sbm");
+                                line-height: 150%;
+                                color: getColor(_bupa, _grey);
+                                margin-bottom: 4px;
+                            }
+                        }
+                    }
+
+                    .btn {
+                        margin-top: 32px;
+                        &.btn.tertiary {
+                            padding-left: 0;
+                        }
+                    }
+                }
+
+                &.image-col {
+                    padding: 0;
+                    &.video {
+                        position: relative;
+                        display: flex;
+                        &::before {
+                            content: "";
+                            width: 95.27px;
+                            height: 95.27px;
+                            background-image: getSvg("playVideo.svg");
+                            background-size: contain;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            margin: 0 auto;
+                            align-self: center;
+                            pointer-events: none;
+                        }
+
+                        &::after {
+                            background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
+                            content: "";
+                            position: absolute;
+                            height: 4px;
+                            right: 16px;
+                            top: 50px;
+                            width: 160px;
+                            transform: translateX(50%);
+                        }
+                    }
+                    a {
+                        cursor: pointer;
+                        width: 100%;
+                        img {
+                            object-fit: cover;
+                            height: 100%;
+                            width: 100%;
+                            max-height: 408px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    section#highlight-post {
+        .container {
+            .columns {
+                .column {
+                    &.info-col {
+                        padding-left: 16px;
+                    }
+                    &.image-col {
+                        &.video {
+                            &::after {
+                                left: 16px;
+                                right: unset;
+                                top: -20px;
+                                transform: unset;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

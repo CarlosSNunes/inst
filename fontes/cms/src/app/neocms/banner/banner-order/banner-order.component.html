@@ -1,0 +1,139 @@
+<section id="orderBanners">
+    <div class="container">
+        <div class=row>
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Ordenar Banner
+                    </h1>
+                    <a routerLink="/neocms/banner">
+                        Voltar
+                    </a>
+                </div>
+                <div class="filters">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5 class="filter-title">Filtros</h5>
+                <ul class="filter">
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'home'" (click)="filter('home')">
+                            Home
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'beneficiario'"
+                            (click)="filter('beneficiario')">
+                            Beneficiário
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'rh'" (click)="filter('rh')">
+                            RH
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'corretor'"
+                            (click)="filter('corretor')">
+                            Corretor
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'credenciado'"
+                            (click)="filter('credenciado')">
+                            Credenciado
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'blog'" (click)="filter('blog')">
+                            Care Plus +
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn blue" [class.active]="selectedFilter === 'diferenciais'"
+                            (click)="filter('diferenciais')">
+                            Diferenciais
+                        </button>
+                    </li>
+
+               
+                </ul>
+            </div>
+        </div>
+        
+        <div class=row>
+            <div class="col-12">
+                <ul class="head">
+                    <li>
+                        <div>
+                            <p>
+                                Ordem
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Imagem
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Título
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Cadastrado em:
+                            </p>
+                        </div>
+                        
+                    </li>
+                </ul>
+                <div *ngIf="!loaded" class="load">
+                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                        viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                        <path fill="#0079c8"
+                            d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+                <ul *ngIf="loaded && banners.length > 0" class="content" cdkDropList
+                    (cdkDropListDropped)="drop($event)">
+                    <li class="drag-box" [class.disabled]="banner.ativo == '0'" *ngFor="let banner of banners" cdkDrag
+                        [cdkDragDisabled]="banner.ativo == '0'">
+                        <div class="drag-item" *cdkDragPlaceholder>
+                        </div>
+                        <div>
+                            <img class="order" src="assets/img/ordem.svg" alt="">
+                        </div>
+                        <div>
+                            <img class="thumbnail-banner" src="{{ banner.caminhoCompletoDesktop}}"
+                                [alt]="banner.titulo">
+
+                        </div>
+                        <div>
+                            <p>
+                                {{banner.titulo}}
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                {{banner.dataCadastro | date: 'dd/MM/yyyy'}}
+                            </p>
+                        </div>
+                        
+                    </li>
+                </ul>
+                <div *ngIf="loaded && banners.length == 0">
+                    Não há banners cadastrados
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -3,6 +3,6 @@ class NewsLetterModel{
         Object.assign(this, init)
     }
 
-    nome: string;
+    nomeCompleto: string;
     email: string;
 }

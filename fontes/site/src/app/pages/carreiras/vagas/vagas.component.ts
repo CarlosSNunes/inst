@@ -96,10 +96,6 @@ export class VagasComponent implements OnInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
             content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,
@@ -131,10 +127,6 @@ export class VagasComponent implements OnInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
             content: `${environment.SELF_URL}/${this.simpleBannerModel.image}`,

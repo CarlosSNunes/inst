@@ -49,13 +49,6 @@ export default [
                 </strong>
                 - <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
             </p>
-            <p class="sub-description no-margin">
-                2.
-                <strong>
-                    Por e-mail
-                </strong>
-                - enviar para o e-mail autorizacao@careplus.com.br.
-            </p>
 
             <p class="sub-description">
                 Serão respondidos em até 24 horas úteis da sua recepção. Se preferir, encaminhe pela Personal Assistance que atende a sua empresa.

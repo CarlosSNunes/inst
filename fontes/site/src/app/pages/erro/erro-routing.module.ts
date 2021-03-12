@@ -7,10 +7,6 @@ const routes: Routes = [
         path: '',
         component: ErroComponent,
         pathMatch: 'full'
-    },
-    {
-        path: '**',
-        component: ErroComponent
     }
 ];
 

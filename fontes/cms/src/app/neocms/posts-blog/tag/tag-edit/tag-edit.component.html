@@ -1,0 +1,44 @@
+<section id="editTag">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="header">
+          <h1>
+            Editar Tag
+          </h1>
+          <a routerLink="/neocms/posts-blog/tag">
+            Voltar
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+
+
+          <div class="field">
+            <p >Descrição</p>
+            <div class="control">
+              <input formControlName="descricao" class="form-control" type="text" placeholder=""
+                [ngClass]="{ 'is-success': submitted && !f.descricao.errors, 'is-danger' : submitted && f.descricao.errors }">
+            </div>
+            <div *ngIf="submitted" class="errors">
+              <p *ngFor="let error of getErrors(f.descricao)" class="help is-danger">
+                {{error}}
+              </p>
+            </div>
+            <div class="buttons">
+              <button class="btn blue" type="submit">
+                Salvar
+  
+              </button>
+            </div>
+            
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

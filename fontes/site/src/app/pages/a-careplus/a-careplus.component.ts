@@ -162,10 +162,6 @@ import { environment } from 'src/environments/environment';
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
             content: `${environment.SELF_URL}/assets/img/banner-dog-a-careplus.jpg`,
@@ -197,10 +193,6 @@ import { environment } from 'src/environments/environment';
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
             content: `${environment.SELF_URL}/assets/img/banner-dog-a-careplus.jpg`,

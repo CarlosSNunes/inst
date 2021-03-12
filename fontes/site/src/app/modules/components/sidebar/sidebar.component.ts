@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
         this.isBrowser = isPlatformBrowser(this.platformId);
         if (this.isBrowser) {
             if (this.windowRef.nativeWindow.innerWidth <= 1400) {
-                this.elementOffset = 72
+                this.elementOffset = 111
             } else {
                 this.elementOffset = 0
             }

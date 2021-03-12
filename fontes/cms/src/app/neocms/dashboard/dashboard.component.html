@@ -1,0 +1,156 @@
+<section id="dashboard">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                  <h1>
+                    Dashboard
+                  </h1>
+                </div>
+       
+              </div>
+            <div class="col-md-4">
+                <a routerLink="/neocms/usuarios">
+                    <div class="card posts ">
+
+                        <img src="assets/svg/users-dash.svg" class="card-icon" alt="Usuários">
+
+                        <h1  *ngIf="userCount !== undefined">
+                            {{userCount}}</h1>
+                            <div *ngIf="userCount === undefined" class="load">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                    <path fill="#0079c8"
+                                        d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+                        <h5>
+                            Usuários
+                        </h5>
+                    </div>
+                </a>
+                
+            </div>
+            <div class="col-md-4">
+                <a routerLink="/neocms/banner">
+                    <div class="card banners">
+                       
+                        <img src="assets/svg/banners-dash.svg" class="card-icon" alt="Usuários">
+
+                        <h1 *ngIf="bannersAtivos !== undefined">
+                            {{bannersAtivos}}</h1>
+                            <div *ngIf="bannersAtivos === undefined" class="load">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                    <path fill="#0079c8"
+                                        d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+
+                        <h5>
+                            Banners ativos</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a routerLink="/neocms/posts-blog/index">
+
+                    <div class="card users">
+                       
+                        <img src="assets/svg/posts-dash.svg" class="card-icon" alt="Usuários">
+                        <h1 *ngIf="postsAtivos !== undefined">
+                            {{postsAtivos}}</h1>
+
+                            <div *ngIf="postsAtivos === undefined" class="load">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                    <path fill="#0079c8"
+                                        d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+
+                        <h5>
+                            Posts no Blog Care Plus+</h5>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card posts-mais-lidos">
+                    <div class="header">
+                        <h5>
+                            Posts mais lidos no Blog
+                        </h5>
+                    </div>
+                    <div class="body">
+                        <ul>
+
+                            <li role="button" *ngFor="let post of postsMaisLidos; index as i;"
+                                (click)="changePost(post?.id)" [class.active]="postSelecionado?.id == post?.id">
+                                <a>
+                                    <svg width="512" height="512" viewBox="0 0 512 512" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 30V482H512V30H0ZM482 452H30V120H482V452ZM482 90H30V60H482V90Z"
+                                            fill="white" />
+                                        <path d="M271 160V412H452V160H271ZM422 382H301V190H422V382Z" fill="white" />
+                                        <path d="M241 160H60V190H241V160Z" fill="white" />
+                                        <path d="M181 220H60V250H181V220Z" fill="white" />
+                                        <path d="M241 300H60V330H241V300Z" fill="white" />
+                                        <path d="M181 360H60V390H181V360Z" fill="white" />
+                                    </svg>
+
+                                    <span class="text-item">{{post.titulo}}</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="post-content">
+                            <div *ngIf="postSelecionado" class="post-image crop">
+                                <img [src]="postSelecionado.caminhoCompleto"
+                                    [alt]="postSelecionado.titulo">
+                            </div>
+         
+
+                            <div class="post-body">
+                                <div>
+                                    <h5 *ngIf="postSelecionado" class="post-title">
+                                        {{ postSelecionado.titulo }}</h5>
+    
+                                    <p *ngIf="postSelecionado" class="post-subtitle">
+                                        {{postSelecionado.subtitulo}}
+                                    </p>
+    
+                                    <p *ngIf="postSelecionado" class="post-description">
+                                        {{postSelecionado.descricaoPrevia}}
+                                    </p>
+                                </div>
+                               
+                                <a *ngIf="postSelecionado"
+                                [routerLink]="['/neocms/posts-blog/edit', postSelecionado.slug]">
+                                <button class="btn blue">Editar</button></a>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

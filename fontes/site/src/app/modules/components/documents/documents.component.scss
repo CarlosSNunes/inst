@@ -14,6 +14,13 @@
                     line-height: getLineHeight("mbt");
                     color: getColor(_bupa, _navy);
                     transition: color 0.3s ease-in-out;
+                    .size {
+                        font-weight: 300;
+                        font-size: 16px;
+                        line-height: getLineHeight("mbt");
+                        color: getColor("_bupa", "_grey-2");
+                        transition: color 0.3s ease-in-out;
+                    }
                 }
                 .download-link {
                     position: absolute;
@@ -29,7 +36,9 @@
                     span {
                         margin-left: 10px;
                         align-self: center;
+                        height: 17px;
                         svg {
+                            height: 17px;
                             transition: fill 0.3s ease-in-out;
                             path {
                                 transition: fill 0.3s ease-in-out;
@@ -38,7 +47,7 @@
                     }
                 }
             }
-             ::ng-deep .app-card {
+            ::ng-deep .app-card {
                 .content {
                     .card.default {
                         padding: 25px 16px;
@@ -48,6 +57,9 @@
                             border: 1px solid getColor(_bupa, _digital-cian);
                             .card-title {
                                 color: getColor(_bupa, _white);
+                                .size {
+                                    color: getColor(_bupa, _white);
+                                }
                             }
                             .download-link {
                                 color: getColor(_bupa, _white);

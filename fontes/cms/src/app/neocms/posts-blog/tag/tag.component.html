@@ -1,0 +1,86 @@
+<section id="tags">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Tags
+                    </h1>
+                    <a routerLink="/neocms">
+                        Voltar
+                    </a>
+                </div>
+                <div class="createTag" *ngIf="userPermission != 'Visualizador'">
+                    <button type="button" class="btn blue " routerLink="/neocms/posts-blog/tag/create">Nova Tag</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table id="tagTable" class="table table-hover">
+                    <caption>Tags</caption>
+                    <thead>
+                        <tr>
+                            <th id="">ID</th>
+                            <th class="" id="">Descrição</th>
+                            <th class="text-center" id="" *ngIf="userPermission != 'Visualizador'">Ação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                           
+                            <td class="has-text-centered" *ngIf="tags.length == 0 && loaded" colspan="3">
+                                Não há tags cadastradas
+                            </td>
+                        </tr>
+                        <tr
+                            *ngFor="let tag of tags | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: tagCount }">
+                            <td>{{tag.id}}</td>
+                            <td class="text-truncate ">{{tag.descricao}}</td>
+                            <td class="text-dark text-right" *ngIf="userPermission != 'Visualizador'">
+                                <a class="" [routerLink]="['/neocms/posts-blog/tag/edit', tag.id]"
+                                    routerLinkActive="active">
+                                    <fa-icon class="text-dark" [icon]="faPencilAlt"></fa-icon>
+                                </a>
+                                <a class="text-right text-danger px-3" (click)="openModal(template)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </a>
+                                <ng-template #template>
+                                    <div class="modal-body text-center">
+                                        <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
+                                        <p>Deseja exluir a Tag: <span
+                                                class="tag-descricao-del">{{tag.descricao}}</span>?
+                                        </p>
+                                        <button type="button" class="btn blue" (click)="confirm(tag.id)">Sim</button>
+                                        <button type="button" class="btn orange" (click)="decline()">Não</button>
+                                    </div>
+                                </ng-template>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="tags.length == 0 && !loaded" class="load">
+                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                        viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                        <path fill="#0079c8"
+                            d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+                <div class="text-center" *ngIf="tagCount > 5 && loaded">
+                    <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
+                        nextLabel="Próximo">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

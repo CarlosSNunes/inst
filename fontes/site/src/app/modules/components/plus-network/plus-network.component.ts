@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, PLATFORM_ID, Inject, HostListener, Input } from '@angular/core';
 import { BannerModel } from 'src/app/models';
-import { BannerService } from 'src/app/services';
 import BannersJSON from './data/banners';
 import { Subscription, interval, fromEvent } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -16,7 +15,7 @@ import { WindowRef } from 'src/utils/window-ref';
 export class PlusNetworkComponent implements OnInit {
     @ViewChild('circlePercentage', { static: false }) circlePercentage: ElementRef<HTMLElement>;
     @ViewChild('bannerSection', { static: false }) bannerSection: ElementRef<HTMLElement>;
-    banners: BannerModel[] = BannersJSON as BannerModel[];
+    banners: BannerModel[] = BannersJSON;
     private bannerPercentageSubscription: Subscription;
     selectedBanner = 0;
     percentage: number = 0;
@@ -32,7 +31,6 @@ export class PlusNetworkComponent implements OnInit {
     mobileElement: HTMLElement;
 
     constructor(
-        private bannerService: BannerService,
         private cdRef: ChangeDetectorRef,
         private elementRef: ElementRef,
         @Inject(PLATFORM_ID) private plataformId,
@@ -53,7 +51,7 @@ export class PlusNetworkComponent implements OnInit {
                 return banner
             });
             this.cdRef.detectChanges();
-            this.time = this.banners[0].tempo
+            this.time = this.banners[0].tempoExibicao
             this.startBannerPercentage(this.time / 100, this.time)
 
             const hammerConfig = new HammerGestureConfig()
@@ -79,14 +77,6 @@ export class PlusNetworkComponent implements OnInit {
     @HostListener('window: resize', ['$event']) onResize(event) {
         if (this.isBrowser) {
             this.width = event.target.innerWidth;
-        }
-    }
-
-    async getBanners() {
-        try {
-            this.banners = await this.bannerService.getByArea('plus-network')
-        } catch (error) {
-            console.log(error)
         }
     }
 
@@ -151,7 +141,7 @@ export class PlusNetworkComponent implements OnInit {
             this.percentageStoped = 0
             this.percentage = 0
             this.stopBannerPercentage()
-            this.time = this.banners[i].tempo;
+            this.time = this.banners[i].tempoExibicao;
             this.startBannerPercentage(this.time / 100, this.time)
             this.banners = this.banners.map((banner, index) => {
                 if (i != index) {

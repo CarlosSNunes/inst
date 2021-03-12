@@ -1,4 +1,3 @@
-import { Anexo } from './anexo.model';
 
 export class FaleConoscoAutoFields {
     constructor(init?: Partial<FaleConoscoAutoFields>) {
@@ -16,9 +15,9 @@ export class ListaTipoAssuntoFaleConosco {
         Object.assign(this, init);
     }
 
-    CodigoMensagem: number;
-    Mensagem: string;
-    TipoAssunto: Array<TipoAssunto> = [];
+    codigoMensagem: number;
+    mensagem: string;
+    tipoAssunto: Array<TipoAssunto> = [];
 }
 
 export class TipoAssunto {
@@ -26,9 +25,9 @@ export class TipoAssunto {
         Object.assign(this, init);
     }
 
-    Id: number;
-    Descricao: string;
-    Assunto: Array<Assunto> = [];
+    id: number;
+    descricao: string;
+    assunto: Array<Assunto> = [];
 }
 
 export class Assunto {
@@ -36,8 +35,8 @@ export class Assunto {
         Object.assign(this, init);
     }
 
-    Id: number;
-    Titulo: string;
+    id: number;
+    titulo: string;
 }
 
 
@@ -62,8 +61,8 @@ export class GravarFaleConoscoEntrada {
     NomeContato: string;
     // TokenAutenticacao deverá ser enviado pelo backend.
     NomeEntidade: string; // necerrário somente em casos diferentes do tipo Beneficiário.
-    lstAnexo: {
-        AnexoByte: Array<Anexo>; // lista de arquivos.
+    LstAnexo: {
+        Arquivo: Array<File>; // lista de arquivos.
     };
 }
 

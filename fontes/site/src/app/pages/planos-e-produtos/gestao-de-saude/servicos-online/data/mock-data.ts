@@ -1,7 +1,5 @@
-import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, IconCardsSectionModel, ButtonModel, SliderModel } from 'src/app/models';
+import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, IconCardsSectionModel, ButtonModel, SliderModel, CareplusVideoModel, VideoModalModel } from 'src/app/models';
 import PersonalizedSectionCards from './personalized-section-cards';
-import { VideoModalModel } from 'src/app/models/modal.model';
-import { CareplusVideoModel } from 'src/app/models'
 export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
     title: 'Serviços On-line',
     description: 'Para você ter mais tempo e se dedicar ao que importa, a Care Plus investe em praticidade, oferecendo serviços a distância. Confira!',

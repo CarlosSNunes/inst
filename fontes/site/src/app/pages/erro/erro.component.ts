@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { BreadcrumbModel, RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
-import { EventEmitterService } from 'src/app/services/event-emitter/event-emitter-service.service';
 import { environment } from 'src/environments/environment';
-import { CanonicalService } from 'src/app/services';
+import { CanonicalService, EventEmitterService } from 'src/app/services';
 
 @Component({
     selector: 'app-erro',
@@ -61,10 +60,6 @@ export class ErroComponent implements OnInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
             content: `${environment.SELF_URL}/assets/svg/error-404.svg`,
@@ -96,10 +91,6 @@ export class ErroComponent implements OnInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
             content: `${environment.SELF_URL}/assets/svg/error-404.svg`,

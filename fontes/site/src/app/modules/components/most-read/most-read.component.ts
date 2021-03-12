@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import Posts from "./mock-post";
+import { ChangeDetectorRef, Component, ErrorHandler, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services';
+import { NoticiaModel } from 'src/app/models';
 
 @Component({
     selector: 'app-most-read',
@@ -8,8 +8,14 @@ import { BlogService } from 'src/app/services';
     styleUrls: ['./most-read.component.scss']
 })
 export class MostReadComponent implements OnInit {
-    posts: {}[] = [];
-    constructor(private blogService: BlogService) { }
+    posts: NoticiaModel[] = [];
+    skip: number = 0;
+    take: number = 4;
+    constructor(
+        private blogService: BlogService,
+        private errorHandler: ErrorHandler,
+        private cdr: ChangeDetectorRef
+    ) { }
 
     ngOnInit() {
         this.getMostReadPosts();
@@ -17,11 +23,13 @@ export class MostReadComponent implements OnInit {
 
     async getMostReadPosts() {
         try {
-            //   this.posts = await this.blogService.getMostRead();
-            this.posts = Posts.posts;
-        } catch (err) {
-            console.log(err)
-            this.posts = Posts.posts;
+            const mostReadPosts = await this.blogService.getMostRead(this.skip, this.take);
+            mostReadPosts.result.forEach(post => {
+                this.posts.push(new NoticiaModel(post))
+            });
+            this.cdr.detectChanges();
+        } catch (error) {
+            this.errorHandler.handleError(error);
         }
 
     }

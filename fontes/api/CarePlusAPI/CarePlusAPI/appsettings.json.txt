@@ -1,0 +1,39 @@
+{
+  "AppSettings": {
+    "Secret": "",                               --segredo da api do site
+    "PathToGet": "",                            --endereço dos assets do site
+    "UrlDefault": "",                           --endereço dos assets do site
+    "VirtualPath": "",                          --estrutura de pastas para salvar as imagens
+    "PathToSave": "",                           --estrutura de pastas para salvar as imagens
+    "PostImageRelativePathDefault": "",         --imagem padrão dos posts do blog
+    "PathToGetMobile": "",                      --endereço dos assets do site para dispositivos móveis
+    "PathToSaveMobile": "",                     --endereço dos assets do site para dispositivos móveis
+    "AssetsServerUrl": "",                      --endereço do servidor de assets
+    "AssetsServerIp": "",                       --ip do servidor de assets
+    "HasAssetsServer": ,                        --se tiver servidor de assets = true
+    "AssetsServerUser": "",                     --usuario do servidor de assets
+    "AssetsServerPass": "",                     --senha do servidor de assets
+    "WSPartnerToken": "",                       --enviado pela Care Plus
+    "WSPartnerLogin": "=",                      --enviado pela Care Plus
+    "WSPartnerSenha": "",                       --enviado pela Care Plus
+    "WSPartnerURL": "",                         --enviado pela Care Plus
+    "WSPartnerURLHTTPS": "",                    --enviado pela Care Plus
+    "AdministratorEmail": "",                   --email do usuário administrador do sistema
+    "SeqUrl": "",                               --endereço do servidor de logs (SeqLog)
+    "SeqTokenAdmin": "",                        --token para identificar o log do sistema administrativo no SeqLog
+    "SeqTokenInst": "",                         --token para identificar o log do site institucional no SeqLog
+    "SeqTokenAPI": "",                          --token para identificar o log da API no SeqLog
+    "CiphersPath": "",                          --criptografia da string de conexão do banco
+    "CMSUrl": "",                               --url do cms (para ambiente de desenvolvimento)
+    "OracleExpressDatabase":""
+  },
+
+  "Logging": {
+        "LogLevel": {
+            "Default": "",
+            "Microsoft": "",
+            "Microsoft.Hosting.Lifetime": ""
+        }
+    },
+    "AllowedHosts": "*"
+}

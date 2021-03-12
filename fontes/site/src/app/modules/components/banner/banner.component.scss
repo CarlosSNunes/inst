@@ -43,6 +43,13 @@ section.home-banner {
                             background-image: getSvg("desktop-banner-stop-button.svg") !important;
                         }
                     }
+
+                    &.loading {
+                        #svg {
+                            cursor: not-allowed;
+                        }
+                    }
+
                     #svg {
                         cursor: pointer;
                         transform: rotate(-90deg);

@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ValidateBrService } from 'angular-validate-br';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { ScriptLoaderService } from 'src/app/services/script-loader/script-loader.service';
+import { ScriptLoaderService } from 'src/app/services';
 declare var grecaptcha: any;
 import { requireAtLeastOne } from '../utils/validators';
 import { Subscription } from 'rxjs';
@@ -38,7 +38,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     faleConoscoAutoFiels: FaleConoscoAutoFields;
     isBrowser: boolean = false;
     formValueChangesSubscription: Subscription;
-    retURL: string = `${environment.SELF_URL}/obrigado`;
+    retURL: string = `${environment.SELF_URL}fale-conosco/solicite-uma-cotacao/obrigado`;
 
     constructor(
         private fb: FormBuilder,
@@ -116,10 +116,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
                 "website",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "og:image",
             content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
@@ -151,10 +147,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
                 "summary_large_image",
         });
 
-        // TODO
-        /*
-            Quando o NEOCMS estiver pronto as imagens ficarão em outro server e possuirão um caminho absoluto.
-        */
         this.meta.updateTag({
             name: "twitter:image",
             content: `${environment.SELF_URL}/assets/img/banner_home2.png`,
@@ -247,9 +239,6 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
             event.target.submit();
 
-            // const modal: FeedbackModalModel = new FeedbackModalModel();
-
-            // this.modalService.openModal(modal)
         } else {
             event.preventDefault();
             Object.keys(this.soliciteUmaCotacaoForm.controls).forEach(control => {

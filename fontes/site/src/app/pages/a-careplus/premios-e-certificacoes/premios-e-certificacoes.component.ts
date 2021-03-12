@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { BreadcrumbModel, PostCardModel, SimpleBannerModel } from 'src/app/models';
+import { BreadcrumbModel, PostCardModel, SimpleBannerModel, ContentModalModel } from 'src/app/models';
+import { ModalService } from 'src/app/services';
 import { WindowRef } from 'src/utils/window-ref';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import Cards from './data/cards';
 import { Title, Meta } from '@angular/platform-browser';
-import { ModalService } from 'src/app/services/modal/modal.service';
-import { ContentModalModel } from 'src/app/models/modal.model';
 
 @Component({
     selector: 'app-premios-e-certificacoes',
@@ -39,7 +38,7 @@ export class PremiosECertificacoesComponent implements OnInit {
     isBrowser: boolean = false;
     width: number = 0;
     offset: number = 0;
-    cards: PostCardModel[] = (Cards as []);
+    cards: PostCardModel[] = Cards;
     constructor(
         private windowRef: WindowRef,
         @Inject(PLATFORM_ID) platformId: Platform,
@@ -89,30 +88,10 @@ export class PremiosECertificacoesComponent implements OnInit {
         })
     }
 
-    openModal(infos?) {
-        /*
-            TODO - falta o conteúdo que deverá ser enviádo para o cliente.
-
-            - Por enquanto as informações estão mocadas.
-        */
-        const modalContent: ContentModalModel = new ContentModalModel({
-            layout: 'content',
-            type: 'info',
-            title: 'Mitos e verdades sobre a escovação',
-            smallTitle: 'SAÚDE BUCAL',
-            paragraphs: [
-                {
-                    "title": "Importância da escovação",
-                    "text": "A escovação é extremamente importante, não apenas para ter um sorriso mais bonito, mas, também, para cuidar da saúde bucal, prevenir cáries, mal hálito e doenças como gengivite, periodontite, entre outras. Vamos esclarecer algumas dúvidas mais frequentes sobre a escovação."
-                },
-                {
-                    "title": "Tenho que escovar meus dentes logo depois de terminar uma refeição?",
-                    "text": "Mito! Ao fim de uma refeição o correto é aguardar até 30 minutos. Esse tempo é preciso, porque alguns alimentos possuem acidez e podem deixar o esmalte dos dentes sensíveis. Por esse motivo, é importante aguardar o PH da boca se equilibrar."
-                }
-            ],
-            imagePath: 'assets/svg/content-modal-image.svg'
-        });
-        this.modalService.openModal(modalContent)
+    openModal(modalContent: any) {
+        if (modalContent) {
+            this.modalService.openModal(modalContent)
+        }
     }
 
 }

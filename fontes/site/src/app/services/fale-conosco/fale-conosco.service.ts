@@ -12,6 +12,7 @@ import {
     GravarOuvidoriaEntrada,
     GravarOuvidoriaSaida
 } from 'src/app/models';
+import { ClassHelper } from 'src/utils/class-helper';
 
 @Injectable({
     providedIn: 'root'
@@ -19,18 +20,19 @@ import {
 export class FaleConoscoService {
     constructor(private http: HttpClient) { }
 
-    private url = `${environment.API_URL}/fale-conosco/`;
+    private url = `${environment.API_URL}/FaleConosco/`;
 
     getListaTipoAssuntoFaleConosco(): Promise<ListaTipoAssuntoFaleConosco> {
         return this.http.get<ListaTipoAssuntoFaleConosco>(`${this.url}tipo-assunto-fale-conosco`).toPromise();
     }
 
     gravarFaleConosco(body: GravarFaleConoscoEntrada): Promise<GravarFaleConoscoSaida> {
-        return this.http.post<GravarFaleConoscoSaida>(`${this.url}gravar-fale-conosco`, body).toPromise();
+        return this.http.post<GravarFaleConoscoSaida>(`${this.url}gravar-fale-conosco`, ClassHelper.jsonToFormData(body)).toPromise();
     }
 
     gravarCanalDeDenuncia(body: GravarCanalDenunciaEntrada): Promise<GravarCanalDenunciaSaida> {
-        return this.http.post<GravarCanalDenunciaSaida>(`${this.url}gravar-canal-de-denuncia`, body).toPromise();
+        return this.http.post<GravarCanalDenunciaSaida>(`${this.url}gravar-canal-de-denuncia`,
+            ClassHelper.jsonToFormData(body)).toPromise();
     }
 
     buscarAssuntoOuvidoria(): Promise<BuscarAssuntoOuvidoriaSaida> {
@@ -42,7 +44,7 @@ export class FaleConoscoService {
     }
 
     gravarOuvidoria(body: GravarOuvidoriaEntrada): Promise<GravarOuvidoriaSaida> {
-        return this.http.post<GravarOuvidoriaSaida>(`${this.url}gravar-ouvidoria`, body).toPromise();
+        return this.http.post<GravarOuvidoriaSaida>(`${this.url}gravar-ouvidoria`, ClassHelper.jsonToFormData(body)).toPromise();
     }
 
 }

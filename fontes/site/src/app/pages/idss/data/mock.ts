@@ -25,7 +25,11 @@ export const materiais = [
         category: '2018',
         button: new ButtonModel({
             link: 'assets/documents/idsscareplus-2018.pdf'
-        })
+        }),
+        size: {
+         placeholder: '(1mb)',
+         file_size: '1065856'
+     }
     }),
     new CardModel({
         type: 'default',
@@ -33,7 +37,11 @@ export const materiais = [
         category: '2019',
         button: new ButtonModel({
             link: 'assets/documents/idsscareplus-2019.pdf'
-        })
+        }),
+        size: {
+         placeholder: '(1mb)',
+         file_size: '1059184 '
+     }
     }),
 ];
 

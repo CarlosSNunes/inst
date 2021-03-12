@@ -1,15 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CorretorComponent } from './corretor.component';
-import { BannerModule } from 'src/app/modules/components/banner/banner.module';
-import { ProductModule } from 'src/app/modules/components/product/product.module';
-import { DifferentialModule } from 'src/app/modules/components/differential/differential.module';
-import { AccreditedNetworkModule } from 'src/app/modules/components/accredited-network/accredited-network.module';
+import { BannerModule, ProductModule, DifferentialModule, AccreditedNetworkModule, InfoSectionModule, MaterialsModule, SocialPostsModule, IconCardsSectionModule, CareplusPlusModule } from 'src/app/modules';
 import { CorretorRoutingModule } from './corretor-routing.module';
-import { InfoSectionModule } from 'src/app/modules/components/info-section/info-section.module';
-import { MaterialsModule } from 'src/app/modules/components/materials/materials.module';
-import { SocialPostsModule } from 'src/app/modules/components/social-posts/social-posts.module';
-import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-section/icon-cards-section.module';
 
 
 @NgModule({
@@ -25,7 +18,7 @@ import { IconCardsSectionModule } from 'src/app/modules/components/icon-cards-se
         InfoSectionModule,
         MaterialsModule,
         SocialPostsModule,
-        
+        CareplusPlusModule 
     ]
 })
 export class CorretorModule { }

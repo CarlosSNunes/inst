@@ -1,0 +1,90 @@
+@import "~src/assets/sass/variables";
+@import "~src/assets/sass/styleguide";
+
+#posts {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 40px;
+        h1 {
+            font-size: getSize("h2");
+            margin-bottom: 24px;
+        }
+        a {
+            color: getColor(_bupa, _digital-cian);
+            margin: auto 0;
+        }
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            background-color: getColor(_bupa, _black);
+            height: 1px;
+            width: 100%;
+        }
+    }
+    .createPost {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+            padding: 10px 27px;
+        }
+    }
+    table {
+        thead {
+            background-color: getColor(_bupa, _grey-3);
+        }
+        th {
+            vertical-align: middle;
+            width: 25%;
+            &:last-child {
+                min-width: 190px;
+            }
+        }
+        td {
+            vertical-align: middle;
+            height: 60px;
+            img {
+                width: 100px;
+            }
+            .yellowStar {
+                color: gold;
+            }
+        }
+        .favorite {
+            width: 100px;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .load {
+        width: 100%;
+        display: flex;
+        svg {
+            margin: auto;
+        }
+    }
+}
+@media (max-width: 1165px) {
+    #posts {
+        table {
+                th, td{
+                    &.img-post{
+                    display: none;
+
+                    }
+                    &:last-child{
+                        min-width: 90px;
+                    }
+                }
+                
+        }
+    }
+}
+
+

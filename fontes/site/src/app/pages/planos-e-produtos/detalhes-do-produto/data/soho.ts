@@ -28,14 +28,16 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         smallTitle: 'SOBRE O PLANO',
         bigTitle: 'Saiba mais sobre o Care Plus SoHo e como contratá-lo',
         subDescriptions: [
-            'Se sua empresa possui dois titulares ou mais, com atividade ativa e comprovada por documentos contábeis e fiscais com mínimo de 12 meses, o Care Plus SoHo apresenta planos sob medida para sua empresa. Com ele, você e seus colaboradores, terão acesso ao acolhimento, cuidado e humanização que tanto merecem, juntamente com a entrega de uma ampla rede credenciada, facilidades para reembolso, atendimento personalizado e mais uma gama de serviços premium.'
+            'Se sua empresa possui dois titulares ou mais, com atividade ativa e comprovada por documentos contábeis e fiscais com mínimo de 12 meses, o Care Plus SoHo apresenta planos sob medida para sua empresa.',
+            'Com ele, você e seus colaboradores, obtém acesso ao acolhimento, cuidado e humanização que tanto merecem, juntamente com a entrega de uma ampla rede credenciada, facilidades para reembolso, atendimento personalizado e mais uma gama de serviços premium.'
         ],
         imageSrc: 'assets/img/sobre_plano_soho.png',
         button: new ButtonModel({
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
-                plano: 'soho'
+                plano: 'careplus-soho',
+                planoSaude: true
             }
         }),
         parallax: true
@@ -108,7 +110,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
                             text: 'Opção: Ortodontia e Prótese.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
+                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
                         }
                     ]
                 },
@@ -167,7 +169,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
                         {
                             text: 'Rede Credenciada Odonto Master, Livre Escolha e Care Plus Clinic.'
                         }
-                    ]
+                    ],
+                    detalhe: '*somente plano Coletivo Empresarial'
                 },
                 {
                     type: 'default',
@@ -220,7 +223,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
             text: 'Solicite uma Cotação',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
-                plano: 'soho',
+                plano: 'careplus-soho',
                 planoOdontologico: true
             }
         })
@@ -293,7 +296,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         ],
         button: new ButtonModel({
             text: 'Conheça a Care Plus Clinic',
-            link: 'https://careplusclinic.com.br'
+            link: 'https://www.careplusclinic.com.br'
         }),
         imageSrc: 'assets/img/bloco-clinicas.jpg',
         reverse: true,
@@ -330,7 +333,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
             text: 'Clique e solicite cotação',
             target: '_self',
             queryParams: {
-                plano: 'careplus-soho'
+                plano: 'careplus-soho',
+                planoSaude: true
             }
         }),
         backgroundColorClass: 'blue-background-color',

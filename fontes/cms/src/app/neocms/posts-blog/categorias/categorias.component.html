@@ -1,0 +1,92 @@
+<section id="categories">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Categorias
+                    </h1>
+                    <a routerLink="/neocms">
+                        Voltar
+                    </a>
+                </div>
+                <div class="createCategorias" *ngIf="userPermission != 'Visualizador'">
+                    <button class="btn blue" type="button" routerLink="/neocms/posts-blog/categorias/create"
+                        routerLinkActive="active" *ngIf="userPermission != 'Visualizador'">
+                        Nova Categoria
+                    </button>
+                </div>
+            </div>
+       
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="bannerTable" class="table table-hover">
+                    <caption>Categorias</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-left">Categoria</th>
+                            <th scope="col" class="text-center">Descrição</th>
+                            <th scope="col" class="text-center" *ngIf="userPermission != 'Visualizador'">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <td class="has-text-centered" *ngIf="categorias.length == 0 && loaded" colspan="6">
+                            Não há categorias cadastradas
+                        </td>
+                        <tr *ngFor="let c of categorias | paginate: { itemsPerPage: contador, currentPage: paginaAtual, totalItems: count}"
+                            class="
+                            table-cell text-center">
+
+                            <td class="py-3 align-middle text-left">
+                                <span class="p-2">{{c.titulo}}</span>
+                            </td>
+                            <td class="py-3 align-middle text-center">
+                                <span class="p-2">{{c.descricao}}</span>
+                            </td>
+                            <td class="py-3 align-middle text-center" *ngIf="userPermission != 'Visualizador'">
+                                <a [routerLink]="[ '/neocms/posts-blog/categorias/edit', c.id]"
+                                    routerLinkActive="active">
+                                    <fa-icon class="text-dark icon-action" [icon]="faPencilAlt"></fa-icon>
+                                </a>
+                                &nbsp;
+                                <a class="text-right text-danger" (click)="openModal(template)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </a>
+                                <ng-template #template>
+                                    <div class="modal-body text-center">
+                                        <fa-icon class="trash-icon" [icon]="faTrash"></fa-icon>
+                                        <p>Deseja exluir a Categoria: <span
+                                                class="tag-descricao-del">{{c.descricao}}</span>?</p>
+                                        <button type="button" class="btn btn-default"
+                                            (click)="confirm(c.id)">Sim</button>
+                                        <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
+                                    </div>
+                                </ng-template>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="categorias.length == 0 && !loaded" class="load">
+                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                        viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                        <path fill="#0079c8"
+                            d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+
+                <div class="text-center"  *ngIf="count > 5 && loaded">
+                    <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
+                        nextLabel="Próximo">
+                    </pagination-controls>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

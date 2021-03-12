@@ -1,17 +1,18 @@
 <div id="most-read">
     <p class="title">Mais lidas</p>
-    <p class="description">Veja as matérias preferidas dos leitores</p>
-    <a [href]="post.link" [attr.title]="post.title" target="_blank" *ngFor="let post of posts">
+    <h2 class="description">Veja as matérias preferidas dos leitores</h2>
+
+    <a [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo" target="_blank" *ngFor="let post of posts">
         <div class="post">
-            <img [src]="post.img" [alt]="post.title">
+            <img [src]="post?.caminhoCompleto" [alt]="post.titulo">
             <div class="title">
-                <p>{{post.title}}</p>
+                <p>{{post.titulo | substring: 40}}</p>
 
             </div>
         </div>
     </a>
 
-    <button class="btn btn-digital-cian tertiary arrow-right small">
-        Veja Todas
-    </button>
+    <a class="btn btn-digital-cian tertiary arrow-right small" routerLink="/careplus-mais/busca">
+        Veja Todas as Matérias
+    </a>
 </div>

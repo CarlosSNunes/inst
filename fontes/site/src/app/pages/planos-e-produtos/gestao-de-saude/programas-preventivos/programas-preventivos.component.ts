@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { simpleBannerModel, mommyCareSection, gerenciamentoDeDoencasCronicas, programaDeAcolhimento, mentalHealth, cuidadosDaFamilia, programaDeCuidadoOncologico, iconCardsSectionModel } from './data/mock-data';
+import { simpleBannerModel, mommyCareSection, gerenciamentoDeDoencasCronicas, programaDeAcolhimento, mentalHealth, cuidadosDaFamilia, programaDeCuidadoOncologico, iconCardsSectionModel,checkupDoViajante, monitoramentoDoCheckup,  } from './data/mock-data';
 import { Title, Meta } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
 
@@ -14,10 +14,14 @@ export class ProgramasPreventivosComponent implements OnInit {
     mommyCareSection = mommyCareSection;
     gerenciamentoDeDoencasCronicas = gerenciamentoDeDoencasCronicas;
     programaDeAcolhimento = programaDeAcolhimento;
+    
     mentalHealth = mentalHealth;
     cuidadosDaFamilia = cuidadosDaFamilia;
     programaDeCuidadoOncologico = programaDeCuidadoOncologico;
     iconCardsSectionModel = iconCardsSectionModel;
+
+    checkupDoViajanteSection = checkupDoViajante;
+    monitoramentoDoCheckupSection = monitoramentoDoCheckup;
     constructor(
         private title: Title,
         private meta: Meta,

@@ -49,6 +49,17 @@ export default [
             
             <div class="tg-wrap">
                 <table border="1" table="" cellspacing="0" cellpadding="0">
+                <thead style="display: none;">
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                </tr>
+                </thead>
+
                     <colgroup>
                         <col width="79">
                         <col width="95">
@@ -111,10 +122,8 @@ export default [
             </p>
             
             <p class="sub-description">
-                Além do site, a tabela também está disponível para consulta na sede da Care Plus, na Avenida Sagitário, 138 – 19ª
-                andar Torre City – Alpha Offices, em Alphaville, Barueri, São Paulo, ou através de consulta no Cartório de Registros
-                de Títulos e Documentos e Civil de Pessoa Jurídica, localizado na Alameda Araguaia, 190, Alphaville, Barueri, São
-                Paulo.
+                Além do site, a tabela também está disponível para consulta na sede da Care Plus, na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040, ou através de consulta no Cartório de Registros
+                de Títulos e Documentos e Civil de Pessoa Jurídica, localizado na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040.
             </p>
             
             <p class="sub-description">
@@ -141,7 +150,7 @@ export default [
             
             <p class="sub-description">
                 Disponível para reembolso de fisioterapia, fonoaudiologia, acupuntura, psicoterapia, psicologia, escleroterapia,
-                exames simples, nutricionista, terapia ocupacional, exames de alta complexibilidade, medicamentos, além de consultas
+                exames simples, nutricionista, terapia ocupacional e de alta complexibilidade, odontologia,  próteses oculares (conforme garantia adicional contratada)  , vacinas preventivas , contracepção (implante do DIU) medicamentos, além de consultas
                 médicas eletivas.
             </p>
             
@@ -250,7 +259,7 @@ export default [
             
             <p class="sub-description">
                 Os reembolsos via internet são válidos para fisioterapia, fonoaudiologia, acupuntura, psicoterapia, psicologia,
-                escleroterapia, exames simples, nutricionista, terapia ocupacional, exames de alta complexidade, além de consultas
+                escleroterapia, exames simples, nutricionista, terapia ocupacional e de alta complexidade, odontologia, próteses oculares (conforme garantia adicional contratada), vacinas preventivas, contracepção (implante do DIU), além de consultas
                 médicas e odontológicas.
             </p>
         `
@@ -272,10 +281,9 @@ export default [
                 </li>
                 <li>
                     <strong>
-                        Prazo para reembolso de até 5 dias úteis - </strong> para medicamentos, honorários médicos, cirurgias ou
+                        Prazo para reembolso de até 5 dias úteis - </strong> para medicamentos, honorários médicos, partos, cirurgias, visitas hospitalares,
                     despesas com quimioterapia e radioterapia. Estes prazos se iniciam a partir da entrega da documentação completa
-                    na sede da Care Plus, na Avenida Sagitário, 138 - 19° andar - Alpha Offices - Torre City Alphaville | Barueri -
-                    SP | 06473-073, ou a partir da data do recebimento da imagem do documento, caso seja via web, celular ou NFe.
+                    na sede da Care Plus, na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040, ou a partir da data do recebimento da imagem do documento, caso seja via web, aplicativo, celular ou NFe.
                 </li>
             </ul>
             
@@ -326,7 +334,7 @@ export default [
                     profissionais ligados a medicina alternativa;
                 </li>
                 <li>
-                    Procedimentos não autorizados ou sem cobertura para o plano;
+                    Procedimentos não autorizados ou sem cobertura para o plano, não integrantes ao contrato e ROL da ANS;
                 </li>
                 <li>
                     Diferença motivada por uso de acomodação superior àquela estabelecida pelo
@@ -338,6 +346,15 @@ export default [
                 <li>
                     Despesas extraordinárias (serviços de copa, telefone, "pay per view", "delivery", transporte de familiares,
                     etc).
+                </li>
+                <li>
+                    Despesa de reembolso recepcionada, analisada e paga , caracterizando como duplicidade.
+                </li>
+                <li>
+                    Despesa de reembolso recepcionada, analisada e paga VIA REDE, caracterizando como duplicidade.
+                </li>
+                <li>
+                    Consultas médicas com o mesmo profissional em um intervalo menor a 16 dias. O documento fiscal é devolvido para utilização como despesa abatível de Imposto de Renda da Pessoa Física.
                 </li>
             </ul>
         `
@@ -420,7 +437,7 @@ export default [
         `
     },
     {
-        title: 'Documentos para reembolso – despesas acima de R$ 10 mil',
+        title: 'Documentos para reembolso - despesas acima de R$ 10 mil',
         description: `
             <p class="sub-description no-margin">
                 Conforme exigência da ANS através da Resolução Normativa No.117 de 30 de Novembro de 2005, e contrato da Care Plus,
@@ -436,6 +453,12 @@ export default [
                     Comprovante de Residência Atualizado (Conta de Consumo)
                 </li>
             </ul>
+
+            <p class="sub-description no-margin">
+                <strong>
+                    Observação: Para informações/dúvidas sobre o assunto, entre em contato com o (a) Consultor(a) de Atendimento na Care Plus.
+                </strong>
+            </p>
         `
     },
     {
@@ -556,7 +579,7 @@ export default [
                     Relação dos materiais, próteses e órteses solicitados;
                 </li>
                 <li>
-                    Recibos e notas fiscais apresentados para reembolso.
+                    Recibos e notas fiscais apresentados para reembolso, discriminando itens e valores individuais.
                 </li>
             </ul>
         `
@@ -600,6 +623,9 @@ export default [
                     Código do procedimento médico pela Tabela AMB;
                 </li>
                 <li>
+                    Nomes completos e nº de registros dos profissionais, com as funções (médico cirurgião; médico auxiliar; médico anestesista) que exerceram no ato cirúrgico.
+                </li>
+                <li>
                     Tempo de acompanhamento clínico e de existência da patologia.
                 </li>
             </ul>
@@ -619,6 +645,9 @@ export default [
                 </li>
                 <li>
                     Código do procedimento médico pela Tabela AMB;
+                </li>
+                <li>
+                    Nomes completos e nº de registros dos profissionais, com as funções (médico cirurgião; médico auxiliar; médico anestesista) que exerceram no ato cirúrgico.
                 </li>
                 <li>
                     Tempo de acompanhamento clínico e de existência da patologia.

@@ -179,12 +179,6 @@ export default [
             </p>
             
             <ul class="disc m-t-22">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
             
                 <li>
                     <strong>
@@ -305,12 +299,6 @@ export default [
             </p>
             
             <ul class="disc m-t-22">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
             
                 <li>
                     <strong>
@@ -392,12 +380,6 @@ export default [
             </p>
             
             <ul class="disc m-t-22">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
             
                 <li>
                     <strong>
@@ -538,12 +520,6 @@ export default [
         title: 'Como obter a prévia para Remoção',
         description: `
             <ul class="disc">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
             
                 <li>
                     <strong>
@@ -596,12 +572,6 @@ export default [
             </p>
             
             <ul class="disc m-t-22">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:autorizacao@careplus.com.br">autorizacao@careplus.com.br</a>
-                </li>
             
                 <li>
                     <strong>

@@ -1,0 +1,105 @@
+footer{
+    position: relative;
+    padding: 25px 0 55px;
+    &:before{
+        content: "";
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3d59c+0,b3d59c+20,006660+20,006660+40,0079c8+40,0079c8+100 */
+            background: #b3d59c; /* Old browsers */
+            background: -moz-linear-gradient(left, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, #0079c8 0%, #0079c8 60%, #007777 60%, #007777 80%, #b3d59c 80%, #b3d59c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c8', endColorstr='#b3d59c',GradientType=1 ); /* IE6-9 */
+            display: block;
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+    }
+    p{
+        font-size: rem(12);
+        line-height: 150%;
+        margin-bottom: 0;
+    }
+    .col-app{
+        text-align: right;
+        span{
+            font-size: rem(16);
+            line-height: 150%;
+            padding-right: 60px;
+        }
+        a:first-of-type{margin-right: 30px;}
+        img{width: 121px;}
+    }
+}
+
+/*==================== MEDIA QUERIES ==================================*/
+
+@media (min-width: 1200px) {
+    footer{
+        .container{
+            max-width: 1300px;
+        }
+    }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+    footer{
+        p{
+            margin-top: 11px;
+        }
+        .col-app{
+            span{
+                padding-right: 22px;
+            }
+            a:first-of-type{margin-right: 1px;}
+        }
+    }     
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+    footer{
+        .col-app{
+            text-align: center;
+            margin-bottom: 30px;
+            span{
+                display: block;
+                padding: 0 0 10px;
+            }
+            a:first-of-type{
+                float: left;
+                margin-left: 15%;
+            }
+            a:last-of-type{
+                float: right;
+                margin-right: 15%;
+            }
+        }
+    }
+        
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    footer{
+        .col-app{
+            a:first-of-type{
+                margin-left: 5%;
+            }
+            a:last-of-type{
+                margin-right: 5%;
+            }
+        }
+    }
+}
+
+
+
+
+

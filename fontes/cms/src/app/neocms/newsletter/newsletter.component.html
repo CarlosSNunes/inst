@@ -1,0 +1,64 @@
+<section id="newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <h1>
+                        Newsletter
+                    </h1>
+                    <a routerLink="/neocms">
+                        Voltar
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table id="newsletterTable" class="table">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th id="">ID</th>
+                            <th id="">Nome</th>
+                            <th id="">E-mail</th>
+                            <th id="">Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="has-text-centered" *ngIf="newsletters.length == 0 && loaded" colspan="6">
+                                Não há E-mails cadastradas
+                            </td>
+                        </tr>
+                        <tr *ngFor="let newsletter of newsletters | paginate: { itemsPerPage: 10, currentPage: paginaAtual, totalItems: newsletters.length }">
+                            <td>{{newsletter.id}}</td>
+                            <td>{{newsletter.nomeCompleto}}</td>
+                            <td>{{newsletter.email}}</td>
+                            <td>{{newsletter.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+                        </tr>
+ 
+                    </tbody>
+                </table>
+                <div *ngIf="newsletters.length == 0 && !loaded" class="load">
+                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                        viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                        <path fill="#0079c8"
+                            d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+                <div class="text-center" *ngIf="newsletters.length > 10 && loaded">
+                    <pagination-controls class="bg-dark" (pageChange)="onPageChange($event)" previousLabel="Anterior"
+                      nextLabel="Próximo">
+                    </pagination-controls>
+                  </div>
+                <button *ngIf="newsletters.length > 0" class="btn blue" (click)="exportExcel()">
+                    Exportar Lista
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
