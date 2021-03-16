@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    API_URL: 'http://ws.careplus.com.br/apiinstitucional',
+    API_URL: 'https://ws.careplus.com.br/apiinstitucional',
     SELF_URL: 'https://www.careplus.com.br',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
