@@ -109,7 +109,7 @@ export class BuscaComponent implements OnInit, AfterViewInit {
         this.breadcrumbs.push(
             new BreadcrumbModel({
                 name: 'Resultado de Busca',
-                link: `/careplus-mais/busca/${this.term}`,
+                link: `/careplus-mais/resultado-de-busca/${this.term}`,
                 active: true
             })
         );
