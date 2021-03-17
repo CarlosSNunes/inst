@@ -59,7 +59,7 @@ export const occupationalSection: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'MEDICINA OCUPACIONAL',
     bigTitle: 'Excelência médica personalizada + eficiência administrativa',
     subDescriptions: [
-        'Fornecemos soluções de saúde premium, por meio de uma ampla variedade de serviços, entre eles, medicina, odontologia, saúde ocupacional e medicina preventiva. Nosso objetivo é proporcionar um cuidado completo à saúde de nossos clientes, ou seja, desde a entrada do colaborador na empresa, prestando suporte ao RH com a parte regulatória do processo de admissão, até a utilização de nossos planos de saúde e odontológicos.'
+        'Fornecemos soluções de saúde premium, por meio de uma ampla variedade de serviços, entre eles, medicina, odontologia, saúde ocupacional e medicina preventiva. Nosso objetivo é proporcionar um cuidado completo à saúde de nossos clientes, ou seja, desde a entrada do colaborador na empresa, prestando suporte ao RH com a parte regulatória do processo de admissão, até a utilização de nossos plano de saúde e odontológico.'
     ],
     imageSrc: 'assets/img/occupational-image-products-page.jpg'
 });

@@ -3,8 +3,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
 export default {
     id: 'clube-careplus',
     name: 'Clube Care Plus',
-    title: 'Clube Care Plus | De 30 a 200 Vidas | Planos de Saúde e Odontológicos Premium | Care Plus',
-    description: 'O Clube Care Plus apresenta planos de saúde e odontológicos premium para empresas de 30 a 200 vidas e que estão crescendo e expandindo seus negócios.',
+    title: 'Clube Care Plus | De 30 a 200 Vidas | Plano de Saúde e Odontológico Premium | Care Plus',
+    description: 'O Clube Care Plus apresenta plano de saúde e odontológico premium para empresas de 30 a 200 vidas e que estão crescendo e expandindo seus negócios.',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Clube Care Plus: planos de 30 a 200 vidas',
         description: 'O Clube Care Plus apresenta planos para empresas, de 30 a 200 vidas e é indicado para aquelas que estão em crescimento e expandindo seus negócios.',
@@ -39,7 +39,7 @@ export default {
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'clube-careplus',
-                planoSaude:true
+                planoSaude: true
             }
         }),
         parallax: true
@@ -156,119 +156,64 @@ export default {
             plans: [
                 {
                     type: 'default',
-                    title: 'Odonto 2',
-                    description: 'Um plano na medida certa para entregar tudo o que o seu colaborador merece.',
+                    title: 'Planos Odontológicos Care Plus',
+                    description: 'Veja as possibilidades contratáveis abaixo:',
                     items: [
                         {
-                            text: 'Múltiplo de Reembolso de 2x.',
+                            text: 'Coberturas em todos os planos: Diagnóstico, Urgência, Prevenção, Odontopediatria, Dentística, Periodontia, Endodontia, Cirurgia, Radiologia, Prótese (Rol mínimo ANS)',
                         },
                         {
-                            text: 'Opção: Clínica Geral (exceto Clareamento Dentário).',
+                            text: 'Coberturas adicionais contratáveis: Ortodontia, Prótese Completa e Implante',
                         },
                         {
-                            text: 'Opção: Ortodontia e Prótese.'
+                            text: 'Livre Escolha com diferentes Múltiplos de Reembolso: 2XTI, 4XTI, 7XTI, 10XTI, 15XTI e 20XTI (TI = Tabela de Indenização)'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
+                            text: 'Rede Odonto Especial, Odonto Executivo e Odonto Master'
+                        },
+                        {
+                            text: 'Abrangência Nacional'
                         }
                     ]
                 },
+
                 {
                     type: 'default',
-                    title: 'Odonto 4',
-                    description: 'O plano elaborado para as necessidades de seus colaboradores com a garantia de excelentes coberturas.',
+                    title: 'Diferenciais exclusivos e únicos Odontologia Care Plus',
+                    description: '',
                     items: [
                         {
-                            text: 'Múltiplo de Reembolso de 4x.',
+                            text: 'Contratação Simplificada: menos burocracia e mais facilidade durante a contratação.'
                         },
                         {
-                            text: 'Opção: Clínica Geral (inclusive Clareamento Dentário).',
+                            text: 'Acesso via Web e APP: consulta de autorizações, prévias, solicitação de reembolsos, rede credenciada por GEO localização e carteirinha virtual.',
                         },
                         {
-                            text: 'Opção: Ortodontia, Prótese e Implante.'
+                            text: 'Reembolso On-line: facilidade e agilidade ao solicitar reembolsos.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Executivo e Livre Escolha.'
-                        }
-                    ]
-                },
-                {
-                    type: 'default',
-                    title: 'Odonto 7',
-                    description: 'O plano na medida para sua empresa. Com ele, você assegurará a saúde dos colaboradores de sua empresa.',
-                    items: [
-                        {
-                            text: 'Múltiplo de Reembolso de 7x.',
+                            text: 'Care Plus Garante*: a Care Plus se compromete a se posicionar sobre as solicitações de reembolso e prévia de reembolso das coberturas contratadas dentro dos prazos designados.'
                         },
                         {
-                            text: 'Opção: Clínica Geral (inclusive Clareamento Dentário).',
+                            text: 'Desconto em medicamentos: oferecemos aos nossos beneficiários a vantagem de obter descontos em medicamentos nas principais farmácias do Brasil.'
                         },
                         {
-                            text: 'Opção: Ortodontia, Prótese e Implante.'
+                            text: 'Atendimento Personalizado: Central de relacionamento 24 horas - 0800 013 2992|Chat - acesso pela área logada do beneficiário no site da Care Plus.'
                         },
                         {
-                            text: 'Rede Credenciada Odonto Especial e Livre Escolha.'
-                        }
-                    ]
-                },
-                {
-                    type: 'default',
-                    title: 'Odonto 10',
-                    description: 'Com o Odonto 10, os seus colaboradores terão acesso a diferenciais exclusivos e únicos da Care Plus.',
-                    items: [
-                        {
-                            text: 'Múltiplo de Reembolso de 10x.',
-                        },
-                        {
-                            text: 'Opção: Clínica Geral (inclusive Clareamento Dentário).',
-                        },
-                        {
-                            text: 'Opção: Ortodontia, Prótese e Implante.'
-                        },
-                        {
-                            text: 'Rede Credenciada Odonto Master, Livre Escolha e Care Plus Clinic.'
+                            text: 'Care Plus Clinic**: atendimento excepcional com a conveniência de tratar todas as especialidades odontológicas em um único local.'
                         }
                     ],
-                    detalhe:'*somente plano Coletivo Empresarial'
-                },
-                {
-                    type: 'default',
-                    title: 'Odonto 15',
-                    description: 'Um plano diferenciado para colaboradores que tem o plano de saúde como um atributo de decisão na escolha de sua empresa.',
-                    items: [
+                    detalhe: [
                         {
-                            text: 'Múltiplo de Reembolso de 15x.',
+                            text: '*É necessário aceitar os termos do programa disponível na área do beneficiário.'
                         },
                         {
-                            text: 'Opção: Clínica Geral (inclusive Clareamento Dentário).',
-                        },
-                        {
-                            text: 'Opção: Ortodontia, Prótese e Implante.'
-                        },
-                        {
-                            text: 'Rede Credenciada Odonto Master, Livre Escolha e Care Plus Clinic.'
+                            text: '**Verifique quais planos têm acesso à clínica.'
                         }
                     ]
                 },
-                {
-                    type: 'default',
-                    title: 'Odonto 20',
-                    description: 'Um plano completo, com diferenciais únicos e exclusivos repleto de cuidado, acolhimento e humanização.',
-                    items: [
-                        {
-                            text: 'Múltiplo de Reembolso de 20x.',
-                        },
-                        {
-                            text: 'Opção: Clínica Geral (inclusive Clareamento Dentário).',
-                        },
-                        {
-                            text: 'Opção: Ortodontia, Prótese e Implante.'
-                        },
-                        {
-                            text: 'Rede Credenciada Odonto Master, Livre Escolha e Care Plus Clinic.'
-                        }
-                    ]
-                }
+
             ]
         }
     ],
@@ -283,7 +228,7 @@ export default {
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'clube-careplus',
-                planoOdontologico:true
+                planoOdontologico: true
             }
         })
     }),
@@ -393,7 +338,7 @@ export default {
             target: '_self',
             queryParams: {
                 plano: 'clube-careplus',
-                planoSaude:true
+                planoSaude: true
             }
         }),
         backgroundColorClass: 'blue-background-color',

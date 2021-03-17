@@ -51,16 +51,14 @@ export default [
                 routerLink: '/planos-e-produtos',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-soho'
+                        title: 'Plano de Saúde',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Clube Care Plus (de 30 a 200 vidas)',
-                        routerLink: '/planos-e-produtos/clube-careplus'
-                    }),
-                    new SubMenuItem({
-                        title: 'Care Plus Empresarial (mais de 200 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-empresarial'
+                        title: 'Plano odontológico',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                 ]
             }),

@@ -3,8 +3,8 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
 export default {
     id: 'careplus-empresarial',
     name: 'Care Plus Empresarial',
-    title: 'Care Plus Empresarial | Mais de 200 Vidas | Planos de Saúde e Odontológicos Premium | Care Plus',
-    description: 'O Care Plus Empresarial apresenta planos de saúde e odontológicos premium, totalmente customizáveis, para empresas com mais de 200 vidas.',
+    title: 'Care Plus Empresarial | Mais de 200 Vidas | Plano de Saúde e Odontológico Premium | Care Plus',
+    description: 'O Care Plus Empresarial apresenta plano de saúde e odontológico premium, totalmente customizáveis, para empresas com mais de 200 vidas.',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Empresarial: planos para mais de 200 vidas',
         description: 'O Care Plus Empresarial apresenta planos altamente customizáveis, para mais de 200 vidas e é indicado para grandes empresas.',
