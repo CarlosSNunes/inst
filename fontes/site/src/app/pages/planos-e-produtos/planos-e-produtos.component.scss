@@ -26,11 +26,17 @@
                 font-size: getSize("p");
                 line-height: 82px;
                 color: getColor(_bupa, _black);
+                transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.1s ease-in-out,
+                    color 0.3s ease-in-out, -webkit-transform 0.1s ease-in-out;
                 &:first-child {
                     border-right: 0.5px solid getColor(_bupa, _grey-3);
                 }
                 &:last-child {
                     border-left: 0.5px solid getColor(_bupa, _grey-3);
+                }
+                &:hover {
+                    color: getColor(_bupa, _white);
+                    background-color: getColor(_bupa, _digital-cian);
                 }
             }
         }
