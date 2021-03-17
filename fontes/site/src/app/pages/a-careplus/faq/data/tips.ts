@@ -67,7 +67,7 @@ export default [
             </p>
 
             <p class="sub-description">
-                Central de Relacionamento 24 horas: 0800 13 2992
+                Central de Relacionamento 24 horas: 0800-13-2992
             </p>
         `
     },
