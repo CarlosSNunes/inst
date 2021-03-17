@@ -38,7 +38,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        if (request.url != environment.API_URL + '/Usuario/Autenticar') {
+        if (request.url != environment.API_URL + '/Usuario/Autenticar/Site') {
             this.retried = false;
             return this.authFunction(request, next, this.retryTimes);
         } else {

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class UsuarioService {
-    apiUrl: string = `${environment.API_URL}/Usuario/Autenticar`;
+    apiUrl: string = `${environment.API_URL}/Usuario/Autenticar/Site`;
     constructor(
         private httpClient: HttpClient
     ) { }

@@ -22,6 +22,7 @@ namespace CarePlusAPI.Services
         bool Validar(int id);
         Task<Usuario> Criar(Usuario model, string senha);
         Task Atualizar(Usuario model, string senha = null);
+        Task<WSRetornoLoginPartner> LogarSite(string login, string senha = null);
         Task Excluir(int id);
         Task ExcluirPerfis(int id);
         Task EnviarEmailConfirmacao(Usuario user);
@@ -209,7 +210,8 @@ namespace CarePlusAPI.Services
 
             model.Ativo = '1';
 
-            Usuario userToSave = new Usuario{
+            Usuario userToSave = new Usuario
+            {
                 Nome = model.Nome,
                 NomeUsuario = model.NomeUsuario,
                 SenhaHash = model.SenhaHash,
@@ -414,11 +416,43 @@ namespace CarePlusAPI.Services
                     TokenTransacao = ""
                 };
 
+
                 var result = await _partnerServiceClient.LogarAsync(loginPartnerOut);
 
                 var token = result.LoginPartner.TokenTransacao;
 
                 return token;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        ///<summary>
+        ///
+        ///Esse método serve para consumir o método Logar do WS Partner e obter um token para o Site       
+        ///
+        ///</summary>
+        [ExcludeFromCodeCoverage]
+        public virtual async Task<WSRetornoLoginPartner> LogarSite(string login, string senha)
+        {
+            try
+            {
+                string decryptedToken = _getCipher.Decrypt(_appSettings.WSPartnerToken);
+
+                LoginPartnerOut loginPartnerOut = new LoginPartnerOut()
+                {
+                    Origem = WebServiceOrigem.Partner,
+                    Token = decryptedToken,
+                    Login = login,
+                    Senha = senha,
+                    TokenTransacao = ""
+                };
+
+                var result = await _partnerServiceClient.LogarAsync(loginPartnerOut);
+           
+                return result;
             }
             catch (Exception ex)
             {
@@ -446,7 +480,8 @@ namespace CarePlusAPI.Services
                     Senha = senha
                 };
 
-                WSFiltro filtro = new WSFiltro {
+                WSFiltro filtro = new WSFiltro
+                {
                     Origem = WebServiceOrigem.Partner,
                     Token = auth,
                 };
@@ -488,7 +523,7 @@ namespace CarePlusAPI.Services
 
                 WSRetornoEnvioEmail result = await _partnerServiceClient.EnviarEmailAsync(parametroEmail);
 
-               if (!result.Sucesso)
+                if (!result.Sucesso)
                 {
                     RequisicaoUsuario requisicaoUsuario = await Context.Set<RequisicaoUsuario>()
                                                                     .AsNoTracking()
@@ -498,11 +533,12 @@ namespace CarePlusAPI.Services
                                                                     && ru.Expirado == '0')
                                                                     .FirstOrDefaultAsync();
 
-                    if (requisicaoUsuario != null) {
+                    if (requisicaoUsuario != null)
+                    {
                         Context.Set<RequisicaoUsuario>().Remove(requisicaoUsuario);
 
                         await Context.SaveChangesAsync();
-                     }
+                    }
                     throw new AppException("Falha no envio do E-mail");
                 }
 
@@ -530,7 +566,7 @@ namespace CarePlusAPI.Services
                 RequisicaoUsuario rq = new RequisicaoUsuario()
                 {
                     Nome = usuario.Nome,
-                    NomeUsuario = usuario.NomeUsuario,  
+                    NomeUsuario = usuario.NomeUsuario,
                     Token = Guid.NewGuid().ToString(),
                     Sucesso = '0',
                     Expirado = '0'
@@ -565,7 +601,8 @@ namespace CarePlusAPI.Services
 
                     Perfil perfil = await Context.Set<Perfil>().AsNoTracking().Where(p => p.Descricao == "Visualizador").FirstOrDefaultAsync();
 
-                    await Criar(new Usuario() {
+                    await Criar(new Usuario()
+                    {
                         Nome = requisicao.Nome,
                         NomeUsuario = requisicao.NomeUsuario,
                         UsuarioRoot = '0',
@@ -660,7 +697,7 @@ namespace CarePlusAPI.Services
             Context.Set<Usuario>().Update(usuario).Property(x => x.Ativo).IsModified = true;
 
             LogUsuarioDesativado logUsr = new LogUsuarioDesativado()
-            {        
+            {
                 Id_Requisitante = idUserRequest,
                 NomeUsuario = nomeUsuario,
                 DataCadastro = DateTime.Now

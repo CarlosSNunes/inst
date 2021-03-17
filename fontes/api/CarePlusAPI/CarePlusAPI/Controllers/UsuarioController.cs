@@ -60,6 +60,77 @@ namespace CarePlusAPI.Controllers
         ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão POST.
         ///
         ///</summary>
+        ///<param name="model">Model de autenticação do site</param>
+        [HttpPost("Autenticar/Site")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AutenticarSite(UsuarioAutenticadoModel model)
+        {
+
+            string origem = Request.Headers["Custom"];
+            try
+            {
+                var login = _getCipher.Decrypt(model.NomeUsuario);
+                var senha = _getCipher.Decrypt(model.Senha);
+
+                var response = await _userService.LogarSite(login, senha);
+
+                if (response.CodigoMensagem != 0)
+                {
+                    return new UnauthorizedObjectResult(new
+                    {
+                        mensagem = "Falha ao autenticar"
+                    });
+                }
+
+                JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+                string secret = _getCipher.Decrypt(_appSettings.Secret);
+                byte[] key = Encoding.ASCII.GetBytes(secret);
+                SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new Claim[] {
+                new Claim (ClaimTypes.Name,"1"),
+                new Claim (ClaimTypes.Role, "Visualizador"),
+                }),
+
+                    Expires = DateTime.UtcNow.AddHours(3),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                };
+                SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+                string tokenString = tokenHandler.WriteToken(token);
+
+                List<object> perfis = new List<object>();
+                perfis.Add(new
+                {
+                    descricao = "Visualizador",
+                    id = 1
+                });
+                
+                return Ok(new
+                {
+                    nome = "Visualizador",
+                    Token = tokenString,
+                    Perfis = perfis
+                });
+            }
+            catch (Exception ex)
+            {
+
+                _seriLog.Log(EnumLogType.Error, ex.Message, origem);
+
+                return BadRequest(new
+                {
+                    ex.Message
+                });
+
+            }
+        }
+
+        ///<summary>
+        ///
+        ///Esse método serve para autenticar um usuário
+        ///Esse método não pode ser acessado sem estar logado e é preciso ser um tipo de requisão POST.
+        ///
+        ///</summary>
         ///<param name="model">Model de autenticação de um usuário</param>
         [HttpPost("Autenticar")]
         [AllowAnonymous]
@@ -80,7 +151,7 @@ namespace CarePlusAPI.Controllers
                         model.NomeUsuario = _getCipher.Decrypt(model.NomeUsuario);
                         model.Senha = _getCipher.Decrypt(model.Senha);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         return new UnauthorizedObjectResult(new
                         {
@@ -111,9 +182,9 @@ namespace CarePlusAPI.Controllers
                         if (!_userService.ValidaUsuario(model.NomeUsuario, model.Senha).Result)
                         {
                             return new NotFoundObjectResult(new
-                                {
-                                    message = "Usuário e/ou senha incorretos"
-                                }
+                            {
+                                message = "Usuário e/ou senha incorretos"
+                            }
                             );
                         }
                     }
@@ -129,13 +200,16 @@ namespace CarePlusAPI.Controllers
                             code = 1,
                             message = "Primeiro acesso? Solicite seu acesso ao administrador(a) do sistema."
                         });
-                    } else if (userExistsOnAd && requisiçãoUsuario) {
+                    }
+                    else if (userExistsOnAd && requisiçãoUsuario)
+                    {
                         return Accepted(new
                         {
                             code = 2,
                             message = "Acesso já solicitado, aguardando aprovação do administrador(a)."
                         });
-                    } else
+                    }
+                    else
                     {
                         return new NotFoundObjectResult(new
                         {
@@ -144,7 +218,7 @@ namespace CarePlusAPI.Controllers
                     }
                 }
 
-                    JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+                JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
                 string secret = _getCipher.Decrypt(_appSettings.Secret);
                 byte[] key = Encoding.ASCII.GetBytes(secret);
                 SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
@@ -242,7 +316,7 @@ namespace CarePlusAPI.Controllers
                 return Ok();
             }
             catch (Exception ex)
-            {   
+            {
                 _seriLog.Log(EnumLogType.Error, ex.Message, origem);
 
                 return BadRequest(new
@@ -404,7 +478,8 @@ namespace CarePlusAPI.Controllers
             {
                 var requisicaoValidada = _userService.ValidateTokenRequisition(token).Result;
 
-                return Ok(new {
+                return Ok(new
+                {
                     message = "Cadastro com sucesso!"
                 });
             }
@@ -489,7 +564,8 @@ namespace CarePlusAPI.Controllers
             try
             {
                 var listaRequisicoes = await _userService.BuscarRequisicoesCadastroPendente(offset, limit);
-                return Ok(new {
+                return Ok(new
+                {
                     result = listaRequisicoes.Item2,
                     count = listaRequisicoes.Item1
                 });
@@ -512,7 +588,7 @@ namespace CarePlusAPI.Controllers
         {
             string origem = Request.Headers["Custom"];
             try
-            {                
+            {
                 int userId = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value);
                 await _userService.InativarUsuario(usuarioDesativarModel.NomeUsuario, userId);
                 return Ok();
