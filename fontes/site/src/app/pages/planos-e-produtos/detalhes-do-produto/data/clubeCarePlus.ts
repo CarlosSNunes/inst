@@ -219,9 +219,9 @@ export default {
     ],
     dentalSection: new InfoSectionModel({
         smallTitle: 'ODONTOLÓGICO',
-        bigTitle: 'Saiba como funcionam os Planos Odontológicos',
-        description: 'Temos planos odontológicos que se encaixam nas necessidades de sua empresa',
-        subDescription: 'Nossos planos odontológicos também fazem parte das classificações: Soho, Clube Care Plus e Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
+        bigTitle: 'Saiba como funciona o Plano Odontológico',
+        description: 'Temos o plano odontológico que se encaixa nas necessidades de sua empresa',
+        subDescription: 'Nosso plano odontológico também faz parte das classificações: Soho, Clube Care Plus e Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
         imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
             text: 'Solicite uma Cotação',

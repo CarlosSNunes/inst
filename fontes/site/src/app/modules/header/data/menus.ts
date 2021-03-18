@@ -56,7 +56,7 @@ export default [
                         fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Plano odontológico',
+                        title: 'Plano Odontológico',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
                     }),

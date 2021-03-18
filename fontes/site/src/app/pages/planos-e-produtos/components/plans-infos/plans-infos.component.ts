@@ -21,7 +21,7 @@ export class PlansInfosComponent implements OnInit {
     options = [
         {
             id: 1,
-            name: 'Planos de Saúde',
+            name: 'Plano de Saúde',
             active: true
         },
         {
