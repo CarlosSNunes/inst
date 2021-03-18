@@ -320,31 +320,29 @@ function sendForm() {
     document.getElementById("formContact").submit();
   }
 
-  // var myForm = document.getElementById('formContact');
-  // formData = new FormData(myForm);
-  //
-  //
-  // var xhr = new XMLHttpRequest();
-  // xhr.open("POST", 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', true);
-  // // xhr.setRequestHeader('Content-Type', 'application/json');
-  //
-  //
-  //
-  // xhr.onreadystatechange = function() {
-  //     if (this.readyState != 4) return;
-  //
-  //     if (this.status == 200) {
-  //         sendToast(false, "Contato enviado com sucesso, em breve iremos responder!")
-  //     } else {
-  //         sendToast(true, "Erro ao enviar o contato, tente novamente")
-  //     }
-  //
-  // };
-  //
-  //
-  // xhr.send(formData);
-
-  // }
+  var myForm = document.getElementById('formContact');
+  formData = new FormData(myForm);
+  
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', true);
+  // xhr.setRequestHeader('Content-Type', 'application/json');
+  
+  
+  
+  xhr.onreadystatechange = function() {
+      if (this.readyState != 4) return;
+  
+      if (this.status == 200) {
+          sendToast(false, "Contato enviado com sucesso, em breve iremos responder!")
+      } else {
+          sendToast(true, "Erro ao enviar o contato, tente novamente")
+      }
+  
+  };
+  
+  
+  xhr.send(formData);
 }
 
 function sendLead() {
