@@ -102,6 +102,37 @@
             background: #0079c8;
         }
     }
+    .times-icon {
+        right: 40px;
+        top: 55px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        position: absolute;
+        .lines{
+            .first-line {
+                position: absolute;
+                left: 0;
+                align-self: center;
+                width: 28px;
+                height: 2px;
+                background-color: getColor(_bupa, _digital-cian);
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+            .second-line {
+                position: absolute;
+                left: 0;
+                align-self: center;
+                width: 28px;
+                height: 2px;
+                background-color: getColor(_bupa, _digital-cian);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        }
+        
+    }
 
     ul {
         text-align: left;
@@ -175,6 +206,14 @@
         font-size: getSize("p");
         line-height: getLineHeight("p");
         color: getColor(_bupa, _white);
+    }
+    a.subtitle {
+        font-weight: 500 !important;
+        white-space: nowrap;
+        font-size: getSize("p") !important;
+        line-height: getLineHeight("p") !important;
+        color: getColor(_bupa, _white);
+        cursor: pointer;
     }
     .buttons {
         padding: 0 15px;

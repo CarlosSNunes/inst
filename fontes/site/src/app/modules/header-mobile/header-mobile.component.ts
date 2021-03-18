@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject, Output, EventEmitter } from '@angular/core';
 import { Router, NavigationEnd, Params } from '@angular/router';
 import { RouteModel, SubMenu } from 'src/app/models';
 import { routes } from 'src/utils/route-names';
@@ -68,6 +68,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     layerAnimation: string = 'closed';
     containerAnimation: string = 'closed';
     lastRoute: string = '';
+
 
     constructor(
         private router: Router,
@@ -228,6 +229,9 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
 
     openSimulator() {
         this.simuladoresService.open();
+    }
+    closeSiteMap() {
+        EventEmitterService.get('closeSiteMap').emit()
     }
 
 }

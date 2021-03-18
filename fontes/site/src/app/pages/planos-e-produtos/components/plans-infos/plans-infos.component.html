@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="columns flex-wrap cards">
-                <div class="column is-4-desktop is-full" *ngFor="let card of cards">
+                <div class="column   is-full" *ngFor="let card of cards" [ngClass]="{'is-12-desktop': selectedOptionId == 2, 'is-4-desktop': selectedOptionId == 1}  ">
                     <app-card class="app-card" [card]="card">
                         <div class="card-content">
                             <p class="card-title">
@@ -34,7 +34,8 @@
                                     <p class="obs" *ngIf="item.obs">{{item.obs}}</p>
                                 </li>
                             </ul>
-                            <p *ngIf="card.detalhe" class="card-detalhe">{{card.detalhe}}</p>
+                                <p *ngFor="let detalhe of card?.detalhe" class="card-detalhe">{{detalhe.text}}</p>
+                           
                         </div>
                     </app-card>
                 </div>
