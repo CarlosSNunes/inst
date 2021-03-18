@@ -2,7 +2,7 @@ import { Platform } from '@angular/cdk/platform';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, SimpleChanges } from '@angular/core';
 import { IconCardModel, ButtonModel } from 'src/app/models';
-import { SimuladoresService } from 'src/app/services';
+import { EventEmitterService, SimuladoresService } from 'src/app/services';
 import { WindowRef } from 'src/utils/window-ref';
 
 @Component({
@@ -56,6 +56,9 @@ export class FooterComponent implements OnInit, AfterViewInit {
                 this.addedOnMobile = true;
             }
         }
+        EventEmitterService.get('closeSiteMap').subscribe(()=>{
+            this.openned = false;
+        })
     }
 
     ngOnInit() {
@@ -137,9 +140,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
             element.appendChild(this.goDaddyScript)
         }
     }
-    closeSitemap(event) {
-        this.siteMapOpened = event;
-    }
+
 
 
     openSimulator() {

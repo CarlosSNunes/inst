@@ -74,7 +74,7 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
         private router: Router,
         private windowRef: WindowRef,
         @Inject(DOCUMENT) private document: Document,
-        private simuladoresService: SimuladoresService,
+        private simuladoresService: SimuladoresService
     ) {
         const initialRoute = this.routesToFind.find(r => this.router.url === r.route);
         if (initialRoute) {
@@ -230,6 +230,8 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     openSimulator() {
         this.simuladoresService.open();
     }
-
+    closeSiteMap() {
+        EventEmitterService.get('closeSiteMap').emit()
+    }
 
 }
