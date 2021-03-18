@@ -12,7 +12,7 @@
     </div>
 </div>
 <app-info-section class="app-info-section" id="about-plan" [sectionInfo]="foundPlan?.aboutPlan"></app-info-section>
-<app-plans-infos class="app-plans-infos" id="products-info" [plan]="foundPlan"
+<app-plans-infos class="app-plans-infos" id="products" [plan]="foundPlan"
     (setSelectedOptionId)="selectedOptionId = $event" [selectedOptionId]="selectedOptionId"
     [backgroundColorClass]="'blue-background-color'">
 </app-plans-infos>
@@ -22,7 +22,7 @@
     [customHospitals]="foundPlan?.hospitalList">
 </app-hospitals-list>
 <app-info-section class="app-info-section" [sectionInfo]="foundPlan?.plansSection"></app-info-section>
-<app-icon-cards-section class="app-icon-cards-section" id="products"
+<app-icon-cards-section class="app-icon-cards-section" id="products-info"
     [iconCardsSectionModel]="foundPlan?.iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'">
 </app-icon-cards-section>
 <app-info-section class="app-info-section" [sectionInfo]="foundPlan?.clinicSection"></app-info-section>
