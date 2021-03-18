@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, SimpleChanges } from '@angular/core';
 import { IconCardModel, ButtonModel } from 'src/app/models';
 import { SimuladoresService } from 'src/app/services';
 import { WindowRef } from 'src/utils/window-ref';
@@ -41,13 +41,12 @@ export class FooterComponent implements OnInit, AfterViewInit {
     addedOnDesktop: boolean = true;
     addedOnMobile: boolean = false;
     openned: boolean = false;
-    
     constructor(
         private simuladoresService: SimuladoresService,
         @Inject(DOCUMENT) private document: Document,
         @Inject(PLATFORM_ID) private platformId: Platform,
         private windowRef: WindowRef,
-        private elementRef: ElementRef<HTMLElement>
+        private elementRef: ElementRef<HTMLElement>,
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
         if (this.isBrowser) {
@@ -138,9 +137,14 @@ export class FooterComponent implements OnInit, AfterViewInit {
             element.appendChild(this.goDaddyScript)
         }
     }
+    closeSitemap(event) {
+        this.siteMapOpened = event;
+    }
+
 
     openSimulator() {
         this.simuladoresService.open();
     }
 
+   
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject, Output, EventEmitter } from '@angular/core';
 import { Router, NavigationEnd, Params } from '@angular/router';
 import { RouteModel, SubMenu } from 'src/app/models';
 import { routes } from 'src/utils/route-names';
@@ -69,11 +69,12 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     containerAnimation: string = 'closed';
     lastRoute: string = '';
 
+
     constructor(
         private router: Router,
         private windowRef: WindowRef,
         @Inject(DOCUMENT) private document: Document,
-        private simuladoresService: SimuladoresService
+        private simuladoresService: SimuladoresService,
     ) {
         const initialRoute = this.routesToFind.find(r => this.router.url === r.route);
         if (initialRoute) {
@@ -229,5 +230,6 @@ export class HeaderMobileComponent implements OnInit, AfterViewInit {
     openSimulator() {
         this.simuladoresService.open();
     }
+
 
 }
