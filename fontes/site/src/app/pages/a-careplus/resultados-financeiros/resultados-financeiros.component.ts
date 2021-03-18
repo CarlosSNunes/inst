@@ -41,10 +41,7 @@ export class ResultadosFinanceirosComponent implements OnInit {
             title: 'Todos',
             value: 'all'
         },
-        {
-            title: 'Resultados financeiros de 2020',
-            value: '2019'
-        },
+
         {
             title: 'Resultados financeiros de 2019',
             value: '2019'
