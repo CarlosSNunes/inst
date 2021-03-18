@@ -2,9 +2,9 @@
     <article>
         <div class="container">
             <div class="columns ">
-                <div class="post">
+                <div class="post" [routerLink]="['/careplus-mais/' + post?.slug]">
                     <div class="column is-full is-6-desktop image-col" [ngClass]="[post?.tipoImagem]">
-                        <a [routerLink]="['/careplus-mais/' + post?.slug]" [attr.title]="post?.titulo">
+                        <a  [attr.title]="post?.titulo">
                             <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo">
                         </a>
                     </div>

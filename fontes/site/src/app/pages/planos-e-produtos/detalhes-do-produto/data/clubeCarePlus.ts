@@ -156,7 +156,7 @@ export default {
             plans: [
                 {
                     type: 'default',
-                    title: 'Planos Odontológicos Care Plus',
+                    title: 'Plano Odontológico Care Plus',
                     description: 'Veja as possibilidades contratáveis abaixo:',
                     items: [
                         {

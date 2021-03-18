@@ -26,7 +26,7 @@ export class PlansInfosComponent implements OnInit {
         },
         {
             id: 2,
-            name: 'Planos Odontológicos',
+            name: 'Plano Odontológico',
             active: false
         },
     ];
