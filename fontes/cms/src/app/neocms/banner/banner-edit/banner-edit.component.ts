@@ -144,6 +144,7 @@ export class BannerEditComponent implements OnInit {
             descricao: ['', [Validators.maxLength(150), FormControlError.noWhitespaceValidator]],
             rota: [''],
             link: ['',[ Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
+            nomeLink: ['', [Validators.maxLength(255), FormControlError.noWhitespaceValidator]],
             linkExterno: ['0', [ FormControlError.noWhitespaceValidator]],
             ativo: ['1', [Validators.required, FormControlError.noWhitespaceValidator]],
             arquivo: [''],
@@ -174,6 +175,9 @@ export class BannerEditComponent implements OnInit {
             arquivo: [,],
             arquivoMobile: [,]
         });
+        if(this.bannerResult.linkExterno != "0"){
+            this.isLinkExternoSelected = true;
+        }
     }
 
     get f() {
