@@ -83,7 +83,7 @@ export default [
         description: 'É um programa composto por equipe médica multidisciplinar especializada na promoção de saúde e prevenção de doenças com atendimento presencial e individualizado.',
         category: 'beneficiario, rh, corretor',
         id: 'personal-system',
-        routerLink: '/planos-e-produtos/gestao-de-saude/perdonal-system',
+        routerLink: '/planos-e-produtos/gestao-de-saude/personal-system',
     }),
     new CardModel({
         type: 'default',
