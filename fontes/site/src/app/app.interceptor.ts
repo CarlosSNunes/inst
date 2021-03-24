@@ -23,7 +23,6 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     private isServer: boolean = false;
     constructor(
         private usuarioService: UsuarioService,
-        private localStorageService: LocalStorageService,
         @Inject(PLATFORM_ID) private platformId: Platform
     ) {
         this.isServer = isPlatformServer(this.platformId);
@@ -38,10 +37,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        if (request.url != environment.API_URL + '/Usuario/Autenticar/Site') {
-            this.retried = false;
-            return this.authFunction(request, next, this.retryTimes);
-        } else {
+        if (request.url == environment.API_URL + '/Usuario/Autenticar/Site') {
             request = request.clone({
                 setHeaders: {
                     Custom: 'institucional'
@@ -52,81 +48,33 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                     timeout(this.timeout),
                     retry(this.retryTimes)
                 );
-        }
-    }
-
-    authFunction(request: HttpRequest<any>,
-        next: HttpHandler, retryTimes: number) {
-        return from(
-            this.getToken()).pipe(
-                timeout(this.timeout),
-                switchMap((token) => {
-                    if (token) {
+        } else {
+            return from(
+                this.getToken()).pipe(
+                    timeout(this.timeout),
+                    switchMap((token) => {
                         request = request.clone({
                             setHeaders: {
-                                Authorization: `Bearer ${token}`,
-                                Custom: 'institucional'
+                                Custom: 'institucional',
+                                Authorization: `Bearer ${token}`
                             }
                         });
                         return next.handle(request)
                             .pipe(
                                 timeout(this.timeout),
-                                retry(retryTimes),
-                                catchError((error: HttpErrorResponse) => {
-                                    let errorMessage = '';
-                                    if (error.error && (error.error instanceof DefaultErrors) && !(error.status === 401 || error.status === 403)) {
-                                        // client-side error
-                                        errorMessage = `Error: ${error.error.message}`;
-                                        return throwError(
-                                            new DefaultErrors({
-                                                message: errorMessage
-                                            })
-                                        );
-                                    } else {
-
-                                        /*
-                                            Caso dê não autorizado ele revova o token e tenta novamente.
-                                        */
-                                        if (error.status === 401 || error.status === 403) {
-                                            this.localStorageService.removeItem('token');
-                                            if (!this.retried) {
-                                                this.retried = true;
-                                                return this.authFunction(request, next, this.retryTimes);
-                                            } else {
-                                                return throwError(
-                                                    new DefaultErrors({
-                                                        message: 'Falha ao se conectar com o servidor.'
-                                                    })
-                                                );
-                                            }
-                                        }
-
-                                        return throwError(error);
-                                    }
-
-                                })
+                                retry(this.retryTimes)
                             );
-                    } else {
-                        return throwError(new DefaultErrors({
-                            message: 'Falha ao se conectar com o servidor.'
-                        }))
-                    }
-                }))
+                    }))
+        }
     }
 
     private async getToken() {
         try {
-            this.token = this.localStorageService.getItem('token');
-            if (!this.token || this.token == '' || this.token == null) {
-                const userLoginResponse = await this.usuarioService.authenticate();
-                this.localStorageService.setItem('token', userLoginResponse.token);
-                this.token = userLoginResponse.token;
-                return this.token;
-            } else {
-                return this.token;
-            }
+            const userLoginResponse = await this.usuarioService.authenticate();
+            this.token = userLoginResponse.token;
+            return this.token;
         } catch (error) {
-            return '';
+            throw error
         }
     }
 }
