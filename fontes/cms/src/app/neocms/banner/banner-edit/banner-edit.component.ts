@@ -168,7 +168,7 @@ export class BannerEditComponent implements OnInit {
             tempoExibicao: [this.bannerResult.tempoExibicao, Validators.compose([Validators.maxLength(100), FormControlError.noWhitespaceValidator])],
             descricao: [this.bannerResult.descricao, Validators.compose([Validators.maxLength(255), FormControlError.noWhitespaceValidator])],
             rota: [this.bannerResult.rota,],
-            link: [this.bannerResult.link,],
+            link: [this.bannerResult.link == null ? '': this.bannerResult.link],
             nomeLink: [this.bannerResult.nomeLink, Validators.compose([Validators.required, FormControlError.noWhitespaceValidator])],
             linkExterno: [this.bannerResult.linkExterno, Validators.compose([Validators.required, FormControlError.noWhitespaceValidator])],
             ativo: [this.bannerResult.ativo, Validators.compose([Validators.required, FormControlError.noWhitespaceValidator])],
@@ -195,6 +195,15 @@ export class BannerEditComponent implements OnInit {
             const id = this.activatedRoute.snapshot.paramMap.get('id');
             this.bannerForm.controls['id'].setValue(id);
             const model = new BannerUpdateModel(this.bannerForm.value);
+            if(model.linkExterno == '1'){
+                model.rota = '/'
+
+            }else{
+                if(model.rota == null || model.rota.length == 0){
+                    this.toastrService.error('É nessessário preencher todos os campos * do formulário');
+                    return
+                }
+            }
             this.bannerService.put(model)
                 .subscribe(() => {
                     this.router.navigate(['/neocms/banner']);

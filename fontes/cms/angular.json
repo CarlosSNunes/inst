@@ -82,6 +82,7 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
+                            "baseHref": "/gerinstitucional/",
                             "budgets": [
                                 {
                                     "type": "initial",
