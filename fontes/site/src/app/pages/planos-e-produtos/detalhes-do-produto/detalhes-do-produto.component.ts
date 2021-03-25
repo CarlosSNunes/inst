@@ -48,12 +48,12 @@ export class DetalhesDoProdutoComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         this.activatedRoute.fragment.subscribe(fragment => {
             switch (fragment) {
-                case 'planos-de-saude':
+                case 'plano-de-saude':
                     setTimeout(() => {
                         this.goToSection('#products', 1)
                     }, 300);
                     break;
-                case 'planos-odontologicos':
+                case 'plano-odontologico':
                     setTimeout(() => {
                         this.goToSection('#products', 2)
                     }, 300);

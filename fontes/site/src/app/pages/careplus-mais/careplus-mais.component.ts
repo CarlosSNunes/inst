@@ -163,10 +163,10 @@ export class CareplusMaisComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Care Plus+ | Portal de Conteúdos e Informações de Saúde | Care Plus');
+        this.title.setTitle('Care Plus + | Portal de Conteúdos e Informações de Saúde | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'O Care Plus+ oferece conteúdos exclusivos de saúde, como entrevistas, análises, artigos e opiniões de quem entende do assunto.'
+            content: 'O Care Plus + oferece conteúdos exclusivos de saúde, como entrevistas, análises, artigos e opiniões de quem entende do assunto.'
         });
 
         /* 
