@@ -1,7 +1,8 @@
 export const environment = {
     production: true,
-    API_URL: 'http://careplushml.neotix.com.br:8081',
-    SELF_URL: 'http://careplushml.neotix.com.br',
+    API_URL: 'https://ws.careplus.com.br/apiinstitucional',
+    SELF_URL: 'http://careplus.homolog.neotix.com.br',
+    CDN_URL: 'https://cdn.careplus.com.br/gerinstitucional',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
     API_USER: 'DAAAACcfrLxDBCdWfUs5KBAAAAD7eEXzPpaPiKpIg9DEMkyFzgrU4Bjf',

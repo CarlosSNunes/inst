@@ -6,6 +6,7 @@ export const environment = {
     production: false,
     API_URL: 'https://localhost:4000',
     SELF_URL: 'http://localhost:4300',
+    CDN_URL: 'https://qacdn.careplus.com.br/gerinstitucional',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
     API_USER: 'DAAAACcfrLxDBCdWfUs5KBAAAAD7eEXzPpaPiKpIg9DEMkyFzgrU4Bjf',

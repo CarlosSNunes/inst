@@ -137,7 +137,7 @@ export class DetalheDoPostComponent implements OnInit {
         this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
 
         // TODO imagem mockada por enquanto, será necessário crop futuramente.
-        this.meta.updateTag({ name: 'twitter:image', content: `${environment.API_URL}/Src/Images/Default/Post/post_default_twitter_image.jpg?${new Date().getTime()}` });
+        this.meta.updateTag({ name: 'twitter:image', content: `${environment.CDN_URL}/Src/Images/Default/Post/post_default_twitter_image.jpg?${new Date().getTime()}` });
         this.meta.updateTag({ name: 'twitter:description', content: this.post.descricaoPrevia });
 
         this.meta.updateTag({ name: 'twitter:url', content: `${environment.SELF_URL}/careplus-mais/${this.post.slug}` });
@@ -147,14 +147,14 @@ export class DetalheDoPostComponent implements OnInit {
         this.meta.updateTag({ name: 'og:type', content: 'website' });
 
         // TODO imagem mockada por enquanto, será necessário crop futuramente.
-        this.meta.updateTag({ name: 'og:image', content: `${environment.API_URL}/Src/Images/Default/Post/post_default_facebook_image.jpg` });
+        this.meta.updateTag({ name: 'og:image', content: `${environment.CDN_URL}/Src/Images/Default/Post/post_default_facebook_image.jpg` });
         this.meta.updateTag({ name: 'og:description', content: this.post.descricaoPrevia });
 
         this.meta.updateTag({ name: 'og:url', content: `${environment.SELF_URL}/careplus-mais/${this.post.slug}` });
 
         // Imagem linkedin
         // TODO imagem mockada por enquanto, será necessário crop futuramente.
-        this.meta.updateTag({ name: 'image', property: 'og:image', content: `${environment.API_URL}/Src/Images/Default/Post/post_default_facebook_image.jpg` });
+        this.meta.updateTag({ name: 'image', property: 'og:image', content: `${environment.CDN_URL}/Src/Images/Default/Post/post_default_facebook_image.jpg` });
 
     }
 

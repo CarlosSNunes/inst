@@ -2,6 +2,7 @@ export const environment = {
     production: true,
     API_URL: 'http://ip-c6136b09.corp.amazonworkspaces.com:8081',
     SELF_URL: 'https://careplushml.neotix.com.br',
+    CDN_URL: 'https://qacdn.careplus.com.br/gerinstitucional',
     CAREPLUS_URL: 'https://www8.careplus.com.br/portal/',
     BASE_HREF: '/',
     API_USER: 'DAAAACcfrLxDBCdWfUs5KBAAAAD7eEXzPpaPiKpIg9DEMkyFzgrU4Bjf',
