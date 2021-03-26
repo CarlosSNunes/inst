@@ -12,7 +12,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpRequestInterceptor } from './app.interceptor';
 import { GestureConfig } from '@angular/material';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
@@ -32,8 +31,7 @@ registerLocaleData(localePt, 'pt', localePtExtra);
         NotificationModule,
         ModalModule,
         SimuladoresModule,
-        CookieNoticeModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+        CookieNoticeModule
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt' },

@@ -1,6 +1,6 @@
 <div class="mobile-sitemap is-mobile is-hidden-up-tablet" [ngClass]="openned ? 'open' : ''" (blur)="openned = false">
     <h3 (click)="openned=!openned">Sitemap</h3>
-    <a tabindex="0" class="times-icon" title="Fechar"  (click)="openned = false">
+    <a tabindex="0" class="times-icon" title="Fechar" (click)="openned = false">
         <div class="lines">
             <span class="first-line"></span>
             <span class="second-line"></span>
@@ -38,12 +38,13 @@
     </ul>
     <ul>
         <li><strong>Planos</strong></li>
-        <li><a routerLink="/planos-e-produtos" fragment="careplus-soho" title="Care Plus Soho"
-                (click)="openned=!openned">Care Plus SoHo</a></li>
-        <li><a routerLink="/planos-e-produtos" title="Clube Care Plus" fragment="clube-careplus"
-                (click)="openned=!openned">Clube Care Plus</a></li>
-        <li><a routerLink="/planos-e-produtos" title="Care Plus Empresarial" fragment="careplus-empresarial"
-                (click)="openned=!openned">Care Plus Empresarial</a></li>
+        <li><a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Saúde" (click)="openned=!openned">
+                Plano de Saúde
+            </a></li>
+        <li><a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Odontológico" (click)="openned=!openned">
+            Plano de Odontológico
+        </a></li>
+       
     </ul>
     <ul>
         <li><strong>Produtos</strong></li>
@@ -79,6 +80,13 @@
                 rel="noopener noreferrer" title="Substituição de Rede" (click)="openned=!openned">Substituição de
                 Rede</a></li>
     </ul>
+    <ul>
+        <li>
+            <strong>  <a (click)="openned=!openned"  routerLink="/careplus-mais" title="Care Plus +">
+                Care Plus +
+            </a></strong>
+        </li>
+    </ul>
 </div>
 <footer class="footer" id="footer">
     <div class="content has-text-centered">
@@ -98,7 +106,7 @@
         <div class="certifications is-hidden-up-tablet" *ngIf="width < 1023">
             <p>Certificações</p>
             <div class="certifications-images">
-         
+
 
                 <a title="Go Daddy">
                     <span id="siteseal">
@@ -131,7 +139,8 @@
         </div>
         <div class="sitemap-section columns is-hidden-up-tablet">
             <div class="is-6">
-                <a rel="noopener" href="https://www.bupaglobal.com/en/facilities/finder" target="_blank" title="Facilities Finder">
+                <a rel="noopener" href="https://www.bupaglobal.com/en/facilities/finder" target="_blank"
+                    title="Facilities Finder">
                     Facilities Finder
                 </a>
             </div>
@@ -192,7 +201,7 @@
         <hr>
         <div class="columns site-map-closed is-hidden-down-tablet site-map-ancor">
             <div class="column has-text-centered">
-                <a (click)="siteMapOpened = !siteMapOpened" >
+                <a (click)="siteMapOpened = !siteMapOpened">
                     {{!siteMapOpened ? 'Ver o Sitemap' : 'Fechar o Sitemap'}} &nbsp;
                     <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"
                         [ngStyle]="siteMapOpened ? { transform: 'rotate(180deg)' } : {}">
@@ -269,18 +278,15 @@
                 <h5 class="subtitle">
                     Planos
                 </h5>
-                <a routerLink="/planos-e-produtos" fragment="careplus-soho" title="Care Plus Soho">
-                    Care Plus SoHo
+                <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Saúde">
+                    Plano de Saúde
                 </a>
                 <br>
-                <a routerLink="/planos-e-produtos" title="Clube Care Plus" fragment="clube-careplus">
-                    Clube Care Plus
+                <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Odontológico">
+                    Plano de Odontológico
                 </a>
                 <br>
-                <a routerLink="/planos-e-produtos" title="Care Plus Empresarial" fragment="careplus-empresarial">
-                    Care Plus Empresarial
-                </a>
-                <br>
+
             </div>
             <div class="column">
                 <h5 class="subtitle">
@@ -351,8 +357,8 @@
                 </a>
                 <br>
                 <br>
-                <a class="subtitle m-t-30" routerLink="/careplus-mais" title="Care Plus+">
-                        Care Plus+
+                <a class="subtitle m-t-30" routerLink="/careplus-mais" title="Care Plus +">
+                    Care Plus +
                 </a>
             </div>
         </div>
@@ -362,7 +368,7 @@
                 <p>
                     Certificações
                 </p>
-         
+
 
                 <a title="Go Daddy">
                     <span id="siteseal">
@@ -484,7 +490,8 @@
                 <a routerLink="/a-careplus/termos-e-condicoes" title="Termos & Condições">
                     Termos & Condições
                 </a> |
-                <a rel="noopener" href="https://www.bupaglobal.com/en/facilities/finder" target="_blank" title="Facilities Finder">
+                <a rel="noopener" href="https://www.bupaglobal.com/en/facilities/finder" target="_blank"
+                    title="Facilities Finder">
                     Facilities Finder
                 </a>
             </div>

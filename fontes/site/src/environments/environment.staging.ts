@@ -2,6 +2,7 @@ export const environment = {
     production: true,
     API_URL: 'https://uatp.careplus.com.br/apiinstitucional',
     SELF_URL: 'https://uatp.careplus.com.br/institucional',
+    CDN_URL: 'https://qacdn.careplus.com.br/gerinstitucional',
     CAREPLUS_URL: 'https://hml.careplus.com.br/homolog23/',
     BASE_HREF: '/institucional/',
     API_USER: 'DAAAACcfrLxDBCdWfUs5KBAAAAD7eEXzPpaPiKpIg9DEMkyFzgrU4Bjf',

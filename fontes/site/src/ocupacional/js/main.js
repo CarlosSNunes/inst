@@ -74,7 +74,7 @@ var description = document.getElementById("description").value;
 var lead_source = document.getElementById("lead_source").value;
 
 window.addEventListener("DOMContentLoaded", (function (e) {
-  formFields.forEach((function (fieldName) {
+  formFields.map((function (fieldName) {
     document
       .getElementById(fieldName.id)
       .addEventListener("blur", validateField, false);
@@ -294,7 +294,7 @@ function telefone_validation(telefone) {
 
 function sendForm() {
   // check all fields again
-  formFields.forEach((function (fieldName) {
+  formFields.map((function (fieldName) {
     fieldName.element.focus();
     fieldName.element.blur();
   }));
@@ -304,7 +304,7 @@ function sendForm() {
   }
 
   var formHasError = false;
-  formFields.foreach((function (x) {
+  formFields.map((function (x) {
      formHasError = checkError(x.hasError);
    }));
 
@@ -327,8 +327,6 @@ function sendForm() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', true);
   
-  
-  
   xhr.onreadystatechange = function() {
       if (this.readyState != 4) return;
   
@@ -342,7 +340,8 @@ function sendForm() {
   
   
   xhr.send(formData);
-}
+
+  }
 
 function sendLead() {
   var name = document.getElementById("nameLead").value;

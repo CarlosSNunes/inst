@@ -63,6 +63,10 @@
                         <h4 class="titulo-visualizacao">visualização</h4>
                         <img class="thumbnail-image" [src]="croppedImage" alt="Cropped image" />
                       </div>
+                      <div *ngIf="!croppedImage && bannerResult?.caminhoCompletoDesktop" class="shadow thumbnail-image-box">
+                        <h4 class="titulo-visualizacao">visualização</h4>
+                        <img class="thumbnail-image" [src]="bannerResult?.caminhoCompletoDesktop" alt="Cropped image" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -83,6 +87,10 @@
                       <div *ngIf="croppedImageMobile" class="shadow thumbnail-image-box-mobile">
                         <h4 class="titulo-visualizacao-mobile">visualização</h4>
                         <img class="thumbnail-image-mobile" [src]="croppedImageMobile" alt="Cropped image mobile" />
+                      </div>
+                      <div *ngIf="!croppedImageMobile && bannerResult?.caminhoCompletoMobile" class="shadow thumbnail-image-box-mobile">
+                        <h4 class="titulo-visualizacao-mobile">visualização</h4>
+                        <img class="thumbnail-image-mobile" [src]="bannerResult?.caminhoCompletoMobile" alt="Cropped image mobile" />
                       </div>
                     </div>
                   </div>
