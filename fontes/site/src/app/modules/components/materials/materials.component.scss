@@ -37,6 +37,13 @@ section#materials {
                         font-size: getSize("mbt");
                         line-height: getLineHeight("mbt");
                         color: getColor(_bupa, _navy);
+                        .size {
+                            font-weight: 300;
+                            font-size: 16px;
+                            line-height: getLineHeight("mbt");
+                            color: getColor("_bupa", "_grey-2");
+                            transition: color 0.3s ease-in-out;
+                        }
                     }
                     .download-link {
                         position: absolute;

@@ -326,7 +326,6 @@ function sendForm() {
   
   var xhr = new XMLHttpRequest();
   xhr.open("POST", 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', true);
-  // xhr.setRequestHeader('Content-Type', 'application/json');
   
   
   
