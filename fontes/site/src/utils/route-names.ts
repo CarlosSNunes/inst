@@ -141,4 +141,8 @@ export const routes: RouteModel[] = [
         route: (slug) => `/careplus-mais/${slug}`,
         description: 'Detalhes do post - Care Plus +'
     }),
+    new RouteModel({
+        route: '/sitemap',
+        description: 'Sitemap'
+    }),
 ];

@@ -1,16 +1,14 @@
 import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
-import { Observable, throwError, from } from "rxjs";
-import { catchError, retry, switchMap, timeout, } from "rxjs/operators";
+import { Observable, from } from "rxjs";
+import { retry, switchMap, timeout, } from "rxjs/operators";
 import {
     HttpEvent,
     HttpInterceptor,
     HttpHandler,
-    HttpRequest, HttpErrorResponse
+    HttpRequest
 } from "@angular/common/http";
 import { UsuarioService } from './services';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from 'src/utils/local-storage';
-import { DefaultErrors } from './models';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformServer } from '@angular/common';
 

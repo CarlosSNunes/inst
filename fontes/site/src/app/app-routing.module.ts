@@ -62,6 +62,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/carreiras/carreiras.module').then(m => m.CarreirasModule),
     },
     {
+        path: 'sitemap',
+        loadChildren: () => import('./pages/sitemap/sitemap.module').then(m => m.SitemapModule),
+    },
+    {
         path: '404',
         loadChildren: () => import('./pages/erro/erro.module').then(m => m.ErroModule)
     },
