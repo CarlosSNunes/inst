@@ -77,7 +77,7 @@ export class BannerComponent implements OnInit {
         if (this.area) {
             await this.verifyBanners();
         } else {
-            this.setImageTagsForSEO(`${environment.SELF_URL}/${this.banners[0].caminhoImagem}`);
+            this.setImageTagsForSEO(`${environment.CDN_URL}/${this.banners[0].caminhoCompletoDesktop}`);
         }
 
         this.banners.forEach((banner, i) => {
@@ -122,7 +122,7 @@ export class BannerComponent implements OnInit {
         if (apiBanners.length > 0) {
             this.banners = apiBanners;
             this.cdRef.detectChanges();
-            this.setImageTagsForSEO(this.banners[0].caminhoImagem);
+            this.setImageTagsForSEO(this.banners[0].caminhoCompletoDesktop);
             if (!staticBanners) {
                 BannerComponent.staticBanners.push({
                     area: this.area,
@@ -133,7 +133,7 @@ export class BannerComponent implements OnInit {
                 BannerComponent.staticBanners[index].banners = apiBanners;
             }
         } else {
-            this.setImageTagsForSEO(`${environment.SELF_URL}/${this.banners[0].caminhoImagem}`);
+            this.setImageTagsForSEO(`${environment.CDN_URL}/${this.banners[0].caminhoCompletoDesktop}`);
         }
     }
 

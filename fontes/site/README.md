@@ -126,6 +126,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
 * `Production` - Quando true remove qualquer log da aplicacão que não seja de erro.
 * `API_URL` - Url da api, atualizar conforme for necessário.
 * `SELF_URL` - Url do proprio site, utilizada para setar as meta tags de redes sociais.
+* `CDN_URL` - Url da cdn da Care Plus.
 * `CAREPLUS_URL` - Url do portal da Care Plus.
 * `BASE_HREF` - Url base do projeto.
 * `HAS_SSL_CERTIFIED` - Recebe um boolean,    `true` ou `false` , caso `true` ele irá executar a aplicação na porta 443 no server side rendering, porém é necessário que o caminho correto dos arquivos do certificado estejam preenchidos nas variáveis abaixo:
@@ -143,6 +144,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "production": false,
     "API_URL": "https://localhost:4000",
     "SELF_URL": "http://localhost:4300",
+    "CDN_URL": "https://qacdn.careplus.com.br/gerinstitucional",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
     "BASE_HREF": "/",
     "API_USER": "admin@admin.com",
@@ -163,6 +165,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "production": false,
     "API_URL": "http://homolog-windows.neotix.com.br:8081",
     "SELF_URL": "https://homolog-windows.neotix.com.br",
+    "CDN_URL": "https://qacdn.careplus.com.br/gerinstitucional",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
     "BASE_HREF": "/",
     "API_USER": "admin@admin.com",
@@ -183,6 +186,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "production": false,
     "API_URL": "https://uatp.careplus.com.br/apiinstitucional",
     "SELF_URL": "https://uatp.careplus.com.br/institucional",
+    "CDN_URL": "https://qacdn.careplus.com.br/gerinstitucional",
     "CAREPLUS_URL": "https://hml.careplus.com.br/homolog23/",
     "BASE_HREF": "/institucional/",
     "API_USER": "admin@admin.com",
@@ -203,6 +207,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "production": false,
     "API_URL": "http://uat7institucional.careplus.com.br/apiinstitucional",
     "SELF_URL": "http://uat7institucional.careplus.com.br/institucional",
+    "CDN_URL": "https://qacdn.careplus.com.br/gerinstitucional",
     "CAREPLUS_URL": "https://hml.careplus.com.br/homolog23/",
     "BASE_HREF": "/institucional/",
     "API_USER": "admin@admin.com",
@@ -224,6 +229,7 @@ As variáveis de ambiente estão localizadas nos arquivos localizados dentro do 
     "API_URL": "http://52.3.44.106:8081",
     "SELF_URL": "https://www.careplus.com.br",
     "CAREPLUS_URL": "https://www8.careplus.com.br/portal/",
+    "CDN_URL": "https://cdn.careplus.com.br/gerinstitucional",
     "BASE_HREF": "/",
     "API_USER": "admin@admin.com",
     "API_PASSWORD": "123",
