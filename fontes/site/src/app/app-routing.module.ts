@@ -71,6 +71,34 @@ const routes: Routes = [
     },
 
     // Redirects
+    {
+        path: 'fale-conosco_contact/solicite-uma-cotacao',
+        redirectTo: '/fale-conosco/solicite-uma-cotacao'
+    },
+    {
+        path: 'fale-conosco_contact/contato',
+        redirectTo: '/fale-conosco/contato'
+    },
+    {
+        path: 'fale-conosco_contact/canal-de-denuncias',
+        redirectTo: '/fale-conosco/canal-de-denuncias'
+    },
+    {
+        path: 'fale-conosco_contact',
+        redirectTo: '/fale-conosco'
+    },
+    {
+        path: 'carreiras_careers/vagas',
+        redirectTo: '/carreiras/vagas'
+    },
+    {
+        path: 'carreiras_careers',
+        redirectTo: '/carreiras'
+    },
+    {
+        path: 'a-careplus_privacy/politica-de-privacidade',
+        redirectTo: '/a-careplus/politica-de-privacidade'
+    },
     { path: 'planos-de-saude/care-plus-empresarial.aspx', redirectTo: '/planos-e-produtos/careplus-empresarial' },
     { path: 'planos-de-saude/', redirectTo: '/planos-e-produtos' },
     { path: 'planos-odontologicos/dental-prime-clinic.aspx', redirectTo: '/planos-e-produtos' },

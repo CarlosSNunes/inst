@@ -77,6 +77,34 @@ app.set('views', DIST_FOLDER);
 
 // Redirects
 
+app.get('/fale-conosco_contact/solicite-uma-cotacao', (req, res) => {
+    res.redirect(301, '/fale-conosco/solicite-uma-cotacao');
+});
+
+app.get('/fale-conosco_contact/contato', (req, res) => {
+    res.redirect(301, '/fale-conosco/contato');
+});
+
+app.get('/fale-conosco_contact/canal-de-denuncias', (req, res) => {
+    res.redirect(301, '/fale-conosco/canal-de-denuncias');
+});
+
+app.get('/fale-conosco_contact', (req, res) => {
+    res.redirect(301, '/fale-conosco');
+});
+
+app.get('/carreiras_careers/vagas', (req, res) => {
+    res.redirect(301, '/carreiras/vagas');
+});
+
+app.get('/carreiras_careers', (req, res) => {
+    res.redirect(301, '/carreiras');
+});
+
+app.get('/a-careplus_privacy/politica-de-privacidade', (req, res) => {
+    res.redirect(301, '/a-careplus/politica-de-privacidade');
+});
+
 app.get('/planos-de-saude/care-plus-empresarial.aspx', (req, res) => {
     res.redirect(301, '/planos-e-produtos/careplus-empresarial');
 });
