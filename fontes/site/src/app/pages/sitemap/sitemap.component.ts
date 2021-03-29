@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbModel } from 'src/app/models';
+import { SimuladoresService } from 'src/app/services';
 
 @Component({
     selector: 'app-sitemap',
@@ -18,9 +19,14 @@ export class SitemapComponent implements OnInit {
             active: true
         })
     ];
-    constructor() { }
+    constructor(
+        private simuladoresService: SimuladoresService
+    ) { }
 
     ngOnInit() {
     }
 
+    openSimulator() {
+        this.simuladoresService.open();
+    }
 }
