@@ -63,7 +63,11 @@ export class BannerComponent implements OnInit {
         private errorHandler: ErrorHandler,
         private meta: Meta
     ) {
-        this.isBrowser = isPlatformBrowser(this.plataformId)
+        this.isBrowser = isPlatformBrowser(this.plataformId);
+
+        if (this.isBrowser) {
+            this.width = window.innerWidth;
+        }
     }
 
     @HostListener('window:resize', ['$event']) onResize(event) {
