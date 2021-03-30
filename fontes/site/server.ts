@@ -21,12 +21,16 @@ import * as compression from 'compression';
 import * as express from 'express';
 import { join } from 'path';
 import https from 'https';
+import xFrameOptions from 'x-frame-options';
 
 // Express server
 const app = express();
 
 // Compress all requests
 app.use(compression())
+
+// X-frame-options
+app.use(xFrameOptions())
 
 const PORT = process.env.PORT || 4001;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
