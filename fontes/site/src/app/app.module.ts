@@ -1,5 +1,4 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { TransferHttpCacheModule } from '@nguniversal/common';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +20,6 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
-        TransferHttpCacheModule,
         AppRoutingModule,
         HeaderModule,
         HeaderMobileModule,
