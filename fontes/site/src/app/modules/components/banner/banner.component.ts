@@ -21,7 +21,7 @@ import { environment } from 'src/environments/environment';
                 animate('0.3s')
             ]),
             state('initialState', style({
-                transform: 'translateX(200%)',
+                transform: 'translateX(100%)',
             })),
             state('default', style({
                 transform: 'translateX(0)',
