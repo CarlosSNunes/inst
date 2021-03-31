@@ -225,7 +225,8 @@
                                 </span>
                             </span>
                             <span class="file-name">
-                                {{filesNumber > 0 ? filesNumber + ' arquivo(s) selecionado(s)' :  'Nenhum arquivo selecionado'}}
+                                {{filesNumber > 0 ? filesNumber + ' arquivo(s) selecionado(s)' : 'Nenhum arquivo
+                                selecionado'}}
                             </span>
                         </label>
                         <p class="obs">
@@ -288,13 +289,13 @@
         </div>
 
         <div class="column is-full">
-            <button [disabled]="loading" [class.loading]="loading" class="btn btn-digital-cian secondary medium is-hidden-touch right"
-                (click)="sendForm()">
+            <button [disabled]="loading" [class.loading]="loading"
+                class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">
                 Enviar
             </button>
 
-            <button [disabled]="loading" [class.loading]="loading" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                (click)="sendForm()">
+            <button [disabled]="loading" [class.loading]="loading"
+                class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" (click)="sendForm()">
                 Enviar
             </button>
         </div>

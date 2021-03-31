@@ -12,13 +12,13 @@
             <tr *ngFor="let bodyItem of table?.bodyItems; let i = index">
                 <td *ngFor="let headItem of table?.headItems">
                     <p *ngIf="headItem.title != 'button'">{{bodyItem[headItem.title]}}</p>
-                    <a *ngIf="headItem.title == 'button' && !bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [attr.title]="bodyItem.button?.title">
+                    <a *ngIf="headItem.title == 'button' && !bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [title]="bodyItem.button?.title">
                         {{bodyItem.button?.title}}
                         <span class="icon" *ngIf="bodyItem.button?.icon" [innerHtml]="bodyItem.button?.icon | safe">
                         </span>
                     </a>
 
-                    <a *ngIf="headItem.title == 'button' && bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [attr.title]="bodyItem.button?.title" download>
+                    <a *ngIf="headItem.title == 'button' && bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [title]="bodyItem.button?.title" download>
                         {{bodyItem.button?.title}}
                         <span class="icon" *ngIf="bodyItem.button?.icon" [innerHtml]="bodyItem.button?.icon | safe">
                         </span>

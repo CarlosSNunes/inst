@@ -1,6 +1,7 @@
-import { ChangeDetectorRef, Component, ErrorHandler, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services';
 import { NoticiaModel } from 'src/app/models';
+import { ErrorHandler } from 'src/utils/error-handler';
 
 @Component({
     selector: 'app-most-read',
@@ -29,7 +30,7 @@ export class MostReadComponent implements OnInit {
             });
             this.cdr.detectChanges();
         } catch (error) {
-            this.errorHandler.handleError(error);
+            this.errorHandler.ShowError(error);
         }
 
     }

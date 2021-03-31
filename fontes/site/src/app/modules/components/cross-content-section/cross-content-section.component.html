@@ -18,7 +18,7 @@
                             <a *ngIf="crossContentModel?.boxContent?.button?.routerLink"
                                 [routerLink]="[crossContentModel?.boxContent?.button?.routerLink]"
                                 class="btn btn-digital-cian tertiary arrow-right medium"
-                                [attr.title]="crossContentModel?.boxContent?.button?.text">
+                                [title]="crossContentModel?.boxContent?.button?.text">
                                 {{crossContentModel?.boxContent?.button?.text}}
                             </a>
 
@@ -26,21 +26,21 @@
                                 [href]="crossContentModel?.boxContent?.button?.link"
                                 [target]="crossContentModel?.boxContent?.button?.target"
                                 class="btn btn-digital-cian tertiary arrow-right medium"
-                                [attr.title]="crossContentModel?.boxContent?.button?.text">
+                                [title]="crossContentModel?.boxContent?.button?.text">
                                 {{crossContentModel?.boxContent?.button?.text}}
                             </a>
                         </div>
                         <div class="first-image" *ngIf="crossContentModel?.firstImage">
                             <a *ngIf="crossContentModel?.boxContent?.button?.routerLink"
                                 [routerLink]="[crossContentModel?.boxContent?.button?.routerLink]"
-                                [attr.title]="crossContentModel?.boxContent?.button?.text">
+                                [title]="crossContentModel?.boxContent?.button?.text">
                                 <img [src]="crossContentModel?.firstImage?.src"
                                     [alt]="crossContentModel?.firstImage?.alt">
                             </a>
                             <a *ngIf="crossContentModel?.boxContent?.button?.link"
                                 [href]="[crossContentModel?.boxContent?.button?.link]"
                                 [target]="crossContentModel?.boxContent?.button?.target"
-                                [attr.title]="crossContentModel?.boxContent?.button?.text">
+                                [title]="crossContentModel?.boxContent?.button?.text">
                                 <img [src]="crossContentModel?.firstImage?.src"
                                     [alt]="crossContentModel?.firstImage?.alt">
                             </a>
@@ -48,14 +48,14 @@
                         <div class="second-image" *ngIf="crossContentModel?.secondImage">
                             <a *ngIf="crossContentModel?.boxContent?.button?.routerLink"
                                 [routerLink]="[crossContentModel?.boxContent?.button?.routerLink]"
-                                [attr.title]="crossContentModel?.boxContent?.button?.text">
+                                [title]="crossContentModel?.boxContent?.button?.text">
                                 <img [src]="crossContentModel?.secondImage?.src"
                                     [alt]="crossContentModel?.secondImage?.alt">
                             </a>
                             <a *ngIf="crossContentModel?.boxContent?.button?.link"
                                 [href]="[crossContentModel?.boxContent?.button?.link]"
                                 [target]="crossContentModel?.boxContent?.button?.target"
-                                [attr.title]="crossContentModel?.boxContent?.button?.text">
+                                [title]="crossContentModel?.boxContent?.button?.text">
                                 <img [src]="crossContentModel?.secondImage?.src"
                                     [alt]="crossContentModel?.secondImage?.alt">
                             </a>

@@ -34,7 +34,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">
                         www.careplus.com.br
                     </a>
                 </li>
@@ -83,7 +83,7 @@ export default [
                         Acompanhamento da análise prévia -
                     </strong>
                     pode ser feito pelo página do beneficiário
-                    <a href="https://www.careplus.com.br" target="_blank">
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">
                         www.careplus.com.br
                     </a>
                 </li>
@@ -184,7 +184,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, no menu Reembolso > Solicitação
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, no menu Reembolso > Solicitação
                     de prévia de reembolso.
                 </li>
             </ul>
@@ -280,7 +280,7 @@ export default [
                 </li>
                 <li>
                     Acompanhamento da análise prévia – pode ser feito pela página do beneficiário no <a
-                        href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> Reembolso > Prévia de Reembolso;
+                        href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> Reembolso > Prévia de Reembolso;
                 </li>
             </ul>
             
@@ -304,7 +304,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, no menu Reembolso > Solicitação
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, no menu Reembolso > Solicitação
                     de prévia de reembolso.
                 </li>
             </ul>
@@ -385,7 +385,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, no menu Reembolso > Solicitação
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, no menu Reembolso > Solicitação
                     de prévia de reembolso.
                 </li>
             </ul>
@@ -525,7 +525,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, no menu Reembolso > Solicitação
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, no menu Reembolso > Solicitação
                     de prévia de reembolso.
                 </li>
             </ul>
@@ -577,7 +577,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, no menu Reembolso > Solicitação
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, no menu Reembolso > Solicitação
                     de prévia de reembolso.
                 </li>
             </ul>

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, ErrorHandler } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ButtonModel, NoticiaModel, PostCardModel } from 'src/app/models';
 import { BlogService } from 'src/app/services';
+import { ErrorHandler } from 'src/utils/error-handler';
 
 @Component({
     selector: 'app-careplus-plus',
@@ -34,7 +35,7 @@ export class CareplusPlusComponent implements OnInit {
                     }))
             })
         } catch (error) {
-            this.errorHandler.handleError(error.error);
+            this.errorHandler.ShowError(error.error);
         }
     }
 

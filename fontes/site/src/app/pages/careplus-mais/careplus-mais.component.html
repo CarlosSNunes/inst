@@ -13,7 +13,7 @@
                                         <li *ngFor="let category of categories">
                                             <a [class.active]="selectCategoryId == category.id"
                                                 [routerLink]="['/careplus-mais/categoria', category.id]"
-                                                [attr.title]="category.titulo">
+                                                [title]="category.titulo">
                                                 {{category.titulo}}
                                             </a>
                                         </li>

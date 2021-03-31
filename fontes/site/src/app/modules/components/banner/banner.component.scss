@@ -89,6 +89,9 @@ section.home-banner {
                         &.active {
                             background: getColor(_bupa, _navy);
                         }
+                        &.disabled {
+                            pointer-events: none;
+                        }
                     }
                 }
             }
@@ -114,7 +117,6 @@ section.home-banner {
         width: 100%;
         height: 683px;
         position: absolute;
-        left: -100vw;
 
         .banner-home-description {
             text-align: left;

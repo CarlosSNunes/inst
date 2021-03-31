@@ -13,7 +13,7 @@ export default [
             </p>
             
             <p class="sub-description no-margin">
-                <strong> 1. Pelo site </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> - no
+                <strong> 1. Pelo site </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> - no
                 menu Autorizações > Solicitação de Autorizações.
             </p>
             
@@ -68,7 +68,7 @@ export default [
             </p>
             
             <p class="sub-description">
-                <strong> 1. Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
+                <strong> 1. Site - </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
             </p>
             
             <p class="sub-description">
@@ -497,7 +497,7 @@ export default [
             </p>
             
             <p class="sub-description no-margin">
-                1. <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações >
+                1. <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações >
                 Solicitação de Autorizações.
             </p>
             
@@ -715,7 +715,7 @@ export default [
             
             <ul class="disc">
                 <li>
-                    <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações >
+                    <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações >
                     Solicitação de Autorizações.
                 </li>
             </ul>
@@ -799,7 +799,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações > Solicitação de
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações > Solicitação de
                     Autorizações.
                 </li>
             </ul>
@@ -849,7 +849,7 @@ export default [
                     <strong>
                         Site -
                     </strong>
-                    <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações > Solicitação de
+                    <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações > Solicitação de
                     Autorizações.
                 </li>
             </ul>
@@ -877,7 +877,7 @@ export default [
             
                 <li>
                     Termo de Responsabilidade para o recebimento de medicamentos oncológicos orais assinado. Está disponível para
-                    download no site <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Impressos após o login.
+                    download no site <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Impressos após o login.
                 </li>
             </ul>
             

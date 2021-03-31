@@ -57,11 +57,8 @@
                     <span class="hamburger"></span>
                 </span>
             </label>
-            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
+            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar - opens in a new window" target="_blank">
                 <img class="user-icon" src="assets/svg/user-digital-cian.svg" alt="User Icon">
-                <span style="display: none;">
-                    (opens in a new window)
-                </span>
             </a>
         </div>
     </div>
@@ -121,12 +118,9 @@
 
                     <!-- Botão com href sem accordion - Aparece somente quando não houver sub-itens -->
                     <a tabindex="0" [href]="menuItem.href" target="_blank" rel="noopener noreferrer"
-                        (click)="initTransition()" tabindex="0" [title]="menuItem.title"
+                        (click)="initTransition()" tabindex="0" [title]="menuItem.title + ' - opens in a new window'"
                         *ngIf="(!menuItem.subItems || (menuItem.subItems && menuItem.subItems.length == 0)) && menuItem.href">
                         {{menuItem.title}}
-                        <span style="display: none;">
-                            (opens in a new window)
-                        </span>
                     </a>
 
                     <!-- Aparece somente quando houver sub-itens -->
@@ -146,20 +140,13 @@
                                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
                                     (click)="initTransition()" tabindex="0" [title]="menuSubItem.title">
                                     {{menuSubItem.title}}
-                                    <span style="display: none;">
-                                        (opens in a new window)
-                                    </span>
-                                    
                                 </a>
 
                                 <!-- Botão com href -->
                                 <a *ngIf="menuSubItem.href" [href]="menuSubItem.href" target="_blank"
                                     rel="noopener noreferrer" (click)="initTransition()" tabindex="0"
-                                    [title]="menuSubItem.title">
+                                    [title]="menuSubItem.title + ' - opens in a new window'">
                                     {{menuSubItem.title}}
-                                    <span style="display: none;">
-                                        (opens in a new window)
-                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -180,7 +167,9 @@
 
             <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-white-to-digital-cian primary small"
                 rel="noopener noreferrer" (click)="initTransition()"
-                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" 
+                title="Entre em contato - opens in a new window"
+                target="_blank">
                 Entre em Contato
             </a>
 
@@ -191,13 +180,17 @@
 
             <a *ngIf="subMenu.id == 'corretor'" class="btn btn-white-to-digital-cian primary small"
                 rel="noopener noreferrer" (click)="initTransition()"
-                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" 
+                title="Entre em contato - opens in a new window"
+                target="_blank">
                 Seja um Corretor
             </a>
 
             <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-white-to-digital-cian primary small"
                 rel="noopener noreferrer" (click)="initTransition()"
-                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'"
+                title="Entre em contato - opens in a new window"
+                target="_blank">
                 Seja um Credenciado
             </a>
             <div class="line"></div>
