@@ -2,7 +2,7 @@
     <p class="title">Mais lidas</p>
     <h2 class="description">Veja as matérias preferidas dos leitores</h2>
 
-    <a [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo" target="_blank" *ngFor="let post of posts">
+    <a [routerLink]="['/careplus-mais', post.slug]" [title]="post.titulo + ' - opens in a new window'" target="_blank" *ngFor="let post of posts">
         <div class="post">
             <img [src]="post?.caminhoCompleto" [alt]="post.titulo">
             <div class="title">

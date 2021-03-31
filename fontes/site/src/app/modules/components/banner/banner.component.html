@@ -50,26 +50,26 @@
 
                         <!-- Button with routerLink -->
                         <a *ngIf="banner?.rota && banner?.linkExterno == '0'"
-                            [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
+                            [routerLink]="banner?.rota" [fragment]="banner?.ancora" [title]="banner?.nomeLink"
                             class="btn btn-digital-cian primary medium is-hidden-touch">
                             {{banner?.nomeLink}}
                         </a>
 
                         <a *ngIf="banner?.rota && banner?.linkExterno == '0'"
-                            [routerLink]="banner?.rota" [fragment]="banner?.ancora" [attr.title]="banner?.nomeLink"
+                            [routerLink]="banner?.rota" [fragment]="banner?.ancora" [title]="banner?.nomeLink"
                             class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
                             {{banner?.nomeLink}}
                         </a>
 
                         <!-- Button with  -->
                         <a *ngIf="banner?.linkExterno == '1' && banner?.link"
-                            [href]="banner?.link" target="_blank" [attr.title]="banner?.nomeLink"
+                            [href]="banner?.link" target="_blank" [title]="banner?.nomeLink + ' - opens in a new window'"
                             class="btn btn-digital-cian primary medium is-hidden-touch">
                             {{banner?.nomeLink}}
                         </a>
 
                         <a *ngIf="banner?.linkExterno == '1' && banner?.link"
-                            [href]="banner?.link" target="_blank" [attr.title]="banner?.nomeLink"
+                            [href]="banner?.link" target="_blank" [title]="banner?.nomeLink + ' - opens in a new window'"
                             class="btn btn-white-to-digital-cian primary medium is-hidden-desktop">
                             {{banner?.nomeLink}}
                         </a>

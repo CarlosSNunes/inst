@@ -75,11 +75,11 @@
                         Link buttons
                     -->
 
-                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link" [href]="heroBannerModel?.button?.link" target="_blank" class="btn btn-digital-cian primary medium is-hidden-touch" [attr.title]="heroBannerModel?.button?.text">
+                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link" [href]="heroBannerModel?.button?.link" target="_blank" class="btn btn-digital-cian primary medium is-hidden-touch" [title]="heroBannerModel?.button?.text + ' - opens in a new window'">
                         {{heroBannerModel?.button?.text}}
                     </a>
 
-                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link" [href]="heroBannerModel?.button?.link" target="_blank" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [attr.title]="heroBannerModel?.button?.text">
+                    <a *ngIf="!heroBannerModel?.isFullScreen && heroBannerModel?.button && heroBannerModel?.button?.link" [href]="heroBannerModel?.button?.link" target="_blank" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [title]="heroBannerModel?.button?.text + ' - opens in a new window'">
                         {{heroBannerModel?.button?.text}}
                     </a>
 

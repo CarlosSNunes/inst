@@ -43,13 +43,13 @@
 
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
                         [queryParams]="sectionInfo?.button?.queryParams" class="btn medium is-hidden-touch"
-                        [ngClass]="sectionInfo?.button?.class" [attr.title]="sectionInfo?.button?.text">
+                        [ngClass]="sectionInfo?.button?.class" [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
                     </a>
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
                         [queryParams]="sectionInfo?.button?.queryParams" [ngClass]="sectionInfo?.button?.touchClass"
                         class="btn tertiaty arrow-right small is-hidden-desktop"
-                        [attr.title]="sectionInfo?.button?.text">
+                        [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
                     </a>
 
@@ -57,26 +57,26 @@
 
                     <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
                         class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class"
-                        [attr.title]="sectionInfo?.button?.text">
+                        [title]="sectionInfo?.button?.text + ' - opens in a new window'">
                         {{sectionInfo?.button?.text}}
                     </a>
                     <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
                         [ngClass]="sectionInfo?.button?.touchClass"
                         class="btn tertiaty arrow-right small is-hidden-desktop"
-                        [attr.title]="sectionInfo?.button?.text">
+                        [title]="sectionInfo?.button?.text + ' - opens in a new window'">
                         {{sectionInfo?.button?.text}}
                     </a>
 
                     <!-- Botões com Action -->
                     <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"
                         class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class"
-                        [attr.title]="sectionInfo?.button?.text">
+                        [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
                     </a>
                     <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"
                         [ngClass]="sectionInfo?.button?.touchClass"
                         class="btn tertiaty arrow-right small is-hidden-desktop"
-                        [attr.title]="sectionInfo?.button?.text">
+                        [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
                     </a>
                 </div>

@@ -87,12 +87,10 @@
                         </span>
                     </a>
                     <a class="button is-navbar-button login bupa-digital-cyan" rel="noopener noreferrer"
-                        [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar" target="_blank">
+                        [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar - opens in a new window"
+                        target="_blank">
                         <span class="item-label">
                             Entrar
-                        </span>
-                        <span style="display: none;">
-                            (opens in a new window)
                         </span>
                     </a>
                 </div>
@@ -122,11 +120,8 @@
                                     Itens com routerLink
                                 -->
                                 <a *ngIf="subItem.routerLink" [routerLink]="[subItem.routerLink]"
-                                    [attr.title]="subItem.title" [fragment]="subItem.fragment" class="sub-menu-items">
+                                    [title]="subItem.title" [fragment]="subItem.fragment" class="sub-menu-items">
                                     {{subItem.title}}
-                                    <span style="display: none;">
-                                        (opens in a new window)
-                                    </span>
                                 </a>
 
                                 <!--
@@ -135,9 +130,6 @@
                                 <a *ngIf="subItem.href" [href]="[subItem.href]" [attr.title]="subItem.title"
                                     [target]="subItem.target" rel="noopener noreferrer" class="sub-menu-items">
                                     {{subItem.title}}
-                                    <span style="display: none;">
-                                        (opens in a new window)
-                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -152,9 +144,6 @@
                                 <a *ngIf="subItem.routerLink" [routerLink]="[subItem.routerLink]"
                                     [attr.title]="subItem.title" [fragment]="subItem.fragment" class="sub-menu-items">
                                     {{subItem.title}}
-                                    <span style="display: none;">
-                                        (opens in a new window)
-                                    </span>
                                 </a>
 
                                 <!--
@@ -163,9 +152,6 @@
                                 <a *ngIf="subItem.href" [href]="[subItem.href]" [attr.title]="subItem.title"
                                     [target]="subItem.target" rel="noopener noreferrer" class="sub-menu-items">
                                     {{subItem.title}}
-                                    <span style="display: none;">
-                                        (opens in a new window)
-                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -181,7 +167,7 @@
                     </a>
 
                     <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-purple primary small"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer" title="Entre em contato - opens in a new window"
                         [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Entre em Contato
                     </a>
@@ -192,12 +178,13 @@
                     </a>
 
                     <a *ngIf="subMenu.id == 'corretor'" class="btn btn-purple primary small" rel="noopener noreferrer"
+                        title="Entre em contato - opens in a new window"
                         [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Seja um Corretor
                     </a>
 
                     <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-purple primary small"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer" title="Entre em contato - opens in a new window"
                         [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Seja um Credenciado
                     </a>
