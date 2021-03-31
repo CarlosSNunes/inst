@@ -26,7 +26,7 @@
                             <p class="card-title">
                                 {{card.title}} <span class="size" *ngIf="card?.size?.placeholder"> {{card.size.placeholder}}</span>
                             </p>
-                            <a [attr.href]="card?.button?.link" title="Download" class="download-link" download [type]="card?.type == 'default' ? card?.size?.file_size != undefined ? 'application/pdf,' + 'length=' + card.size?.file_size : 'application/pdf' : card?.size?.file_size != undefined ? card.type + ','  + 'length=' + card.size?.file_size : card.type" >
+                            <a [href]="card?.button?.link" title="Download" class="download-link" download [type]="card?.type == 'default' ? card?.size?.file_size != undefined ? 'application/pdf,' + 'length=' + card.size?.file_size : 'application/pdf' : card?.size?.file_size != undefined ? card.type + ','  + 'length=' + card.size?.file_size : card.type" >
                                 Download PDF
                                 <span>
                                     <img src="assets/svg/download.svg" alt="Download Documento">

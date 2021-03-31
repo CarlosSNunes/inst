@@ -66,14 +66,14 @@
                     <ul class="posts" *ngIf="count > 0" infiniteScroll [infiniteScrollDistance]="2"
                         [infiniteScrollThrottle]="20" (scrolled)="onScroll()">
                         <li class="post" *ngFor="let post of posts" (click)="goToPostMobile(post)">
-                            <a class="post-title" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
+                            <a class="post-title" [routerLink]="['/careplus-mais', post.slug]" [title]="post.titulo">
                                 {{post.titulo}}
                             </a>
                             <p class="post-description">
                                 {{post.descricaoPrevia}}
                             </p>
 
-                            <a class="next" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
+                            <a class="next" [routerLink]="['/careplus-mais', post.slug]" [title]="post.titulo">
                                 <img src="assets/svg/arrow-left.svg" alt="Próximo">
                             </a>
                         </li>

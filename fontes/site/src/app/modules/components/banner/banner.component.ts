@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, Input, Output, EventEmitter, PLATFORM_ID, Inject, HostListener } from '@angular/core';
-import { BannerModel, BreadcrumbModel, FieldErrors } from 'src/app/models';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, Input, Output, EventEmitter, PLATFORM_ID, Inject, HostListener, ViewRef } from '@angular/core';
+import { BannerModel, BreadcrumbModel } from 'src/app/models';
 import { BannerService } from 'src/app/services';
 import { interval, Subscription } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -15,19 +15,19 @@ import { environment } from 'src/environments/environment';
     animations: [
         trigger('slider', [
             state('enterAnimation', style({
-                left: '0',
+                transform: 'translateX(0)',
             })),
             transition('* => enterAnimation', [
                 animate('0.3s')
             ]),
             state('initialState', style({
-                left: '100vw',
+                transform: 'translateX(200%)',
             })),
             state('default', style({
-                left: '0',
+                transform: 'translateX(0)',
             })),
             state('leaveAnimation', style({
-                left: '-100vw',
+                transform: 'translateX(-100%)',
             })),
             transition('* => leaveAnimation', [
                 animate('0.3s')
@@ -97,7 +97,7 @@ export class BannerComponent implements OnInit {
         if (this.isBrowser) {
             this.banners[0].firstInteraction = true;
             this.cdRef.detectChanges();
-            this.time = this.banners[0].tempoExibicao
+            this.time = this.banners[0].tempoExibicao;
             if (this.banners.length > 1) {
                 this.startBannerPercentage(this.time / 100, this.time)
             }
@@ -145,11 +145,11 @@ export class BannerComponent implements OnInit {
         this.loading = true;
         try {
             let banners = await this.bannerService.getByArea(this.area);
-            banners = banners.map((banner, i) => {
+            banners.forEach((banner, i) => {
                 if (i === 0) {
                     banner.slideAtual = true;
                 }
-                return new BannerModel(banner);
+                banner = new BannerModel(banner);
             });
             this.loading = false;
             return banners;
@@ -220,13 +220,12 @@ export class BannerComponent implements OnInit {
             this.stopBannerPercentage()
             this.time = this.banners[i].tempoExibicao;
             this.startBannerPercentage(this.time / 100, this.time)
-            this.banners = this.banners.map((banner, index) => {
+            this.banners.forEach((banner, index) => {
                 if (i != index) {
                     banner.slideAtual = false
                 } else {
                     banner.slideAtual = true
                 }
-                return banner
             });
             this.cdRef.detectChanges();
         }
