@@ -47,7 +47,7 @@ export default [
                 <strong>
                     Pelo site
                 </strong>
-                - <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
+                - <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
             </p>
 
             <p class="sub-description">
@@ -60,7 +60,7 @@ export default [
                 </strong>
             </p>
             <p class="sub-description no-margin">
-                A autorização fica disponível no site <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a> . Caso haja alguma restrição ou falta de documento que inviabilize a emissão da autorização, o beneficiário será comunicado dentro das 24 horas úteis para que seja providenciado e reiniciada a contagem de prazo de análise.
+                A autorização fica disponível no site <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> . Caso haja alguma restrição ou falta de documento que inviabilize a emissão da autorização, o beneficiário será comunicado dentro das 24 horas úteis para que seja providenciado e reiniciada a contagem de prazo de análise.
             </p>
 
             <p class="sub-description">

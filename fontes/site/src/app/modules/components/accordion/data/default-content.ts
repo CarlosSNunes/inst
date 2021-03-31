@@ -374,7 +374,7 @@ export default [
         </p>
 
         <p class="sub-description">
-            Para consultar a rede credenciada das demais cidades, acesse o site da Care Plus (<a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>), faça seu login como Beneficiário e entre no menu Rede de Atendimento > Rede Credenciada Brasil.
+            Para consultar a rede credenciada das demais cidades, acesse o site da Care Plus (<a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>), faça seu login como Beneficiário e entre no menu Rede de Atendimento > Rede Credenciada Brasil.
         </p>
         `,
     },
@@ -386,7 +386,7 @@ export default [
             </p>
             <ol class="ol">
                 <li>
-                    Acesse <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br;</a>
+                    Acesse <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br;</a>
                 </li>
                 <li>
                     Clique em Faça seu login;
@@ -431,7 +431,7 @@ export default [
         title: 'Como faço para realizar uma consulta na rede credenciada?',
         description: `
             <p class="sub-description no-margin">
-                Para realizar consulta na rede credenciada, escolha o profissional de sua preferência através do site <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, central de relacionamento 0800.13.2992 ou do Consultor.
+                Para realizar consulta na rede credenciada, escolha o profissional de sua preferência através do site <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, central de relacionamento 0800.13.2992 ou do Consultor.
             </p>
 
             <p class="sub-description">
@@ -451,7 +451,7 @@ export default [
             </p>
             
             <p class="sub-description">
-                Para indicar um médico, acesse o ícone Beneficiário no site <a href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, acesse o menu Informações da Rede Credenciada clique em Indique seu Médico e preencha as informações solicitadas.
+                Para indicar um médico, acesse o ícone Beneficiário no site <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, acesse o menu Informações da Rede Credenciada clique em Indique seu Médico e preencha as informações solicitadas.
             </p>
 
             <p class="sub-description">
