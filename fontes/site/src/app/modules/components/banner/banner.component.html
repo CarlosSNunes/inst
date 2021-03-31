@@ -13,7 +13,7 @@
                     </svg>
                 </div>
                 <ul class="steps">
-                    <li class="step" *ngFor="let banner of banners; let i = index;" [class.active]="banner.slideAtual"
+                    <li class="step" *ngFor="let banner of banners; let i = index;" [class.active]="banner.slideAtual" [class.disabled]="loading"
                         (click)="setCurrentSlide(i)">
 
                     </li>

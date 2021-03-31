@@ -84,7 +84,7 @@ export class BannerComponent implements OnInit {
             this.setImageTagsForSEO(`${environment.CDN_URL}/${this.banners[0].caminhoCompletoDesktop}`);
         }
 
-        this.banners.forEach((banner, i) => {
+        this.banners = this.banners.map((banner, i) => {
             banner.slideAtual = true
             if (i != 0) {
                 banner.slideAtual = false;
@@ -92,6 +92,7 @@ export class BannerComponent implements OnInit {
             } else {
                 banner.bannerState = 'default';
             }
+            return banner
         });
 
         if (this.isBrowser) {
@@ -110,14 +111,14 @@ export class BannerComponent implements OnInit {
     private async verifyBanners() {
         const staticBanners = BannerComponent.staticBanners.find(stBanner => stBanner.area == this.area);
         if (staticBanners) {
-            staticBanners.banners.forEach((banner, i) => {
+            this.banners = staticBanners.banners.map((banner, i) => {
                 if (i == 0) {
                     banner.slideAtual = true;
                 } else {
                     banner.slideAtual = false;
                 }
-            })
-            this.banners = staticBanners.banners;
+                return banner
+            });
         }
         const apiBanners = await this.getBannersFromApi();
         /*
@@ -145,11 +146,11 @@ export class BannerComponent implements OnInit {
         this.loading = true;
         try {
             let banners = await this.bannerService.getByArea(this.area);
-            banners.forEach((banner, i) => {
+            banners = banners.map((banner, i) => {
                 if (i === 0) {
                     banner.slideAtual = true;
                 }
-                banner = new BannerModel(banner);
+                return new BannerModel(banner);
             });
             this.loading = false;
             return banners;
@@ -220,12 +221,13 @@ export class BannerComponent implements OnInit {
             this.stopBannerPercentage()
             this.time = this.banners[i].tempoExibicao;
             this.startBannerPercentage(this.time / 100, this.time)
-            this.banners.forEach((banner, index) => {
+            this.banners = this.banners.map((banner, index) => {
                 if (i != index) {
                     banner.slideAtual = false
                 } else {
                     banner.slideAtual = true
                 }
+                return banner
             });
             this.cdRef.detectChanges();
         }
