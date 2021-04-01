@@ -43,8 +43,8 @@ export class PlusNetworkComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.cdRef.detectChanges();
         if (this.isBrowser) {
+            this.cdRef.detectChanges();
             this.banners.forEach((banner, i) => {
                 banner.slideAtual = true
                 if (i != 0) banner.slideAtual = false
