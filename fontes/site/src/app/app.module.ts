@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpRequestInterceptor } from './app.interceptor';
 import { GestureConfig } from '@angular/material';
 import { environment } from '../environments/environment';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 @NgModule({
@@ -20,6 +21,7 @@ registerLocaleData(localePt, 'pt', localePtExtra);
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        TransferHttpCacheModule,
         AppRoutingModule,
         HeaderModule,
         HeaderMobileModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, Input, Output, EventEmitter, PLATFORM_ID, Inject, HostListener, ViewRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, Input, Output, EventEmitter, PLATFORM_ID, Inject, HostListener } from '@angular/core';
 import { BannerModel, BreadcrumbModel } from 'src/app/models';
 import { BannerService } from 'src/app/services';
 import { interval, Subscription } from 'rxjs';
@@ -126,16 +126,18 @@ export class BannerComponent implements OnInit {
         */
         if (apiBanners.length > 0) {
             this.banners = apiBanners;
-            this.cdRef.detectChanges();
             this.setImageTagsForSEO(this.banners[0].caminhoCompletoDesktop);
-            if (!staticBanners) {
-                BannerComponent.staticBanners.push({
-                    area: this.area,
-                    banners: apiBanners
-                });
-            } else {
-                const index = BannerComponent.staticBanners.findIndex(stBanner => stBanner.area == this.area);
-                BannerComponent.staticBanners[index].banners = apiBanners;
+            this.cdRef.detectChanges();
+            if (this.isBrowser) {
+                if (!staticBanners) {
+                    BannerComponent.staticBanners.push({
+                        area: this.area,
+                        banners: apiBanners
+                    });
+                } else {
+                    const index = BannerComponent.staticBanners.findIndex(stBanner => stBanner.area == this.area);
+                    BannerComponent.staticBanners[index].banners = apiBanners;
+                }
             }
         } else {
             this.setImageTagsForSEO(`${environment.CDN_URL}/${this.banners[0].caminhoCompletoDesktop}`);
@@ -145,12 +147,13 @@ export class BannerComponent implements OnInit {
     async getBannersFromApi() {
         this.loading = true;
         try {
-            let banners = await this.bannerService.getByArea(this.area);
-            banners = banners.map((banner, i) => {
+            let banners = [];
+            banners = await this.bannerService.getByArea(this.area);
+            banners.forEach((banner, i) => {
                 if (i === 0) {
                     banner.slideAtual = true;
                 }
-                return new BannerModel(banner);
+                banner = new BannerModel(banner);
             });
             this.loading = false;
             return banners;
