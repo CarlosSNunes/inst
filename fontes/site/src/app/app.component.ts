@@ -191,10 +191,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     // Tratativa para remover cache antigo do site, e fazer com que as LPS sejam sempre acessíveis.
     ///////////////////////////////////////////////////////
     private inactivateServiceWorksers() {
-        navigator.serviceWorker.getRegistrations().then(function (registrations) {
-            for (let registration of registrations) {
-                registration.unregister()
-            }
-        });
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                for (let registration of registrations) {
+                    registration.unregister()
+                }
+            });
+        }
     }
 }
