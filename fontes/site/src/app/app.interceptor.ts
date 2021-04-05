@@ -1,6 +1,6 @@
 import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
-import { Observable, from, of } from "rxjs";
-import { retry, switchMap, tap, timeout, } from "rxjs/operators";
+import { Observable, from, of, throwError } from "rxjs";
+import { catchError, retry, switchMap, tap, timeout, } from "rxjs/operators";
 import {
     HttpEvent,
     HttpInterceptor,
@@ -90,23 +90,32 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                             }
                             return next.handle(request).pipe(
                                 timeout(this.timeout),
-                                retry(this.retryTimes)
-                            );;
+                                retry(this.retryTimes),
+                                catchError((error) => {
+                                    this.localStorageService.removeItem('token');
+                                    return throwError(error);
+                                })
+                            );
                         }
 
                         if (isPlatformServer(this.platformId)) {
                             // Try saving response to be transferred to browser
-                            return next.handle(request).pipe(tap(event => {
-                                if (event instanceof HttpResponse && event.status == 200) {
-                                    // Only body is preserved as it is and it seems sufficient for now. 
-                                    // It would be nice to transfer whole response, but http response is not
-                                    // a POJO and it needs custom serialization/deserialization.
-                                    const response = {
-                                        body: event.body
-                                    };
-                                    this.transferState.set(key, response);
-                                }
-                            }));
+                            return next.handle(request).pipe(
+                                tap(event => {
+                                    if (event instanceof HttpResponse && event.status == 200) {
+                                        // Only body is preserved as it is and it seems sufficient for now. 
+                                        // It would be nice to transfer whole response, but http response is not
+                                        // a POJO and it needs custom serialization/deserialization.
+                                        const response = {
+                                            body: event.body
+                                        };
+                                        this.transferState.set(key, response);
+                                    }
+                                }),
+                                catchError((error: HttpEvent<any>) => {
+                                    this.localStorageService.removeItem('token');
+                                    return throwError(error);
+                                }));
                         }
                     }))
         }
