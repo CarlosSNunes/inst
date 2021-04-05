@@ -22,6 +22,7 @@ import * as express from 'express';
 import { join } from 'path';
 import https from 'https';
 import xFrameOptions from 'x-frame-options';
+import nocache from 'nocache';
 
 // Express server
 const app = express();
@@ -31,6 +32,9 @@ app.use(compression())
 
 // X-frame-options
 app.use(xFrameOptions())
+
+// Remove all cache on requets
+app.use(nocache())
 
 const PORT = process.env.PORT || 4001;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');

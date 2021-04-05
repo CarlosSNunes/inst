@@ -92,6 +92,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.initiated = true;
         if (this.isBrowser) {
             this.footer = this.document.querySelector('footer');
+            this.inactivateServiceWorksers();
         }
     }
 
@@ -184,5 +185,16 @@ export class AppComponent implements OnInit, AfterViewInit {
     agreeCookieComponent() {
         this.cookieAgree = 'agree';
         localStorage.setItem('cookies-accepted', 'true');
+    }
+
+    ///////////////////////////////////////////////////////
+    // Tratativa para remover cache antigo do site, e fazer com que as LPS sejam sempre acessíveis.
+    ///////////////////////////////////////////////////////
+    private inactivateServiceWorksers() {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+            for (let registration of registrations) {
+                registration.unregister()
+            }
+        });
     }
 }

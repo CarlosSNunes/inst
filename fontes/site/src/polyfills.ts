@@ -66,3 +66,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 
 // kick off the polyfill!
 smoothscroll.polyfill();
+
+
+// Dependency to JWT works on IE11
+import 'url-polyfill';

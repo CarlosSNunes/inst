@@ -14,6 +14,8 @@ import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { makeStateKey, TransferState } from "@angular/platform-browser";
 const STATE_KEY_PREFIX = 'http_requests:';
+import { JwtHelperService } from "@auth0/angular-jwt";
+import { LocalStorageService } from "src/utils/local-storage";
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
@@ -26,6 +28,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         private usuarioService: UsuarioService,
         @Inject(PLATFORM_ID) private platformId: Platform,
         private transferState: TransferState,
+        private localStorageService: LocalStorageService
     ) {
         this.isServer = isPlatformServer(this.platformId);
 
@@ -110,9 +113,18 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     }
 
     private async getToken() {
+        const jwtHelper = new JwtHelperService();
         try {
-            const userLoginResponse = await this.usuarioService.authenticate();
-            this.token = userLoginResponse.token;
+            const token = this.localStorageService.getItem('token');
+
+            if (token && token != '' && token != null && !jwtHelper.isTokenExpired(token)) {
+                return token;
+            } else {
+                const userLoginResponse = await this.usuarioService.authenticate();
+                this.token = userLoginResponse.token;
+                this.localStorageService.setItem('token', userLoginResponse.token);
+            }
+
             return this.token;
         } catch (error) {
             throw error
