@@ -149,11 +149,11 @@ export class BannerComponent implements OnInit {
         try {
             let banners = [];
             banners = await this.bannerService.getByArea(this.area);
-            banners.forEach((banner, i) => {
+            banners = banners.map((banner, i) => {
                 if (i === 0) {
                     banner.slideAtual = true;
                 }
-                banner = new BannerModel(banner);
+                return new BannerModel(banner);
             });
             this.loading = false;
             return banners;
