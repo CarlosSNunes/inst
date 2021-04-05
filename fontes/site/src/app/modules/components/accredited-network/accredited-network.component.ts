@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AccreditedNetworkComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
+    @Input() htag: string = 'h5';
     @ViewChild('accreditedNetwork', { static: false }) accreditedNetwork: ElementRef<HTMLElement>;
     accreditedNetworkUrl = `${environment.CAREPLUS_URL}portal/modulos/rede/pesquisaRedeCP.aspx`;
     constructor() { }

@@ -50,6 +50,7 @@ export class RhComponent implements OnInit {
             text: "Simular Planos e Produtos",
             action: () => this.simularesService.open(),
         }),
+        htag: 'h2'
     });
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
         smallTitle: "GESTÃO DE SAÚDE",

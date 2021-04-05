@@ -10,6 +10,7 @@ export class IconCardsSectionModel<T = any> {
 
     cards?: T[] = [];
     smallTitle?: string = '';
+    htag: string = 'h5';
     bigTitle?: string = '';
     bigTitleMaxWidth: number = 632;
     description?: string = '';

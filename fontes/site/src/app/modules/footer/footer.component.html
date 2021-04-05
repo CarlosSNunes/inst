@@ -1,5 +1,5 @@
 <div class="mobile-sitemap is-mobile is-hidden-up-tablet" [ngClass]="openned ? 'open' : ''" (blur)="openned = false">
-    <h3 (click)="openned=!openned">Sitemap</h3>
+    <p class="h3" (click)="openned=!openned">Sitemap</p>
     <a tabindex="0" class="times-icon" title="Fechar" (click)="openned = false">
         <div class="lines">
             <span class="first-line"></span>
@@ -71,14 +71,17 @@
         <li><a routerLink="/fale-conosco_contact/solicite-uma-cotacao" title="Solicite uma Cotação"
                 (click)="openned=!openned">Solicite uma Cotação</a></li>
         <li><a routerLink="/fale-conosco_contact/contato" title="Contato" (click)="openned=!openned">Contato</a></li>
-        <li><a routerLink="/fale-conosco_contact/canal-de-denuncias" title="Canal de Denúncias" (click)="openned=!openned">Canal
+        <li><a routerLink="/fale-conosco_contact/canal-de-denuncias" title="Canal de Denúncias"
+                (click)="openned=!openned">Canal
                 de Denúncias</a></li>
         <li><a title="Simule Planos e Produtos" (click)="openSimulator()" (click)="openned=!openned">Simule Planos e
                 Produtos</a></li>
         <li><a href="https://www8.careplus.com.br/portal/portal/modulos/rede/pesquisaRedeCP.aspx" target="_blank"
-                rel="noopener noreferrer" title="Rede Credenciada - opens in a new window" (click)="openned=!openned">Rede Credenciada</a></li>
+                rel="noopener noreferrer" title="Rede Credenciada - opens in a new window"
+                (click)="openned=!openned">Rede Credenciada</a></li>
         <li><a href="https://www8.careplus.com.br/portal/substituicaorede.aspx" target="_blank"
-                rel="noopener noreferrer" title="Substituição de Rede - opens in a new window" (click)="openned=!openned">Substituição de
+                rel="noopener noreferrer" title="Substituição de Rede - opens in a new window"
+                (click)="openned=!openned">Substituição de
                 Rede</a></li>
     </ul>
     <ul>
@@ -154,7 +157,7 @@
 
         <div class="columns is-hidden-down-tablet">
             <div class="column is-paddingless-vertical">
-                <h3 class="entre-em-contato">Entre em Contato</h3>
+                <p class="entre-em-contato h3">Entre em Contato</p>
             </div>
             <div class="column is-paddingless-vertical">
                 <p class="atendimento">
@@ -216,9 +219,9 @@
         <hr *ngIf="siteMapOpened" class="is-hidden-down-tablet">
         <div *ngIf="siteMapOpened" class="columns site-map flex-wrap is-hidden-down-tablet">
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Nossos Parceiros
-                </h5>
+                </p>
                 <a routerLink="/sou-beneficiario" title="Para o Beneficiário">
                     Para o Beneficiário
                 </a>
@@ -236,9 +239,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     A Care Plus
-                </h5>
+                </p>
                 <a routerLink="/a-careplus" title="A Empresa">
                     A Empresa
                 </a>
@@ -276,9 +279,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Planos
-                </h5>
+                </p>
                 <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Saúde">
                     Plano de Saúde
                 </a>
@@ -290,9 +293,9 @@
 
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Produtos
-                </h5>
+                </p>
                 <a routerLink="/planos-e-produtos/medicina-ocupacional" title="Medicina Ocupacional">
                     Medicina Ocupacional
                 </a>
@@ -302,9 +305,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Carreiras
-                </h5>
+                </p>
                 <a routerLink="/carreiras_careers" title="Carreiras">
                     Carreiras
                 </a>
@@ -312,9 +315,9 @@
                 <a routerLink="/carreiras_careers/vagas" title="Vagas">
                     Vagas
                 </a>
-                <h5 class="subtitle m-t-30">
+                <p class="subtitle m-t-30">
                     Documentos
-                </h5>
+                </p>
                 <a routerLink="/compliance" title="Compliance">
                     Compliance
                 </a>
@@ -328,9 +331,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Fale Conosco
-                </h5>
+                </p>
                 <a routerLink="/fale-conosco_contact/solicite-uma-cotacao" title="Solicite uma Cotação">
                     Solicite uma Cotação
                 </a>
@@ -409,8 +412,8 @@
                 <p>
                     Redes Sociais
                 </p>
-                <a rel="noopener noreferrer" href="https://br.linkedin.com/company/care-plus" title="Linkedin - opens in a new window"
-                    target="_blank">
+                <a rel="noopener noreferrer" href="https://br.linkedin.com/company/care-plus"
+                    title="Linkedin - opens in a new window" target="_blank">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M16.2978 15.3029V15.3022H16.3016V9.69004C16.3016 6.94452 15.7106 4.82959 12.5009 4.82959C10.9579 4.82959 9.92239 5.67633 9.49966 6.47907H9.45502V5.08591H6.41174V15.3022H9.58063V10.2435C9.58063 8.91153 9.83312 7.62357 11.4826 7.62357C13.1079 7.62357 13.1321 9.14362 13.1321 10.3289V15.3029H16.2978Z"
@@ -421,8 +424,8 @@
                             fill="#FFF" />
                     </svg>
                 </a>
-                <a rel="noopener noreferrer" href="https://www.instagram.com/careplusoficial/" title="Instagram - opens in a new window"
-                    target="_blank">
+                <a rel="noopener noreferrer" href="https://www.instagram.com/careplusoficial/"
+                    title="Instagram - opens in a new window" target="_blank">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.91538 3.72314C5.74561 3.72314 3.98901 5.48166 3.98901 7.64951C3.98901 9.81927 5.74752 11.5759 7.91538 11.5759C10.0851 11.5759 11.8417 9.81736 11.8417 7.64951C11.8417 5.47974 10.0832 3.72314 7.91538 3.72314ZM7.91538 10.198C6.50691 10.198 5.36687 9.05734 5.36687 7.64951C5.36687 6.24168 6.50755 5.10101 7.91538 5.10101C9.3232 5.10101 10.4639 6.24168 10.4639 7.64951C10.4645 9.05734 9.32384 10.198 7.91538 10.198Z"
@@ -435,16 +438,16 @@
                             fill="#FFF" />
                     </svg>
                 </a>
-                <a rel="noopener noreferrer" href="https://www.facebook.com/careplusnarede/" title="Facebook - opens in a new window"
-                    target="_blank">
+                <a rel="noopener noreferrer" href="https://www.facebook.com/careplusnarede/"
+                    title="Facebook - opens in a new window" target="_blank">
                     <svg width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M5.12962 5.26121V3.3484C5.12962 2.82046 5.55809 2.39199 6.08603 2.39199H7.04243V0.000976562H5.12962C3.54486 0.000976562 2.26041 1.28543 2.26041 2.87019V5.26121H0.347595V7.65222H2.26041V15.3035H5.12962V7.65222H7.04243L7.99884 5.26121H5.12962Z"
                             fill="#FFF" />
                     </svg>
                 </a>
-                <a rel="noopener noreferrer" href="https://www.youtube.com/user/careplusnarede" title="Youtube - opens in a new window"
-                    target="_blank">
+                <a rel="noopener noreferrer" href="https://www.youtube.com/user/careplusnarede"
+                    title="Youtube - opens in a new window" target="_blank">
                     <svg class="youtube" width="32" height="23" viewBox="0 0 32 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

@@ -30,6 +30,7 @@ export class LearnMoreComponent implements OnInit {
             routerLink: '/carreiras'
         })
     ];
+    @Input() htag: string = 'h5';
     constructor() { }
 
     ngOnInit() {

@@ -6,9 +6,31 @@
                     <p class="small-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.smallTitle">
                         {{iconCardsSectionModel?.smallTitle}}
                     </p>
-                    <h2 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
+                    
+                    <h1 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle && iconCardsSectionModel?.htag == 'h1'" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
+                        {{iconCardsSectionModel?.bigTitle}}
+                    </h1>
+
+                    <h2 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle && iconCardsSectionModel?.htag == 'h2'" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
                         {{iconCardsSectionModel?.bigTitle}}
                     </h2>
+
+                    <h3 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle && iconCardsSectionModel?.htag == 'h3'" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
+                        {{iconCardsSectionModel?.bigTitle}}
+                    </h3>
+
+                    <h4 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle && iconCardsSectionModel?.htag == 'h4'" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
+                        {{iconCardsSectionModel?.bigTitle}}
+                    </h4>
+
+                    <h5 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle && iconCardsSectionModel?.htag == 'h5'" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
+                        {{iconCardsSectionModel?.bigTitle}}
+                    </h5>
+
+                    <h6 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle && iconCardsSectionModel?.htag == 'h6'" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
+                        {{iconCardsSectionModel?.bigTitle}}
+                    </h6>
+
                     <p class="sub-description" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.subDescription">
                         {{iconCardsSectionModel?.subDescription}}
                     </p>

@@ -7,8 +7,27 @@
                         <div class="columns is-desktop">
                             <div class="column is-7 is-full-touch">
                                 <p class="small-title">REDE CREDENCIADA</p>
-                                <h2 class="h4 big-title">Encontre médicos, hospitais e clínicas próximos a você</h2>
-                                <p class="description">Pesquise aqui a rede credenciada geral da Care Plus. Se você é beneficiário, faça seu login e acesse a rede credenciada referente ao seu plano.</p>
+
+                                <h1 *ngIf="htag == 'h1'" class="h4 big-title">Encontre médicos, hospitais e clínicas
+                                    próximos a você</h1>
+
+                                <h2 *ngIf="htag == 'h2'" class="h4 big-title">Encontre médicos, hospitais e clínicas
+                                    próximos a você</h2>
+
+                                <h3 *ngIf="htag == 'h3'" class="h4 big-title">Encontre médicos, hospitais e clínicas
+                                    próximos a você</h3>
+
+                                <h4 *ngIf="htag == 'h4'" class="h4 big-title">Encontre médicos, hospitais e clínicas
+                                    próximos a você</h4>
+
+                                <h5 *ngIf="htag == 'h5'" class="h4 big-title">Encontre médicos, hospitais e clínicas
+                                    próximos a você</h5>
+
+                                <h6 *ngIf="htag == 'h6'" class="h4 big-title">Encontre médicos, hospitais e clínicas
+                                    próximos a você</h6>
+
+                                <p class="description">Pesquise aqui a rede credenciada geral da Care Plus. Se você é
+                                    beneficiário, faça seu login e acesse a rede credenciada referente ao seu plano.</p>
                             </div>
                             <div class="column is-5 is-full-touch button-column">
                                 <a rel="noopener noreferrer" [href]="accreditedNetworkUrl" target="_blank"
@@ -17,7 +36,8 @@
                                     Buscar Rede Credenciada
                                 </a>
 
-                                <a rel="noopener noreferrer" [href]="accreditedNetworkUrl" target="_blank - opens in a new window"
+                                <a rel="noopener noreferrer" [href]="accreditedNetworkUrl"
+                                    target="_blank - opens in a new window"
                                     class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop"
                                     title="Buscar Rede Credenciada">
                                     Buscar Rede Credenciada

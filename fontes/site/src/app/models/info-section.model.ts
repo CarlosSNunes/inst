@@ -3,12 +3,13 @@ import { ButtonModel } from './button.model';
 export class InfoSectionModel<T = any> {
     public constructor(init?: Partial<InfoSectionModel>) {
         this.objectFit = 'cover';
+        this.htag = 'h5';
         Object.assign(this, init);
     }
 
     smallTitle: string;
     bigTitle: string;
-    isH1:boolean = false;
+    htag: string = 'h5';
     description: string;
     subDescription: string;
     subDescriptions?: string[] = [];
