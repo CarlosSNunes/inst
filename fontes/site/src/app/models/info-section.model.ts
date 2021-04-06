@@ -30,6 +30,7 @@ export class InfoSectionModel<T = any> {
     parallax?: boolean = false;
     mobileImageHeight: string = '208px';
     backgroundColorClass: string = 'white-background-color';
+    id: string;
 }
 
 class Item {

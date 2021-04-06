@@ -6,9 +6,9 @@
                     <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
                 </div>
                 <div class="column is-full align-self-center title-column">
-                    <h2 class="h3 big-title">
+                    <p class="h3 big-title">
                         {{post?.categoria}}
-                    </h2>
+                    </p>
                 </div>
             </div>
         </div>
@@ -139,4 +139,4 @@
 </section>
 <app-icon-cards-section *ngIf="iconCardsSectionModel?.cards?.length > 0" [iconCardsSectionModel]="iconCardsSectionModel"
     [backgroundColorClass]="'blue-background-color'"></app-icon-cards-section>
-<app-social-posts></app-social-posts>
+<app-social-posts [htag]="'h3'"></app-social-posts>

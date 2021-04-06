@@ -4,9 +4,36 @@
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <h3 class="h4 big-title" *ngIf="crossContentModel?.bigTitle">
+                    <!-- h1 -->
+                    <h1 class="h4 big-title" *ngIf="crossContentModel?.bigTitle && crossContentModel.htag == 'h1'">
+                        {{crossContentModel?.bigTitle}}
+                    </h1>
+
+                    <!-- h2 -->
+                    <h2 class="h4 big-title" *ngIf="crossContentModel?.bigTitle && crossContentModel.htag == 'h2'">
+                        {{crossContentModel?.bigTitle}}
+                    </h2>
+
+                    <!-- h3 -->
+                    <h3 class="h4 big-title" *ngIf="crossContentModel?.bigTitle && crossContentModel.htag == 'h3'">
                         {{crossContentModel?.bigTitle}}
                     </h3>
+
+                    <!-- h4 -->
+                    <h4 class="h4 big-title" *ngIf="crossContentModel?.bigTitle && crossContentModel.htag == 'h4'">
+                        {{crossContentModel?.bigTitle}}
+                    </h4>
+
+                    <!-- h5 -->
+                    <h5 class="h4 big-title" *ngIf="crossContentModel?.bigTitle && crossContentModel.htag == 'h5'">
+                        {{crossContentModel?.bigTitle}}
+                    </h5>
+
+                    <!-- h6 -->
+                    <h6 class="h4 big-title" *ngIf="crossContentModel?.bigTitle && crossContentModel.htag == 'h6'">
+                        {{crossContentModel?.bigTitle}}
+                    </h6>
+
                     <div class="content-info">
                         <div class="info-box" *ngIf="crossContentModel?.boxContent">
                             <div class="info-title">

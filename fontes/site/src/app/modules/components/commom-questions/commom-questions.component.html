@@ -3,9 +3,40 @@
         <div class="columns">
             <div class="column is-12">
                 <p class="small-title">Perguntas Frequentes</p>
-                <h2 class="h4 big-title">Confira as principais dúvidas de Beneficiários, RHs, Corretores e Credenciados</h2>
+
+                <!-- h1 -->
+                <h1 *ngIf="htag == 'h1'" class="h4 big-title">Confira as principais dúvidas de Beneficiários, RHs,
+                    Corretores e Credenciados
+                </h1>
+
+                <!-- h2 -->
+                <h2 *ngIf="htag == 'h2'" class="h4 big-title">Confira as principais dúvidas de Beneficiários, RHs,
+                    Corretores e Credenciados
+                </h2>
+
+                <!-- h3 -->
+                <h3 *ngIf="htag == 'h3'" class="h4 big-title">Confira as principais dúvidas de Beneficiários, RHs,
+                    Corretores e Credenciados
+                </h3>
+
+                <!-- h4 -->
+                <h4 *ngIf="htag == 'h4'" class="h4 big-title">Confira as principais dúvidas de Beneficiários, RHs,
+                    Corretores e Credenciados
+                </h4>
+
+                <!-- h5 -->
+                <h5 *ngIf="htag == 'h5'" class="h4 big-title">Confira as principais dúvidas de Beneficiários, RHs,
+                    Corretores e Credenciados
+                </h5>
+
+                <!-- h6 -->
+                <h6 *ngIf="htag == 'h6'" class="h4 big-title">Confira as principais dúvidas de Beneficiários, RHs,
+                    Corretores e Credenciados
+                </h6>
+
                 <p class="sub-description">
-                    Aproveite este espaço para esclarecer as suas questões sobre a Care Plus, produtos disponíveis, rede credenciada e muito mais. Se não encontrar, entre em contato conosco.
+                    Aproveite este espaço para esclarecer as suas questões sobre a Care Plus, produtos disponíveis, rede
+                    credenciada e muito mais. Se não encontrar, entre em contato conosco.
                 </p>
             </div>
 
@@ -13,11 +44,13 @@
         <app-accordion class="app-accordion"></app-accordion>
         <div class="columns buttons-columns">
             <div class="column is-12">
-                <button routerLink="/a-careplus/perguntas-frequentes" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
+                <button routerLink="/a-careplus/perguntas-frequentes"
+                    class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
                     Ver todas as Perguntas Frequentes
                 </button>
 
-                <button routerLink="/a-careplus/perguntas-frequentes" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop">
+                <button routerLink="/a-careplus/perguntas-frequentes"
+                    class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop">
                     Ver todas as Perguntas Frequentes
                 </button>
             </div>

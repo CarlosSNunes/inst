@@ -36,7 +36,8 @@ export const medicalOrientationSection = new InfoSectionModel({
     ],
     imageSrc: 'assets/img/orientacao-medica.jpg',
     removeLine: false,
-    objectFit: 'cover'
+    objectFit: 'cover',
+    htag: 'h2'
 });
 
 export const nutriADistancia = new InfoSectionModel({
@@ -50,7 +51,8 @@ export const nutriADistancia = new InfoSectionModel({
     reverse: true,
     imageSrc: 'assets/img/nutri-a-distancia.jpg',
     removeLine: false,
-    objectFit: 'cover'
+    objectFit: 'cover',
+    htag: 'h3'
 });
 
 export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
@@ -63,7 +65,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
         routerLink: '/planos-e-produtos/gestao-de-saude'
     }),
     cards: PersonalizedSectionCards,
-    columnClass: 'is-4-desktop'
+    columnClass: 'is-4-desktop',
 });
 
 export const sliderModel = new SliderModel({

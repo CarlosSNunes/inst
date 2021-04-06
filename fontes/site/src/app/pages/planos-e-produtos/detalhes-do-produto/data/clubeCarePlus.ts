@@ -42,10 +42,12 @@ export default {
                 planoSaude: true
             }
         }),
-        parallax: true
+        parallax: true,
+        htag: 'h2'
     }),
     plansTypes: [
         {
+            htag: 'h3',
             title: 'Planos Clube Care Plus',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
@@ -149,6 +151,7 @@ export default {
             ]
         },
         {
+            htag: 'h3',
             title: 'Planos Clube Care Plus',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
@@ -230,11 +233,13 @@ export default {
                 plano: 'clube-careplus',
                 planoOdontologico: true
             }
-        })
+        }),
+        htag: 'h4'
     }),
     hospitalListSection: {
         smallTitle: 'Rede Credenciada Planos – Clube Care Plus',
-        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Clube Care Plus'
+        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Clube Care Plus',
+        htag: 'h5'
     },
     plansSection: new InfoSectionModel({
         smallTitle: 'PLANOS',

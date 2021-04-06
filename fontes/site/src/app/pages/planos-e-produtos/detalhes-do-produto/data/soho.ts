@@ -40,11 +40,13 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
                 planoSaude: true
             }
         }),
-        parallax: true
+        parallax: true,
+        htag: 'h2'
     }),
     plansTypes: [
         {
             title: 'Planos Care Plus Soho',
+            htag: 'h3',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
             id: 1,
@@ -91,6 +93,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         },
         {
             title: 'Planos Care Plus Soho',
+            htag: 'h3',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
             id: 2,
@@ -171,11 +174,13 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
                 plano: 'careplus-soho',
                 planoOdontologico: true
             }
-        })
+        }),
+        htag: 'h4'
     }),
     hospitalListSection: {
         smallTitle: 'Rede Credenciada Planos - Care Plus SoHo',
-        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus SoHo'
+        bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus SoHo',
+        htag: 'h5'
     },
     plansSection: new InfoSectionModel({
         smallTitle: 'PLANOS',

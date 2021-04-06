@@ -12,7 +12,8 @@ export const ocupationalSection = new InfoSectionModel({
         routerLink: '/planos-e-produtos/medicina-ocupacional',
         class: 'btn-digital-orange secondary medium arrow-right',
         touchClass: 'btn-digital-orange tertiary small arrow-right',
-    })
+    }),
+    htag: 'h3'
 });
 export const planCards: PlanCardModel[] = [
     new PlanCardModel({
@@ -58,7 +59,9 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
         routerLink: '/planos-e-produtos/gestao-de-saude'
     }),
     cards: Cards,
-    columnClass: 'is-3-desktop'
+    columnClass: 'is-3-desktop',
+    htag: 'h4'
+    
 });
 export const secondCard: IconCardModel = new IconCardModel({
     title: 'Solicite uma Cotação',

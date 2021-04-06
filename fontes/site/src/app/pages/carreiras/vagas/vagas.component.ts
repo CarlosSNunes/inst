@@ -48,7 +48,8 @@ export class VagasComponent implements OnInit {
                 text: 'Saiba mais',
                 link: 'https://careplus.gupy.io/'
             })
-        }
+        },
+        htag: 'h2'
     });
     constructor(
         private windowRef: WindowRef,

@@ -1,4 +1,5 @@
-import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel } from 'src/app/models';
+import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, IconCardsSectionModel, ButtonModel } from 'src/app/models';
+import PersonalizedSectionCards from './personalized-section-cards';
 
 export const simpleBannerModel: SimpleBannerModel = {
     title: 'Personal System',
@@ -27,24 +28,27 @@ export const simpleBannerModel: SimpleBannerModel = {
     image: 'assets/img/personal-system.jpg'
 };
 
-// export const consultaFacil: InfoSectionModel = new InfoSectionModel({
-//     smallTitle: 'PERSONAL SYSTEM',
-//     bigTitle: 'Consulta Fácil',
-//     subDescriptions: [
-//         'Atendimento exclusivo aos beneficiários Care Plus, de todos os planos, no qual médicos clínicos gerais e pediatras estão disponíveis para fazer consultas em diversos horários e dias da semana, sem a necessidade de agendamento prévio.',
-//         'Consultas com clínicos gerais (a partir dos 15 anos) e pediatras (até 14 anos) para atendimento de patologias agudas que não precisam de atendimento em Pronto Socorro. Exemplos: diarreia, dor de cabeça, alergias, gripe, resfriado, inflamação/infecção na garganta, febre, tosse, dor de ouvido, secreção nasal, infecção urinária, e para crianças além das anteriores, alergia da fralda, choros em bebês sem causa aparente, refluxo, reação a vacina.',
-//         'Além do atendimento das condições clínicas agudas, os médicos poderão:',
-//         '- Esclarecer dúvidas relacionadas à saúde. <br/> - Indicar e agendar consulta com especialistas da Rede Credenciada Care Plus (Rede Plus). <br/> - Realizar consultas de devolutiva após a realização de check-up (consulta pós check-up). <br/> - Prescrever vacinas, conforme indicação.'
-//     ],
-//     imageSrc: 'assets/img/consulta-facil.jpg',
-//     removeLine: false,
-//     objectFit: 'cover',
-//     button: new ButtonModel({
-//         text: 'ACESSE O CONSULTA FÁCIL',
-//         link: 'http://consultafacil.careplusmais.com.br/'
-//     })
-// });
+// Sem uso atualmente
+export const consultaFacil: InfoSectionModel = new InfoSectionModel({
+    smallTitle: 'PERSONAL SYSTEM',
+    bigTitle: 'Consulta Fácil',
+    subDescriptions: [
+        'Atendimento exclusivo aos beneficiários Care Plus, de todos os planos, no qual médicos clínicos gerais e pediatras estão disponíveis para fazer consultas em diversos horários e dias da semana, sem a necessidade de agendamento prévio.',
+        'Consultas com clínicos gerais (a partir dos 15 anos) e pediatras (até 14 anos) para atendimento de patologias agudas que não precisam de atendimento em Pronto Socorro. Exemplos: diarreia, dor de cabeça, alergias, gripe, resfriado, inflamação/infecção na garganta, febre, tosse, dor de ouvido, secreção nasal, infecção urinária, e para crianças além das anteriores, alergia da fralda, choros em bebês sem causa aparente, refluxo, reação a vacina.',
+        'Além do atendimento das condições clínicas agudas, os médicos poderão:',
+        '- Esclarecer dúvidas relacionadas à saúde. <br/> - Indicar e agendar consulta com especialistas da Rede Credenciada Care Plus (Rede Plus). <br/> - Realizar consultas de devolutiva após a realização de check-up (consulta pós check-up). <br/> - Prescrever vacinas, conforme indicação.'
+    ],
+    imageSrc: 'assets/img/consulta-facil.jpg',
+    removeLine: false,
+    objectFit: 'cover',
+    button: new ButtonModel({
+        text: 'ACESSE O CONSULTA FÁCIL',
+        link: 'http://consultafacil.careplusmais.com.br/'
+    })
+});
+// Sem uso atualmente
 
+// Sem uso atualmente
 export const checkupDoViajante: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'PERSONAL SYSTEM',
     bigTitle: 'Check-up do Viajante',
@@ -56,9 +60,11 @@ export const checkupDoViajante: InfoSectionModel = new InfoSectionModel({
     imageSrc: 'assets/img/checkup-viajante.jpg',
     removeLine: false,
     objectFit: 'cover',
-    reverse: true
+    reverse: true,
 });
+// Sem uso atualmente
 
+// Sem uso atualmente
 export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'PERSONAL SYSTEM',
     bigTitle: 'Monitoramento de Check-up',
@@ -68,8 +74,9 @@ export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
     ],
     imageSrc: 'assets/img/monitoramento-checkup.jpg',
     removeLine: false,
-    objectFit: 'cover'
+    objectFit: 'cover',
 });
+// Sem uso atualmente
 
 export const gerenciamentoDeDoencasCronicas: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'PERSONAL SYSTEM',
@@ -81,5 +88,19 @@ export const gerenciamentoDeDoencasCronicas: InfoSectionModel = new InfoSectionM
     imageSrc: 'assets/img/gerenciamento-doencas-cronicas.jpg',
     removeLine: false,
     objectFit: 'cover',
-    reverse: true
+    reverse: true,
+    htag: 'h2'
+});
+
+export const gestaoDeSaudeSection: IconCardsSectionModel = new IconCardsSectionModel({
+    smallTitle: 'GESTÃO DE SAÚDE',
+    bigTitle: 'Conheça nossos programas e serviços',
+    subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
+    button: new ButtonModel({
+        text: 'Veja todos os Programas de Saúde',
+        routerLink: '/planos-e-produtos/gestao-de-saude'
+    }),
+    cards: PersonalizedSectionCards,
+    columnClass: 'is-4-desktop',
+    htag: 'h3'
 });

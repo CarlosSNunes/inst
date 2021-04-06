@@ -9,6 +9,7 @@ import { postsMock } from './data/posts';
 })
 export class SocialPostsComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
+    @Input() htag: string = 'h5';
     posts: InstagramPostModel[] = [];
     constructor() { }
 
