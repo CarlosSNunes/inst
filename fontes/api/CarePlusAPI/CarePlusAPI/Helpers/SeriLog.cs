@@ -56,16 +56,20 @@ namespace CarePlusAPI.Helpers
                                apiKey: tag, controlLevelSwitch: levelSwitch)
                           .CreateLogger();
 
+
             var jObjectLog = "";
+
+
+            string environment = _appSettings.Environment;
 
 
             if (message != null)
             {
-                jObjectLog = JsonConvert.SerializeObject(message);
+                jObjectLog = JsonConvert.SerializeObject(new { message = message, environment = environment });
             }
             else
             {
-                jObjectLog = JsonConvert.SerializeObject(new { Mensagem = "O valor para log está nulo." });
+                jObjectLog = JsonConvert.SerializeObject(new { Mensagem = "O valor para log está nulo.", environment = environment });
             }
 
             switch (logtype)

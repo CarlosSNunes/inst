@@ -1,5 +1,4 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { TransferHttpCacheModule } from '@nguniversal/common';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpRequestInterceptor } from './app.interceptor';
 import { GestureConfig } from '@angular/material';
 import { environment } from '../environments/environment';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 registerLocaleData(localePt, 'pt', localePtExtra);
 
 @NgModule({

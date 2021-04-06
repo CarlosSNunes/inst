@@ -17,7 +17,7 @@
                         <ul>
                             <li [class.is-active]="profile.active" *ngFor="let profile of profiles; let i = index;"
                                 (click)="setActiveProfile(i)">
-                                <a [attr.title]="profile.title">
+                                <a [title]="profile.title">
                                     <span>{{profile.title}}</span>
                                 </a>
                             </li>
@@ -37,12 +37,12 @@
                     <p class="content">
                         {{profile.description}}
                     </p>
-                    <a [routerLink]="[profile.link]" [attr.title]="profile.title"
+                    <a [routerLink]="[profile.link]" [title]="profile.title"
                         class="btn btn-navy secondary arrow-right medium is-hidden-touch">
                         {{profile.linkTitle}}
                     </a>
 
-                    <a [routerLink]="[profile.link]" [attr.title]="profile.title"
+                    <a [routerLink]="[profile.link]" [title]="profile.title"
                         class="btn btn-navy tertiary arrow-right small is-hidden-desktop">
                         {{profile.linkTitle}}
                     </a>

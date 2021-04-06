@@ -14,9 +14,8 @@ export class IconCardsSectionComponent implements OnInit, OnChanges {
     }
 
     ngOnInit() {
-        this.iconCardsSectionModel.cards = this.iconCardsSectionModel.cards.map(card => {
+        this.iconCardsSectionModel.cards.forEach(card => {
             card.backgroundColorClass = this.backgroundColorClass
-            return card
         });
     }
 

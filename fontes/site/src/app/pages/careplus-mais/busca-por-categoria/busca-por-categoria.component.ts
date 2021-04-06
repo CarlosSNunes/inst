@@ -96,13 +96,16 @@ export class BuscaPorCategoriaComponent implements OnInit {
     }
 
     private async getAllCategoriesPaginated() {
+        this.cdr.detectChanges();
         try {
             const categoriesPaginated = await this.categoriasService.getAllPaginated(0, 1000);
             this.categories = [];
             categoriesPaginated.result.forEach(category => {
                 this.categories.push(new CategoryModel(category));
             });
+            this.cdr.detectChanges();
         } catch (error) {
+            this.cdr.detectChanges();
             this.notificationService.addNotification('error', error.message);
         }
     }

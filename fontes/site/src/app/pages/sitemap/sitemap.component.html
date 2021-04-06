@@ -1,0 +1,161 @@
+<section>
+    <article>
+        <div class="container">
+            <div class="columns breadcrumb">
+                <div class="column is-paddingless-vertical">
+                    <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+                </div>
+            </div>
+            <div class="columns site-map flex-wrap is-hidden-down-tablet">
+                <div class="column is-half-tablet is-full-mobile is-2-desktop">
+                    <p class="subtitle">
+                        Nossos Parceiros
+                    </p>
+                    <a routerLink="/sou-beneficiario" title="Para o Beneficiário">
+                        Para o Beneficiário
+                    </a>
+                    <br>
+                    <a routerLink="/sou-rh" title="Para o RHs">
+                        Para o RH
+                    </a>
+                    <br>
+                    <a routerLink="/sou-corretor" title="Para o Corretor">
+                        Para o Corretor
+                    </a>
+                    <br>
+                    <a routerLink="/sou-credenciado" title="Para o Credenciado">
+                        Para o Credenciado
+                    </a>
+                </div>
+                <div class="column is-half-tablet is-full-mobile is-2-desktop">
+                    <p class="subtitle">
+                        A Care Plus
+                    </p>
+                    <a routerLink="/a-careplus" title="A Empresa">
+                        A Empresa
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/diferenciais" title="Diferenciais">
+                        Diferenciais
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/responsabilidade-social"
+                        title="Sustentabilidade / Responsabilidade Social">
+                        Responsabilidade Social
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/rede-plus" title="Rede Plus">
+                        Rede Plus
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/perguntas-frequentes" title="Perguntas Frequentes">
+                        Perguntas Frequentes
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/resultados-financeiros" title="Resultados Financeiros">
+                        Resultados Financeiros
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/materiais-de-saude" title="Materiais de Saúde">
+                        Materiais de Saúde
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/termos-e-condicoes" title="Termos e Condições">
+                        Termos e Condições
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/politica-de-privacidade" title="Política de Privacidade">
+                        Política de Privacidade
+                    </a>
+                </div>
+                <div class="column is-half-tablet is-full-mobile is-2-desktop">
+                    <p class="subtitle">
+                        Planos
+                    </p>
+                    <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Saúde">
+                        Plano de Saúde
+                    </a>
+                    <br>
+                    <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Odontológico">
+                        Plano de Odontológico
+                    </a>
+                    <br>
+
+                </div>
+                <div class="column is-half-tablet is-full-mobile is-2-desktop">
+                    <p class="subtitle">
+                        Produtos
+                    </p>
+                    <a routerLink="/planos-e-produtos/medicina-ocupacional" title="Medicina Ocupacional">
+                        Medicina Ocupacional
+                    </a>
+                    <br>
+                    <a routerLink="/planos-e-produtos/gestao-de-saude" title="Gestão de Saúde">
+                        Gestão de Saúde
+                    </a>
+                </div>
+                <div class="column is-half-tablet is-full-mobile is-2-desktop">
+                    <p class="subtitle">
+                        Carreiras
+                    </p>
+                    <a routerLink="/carreiras" title="Carreiras">
+                        Carreiras
+                    </a>
+                    <br>
+                    <a routerLink="/carreiras/vagas" title="Vagas">
+                        Vagas
+                    </a>
+                    <p class="subtitle m-t-30">
+                        Documentos
+                    </p>
+                    <a routerLink="/compliance" title="Compliance">
+                        Compliance
+                    </a>
+                    <br>
+                    <a routerLink="/idss" title="IDSS">
+                        IDSS
+                    </a>
+                    <br>
+                    <a routerLink="/pesquisa-satisfacao" title="Pesquisa de Satisfação">
+                        Pesquisa de Satisfação
+                    </a>
+                </div>
+                <div class="column is-half-tablet is-full-mobile is-2-desktop">
+                    <p class="subtitle">
+                        Fale Conosco
+                    </p>
+                    <a routerLink="/fale-conosco/solicite-uma-cotacao" title="Solicite uma Cotação">
+                        Solicite uma Cotação
+                    </a>
+                    <br>
+                    <a routerLink="/fale-conosco/contato" title="Contato">
+                        Contato
+                    </a>
+                    <br>
+                    <a routerLink="/fale-conosco/canal-de-denuncias" title="Canal de Denúncias">
+                        Canal de Denúncias
+                    </a>
+                    <br>
+                    <a title="Simule Planos e Produtos" (click)="openSimulator()">
+                        Simule Planos e Produtos
+                    </a>
+                    <br />
+                    <a href="https://www8.careplus.com.br/portal/portal/modulos/rede/pesquisaRedeCP.aspx"
+                        target="_blank" rel="noopener noreferrer" title="Rede Credenciada opens in a new window">
+                        Rede Credenciada
+                    </a>
+                    <br>
+                    <a href="https://www8.careplus.com.br/portal/substituicaorede.aspx" target="_blank"
+                        rel="noopener noreferrer" title="Substituição de Rede opens in a new window">
+                        Substituição de Rede
+                    </a>
+                    <br>
+                    <br>
+                    <a class="subtitle m-t-30" routerLink="/careplus-mais" title="Care Plus +">
+                        Care Plus +
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

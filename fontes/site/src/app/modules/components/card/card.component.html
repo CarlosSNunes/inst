@@ -17,11 +17,8 @@
         -->
         <a *ngIf="card?.button?.routerLink" [routerLink]="[card?.button?.routerLink]"
             [queryParams]="card?.button?.queryParams" #link [class.collapsed]="collapsed"
-            [class.hasCollapse]="card.hasCollapse" class="link" [attr.title]="card?.button?.text">
+            [class.hasCollapse]="card.hasCollapse" class="link" [title]="card?.button?.text">
             {{card?.button?.text}}
-            <span style="display: none;">
-                (opens in a new window)
-            </span>
         </a>
 
         <!--
@@ -29,18 +26,15 @@
         -->
         <a *ngIf="card?.button?.link" [href]="card?.button?.link" [target]="card?.button?.target" #link
             [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse" class="link"
-            [attr.title]="card?.button?.text">
+            [title]="card?.button?.text">
             {{card?.button?.text}}
-            <span style="display: none;">
-                (opens in a new window)
-            </span>
         </a>
 
         <!--
             Botão com action
         -->
         <button *ngIf="card?.button?.action" (click)="card.button.action()" #link [class.collapsed]="collapsed"
-            [class.hasCollapse]="card.hasCollapse" class="link" [attr.title]="card?.button?.text">
+            [class.hasCollapse]="card.hasCollapse" class="link" [title]="card?.button?.text">
             {{card?.button?.text}}
         </button>
         <ng-content></ng-content>
@@ -52,7 +46,7 @@
     </div>
 
     <a [routerLink]="card.routerLink" *ngIf="card.type === 'icon' && card.routerLink" class="card icon-card"
-        [ngClass]="card.backgroundColorClass" (click)="collapse()" [attr.title]="card.title">
+        [ngClass]="card.backgroundColorClass" (click)="collapse()" [title]="card.title">
         <div class="image" [ngClass]="card.backgroundColorClass">
             <img *ngIf="card.imagePath" [src]="card.imagePath" alt="Card image">
         </div>
@@ -65,7 +59,7 @@
         -->
         <a *ngIf="card?.button?.routerLink" [routerLink]="[card?.button?.routerLink]"
             [queryParams]="card?.button?.queryParams" #link [class.collapsed]="collapsed"
-            [class.hasCollapse]="card.hasCollapse" class="link" [attr.title]="card?.button?.text">
+            [class.hasCollapse]="card.hasCollapse" class="link" [title]="card?.button?.text">
             {{card?.button?.text}}
         </a>
 
@@ -74,7 +68,7 @@
         -->
         <a *ngIf="card?.button?.link" [href]="card?.button?.link" [target]="card?.button?.target" #link
             [class.collapsed]="collapsed" [class.hasCollapse]="card.hasCollapse" class="link"
-            [attr.title]="card?.button?.text">
+            [title]="card?.button?.text">
             {{card?.button?.text}}
         </a>
         <ng-content></ng-content>
@@ -85,7 +79,7 @@
         <span class="line-4"></span>
     </a>
 
-    <a [routerLink]="[card?.button?.routerLink]" *ngIf="card.type === 'post'" [attr.title]="card.post.titulo">
+    <a [routerLink]="[card?.button?.routerLink]" *ngIf="card.type === 'post'" [title]="card.post.titulo">
         <div class="card image-card">
 
             <div class="img" [style.background]="'url(' + card?.post?.caminhoCompleto + ')'"

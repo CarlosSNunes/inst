@@ -1,0 +1,23 @@
+@import "~src/scss/_variables";
+
+section {
+    .subtitle {
+        color: getColor(_bupa, _navy);
+        font-weight: 600;
+    }
+
+    a.subtitle {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    a:not(.subtitle) {
+        color: getColor(_bupa, _grey-2);
+        margin: 5px 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

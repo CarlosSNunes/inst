@@ -1,6 +1,6 @@
 <ul id="sidebar">
     <li *ngFor="let element of elements" (click)="goToLink(element.id)" [ngClass]="prefix + element.id">
-        <a (keyup.enter)="goToLink(element.id)" [attr.title]="element.name" tabindex="0">
+        <a (keyup.enter)="goToLink(element.id)" [title]="element.name" tabindex="0">
             {{element.name}}
         </a>
     </li>

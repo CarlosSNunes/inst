@@ -37,7 +37,7 @@
                             <li *ngFor="let category of categories">
                                 <a [class.active]="categoryId == category.id"
                                     [routerLink]="['/careplus-mais/categoria', category.id]"
-                                    [attr.title]="category.titulo">
+                                    [title]="category.titulo">
                                     {{category.titulo}}
                                 </a>
                             </li>
@@ -73,7 +73,7 @@
                                 {{post.descricaoPrevia}}
                             </p>
 
-                            <a class="next" [routerLink]="['/careplus-mais', post.slug]" [attr.title]="post.titulo">
+                            <a class="next" [routerLink]="['/careplus-mais', post.slug]" [title]="post.titulo">
                                 <img src="assets/svg/arrow-left.svg" alt="Próximo">
                             </a>
                         </li>

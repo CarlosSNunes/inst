@@ -7,7 +7,9 @@ class LocalStorage implements Storage {
     [name: string]: any;
     readonly length: number;
     static token: string;
-    clear(): void { }
+    clear(): void {
+        LocalStorage.token = undefined;
+    }
     getItem(key: string): string | null {
         if (key === 'token') {
             return LocalStorage.token

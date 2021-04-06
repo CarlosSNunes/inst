@@ -5,6 +5,7 @@ namespace CarePlusAPI.Helpers
     [ExcludeFromCodeCoverage]
     public class AppSettings
     {
+        public string Environment { get; set; }
         public string Secret { get; set; }
         public string PathToSave { get; set; }
         public string VirtualPath { get; set; }

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, ErrorHandler } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ButtonModel, NoticiaModel, PostCardModel } from 'src/app/models';
 import { BlogService } from 'src/app/services';
+import { ErrorHandler } from 'src/utils/error-handler';
 
 @Component({
     selector: 'app-careplus-plus',
@@ -13,7 +14,8 @@ export class CareplusPlusComponent implements OnInit {
     posts: PostCardModel[] = [];
     constructor(
         private blogService: BlogService,
-        private errorHandler: ErrorHandler
+        private errorHandler: ErrorHandler,
+        private cdr: ChangeDetectorRef
     ) { }
 
     async ngOnInit() {
@@ -32,9 +34,10 @@ export class CareplusPlusComponent implements OnInit {
                             text: 'Ler artigo'
                         })
                     }))
-            })
+            });
+            this.cdr.detectChanges();
         } catch (error) {
-            this.errorHandler.handleError(error.error);
+            this.errorHandler.ShowError(error.error);
         }
     }
 

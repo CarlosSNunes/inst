@@ -22,19 +22,19 @@
                     <div class="post-header">
                         <ul class="social-icons">
                             <li>
-                                <a href="https://api.whatsapp.com/send?text={{pageURL}}" target="_blank">
+                                <a href="https://api.whatsapp.com/send?text={{pageURL}}" target="_blank" title="opens in a new window">
                                     <img src="assets/svg/whatsapp.svg" alt="Whatsapp"
                                         title="Compartilhe no whatsapp">
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/intent/tweet?text={{pageURL}}" target="_blank">
+                                <a href="https://twitter.com/intent/tweet?text={{pageURL}}" target="_blank" title="opens in a new window">
                                     <img src="assets/svg/twitter.svg" alt="Twitter"
                                         title="Compartilhe no twitter">
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank" title="opens in a new window">
                                     <img src="assets/svg/facebook-second-logo.svg" alt="Facebook"
                                         title="Compartilhe no facebook">
                                 </a>
@@ -42,7 +42,7 @@
                             <li>
                                 <a title="Compartilhe no linkedin"
                                     href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
-                                    target="_blank">
+                                    target="_blank" title="opens in a new window">
                                     <img src="assets/svg/linkedin.svg" alt="Linkedin">
                                 </a>
                             </li>
@@ -83,26 +83,26 @@
                             {{post?.descricaoPrevia}}
                         </h2>
 
-                        <img [src]="post?.caminhoCompleto" [attr.alt]="post?.titulo" class="post-image">
+                        <img [src]="post?.caminhoCompleto" [alt]="post?.titulo" class="post-image">
                         <div class="post-content" [innerHTML]="post?.descricao"></div>
                     </div>
 
                     <div class="post-footer">
                         <ul class="social-icons">
                             <li>
-                                <a href="https://api.whatsapp.com/send?text={{pageURL}}" target="_blank">
+                                <a href="https://api.whatsapp.com/send?text={{pageURL}}" target="_blank" title="opens in a new window">
                                     <img src="assets/svg/whatsapp.svg" alt="Whatsapp"
                                         title="Compartilhe no whatsapp">
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/intent/tweet?text={{pageURL}}" target="_blank">
+                                <a href="https://twitter.com/intent/tweet?text={{pageURL}}" target="_blank" title="opens in a new window">
                                     <img src="assets/svg/twitter.svg" alt="Twitter"
                                         title="Compartilhe no twitter">
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{pageURL}}" target="_blank" title="opens in a new window">
                                     <img src="assets/svg/facebook-second-logo.svg" alt="Facebook"
                                         title="Compartilhe no facebook">
                                 </a>
@@ -110,7 +110,7 @@
                             <li>
                                 <a title="Compartilhe no linkedin"
                                     href="https://www.linkedin.com/sharing/share-offsite/?url={{pageURL}}"
-                                    target="_blank">
+                                    target="_blank" title="opens in a new window">
                                     <img src="assets/svg/linkedin.svg" alt="Linkedin">
                                 </a>
                             </li>

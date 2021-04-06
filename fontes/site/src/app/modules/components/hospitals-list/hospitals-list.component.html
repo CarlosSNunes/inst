@@ -98,7 +98,7 @@
                                     </p>
                                 </td>
                                 <td *ngFor="let plan of hospital.plans">
-                                    <img *ngIf="plan.included" src="assets/svg/plan-pin.svg" [alt]="plan.plan">
+                                    <img *ngIf="plan.included" src="assets/svg/plan-pin.svg" [alt]="'Plano '+plan.plan">
                                 </td>
                             </tr>
                         </tbody>

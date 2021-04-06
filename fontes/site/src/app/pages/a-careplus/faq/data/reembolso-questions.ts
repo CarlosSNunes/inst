@@ -18,7 +18,7 @@ export default [
             
             <p class="sub-description">
                 Esta facilidade está disponível na área logada de Beneficiário e RH do site Care Plus - <a
-                    href="https://www.careplus.com.br" target="_blank">www.careplus.com.br</a>, menu Reembolso > Cálculo de
+                    href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, menu Reembolso > Cálculo de
                 Reembolso.
             </p>
             
@@ -156,7 +156,7 @@ export default [
             
             <p class="sub-description">
                 A solicitação deve ser feita através do site Care Plus: <a href="https://www.careplus.com.br"
-                    target="_blank">www.careplus.com.br</a> no menu "Reembolso" > "Solicitação de Reembolso".
+                    target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu "Reembolso" > "Solicitação de Reembolso".
             </p>
             
             <p class="sub-description">
