@@ -20,4 +20,11 @@ section {
             text-decoration: underline;
         }
     }
+
+    .is-half-tablet-only {
+        @media (min-width: 769px) and (max-width: 1024px) {
+            flex: 0 0 50%;
+            width: 50%;
+        }
+    }
 }

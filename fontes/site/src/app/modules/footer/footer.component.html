@@ -1,5 +1,5 @@
 <div class="mobile-sitemap is-mobile is-hidden-up-tablet" [ngClass]="openned ? 'open' : ''" (blur)="openned = false">
-    <h3 (click)="openned=!openned">Sitemap</h3>
+    <p class="h3" (click)="openned=!openned">Sitemap</p>
     <a tabindex="0" class="times-icon" title="Fechar" (click)="openned = false">
         <div class="lines">
             <span class="first-line"></span>
@@ -37,23 +37,30 @@
 
     </ul>
     <ul>
-        <li><strong>Planos</strong></li>
-        <li><a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Saúde" (click)="openned=!openned">
-                Plano de Saúde
-            </a></li>
-        <li><a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Odontológico"
+        <li><strong>Planos e Produtos</strong></li>
+        <li>
+            <a routerLink="/planos-e-produtos" fragment="planos" title="Care Plus Saúde" (click)="openned=!openned">
+                Care Plus Saúde
+            </a>
+        </li>
+        <li>
+            <a routerLink="/planos-e-produtos" fragment="planos" title="Care Plus Dental" (click)="openned=!openned">
+                Care Plus Dental
+            </a>
+        </li>
+        <li>
+            <a routerLink="/planos-e-produtos/medicina-ocupacional" title="Care Plus Ocupacional"
                 (click)="openned=!openned">
-                Plano de Odontológico
-            </a></li>
+                Care Plus Ocupacional
+            </a>
+        </li>
+        <li>
+            <a href="https://www.masterinternational.com.br/" target="_blank" rel="noopener noreferrer"
+                title="Master International" (click)="openned=!openned">
+                Master International
+            </a>
 
-    </ul>
-    <ul>
-        <li><strong>Produtos</strong></li>
-        <li><a routerLink="/planos-e-produtos/medicina-ocupacional" title="Medicina Ocupacional"
-                (click)="openned=!openned">Medicina Ocupacional</a></li>
-        <li><a routerLink="/a-careplus/gestao-de-saude" title="Gestão de Saúde" (click)="openned=!openned">Gestão
-                de Saúde</a></li>
-        <li><a href="">Master International</a></li>
+        </li>
     </ul>
     <ul>
         <li><strong>Carreiras</strong></li>
@@ -157,7 +164,7 @@
 
         <div class="columns is-hidden-down-tablet">
             <div class="column is-paddingless-vertical">
-                <h3 class="entre-em-contato">Entre em Contato</h3>
+                <p class="entre-em-contato h3">Entre em Contato</p>
             </div>
             <div class="column is-paddingless-vertical">
                 <p class="atendimento">
@@ -219,9 +226,9 @@
         <hr *ngIf="siteMapOpened" class="is-hidden-down-tablet">
         <div *ngIf="siteMapOpened" class="columns site-map flex-wrap is-hidden-down-tablet">
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Nossos Parceiros
-                </h5>
+                </p>
                 <a routerLink="/sou-beneficiario" title="Para o Beneficiário">
                     Para o Beneficiário
                 </a>
@@ -239,9 +246,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     A Care Plus
-                </h5>
+                </p>
                 <a routerLink="/a-careplus" title="A Empresa">
                     A Empresa
                 </a>
@@ -283,23 +290,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
-                    Planos
-                </h5>
-                <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Saúde">
-                    Plano de Saúde
-                </a>
-                <br>
-                <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Odontológico">
-                    Plano de Odontológico
-                </a>
-                <br>
-
-            </div>
-            <div class="column">
-                <h5 class="subtitle">
-                    Produtos
-                </h5>
+                <p class="heading5 subtitle">
+                    Planos e Produtos
+                </p>
                 <a routerLink="/planos-e-produtos" fragment="planos" title="Care Plus Saúde">
                     Care Plus Saúde
                 </a>
@@ -318,9 +311,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Carreiras
-                </h5>
+                </p>
                 <a routerLink="/carreiras_careers" title="Carreiras">
                     Carreiras
                 </a>
@@ -328,9 +321,9 @@
                 <a routerLink="/carreiras_careers/vagas" title="Vagas">
                     Vagas
                 </a>
-                <h5 class="subtitle m-t-30">
+                <p class="subtitle m-t-30">
                     Documentos
-                </h5>
+                </p>
                 <a routerLink="/compliance" title="Compliance">
                     Compliance
                 </a>
@@ -344,9 +337,9 @@
                 </a>
             </div>
             <div class="column">
-                <h5 class="subtitle">
+                <p class="heading5 subtitle">
                     Fale Conosco
-                </h5>
+                </p>
                 <a routerLink="/fale-conosco_contact/solicite-uma-cotacao" title="Solicite uma Cotação">
                     Solicite uma Cotação
                 </a>
