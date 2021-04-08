@@ -17,20 +17,20 @@ export default [
                         routerLink: '/a-careplus/diferenciais'
                     }),
                     new SubMenuItem({
-                        title: 'Responsabilidade Social',
-                        routerLink: '/a-careplus/responsabilidade-social'
-                    }),
-                    new SubMenuItem({
                         title: 'Rede Plus',
                         routerLink: '/a-careplus/rede-plus'
                     }),
                     new SubMenuItem({
-                        title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/perguntas-frequentes'
+                        title: 'Gestão de Saúde',
+                        routerLink: '/a-careplus/gestao-de-saude'
                     }),
                     new SubMenuItem({
-                        title: 'Resultados Financeiros',
-                        routerLink: '/a-careplus/resultados-financeiros'
+                        title: 'Responsabilidade Social',
+                        routerLink: '/a-careplus/responsabilidade-social'
+                    }),
+                    new SubMenuItem({
+                        title: 'Perguntas Frequentes',
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
@@ -44,42 +44,35 @@ export default [
                         title: 'Política de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
+                    new SubMenuItem({
+                        title: 'Resultados Financeiros',
+                        routerLink: '/a-careplus/resultados-financeiros'
+                    })
                 ]
             }),
             new SubMenuItem({
-                title: 'Planos',
+                title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Plano de Saúde',
+                        title: 'Care Plus Saúde',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Plano Odontológico',
+                        title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
                     }),
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Produtos',
-                routerLink: '/planos-e-produtos',
-                fragment: 'produtos',
-                subItems: [
                     new SubMenuItem({
-                        title: 'Medicina Ocupacional',
+                        title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Gestão de Saúde',
-                        routerLink: '/planos-e-produtos/gestao-de-saude'
-                    }),
-                    new SubMenuItem({
                         title: 'Master International',
-                        href: 'http://www.masterinternational.com.br/',
+                        href: 'https://www.masterinternational.com.br/',
                         target: '_blank'
-                    }),
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -136,20 +129,20 @@ export default [
                         routerLink: '/a-careplus/diferenciais'
                     }),
                     new SubMenuItem({
-                        title: 'Responsabilidade Social',
-                        routerLink: '/a-careplus/responsabilidade-social'
-                    }),
-                    new SubMenuItem({
                         title: 'Rede Plus',
                         routerLink: '/a-careplus/rede-plus'
                     }),
                     new SubMenuItem({
-                        title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/perguntas-frequentes'
+                        title: 'Gestão de Saúde',
+                        routerLink: '/a-careplus/gestao-de-saude'
                     }),
                     new SubMenuItem({
-                        title: 'Resultados Financeiros',
-                        routerLink: '/a-careplus/resultados-financeiros'
+                        title: 'Responsabilidade Social',
+                        routerLink: '/a-careplus/responsabilidade-social'
+                    }),
+                    new SubMenuItem({
+                        title: 'Perguntas Frequentes',
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
@@ -163,44 +156,35 @@ export default [
                         title: 'Política de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
+                    new SubMenuItem({
+                        title: 'Resultados Financeiros',
+                        routerLink: '/a-careplus/resultados-financeiros'
+                    })
                 ]
             }),
             new SubMenuItem({
-                title: 'Planos',
+                title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-soho'
+                        title: 'Care Plus Saúde',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Clube Care Plus (de 30 a 200 vidas)',
-                        routerLink: '/planos-e-produtos/clube-careplus'
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Empresarial (mais de 200 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-empresarial'
-                    }),
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Produtos',
-                routerLink: '/planos-e-produtos',
-                fragment: 'produtos',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Medicina Ocupacional',
+                        title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Gestão de Saúde',
-                        routerLink: '/planos-e-produtos/gestao-de-saude'
-                    }),
-                    new SubMenuItem({
                         title: 'Master International',
-                        href: 'http://www.masterinternational.com.br/',
+                        href: 'https://www.masterinternational.com.br/',
                         target: '_blank'
-                    }),
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -209,27 +193,27 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Gestão de Saúde',
-                routerLink: '/planos-e-produtos/gestao-de-saude',
+                routerLink: '/a-careplus/gestao-de-saude',
                 subItems: [
                     new SubMenuItem({
                         title: 'Programas Preventivos',
-                        routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos'
+                        routerLink: '/a-careplus/gestao-de-saude/programas-preventivos'
                     }),
                     new SubMenuItem({
                         title: 'Serviços On-line',
-                        routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
+                        routerLink: '/a-careplus/gestao-de-saude/servicos-online'
                     }),
                     new SubMenuItem({
                         title: 'Personal System',
-                        routerLink: '/planos-e-produtos/gestao-de-saude/personal-system'
+                        routerLink: '/a-careplus/gestao-de-saude/personal-system'
                     }),
                     new SubMenuItem({
                         title: 'Programas Empresariais',
-                        routerLink: '/planos-e-produtos/gestao-de-saude/programas-empresariais'
+                        routerLink: '/a-careplus/gestao-de-saude/programas-empresariais'
                     }),
                     new SubMenuItem({
                         title: 'Nossas Parcerias',
-                        routerLink: '/planos-e-produtos/gestao-de-saude/nossas-parcerias'
+                        routerLink: '/a-careplus/gestao-de-saude/nossas-parcerias'
                     }),
                 ]
             }),
@@ -273,20 +257,20 @@ export default [
                         routerLink: '/a-careplus/diferenciais'
                     }),
                     new SubMenuItem({
-                        title: 'Responsabilidade Social',
-                        routerLink: '/a-careplus/responsabilidade-social'
-                    }),
-                    new SubMenuItem({
                         title: 'Rede Plus',
                         routerLink: '/a-careplus/rede-plus'
                     }),
                     new SubMenuItem({
-                        title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/perguntas-frequentes'
+                        title: 'Gestão de Saúde',
+                        routerLink: '/a-careplus/gestao-de-saude'
                     }),
                     new SubMenuItem({
-                        title: 'Resultados Financeiros',
-                        routerLink: '/a-careplus/resultados-financeiros'
+                        title: 'Responsabilidade Social',
+                        routerLink: '/a-careplus/responsabilidade-social'
+                    }),
+                    new SubMenuItem({
+                        title: 'Perguntas Frequentes',
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
@@ -300,44 +284,35 @@ export default [
                         title: 'Política de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
+                    new SubMenuItem({
+                        title: 'Resultados Financeiros',
+                        routerLink: '/a-careplus/resultados-financeiros'
+                    })
                 ]
             }),
             new SubMenuItem({
-                title: 'Planos',
+                title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-soho'
+                        title: 'Care Plus Saúde',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Clube Care Plus (de 30 a 200 vidas)',
-                        routerLink: '/planos-e-produtos/clube-careplus'
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Empresarial (mais de 200 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-empresarial'
-                    }),
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Produtos',
-                routerLink: '/planos-e-produtos',
-                fragment: 'produtos',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Medicina Ocupacional',
+                        title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Gestão de Saúde',
-                        routerLink: '/planos-e-produtos/gestao-de-saude'
-                    }),
-                    new SubMenuItem({
                         title: 'Master International',
-                        href: 'http://www.masterinternational.com.br/',
+                        href: 'https://www.masterinternational.com.br/',
                         target: '_blank'
-                    }),
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -398,20 +373,20 @@ export default [
                         routerLink: '/a-careplus/diferenciais'
                     }),
                     new SubMenuItem({
-                        title: 'Responsabilidade Social',
-                        routerLink: '/a-careplus/responsabilidade-social'
-                    }),
-                    new SubMenuItem({
                         title: 'Rede Plus',
                         routerLink: '/a-careplus/rede-plus'
                     }),
                     new SubMenuItem({
-                        title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/perguntas-frequentes'
+                        title: 'Gestão de Saúde',
+                        routerLink: '/a-careplus/gestao-de-saude'
                     }),
                     new SubMenuItem({
-                        title: 'Resultados Financeiros',
-                        routerLink: '/a-careplus/resultados-financeiros'
+                        title: 'Responsabilidade Social',
+                        routerLink: '/a-careplus/responsabilidade-social'
+                    }),
+                    new SubMenuItem({
+                        title: 'Perguntas Frequentes',
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
@@ -425,39 +400,35 @@ export default [
                         title: 'Política de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
+                    new SubMenuItem({
+                        title: 'Resultados Financeiros',
+                        routerLink: '/a-careplus/resultados-financeiros'
+                    })
                 ]
             }),
             new SubMenuItem({
-                title: 'Planos',
+                title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-soho'
+                        title: 'Care Plus Saúde',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Clube Care Plus (de 30 a 200 vidas)',
-                        routerLink: '/planos-e-produtos/clube-careplus'
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Empresarial (mais de 200 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-empresarial'
-                    }),
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Produtos',
-                routerLink: '/planos-e-produtos',
-                fragment: 'produtos',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Medicina Ocupacional',
+                        title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Gestão de Saúde',
-                        routerLink: '/planos-e-produtos/gestao-de-saude'
-                    }),
+                        title: 'Master International',
+                        href: 'https://www.masterinternational.com.br/',
+                        target: '_blank'
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -519,20 +490,20 @@ export default [
                         routerLink: '/a-careplus/diferenciais'
                     }),
                     new SubMenuItem({
-                        title: 'Responsabilidade Social',
-                        routerLink: '/a-careplus/responsabilidade-social'
-                    }),
-                    new SubMenuItem({
                         title: 'Rede Plus',
                         routerLink: '/a-careplus/rede-plus'
                     }),
                     new SubMenuItem({
-                        title: 'Perguntas Frequentes',
-                        routerLink: '/a-careplus/perguntas-frequentes'
+                        title: 'Gestão de Saúde',
+                        routerLink: '/a-careplus/gestao-de-saude'
                     }),
                     new SubMenuItem({
-                        title: 'Resultados Financeiros',
-                        routerLink: '/a-careplus/resultados-financeiros'
+                        title: 'Responsabilidade Social',
+                        routerLink: '/a-careplus/responsabilidade-social'
+                    }),
+                    new SubMenuItem({
+                        title: 'Perguntas Frequentes',
+                        routerLink: '/a-careplus/perguntas-frequentes'
                     }),
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
@@ -546,44 +517,35 @@ export default [
                         title: 'Política de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
+                    new SubMenuItem({
+                        title: 'Resultados Financeiros',
+                        routerLink: '/a-careplus/resultados-financeiros'
+                    })
                 ]
             }),
             new SubMenuItem({
-                title: 'Planos',
+                title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Care Plus SoHo (de 2 a 29 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-soho'
+                        title: 'Care Plus Saúde',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Clube Care Plus (de 30 a 200 vidas)',
-                        routerLink: '/planos-e-produtos/clube-careplus'
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Empresarial (mais de 200 vidas)',
-                        routerLink: '/planos-e-produtos/careplus-empresarial'
-                    }),
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Produtos',
-                routerLink: '/planos-e-produtos',
-                fragment: 'produtos',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Medicina Ocupacional',
+                        title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Gestão de Saúde',
-                        routerLink: '/planos-e-produtos/gestao-de-saude/'
-                    }),
-                    new SubMenuItem({
                         title: 'Master International',
-                        href: 'http://www.masterinternational.com.br/',
+                        href: 'https://www.masterinternational.com.br/',
                         target: '_blank'
-                    }),
+                    })
                 ]
             }),
             new SubMenuItem({

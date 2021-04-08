@@ -57,7 +57,8 @@
                     <span class="hamburger"></span>
                 </span>
             </label>
-            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'" title="Entrar - opens in a new window" target="_blank">
+            <a rel="noopener noreferrer" [href]="careplusUrl + 'LoginBeneficiario.aspx'"
+                title="Entrar - opens in a new window" target="_blank">
                 <img class="user-icon" src="assets/svg/user-digital-cian.svg" alt="User Icon">
             </a>
         </div>
@@ -109,9 +110,9 @@
                     </a>
 
                     <!-- Botão com routerLink sem accordion - Aparece somente quando não houver sub-itens -->
-                    <a tabindex="0" [routerLink]="menuItem.routerLink" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()" tabindex="0"
-                        [title]="menuItem.title"
+                    <a tabindex="0" [routerLink]="menuItem.routerLink" [fragment]="menuItem.fragment"
+                        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="initTransition()"
+                        tabindex="0" [title]="menuItem.title"
                         *ngIf="(!menuItem.subItems || (menuItem.subItems && menuItem.subItems.length == 0)) && menuItem.routerLink">
                         {{menuItem.title}}
                     </a>
@@ -138,7 +139,8 @@
                                 <!-- Botão com routerLink -->
                                 <a *ngIf="menuSubItem.routerLink" [routerLink]="menuSubItem.routerLink"
                                     routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                                    (click)="initTransition()" tabindex="0" [title]="menuSubItem.title">
+                                    [fragment]="menuSubItem.fragment" (click)="initTransition()" tabindex="0"
+                                    [title]="menuSubItem.title">
                                     {{menuSubItem.title}}
                                 </a>
 
@@ -152,11 +154,6 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a tabindex="0" title="Care Plus +" routerLink="/careplus-mais" (click)="initTransition()">
-                        Care Plus +
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="bottom" #bottom id="bottom">
@@ -167,9 +164,8 @@
 
             <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-white-to-digital-cian primary small"
                 rel="noopener noreferrer" (click)="initTransition()"
-                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" 
-                title="Entre em contato - opens in a new window"
-                target="_blank">
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'"
+                title="Entre em contato - opens in a new window" target="_blank">
                 Entre em Contato
             </a>
 
@@ -180,17 +176,15 @@
 
             <a *ngIf="subMenu.id == 'corretor'" class="btn btn-white-to-digital-cian primary small"
                 rel="noopener noreferrer" (click)="initTransition()"
-                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" 
-                title="Entre em contato - opens in a new window"
-                target="_blank">
+                [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'"
+                title="Entre em contato - opens in a new window" target="_blank">
                 Seja um Corretor
             </a>
 
             <a *ngIf="subMenu.id == 'credenciado'" class="btn btn-white-to-digital-cian primary small"
                 rel="noopener noreferrer" (click)="initTransition()"
                 [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'"
-                title="Entre em contato - opens in a new window"
-                target="_blank">
+                title="Entre em contato - opens in a new window" target="_blank">
                 Seja um Credenciado
             </a>
             <div class="line"></div>

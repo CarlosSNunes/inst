@@ -69,7 +69,7 @@ export class GestaoDeSaudeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude`,
+            content: `${environment.SELF_URL}/a-careplus/gestao-de-saude`,
         });
 
         /* 
@@ -100,7 +100,7 @@ export class GestaoDeSaudeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude`,
+            content: `${environment.SELF_URL}/a-careplus/gestao-de-saude`,
         });
     }
 

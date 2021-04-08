@@ -30,7 +30,7 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     subDescription: 'Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.',
     button: new ButtonModel({
         text: 'Conheça o Gestão de Saúde',
-        routerLink: '/planos-e-produtos/gestao-de-saude',
+        routerLink: '/a-careplus/gestao-de-saude',
         class: 'btn-digital-cian secondary arrow-right'
     }),
     cards: Cards,

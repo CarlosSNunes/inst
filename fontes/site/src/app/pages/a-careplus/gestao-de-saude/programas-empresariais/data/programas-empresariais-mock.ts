@@ -14,11 +14,11 @@ export const simpleBannerModel: SimpleBannerModel = {
         }),
         new BreadcrumbModel({
             name: 'Gestão de Saúde',
-            link: '/planos-e-produtos/gestao-de-saude'
+            link: '/a-careplus/gestao-de-saude'
         }),
         new BreadcrumbModel({
             name: 'Programas Empresariais',
-            link: '/planos-e-produtos/gestao-de-saude/programas-empresariais',
+            link: '/a-careplus/gestao-de-saude/programas-empresariais',
             active: true
         })
     ],

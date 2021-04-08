@@ -19,7 +19,7 @@ export const heroBannerModel: HeroBannerModel = new HeroBannerModel({
         }),
         new BreadcrumbModel({
             name: 'Gestão de Saúde',
-            link: '/planos-e-produtos/gestao-de-saude',
+            link: '/a-careplus/gestao-de-saude',
             active: true
         })
     ],
@@ -48,7 +48,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Conheça os Programas Preventivos',
-            routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos'
+            routerLink: '/a-careplus/gestao-de-saude/programas-preventivos'
         })
     }),
     new InfoSectionModel({
@@ -59,7 +59,7 @@ export const infoSections: InfoSectionModel[] = [
         removeLine: true,
         button: new ButtonModel({
             text: 'Conheça os Serviços On-line',
-            routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
+            routerLink: '/a-careplus/gestao-de-saude/servicos-online'
         })
     }),
     new InfoSectionModel({
@@ -72,7 +72,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Conheça o Personal System',
-            routerLink: '/planos-e-produtos/gestao-de-saude/personal-system'
+            routerLink: '/a-careplus/gestao-de-saude/personal-system'
         })
     }),
     new InfoSectionModel({
@@ -83,7 +83,7 @@ export const infoSections: InfoSectionModel[] = [
         removeLine: true,
         button: new ButtonModel({
             text: 'Conheça os Programas Empresariais',
-            routerLink: '/planos-e-produtos/gestao-de-saude/programas-empresariais'
+            routerLink: '/a-careplus/gestao-de-saude/programas-empresariais'
         })
     }),
     new InfoSectionModel({
@@ -96,7 +96,7 @@ export const infoSections: InfoSectionModel[] = [
         backgroundColorClass: 'blue-background-color',
         button: new ButtonModel({
             text: 'Conheça as Nossas Parcerias',
-            routerLink: '/planos-e-produtos/gestao-de-saude/nossas-parcerias'
+            routerLink: '/a-careplus/gestao-de-saude/nossas-parcerias'
         })
     })
 ];

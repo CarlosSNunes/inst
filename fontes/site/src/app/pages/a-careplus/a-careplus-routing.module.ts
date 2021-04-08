@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('./responsabilidade-social/responsabilidade-social.module').then(m => m.ResponsabilidadeSocialModule)
     },
     {
+        path: 'gestao-de-saude',
+        loadChildren: () => import('../a-careplus/gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
+    },
+    {
         path: 'perguntas-frequentes',
         loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule)
     },

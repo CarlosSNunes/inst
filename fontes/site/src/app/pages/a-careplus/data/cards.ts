@@ -52,7 +52,7 @@ export default [
         description: "A Gestão de Saúde conta com programas e serviços especiais para nossos beneficiários. Desde ações preventivas até parcerias em empresas de alimentação e consultoria esportiva.",
         imagePath: "assets/svg/medal.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/planos-e-produtos/gestao-de-saude',
+        routerLink: '/a-careplus/gestao-de-saude',
         hasCollapse:false
     }),
     new IconCardModel({
