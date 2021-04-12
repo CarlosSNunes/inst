@@ -67,7 +67,7 @@ export class ObrigadoComponent implements OnInit {
                     }
                 ];
 
-                scriptObjs.map(obj => {
+                scriptObjs.forEach(obj => {
                     if (!this.document.getElementById(obj.id)) {
                         this.scriptLoaderService.injectScript(obj, 'head');
                     }
@@ -91,7 +91,7 @@ export class ObrigadoComponent implements OnInit {
                     }
                 ];
 
-                scriptObjs.map(obj => {
+                scriptObjs.forEach(obj => {
                     if (!this.document.getElementById(obj.id)) {
                         this.scriptLoaderService.injectScript(obj, 'head');
                     }
@@ -115,7 +115,7 @@ export class ObrigadoComponent implements OnInit {
                     }
                 ];
 
-                scriptObjs.map(obj => {
+                scriptObjs.forEach(obj => {
                     if (!this.document.getElementById(obj.id)) {
                         this.scriptLoaderService.injectScript(obj, 'head');
                     }
