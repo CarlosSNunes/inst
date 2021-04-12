@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
 import { EventEmitterService, ScriptLoaderService } from 'src/app/services';
 import { origins } from './data/mock';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 declare var gtag: any;
 
 @Component({
@@ -18,17 +18,21 @@ export class ObrigadoComponent implements OnInit {
     origins = origins;
     selectedOrigin = origins[0];
     protocol: number;
+    isBrowser: boolean = false;
     constructor(
         private title: Title,
         private meta: Meta,
         private activatedRoute: ActivatedRoute,
         private router: Router,
         private scriptLoaderService: ScriptLoaderService,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        @Inject(PLATFORM_ID) private platformId: object
     ) {
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
             description: 'Obrigado'
         }));
+
+        this.isBrowser = isPlatformBrowser(this.platformId);
 
         this.activatedRoute.params.subscribe(params => {
             this.setSelectedOrigin(params.id)
@@ -37,6 +41,16 @@ export class ObrigadoComponent implements OnInit {
             }
         });
 
+        if (this.isBrowser) {
+            this.emitGoogleEvents();
+        }
+
+    }
+
+    ngOnInit() {
+    }
+
+    private emitGoogleEvents() {
         /* Google Tag Manager */
         this.activatedRoute.queryParams.subscribe(queryParams => {
             if (queryParams.saude == '1') {
@@ -111,10 +125,6 @@ export class ObrigadoComponent implements OnInit {
                 gtag('event', 'conversion', { 'send_to': 'AW-684184155/ahKhCPX3nIACENukn8YC' });
             }
         });
-
-    }
-
-    ngOnInit() {
     }
 
     private setSEOInfos(infos) {
