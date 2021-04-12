@@ -5,6 +5,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { EventEmitterService } from 'src/app/services';
 import { origins } from './data/mock';
 import { ActivatedRoute, Router } from '@angular/router';
+declare var gtag: any;
 
 @Component({
     selector: 'app-obrigado',
@@ -31,7 +32,26 @@ export class ObrigadoComponent implements OnInit {
             if (params.protocol) {
                 this.protocol = params.protocol;
             }
-        })
+        });
+
+        /* Google Tag Manager */
+        this.activatedRoute.queryParams.subscribe(queryParams => {
+            if (queryParams.saude == '1') {
+                gtag('config', 'AW-618331359');
+                gtag('event', 'conversion', { 'send_to': 'AW-618331359/_PGlCMz7nIACEN_566YC' });
+            }
+
+            if (queryParams.odontologico == '1') {
+                gtag('config', 'AW-454985144');
+                gtag('event', 'conversion', { 'send_to': 'AW-454985144/F5f5CND8hYACELiL-tgB' });
+            }
+
+            if (queryParams.ocupacional == '1') {
+                gtag('config', 'AW-684184155');
+                gtag('event', 'conversion', { 'send_to': 'AW-684184155/ahKhCPX3nIACENukn8YC' });
+            }
+        });
+
     }
 
     ngOnInit() {

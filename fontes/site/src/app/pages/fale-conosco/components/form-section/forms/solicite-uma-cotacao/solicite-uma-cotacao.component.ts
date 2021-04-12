@@ -67,6 +67,7 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
             mensagem: ['', Validators.compose([Validators.required])],
             validCaptcha: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
             aceiteDeTermos: [false, Validators.compose([Validators.required, Validators.requiredTrue])],
+            retURL: [this.retURL, Validators.compose([Validators.required])]
         }, {
             validators: [
                 requireAtLeastOne()
@@ -236,6 +237,8 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
 
     sendForm(event) {
         if (this.soliciteUmaCotacaoForm.valid) {
+
+            this.soliciteUmaCotacaoForm.controls.retURL.setValue(this.retURL + `?saude=${this.soliciteUmaCotacaoForm.controls.planoSaude.value}&odontologico=${this.soliciteUmaCotacaoForm.controls.planoOdontologico.value}&ocupacional=${this.soliciteUmaCotacaoForm.controls.medicinaOcupacional.value}`);
 
             event.target.submit();
 
