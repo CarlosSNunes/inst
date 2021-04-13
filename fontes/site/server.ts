@@ -404,6 +404,16 @@ app.get('/soho/admin', (req, res) => {
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 // Serve static files from /browser
+app.get('*.*', (req, res, next) => {
+    if (env.production) {
+        var result = req.url.match(new RegExp('web.config', 'gi'));
+        if (result) {
+            return res.status(404).end('404 Not Found')
+        }
+    }
+    next()
+});
+
 app.get('*.*', express.static(DIST_FOLDER, {
     maxAge: '1y'
 }));
