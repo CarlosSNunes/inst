@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Optional, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, Optional, PLATFORM_ID } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { BreadcrumbModel, RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
@@ -13,7 +13,7 @@ import { isPlatformServer } from '@angular/common';
     templateUrl: './erro.component.html',
     styleUrls: ['./erro.component.scss']
 })
-export class ErroComponent implements OnInit {
+export class ErroComponent implements OnInit, OnDestroy {
     faHome = faHome;
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({
@@ -46,6 +46,15 @@ export class ErroComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    ngOnDestroy() {
+        if (!this.isServer) {
+            this.meta.updateTag({
+                name: 'robots',
+                content: 'index, follow'
+            });
+        }
     }
 
     private setSEOInfos() {
@@ -114,6 +123,13 @@ export class ErroComponent implements OnInit {
         this.meta.updateTag({
             name: "twitter:url",
             content: `${environment.SELF_URL}/erro`,
+        });
+
+        // Para google não indexar
+
+        this.meta.updateTag({
+            name: 'robots',
+            content: 'noindex,nofollow'
         });
     }
 
