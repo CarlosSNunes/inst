@@ -16,7 +16,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
         title: 'Central de Atendimento',
         type: 'icon',
         button: new ButtonModel({
-            link: 'tel: 11 4197-9000',
+            link: 'tel:011 4197-9000',
             text: '(11) 4197-9000',
             target: '_self',
         }),

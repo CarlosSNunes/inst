@@ -89,7 +89,7 @@ export const firstCard: IconCardModel = new IconCardModel({
     title: 'Central de Atendimento',
     type: 'icon',
     button: new ButtonModel({
-        link: 'tel: 11 4197-9070',
+        link: 'tel: 011 4197-9070',
         text: '(11) 4197-9070',
         target: '_self',
     }),
