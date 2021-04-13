@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional, PLATFORM_ID } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { BreadcrumbModel, RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { CanonicalService, EventEmitterService } from 'src/app/services';
+import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { Response } from 'express';
+import { isPlatformServer } from '@angular/common';
 
 @Component({
     selector: 'app-erro',
@@ -23,11 +26,18 @@ export class ErroComponent implements OnInit {
             active: true
         }),
     ];
+    isServer: boolean = false;
     constructor(
         private title: Title,
         private meta: Meta,
-        private canonicalService: CanonicalService
+        private canonicalService: CanonicalService,
+        @Optional() @Inject(RESPONSE) private readonly res: Response,
+        @Inject(PLATFORM_ID) private platformId: object
     ) {
+        this.isServer = isPlatformServer(this.platformId);
+        if (this.isServer) {
+            this.res.status(404);
+        }
         this.setSEOInfos();
         EventEmitterService.get<RouteModel>('custouRoute').emit(new RouteModel({
             description: 'Erro - 404'
