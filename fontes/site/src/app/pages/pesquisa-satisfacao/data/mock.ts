@@ -41,4 +41,26 @@ export const materiais = [
             file_size: '254982'
         }
     }),
+    new CardModel({
+        type: 'default',
+        title: 'Pesquisa de Satisfação - 2021 (Base 2020)',
+        button: new ButtonModel({
+            link: 'assets/documents/pesquisa_de_satisfacao-2021_base_2020.pdf'
+        }),
+        size: {
+            placeholder: '(2.04mb)',
+            file_size: '2146328'
+        }
+    }),
+    new CardModel({
+        type: 'default',
+        title: 'Parecer de Auditoria – Pesquisa de Satisfação - 2021 (Base 2020)',
+        button: new ButtonModel({
+            link: 'assets/documents/parecer_de_auditoria_pesquisa_de_satisfacao-2021_base_2020.pdf'
+        }),
+        size: {
+            placeholder: '(115kb)',
+            file_size: '118734'
+        }
+    }),
 ]
