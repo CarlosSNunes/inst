@@ -12,6 +12,8 @@ export class CareplusPlusComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @Input() title: string = '+ Saúde com + Informação: aproveite todos os nossos conteúdos sobre saúde e bem-estar';
     posts: PostCardModel[] = [];
+    @Input() htag: string = 'h5';
+
     constructor(
         private blogService: BlogService,
         private errorHandler: ErrorHandler,

@@ -85,7 +85,7 @@
         height: 210%;
     }
 
-    h3 {
+    .h3 {
         text-align: left;
         font-size: 24px;
         color: #00335b;
@@ -200,10 +200,10 @@
         }
     }
     p,
-    h5 {
+    .heading5 {
         color: getColor(_bupa, _white);
     }
-    h5.subtitle {
+    .heading5.subtitle {
         font-weight: 500;
         white-space: nowrap;
         font-size: getSize("p");

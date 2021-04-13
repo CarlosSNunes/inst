@@ -6,10 +6,37 @@
                     <p class="small-title">
                         REDE PLUS
                     </p>
-                    <h2 class="h4 big-title">
+
+                    <h1 *ngIf="htagOne == 'h1'" class="h4 big-title">
+                        A rede de médicos
+                        mais qualificada
+                    </h1>
+
+                    <h2 *ngIf="htagOne == 'h2'" class="h4 big-title">
                         A rede de médicos
                         mais qualificada
                     </h2>
+
+                    <h3 *ngIf="htagOne == 'h3'" class="h4 big-title">
+                        A rede de médicos
+                        mais qualificada
+                    </h3>
+
+                    <h4 *ngIf="htagOne == 'h4'" class="h4 big-title">
+                        A rede de médicos
+                        mais qualificada
+                    </h4>
+
+                    <h5 *ngIf="htagOne == 'h5'" class="h4 big-title">
+                        A rede de médicos
+                        mais qualificada
+                    </h5>
+
+                    <h6 *ngIf="htagOne == 'h6'" class="h4 big-title">
+                        A rede de médicos
+                        mais qualificada
+                    </h6>
+
                     <p class="sub-description">
                         Quem busca excelência em saúde, sabe que a qualidade da rede médica é primordial. Na Care Plus,
                         os beneficiários contam com profissionais renomados e clínicas especializadas para atendimento e
@@ -73,7 +100,8 @@
                             </p>
                         </div>
                     </div>
-                    <button class="btn btn-white-to-digital-cian secondary medium arrow-right" routerLink="/a-careplus/rede-plus">
+                    <button class="btn btn-white-to-digital-cian secondary medium arrow-right"
+                        routerLink="/a-careplus/rede-plus">
                         Conheça a Rede Plus
                     </button>
                 </div>
@@ -88,13 +116,35 @@
                             <div class="columns">
                                 <div class="column is-full-touch is-5 banner-details"
                                     [class.is-offset-7]="width > 1023">
-                                    <img class="mobile-banner-image" [src]="banner?.caminhoImagem" [alt]="banner.titulo">
+                                    <img class="mobile-banner-image" [src]="banner?.caminhoImagem"
+                                        [alt]="banner.titulo">
                                     <p class="section-category color bupa-digital-cyan">
                                         {{ banner.tag }}
                                     </p>
-                                    <h5 class="banner-title color bupa-navy">
+                                    <h1 *ngIf="htagTwo == 'h1'" class="banner-title color bupa-navy">
+                                        {{ banner.titulo }}
+                                    </h1>
+
+                                    <h2 *ngIf="htagTwo == 'h2'" class="banner-title color bupa-navy">
+                                        {{ banner.titulo }}
+                                    </h2>
+
+                                    <h3 *ngIf="htagTwo == 'h3'" class="banner-title color bupa-navy">
+                                        {{ banner.titulo }}
+                                    </h3>
+
+                                    <h4 *ngIf="htagTwo == 'h4'" class="banner-title color bupa-navy">
+                                        {{ banner.titulo }}
+                                    </h4>
+
+                                    <h5 *ngIf="htagTwo == 'h5'" class="banner-title color bupa-navy">
                                         {{ banner.titulo }}
                                     </h5>
+
+                                    <h6 *ngIf="htagTwo == 'h6'" class="banner-title color bupa-navy">
+                                        {{ banner.titulo }}
+                                    </h6>
+
                                     <br />
                                     <p class="banner-content">
                                         {{ banner.descricao }}

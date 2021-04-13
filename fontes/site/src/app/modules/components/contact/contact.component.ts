@@ -10,6 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class ContactComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
+    @Input() htag: string = 'h5';
     button: ButtonModel = new ButtonModel({
         link: '/fale-conosco/solicite-uma-cotacao',
         text: 'Entre em contato'

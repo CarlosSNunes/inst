@@ -34,7 +34,8 @@ export class RedePlusComponent implements OnInit {
     };
     videoModel: CareplusVideoModel = new CareplusVideoModel({
         bigTitle: 'Assista nosso vídeo da Rede Plus e conheça este nosso diferencial de atendimento',
-        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8'
+        embedSrc: 'https://www.youtube.com/embed/-f9weYoBxD8',
+        htag: 'h3'
     });
     accreditedSection = new InfoSectionModel({
         smallTitle: 'credenciado rede plus',
@@ -45,6 +46,7 @@ export class RedePlusComponent implements OnInit {
             'Com o plano Master International o beneficiário consegue ser atendido pela Rede Plus internacional e vivenciar uma experiência única de saúde. Em território nacional nossa Rede Credenciada inclui um currículo vasto e extenso de profissionais altamente capacitados e conhecidos no mercado, visando oferecer o melhor para os nossos beneficiários. Utilize a Rede Plus e sinta a diferença. '
         ],
         imageSrc: 'assets/img/new-banner-redeplus.png',
+        htag: 'h4'
     });
     cards = Cards;
     constructor(

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { simpleBannerModel, eSocialSection, unidadesSection, occupationalSection, secondCard, firstCard } from './data/medicina-ocupacional-mock';
+import { simpleBannerModel, eSocialSection, unidadesSection, occupationalSection, secondCard, firstCard, servicosPersonalizadosSectionModel } from './data/medicina-ocupacional-mock';
 import { Title, Meta } from '@angular/platform-browser';
-import { IconCardsSectionModel, ButtonModel } from 'src/app/models';
-import PersonalizedServicesCards from './data/personalized-services';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -17,21 +15,7 @@ export class MedicinaOcupacionalComponent implements OnInit {
     occupationalSection = occupationalSection;
     firstCard = firstCard;
     secondCard = secondCard;
-    iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
-        smallTitle: 'SERVIÇOS PERSONALIZADOS',
-        bigTitle: 'Soluções personalizadas em Medicina Ocupacional para a sua empresa',
-        subDescription: 'Conte com os melhores serviços de Medicina Ocupacional. Todos eles seguem à risca as Normas Regulamentadoras (NRs). Confira quais são:',
-        button: new ButtonModel({
-            text: 'Solicite uma Cotação',
-            routerLink: '/fale-conosco/solicite-uma-cotacao',
-            target: '_self',
-            queryParams: {
-                medicinaOcupacional: true
-            }
-        }),
-        cards: PersonalizedServicesCards,
-        columnClass: 'is-4-desktop'
-    });
+    iconCardsSectionModel = servicosPersonalizadosSectionModel;
     constructor(
         private title: Title,
         private meta: Meta

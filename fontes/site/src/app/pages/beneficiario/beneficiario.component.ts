@@ -34,7 +34,8 @@ export class BeneficiarioComponent implements OnInit {
             routerLink: '/a-careplus/gestao-de-saude'
         }),
         cards: Cards,
-        columnClass: 'is-3-desktop'
+        columnClass: 'is-3-desktop',
+        htag: 'h3'
     });
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({

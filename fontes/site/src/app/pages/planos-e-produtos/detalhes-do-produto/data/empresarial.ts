@@ -40,13 +40,15 @@ export default {
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-empresarial',
-                planoSaude:true
+                planoSaude: true
             }
         }),
-        parallax: true
+        parallax: true,
+        htag: 'h2'
     }),
     plansTypes: [
         {
+            htag: 'h3',
             title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
@@ -129,6 +131,7 @@ export default {
                     ]
                 },
                 {
+                    htag: 'h3',
                     type: 'default',
                     title: 'Executivo II',
                     description: 'Um plano diferenciado para colaboradores que tem o plano de saúde como um atributo de decisão na escolha de sua empresa.',
@@ -169,6 +172,7 @@ export default {
             ]
         },
         {
+            htag: 'h3',
             title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
@@ -248,11 +252,13 @@ export default {
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-empresarial',
-                planoOdontologico:true
+                planoOdontologico: true
             }
-        })
+        }),
+        htag: 'h4'
     }),
     hospitalListSection: {
+        htag: 'h5',
         smallTitle: 'Rede Credenciada Planos – Care Plus Empresarial',
         bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus Empresarial'
     },
@@ -358,7 +364,7 @@ export default {
             target: '_self',
             queryParams: {
                 plano: 'careplus-empresarial',
-                planoSaude:true
+                planoSaude: true
             }
         }),
         backgroundColorClass: 'blue-background-color',

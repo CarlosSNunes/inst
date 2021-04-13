@@ -1,8 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { simpleBannerModel, campanhaDeQuestionariosSection, nutriNaEmpresa, nutriMais } from './data/programas-empresariais-mock';
+import { simpleBannerModel, campanhaDeQuestionariosSection, nutriNaEmpresa, nutriMais, gestaoDeSaudeSection } from './data/programas-empresariais-mock';
 import { WindowRef } from 'src/utils/window-ref';
-import { ButtonModel, IconCardsSectionModel } from 'src/app/models';
-import PersonalizedSectionCards from './data/personalized-section-cards';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -15,17 +13,7 @@ export class ProgramasEmpresariaisComponent implements OnInit {
     campanhaDeQuestionariosSection = campanhaDeQuestionariosSection;
     nutriNaEmpresa = nutriNaEmpresa;
     nutriMais = nutriMais;
-    iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
-        smallTitle: 'GESTÃO DE SAÚDE',
-        bigTitle: 'Conheça nossos programas e serviços',
-        subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
-        button: new ButtonModel({
-            text: 'Veja todos os Programas de Saúde',
-            routerLink: '/a-careplus/gestao-de-saude'
-        }),
-        cards: PersonalizedSectionCards,
-        columnClass: 'is-4-desktop'
-    });
+    iconCardsSectionModel = gestaoDeSaudeSection;
 
     constructor(
         private windowRef: WindowRef,

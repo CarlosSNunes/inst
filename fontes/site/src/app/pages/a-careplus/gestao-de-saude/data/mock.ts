@@ -31,12 +31,13 @@ export const infoSections: InfoSectionModel[] = [
     new InfoSectionModel({
         smallTitle: 'GESTÃO DE SAÚDE',
         bigTitle: 'Conheça a Gestão de Saúde, uma iniciativa exclusiva da Care Plus',
-        isH1:true,
+        htag: 'h1',
         subDescription: 'A Gestão de Saúde conta com programas e serviços especiais feitos na medida para você. Desde ações preventivas até descontos em empresas de alimentação saudável e consultoria esportiva.',
         mobileImageHeight: 'auto',
         imageSrc: 'assets/img/conheca-gestao-saude.png',
         alignCenter: true,
-        removeLine: true
+        removeLine: true,
+        id: 'gestao-de-saude'
     }),
     new InfoSectionModel({
         bigTitle: 'Programas Preventivos',
@@ -49,7 +50,9 @@ export const infoSections: InfoSectionModel[] = [
         button: new ButtonModel({
             text: 'Conheça os Programas Preventivos',
             routerLink: '/a-careplus/gestao-de-saude/programas-preventivos'
-        })
+        }),
+        id: 'programas-preventivos',
+        htag: 'h2'
     }),
     new InfoSectionModel({
         bigTitle: 'Serviços On-line',
@@ -60,7 +63,9 @@ export const infoSections: InfoSectionModel[] = [
         button: new ButtonModel({
             text: 'Conheça os Serviços On-line',
             routerLink: '/a-careplus/gestao-de-saude/servicos-online'
-        })
+        }),
+        id: 'servicos-on-line',
+        htag: 'h3'
     }),
     new InfoSectionModel({
         bigTitle: 'Personal System',
@@ -73,7 +78,9 @@ export const infoSections: InfoSectionModel[] = [
         button: new ButtonModel({
             text: 'Conheça o Personal System',
             routerLink: '/a-careplus/gestao-de-saude/personal-system'
-        })
+        }),
+        id: 'personal-system',
+        htag: 'h4'
     }),
     new InfoSectionModel({
         bigTitle: 'Programas Empresariais',
@@ -84,7 +91,8 @@ export const infoSections: InfoSectionModel[] = [
         button: new ButtonModel({
             text: 'Conheça os Programas Empresariais',
             routerLink: '/a-careplus/gestao-de-saude/programas-empresariais'
-        })
+        }),
+        id: 'programas-empresariais'
     }),
     new InfoSectionModel({
         bigTitle: 'Nossas Parcerias',
@@ -97,6 +105,7 @@ export const infoSections: InfoSectionModel[] = [
         button: new ButtonModel({
             text: 'Conheça as Nossas Parcerias',
             routerLink: '/a-careplus/gestao-de-saude/nossas-parcerias'
-        })
+        }),
+        id: 'nossas-parcerias'
     })
 ];

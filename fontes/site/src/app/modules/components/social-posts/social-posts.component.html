@@ -4,12 +4,31 @@
             <div class="columns">
                 <div class="column is-full">
                     <p class="section-breadcrumb">REDES SOCIAIS</p>
-                    <h2 class="h4 title">Care Plus na mídia</h2>
+
+                    <!-- h1 -->
+                    <h1 *ngIf="htag == 'h1'" class="h4 title">Care Plus na mídia</h1>
+
+                    <!-- h2 -->
+                    <h2 *ngIf="htag == 'h2'" class="h4 title">Care Plus na mídia</h2>
+
+                    <!-- h3 -->
+                    <h3 *ngIf="htag == 'h3'" class="h4 title">Care Plus na mídia</h3>
+
+                    <!-- h4 -->
+                    <h4 *ngIf="htag == 'h4'" class="h4 title">Care Plus na mídia</h4>
+
+                    <!-- h5 -->
+                    <h5 *ngIf="htag == 'h5'" class="h4 title">Care Plus na mídia</h5>
+
+                    <!-- h6 -->
+                    <h6 *ngIf="htag == 'h6'" class="h4 title">Care Plus na mídia</h6>
+
                 </div>
             </div>
             <div class="columns posts-columns">
                 <div class="column is-2" *ngFor="let post of posts">
-                    <a class="post" [href]="post.link" [title]="post.title + ' - opens in a new window'" target="_blank">
+                    <a class="post" [href]="post.link" [title]="post.title + ' - opens in a new window'"
+                        target="_blank">
                         <img [src]="post.url" [alt]="post.alt">
                     </a>
                 </div>

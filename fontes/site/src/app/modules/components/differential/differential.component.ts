@@ -10,6 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class DifferentialComponent implements OnInit, AfterViewInit {
     @Input() differentials: DifferentialModel[] = [];
+    @Input() htag: string = 'h5';
     differentialSubscription: Subscription;
     isBrowser: boolean = false;
     currentDifferential = 0;

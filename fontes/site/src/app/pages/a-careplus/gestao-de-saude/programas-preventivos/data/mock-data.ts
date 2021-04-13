@@ -37,7 +37,7 @@ export const checkupDoViajante: InfoSectionModel = new InfoSectionModel({
     imageSrc: 'assets/img/checkup-viajante.jpg',
     removeLine: false,
     objectFit: 'cover',
-    
+    htag: 'h2'
 });
 
 export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
@@ -50,7 +50,8 @@ export const monitoramentoDoCheckup: InfoSectionModel = new InfoSectionModel({
     imageSrc: 'assets/img/monitoramento-checkup.jpg',
     removeLine: false,
     objectFit: 'cover',
-    reverse: true
+    reverse: true,
+    htag: 'h3'
 });
 export const mommyCareSection = new InfoSectionModel({
     smallTitle: 'Programas Preventivos',
@@ -63,7 +64,8 @@ export const mommyCareSection = new InfoSectionModel({
     ],
     imageSrc: 'assets/img/mommy-care.jpg',
     removeLine: false,
-    objectFit: 'cover'
+    objectFit: 'cover',
+    htag: 'h4'
 });
 
 export const gerenciamentoDeDoencasCronicas = new InfoSectionModel({

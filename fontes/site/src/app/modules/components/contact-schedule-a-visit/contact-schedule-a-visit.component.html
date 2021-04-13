@@ -1,7 +1,19 @@
 <section id="contact-schedule-a-visit" [ngClass]="backgroundColorClass">
     <article>
         <div class="container">
-            <h4 class="h4 big-title">{{bigTitle}}</h4>
+
+            <h1 *ngIf="htag == 'h1'" class="h4 big-title">{{bigTitle}}</h1>
+
+            <h2 *ngIf="htag == 'h2'" class="h4 big-title">{{bigTitle}}</h2>
+
+            <h3 *ngIf="htag == 'h3'" class="h4 big-title">{{bigTitle}}</h3>
+
+            <h4 *ngIf="htag == 'h4'" class="h4 big-title">{{bigTitle}}</h4>
+
+            <h5 *ngIf="htag == 'h5'" class="h4 big-title">{{bigTitle}}</h5>
+
+            <h6 *ngIf="htag == 'h6'" class="h4 big-title">{{bigTitle}}</h6>
+
             <div class="columns cards flex-wrap">
                 <div class="column is-6">
                     <app-card class="app-card" [card]="firstCard" (click)="open(firstCard)"></app-card>

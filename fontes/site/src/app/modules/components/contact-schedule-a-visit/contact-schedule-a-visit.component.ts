@@ -11,6 +11,7 @@ import { WindowRef } from 'src/utils/window-ref';
 export class ContactScheduleAVisitComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @Input() bigTitle: string = 'Entre em contato ou agende uma visita';
+    @Input() htag: string = 'h5';
     @Input() firstCard: IconCardModel = new IconCardModel({
         title: 'Central de Atendimento',
         type: 'icon',
@@ -32,7 +33,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
             target: '_self',
         }),
         backgroundColorClass: this.backgroundColorClass
-    })
+    });
     constructor(
         private windowRef: WindowRef,
         private router: Router

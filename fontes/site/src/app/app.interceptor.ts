@@ -70,7 +70,11 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                             return next.handle(request)
                                 .pipe(
                                     timeout(this.timeout),
-                                    retry(this.retryTimes)
+                                    retry(this.retryTimes),
+                                    catchError((error) => {
+                                        this.localStorageService.removeItem('token');
+                                        return throwError(error);
+                                    })
                                 );
 
                         }

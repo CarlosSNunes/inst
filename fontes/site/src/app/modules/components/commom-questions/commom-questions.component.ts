@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-commom-questions',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommomQuestionsComponent implements OnInit {
     isBrowser: boolean = false;
+    @Input() htag: string = 'h5';
     constructor() {
 
     }

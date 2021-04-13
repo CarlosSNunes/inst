@@ -27,8 +27,10 @@ export class PlusNetworkComponent implements OnInit {
     result: string;
     hammer: any;
     width: number = 0;
-    @Input() backgroundColorClass: string = 'white-background-color';
     mobileElement: HTMLElement;
+    @Input() backgroundColorClass: string = 'white-background-color';
+    @Input() htagOne: string = 'h5';
+    @Input() htagTwo: string = 'h5';
 
     constructor(
         private cdRef: ChangeDetectorRef,

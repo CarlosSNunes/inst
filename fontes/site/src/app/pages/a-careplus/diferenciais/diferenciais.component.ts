@@ -35,7 +35,8 @@ export class DiferenciaisComponent implements OnInit {
         button: new ButtonModel({
             text: 'Conheça a Care Plus',
             routerLink: '/a-careplus'
-        })
+        }),
+        htag: 'h3'
     });
     constructor(
         private windowRef: WindowRef,

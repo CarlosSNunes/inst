@@ -44,9 +44,9 @@
             </p>
             <app-accordion class="app-accordion" *ngIf="authorizationQuestionsExtra?.length > 0" [questions]="authorizationQuestionsExtra">
             </app-accordion>
-            <h4 class="big-title is-centered" *ngIf="previaDeReembolso?.length > 0">
+            <h3 class="big-title is-centered" *ngIf="previaDeReembolso?.length > 0">
                 Prévia de Reembolso
-            </h4>
+            </h3>
             <app-accordion class="app-accordion" *ngIf="previaDeReembolso?.length > 0" [questions]="previaDeReembolso">
             </app-accordion>
             <h4 class="big-title is-centered" *ngIf="reembolso?.length > 0">

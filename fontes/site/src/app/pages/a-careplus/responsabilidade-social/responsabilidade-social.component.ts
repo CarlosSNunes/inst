@@ -44,10 +44,9 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         new InfoSectionModel({
             smallTitle: 'PROGRAMAS SOCIAIS E SUSTENTÁVEIS',
             bigTitle: 'Conheça algumas de nossas iniciativas sociais e sustentáveis',
-            // description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et mi, ullamcorper enim phasellus tortor.',
-            // subDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo gravida quam scelerisque molestie vitae eget tempus gravida. Quis quis accumsan etiam enim. Aliquet amet in commodo lobortis et etiam neque enim, ac. Nisi, eros cursus senectus eget ullamcorper tellus etiam et id. ',
             imageSrc: 'assets/img/programas-sociais.png',
-            reverse: false
+            reverse: false,
+            htag: 'h3'
         }),
         new InfoSectionModel({
             smallTitle: 'Multiplicadores de Sorriso',

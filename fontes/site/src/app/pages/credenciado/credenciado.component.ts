@@ -38,6 +38,7 @@ export class CredenciadoComponent implements OnInit {
             title: "Conheça a Care Plus",
             routerLink: "/a-careplus",
         }),
+        htag: 'h2'
     });
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
         smallTitle: "GESTÃO DE SAÚDE",
@@ -51,6 +52,7 @@ export class CredenciadoComponent implements OnInit {
         }),
         cards: Cards,
         columnClass: "is-3-desktop",
+        htag: 'h4'
     });
     breadcrumbs: BreadcrumbModel[] = [
         new BreadcrumbModel({

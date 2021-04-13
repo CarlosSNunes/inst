@@ -1,4 +1,5 @@
-import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel } from 'src/app/models';
+import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, IconCardsSectionModel, ButtonModel } from 'src/app/models';
+import PersonalizedSectionCards from './personalized-section-cards';
 
 export const simpleBannerModel: SimpleBannerModel = {
     title: 'Programa Empresariais',
@@ -37,6 +38,7 @@ export const campanhaDeQuestionariosSection: InfoSectionModel = new InfoSectionM
     imageSrc: 'assets/img/circuito-de-afericoes.jpg',
     removeLine: false,
     objectFit: 'cover',
+    htag: 'h2'
 });
 
 export const nutriNaEmpresa: InfoSectionModel = new InfoSectionModel({
@@ -49,6 +51,7 @@ export const nutriNaEmpresa: InfoSectionModel = new InfoSectionModel({
     reverse: true,
     removeLine: false,
     objectFit: 'cover',
+    htag: 'h3'
 });
 
 export const nutriMais: InfoSectionModel = new InfoSectionModel({
@@ -60,4 +63,18 @@ export const nutriMais: InfoSectionModel = new InfoSectionModel({
     imageSrc: 'assets/img/nutri-mais.jpg',
     removeLine: false,
     objectFit: 'cover',
+    htag: 'h4'
+});
+
+export const gestaoDeSaudeSection: IconCardsSectionModel = new IconCardsSectionModel({
+    smallTitle: 'GESTÃO DE SAÚDE',
+    bigTitle: 'Conheça nossos programas e serviços',
+    subDescription: 'Fique por dentro de tudo o que a Care Plus oferece para proporcionar a melhor experiência em saúde.',
+    button: new ButtonModel({
+        text: 'Veja todos os Programas de Saúde',
+        routerLink: '/planos-e-produtos/gestao-de-saude'
+    }),
+    cards: PersonalizedSectionCards,
+    columnClass: 'is-4-desktop',
+    htag: 'h5'
 });
