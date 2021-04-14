@@ -4,6 +4,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Platform } from '@angular/cdk/platform';
 import { WindowRef } from 'src/utils/window-ref';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-politica-de-privacidade',
@@ -78,6 +79,52 @@ export class PoliticaDePrivacidadeComponent implements OnInit {
         this.meta.updateTag({
             name: 'description',
             content: 'A Care Plus protegerá todas as informações recebidas e que possam identificar os seus clientes e visitantes, inclusive aquelas coletadas por qualquer outro meio que não o eletrônico, tais como cadastros preenchidos em papel ou telefônico.'
+        });
+        
+        this.meta.updateTag({
+            name: "og:title",
+            content: 'Política de Privacidade | Uso de Cookies | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "og:type",
+            content:
+                "website",
+        });
+
+        this.meta.updateTag({
+            name: "og:description",
+            content: 'A Care Plus protegerá todas as informações recebidas e que possam identificar os seus clientes e visitantes, inclusive aquelas coletadas por qualquer outro meio que não o eletrônico, tais como cadastros preenchidos em papel ou telefônico.'
+        });
+
+        this.meta.updateTag({
+            name: "og:url",
+            content: `${environment.SELF_URL}/a-careplus/politica-de-privacidade`,
+        });
+
+        /* 
+            Twitter meta tags
+        */
+
+        this.meta.updateTag({
+            name: "twitter:title",
+            content: 'Política de Privacidade | Uso de Cookies | Care Plus'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:card",
+            content:
+                "summary_large_image",
+        });
+
+        this.meta.updateTag({
+            name: "twitter:description",
+            content: 'A Care Plus protegerá todas as informações recebidas e que possam identificar os seus clientes e visitantes, inclusive aquelas coletadas por qualquer outro meio que não o eletrônico, tais como cadastros preenchidos em papel ou telefônico.'
+        });
+
+        this.meta.updateTag({
+            name: "twitter:url",
+            content: `${environment.SELF_URL}/a-careplus/politica-de-privacidade`,
         });
     }
 

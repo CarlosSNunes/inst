@@ -4,6 +4,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { isPlatformBrowser } from '@angular/common';
 import { Platform } from '@angular/cdk/platform';
 import { Title, Meta } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-responsabilidade-social',
@@ -159,6 +160,59 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             name: 'description',
             content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
         });
+
+         /* 
+            Open graph meta tags
+        */
+            this.meta.updateTag({
+                name: "og:title",
+                content:
+                    'Responsabilidade Social | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "og:type",
+                content:
+                    "website",
+            });
+
+    
+            this.meta.updateTag({
+                name: "og:description",
+                content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
+            });
+    
+            this.meta.updateTag({
+                name: "og:url",
+                content: `${environment.SELF_URL}/a-careplus/responsabilidade-social`,
+            });
+           
+    
+            /* 
+                Twitter meta tags
+            */
+    
+            this.meta.updateTag({
+                name: "twitter:title",
+                content:
+                    'Responsabilidade Social | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:card",
+                content:
+                    "summary_large_image",
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:description",
+                content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:url",
+                content: `${environment.SELF_URL}/a-careplus/responsabilidade-social`,
+            });
     }
 
 }

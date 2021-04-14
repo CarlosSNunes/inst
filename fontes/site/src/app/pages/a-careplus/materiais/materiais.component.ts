@@ -5,6 +5,7 @@ import { FormControlError } from 'src/utils/form-control-error';
 import Materias from './data/materials';
 import { Meta, Title } from '@angular/platform-browser';
 import { remove } from 'remove-accents';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-documentos',
@@ -89,6 +90,59 @@ export class MateriaisComponent implements OnInit {
             name: 'description',
             content: 'Disponibilizamos uma biblioteca de documentos onde você encontra todos os materiais de saúde e da ANS oferecidos pela Care Plus para os seus parceiros.'
         });
+
+         /* 
+            Open graph meta tags
+        */
+            this.meta.updateTag({
+                name: "og:title",
+                content:
+                    'Materiais de Saúde | ANS, Comunicados e Materiais de Apoio | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "og:type",
+                content:
+                    "website",
+            });
+
+    
+            this.meta.updateTag({
+                name: "og:description",
+                content: 'Disponibilizamos uma biblioteca de documentos onde você encontra todos os materiais de saúde e da ANS oferecidos pela Care Plus para os seus parceiros.'
+            });
+    
+            this.meta.updateTag({
+                name: "og:url",
+                content: `${environment.SELF_URL}/a-careplus/materiais-de-saude`,
+            });
+           
+    
+            /* 
+                Twitter meta tags
+            */
+    
+            this.meta.updateTag({
+                name: "twitter:title",
+                content:
+                    'Materiais de Saúde | ANS, Comunicados e Materiais de Apoio | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:card",
+                content:
+                    "summary_large_image",
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:description",
+                content: 'Disponibilizamos uma biblioteca de documentos onde você encontra todos os materiais de saúde e da ANS oferecidos pela Care Plus para os seus parceiros.'
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:url",
+                content: `${environment.SELF_URL}/a-careplus/materiais-de-saude`,
+            });
     }
 
 }

@@ -3,6 +3,7 @@ import { CareplusVideoModel, InfoSectionModel, BreadcrumbModel, SimpleBannerMode
 import { WindowRef } from 'src/utils/window-ref';
 import { Title, Meta } from '@angular/platform-browser';
 import Cards from './data/cards';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-rede-plus',
@@ -74,6 +75,66 @@ export class RedePlusComponent implements OnInit {
             name: 'description',
             content: 'A Rede Plus é a rede credenciada exclusiva e premium da Care Plus, composta pelos melhores profissionais e clínicas de saúde do mercado brasileiro na atualidade.'
         });
+
+         /* 
+            Open graph meta tags
+        */
+            this.meta.updateTag({
+                name: "og:title",
+                content:
+                    'Rede Plus | Rede Credenciada Premium | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "og:type",
+                content:
+                    "website",
+            });
+
+    
+            this.meta.updateTag({
+                name: "og:description",
+                content: 'A Rede Plus é a rede credenciada exclusiva e premium da Care Plus, composta pelos melhores profissionais e clínicas de saúde do mercado brasileiro na atualidade.'
+            });
+    
+            this.meta.updateTag({
+                name: "og:url",
+                content: `${environment.SELF_URL}/a-careplus/rede-plus`,
+            });
+            this.meta.updateTag({
+                name: "og:image",
+                content:`${environment.SELF_URL}/assets/img/new-banner-redeplus.png`,
+            });
+    
+            /* 
+                Twitter meta tags
+            */
+    
+            this.meta.updateTag({
+                name: "twitter:title",
+                content:
+                    'Rede Plus | Rede Credenciada Premium | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:card",
+                content:
+                    "summary_large_image",
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:description",
+                content: 'A Rede Plus é a rede credenciada exclusiva e premium da Care Plus, composta pelos melhores profissionais e clínicas de saúde do mercado brasileiro na atualidade.'
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:url",
+                content: `${environment.SELF_URL}/a-careplus/rede-plus`,
+            });
+            this.meta.updateTag({
+                name: "twitter:image",
+                content:`${environment.SELF_URL}/assets/img/new-banner-redeplus.png`,
+            });
     }
 
 }
