@@ -120,6 +120,7 @@ export const cuidadosDaFamilia = new InfoSectionModel({
     objectFit: 'cover'
 });
 
+// Removida por hora
 export const programaDeCuidadoOncologico = new InfoSectionModel({
     smallTitle: 'Programas Preventivos',
     bigTitle: 'Programa de Cuidado Oncológico',
@@ -144,6 +145,8 @@ export const programaDeCuidadoOncologico = new InfoSectionModel({
     removeLine: false,
     objectFit: 'cover'
 });
+// Removida por hora
+
 
 export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
     smallTitle: 'GESTÃO DE SAÚDE',

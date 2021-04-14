@@ -4,6 +4,10 @@ section {
     .subtitle {
         color: getColor(_bupa, _navy);
         font-weight: 600;
+
+        &.m-t-30 {
+            margin-top: 30px;
+        }
     }
 
     a.subtitle {
