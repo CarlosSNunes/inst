@@ -11,8 +11,13 @@ section {
     }
 
     a.subtitle {
+        display: block;
         &:hover {
             text-decoration: underline;
+        }
+
+        &.m-t-30 {
+            margin-top: 30px;
         }
     }
 
