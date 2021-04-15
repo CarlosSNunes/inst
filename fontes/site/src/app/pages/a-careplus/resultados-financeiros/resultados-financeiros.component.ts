@@ -131,6 +131,10 @@ export class ResultadosFinanceirosComponent implements OnInit {
                 content: `${environment.SELF_URL}/a-careplus/resultados-financeiros`,
             });
            
+            this.meta.updateTag({
+                name: "og:image",
+                content:`${environment.SELF_URL}/assets/img/banner-relatorios-financeiros.jpg`,
+            });
     
             /* 
                 Twitter meta tags
@@ -156,6 +160,11 @@ export class ResultadosFinanceirosComponent implements OnInit {
             this.meta.updateTag({
                 name: "twitter:url",
                 content: `${environment.SELF_URL}/a-careplus/resultados-financeiros`,
+            });
+
+            this.meta.updateTag({
+                name: "twitter:image",
+                content:`${environment.SELF_URL}/assets/img/banner-relatorios-financeiros.jpg`,
             });
     }
 
