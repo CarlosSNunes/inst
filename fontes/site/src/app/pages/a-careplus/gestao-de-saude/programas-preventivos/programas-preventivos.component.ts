@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { simpleBannerModel, mommyCareSection, gerenciamentoDeDoencasCronicas, programaDeAcolhimento, mentalHealth, cuidadosDaFamilia, iconCardsSectionModel, checkupDoViajante, monitoramentoDoCheckup } from './data/mock-data';
 import { Title, Meta } from '@angular/platform-browser';
 import { WindowRef } from 'src/utils/window-ref';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -36,8 +37,68 @@ export class ProgramasPreventivosComponent implements OnInit {
         this.title.setTitle('Programas Preventivos | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'A Care Plus oferece programas preventivos para você começar a cuidar da saúde, desta forma, além de reduzir o risco de patologias, você pode levar uma vida mais saudável e segura.'
+            content: 'Programas Preventivos | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus'
         });
+
+         /* 
+            Open graph meta tags
+        */
+            this.meta.updateTag({
+                name: "og:title",
+                content:
+                    'Programas Preventivos | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "og:type",
+                content:
+                    "website",
+            });
+
+    
+            this.meta.updateTag({
+                name: "og:description",
+                content: 'Confira aqui as perguntas frequentes dos Beneficiários, RHs, Corretores e Credenciados e encontre respostas e soluções para suas dúvidas.'
+            });
+    
+            this.meta.updateTag({
+                name: "og:url",
+                content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude/programas-preventivos`,
+            });
+            this.meta.updateTag({
+                name: "og:image",
+                content:`${environment.SELF_URL}/assets/img/programas-preventivos.jpg`,
+            });
+    
+            /* 
+                Twitter meta tags
+            */
+    
+            this.meta.updateTag({
+                name: "twitter:title",
+                content:
+                    'Programas Preventivos | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:card",
+                content:
+                    "summary_large_image",
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:description",
+                content: 'Confira aqui as perguntas frequentes dos Beneficiários, RHs, Corretores e Credenciados e encontre respostas e soluções para suas dúvidas.'
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:url",
+                content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude/programas-preventivos`,
+            });
+            this.meta.updateTag({
+                name: "twitter:image",
+                content:`${environment.SELF_URL}/assets/img/programas-preventivos.jpg`,
+            });
     }
 
     goToSection(anchor: string) {
