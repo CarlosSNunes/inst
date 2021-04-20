@@ -18,7 +18,7 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
     image: 'assets/img/banner-documentos.jpg'
 });
 
-export const materiais = [
+export const materiais: CardModel[] = [
     new CardModel({
         type: 'default',
         title: 'ANS - Norma Técnica Nº 45',
@@ -58,53 +58,54 @@ export const materiais = [
         button: new ButtonModel({
             link: 'assets/documents/ANS_RN_389_Anexo_1.pdf'
         }),
-        size:{
+        size: {
             placeholder: '(143kb)',
             file_size: '143783'
-        } 
-    }),
-    new CardModel({
-        type: 'default',
-        title: 'Contratos Coletivos do Pool de Risco 2013',
-        button: new ButtonModel({
-            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2013.pdf'
-        }),
-        size: {
-            placeholder: '(33kb)',
-            file_size: '33379'
         }
     }),
     new CardModel({
         type: 'default',
-        title: 'Contratos Coletivos do Pool de Risco 2014',
+        title: 'Contratos Coletivos do Pool de Risco 2021',
         button: new ButtonModel({
-            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2014.pdf'
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2021.pdf',
         }),
         size: {
-            placeholder: '(459kb)',
-            file_size: '459208'
+            placeholder: '(107kb)',
+            file_size: '109148'
         }
     }),
     new CardModel({
         type: 'default',
-        title: 'Contratos Coletivos do Pool de Risco 2015',
+        title: 'Contratos Coletivos do Pool de Risco 2020',
         button: new ButtonModel({
-            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2015.pdf'
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2020.pdf'
         }),
         size: {
-            placeholder: '(60kb)',
-            file_size: '60329'
+            placeholder: '(112kb)',
+            file_size: '112167'
         }
     }),
     new CardModel({
         type: 'default',
-        title: 'Contratos Coletivos do Pool de Risco 2016',
+        title: 'Contratos Coletivos do Pool de Risco 2019',
         button: new ButtonModel({
-            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2016.pdf'
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2019.pdf'
         }),
         size: {
-            placeholder: '(386kb)',
-            file_size: '386757'
+            placeholder: '(343kb)',
+            file_size: '343374'
+        }
+
+    }),
+    new CardModel({
+        type: 'default',
+        title: 'Contratos Coletivos do Pool de Risco 2018',
+        button: new ButtonModel({
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2018.pdf'
+        }),
+        size: {
+            placeholder: '(316kb)',
+            file_size: '316584'
         }
     }),
     new CardModel({
@@ -120,36 +121,46 @@ export const materiais = [
     }),
     new CardModel({
         type: 'default',
-        title: 'Contratos Coletivos do Pool de Risco 2018',
+        title: 'Contratos Coletivos do Pool de Risco 2016',
         button: new ButtonModel({
-            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2018.pdf'
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2016.pdf'
         }),
         size: {
-            placeholder: '(316kb)',
-            file_size: '316584'
+            placeholder: '(386kb)',
+            file_size: '386757'
         }
     }),
     new CardModel({
         type: 'default',
-        title: 'Contratos Coletivos do Pool de Risco 2019',
+        title: 'Contratos Coletivos do Pool de Risco 2015',
         button: new ButtonModel({
-            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2019.pdf'
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2015.pdf'
         }),
         size: {
-            placeholder: '(343kb)',
-            file_size: '343374'
+            placeholder: '(60kb)',
+            file_size: '60329'
         }
-        
     }),
     new CardModel({
         type: 'default',
-        title: 'Contratos Coletivos do Pool de Risco 2020',
+        title: 'Contratos Coletivos do Pool de Risco 2014',
         button: new ButtonModel({
-            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2020.pdf'
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2014.pdf'
         }),
         size: {
-            placeholder: '(112kb)',
-            file_size: '112167'
+            placeholder: '(459kb)',
+            file_size: '459208'
         }
     }),
+    new CardModel({
+        type: 'default',
+        title: 'Contratos Coletivos do Pool de Risco 2013',
+        button: new ButtonModel({
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2013.pdf'
+        }),
+        size: {
+            placeholder: '(33kb)',
+            file_size: '33379'
+        }
+    })
 ];
