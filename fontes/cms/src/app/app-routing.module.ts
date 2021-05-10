@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { AuthGuard } from './authentication/auth.service';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { BlankContainerComponent } from './layout/blank-container/blank-container.component';
 import { ContainerComponent } from './layout/container/container.component';
