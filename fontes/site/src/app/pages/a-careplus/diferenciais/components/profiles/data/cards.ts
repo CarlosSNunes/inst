@@ -1,4 +1,4 @@
-import { ButtonModel, CardModel } from 'src/app/models';
+import { CardModel } from 'src/app/models';
 
 export default [
     new CardModel({

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, Inject } from '@angular/core';
 import { Router, NavigationEnd, Params } from '@angular/router';
 import { RouteModel, SubMenu } from 'src/app/models';
 import { routes } from 'src/utils/route-names';
