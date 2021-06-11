@@ -2,9 +2,12 @@
     <article>
         <div class="container">
             <div class="columns">
-                <div class="column left-column is-hidden-touch" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
-                    <img [src]="differential.image" [alt]="'Diferenciais de ' + differentials[currentDifferential]?.title"/>
-                    <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
+                <div class="column left-column is-hidden-touch" [class.active]="differential.active"
+                    *ngFor="let differential of differentials; let i = index;">
+                    <img [src]="differential.image"
+                        [alt]="'Diferenciais de ' + differentials[currentDifferential]?.title" />
+                    <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais"
+                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
                         Conheça nossos Diferenciais
                     </a>
                 </div>
@@ -15,11 +18,41 @@
                     <p class="small-title">
                         Diferenciais da Care Plus
                     </p>
-                    <h3 class="h4 big-title">
+
+                    <!-- h1 -->
+                    <h1 *ngIf="htag == 'h1'" class="h4 big-title">
+                        3 das 5 empresas mais valiosas do mundo escolhem a Care Plus
+                    </h1>
+
+                    <!-- h2 -->
+                    <h2 *ngIf="htag == 'h2'" class="h4 big-title">
+                        3 das 5 empresas mais valiosas do mundo escolhem a Care Plus
+                    </h2>
+
+                    <!-- h3 -->
+                    <h3 *ngIf="htag == 'h3'" class="h4 big-title">
                         3 das 5 empresas mais valiosas do mundo escolhem a Care Plus
                     </h3>
-                    <div class="is-hidden-desktop mobile-image" [class.active]="differential.active" *ngFor="let differential of differentials; let i = index;">
-                        <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop">
+
+                    <!-- h4 -->
+                    <h4 *ngIf="htag == 'h4'" class="h4 big-title">
+                        3 das 5 empresas mais valiosas do mundo escolhem a Care Plus
+                    </h4>
+
+                    <!-- h5 -->
+                    <h5 *ngIf="htag == 'h5'" class="h4 big-title">
+                        3 das 5 empresas mais valiosas do mundo escolhem a Care Plus
+                    </h5>
+
+                    <!-- h6 -->
+                    <h6 *ngIf="htag == 'h6'" class="h4 big-title">
+                        3 das 5 empresas mais valiosas do mundo escolhem a Care Plus
+                    </h6>
+
+                    <div class="is-hidden-desktop mobile-image" [class.active]="differential.active"
+                        *ngFor="let differential of differentials; let i = index;">
+                        <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais"
+                            class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop">
                             Conheça nossos Diferenciais
                         </a>
                     </div>
@@ -27,11 +60,13 @@
                         <div class="accordion-item open" [class.active]="differential.active"
                             *ngFor="let differential of differentials; let i = index;">
                             <div class="height-percentage"></div>
-                            <h4 class="accordion-item-heading" [class.active]="differential.active"
+                            <p class="accordion-item-heading" [class.active]="differential.active"
                                 (click)="activate(i)">
                                 {{differential.title}}
-                            </h4>
-                            <div class="accordion-item-content" #accordionContent [style.height.px]="differential.active ? accordionContent.scrollHeight : 0" [class.active]="differential.active">
+                            </p>
+                            <div class="accordion-item-content" #accordionContent
+                                [style.height.px]="differential.active ? accordionContent.scrollHeight : 0"
+                                [class.active]="differential.active">
                                 <p>
                                     {{differential.content}}
                                 </p>

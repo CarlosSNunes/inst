@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class JoinTheTeamComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @Input() reverse: boolean = false;
+    @Input() htag: string = 'h5';
     constructor() { }
 
     ngOnInit() {

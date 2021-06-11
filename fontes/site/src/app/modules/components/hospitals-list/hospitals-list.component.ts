@@ -11,6 +11,7 @@ import TableHeadItems from './data/table-head-itens';
 export class HospitalsListComponent implements OnInit, OnChanges {
     @Input() bigTitle: string = 'Veja todos os hospitais e laboratórios de cada plano';
     @Input() smallTitle: string = 'HOSPITAIS DA REDE CLUB CARE PLUS';
+    @Input() htag: string = 'h5';
     @Input() customHospitals: HospitalList;
     @Input() tableHead: { id: string, title: string }[] = [];
     allStates: DropDownItem[] = [];
@@ -24,7 +25,9 @@ export class HospitalsListComponent implements OnInit, OnChanges {
     selectedType: DropDownItem = new DropDownItem({ title: '', value: '' });
     selectedPlan: DropDownItem = new DropDownItem({ title: '', value: '' });
 
-    constructor() { }
+    constructor() {
+
+    }
 
 
     ngOnInit() {

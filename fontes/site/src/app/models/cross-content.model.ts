@@ -2,6 +2,7 @@ import { ButtonModel } from './button.model';
 
 export class CrossContentModel {
     constructor(init?: Partial<CrossContentModel>) {
+        this.htag = 'h3';
         Object.assign(this, init)
     }
 
@@ -9,6 +10,7 @@ export class CrossContentModel {
     firstImage?: Image;
     secondImage?: Image;
     boxContent?: BoxContent;
+    htag: string = 'h3';
 }
 
 class Image {

@@ -6,6 +6,7 @@ import { FormControlError } from 'src/utils/form-control-error';
 import Documents from './data/documents';
 import TableItems from './data/table-mock';
 import Cards from './data/cards';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-resultados-financeiros',
@@ -103,6 +104,68 @@ export class ResultadosFinanceirosComponent implements OnInit {
             name: 'description',
             content: 'A Care Plus preza pela transparência e responsabilidade na prestação de contas. Aqui, você encontra os últimos resultados financeiros da Care Plus.'
         });
+
+         /* 
+            Open graph meta tags
+        */
+            this.meta.updateTag({
+                name: "og:title",
+                content:
+                    'Resultados Financeiros | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "og:type",
+                content:
+                    "website",
+            });
+
+    
+            this.meta.updateTag({
+                name: "og:description",
+                content: 'A Care Plus preza pela transparência e responsabilidade na prestação de contas. Aqui, você encontra os últimos resultados financeiros da Care Plus.'
+            });
+    
+            this.meta.updateTag({
+                name: "og:url",
+                content: `${environment.SELF_URL}/a-careplus/resultados-financeiros`,
+            });
+           
+            this.meta.updateTag({
+                name: "og:image",
+                content:`${environment.SELF_URL}/assets/img/banner-relatorios-financeiros.jpg`,
+            });
+    
+            /* 
+                Twitter meta tags
+            */
+    
+            this.meta.updateTag({
+                name: "twitter:title",
+                content:
+                    'Resultados Financeiros | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:card",
+                content:
+                    "summary_large_image",
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:description",
+                content: 'A Care Plus preza pela transparência e responsabilidade na prestação de contas. Aqui, você encontra os últimos resultados financeiros da Care Plus.'
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:url",
+                content: `${environment.SELF_URL}/a-careplus/resultados-financeiros`,
+            });
+
+            this.meta.updateTag({
+                name: "twitter:image",
+                content:`${environment.SELF_URL}/assets/img/banner-relatorios-financeiros.jpg`,
+            });
     }
 
     filter() {

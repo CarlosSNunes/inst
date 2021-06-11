@@ -6,9 +6,37 @@
                     <p class="small-title">
                         CARE PLUS +
                     </p>
-                    <h2 class="h4 big-title">
+
+                    <!-- h1 -->
+                    <h1 *ngIf="htag == 'h1'" class="h4 big-title">
+                        {{title}}
+                    </h1>
+
+                    <!-- h2 -->
+                    <h2 *ngIf="htag == 'h2'" class="h4 big-title">
                         {{title}}
                     </h2>
+
+                    <!-- h3 -->
+                    <h3 *ngIf="htag == 'h3'" class="h4 big-title">
+                        {{title}}
+                    </h3>
+
+                    <!-- h4 -->
+                    <h4 *ngIf="htag == 'h4'" class="h4 big-title">
+                        {{title}}
+                    </h4>
+
+                    <!-- h5 -->
+                    <h5 *ngIf="htag == 'h5'" class="h4 big-title">
+                        {{title}}
+                    </h5>
+
+                    <!-- h6 -->
+                    <h6 *ngIf="htag == 'h6'" class="h4 big-title">
+                        {{title}}
+                    </h6>
+
                     <a routerLink="/careplus-mais"
                         class="btn btn-digital-cian tertiary medium arrow-right right-button is-hidden-touch"
                         title="Ver Todos">

@@ -50,6 +50,7 @@ export class RhComponent implements OnInit {
             text: "Simular Planos e Produtos",
             action: () => this.simularesService.open(),
         }),
+        htag: 'h2'
     });
     iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel({
         smallTitle: "GESTÃO DE SAÚDE",
@@ -59,7 +60,7 @@ export class RhComponent implements OnInit {
             "Mais do que cuidado, a Care Plus proporciona facilidade e comodidade para todos os beneficiários e empresas.",
         button: new ButtonModel({
             text: "Conheça Nossos Programas",
-            routerLink: "/planos-e-produtos/gestao-de-saude",
+            routerLink: "/a-careplus/gestao-de-saude",
         }),
         cards: Cards,
         columnClass: "is-3-desktop",

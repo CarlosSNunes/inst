@@ -6,8 +6,8 @@
                     <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
                 </div>
             </div>
-            <div class="columns site-map flex-wrap is-hidden-down-tablet">
-                <div class="column is-half-tablet is-full-mobile is-2-desktop">
+            <div class="columns site-map flex-wrap">
+                <div class="column is-half-tablet-only">
                     <p class="subtitle">
                         Nossos Parceiros
                     </p>
@@ -27,10 +27,10 @@
                         Para o Credenciado
                     </a>
                 </div>
-                <div class="column is-half-tablet is-full-mobile is-2-desktop">
-                    <p class="subtitle">
+                <div class="column is-half-tablet-only">
+                    <a routerLink="/a-careplus" title="A Care Plus" class="heading5 subtitle">
                         A Care Plus
-                    </p>
+                    </a>
                     <a routerLink="/a-careplus" title="A Empresa">
                         A Empresa
                     </a>
@@ -39,21 +39,21 @@
                         Diferenciais
                     </a>
                     <br>
+                    <a routerLink="/a-careplus/rede-plus" title="Rede Plus">
+                        Rede Plus
+                    </a>
+                    <br>
+                    <a routerLink="/a-careplus/gestao-de-saude" title="Gestão de Saúde">
+                        Gestão de Saúde
+                    </a>
+                    <br>
                     <a routerLink="/a-careplus/responsabilidade-social"
                         title="Sustentabilidade / Responsabilidade Social">
                         Responsabilidade Social
                     </a>
                     <br>
-                    <a routerLink="/a-careplus/rede-plus" title="Rede Plus">
-                        Rede Plus
-                    </a>
-                    <br>
                     <a routerLink="/a-careplus/perguntas-frequentes" title="Perguntas Frequentes">
                         Perguntas Frequentes
-                    </a>
-                    <br>
-                    <a routerLink="/a-careplus/resultados-financeiros" title="Resultados Financeiros">
-                        Resultados Financeiros
                     </a>
                     <br>
                     <a routerLink="/a-careplus/materiais-de-saude" title="Materiais de Saúde">
@@ -64,40 +64,39 @@
                         Termos e Condições
                     </a>
                     <br>
-                    <a routerLink="/a-careplus/politica-de-privacidade" title="Política de Privacidade">
+                    <a routerLink="/a-careplus_privacy/politica-de-privacidade" title="Política de Privacidade">
                         Política de Privacidade
                     </a>
-                </div>
-                <div class="column is-half-tablet is-full-mobile is-2-desktop">
-                    <p class="subtitle">
-                        Planos
-                    </p>
-                    <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Saúde">
-                        Plano de Saúde
-                    </a>
                     <br>
-                    <a routerLink="/planos-e-produtos" fragment="planos" title="Plano de Odontológico">
-                        Plano de Odontológico
-                    </a>
-                    <br>
-
-                </div>
-                <div class="column is-half-tablet is-full-mobile is-2-desktop">
-                    <p class="subtitle">
-                        Produtos
-                    </p>
-                    <a routerLink="/planos-e-produtos/medicina-ocupacional" title="Medicina Ocupacional">
-                        Medicina Ocupacional
-                    </a>
-                    <br>
-                    <a routerLink="/planos-e-produtos/gestao-de-saude" title="Gestão de Saúde">
-                        Gestão de Saúde
+                    <a routerLink="/a-careplus/resultados-financeiros" title="Resultados Financeiros">
+                        Resultados Financeiros
                     </a>
                 </div>
-                <div class="column is-half-tablet is-full-mobile is-2-desktop">
-                    <p class="subtitle">
+                <div class="column is-half-tablet-only">
+                    <a routerLink="/planos-e-produtos" title="Planos e Produtos" class="heading5 subtitle">
+                        Planos e Produtos
+                    </a>
+                    <a routerLink="/planos-e-produtos" fragment="planos" title="Care Plus Saúde">
+                        Care Plus Saúde
+                    </a>
+                    <br>
+                    <a routerLink="/planos-e-produtos" fragment="planos" title="Care Plus Dental">
+                        Care Plus Dental
+                    </a>
+                    <br>
+                    <a routerLink="/planos-e-produtos/medicina-ocupacional" title="Care Plus Ocupacional">
+                        Care Plus Ocupacional
+                    </a>
+                    <br>
+                    <a href="https://www.masterinternational.com.br/" target="_blank" rel="noopener noreferrer"
+                        title="Master International">
+                        Master International
+                    </a>
+                </div>
+                <div class="column is-half-tablet-only">
+                    <a routerLink="/carreiras" title="Carreiras" class="subtitle">
                         Carreiras
-                    </p>
+                    </a>
                     <a routerLink="/carreiras" title="Carreiras">
                         Carreiras
                     </a>
@@ -120,10 +119,10 @@
                         Pesquisa de Satisfação
                     </a>
                 </div>
-                <div class="column is-half-tablet is-full-mobile is-2-desktop">
-                    <p class="subtitle">
+                <div class="column is-half-tablet-only">
+                    <a routerLink="/fale-conosco" title="Fale Conosco" class="subtitle">
                         Fale Conosco
-                    </p>
+                    </a>
                     <a routerLink="/fale-conosco/solicite-uma-cotacao" title="Solicite uma Cotação">
                         Solicite uma Cotação
                     </a>
@@ -149,7 +148,6 @@
                         rel="noopener noreferrer" title="Substituição de Rede opens in a new window">
                         Substituição de Rede
                     </a>
-                    <br>
                     <br>
                     <a class="subtitle m-t-30" routerLink="/careplus-mais" title="Care Plus +">
                         Care Plus +

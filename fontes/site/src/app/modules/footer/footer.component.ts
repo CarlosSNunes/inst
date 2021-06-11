@@ -27,7 +27,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
         type: 'icon',
         button: new ButtonModel({
             text: 'Central de Atendimento',
-            link: 'tel:11 4197-9000',
+            link: 'tel:01141979000',
             target: '_self'
         }),
         imagePath: 'assets/svg/phone-white.svg',

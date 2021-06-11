@@ -40,13 +40,15 @@ export default {
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-empresarial',
-                planoSaude:true
+                planoSaude: true
             }
         }),
-        parallax: true
+        parallax: true,
+        htag: 'h2'
     }),
     plansTypes: [
         {
+            htag: 'h3',
             title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: true,
@@ -129,6 +131,7 @@ export default {
                     ]
                 },
                 {
+                    htag: 'h3',
                     type: 'default',
                     title: 'Executivo II',
                     description: 'Um plano diferenciado para colaboradores que tem o plano de saúde como um atributo de decisão na escolha de sua empresa.',
@@ -169,6 +172,7 @@ export default {
             ]
         },
         {
+            htag: 'h3',
             title: 'Planos Care Plus Empresarial',
             description: 'Selecione ao lado qual tipo de plano gostaria de visualizar.',
             active: false,
@@ -248,11 +252,13 @@ export default {
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-empresarial',
-                planoOdontologico:true
+                planoOdontologico: true
             }
-        })
+        }),
+        htag: 'h4'
     }),
     hospitalListSection: {
+        htag: 'h5',
         smallTitle: 'Rede Credenciada Planos – Care Plus Empresarial',
         bigTitle: 'Conheça todos os hospitais e laboratórios disponíveis para os Planos – Care Plus Empresarial'
     },
@@ -275,7 +281,7 @@ export default {
         subDescription: 'Mais do que cuidado, proporcionamos facilidade e comodidade para todos os nossos beneficiários e empresas.',
         button: new ButtonModel({
             text: 'Conheça o Gestão de Saúde',
-            routerLink: '/planos-e-produtos/gestao-de-saude'
+            routerLink: '/a-careplus/gestao-de-saude'
         }),
         cards: [
             new IconCardModel({
@@ -283,7 +289,7 @@ export default {
                 "title": "Programas Preventivos",
                 "description": "A Care Plus oferece diversos programas preventivos de saúde e acompanhamento, uma vida saudável.",
                 "imagePath": "assets/svg/shield.svg",
-                "routerLink": "/planos-e-produtos/gestao-de-saude/programas-preventivos"
+                "routerLink": "/a-careplus/gestao-de-saude/programas-preventivos"
             }),
             new IconCardModel({
                 "type": "icon",
@@ -291,21 +297,21 @@ export default {
                 "description": "Os beneficiários podem aproveitar alguns serviços a distância com a qualidade, o carinho e o cuidado que só a Care Plus tem.",
                 "imagePath": "assets/svg/monitor-screen.svg",
                 "backgroundColorClass": "white-background-color",
-                "routerLink": "/planos-e-produtos/gestao-de-saude/servicos-online"
+                "routerLink": "/a-careplus/gestao-de-saude/servicos-online"
             }),
             new IconCardModel({
                 "type": "icon",
                 "title": "Personal System",
                 "description": "A Care Plus oferece consultas em clínicas próprias com médicos, nutricionistas e psicólogos. Conheça os programas.",
                 "imagePath": "assets/svg/doctor.svg",
-                "routerLink": "/planos-e-produtos/gestao-de-saude/personal-system"
+                "routerLink": "/a-careplus/gestao-de-saude/personal-system"
             }),
             new IconCardModel({
                 "type": "icon",
                 "title": "Programas Empresariais",
                 "description": "A Care Plus disponibiliza  médicos, nutricionistas, enfermeiras e psicólogos para realizar atendimento no ambiente das empresas.",
                 "imagePath": "assets/svg/doctorphone.svg",
-                "routerLink": "/planos-e-produtos/gestao-de-saude/programas-empresariais"
+                "routerLink": "/a-careplus/gestao-de-saude/programas-empresariais"
             })
         ],
         columnClass: 'is-3-desktop'
@@ -358,7 +364,7 @@ export default {
             target: '_self',
             queryParams: {
                 plano: 'careplus-empresarial',
-                planoSaude:true
+                planoSaude: true
             }
         }),
         backgroundColorClass: 'blue-background-color',

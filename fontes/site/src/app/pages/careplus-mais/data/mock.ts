@@ -14,7 +14,7 @@ export const crossContentModel: CrossContentModel = new CrossContentModel({
         description: 'Serviços à distância com qualidade, carinho e cuidado. Conheça os serviços que a Care Plus disponibiliza à distância para seus beneficiários.',
         button: new ButtonModel({
             text: 'Conheça os Serviços On-line',
-            routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online'
+            routerLink: '/a-careplus/gestao-de-saude/servicos-online'
         })
     }
 });

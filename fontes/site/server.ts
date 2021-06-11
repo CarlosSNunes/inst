@@ -85,6 +85,30 @@ app.set('views', DIST_FOLDER);
 
 // Redirects
 
+app.get('/produtos-e-planos/gestao-de-saude', (req, res) => {
+    res.redirect(301, '/a-careplus/gestao-de-saude');
+});
+
+app.get('/produtos-e-planos/gestao-de-saude/programas-preventivos', (req, res) => {
+    res.redirect(301, '/a-careplus/gestao-de-saude/programas-preventivos');
+});
+
+app.get('/produtos-e-planos/gestao-de-saude/servicos-online', (req, res) => {
+    res.redirect(301, '/a-careplus/gestao-de-saude/servicos-online');
+});
+
+app.get('/produtos-e-planos/gestao-de-saude/personal-system', (req, res) => {
+    res.redirect(301, '/a-careplus/gestao-de-saude/personal-system');
+});
+
+app.get('/produtos-e-planos/gestao-de-saude/programas-empresariais', (req, res) => {
+    res.redirect(301, '/a-careplus/gestao-de-saude/programas-empresariais');
+});
+
+app.get('/produtos-e-planos/gestao-de-saude/nossas-parcerias', (req, res) => {
+    res.redirect(301, '/a-careplus/gestao-de-saude/nossas-parcerias');
+});
+
 app.get('/fale-conosco_contact/solicite-uma-cotacao', (req, res) => {
     res.redirect(301, '/fale-conosco/solicite-uma-cotacao');
 });
@@ -380,6 +404,16 @@ app.get('/soho/admin', (req, res) => {
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 // Serve static files from /browser
+app.get('*.*', (req, res, next) => {
+    if (env.production) {
+        var result = req.url.match(new RegExp('web.config', 'gi'));
+        if (result) {
+            return res.status(404).end('404 Not Found')
+        }
+    }
+    next()
+});
+
 app.get('*.*', express.static(DIST_FOLDER, {
     maxAge: '1y'
 }));

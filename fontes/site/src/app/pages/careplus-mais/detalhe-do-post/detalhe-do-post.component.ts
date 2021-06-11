@@ -24,7 +24,8 @@ export class DetalheDoPostComponent implements OnInit {
         bigTitle: 'Fique por dentro dos conteúdos mais recentes',
         cards: [],
         columnClass: 'is-3-desktop',
-        cendered: false
+        cendered: false,
+        htag: 'h3'
     });
     pageURL: string;
     isBrowser: boolean = false;

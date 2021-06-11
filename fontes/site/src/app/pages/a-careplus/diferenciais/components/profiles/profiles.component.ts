@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilesComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
+    @Input() htag: string = 'h5';
     @ViewChild('activeLine', { static: false }) activeLine: ElementRef<HTMLElement>;
     @ViewChild('firstTab', { static: false }) firstTab: ElementRef<HTMLElement>;
     selectedTab: number = 1;

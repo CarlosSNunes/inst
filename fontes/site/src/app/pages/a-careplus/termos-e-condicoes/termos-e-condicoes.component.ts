@@ -4,6 +4,7 @@ import { WindowRef } from 'src/utils/window-ref';
 import { Platform } from '@angular/cdk/platform';
 import { isPlatformBrowser } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-termos-e-condicoes',
@@ -59,6 +60,59 @@ export class TermosECondicoesComponent implements OnInit {
             name: 'description',
             content: 'Confira os termos e condições gerais de uso e aquisição de planos e produtos relacionados ao site da Care Plus.'
         });
+
+         /* 
+            Open graph meta tags
+        */
+            this.meta.updateTag({
+                name: "og:title",
+                content:
+                    'Termos e Condições | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "og:type",
+                content:
+                    "website",
+            });
+
+    
+            this.meta.updateTag({
+                name: "og:description",
+                content: 'Confira os termos e condições gerais de uso e aquisição de planos e produtos relacionados ao site da Care Plus.'
+            });
+    
+            this.meta.updateTag({
+                name: "og:url",
+                content: `${environment.SELF_URL}/a-careplus/termos-e-condicoes`,
+            });
+           
+    
+            /* 
+                Twitter meta tags
+            */
+    
+            this.meta.updateTag({
+                name: "twitter:title",
+                content:
+                    'Termos e Condições | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:card",
+                content:
+                    "summary_large_image",
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:description",
+                content: 'Confira os termos e condições gerais de uso e aquisição de planos e produtos relacionados ao site da Care Plus.'
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:url",
+                content: `${environment.SELF_URL}/a-careplus/termos-e-condicoes`,
+            });
     }
 
 }

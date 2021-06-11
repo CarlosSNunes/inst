@@ -16,6 +16,7 @@ import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { remove } from 'remove-accents';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-faq',
@@ -173,6 +174,65 @@ export class FaqComponent implements OnInit, AfterViewInit {
             name: 'description',
             content: 'Confira aqui as perguntas frequentes dos Beneficiários, RHs, Corretores e Credenciados e encontre respostas e soluções para suas dúvidas.'
         });
+         /* 
+            Open graph meta tags
+        */
+            this.meta.updateTag({
+                name: "og:title",
+                content:
+                    'Perguntas Frequentes | FAQ | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "og:type",
+                content:
+                    "website",
+            });
+
+    
+            this.meta.updateTag({
+                name: "og:description",
+                content: 'Confira aqui as perguntas frequentes dos Beneficiários, RHs, Corretores e Credenciados e encontre respostas e soluções para suas dúvidas.'
+            });
+    
+            this.meta.updateTag({
+                name: "og:url",
+                content: `${environment.SELF_URL}/a-careplus/perguntas-frequentes`,
+            });
+            this.meta.updateTag({
+                name: "og:image",
+                content:`${environment.SELF_URL}/assets/img/banner-faq.jpg`,
+            });
+    
+            /* 
+                Twitter meta tags
+            */
+    
+            this.meta.updateTag({
+                name: "twitter:title",
+                content:
+                    'Perguntas Frequentes | FAQ | Care Plus',
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:card",
+                content:
+                    "summary_large_image",
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:description",
+                content: 'Confira aqui as perguntas frequentes dos Beneficiários, RHs, Corretores e Credenciados e encontre respostas e soluções para suas dúvidas.'
+            });
+    
+            this.meta.updateTag({
+                name: "twitter:url",
+                content: `${environment.SELF_URL}/a-careplus/perguntas-frequentes`,
+            });
+            this.meta.updateTag({
+                name: "twitter:image",
+                content:`${environment.SELF_URL}/assets/img/banner-faq.jpg`,
+            });
     }
 
     injectRichSnippet(infos) {

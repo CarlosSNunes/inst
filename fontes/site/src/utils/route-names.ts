@@ -110,27 +110,27 @@ export const routes: RouteModel[] = [
         description: 'Planos e Produtos - Medicina Ocupacional'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/gestao-de-saude',
+        route: '/a-careplus/gestao-de-saude',
         description: 'Gestão de Saúde'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/gestao-de-saude/personal-system',
+        route: '/a-careplus/gestao-de-saude/personal-system',
         description: 'Gestão de Saúde - Personal System'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
+        route: '/a-careplus/gestao-de-saude/programas-preventivos',
         description: 'Gestão de Saúde - Programas Preventivos'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/gestao-de-saude/servicos-online',
+        route: '/a-careplus/gestao-de-saude/servicos-online',
         description: 'Gestão de Saúde - Serviços On-line'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/gestao-de-saude/programas-empresariais',
+        route: '/a-careplus/gestao-de-saude/programas-empresariais',
         description: 'Gestão de Saúde - Programas Empresariais'
     }),
     new RouteModel({
-        route: '/planos-e-produtos/gestao-de-saude/nossas-parcerias',
+        route: '/a-careplus/gestao-de-saude/nossas-parcerias',
         description: 'Gestão de Saúde - Nossas Parcerias'
     }),
     new RouteModel({

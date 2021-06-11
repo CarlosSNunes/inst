@@ -1,0 +1,9 @@
+<app-hero-banner [heroBannerModel]="heroBannerModel" (slideToNextElement)="goToSection('#gestao-de-saude')">
+</app-hero-banner>
+
+<app-info-section [attr.id]="infoSection?.id" *ngFor="let infoSection of infoSections; let i = index;"
+    [sectionInfo]="infoSection" [backgroundColorClass]="infoSection?.backgroundColorClass"></app-info-section>
+
+<app-commom-questions></app-commom-questions>
+
+<app-careplus-plus></app-careplus-plus>

@@ -1,4 +1,3 @@
-/*! project-name v0.0.1 | (c) 2021 YOUR NAME | MIT License | http://link-to-your-git-repo.com */
 // global variables
 
 var submitBTN_available = false;
@@ -73,18 +72,18 @@ var phone = document.getElementById("phone").value;
 var description = document.getElementById("description").value;
 var lead_source = document.getElementById("lead_source").value;
 
-window.addEventListener("DOMContentLoaded", (function (e) {
-  formFields.map((function (fieldName) {
+window.addEventListener("DOMContentLoaded", function (e) {
+  formFields.forEach(function (fieldName) {
     document
       .getElementById(fieldName.id)
       .addEventListener("blur", validateField, false);
-  }));
-}));
+  });
+});
 
 function validateField(e) {
-  var formField = formFields.find((function (x) {
+  var formField = formFields.find(function (x) {
     return x.id === e.srcElement.id;
-  }));
+  });
   if (formField.customValidation == false) {
     var regex = new RegExp(formField.pattern);
     if (
@@ -162,12 +161,12 @@ function validarCNPJ(cnpj) {
     return false;
 
   // Valida DVs
-  tamanho = cnpj.length - 2;
-  numeros = cnpj.substring(0, tamanho);
-  digitos = cnpj.substring(tamanho);
-  soma = 0;
-  pos = tamanho - 7;
-  for (i = tamanho; i >= 1; i--) {
+  let tamanho = cnpj.length - 2;
+  let numeros = cnpj.substring(0, tamanho);
+  let digitos = cnpj.substring(tamanho);
+  let soma = 0;
+  let pos = tamanho - 7;
+  for (let i = tamanho; i >= 1; i--) {
     soma += numeros.charAt(tamanho - i) * pos--;
     if (pos < 2) pos = 9;
   }
@@ -178,11 +177,11 @@ function validarCNPJ(cnpj) {
   numeros = cnpj.substring(0, tamanho);
   soma = 0;
   pos = tamanho - 7;
-  for (i = tamanho; i >= 1; i--) {
+  for (let i = tamanho; i >= 1; i--) {
     soma += numeros.charAt(tamanho - i) * pos--;
     if (pos < 2) pos = 9;
   }
-  resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+  let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
   if (resultado != digitos.charAt(1)) return false;
 
   return true;
@@ -294,17 +293,17 @@ function telefone_validation(telefone) {
 
 function sendForm() {
   // check all fields again
-  formFields.map((function (fieldName) {
+  formFields.forEach(function (fieldName) {
     fieldName.element.focus();
     fieldName.element.blur();
-  }));
+  });
 
   function checkError(err) {
     return err === true;
   }
 
   var formHasError = false;
-  formFields.map((function (x) {
+  formFields.forEach((function (x) {
      formHasError = checkError(x.hasError);
    }));
 
@@ -326,6 +325,8 @@ function sendForm() {
   
   var xhr = new XMLHttpRequest();
   xhr.open("POST", 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', true);
+  
+  
   
   xhr.onreadystatechange = function() {
       if (this.readyState != 4) return;

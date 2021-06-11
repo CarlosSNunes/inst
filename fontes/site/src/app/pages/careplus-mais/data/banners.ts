@@ -13,7 +13,7 @@ export default [
         descricao: "Oferecemos um canal de acolhimento para crianças portadoras de Transtorno do Espectro Autista, Síndrome de Down e/ou outras condições específicas",
         tempoExibicao: 5000,
         linkExterno: '0',
-        rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
+        rota: '/a-careplus/gestao-de-saude/programas-preventivos',
         nomeLink: 'Conheça o Cuidado da Família',
         ancora: 'cuidado-da-familia'
     }),
@@ -29,7 +29,7 @@ export default [
         descricao: "Possuímos um canal exclusivo 24 por 7, inclusive aos finais de semana e feriados para acompanhamento e direcionamento em situações de crise psicológica, tanto pessoais e/ou profissionais",
         linkExterno: '0',
         nomeLink: 'Conheça o Mental Health',
-        rota: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
+        rota: '/a-careplus/gestao-de-saude/programas-preventivos',
         ancora: 'mental-health',
         tempoExibicao: 5000,
     }),

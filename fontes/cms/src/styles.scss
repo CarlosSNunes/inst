@@ -236,11 +236,7 @@ div#containerLogin {
   right: 15px !important;
 }
 
-table {
-  caption {
-    display: none;
-  }
-}
+
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
@@ -249,6 +245,9 @@ table {
 }
 
 table {
+  caption {
+    display: none;
+  }
   thead {
 
     tr {

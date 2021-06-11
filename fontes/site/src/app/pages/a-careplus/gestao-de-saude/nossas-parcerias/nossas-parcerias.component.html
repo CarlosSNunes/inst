@@ -1,0 +1,11 @@
+<app-simple-banner [simpleBannerModel]="simpleBannerModel" (goToNextSection)="goToSection('#cards-section')">
+</app-simple-banner>
+
+<app-cards-section id="cards-section"></app-cards-section>
+
+<app-contact [htag]="'h4'" [backgroundColorClass]="'blue-background-color'"></app-contact>
+
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel">
+</app-icon-cards-section>
+
+<app-careplus-plus></app-careplus-plus>

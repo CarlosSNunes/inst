@@ -1,4 +1,4 @@
-import { ButtonModel, CardModel } from 'src/app/models';
+import { CardModel } from 'src/app/models';
 
 export default [
     new CardModel({
@@ -21,7 +21,7 @@ export default [
         description: 'Viajar em segurança e tranquilidade é possível com a cobertura internacional da Care Plus. A proteção de até US$ 300.000,00 garante atendimento aos beneficiários que estão em viagem pelo exterior.',
         category: 'beneficiario',
         id: 'careplus-travel',
-        routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
+        routerLink: '/a-careplus/gestao-de-saude/programas-preventivos',
         fragment: 'checkup-do-viajante'
     }),
     new CardModel({
@@ -51,7 +51,7 @@ export default [
         description: 'O Mental Health é o programa de atendimento psicológico da Care Plus 24x7. Os beneficiários podem acionar a equipe de profissionais qualificados a qualquer momento.',
         category: 'beneficiario, rh, corretor',
         id: 'mental-health',
-        routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
+        routerLink: '/a-careplus/gestao-de-saude/programas-preventivos',
         fragment: 'mental-health'
     }),
     new CardModel({
@@ -74,7 +74,7 @@ export default [
         description: 'O Mommy Care é o programa da Care Plus dedicado para as gestantes. Durante toda a gravidez, as beneficiárias contam com acompanhamento personalizado.',
         category: 'beneficiario, rh, corretor',
         id: 'mommy-care',
-        routerLink: '/planos-e-produtos/gestao-de-saude/programas-preventivos',
+        routerLink: '/a-careplus/gestao-de-saude/programas-preventivos',
         fragment: 'mommy-care'
     }),
     new CardModel({
@@ -83,7 +83,7 @@ export default [
         description: 'É um programa composto por equipe médica multidisciplinar especializada na promoção de saúde e prevenção de doenças com atendimento presencial e individualizado.',
         category: 'beneficiario, rh, corretor',
         id: 'personal-system',
-        routerLink: '/planos-e-produtos/gestao-de-saude/personal-system',
+        routerLink: '/a-careplus/gestao-de-saude/personal-system',
     }),
     new CardModel({
         type: 'default',
@@ -112,7 +112,7 @@ export default [
         description: 'Além do programa de nutrição na empresa, a Care Plus estende os cuidados com a alimentação dos beneficiários oferecendo consultoria para ajudar os gestores de RH a encontrarem soluções para um ambiente mais saudável.',
         category: 'beneficiario, rh, corretor',
         id: 'nutri-mais',
-        routerLink: '/planos-e-produtos/gestao-de-saude/servicos-online',
+        routerLink: '/a-careplus/gestao-de-saude/servicos-online',
         fragment: 'nutri-a-distancia'
     }),
     new CardModel({

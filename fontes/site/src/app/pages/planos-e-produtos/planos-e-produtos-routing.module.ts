@@ -9,12 +9,38 @@ const routes: Routes = [
         component: PlanosEProdutosComponent,
     },
     {
-        path: 'medicina-ocupacional',
-        loadChildren: () => import('./medicina-ocupacional/medicina-ocupacional.module').then(m => m.MedicinaOcupacionalModule)
+        path: 'gestao-de-saude',
+        pathMatch: 'full',
+        redirectTo: '/a-careplus/gestao-de-saude'
     },
     {
-        path: 'gestao-de-saude',
-        loadChildren: () => import('./gestao-de-saude/gestao-de-saude.module').then(m => m.GestaoDeSaudeModule),
+        path: 'gestao-de-saude/programas-preventivos',
+        pathMatch: 'full',
+        redirectTo: '/a-careplus/gestao-de-saude/programas-preventivos'
+    },
+    {
+        path: 'gestao-de-saude/servicos-online',
+        pathMatch: 'full',
+        redirectTo: '/a-careplus/gestao-de-saude/servicos-online'
+    },
+    {
+        path: 'gestao-de-saude/personal-system',
+        pathMatch: 'full',
+        redirectTo: '/a-careplus/gestao-de-saude/personal-system'
+    },
+    {
+        path: 'gestao-de-saude/programas-empresariais',
+        pathMatch: 'full',
+        redirectTo: '/a-careplus/gestao-de-saude/programas-empresariais'
+    },
+    {
+        path: 'gestao-de-saude/nossas-parcerias',
+        pathMatch: 'full',
+        redirectTo: '/a-careplus/gestao-de-saude/nossas-parcerias'
+    },
+    {
+        path: 'medicina-ocupacional',
+        loadChildren: () => import('./medicina-ocupacional/medicina-ocupacional.module').then(m => m.MedicinaOcupacionalModule)
     },
     {
         path: ':id',

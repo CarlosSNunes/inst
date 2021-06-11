@@ -7,12 +7,37 @@
                     <p class="small-title" *ngIf="sectionInfo?.smallTitle">
                         {{sectionInfo.smallTitle}}
                     </p>
-                    <h1 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.isH1">
+
+                    <!-- H1 -->
+                    <h1 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.htag == 'h1'">
                         {{sectionInfo.bigTitle}}
                     </h1>
-                    <h2 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && !sectionInfo?.isH1">
+
+                    <!-- H2 -->
+                    <h2 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.htag == 'h2'">
                         {{sectionInfo.bigTitle}}
                     </h2>
+
+                    <!-- H3 -->
+                    <h3 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.htag == 'h3'">
+                        {{sectionInfo.bigTitle}}
+                    </h3>
+
+                    <!-- H4 -->
+                    <h4 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.htag == 'h4'">
+                        {{sectionInfo.bigTitle}}
+                    </h4>
+
+                    <!-- H5 -->
+                    <h5 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.htag == 'h5'">
+                        {{sectionInfo.bigTitle}}
+                    </h5>
+
+                    <!-- H6 -->
+                    <h6 class="h4 big-title" *ngIf="sectionInfo?.bigTitle && sectionInfo?.htag == 'h6'">
+                        {{sectionInfo.bigTitle}}
+                    </h6>
+
                     <div class="img-mobile-box is-hidden-desktop" [class.no-line]="sectionInfo?.removeLine">
                         <img class="image-mobile" [style.objectFit]="sectionInfo?.objectFit"
                             [style.height]="sectionInfo?.mobileImageHeight ? sectionInfo?.mobileImageHeight : '208px'"
@@ -48,8 +73,7 @@
                     </a>
                     <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
                         [queryParams]="sectionInfo?.button?.queryParams" [ngClass]="sectionInfo?.button?.touchClass"
-                        class="btn tertiaty arrow-right small is-hidden-desktop"
-                        [title]="sectionInfo?.button?.text">
+                        class="btn tertiaty arrow-right small is-hidden-desktop" [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
                     </a>
 
@@ -75,8 +99,7 @@
                     </a>
                     <a *ngIf="sectionInfo?.button?.action" (click)="sectionInfo?.button?.action()"
                         [ngClass]="sectionInfo?.button?.touchClass"
-                        class="btn tertiaty arrow-right small is-hidden-desktop"
-                        [title]="sectionInfo?.button?.text">
+                        class="btn tertiaty arrow-right small is-hidden-desktop" [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
                     </a>
                 </div>

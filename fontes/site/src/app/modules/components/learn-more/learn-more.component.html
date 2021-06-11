@@ -4,7 +4,25 @@
             <div class="columns">
                 <div class="column">
                     <p class="small-title">CONHEÇA MAIS SOBRE A CARE PLUS</p>
-                    <h2 class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa empresa</h2>
+
+                    <h1 *ngIf="htag == 'h1'" class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa
+                        empresa</h1>
+
+                    <h2 *ngIf="htag == 'h2'" class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa
+                        empresa</h2>
+
+                    <h3 *ngIf="htag == 'h3'" class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa
+                        empresa</h3>
+
+                    <h4 *ngIf="htag == 'h4'" class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa
+                        empresa</h4>
+
+                    <h5 *ngIf="htag == 'h5'" class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa
+                        empresa</h5>
+
+                    <h6 *ngIf="htag == 'h6'" class="h4 big-title">Visite outras áreas do site e saiba mais sobre nossa
+                        empresa</h6>
+
                 </div>
             </div>
             <div class="columns cards is-paddingless is-mobile">
@@ -14,12 +32,16 @@
             </div>
             <div class="columns btn-column">
                 <div class="column is-12 is-hidden-touch">
-                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'" class="btn btn-digital-cian secondary arrow-right medium learn-more-button" title="Saiba mais sobre a Care Plus">
+                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'"
+                        class="btn btn-digital-cian secondary arrow-right medium learn-more-button"
+                        title="Saiba mais sobre a Care Plus">
                         Saiba mais sobre a Care Plus
                     </a>
                 </div>
                 <div class="column is-12 is-hidden-desktop">
-                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'" class="btn btn-digital-cian tertiary arrow-right medium learn-more-button" title="Saiba mais sobre a Care Plus">
+                    <a routerLink="/a-careplus" [fragment]="'saiba-mais-sobre-a-care-plus'"
+                        class="btn btn-digital-cian tertiary arrow-right medium learn-more-button"
+                        title="Saiba mais sobre a Care Plus">
                         Saiba mais
                     </a>
                 </div>

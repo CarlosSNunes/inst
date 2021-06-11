@@ -1,4 +1,5 @@
-import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, ButtonModel, IconCardModel } from 'src/app/models';
+import { SimpleBannerModel, BreadcrumbModel, InfoSectionModel, ButtonModel, IconCardModel, IconCardsSectionModel } from 'src/app/models';
+import PersonalizedServicesCards from './personalized-services';
 
 export const simpleBannerModel: SimpleBannerModel = {
     title: 'Medicina Ocupacional',
@@ -43,8 +44,27 @@ export const eSocialSection: InfoSectionModel = new InfoSectionModel({
         }
     ],
     removeLine: true,
-    objectFit: 'contain'
+    objectFit: 'contain',
+    htag: 'h2'
 });
+
+export const servicosPersonalizadosSectionModel = new IconCardsSectionModel({
+    smallTitle: 'SERVIÇOS PERSONALIZADOS',
+    bigTitle: 'Soluções personalizadas em Medicina Ocupacional para a sua empresa',
+    subDescription: 'Conte com os melhores serviços de Medicina Ocupacional. Todos eles seguem à risca as Normas Regulamentadoras (NRs). Confira quais são:',
+    button: new ButtonModel({
+        text: 'Solicite uma Cotação',
+        routerLink: '/fale-conosco/solicite-uma-cotacao',
+        target: '_self',
+        queryParams: {
+            medicinaOcupacional: true
+        }
+    }),
+    cards: PersonalizedServicesCards,
+    columnClass: 'is-4-desktop',
+    htag: 'h3'
+});
+
 
 export const unidadesSection: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'UNIDADES',
@@ -52,7 +72,8 @@ export const unidadesSection: InfoSectionModel = new InfoSectionModel({
     description: 'São diversos estabelecimentos de atendimento distribuídos em várias regiões.',
     subDescription: 'Os trabalhadores podem ser encaminhados para realização de exames ocupacionais (admissional, periódico e demissional) em qualquer uma das unidades em qualquer consultório parceiro.',
     imageSrc: 'assets/img/unidades-image.jpg',
-    reverse: true
+    reverse: true,
+    htag: 'h4'
 });
 
 export const occupationalSection: InfoSectionModel = new InfoSectionModel({
@@ -68,7 +89,7 @@ export const firstCard: IconCardModel = new IconCardModel({
     title: 'Central de Atendimento',
     type: 'icon',
     button: new ButtonModel({
-        link: 'tel: 11 4197-9070',
+        link: 'tel: 011 4197-9070',
         text: '(11) 4197-9070',
         target: '_self',
     }),

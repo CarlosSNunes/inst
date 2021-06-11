@@ -1,8 +1,11 @@
-<app-banner [banners]="banners" [area]="'beneficiario'" [breadcrumbs]="breadcrumbs" [hasAnchor]="true" (slideToNextElement)="slideToSection()"></app-banner>
-<app-accredited-network #sectionAccreditedNetwork [backgroundColorClass]="'blue-background-color'"></app-accredited-network>
-<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel" [backgroundColorClass]="'blue-background-color'">
+<app-banner [banners]="banners" [area]="'beneficiario'" [breadcrumbs]="breadcrumbs" [hasAnchor]="true"
+    (slideToNextElement)="slideToSection()"></app-banner>
+<app-accredited-network #sectionAccreditedNetwork [htag]="'h2'" [backgroundColorClass]="'blue-background-color'">
+</app-accredited-network>
+<app-icon-cards-section [iconCardsSectionModel]="iconCardsSectionModel"
+    [backgroundColorClass]="'blue-background-color'">
 </app-icon-cards-section>
-<app-plus-network></app-plus-network>
+<app-plus-network [htagOne]="'h4'" [htagTwo]="'h5'"></app-plus-network>
 <app-differential [differentials]="differentials"></app-differential>
 <app-info-section [sectionInfo]="travelSection"></app-info-section>
 <app-app-careplus [backgroundColorClass]="'blue-background-color'"></app-app-careplus>
