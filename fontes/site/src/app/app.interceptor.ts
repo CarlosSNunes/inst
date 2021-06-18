@@ -34,7 +34,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
         if (this.isServer) {
             this.retryTimes = 0;
-            this.timeout = 10000;
+            this.timeout = 25000;
         }
     }
 
