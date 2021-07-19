@@ -428,6 +428,9 @@ app.get('/ocupacional', (req, res) => {
 app.get('/welcome-back', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/welcome-back/index.html');
 });
+app.get('/tytocare', (req, res) => {
+    res.sendFile(process.cwd() + '/dist/browser/tytocare/index.html');
+});
 app.get('*', (req, res) => {
     res.render('index', { req, res });
 });
