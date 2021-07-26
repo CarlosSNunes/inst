@@ -11402,7 +11402,7 @@ header.mobile-oppened .logo-desk {
 }
 
 /* line 261, src/assets/sass/main.scss */
-#teleconsulta .banner h1, #teleconsulta .banner .h1 {
+#teleconsulta .banner h3, #teleconsulta .banner .h3 {
   color: #00335B;
   font-size: 2.1875rem;
   font-weight: 600;
@@ -11786,7 +11786,7 @@ header.mobile-oppened .logo-desk {
 /* line 483, src/assets/sass/main.scss */
 #cuidadosEdicas {
   background-color: #FAFAFB;
-  padding: 60px 0 30px;
+  padding: 100px 0 30px;
   position: relative;
   z-index: 2;
 }
@@ -11988,7 +11988,7 @@ footer .row.atendimento h3, footer .row.atendimento .h3 {
 
 /* line 620, src/assets/sass/main.scss */
 footer .row.atendimento h4.atdm24, footer .row.atendimento .atdm24.h4 {
-  background: url("../svg/headset.svg") no-repeat left top;
+  background: url("headset.svg") no-repeat left top;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12014,7 +12014,7 @@ footer .row.atendimento h4.atdm24, footer .row.atendimento .atdm24.h4 {
 
 /* line 634, src/assets/sass/main.scss */
 footer .row.atendimento h4.atdm-presencial, footer .row.atendimento .atdm-presencial.h4 {
-  background: url("../svg/pin.svg") no-repeat left top;
+  background: url("pin.svg") no-repeat left top;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
