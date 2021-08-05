@@ -111,8 +111,8 @@ export const cuidadosDaFamilia = new InfoSectionModel({
     smallTitle: 'Programas Preventivos',
     bigTitle: 'Cuidado da Família',
     subDescriptions: [
-        'Programa dedicado às famílias que têm crianças com necessidades especiais',
-        'Os familiares de crianças portadoras de Transtorno do Espectro Autista (TEA) e outras condições genéticas, como a Síndrome de Down, podem participar deste programa de acolhimento.',
+        'Programa dedicado às famílias que têm pessoas com deficiências.',
+        'Os familiares de pessoas com o Transtorno do Espectro Autista (TEA) e/ou outras condições genéticas, como a Síndrome de Down, podem participar deste programa de acolhimento.',
         'Nele, a Care Plus oferece um canal de atendimento exclusivo 24 horas por dia, durante 7 dias da semana.'
     ],
     imageSrc: 'assets/img/cuidado-familia.jpg',
