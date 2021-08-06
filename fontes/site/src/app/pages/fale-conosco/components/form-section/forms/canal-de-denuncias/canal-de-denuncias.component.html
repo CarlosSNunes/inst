@@ -1,239 +1,331 @@
 <form [formGroup]="canalDeDenunciasForm">
-    <div class="columns flex-wrap has-negative-margin">
-
-        <div class="column is-full-touch is-6-desktop">
-            <div class="field">
-                <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.touched && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
-                        class="input" formControlName="NomeContato" type="text">
-                    <label class="label">Nome *</label>
-                </p>
-                <div *ngIf="form.NomeContato.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.NomeContato, 'Nome')" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
+    <div class="columns flex-wrap form-fale-conosco has-negative-margin">
+        <div class="column is-full is-6-desktop">
+            <img src="assets/img/img-depoimento.jpg" alt="Depoimento">
         </div>
-
-        <div class="column is-full-touch is-6-desktop">
-            <div class="field">
-                <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form?.Email?.errors && form?.Email?.touched, 'is-invalid' : form.Email?.touched && form?.Email?.errors, 'is-touched': form?.Email?.value?.length > 0 }"
-                        class="input" formControlName="Email" type="text">
-                    <label class="label">E-mail *</label>
-                </p>
-                <div *ngIf="form?.Email?.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.Email, 'E-mail')" class="help is-danger">
-                        {{error}}
-                    </p>
-                </div>
-            </div>
+        <div class="column is-full is-6-desktop align-bottom">
+            <p class="depoimento">
+                “Nosso propósito é ajudar as pessoas a terem vidas mais longas, saudáveis, felizes e criar um mundo melhor. Todos nós podemos fazer uma grande diferença através do que falamos e fazemos. Por esse motivo, encorajamos nossos colaboradores, clientes e parceiros a fazerem o que é certo, agindo bravamente e assumindo a responsabilidade de compartilhar quando virem algo que traz preocupação. Para isso, disponibilizamos o Canal de Denúncias, onde de forma totalmente confidencial, todos podem enviar suas mensagens relatando qualquer situação que traga inquietação.”
+                <br>
+                <strong>Iñaki Ereño CEO</strong>
+            </p>
         </div>
+        <div class="column is-full is-8-desktop">
+            <div class="columns flex-wrap has-negative-margin">
 
-        <div class="column is-6">
-            <div class="columns display-flex has-negative-margin is-mobile">
-                <div class="column is-4 is-paddingless-vertical">
+                <div class="column is-full-touch is-6-desktop">
                     <div class="field">
                         <p class="control">
                             <input
-                                [ngClass]="{ 'is-valid': !form?.DDDTelefoneCel?.errors && form?.DDDTelefoneCel?.touched, 'is-invalid' : form.DDDTelefoneCel?.touched && form?.DDDTelefoneCel?.errors, 'is-touched': form?.DDDTelefoneCel?.value?.length > 0 }"
-                                class="input" formControlName="DDDTelefoneCel" type="tel">
-                            <label class="label">DDD *</label>
+                                [ngClass]="{ 'is-valid': !form?.NomeContato?.errors && form?.NomeContato?.touched, 'is-invalid' : form.NomeContato?.touched && form?.NomeContato?.errors, 'is-touched': form?.NomeContato?.value?.length > 0 }"
+                                class="input" formControlName="NomeContato" type="text">
+                            <label class="label">Nome *</label>
                         </p>
-                        <div *ngIf="form?.DDDTelefoneCel?.touched" class="errors">
-                            <p *ngFor="let error of getErrors(form.DDDTelefoneCel, 'DDD')" class="help is-danger">
+                        <div *ngIf="form.NomeContato.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.NomeContato, 'Nome')" class="help is-danger">
                                 {{error}}
                             </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="column is-8 is-paddingless-vertical">
+        
+                <div class="column is-full-touch is-6-desktop">
                     <div class="field">
                         <p class="control">
                             <input
-                                [ngClass]="{ 'is-valid': !form?.TelefoneCel?.errors && form?.TelefoneCel?.touched, 'is-invalid' : form.TelefoneCel?.touched && form?.TelefoneCel?.errors, 'is-touched': form?.TelefoneCel?.value?.length > 0 }"
-                                class="input" formControlName="TelefoneCel" type="tel"
-                                [mask]="form.TelefoneCel?.value?.length > 8 ? '00000-0000' : '0000-00000'"
-                                [validation]="false">
-                            <label class="label">Telefone *</label>
+                                [ngClass]="{ 'is-valid': !form?.Email?.errors && form?.Email?.touched, 'is-invalid' : form.Email?.touched && form?.Email?.errors, 'is-touched': form?.Email?.value?.length > 0 }"
+                                class="input" formControlName="Email" type="text">
+                            <label class="label">E-mail *</label>
                         </p>
-                        <div *ngIf="form?.TelefoneCel?.touched" class="errors">
-                            <p *ngFor="let error of getErrors(form.Telefone, 'Telefone')" class="help is-danger">
+                        <div *ngIf="form?.Email?.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.Email, 'E-mail')" class="help is-danger">
                                 {{error}}
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="column is-full-touch is-6-desktop">
-            <div class="field">
-                <p class="control">
-                    <input
-                        [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.touched && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
-                        mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="tel">
-                    <label class="label">CPF *</label>
-                </p>
-                <div *ngIf="form.CPFCNPJ.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.CPFCNPJ, 'CPF')" class="help is-danger">
-                        {{error}}
-                    </p>
+        
+                <div class="column is-6">
+                    <div class="columns display-flex has-negative-margin is-mobile">
+                        <div class="column is-4 is-paddingless-vertical">
+                            <div class="field">
+                                <p class="control">
+                                    <input
+                                        [ngClass]="{ 'is-valid': !form?.DDDTelefoneCel?.errors && form?.DDDTelefoneCel?.touched, 'is-invalid' : form.DDDTelefoneCel?.touched && form?.DDDTelefoneCel?.errors, 'is-touched': form?.DDDTelefoneCel?.value?.length > 0 }"
+                                        class="input" formControlName="DDDTelefoneCel" type="tel">
+                                    <label class="label">DDD *</label>
+                                </p>
+                                <div *ngIf="form?.DDDTelefoneCel?.touched" class="errors">
+                                    <p *ngFor="let error of getErrors(form.DDDTelefoneCel, 'DDD')" class="help is-danger">
+                                        {{error}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="column is-8 is-paddingless-vertical">
+                            <div class="field">
+                                <p class="control">
+                                    <input
+                                        [ngClass]="{ 'is-valid': !form?.TelefoneCel?.errors && form?.TelefoneCel?.touched, 'is-invalid' : form.TelefoneCel?.touched && form?.TelefoneCel?.errors, 'is-touched': form?.TelefoneCel?.value?.length > 0 }"
+                                        class="input" formControlName="TelefoneCel" type="tel"
+                                        [mask]="form.TelefoneCel?.value?.length > 8 ? '00000-0000' : '0000-00000'"
+                                        [validation]="false">
+                                    <label class="label">Telefone *</label>
+                                </p>
+                                <div *ngIf="form?.TelefoneCel?.touched" class="errors">
+                                    <p *ngFor="let error of getErrors(form.Telefone, 'Telefone')" class="help is-danger">
+                                        {{error}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="column is-full">
-            <p class="sub-description no-margin">
-                No campo abaixo você deve descrever a situação que deseja denunciar. É importante
-                que a descrição seja
-                suficientemente completa de forma a permitir que a empresa tenha os dados necessários para apurar os
-                fatos:
-            </p>
-
-            <p class="sub-description">
-                O quê (descrição da situação) <br />
-                Quem (nome das pessoas envolvidas, envolvimento externo) <br />
-                Quando (data em que aconteceu, acontece ou acontecerá a situação) <br />
-                Por quê (a causa ou motivo) <br />
-                Quanto (se for possível mensurar) <br />
-                Provas (se elas existem e onde podemos encontrá-las).
-            </p>
-
-            <p class="sub-description">
-                Os dados fornecidos serão de responsabilidade do denunciante, tendo em vista que o efetivo andamento da
-                reclamação feita dependerá da veracidade das informações prestadas.
-            </p>
-
-            <div class="field message">
-                <p class="control">
-                    <textarea name="Mensagem" cols="30" rows="10"
-                        [ngClass]="{ 'is-valid': !form.Mensagem?.errors, 'is-invalid' : form.Mensagem.dirty && form.Mensagem?.errors, 'is-touched': form.Mensagem?.value?.length > 0 }"
-                        class="textarea" formControlName="Mensagem" placeholder="Comentário *"></textarea>
-                </p>
-                <p class="obs">
-                    LIMITADO A 4.000 CARACTERES
-                </p>
-                <div *ngIf="form.Mensagem.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.Mensagem, 'Comentário')" class="help is-danger">
-                        {{error}}
-                    </p>
+        
+                <div class="column is-full-touch is-6-desktop">
+                    <div class="field">
+                        <p class="control">
+                            <input
+                                [ngClass]="{ 'is-valid': !form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-invalid' : form.CPFCNPJ?.touched && form?.CPFCNPJ?.errors && form?.CPFCNPJ?.touched, 'is-touched': form?.CPFCNPJ?.value?.length > 0 }"
+                                mask="000.000.000-00" [validation]="false" class="input" formControlName="CPFCNPJ" type="tel">
+                            <label class="label">CPF *</label>
+                        </p>
+                        <div *ngIf="form.CPFCNPJ.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.CPFCNPJ, 'CPF')" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="column is-full">
-            <div class="field">
-                <div class="control">
-                    <div class="file has-name">
-                        <label class="file-label">
-                            <input (change)="fileChangeEvent($event)" class="file-input" type="file" multiple
-                                accept="image/x-png,image/gif,image/jpeg, image/x-ms-bmp, application/pdf">
-                            <span class="file-cta">
-                                <span class="file-label">
-                                    Escolher arquivos &nbsp;
-                                    <svg width="24" height="16" viewBox="0 0 24 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM14 9V13H10V9H7L12 4L17 9H14Z"
-                                            fill="white" />
-                                    </svg>
-                                </span>
-                            </span>
-                            <span class="file-name">
-                                {{filesNumber > 0 ? filesNumber + ' arquivo(s) selecionado(s)' : 'Nenhum arquivo
-                                selecionado'}}
-                            </span>
-                        </label>
+        
+                <div class="column is-full">
+                    <p class="sub-description no-margin">
+                        No campo abaixo você deve descrever a situação que deseja denunciar. É importante
+                        que a descrição seja
+                        suficientemente completa de forma a permitir que a empresa tenha os dados necessários para apurar os
+                        fatos:
+                    </p>
+        
+                    <p class="sub-description">
+                        O quê (descrição da situação) <br />
+                        Quem (nome das pessoas envolvidas, envolvimento externo) <br />
+                        Quando (data em que aconteceu, acontece ou acontecerá a situação) <br />
+                        Por quê (a causa ou motivo) <br />
+                        Quanto (se for possível mensurar) <br />
+                        Provas (se elas existem e onde podemos encontrá-las).
+                    </p>
+        
+                    <p class="sub-description">
+                        Os dados fornecidos serão de responsabilidade do denunciante, tendo em vista que o efetivo andamento da
+                        reclamação feita dependerá da veracidade das informações prestadas.
+                    </p>
+        
+                    <div class="field message">
+                        <p class="control">
+                            <textarea name="Mensagem" cols="30" rows="10"
+                                [ngClass]="{ 'is-valid': !form.Mensagem?.errors, 'is-invalid' : form.Mensagem.dirty && form.Mensagem?.errors, 'is-touched': form.Mensagem?.value?.length > 0 }"
+                                class="textarea" formControlName="Mensagem" placeholder="Comentário *"></textarea>
+                        </p>
                         <p class="obs">
-                            <strong>Importante:</strong> Extensões permitidas bmp, gif, jpg ou pdf, com no máximo
-                            2mb.
+                            LIMITADO A 4.000 CARACTERES
                         </p>
-                        <div *ngFor="let file of files; let i = index;" class="file-details" [class.first]="i === 0">
-                            <h5 class="file-name-with-extension">
-                                {{file.name}}
-                                <span class="trash-icon" (click)="deleteFile(i)">
-                                    <img src="assets/svg/trash.svg" alt="Deletar">
-                                </span>
-                            </h5>
-                            <p class="file-size">
-                                {{filerHelper.humanFileSize(file.size, false)}}
+                        <div *ngIf="form.Mensagem.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.Mensagem, 'Comentário')" class="help is-danger">
+                                {{error}}
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="column is-full">
-            <div class="field">
-                <div class="control">
-                    <input formControlName="Authorization"
-                        [ngClass]="{ 'is-invalid' : form?.Authorization?.errors && form?.Authorization?.touched }"
-                        class="checkbox" id="authorization" type="checkbox" name="plano">
-                    <label class="checkbox-label" for="authorization">
-                        Autorizo o encaminhamento de minha mensagem e
-                        identificação para as áreas da Care Plus responsáveis
-                        pela apuração dos fatos relatados.
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="column is-full-touch is-6-desktop">
-            <div class="field">
-                <div class="control">
-                    <input formControlName="aceiteDeTermos"
-                        [ngClass]="{ 'is-invalid' : form?.aceiteDeTermos?.errors && form.aceiteDeTermos?.touched }"
-                        class="checkbox" id="aceiteDeTermos" name="aceiteDeTermos" type="checkbox">
-                    <label class="checkbox-label" for="aceiteDeTermos">
-                        <span>
-                            Eu aceito os
-                            <a href="/a-careplus/politica-de-privacidade" target="_blank" title="opens in a new window"> Termos
-                               </a> de Política de
-                            Privacidade.
-
-                        </span>
-                    </label>
-                </div>
-            </div>
-            <div class="columns is-12">
-                <div class="field">
-                    <div *ngIf="form.aceiteDeTermos?.touched && form?.aceiteDeTermos?.errors" class="errors">
-                        <p class="help is-danger">
-                            Você deve aceitar os Termos para continuar.
-                        </p>
+        
+                <div class="column is-full">
+                    <div class="field">
+                        <div class="control">
+                            <div class="file has-name">
+                                <label class="file-label">
+                                    <input (change)="fileChangeEvent($event)" class="file-input" type="file" multiple
+                                        accept="image/x-png,image/gif,image/jpeg, image/x-ms-bmp, application/pdf">
+                                    <span class="file-cta">
+                                        <span class="file-label">
+                                            Escolher arquivos &nbsp;
+                                            <svg width="24" height="16" viewBox="0 0 24 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M19.35 6.04C18.67 2.59 15.64 0 12 0C9.11 0 6.6 1.64 5.35 4.04C2.34 4.36 0 6.91 0 10C0 13.31 2.69 16 6 16H19C21.76 16 24 13.76 24 11C24 8.36 21.95 6.22 19.35 6.04ZM14 9V13H10V9H7L12 4L17 9H14Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                    </span>
+                                    <span class="file-name">
+                                        {{filesNumber > 0 ? filesNumber + ' arquivo(s) selecionado(s)' : 'Nenhum arquivo
+                                        selecionado'}}
+                                    </span>
+                                </label>
+                                <p class="obs">
+                                    <strong>Importante:</strong> Extensões permitidas bmp, gif, jpg ou pdf, com no máximo
+                                    2mb.
+                                </p>
+                                <div *ngFor="let file of files; let i = index;" class="file-details" [class.first]="i === 0">
+                                    <h5 class="file-name-with-extension">
+                                        {{file.name}}
+                                        <span class="trash-icon" (click)="deleteFile(i)">
+                                            <img src="assets/svg/trash.svg" alt="Deletar">
+                                        </span>
+                                    </h5>
+                                    <p class="file-size">
+                                        {{filerHelper.humanFileSize(file.size, false)}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+        
+                <div class="column is-full">
+                    <div class="field">
+                        <div class="control">
+                            <input formControlName="Authorization"
+                                [ngClass]="{ 'is-invalid' : form?.Authorization?.errors && form?.Authorization?.touched }"
+                                class="checkbox" id="authorization" type="checkbox" name="plano">
+                            <label class="checkbox-label" for="authorization">
+                                Autorizo o encaminhamento de minha mensagem e
+                                identificação para as áreas da Care Plus responsáveis
+                                pela apuração dos fatos relatados.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="column is-full-touch is-6-desktop">
+                    <div class="field">
+                        <div class="control">
+                            <input formControlName="aceiteDeTermos"
+                                [ngClass]="{ 'is-invalid' : form?.aceiteDeTermos?.errors && form.aceiteDeTermos?.touched }"
+                                class="checkbox" id="aceiteDeTermos" name="aceiteDeTermos" type="checkbox">
+                            <label class="checkbox-label" for="aceiteDeTermos">
+                                <span>
+                                    Eu aceito os
+                                    <a href="/a-careplus/politica-de-privacidade" target="_blank" title="opens in a new window"> Termos
+                                       </a> de Política de
+                                    Privacidade.
+        
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="columns is-12">
+                        <div class="field">
+                            <div *ngIf="form.aceiteDeTermos?.touched && form?.aceiteDeTermos?.errors" class="errors">
+                                <p class="help is-danger">
+                                    Você deve aceitar os Termos para continuar.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="column is-6-desktop is-full-touch">
+                    <div id="captcha_element_canal_de_denuncias"></div>
+                    <div class="field">
+                        <div *ngIf="form.validCaptcha.touched" class="errors">
+                            <p *ngFor="let error of getErrors(form.validCaptcha, 'Captcha')" class="help is-danger">
+                                {{error}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="column is-full">
+                    <button [disabled]="loading" [class.loading]="loading"
+                        class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">
+                        Enviar
+                    </button>
+        
+                    <button [disabled]="loading" [class.loading]="loading"
+                        class="btn btn-digital-cian tertiary arrow-right is-hidden-desktop" (click)="sendForm()">
+                        Enviar
+                    </button>
+                </div>
+        
             </div>
         </div>
 
-        <div class="column is-6-desktop is-full-touch">
-            <div id="captcha_element_canal_de_denuncias"></div>
-            <div class="field">
-                <div *ngIf="form.validCaptcha.touched" class="errors">
-                    <p *ngFor="let error of getErrors(form.validCaptcha, 'Captcha')" class="help is-danger">
-                        {{error}}
+        <div class="column is-full is-4-desktop">
+            <div class="contact-info blue-background-color">
+                <div class="contact-content">
+                    <p class="description no-margin">
+                        Se preferir falar por telefone, entre em contato por:
                     </p>
+                    <p class="contact-subdescription">
+                        <span class="image">
+                            <img src="assets/svg/phone.svg" alt="Atendimento 24h ao Beneficiário Telefone">
+                        </span>
+                        <span class="text">
+                            Atendimento 24h ao Beneficiário
+                        </span>
+                    </p>
+                    <a href="tel:0800-013-2992" title="Atendimento 24h ao Beneficiário" class="contact-link">
+                        0800-013-2992
+                    </a>
+
+                    <a href="tel:0800-771-7750" title="Atendimento 24h ao Beneficiário" class="contact-link">
+                        0800-771-7750
+                    </a>
+
+                    <p class="contact-subdescription">
+                        <span class="image">
+                            <img src="assets/svg/phone.svg" alt="Icone Telefone">
+                        </span>
+                        <span class="text">
+                            Atendimento no Exterior
+                        </span>
+                    </p>
+                    <a href="tel:+551141979000" title="Atendimento no Exterior" class="contact-link">
+                        +55 (11) 4197-9000
+                    </a>
+
+                    <p class="contact-subdescription">
+                        <span class="image">
+                            <img src="assets/svg/phone.svg" alt="Icone Telefone">
+                        </span>
+                        <span class="text">
+                            Atendimento 24h ao Credenciado
+                        </span>
+                    </p>
+                    <a href="tel:01141979000" title="Atendimento 24h ao Credenciado Telefone"
+                        class="contact-link">
+                        (011) 4197-9000
+                    </a>
+                    <hr class="separator" />
+                    <p class="description no-margin">
+                        Atendimento à imprensa
+                    </p>
+                    <p class="contact-subdescription">
+                        <span class="image">
+                            <img src="assets/svg/phone.svg" alt="Comunicação Care Plus Telefone">
+                        </span>
+                        <span class="text">
+                            Comunicação Care Plus
+                        </span>
+                    </p>
+                    <a href="tel:01141979104" title="Comunicação Care Plus Telefone" class="contact-link">
+                        (011) 4197-9104
+                    </a>
+
+                    <p class="contact-subdescription">
+                        <span class="image">
+                            <img src="assets/svg/email-2.svg" alt="Comunicação Care Plus Email">
+                        </span>
+                        <span class="text">
+                            Comunicação Care Plus
+                        </span>
+                    </p>
+                    <a href="mailto:imprensa@careplus.com.br" title="Comunicação Care Plus Email"
+                        class="contact-link">
+                        imprensa@careplus.com.br
+                    </a>
                 </div>
             </div>
         </div>
-
-        <div class="column is-full">
-            <button [disabled]="loading" [class.loading]="loading"
-                class="btn btn-digital-cian secondary medium is-hidden-touch right" (click)="sendForm()">
-                Enviar
-            </button>
-
-            <button [disabled]="loading" [class.loading]="loading"
-                class="btn btn-digital-cian tertiary arrow-right is-hidden-desktop" (click)="sendForm()">
-                Enviar
-            </button>
-        </div>
-
     </div>
 </form>
