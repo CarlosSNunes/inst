@@ -59,15 +59,15 @@ node {
 		{
 			withSonarQubeEnv {
 				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.github.repository=CareplusBR/inst /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.1\" "
-                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:restore"
-                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:build"
+                bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:restore"
+                bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:build"
 				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end"
 		    }
 		}else if (env.CHANGE_ID) {			
 			withSonarQubeEnv {
 				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.pullrequest.github.endpoint=git@github.com:CareplusBR/inst.git /d:sonar.pullrequest.github.repository=CareplusBR/inst /d:sonar.pullrequest.base=${env.CHANGE_TARGET} /d:sonar.pullrequest.branch=${env.BRANCH_NAME} /d:sonar.pullrequest.key=${prNum} /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.0\" "
-                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:restore"
-                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:build"
+                bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:restore"
+                bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:build"
  				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end"
 		    }
 		}
