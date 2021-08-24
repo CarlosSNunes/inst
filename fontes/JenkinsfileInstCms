@@ -1,0 +1,70 @@
+node {
+	stage('Checkout')
+	{
+		Calendar date = Calendar.getInstance();
+ 
+		int dayOfTheWeek = date.get(Calendar.DAY_OF_WEEK);
+		
+		if((env.BRANCH_NAME == 'master' || env.BRANCH_NAME == 'main') && dayOfTheWeek == Calendar.MONDAY)
+		{
+			bat 'git init &&  git config http.sslVerify false && git config core.longpaths true'	
+			
+			checkout([$class: 'GitSCM', 
+					  branches: [[name: "${env.BRANCH_NAME}"]], 
+					  extensions: [[$class: 'CleanBeforeCheckout']],
+					  userRemoteConfigs: [[
+						url: 'git@github.com:CareplusBR/inst.git', 
+						credentialsId: '39']]
+					])			
+		}
+		else if (env.CHANGE_ID) 
+		{
+			def prNum = env.CHANGE_ID 
+									
+			bat 'git init &&  git config http.sslVerify false && git config core.longpaths true'
+			
+			checkout([$class: 'GitSCM', 
+			          branches: [[name: "${env.CHANGE_TARGET}"]],
+                      extensions: [[$class: 'CleanBeforeCheckout']],
+					  userRemoteConfigs: [[url: 'git@github.com:CareplusBR/inst.git', 
+										   credentialsId: '39']]
+					])
+
+			checkout([$class: 'GitSCM', 
+					branches: [[name: env.BRANCH_NAME]],
+					extensions: [[$class: 'LocalBranch'], [$class: 'CleanBeforeCheckout']],
+					userRemoteConfigs: [[
+						name:'origin',
+						url: 'git@github.com:CareplusBR/inst.git', 
+						credentialsId: '39', 
+						refspec: "+refs/pull/${prNum}/head:refs/remotes/origin/PR-${prNum}"]]
+					])	
+		}
+	}
+	
+	stage('Build e Code Analysis')
+	{
+		def prNum = env.CHANGE_ID
+		
+		def sqScannerHome = tool 'Scanner for SonarQ'
+		
+		Calendar date = Calendar.getInstance();
+ 
+	    int dayOfTheWeek = date.get(Calendar.DAY_OF_WEEK);
+		
+		if((env.BRANCH_NAME == 'master' || env.BRANCH_NAME == 'main') && dayOfTheWeek == Calendar.MONDAY)
+		{
+			withSonarQubeEnv("sonar") 
+			{
+				bat "\"${sqScannerHome}\\bin\\sonar-scanner.bat"
+		    }
+		}
+		else if (env.CHANGE_ID) 
+		{			
+			withSonarQubeEnv("sonar") 
+			{
+				bat "\"${sqScannerHome}\\bin\\sonar-scanner.bat\" -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.github.repository=CareplusBR/inst -Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.pullrequest.key=${prNum}"
+		    }
+		}
+	}
+}
