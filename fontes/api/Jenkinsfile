@@ -1,0 +1,75 @@
+node {
+	stage('Checkout')
+	{
+		Calendar date = Calendar.getInstance();
+ 
+	    int dayOfTheWeek = date.get(Calendar.DAY_OF_WEEK);
+		
+		if((env.BRANCH_NAME == 'master' || env.BRANCH_NAME == 'main') && dayOfTheWeek == Calendar.MONDAY)
+		{
+			bat 'git init &&  git config http.sslVerify false && git config core.longpaths true'	
+			
+			checkout([$class: 'GitSCM', 
+			          branches: [[name: "${env.BRANCH_NAME}"]], 
+					  extensions: [[$class: 'CleanBeforeCheckout']],
+					  userRemoteConfigs: [[
+					       url: 'git@github.com:CareplusBR/inst.git', 
+						   credentialsId: '39']]
+					])			
+		}else if (env.CHANGE_ID) {
+		
+			def prNum = env.CHANGE_ID 
+									
+			bat 'git init &&  git config http.sslVerify false && git config core.longpaths true'
+			
+			checkout([$class: 'GitSCM', 
+			          branches: [[name: "${env.CHANGE_TARGET}"]],
+                      extensions: [[$class: 'CleanBeforeCheckout']],
+					  userRemoteConfigs: [[url: 'git@github.com:CareplusBR/inst.git', 
+										   credentialsId: '39']]
+					])
+
+			checkout([$class: 'GitSCM', 
+					branches: [[name: env.BRANCH_NAME]],
+					extensions: [[$class: 'LocalBranch'], [$class: 'CleanBeforeCheckout']],
+					userRemoteConfigs: [[
+						name:'origin',
+						url: 'git@github.com:CareplusBR/inst.git', 
+						credentialsId: '39', 
+						refspec: "+refs/pull/${prNum}/head:refs/remotes/origin/PR-${prNum}"]]
+					])	
+		}
+	}
+	
+	stage('Build e Code Analysis')
+	{
+		def prNum = env.CHANGE_ID  
+
+		String sonarqube_host ="http://sonar.careplus.intranet:9000/"        
+		String projectKey     = "apiinstitucional"	
+		String msBuildHome  = "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin"
+		def sqScannerMsBuildHome = tool 'Scanner for MSBuild'
+		String project_name = "APIINSTITUCIONAL"
+		
+		Calendar date = Calendar.getInstance();
+ 
+	    int dayOfTheWeek = date.get(Calendar.DAY_OF_WEEK);
+		
+		if((env.BRANCH_NAME == 'master' || env.BRANCH_NAME == 'main') && dayOfTheWeek == Calendar.MONDAY)		
+		{
+			withSonarQubeEnv {
+				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.github.repository=CareplusBR/inst /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.1\" "
+                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:restore"
+                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:build"
+				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end"
+		    }
+		}else if (env.CHANGE_ID) {			
+			withSonarQubeEnv {
+				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.pullrequest.github.endpoint=git@github.com:CareplusBR/inst.git /d:sonar.pullrequest.github.repository=CareplusBR/inst /d:sonar.pullrequest.base=${env.CHANGE_TARGET} /d:sonar.pullrequest.branch=${env.BRANCH_NAME} /d:sonar.pullrequest.key=${prNum} /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.0\" "
+                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:restore"
+                bat "\"${msBuildHome}/MSBuild.exe\" CarePlusAPI/CarePlusAPI.sln /t:build"
+ 				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end"
+		    }
+		}
+	}
+}
