@@ -58,17 +58,17 @@ node {
 		if((env.BRANCH_NAME == 'master' || env.BRANCH_NAME == 'main') && dayOfTheWeek == Calendar.MONDAY)		
 		{
 			withSonarQubeEnv {
-				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.github.repository=CareplusBR/inst /d:sonar.exclusions=sonar-project.properties /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.1\" "
+				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.github.repository=CareplusBR/inst /d:sonar.dotnet.excludeTestProjects=true /d:sonar.exclusions=/sonar-project.properties /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.1\" "
                 bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:restore"
                 bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:build"
-				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end /d:sonar.exclusions=sonar-project.properties"
+				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end"
 		    }
 		}else if (env.CHANGE_ID) {			
 			withSonarQubeEnv {
-				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.pullrequest.github.endpoint=git@github.com:CareplusBR/inst.git /d:sonar.pullrequest.github.repository=CareplusBR/inst /d:sonar.pullrequest.base=${env.CHANGE_TARGET} /d:sonar.pullrequest.branch=${env.BRANCH_NAME} /d:sonar.pullrequest.key=${prNum} /d:sonar.exclusions=sonar-project.properties /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.0\" "
+				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" begin /d:sonar.pullrequest.github.endpoint=git@github.com:CareplusBR/inst.git /d:sonar.pullrequest.github.repository=CareplusBR/inst /d:sonar.pullrequest.base=${env.CHANGE_TARGET} /d:sonar.pullrequest.branch=${env.BRANCH_NAME} /d:sonar.pullrequest.key=${prNum} /d:sonar.dotnet.excludeTestProjects=true /d:sonar.exclusions=/sonar-project.properties /k:\"${projectKey}\" /n:\"${projectKey}\" /v:\"1.0\" "
                 bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:restore"
                 bat "\"${msBuildHome}/MSBuild.exe\" fontes/api/CarePlusAPI/CarePlusAPI.sln /t:build"
- 				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end /d:sonar.exclusions=sonar-project.properties"
+ 				bat "\"${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe\" end"
 		    }
 		}
 	}
