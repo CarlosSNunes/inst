@@ -63,7 +63,7 @@ node {
 		{			
 			withSonarQubeEnv("sonar") 
 			{
-				bat "\"${sqScannerHome}\\bin\\sonar-scanner.bat\" -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.github.repository=CareplusBR/inst -Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.pullrequest.key=${prNum}"
+				bat "\"${sqScannerHome}\\bin\\sonar-scanner.bat\" -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.github.repository=CareplusBR/inst -Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.pullrequest.key=${prNum} -Dsonar.projectKey=instcms"
 		    }
 		}
 	}
