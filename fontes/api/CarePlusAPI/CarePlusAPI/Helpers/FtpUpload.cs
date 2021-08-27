@@ -51,6 +51,7 @@ namespace CarePlusAPI.Helpers
             request.Credentials = new NetworkCredential(ftpUser, ftpPassword);
             request.UsePassive = true;
             request.UseBinary = true;
+            request.EnableSsl= true;
 
             request.ContentLength = fileBytes.Length;
 
