@@ -256,6 +256,10 @@ export class ContatoComponent implements OnInit {
                 formValue.Telefone2 = 0;
             }
 
+            if (!formValue.CPFCNPJ) {
+                formValue.CPFCNPJ = 0;
+            }
+
             if (this.files.length > 0) {
                 formValue.LstAnexo = {
                     Arquivo: this.files
