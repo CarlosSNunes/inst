@@ -130,6 +130,7 @@ namespace CarePlusAPI
             services.AddTransient<ICompress, Compress>();
             services.AddTransient<ISeriLog, SeriLog>();
             services.AddTransient<IGetCipher, GetCipher>();
+            services.AddTransient<ISetCipher, SetCipher>();
             services.AddTransient<IFtpUpload, FtpUpload>();
 
             services.AddScoped<IUsuarioService, UsuarioService>();

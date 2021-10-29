@@ -4,17 +4,18 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace CarePlusAPI.Helpers
 {
-    public interface IGetCipher {
-        public string Decrypt(string info);
+    public interface ISetCipher
+    {
+        public string Encrypt(string info);
     }
 
     [ExcludeFromCodeCoverage]
-    public class GetCipher : Cipher, IGetCipher
+    public class SetCipher : Cipher, ISetCipher
     {
         protected static string CiphersPath;
         private readonly AppSettings _appSettings;
 
-        public GetCipher(
+        public SetCipher(
             IOptions<AppSettings> appSettings
             )
         {
@@ -22,7 +23,7 @@ namespace CarePlusAPI.Helpers
             CiphersPath = _appSettings.CiphersPath;
         }
 
-        public virtual string Decrypt(string info)
+        public virtual string Encrypt(string info)
         {
             Tuple<string, string> infos = Read(CiphersPath);
 
@@ -30,9 +31,9 @@ namespace CarePlusAPI.Helpers
 
             byte[] ivBytes = System.Text.Encoding.ASCII.GetBytes(infos.Item2);
 
-            string decrytedInfo = ManagedAes.Decrypt(info, keyBytes, ivBytes);
+            string encrytedInfo = ManagedAes.Encrypt(info, keyBytes, ivBytes);
 
-            return decrytedInfo;
+            return encrytedInfo;
         }
     }
 }
