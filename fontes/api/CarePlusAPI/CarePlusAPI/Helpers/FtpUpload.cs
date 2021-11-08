@@ -32,9 +32,8 @@ namespace CarePlusAPI.Helpers
         }
 
 
-        public virtual void Upload(string filePath, string folder, string filename)
+        public virtual void Upload(string filePath, string remotePath, string filename)
         {
-
             if (ftpUser == null && ftpPassword == null)
             {
                 ftpUser = _getCipher.Decrypt(_appSettings.AssetsServerUser);
@@ -48,7 +47,7 @@ namespace CarePlusAPI.Helpers
                UserName = ftpUser,
                Password = ftpPassword,
                HostName = _appSettings.AssetsServerIp,
-               RemoteFilePath = _appSettings.VirtualPath,
+               RemoteFilePath = remotePath,
                RemoteFileName = filename,
                Ssl = true,
                AuthTls = false,
@@ -56,7 +55,6 @@ namespace CarePlusAPI.Helpers
                PassiveMode = true,
                FileBytes = fileBytes
             };
-
 
             Ftp ftp = new Ftp(ftpInfo);
             ftp.UploadData();

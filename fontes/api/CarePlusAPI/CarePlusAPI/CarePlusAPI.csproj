@@ -43,10 +43,10 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Reference Include="CarePlus.Dotnet.Ftp">
-	    <HintPath>..\..\..\..\..\..\..\Users\xghoostx\Downloads\SharedFiles\CarePlus.Dotnet.Ftp.dll</HintPath>
+	    <HintPath>..\..\..\..\..\..\..\Users\xghoostx\Documents\Dll's\CarePlus.Dotnet.Ftp.dll</HintPath>
 	  </Reference>
 	  <Reference Include="ChilkatDotNet46">
-	    <HintPath>..\..\..\..\..\..\..\Users\xghoostx\Downloads\SharedFiles\ChilkatDotNet46.dll</HintPath>
+	    <HintPath>..\..\..\..\..\..\..\Users\xghoostx\Documents\Dll's\ChilkatDotNet46.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 	<ItemGroup>
