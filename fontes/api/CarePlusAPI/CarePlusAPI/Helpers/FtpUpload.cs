@@ -42,13 +42,15 @@ namespace CarePlusAPI.Helpers
 
             byte[] fileBytes = File.ReadAllBytes(filePath);
 
+            var nome = "teste_credencial_" + filename;
+
             FtpInfo ftpInfo = new FtpInfo
             {
                UserName = ftpUser,
                Password = ftpPassword,
                HostName = _appSettings.AssetsServerIp,
                RemoteFilePath = remotePath,
-               RemoteFileName = filename,
+               RemoteFileName = nome,
                Ssl = true,
                AuthTls = false,
                Port = 990,
