@@ -29,7 +29,15 @@ Dentro da pasta Enums ficam os enumeradores do sistema.
 
 ### Pré-requisitos
 
-Ter uma IDE instalada que suporte C# e git para clonar o repositório
+Oracle Database 19c []()
+Oracle SQL Developer []()
+SDK DotNET Core 3.1 instalado (somente o 3.1) [https://dotnet.microsoft.com/download/dotnet/3.1](https://dotnet.microsoft.com/download/dotnet/3.1)
+IDE com suporte C# 
+Git
+Inclusão das entradas no arquivos hosts (Solicitar ao Head de Tecnologia)
+
+
+Solicitar ao head as credenciais necessárias dos ambientes e banco preservados em cofre de senha.
 
 ``` 
 
@@ -39,7 +47,7 @@ git clone https://github.com/CareplusBR/inst
 ### Instalação
 
 Após clonar o projeto, abra a pasta do repostório que foi clonado em um terminal de comando, navegue até a pasta CarePlusAPI
-
+v
 Ex:
 
 ``` 
@@ -62,6 +70,18 @@ dotnet run
 ```
 
 Para executar o servidor local a fim de utilizar a API
+
+### Build
+
+dotnet build --configuration "Development"
+
+dotnet build --configuration "Homolog"
+
+dotnet build --configuration "Staging"
+
+dotnet build --configuration "StagingCp"
+
+Resultado em /bin/(ambiente)/netcoreapp3.1/
 
 ### Template
 
