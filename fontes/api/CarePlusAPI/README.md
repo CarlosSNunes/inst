@@ -77,7 +77,7 @@ dotnet build --configuration "Development"
 
 dotnet build --configuration "Homolog"
 
-dotnet build --configuration "StagingCp"
+dotnet build --configuration "Staging"
 
 dotnet build --configuration "StagingCp"
 
