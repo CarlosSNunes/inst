@@ -17,17 +17,14 @@ namespace CarePlusAPI.Helpers
         protected static string ftpUser;
         protected static string ftpPassword;
         private readonly IGetCipher _getCipher;
-        private readonly ISetCipher _setCipher;
         private readonly AppSettings _appSettings;
 
         public FtpUpload(
             IGetCipher getCipher,
-            ISetCipher setCipher,
             IOptions<AppSettings> appSettings
             )
         {
             _getCipher = getCipher;
-            _setCipher = setCipher;
             _appSettings = appSettings.Value;
         }
 
@@ -42,15 +39,13 @@ namespace CarePlusAPI.Helpers
 
             byte[] fileBytes = File.ReadAllBytes(filePath);
 
-            var nome = "teste_credencial_" + filename;
-
             FtpInfo ftpInfo = new FtpInfo
             {
                UserName = ftpUser,
                Password = ftpPassword,
                HostName = _appSettings.AssetsServerIp,
                RemoteFilePath = remotePath,
-               RemoteFileName = nome,
+               RemoteFileName = filename,
                Ssl = true,
                AuthTls = false,
                Port = 990,
