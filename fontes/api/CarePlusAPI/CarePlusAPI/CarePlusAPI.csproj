@@ -42,6 +42,14 @@
 		<Folder Include="Enums\" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Reference Include="CarePlus.Dotnet.Ftp">
+	    <HintPath>..\..\..\..\..\..\..\Users\xghoostx\Documents\Dll's\CarePlus.Dotnet.Ftp.dll</HintPath>
+	  </Reference>
+	  <Reference Include="ChilkatDotNet46">
+	    <HintPath>..\..\..\..\..\..\..\Users\xghoostx\Documents\Dll's\ChilkatDotNet46.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+	<ItemGroup>
 		<WCFMetadata Include="Connected Services" />
 	</ItemGroup>
 	<ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

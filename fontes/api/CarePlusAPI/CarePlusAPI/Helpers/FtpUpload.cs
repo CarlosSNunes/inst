@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Net;
-using System.Text;
+using CarePlus.Dotnet.Ftp;
 using Microsoft.Extensions.Options;
 
 namespace CarePlusAPI.Helpers
@@ -31,9 +29,8 @@ namespace CarePlusAPI.Helpers
         }
 
 
-        public virtual void Upload(string filePath, string folder, string filename)
+        public virtual void Upload(string filePath, string remotePath, string filename)
         {
-
             if (ftpUser == null && ftpPassword == null)
             {
                 ftpUser = _getCipher.Decrypt(_appSettings.AssetsServerUser);
@@ -42,32 +39,22 @@ namespace CarePlusAPI.Helpers
 
             byte[] fileBytes = File.ReadAllBytes(filePath);
 
-
-            // Get the object used to communicate with the server.
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create($"ftp://{_appSettings.AssetsServerIp}/{folder}/{filename}");
-            request.Method = WebRequestMethods.Ftp.UploadFile;
-
-            // This example assumes the FTP site uses anonymous logon.
-            request.Credentials = new NetworkCredential(ftpUser, ftpPassword);
-            request.UsePassive = true;
-            request.UseBinary = true;
-            request.EnableSsl= true;
-
-            request.ContentLength = fileBytes.Length;
-
-            using (Stream requestStream = request.GetRequestStream())
+            FtpInfo ftpInfo = new FtpInfo
             {
-                requestStream.Write(fileBytes, 0, fileBytes.Length);
-            }
+               UserName = ftpUser,
+               Password = ftpPassword,
+               HostName = _appSettings.AssetsServerIp,
+               RemoteFilePath = remotePath,
+               RemoteFileName = filename,
+               Ssl = true,
+               AuthTls = false,
+               Port = 990,
+               PassiveMode = true,
+               FileBytes = fileBytes
+            };
 
-            using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
-            {
-                if (File.Exists(filePath))
-                {
-                    File.Delete(filePath);
-                }
-
-            }
+            Ftp ftp = new Ftp(ftpInfo);
+            ftp.UploadData();
         }
     }
 }

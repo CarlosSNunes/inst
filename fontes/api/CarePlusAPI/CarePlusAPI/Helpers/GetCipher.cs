@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Options;
+using System;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 
 namespace CarePlusAPI.Helpers
 {
@@ -11,10 +9,9 @@ namespace CarePlusAPI.Helpers
     }
 
     [ExcludeFromCodeCoverage]
-    public class GetCipher: IGetCipher
+    public class GetCipher : Cipher, IGetCipher
     {
         protected static string CiphersPath;
-        protected static Tuple<string, string> KeyAndIv;
         private readonly AppSettings _appSettings;
 
         public GetCipher(
@@ -25,26 +22,9 @@ namespace CarePlusAPI.Helpers
             CiphersPath = _appSettings.CiphersPath;
         }
 
-        protected virtual Tuple<string, string> Read ()
-        {
-            if (KeyAndIv == null)
-            {
-                var text = File.ReadAllText(CiphersPath);
-
-                var key = text.Substring(text.IndexOf("Chave="), text.IndexOf("\nVetor=")).Replace("Chave=", "").Replace("\r", "");
-
-                var iv = text.Replace($"{key}", "").Replace("\n", "").Replace("Chave=", "").Replace("Vetor=", "").Replace("\r", "");
-
-                KeyAndIv = new Tuple<string, string>(key, iv);
-            }
-
-            return KeyAndIv;
-        }
-
-
         public virtual string Decrypt(string info)
         {
-            Tuple<string, string> infos = Read();
+            Tuple<string, string> infos = Read(CiphersPath);
 
             byte[] keyBytes = System.Text.Encoding.ASCII.GetBytes(infos.Item1);
 
