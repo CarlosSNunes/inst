@@ -133,7 +133,7 @@ export function filterFormFields(subject: number) {
             formFields.CPFCNPJ.mask = '00.000.000/0000-00';
             formFields.CPFCNPJ.validators = Validators.compose([Validators.required, validateBrService.cnpj]);
             formFields.CPFCNPJ.required = true;
-            formFields.NomeEntidade.label = 'Nome Do Credenciado';
+            formFields.NomeEntidade.label = 'Nome do credenciado';
             formFields.NomeEntidade.canShow = true;
             formFields.NomeEntidade.validators = Validators.compose([Validators.required]);
             formFields.CodigoCarePlus.canShow = true;
@@ -141,7 +141,7 @@ export function filterFormFields(subject: number) {
             formFields.CodigoCarePlus.required = true;
             formFields.Certificado.canShow = false;
             formFields.Certificado.required = false;
-            formFields.NomeContato.label = 'Nome Do Manifestante';
+            formFields.NomeContato.label = 'Nome do manifestante';
             formFields.NomeContato.validators = Validators.compose([Validators.required]);
 
             formFields.Email.validators = Validators.compose([Validators.required, Validators.email])
@@ -152,7 +152,7 @@ export function filterFormFields(subject: number) {
             formFields.CPFCNPJ.mask = '00.000.000/0000-00';
             formFields.CPFCNPJ.validators = Validators.compose([Validators.required, validateBrService.cnpj]);
             formFields.CPFCNPJ.required = true;
-            formFields.NomeEntidade.label = 'Nome Do Credenciado';
+            formFields.NomeEntidade.label = 'Nome do credenciado';
             formFields.NomeEntidade.canShow = true;
             formFields.NomeEntidade.validators = Validators.compose([Validators.required]);
             formFields.CodigoCarePlus.canShow = true;
@@ -160,7 +160,7 @@ export function filterFormFields(subject: number) {
             formFields.CodigoCarePlus.required = true;
             formFields.Certificado.canShow = false;
             formFields.Certificado.required = false;
-            formFields.NomeContato.label = 'Nome Do Manifestante';
+            formFields.NomeContato.label = 'Nome do manifestante';
             formFields.NomeContato.validators = Validators.compose([Validators.required]);
             formFields.Email.validators = Validators.compose([Validators.required, Validators.email])
             break;
@@ -169,7 +169,7 @@ export function filterFormFields(subject: number) {
             formFields.NomeEntidade.canShow = true;
             formFields.NomeEntidade.label = 'Corretora';
             formFields.NomeEntidade.validators = Validators.compose([Validators.required]);
-            formFields.NomeContato.label = 'Nome Do Manifestante';
+            formFields.NomeContato.label = 'Nome do manifestante';
             formFields.NomeContato.validators = Validators.compose([Validators.required]);
 
             formFields.CodigoCarePlus.canShow = false;
@@ -181,7 +181,7 @@ export function filterFormFields(subject: number) {
             formFields.NomeEntidade.canShow = true;
             formFields.NomeEntidade.label = 'Corretora';
             formFields.NomeEntidade.validators = Validators.compose([Validators.required]);
-            formFields.NomeContato.label = 'Nome Do Manifestante';
+            formFields.NomeContato.label = 'Nome do manifestante';
             formFields.NomeContato.validators = Validators.compose([Validators.required]);
 
             formFields.CodigoCarePlus.canShow = false;
@@ -193,7 +193,7 @@ export function filterFormFields(subject: number) {
             formFields.NomeEntidade.canShow = true;
             formFields.NomeEntidade.label = 'Corretora';
             formFields.NomeEntidade.validators = Validators.compose([Validators.required]);
-            formFields.NomeContato.label = 'Nome Do Manifestante';
+            formFields.NomeContato.label = 'Nome do manifestante';
             formFields.NomeContato.validators = Validators.compose([Validators.required]);
 
             formFields.CodigoCarePlus.canShow = false;
