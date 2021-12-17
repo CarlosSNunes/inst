@@ -9,7 +9,19 @@ form {
             &.display-flex {
                 display: flex;
             }
-
+            &.align-bottom{
+                align-self: flex-end;
+                .depoimento{
+                    font-size: getSize("p");
+                    line-height: getLineHeight("p");
+                    strong{
+                        display: block;
+                        margin-top: 20px;
+                        font-weight: bold;
+                    }
+                }
+            }
+            
             .btn.right {
                 float: right;
             }

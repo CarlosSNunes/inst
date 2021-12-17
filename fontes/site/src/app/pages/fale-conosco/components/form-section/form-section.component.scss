@@ -20,7 +20,7 @@ section#fale-conosco-form {
                         width: 126px;
                     }
                 }
-                .contact-info {
+                ::ng-deep .contact-info {
                     padding: 32px;
                     display: flex;
                     .contact-content {
@@ -134,7 +134,7 @@ section#fale-conosco-form {
                             }
                         }
                     }
-                    .contact-info {
+                    ::ng-deep .contact-info {
                         .contact-content {
                             .description {
                                 font-size: getSize("p");
