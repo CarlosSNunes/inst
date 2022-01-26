@@ -19,6 +19,10 @@ export class IdssComponent implements OnInit {
             value: 'all'
         },
         {
+            title: 'IDSS 2021',
+            value: '2021'
+        },
+        {
             title: 'IDSS 2020',
             value: '2020'
         },
