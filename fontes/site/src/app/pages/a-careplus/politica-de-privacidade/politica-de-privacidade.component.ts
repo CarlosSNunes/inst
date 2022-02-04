@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class PoliticaDePrivacidadeComponent implements OnInit {
     elements: ElementModel[] = [
         new ElementModel({
-            name: 'Política de Privacidade',
+            name: 'Aviso de Privacidade',
             id: 'politica-de-privacidade'
         }),
         new ElementModel({
