@@ -41,7 +41,7 @@ export default [
                         routerLink: '/a-careplus/termos-e-condicoes'
                     }),
                     new SubMenuItem({
-                        title: 'Política de Privacidade',
+                        title: 'Aviso de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
                     new SubMenuItem({
@@ -153,7 +153,7 @@ export default [
                         routerLink: '/a-careplus/termos-e-condicoes'
                     }),
                     new SubMenuItem({
-                        title: 'Política de Privacidade',
+                        title: 'Aviso de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
                     new SubMenuItem({
@@ -281,7 +281,7 @@ export default [
                         routerLink: '/a-careplus/termos-e-condicoes'
                     }),
                     new SubMenuItem({
-                        title: 'Política de Privacidade',
+                        title: 'Aviso de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
                     new SubMenuItem({
@@ -397,7 +397,7 @@ export default [
                         routerLink: '/a-careplus/termos-e-condicoes'
                     }),
                     new SubMenuItem({
-                        title: 'Política de Privacidade',
+                        title: 'Aviso de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
                     new SubMenuItem({
@@ -514,7 +514,7 @@ export default [
                         routerLink: '/a-careplus/termos-e-condicoes'
                     }),
                     new SubMenuItem({
-                        title: 'Política de Privacidade',
+                        title: 'Aviso de Privacidade',
                         routerLink: '/a-careplus/politica-de-privacidade'
                     }),
                     new SubMenuItem({

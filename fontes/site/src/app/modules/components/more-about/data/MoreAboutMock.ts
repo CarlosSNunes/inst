@@ -52,8 +52,8 @@ export const moreAboutMock = [
         linkTitle: "Saiba mais"
     },
     {
-        title: 'Política de Privacidade',
-        description: "Conheça a nossa Política de Privacidade e entenda ainda como funciona o nosso sistema de segurança de dados.",
+        title: 'Aviso de Privacidade',
+        description: "Conheça o nosso Aviso de Privacidade e entenda ainda como funciona o nosso sistema de segurança de dados.",
         imagePath: "assets/img/secure-data.svg",
         link: "#",
         linkTitle: "Saiba mais"

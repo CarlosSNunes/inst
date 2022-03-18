@@ -75,7 +75,7 @@ export const routes: RouteModel[] = [
     }),
     new RouteModel({
         route: '/a-careplus/politica-de-privacidade',
-        description: 'A Care Plus - Politica de Privacidade'
+        description: 'A Care Plus - Aviso de Privacidade'
     }),
     new RouteModel({
         route: '/a-careplus/rede-plus',
