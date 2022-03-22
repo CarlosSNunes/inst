@@ -3,6 +3,18 @@ import { CardModel, ButtonModel } from 'src/app/models';
 export default [
     new CardModel({
         type: 'default',
+        title: 'Resultados Financeiros de 2021',
+        button: new ButtonModel({
+            link: 'assets/documents/careplusresulfin2021.pdf'
+        }),
+        size: {
+            placeholder: '(910kb)',
+            file_size: '2620205'
+        },
+        category: '2021'
+    }),
+    new CardModel({
+        type: 'default',
         title: 'Resultados Financeiros de 2020',
         button: new ButtonModel({
             link: 'assets/documents/careplusresulfin2020.pdf'
