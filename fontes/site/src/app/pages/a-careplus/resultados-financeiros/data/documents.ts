@@ -8,7 +8,7 @@ export default [
             link: 'assets/documents/careplusresulfin2021.pdf'
         }),
         size: {
-            placeholder: '(910kb)',
+            placeholder: '(2.6mb)',
             file_size: '2620205'
         },
         category: '2021'
