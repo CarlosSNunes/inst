@@ -10,7 +10,7 @@ export default [
         },
         category: '2021',
         size: {
-            placeholder: '(910kb)',
+            placeholder: '(2.6mb)',
             file_size: '2620205'
         },
     },
