@@ -1,9 +1,9 @@
 export const environment = {
     production: true,
-    API_URL: 'https://uatw4.careplus.com.br/apiinstitucional',
-    SELF_URL: 'https://uat7institucional.careplus.com.br',
-    CDN_URL: 'https://uatw4.careplus.com.br/gerinstitucional',
-    CAREPLUS_URL: 'https://uatw4.careplus.com.br/portal/',
+    API_URL: 'https://uatws.careplus.com.br/apiinstitucional',
+    SELF_URL: 'https://uatw.careplus.com.br',
+    CDN_URL: 'https://uatapp02.careplus.com.br/gerinstitucional',
+    CAREPLUS_URL: 'https://uatwww8.careplus.com.br/portal/',
     BASE_HREF: '/',
     API_USER: 'DAAAACcfrLxDBCdWfUs5KBAAAAD7eEXzPpaPiKpIg9DEMkyFzgrU4Bjf',
     API_PASSWORD: 'DAAAAOrbz0oi9UpgKGqFORAAAADunM+kc616EetW5ShUDX10MFiHH2ekVK/VZVCMfv5dMO0=',
