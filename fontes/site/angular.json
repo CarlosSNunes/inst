@@ -287,6 +287,12 @@
                         "staging-cp": {
                             "browserTarget": "Care-plus:build:staging-cp"
                         },
+                        "qa-cp": {
+                            "browserTarget": "Care-plus:build:qa-cp"
+                        },
+                        "uat-cp": {
+                            "browserTarget": "Care-plus:build:uat-cp"
+                        },
                         "es5": {
                             "browserTarget": "Care-plus:build:es5"
                         }
@@ -384,6 +390,12 @@
                         },
                         "staging-cp": {
                             "devServerTarget": "Care-plus:serve:staging-cp"
+                        },
+                        "uat-cp": {
+                            "devServerTarget": "Care-plus:serve:uat-cp"
+                        },
+                        "qa-cp": {
+                            "devServerTarget": "Care-plus:serve:qa-cp"
                         }
                     }
                 },
