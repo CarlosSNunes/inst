@@ -1,0 +1,38 @@
+name: Main To Hotfix
+
+# Controls when the workflow will run
+on:
+  push:
+      branches:
+        - main
+        
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  HotFix:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          node-version: 12
+          token: ${{ secrets.ACTION_TOKEN }}
+          fetch-depth: 0
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          git config --global user.email "careplusmedicina@gmail.com"
+          git config --global user.name "AnalyserCarePlus"
+          git pull
+          git checkout "main"
+          git branch --r --format='%(refname:short)' --list '*hotfix-*' |
+          while read branch; do
+            result=$(echo $branch | cut -d'/' -f 2)
+            git checkout -b $result "refs/remotes/$branch" --
+            git merge "main" --no-edit --allow-unrelated-histories
+            git push --progress "origin" $result:$result
+            git status
+          done
