@@ -1,0 +1,31 @@
+name: Main To Develop
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+    name: Syncing branches
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          node-version: 12
+          
+      - name: Opening pull request
+        id: pull
+        uses: tretuna/sync-branches@1.4.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          FROM_BRANCH: "main"
+          TO_BRANCH: "develop"
+
+      - name: Merge main -> develop
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          FROM_BRANCH: main
+          TARGET_BRANCH: develop
