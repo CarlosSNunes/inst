@@ -9,6 +9,8 @@
     "build:homolog": "ng build --configuration=homolog",
     "build:staging": "ng build --configuration=staging",
     "build:staging-cp": "ng build --configuration=staging-cp",
+    "build:uat-cp": "ng build --configuration=uat-cp",
+    "build:qa-cp": "ng build --configuration=qa-cp",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
