@@ -28,7 +28,7 @@ jobs:
           git config --global user.name "AnalyserCarePlus"
           git pull
           git checkout "main"
-          git branch --r --format='%(refname:short)' --list '*hotfix-*' |
+          git branch --remote --format='%(refname:short)' --list '*hotfix-*' |
           while read branch; do
             result=$(echo $branch | cut -d'/' -f 2)
             git checkout -b $result "refs/remotes/$branch" --
