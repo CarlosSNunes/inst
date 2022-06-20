@@ -28,7 +28,7 @@ import { environment } from 'src/environments/environment';
     heroBannerModel: HeroBannerModel = new HeroBannerModel({
         video: new VideoModel(
             {
-                url: 'assets/videos/dedicacao.mp4',
+                url: 'assets/videos/5065_CARE PLUS 30 ANOS_RT_V01_ [v15]_v2.mp4',
                 type: 'video/mp4'
             }
         ),
