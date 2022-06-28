@@ -2,33 +2,33 @@ import { InstagramPostModel } from 'src/app/models';
 
 export const postsMock: InstagramPostModel[] = [
     new InstagramPostModel({
-        url: 'assets/img/01_Cultivando_lacos.jpg',
-        link: 'https://www.instagram.com/p/CI88yg8lT7g/',
-        alt: 'Como cultivar laços sociais positivos influencia a sua saúde',
-        title: 'Como cultivar laços sociais positivos influencia a sua saúde'
+        url: 'assets/img/1 - FRAME-KELMA-176X183.png',
+        link: 'https://www.instagram.com/p/CbKfIxyDRZv/',
+        alt: 'O Lado Plus da Saúde',
+        title: 'O Lado Plus da Saúde'
     }),
     new InstagramPostModel({
-        url: 'assets/img/02_Fitwel.jpg',
-        link: 'https://www.instagram.com/p/CKojiP8l3yG/',
-        alt: 'Certificação Fitwel',
-        title: 'Certificação Fitwel'
+        url: 'assets/img/2 - Como socializar depois de tanto tempo em casa.jpg',
+        link: 'https://www.instagram.com/p/CYuQNa8M4Bt/',
+        alt: 'Como socializar depois de tanto tempo em casa',
+        title: 'Como socializar depois de tanto tempo em casa'
     }),
     new InstagramPostModel({
-        url: 'assets/img/03_comece_o_ano_cuidando_de_voce.jpg',
-        link: 'https://www.instagram.com/p/CJy_m9jl0BI/',
-        alt: 'Comece o ano cuidando de você',
-        title: 'Comece o ano cuidando de você'
+        url: 'assets/img/3 - Tytocare.jpg',
+        link: 'https://www.instagram.com/p/Cam3NLPN5oi/',
+        alt: 'TytoCare',
+        title: 'TytoCare'
     }),
     new InstagramPostModel({
-        url: 'assets/img/04_Home_office_com_pets.jpg',
-        link: 'https://www.instagram.com/p/CIjD1NaHzh2/',
-        alt: 'PETS amigos da saúde',
-        title: 'PETS amigos da saúde'
+        url: 'assets/img/4 - Conhecendo o autismo.jpg',
+        link: 'https://www.instagram.com/p/Cb2ewbrMclV/',
+        alt: 'Conhecendo o autismo',
+        title: 'Conhecendo o autismo'
     }),
     new InstagramPostModel({
-        url: 'assets/img/05_Alimentos_enxaqueca.jpg',
-        link: 'https://www.instagram.com/p/CHONJ9VAIjt/',
-        alt: 'Alimentos que amenizam a enxaqueca',
-        title: 'Alimentos que amenizam a enxaqueca'
+        url: 'assets/img/5 - Cansado Demais.jpg',
+        link: 'https://www.instagram.com/p/CbdTTaQs1lv/',
+        alt: 'Cansado demais',
+        title: 'Cansado demais'
     })
 ]
