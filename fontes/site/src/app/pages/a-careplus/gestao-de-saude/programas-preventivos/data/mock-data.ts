@@ -57,8 +57,8 @@ export const mommyCareSection = new InfoSectionModel({
     smallTitle: 'Programas Preventivos',
     bigTitle: 'Mommy Care',
     subDescriptions: [
-        'O Mommy Care é um programa de acompanhamento, acolhimento e orientação às gestantes realizado por meio de visitas em domicílio*, contatos telefônicos, troca de mensagens e teleconferência.',
-        'Durante todas as fases da gestação, obstetrizes e enfermeiras estão disponíveis para esclarecer dúvidas e solucionar as necessidades das beneficiárias.',
+        'O Mommy Care é um programa de acompanhamento, acolhimento e orientação às gestantes realizado por meio de visitas em domicílio*, contatos telefônicos, troca de mensagens e videoconferência.',
+        'Durante todas as fases da gestação, enfermeiros(as) obstetras estão disponíveis para o esclarecimento de dúvidas e orientações.',
         'Um dos destaques deste programa é a visita nutricional para introdução alimentar do bebê*.',
         '*As visitas presenciais serão realizadas apenas na Grande São Paulo, cidades do Rio de Janeiro e Belo Horizonte.'
     ],
