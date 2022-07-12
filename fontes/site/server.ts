@@ -425,9 +425,6 @@ app.get('/coronavirus', (req, res) => {
 app.get('/ocupacional', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/ocupacional/index.html');
 });
-app.get('/welcome-back', (req, res) => {
-    res.sendFile(process.cwd() + '/dist/browser/welcome-back/index.html');
-});
 app.get('/tytocare', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/tytocare/index.html');
 });

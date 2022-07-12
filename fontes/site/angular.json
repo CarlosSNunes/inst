@@ -57,8 +57,7 @@
                             "src/manifest.webmanifest",
                             "src/web.config",
                             { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
-                            { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
-                            { "glob": "**/*", "input": "src/welcome-back", "output": "/welcome-back/" },
+                            { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },                           
                             { "glob": "**/*", "input": "src/tytocare", "output": "/tytocare/" }                                    
                         ],
                         "styles": [
@@ -408,8 +407,7 @@
                     },
                     "assets":[
                         { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
-                        { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
-                        { "glob": "**/*", "input": "src/welcome-back", "output": "/welcome-back/" },
+                        { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },                       
                         { "glob": "**/*", "input": "src/tytocare", "output": "/tytocare/" } 
 
                     ],
