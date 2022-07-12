@@ -60,7 +60,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         new InfoSectionModel({
             smallTitle: 'Instituto Devolver / Festival Miolo Mole / Hospital Pequeno Príncipe',
             subDescription: 'Ao longo dos últimos anos doamos mais de R$ 2,5 milhões para iniciativas em diversas ONGs, como o Instituto Devolver e Doutores da Alegria (Festival Miolo Mole), e entidades ligadas a área da saúde como Hospital Pequeno Príncipe, que trata crianças carentes com câncer, além de bolsas de estudos na Faculdade de Medicina do Hospital Albert Einstein.',
-            imageSrc: 'assets/img/Inst-Devolver.png',
+            imageSrc: 'assets/img/inst-Devolver.png',
             reverse: false,
             alignCenter: true
         }),
