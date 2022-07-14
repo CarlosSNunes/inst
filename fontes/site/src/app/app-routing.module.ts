@@ -147,6 +147,7 @@ const routes: Routes = [
     { path: 'DL/FJB_20-CARE_PLUS-Parecer_de_Auditoria_170.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
     { path: 'DL/20160505-comunicado-interno.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
     { path: 'planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2016.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
+    { path: 'welcome-back', redirectTo: '/planos-e-produtos/medicina-ocupacional' },
     {
         path: 'canaldenuncias',
         canActivate: [RedirectGuardService],
