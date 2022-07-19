@@ -15,39 +15,43 @@ export class PoliticaDePrivacidadeComponent implements OnInit {
     elements: ElementModel[] = [
         new ElementModel({
             name: 'Aviso de Privacidade',
-            id: 'politica-de-privacidade'
+            id: 'aviso-de-privacidade'
         }),
         new ElementModel({
-            name: 'Seus Direitos',
+            name: 'Definições',
+            id: 'definicoes'
+        }),
+        new ElementModel({
+            name: 'Quais informações tratamos',
+            id: 'quais-info-tratamos'
+        }),
+        new ElementModel({
+            name: 'Como usamos seus dados pessoais',
+            id: 'como-usamos-seus-dados'
+        }),
+        new ElementModel({
+            name: 'Compartilhamento de seus dados pessoais',
+            id: 'compartilhando-dados-pessoais'
+        }),
+        new ElementModel({
+            name: 'Como mantemos seus dados pessoais seguros',
+            id: 'como-mantemos'
+        }),
+        new ElementModel({
+            name: 'Por quanto tempo ficamos com seus dados pessoais',
+            id: 'por-quanto-tempo'
+        }),
+        new ElementModel({
+            name: 'Seus direitos',
             id: 'seus-direitos'
         }),
         new ElementModel({
-            name: 'Para que usamos suas informações pessoais',
-            id: 'para-que-usamos'
+            name: 'Atualizações',
+            id: 'atualizacoes'
         }),
         new ElementModel({
-            name: 'Legítimo Interesse',
-            id: 'legitimo-interesse'
-        }),
-        new ElementModel({
-            name: 'Compartilhando suas informações',
-            id: 'compartilhando-informacoes'
-        }),
-        new ElementModel({
-            name: 'Por quanto tempo manteremos suas informações pessoais',
-            id: 'porquanto-tempo-mantemos'
-        }),
-        new ElementModel({
-            name: 'Mudanças ou Atualizações',
-            id: 'mudancas-e-atualizacoes'
-        }),
-        new ElementModel({
-            name: 'Sobre o Site e sobre a Care Plus',
-            id: 'sobre-o-site'
-        }),
-        new ElementModel({
-            name: 'Violações e Foro',
-            id: 'violacoes-e-foro'
+            name: 'Contato',
+            id: 'contato'
         })
     ];
     width: number = 1400;
