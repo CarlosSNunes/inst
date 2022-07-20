@@ -77,8 +77,14 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Care Plus Store',
-                href: 'https://store.careplus.com.br/',
-                target: '_blank'
+                routerLink: '/Care Plus Store',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Loja Care Plus',
+                        href: 'https://store.careplus.com.br/',
+                        target: '_blank'
+                    }),                    
+                ]
             }),
             new SubMenuItem({
                 title: 'Carreiras',
@@ -438,8 +444,14 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Care Plus Store',
-                href: 'https://store.careplus.com.br/',
-                target: '_blank'
+                routerLink: '/Care Plus Store',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Loja Care Plus',
+                        href: 'https://store.careplus.com.br/',
+                        target: '_blank'
+                    }),                    
+                ]
             }),
             new SubMenuItem({
                 title: 'Rede Plus',
@@ -557,12 +569,7 @@ export default [
                         target: '_blank'
                     })
                 ]
-            }),
-            new SubMenuItem({
-                title: 'Care Plus Store',
-                href: 'https://store.careplus.com.br/',
-                target: '_blank'
-            }),
+            }),           
             new SubMenuItem({
                 title: 'Carreiras',
                 routerLink: '/carreiras',
