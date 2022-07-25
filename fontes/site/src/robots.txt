@@ -6,6 +6,6 @@ Disallow: /fale-conosco/contato
 Disallow: /fale-conosco/canal-de-denuncias
 Disallow: /fale-conosco/ouvidoria
 Disallow: /a-careplus/termos-e-condicoes
-Disallow: /a-careplus/politica-de-privacidade
+Disallow: /a-careplus/aviso-de-privacidade
 Disallow: /404
 Disallow: /error

@@ -15,7 +15,7 @@ export class TermosECondicoesComponent implements OnInit {
     elements: ElementModel[] = [
         new ElementModel({
             name: 'Termos de Uso',
-            id: 'termos-de-uso-e-politica-de-privacidade'
+            id: 'termos-de-uso-e-aviso-de-privacidade'
         }),
         new ElementModel({
             name: 'Descrição do Serviço',

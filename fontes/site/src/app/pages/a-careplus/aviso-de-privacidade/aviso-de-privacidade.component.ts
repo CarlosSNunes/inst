@@ -7,11 +7,11 @@ import { isPlatformBrowser } from '@angular/common';
 import { environment } from 'src/environments/environment';
 
 @Component({
-    selector: 'app-politica-de-privacidade',
-    templateUrl: './politica-de-privacidade.component.html',
-    styleUrls: ['./politica-de-privacidade.component.scss']
+    selector: 'app-aviso-de-privacidade',
+    templateUrl: './aviso-de-privacidade.component.html',
+    styleUrls: ['./aviso-de-privacidade.component.scss']
 })
-export class PoliticaDePrivacidadeComponent implements OnInit {
+export class AvisoDePrivacidadeComponent implements OnInit {
     elements: ElementModel[] = [
         new ElementModel({
             name: 'Aviso de Privacidade',
@@ -103,7 +103,7 @@ export class PoliticaDePrivacidadeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "og:url",
-            content: `${environment.SELF_URL}/a-careplus/politica-de-privacidade`,
+            content: `${environment.SELF_URL}/a-careplus/aviso-de-privacidade`,
         });
 
         /* 
@@ -128,7 +128,7 @@ export class PoliticaDePrivacidadeComponent implements OnInit {
 
         this.meta.updateTag({
             name: "twitter:url",
-            content: `${environment.SELF_URL}/a-careplus/politica-de-privacidade`,
+            content: `${environment.SELF_URL}/a-careplus/aviso-de-privacidade`,
         });
     }
 

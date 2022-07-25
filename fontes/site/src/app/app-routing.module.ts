@@ -96,9 +96,13 @@ const routes: Routes = [
         redirectTo: '/carreiras'
     },
     {
+        path: 'a-careplus_privacy/aviso-de-privacidade',
+        redirectTo: '/a-careplus/aviso-de-privacidade'
+    },  
+    {
         path: 'a-careplus_privacy/politica-de-privacidade',
-        redirectTo: '/a-careplus/politica-de-privacidade'
-    },
+        redirectTo: '/a-careplus/aviso-de-privacidade'
+    },      
     { path: 'planos-de-saude/care-plus-empresarial.aspx', redirectTo: '/planos-e-produtos/careplus-empresarial' },
     { path: 'planos-de-saude/', redirectTo: '/planos-e-produtos' },
     { path: 'planos-odontologicos/dental-prime-clinic.aspx', redirectTo: '/planos-e-produtos' },
@@ -128,7 +132,7 @@ const routes: Routes = [
     { path: 'biblioteca-da-saude/atividade-fisica.aspx', redirectTo: '/a-careplus' },
     { path: 'fale-conosco/visita.aspx', redirectTo: '/fale-conosco/contato' },
     { path: 'planos-de-saude/DL/Contratos-reajuste-coletivo_Pool-RN-309_052014-a-042015.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
-    { path: 'politica-privacidade.aspx', redirectTo: '/a-careplus/politica-de-privacidade' },
+    { path: 'politica-privacidade.aspx', redirectTo: '/a-careplus/aviso-de-privacidade' },
     { path: 'fale-conosco/imprensa.aspx', redirectTo: '/fale-conosco/contato' },
     { path: 'pesquisa-satisfacao.aspx', redirectTo: '/pesquisa-satisfacao' },
     { path: 'planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2019.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
@@ -148,6 +152,8 @@ const routes: Routes = [
     { path: 'DL/20160505-comunicado-interno.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
     { path: 'planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2016.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
     { path: 'welcome-back', redirectTo: '/planos-e-produtos/medicina-ocupacional' },
+    { path: 'politica-de-privacidade', redirectTo: '/a-careplus/aviso-de-privacidade' },
+   
     {
         path: 'canaldenuncias',
         canActivate: [RedirectGuardService],

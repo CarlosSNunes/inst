@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PoliticaDePrivacidadeComponent } from './politica-de-privacidade.component';
+import { AvisoDePrivacidadeComponent } from './aviso-de-privacidade.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: PoliticaDePrivacidadeComponent
+        component: AvisoDePrivacidadeComponent
     },
     {
         path: '**',
@@ -17,4 +17,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class PoliticaDePrivacidadeRoutingModule { }
+export class AvisoDePrivacidadeRoutingModule { }
