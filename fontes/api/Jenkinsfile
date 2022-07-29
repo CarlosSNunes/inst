@@ -45,7 +45,7 @@ node {
 	{
 		def prNum = env.CHANGE_ID  
 
-		String sonarqube_host ="http://sonar.careplus.intranet:9000/"        
+		String sonarqube_host ="https://sonar.careplus.com.br/"        
 		String projectKey     = "apiinstitucional"	
 		String msBuildHome  = "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin"
 		def sqScannerMsBuildHome = tool 'Scanner for MSBuild'
