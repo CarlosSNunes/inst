@@ -22,7 +22,7 @@ export class ContactScheduleAVisitComponent implements OnInit {
         }),
         imagePath: 'assets/svg/phone.svg',
         backgroundColorClass: this.backgroundColorClass
-    });
+    }); 
     @Input() secondCard: IconCardModel = new IconCardModel({
         title: 'Solicite uma Cotação',
         type: 'icon',
@@ -33,15 +33,15 @@ export class ContactScheduleAVisitComponent implements OnInit {
             target: '_self',
         }),
         backgroundColorClass: this.backgroundColorClass
-    });
+    });  
     constructor(
         private windowRef: WindowRef,
         private router: Router
     ) { }
 
     ngOnInit() {
-        this.firstCard.backgroundColorClass = this.backgroundColorClass;
-        this.secondCard.backgroundColorClass = this.backgroundColorClass;
+        this.firstCard.backgroundColorClass = this.backgroundColorClass;   
+        this.secondCard.backgroundColorClass = this.backgroundColorClass;    
     }
 
     open(card: IconCardModel) {

@@ -60,17 +60,17 @@ export default [
                         fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment:'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
+                    }),                   
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -172,17 +172,17 @@ export default [
                         fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment:'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
+                    }),                   
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -300,17 +300,17 @@ export default [
                         fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment:'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
+                    }),                   
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -416,17 +416,17 @@ export default [
                         fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment:'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
+                    }),                    
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -448,8 +448,8 @@ export default [
                         routerLink: '/carreiras/vagas',
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'http://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     }),
                 ]
@@ -533,17 +533,17 @@ export default [
                         fragment:'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment:'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment:'planos'
+                    }),                   
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]

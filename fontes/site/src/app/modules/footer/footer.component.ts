@@ -12,7 +12,7 @@ import { WindowRef } from 'src/utils/window-ref';
 })
 export class FooterComponent implements OnInit, AfterViewInit {
     actualYear: number = new Date().getFullYear();
-    siteMapOpened = false;
+    siteMapOpened = true;
     atendimentoPresencialCard: IconCardModel = new IconCardModel({
         type: 'icon',
         button: new ButtonModel({
