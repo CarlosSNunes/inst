@@ -51,6 +51,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -95,12 +111,8 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Solicite uma Cotação',
-                        routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),
+                routerLink: '/fale-conosco/contato',
+                subItems: [                  
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -160,6 +172,22 @@ export default [
                         title: 'Resultados Financeiros',
                         routerLink: '/a-careplus/resultados-financeiros'
                     })
+                ]
+            }),
+            new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
                 ]
             }),
             new SubMenuItem({
@@ -223,12 +251,8 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco/solicite-uma-cotacao',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Solicite uma Cotação',
-                        routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),
+                routerLink: '/fale-conosco/contato',
+                subItems: [                   
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -291,6 +315,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -339,12 +379,8 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco/solicite-uma-cotacao',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Solicite uma Cotação',
-                        routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),
+                routerLink: '/fale-conosco/contato',
+                subItems: [                   
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -407,6 +443,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -456,12 +508,8 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco/solicite-uma-cotacao',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Solicite uma Cotação',
-                        routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),
+                routerLink: '/fale-conosco/contato',
+                subItems: [                   
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -524,6 +572,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -568,12 +632,8 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Fale Conosco',
-                routerLink: '/fale-conosco/solicite-uma-cotacao',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Solicite uma Cotação',
-                        routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),
+                routerLink: '/fale-conosco/contato',
+                subItems: [                   
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',

@@ -322,13 +322,13 @@ export default {
         subDescriptions: [
             'As clínicas Care Plus Clinic foram desenvolvidas para oferecer aos nossos pacientes serviços de saúde com excelência técnica, conforto e qualidade excepcional de atendimento.',
             'Elas contam com o que há de mais moderno e eficiente, obedecendo ao mais alto grau de exigência para estabelecimentos de saúde determinado pela ANVISA, que assegura os mais rígidos padrões de qualidade e excelência.',
-            'Temos clínicas na Vila Olímpia e Brooklin, em São Paulo e no Barra Sul Shopping, no Rio de Janeiro.',
+            'Temos clínicas na Vila Olímpia e Brooklin, em São Paulo e no RioSul Shopping, no Rio de Janeiro.',
         ],
         button: new ButtonModel({
             text: 'Conheça a Care Plus Clinic',
             link: 'https://www.careplusclinic.com.br'
         }),
-        imageSrc: 'assets/img/bloco-clinicas.jpg',
+        imageSrc: 'assets/img/Imagem-site-CP-Clinic.jpg',
         reverse: true,
     }),
     // clinicInfos: {

@@ -51,6 +51,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -160,6 +176,22 @@ export default [
                         title: 'Resultados Financeiros',
                         routerLink: '/a-careplus/resultados-financeiros'
                     })
+                ]
+            }),
+            new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
                 ]
             }),
             new SubMenuItem({
@@ -291,6 +323,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -404,6 +452,22 @@ export default [
                         title: 'Resultados Financeiros',
                         routerLink: '/a-careplus/resultados-financeiros'
                     })
+                ]
+            }),
+            new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
                 ]
             }),
             new SubMenuItem({
@@ -521,6 +585,22 @@ export default [
                         title: 'Resultados Financeiros',
                         routerLink: '/a-careplus/resultados-financeiros'
                     })
+                ]
+            }),
+            new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
                 ]
             }),
             new SubMenuItem({
