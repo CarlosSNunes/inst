@@ -6,7 +6,8 @@ import {
     HttpInterceptor,
     HttpHandler,
     HttpRequest,
-    HttpResponse
+    HttpResponse,
+    HttpHeaders
 } from "@angular/common/http";
 import { UsuarioService } from './services';
 import { environment } from 'src/environments/environment';
@@ -45,7 +46,9 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         if (request.url == environment.API_URL + '/Usuario/Autenticar/Site') {
             request = request.clone({
                 setHeaders: {
-                    Custom: 'institucional'
+                    Custom: 'institucional',
+                    "Strict-Transport-Security" : "max-age=31536000",
+                    'X-XSS-Protection': '1; mode=block'
                 }
             });
             return next.handle(request)
@@ -62,7 +65,8 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                         request = request.clone({
                             setHeaders: {
                                 Custom: 'institucional',
-                                Authorization: `Bearer ${token}`
+                                "Strict-Transport-Security" : "max-age=31536000",
+                                'X-XSS-Protection': '1; mode=block'
                             }
                         });
                         if (request.method !== 'GET') {
@@ -83,15 +87,18 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                         if (isPlatformBrowser(this.platformId)) {
                             // Try reusing transferred response from server
                             const cachedResponse = this.transferState.get(key, null);
+                           
                             if (cachedResponse) {
                                 this.transferState.remove(key); // cached response should be used for the very first time
-                                return of(new HttpResponse<any>({
-                                    body: cachedResponse.body,
+                                
+                                return of(new HttpResponse<any>({       
+                                    body: cachedResponse ,
                                     status: 200,
                                     statusText: 'OK (from server)',
                                     // headers are not transferred by current implementation.
                                 }));
                             }
+                           
                             return next.handle(request).pipe(
                                 timeout(this.timeout),
                                 retry(this.retryTimes),
@@ -104,14 +111,17 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
                         if (isPlatformServer(this.platformId)) {
                             // Try saving response to be transferred to browser
+                           
                             return next.handle(request).pipe(
                                 tap(event => {
+                                 
                                     if (event instanceof HttpResponse && event.status == 200) {
                                         // Only body is preserved as it is and it seems sufficient for now. 
                                         // It would be nice to transfer whole response, but http response is not
                                         // a POJO and it needs custom serialization/deserialization.
+                                        
                                         const response = {
-                                            body: event.body
+                                            body: event.body,
                                         };
                                         this.transferState.set(key, response);
                                     }
