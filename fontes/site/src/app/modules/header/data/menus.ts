@@ -52,7 +52,7 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Clínicas',
-                routerLink: '/',
+                routerLink: '/home',
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus Clinic',
@@ -176,7 +176,7 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Clínicas',
-                routerLink: '/',
+                routerLink: '/home',
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus Clinic',
@@ -316,7 +316,7 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Clínicas',
-                routerLink: '/',
+                routerLink: '/home',
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus Clinic',
@@ -444,7 +444,7 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Clínicas',
-                routerLink: '/',
+                routerLink: '/home',
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus Clinic',
@@ -573,7 +573,7 @@ export default [
             }),
             new SubMenuItem({
                 title: 'Clínicas',
-                routerLink: '/',
+                routerLink: '/home',
                 subItems: [
                     new SubMenuItem({
                         title: 'Care Plus Clinic',
