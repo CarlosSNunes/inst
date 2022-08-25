@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, HostListener } from '@angular/core';
 import { IconCardsSectionModel } from 'src/app/models';
 
 @Component({
@@ -9,7 +9,7 @@ import { IconCardsSectionModel } from 'src/app/models';
 export class IconCardsSectionComponent implements OnInit, OnChanges {
     @Input() backgroundColorClass: string = 'white-background-color';
     @Input() iconCardsSectionModel: IconCardsSectionModel = new IconCardsSectionModel();
-
+    public getScreenWidth: any;
     constructor() {
     }
 
@@ -17,6 +17,12 @@ export class IconCardsSectionComponent implements OnInit, OnChanges {
         this.iconCardsSectionModel.cards.forEach(card => {
             card.backgroundColorClass = this.backgroundColorClass
         });
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -27,7 +33,7 @@ export class IconCardsSectionComponent implements OnInit, OnChanges {
         if (changes.iconCardsSectionModel) {
             this.iconCardsSectionModel = changes.iconCardsSectionModel.currentValue;
         }
-        
+
         this.iconCardsSectionModel.cards = this.iconCardsSectionModel.cards.map(card => {
             card.backgroundColorClass = this.backgroundColorClass
             return card

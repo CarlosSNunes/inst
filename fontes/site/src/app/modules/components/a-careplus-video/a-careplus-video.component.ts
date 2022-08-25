@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, Inject, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject, Input, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CareplusVideoModel } from 'src/app/models';
 
@@ -14,7 +14,7 @@ export class ACareplusVideoComponent implements OnInit {
     })
     isBrowser: boolean = false;
     @ViewChild('sectionVideo', { static: false }) sectionVideo: ElementRef<HTMLElement>;
-
+    public mobileOrDesktop: any;
     constructor(
         @Inject(PLATFORM_ID) private plataformId,
     ) {
@@ -22,6 +22,16 @@ export class ACareplusVideoComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onWindowResize() {
+        if (window.innerWidth >= 1023) {
+            this.mobileOrDesktop = 'btn btn-digital-cian secondary medium arrow-right is-hidden-touch'
+        } else {
+            this.mobileOrDesktop = 'btn btn-digital-cian tertiary arrow-right small is-hidden-desktop'
+        }
     }
 
     onPlayerReady(event) {

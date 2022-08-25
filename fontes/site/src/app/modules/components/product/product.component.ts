@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input, HostListener } from '@angular/core';
 
 @Component({
     selector: 'app-product',
@@ -8,10 +8,17 @@ import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 export class ProductComponent implements OnInit {
     @ViewChild('sectionProduct', { static: false }) sectionProduct: ElementRef<HTMLElement>;
     @Input() backgroundColorClass: string = 'white-background-color';
+    public getScreenWidth: any;
     constructor() {
     }
 
     ngOnInit() {
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     get offsetTop(): number {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { CardModel } from 'src/app/models';
 import Cards from './data/cards';
 
@@ -10,6 +10,7 @@ import Cards from './data/cards';
 export class MaterialsComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     cards: Array<CardModel> = Cards;
+    public getScreenWidth: any;
     constructor() { }
 
     ngOnInit() {
@@ -17,6 +18,11 @@ export class MaterialsComponent implements OnInit {
             card.backgroundColorClass = this.backgroundColorClass;
             return card;
         });
+        this.onWindowResize();
     }
 
+    @HostListener('window:resize', ['$event'])
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy, OnInit, Optional, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, OnDestroy, OnInit, Optional, PLATFORM_ID } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { BreadcrumbModel, RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
@@ -27,6 +27,7 @@ export class ErroComponent implements OnInit, OnDestroy {
         }),
     ];
     isServer: boolean = false;
+    public getScreenWidth: any;
     constructor(
         private title: Title,
         private meta: Meta,
@@ -46,6 +47,12 @@ export class ErroComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     ngOnDestroy() {
@@ -64,7 +71,7 @@ export class ErroComponent implements OnInit, OnDestroy {
             content: ' Infelizmente não encontramos a página que você está procurando'
         });
 
-        /* 
+        /*
             Open graph meta tags
         */
         this.meta.updateTag({
@@ -94,7 +101,7 @@ export class ErroComponent implements OnInit, OnDestroy {
             content: `${environment.SELF_URL}/erro`,
         });
 
-        /* 
+        /*
             Twitter meta tags
         */
 

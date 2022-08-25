@@ -50,14 +50,8 @@
                 <!-- routerLink links-->
 
                 <a *ngIf="videoModel.button.routerLink" [routerLink]="[videoModel.button.routerLink]"
-                    class="btn btn-digital-cian secondary medium arrow-right is-hidden-touch"
+                    [class]="mobileOrDesktop"
                     [title]="videoModel.button.title">{{videoModel.button.text}}</a>
-
-
-                <a *ngIf="videoModel.button.routerLink" [routerLink]="[videoModel.button.routerLink]"
-                    class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
-                    [title]="videoModel.button.title">{{videoModel.button.text}}
-                </a>
 
                 <!-- href links-->
 

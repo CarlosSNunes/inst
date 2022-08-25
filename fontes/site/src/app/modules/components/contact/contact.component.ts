@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID, Input, HostListener } from '@angular/core';
 import { ButtonModel, IconCardModel } from 'src/app/models';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
@@ -11,6 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class ContactComponent implements OnInit {
     @Input() backgroundColorClass: string = 'white-background-color';
     @Input() htag: string = 'h5';
+    public getScreenWidth: any;
     button: ButtonModel = new ButtonModel({
         link: '/fale-conosco/solicite-uma-cotacao',
         text: 'Entre em contato'
@@ -46,6 +47,12 @@ export class ContactComponent implements OnInit {
         if (this.isBrowser) {
             this.buttonListener()
         }
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     buttonListener() {

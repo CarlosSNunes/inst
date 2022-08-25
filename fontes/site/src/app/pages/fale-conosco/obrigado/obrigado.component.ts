@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { RouteModel } from 'src/app/models';
 import { Title, Meta } from '@angular/platform-browser';
@@ -19,6 +19,7 @@ export class ObrigadoComponent implements OnInit {
     selectedOrigin = origins[0];
     protocol: number;
     isBrowser: boolean = false;
+    public getScreenWidth: any;
     constructor(
         private title: Title,
         private meta: Meta,
@@ -48,6 +49,12 @@ export class ObrigadoComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     private emitGoogleEvents() {
