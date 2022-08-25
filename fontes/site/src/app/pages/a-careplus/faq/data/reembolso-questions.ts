@@ -7,7 +7,7 @@ export default [
                 Cálculo de reembolso
             </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 Além de disponibilizar uma ampla e qualificada rede de prestadores, serviço de emissão de prévia de valores
                 reembolsáveis mediante envio de documentação por parte dos beneficiários, a Care Plus, atendendo a regulamentação em
@@ -15,15 +15,15 @@ export default [
                 efetuam os cálculos de reembolso, com exemplo e linguagem simples e link para tabela tabela de reembolso com os
                 índices previstos para cada procedimento.
             </p>
-            
+
             <p class="sub-description">
                 Esta facilidade está disponível na área logada de Beneficiário e RH do site Care Plus - <a
                     href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, menu Reembolso > Cálculo de
                 Reembolso.
             </p>
-            
-            <img src="https://www4.careplus.com.br/mkt/hotsite/bv_b/assets/images/img_reembolso_site2.jpg">
-            
+
+            <img src="https://www4.careplus.com.br/mkt/hotsite/bv_b/assets/images/img_reembolso_site2.jpg" alt="imagem-reembolso">
+
             <p class="sub-description">
                 <strong>
                     Metodologia de Cálculo de Reembolso
@@ -33,7 +33,7 @@ export default [
                 Os valores são calculados com base na codificação prevista na tabela de indenização para o procedimento, no múltiplo
                 de indenização contratado para o plano e no valor de moeda saúde vigente à ocasião da realização do procedimento.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     MS - Moeda Saúde
@@ -42,11 +42,11 @@ export default [
             <p class="sub-description no-margin">
                 O valor monetário da moeda saúde vigente à ocasião do procedimento, em reais (R$).
             </p>
-            
+
             <p class="sub-description">
                 Exemplo - Demonstrativo de cálculo (considerando plano com múltiplo de 8x e moeda 0,52).
             </p>
-            
+
             <div class="tg-wrap">
                 <table border="1" table="" cellspacing="0" cellpadding="0">
                 <thead style="display: none;">
@@ -108,24 +108,24 @@ export default [
                     </tbody>
                 </table>
             </div>
-            
+
             <p class="sub-description">
                 <strong>
                     TI - Tabela de indenização
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 Tabela de procedimentos, contendo os códigos e quantitativos de valores em moedas de saúde, valor monetário adotado
                 equivalente ao CH (Coeficiente de Honorários), para fins de cálculo de reembolso no caso de uso de recursos em
                 regime de livre escolha.
             </p>
-            
+
             <p class="sub-description">
                 Além do site, a tabela também está disponível para consulta na sede da Care Plus, na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040, ou através de consulta no Cartório de Registros
                 de Títulos e Documentos e Civil de Pessoa Jurídica, localizado na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040.
             </p>
-            
+
             <p class="sub-description">
                 Em caso de dúvidas, solicitamos contatar o consultor de relacionamento responsável pelo atendimento de sua empresa.
             </p>
@@ -147,78 +147,78 @@ export default [
                 Via web
             </strong>
             </p>
-            
+
             <p class="sub-description">
                 Disponível para reembolso de fisioterapia, fonoaudiologia, acupuntura, psicoterapia, psicologia, escleroterapia,
                 exames simples, nutricionista, terapia ocupacional e de alta complexibilidade, odontologia,  próteses oculares (conforme garantia adicional contratada)  , vacinas preventivas , contracepção (implante do DIU) medicamentos, além de consultas
                 médicas eletivas.
             </p>
-            
+
             <p class="sub-description">
                 A solicitação deve ser feita através do site Care Plus: <a href="https://www.careplus.com.br"
                     target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu "Reembolso" > "Solicitação de Reembolso".
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Via internet do celular
                 </strong>
             </p>
-            
+
             <p class="sub-descrition no-margin">
                 O processo é bem simples! Basta acessar o site da Care Plus pelo seu aparelho smartphone e clicar em "Reembolso
                 Mobile". Preencha as informações necessárias corretamente e finalize sua solicitação.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Via Nota Fiscal Eletrônica
                 </strong>
             </p>
-            
+
             <p class="sub-descrition no-margin">
                 Exclusivo para as cidades de São Paulo, Rio de Janeiro, Guarulhos/SP, Jundiaí/SP, São Bernardo do Campo/SP,
                 Campinas/SP, Sorocaba/SP, Curitiba/PR, Belo Horizonte/MG e Porto Alegre/RS Salvador/BA Uberlândia/MG.
             </p>
-            
+
             <p class="sub-description no-margin">
                 Os beneficiários devem solicitar o envio da Nota Fiscal Eletrônica pelo próprio prestador ou enviar diretamente para
                 o e-mail nfe@careplus.com.br. Com o envio da NF-e, o beneficiário fica isento de enviar o documento original para
                 Care Plus.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Através do E-mail
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 Os beneficiários devem solicitar o envio da Nota Fiscal Eletrônica através do próprio prestador ou enviar
                 diretamente para o email: <a href="mailto:nfe@careplus.com.br">nfe@careplus.com.br</a>. Com o envio da NF-e, o
                 beneficiário fica isento de enviar o documento original para Care Plus.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Via App
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 Acesse o aplicativo Care Plus com o login e senha. No menu, clique em "Reembolso" e em seguida "Solicitação de Reembolso".
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Via Certificado Digital
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 Disponível para beneficiários que possuam o Certificado Digital.
             </p>
-            
+
             <p class="sub-description">
                 O envio é realizado via web e assinado de forma digital de acordo com a regulamentação que o torna verídica.
             </p>
@@ -232,31 +232,31 @@ export default [
                 laboratoriais de mais alto custo já que o valor cobrado pelos profissionais médicos segue uma lógica relacionada ao
                 posicionamento destes prestadores especialmente nas grandes metrópoles.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Planos de acomodação enfermaria -</strong> são desenhados para utilização de uma rede credenciada, por isto
                 privilegiam hospitais que contam com corpos clínicos próprios e profissionais cujos consultórios fiquem próximos aos
                 hospitais. Mesma lógica se aplica aos laboratórios.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Planos que incorporam acomodação em apartamento -</strong> automaticamente levam a remuneração dos
                 profissionais a uma regra diferenciada, de acordo com a tabela de indenização Care Plus, começando a dar acesso a
                 reembolsos que vão aumentando gradativamente.
             </p>
-            
+
             <p class="sub-description">
                 <strong> Planos conforme nível funcional - </strong> o valor de reembolso é definido e influenciado pela política de
                 benefícios de cada empresa, que estratifica diferentes planos conforme o nível funcional – administração,
                 supervisão, gerência, diretoria e presidência.
             </p>
-            
+
             <p class="sub-description">
                 Para fazer uso do reembolso é preciso estar ciente de que haverá um desembolso inicial para ser reembolsado
                 posteriormente, ou seja, <strong>é importante que o perfil do produto esteja adequado à</strong> sua capacidade de
                 financiamento.
             </p>
-            
+
             <p class="sub-description">
                 Os reembolsos via internet são válidos para fisioterapia, fonoaudiologia, acupuntura, psicoterapia, psicologia,
                 escleroterapia, exames simples, nutricionista, terapia ocupacional e de alta complexidade, odontologia, próteses oculares (conforme garantia adicional contratada), vacinas preventivas, contracepção (implante do DIU), além de consultas
@@ -271,7 +271,7 @@ export default [
                 O prazo máximo para solicitação de reembolso é de 365 dias contados da data do evento, após o qual o mesmo não será
                 passível de ressarcimento (ainda que passível de cobertura).
             </p>
-            
+
             <ul class="disc">
                 <li>
                     <strong>
@@ -286,12 +286,12 @@ export default [
                     na sede da Care Plus, na Alameda Mamoré, 687 - 12º andar | Alphaville - Barueri - SP - CEP: 06454-040, ou a partir da data do recebimento da imagem do documento, caso seja via web, aplicativo, celular ou NFe.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 Os reembolsos são efetuados via TED ou DOC em conta corrente e comunicados por mensagem no celular, no email ou na
                 página do beneficiário no site da Care Plus.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Obs.:</strong>   Os reembolsos Care Plus ficam vinculados às coberturas e aos limites contratuais.
             </p>
@@ -302,7 +302,7 @@ export default [
         description: `
             <p class="sub-description no-margin">
                 Verifique com a clínica após a sua consulta médica e odontológica se eles emitem a Nota Fiscal. Se emitirem, solicite a Nota Fiscal ao invés do recibo.
-            </p> 
+            </p>
         `
     },
     {
@@ -367,7 +367,7 @@ export default [
                 ESCOLHA TOTAL, fundiram os dois modelos e com isto, ao longo do tempo, houve a criação de algumas distorções, vícios
                 e algumas armadilhas que devem ser evitadas.
             </p>
-            
+
             <p class="sub-description">
                 Ao ofertarem o reembolso de consultas estipulando um limite de valor, as empresas oferecem aos seus colaboradores a
                 possibilidade de acessar serviços médicos e odontológicos que podem ser parcialmente ou totalmente subsidiados.
@@ -376,33 +376,33 @@ export default [
                 gasto como investimento pessoal com a sua saúde ou ainda buscar na rede referenciada uma equipe médica e
                 odontológica.
             </p>
-            
+
             <p class="sub-description">
                 Uma das distorções surgiu exatamente na oferta de determinadas facilidades para adequar o gasto ao orçamento sem se
                 rever o seu valor, levando determinados profissionais a trabalhar de forma criativa com fornecimento de recibos e
                 relatórios com enquadramentos inadequados, que permitiriam a cobertura, se os processos não fossem analisados ou
                 auditados.
             </p>
-            
+
             <p class="sub-description">
                 Essa prática, felizmente, é realizada por uma minoria de profissionais da área de saúde que, normalmente envolve o
                 beneficiário, sem que o mesmo tenha sequer conhecimento do fato ou da dimensão dos seus atos já que se trata de um
                 assunto sobre o qual não tem domínio, mas que é objeto de constante acompanhamento, levantamento, identificação e
                 comunicação.
             </p>
-            
+
             <p class="sub-description">
                 Alguns exemplos são importantes, pois são os que mais causam indicação de alguma irregularidade junto às empresas e
                 merecem uma leitura atenta e que se divida com os dependentes, pois é comum recebermos despesas para reembolso e
                 apenas intermediarmos a entrega dos documentos junto ao RH ou à consultora que atende à empresa.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Vejamos algumas situações irregulares:
                 </strong>
             </p>
-            
+
             <ul class="disc">
                 <li>
                     <strong>Mais de um recibo -</strong> negociação da Despesa com o desdobramento do valor de consulta para
@@ -426,7 +426,7 @@ export default [
                     aspecto de responsabilidade social.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 Nos dias em que se fala tanto em ética nos negócios e ética concorrencial, várias empresas têm surpreendido
                 colaboradores com desligamento ao se depararem com a comprovação de irregularidades como as que citamos acima. Elas
@@ -444,7 +444,7 @@ export default [
                 para pagamento de reembolso no caso de despesa acumulada no mês igual ou superior a R$ 10.000,00, será necessário o
                 envio de cópia dos documentos abaixo do titular da conta cadastrada para o reembolso:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     RG e CPF ou Carteira Nacional de Habilitação – CNH
@@ -477,14 +477,14 @@ export default [
                 apresentado para reembolso e o que foi efetivamente reembolsado. E deve caracterizar como despesa médica e
                 odontológica de acordo com a Legislação Tributária vigente.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Importante -</strong> os documentos encaminhados para reembolso passam à posse da Operadora de Planos de
                 Saúde, pois se constituem em despesas que são lançadas em sua contabilidade. Para fins de comprovação de Imposto de
                 Renda, anualmente fica disponível na página do usuário em www.careplus.com.br o relatório das despesas não
                 reembolsadas ou parcialmente reembolsadas.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Coparticipação - </strong>isto se aplica também à coparticipação, que é a recuperação de parte da despesa
                 efetivamente paga pelo atendimento do beneficiário junto ao prestador de serviço da rede de atendimento ou do
@@ -500,7 +500,7 @@ export default [
             <p class="sub-description no-margin">
                 No reembolso, quando os estipulantes optam pelo desconto de coparticipação, a franquia é aplicada no ato da regulação de acordo com a porcentagem contratada/determinada.
             </p>
-    
+
         `
     },
     {
@@ -511,11 +511,11 @@ export default [
                 atendimentos de rede dentro da fatura mensal, um movimento dos valores que deverão ser descontados de seus
                 funcionários. O valor é pago pelas empresas, que o descontam no holerite.
             </p>
-            
+
             <p class="sub-description">
                 No reembolso a coparticipação é abatida quando ocorre a indenização.
             </p>
-            
+
             <p class="sub-description">
                 Somente os produtos com previsão de coparticipação em internações hospitalares poderão adotar o mecanismo de
                 coparticipação em internações psiquiátricas.
@@ -529,7 +529,7 @@ export default [
                 Independentemente da declaração de IR ser conjunta ou não, os reembolsos são pagos ao titular do plano, em sua
                 conta, cadastrada com seu CPF.
             </p>
-            
+
             <p class="sub-description">
                 Portanto, o informe de IRPF se refere aos pagamentos efetuados exclusivamente nessa conta.
             </p>
@@ -542,7 +542,7 @@ export default [
                 Para a Receita Federal, o que vale para ressarcimento é a data em que o reembolso da despesa se deu e o excedente se
                 configurou como direito a ser utilizado para fins de IRPF. Veja um exemplo para entender melhor:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     O atendimento e pagamento no ano de 2008 e o médico ou dentista declarou ao Fisco em 2008;
@@ -566,7 +566,7 @@ export default [
                 Extrato do reembolso e comprovante de crédito efetuado pela operadora responsável pelo 1º pagamento, acompanhado das
                 cópias autenticadas de:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     Cartão de identificação e do contrato de prestação de serviços em que conste a descrição de cobertura e
@@ -592,26 +592,26 @@ export default [
                 agendada a internação e o prévio conhecimento do que vai ser realizado, é mais do que natural que se solicite ao
                 cirurgião um orçamento dos honorários da equipe.
             </p>
-            
+
             <p class="sub-description">
                 Enviando à Care Plus os documentos abaixo, em 24 horas úteis será disponibilizada no site da Care Plus uma prévia
                 dos valores máximos reembolsáveis, o que lhe permitirá negociar os valores caso sejam superiores àqueles que seu
                 plano reembolsa. Ou ainda se programar no caso de não haver uma sensibilização por parte da equipe e até mesmo
                 solicitar a indicação de profissionais de referência da rede por parte da Care Plus.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para elaboração da prévia
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Laudos de exames e relatórios médicos que indiquem:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Data e local previstos para a sua realização;
@@ -629,13 +629,13 @@ export default [
                     Tempo de acompanhamento clínico e de existência da patologia.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     Orçamento constando:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Data e local previstos para a sua realização;
@@ -653,7 +653,7 @@ export default [
                     Tempo de acompanhamento clínico e de existência da patologia.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     Lista de próteses, órteses e materiais a serem utilizados.
@@ -667,7 +667,7 @@ export default [
             <p class="sub-description no-margin">
                 Se a internação for eletiva, ou seja, houve um diagnóstico com indicação de uma cirurgia Se está gestante e deseja conhecer diferentes pediatras para decidir qual deles atenderá seu bebê, poderá passar em consulta com diferentes pediatras pelo livre escolha a partir do 3º trimestre.
             </p>
-            
+
             <p class="sub-description">
                 É importante ressaltar que no caso de livre escolha, deverá ser respeitado o intervalo contratual (Retorno consultas: 16 dias).
             </p>
