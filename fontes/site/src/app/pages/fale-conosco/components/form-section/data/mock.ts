@@ -2,7 +2,7 @@ import { BreadcrumbModel, FormSectionModel } from "src/app/models";
 
 export const chanelForms: FormSectionModel[] = [
     new FormSectionModel({
-        title: 'Solicite uma Cotação',
+        title: 'Solicite uma Cotação 2',
         id: 1,
         active: true,
         slug: 'solicite-uma-cotacao',
