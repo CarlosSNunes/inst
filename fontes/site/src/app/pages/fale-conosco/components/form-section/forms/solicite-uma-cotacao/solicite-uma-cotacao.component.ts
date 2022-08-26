@@ -96,10 +96,10 @@ export class SoliciteUmaCotacaoComponent implements OnInit, AfterViewInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Solicite uma Cotação | Fale Conosco | Care Plus');
+        this.title.setTitle('Solicite uma Proposta | Fale Conosco | Care Plus');
         this.meta.updateTag({
             name: 'description',
-            content: 'Solicite uma cotação com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
+            content: 'Solicite uma proposta com a Care Plus pelo formulário ou por um dos nossos canais de atendimento.'
         });
 
         /* 

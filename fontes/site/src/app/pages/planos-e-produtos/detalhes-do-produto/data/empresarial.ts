@@ -36,7 +36,7 @@ export default {
         ],
         imageSrc: 'assets/img/sobre_plano_empresarial.png',
         button: new ButtonModel({
-            text: 'Solicite uma Cotação',
+            text: 'Solicite uma Proposta',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-empresarial',
@@ -248,7 +248,7 @@ export default {
         subDescription: 'Nosso plano odontológico também faz parte das classificações: Care Plus Soho, Clube Care Plus e Care Plus Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
         imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
-            text: 'Solicite uma Cotação',
+            text: 'Solicite uma Proposta',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-empresarial',
@@ -356,11 +356,11 @@ export default {
         imageSrc: 'assets/img/plane.jpg',
     }),
     secondCard: new IconCardModel({
-        title: 'Solicite uma Cotação',
+        title: 'Solicite uma Proposta',
         type: 'icon',
         button: new ButtonModel({
             routerLink: '/fale-conosco/solicite-uma-cotacao',
-            text: 'Clique e solicite cotação',
+            text: 'Clique e solicite proposta',
             target: '_self',
             queryParams: {
                 plano: 'careplus-empresarial',

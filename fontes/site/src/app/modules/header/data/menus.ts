@@ -112,7 +112,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [                  
+                subItems: [  
+                    new SubMenuItem({
+                        title: 'Solicite uma Proposta',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
+                    }),                
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -252,7 +256,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [                   
+                subItems: [  
+                    new SubMenuItem({
+                        title: 'Solicite uma Proposta',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
+                    }),                 
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -380,7 +388,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [                   
+                subItems: [  
+                    new SubMenuItem({
+                        title: 'Solicite uma Proposta',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
+                    }),                 
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -509,7 +521,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [                   
+                subItems: [    
+                    new SubMenuItem({
+                        title: 'Solicite uma Proposta',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
+                    }),               
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -633,7 +649,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [                   
+                subItems: [    
+                    new SubMenuItem({
+                        title: 'Solicite uma Proposta',
+                        routerLink: '/fale-conosco/solicite-uma-cotacao',
+                    }),               
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',

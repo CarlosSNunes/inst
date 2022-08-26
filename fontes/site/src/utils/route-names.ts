@@ -23,11 +23,11 @@ export const routes: RouteModel[] = [
     }),
     new RouteModel({
         route: '/fale-conosco',
-        description: 'Fale Conosco - Solicite uma Cotação'
+        description: 'Fale Conosco - Solicite uma Proposta'
     }),
     new RouteModel({
         route: '/fale-conosco/solicite-uma-cotacao',
-        description: 'Fale Conosco - Solicite uma Cotação'
+        description: 'Fale Conosco - Solicite uma Proposta'
     }),
     new RouteModel({
         route: '/fale-conosco/contato',

@@ -114,7 +114,7 @@ export default [
                 routerLink: '/fale-conosco',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -258,7 +258,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -390,7 +390,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -523,7 +523,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -651,7 +651,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({

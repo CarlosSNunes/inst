@@ -14,6 +14,19 @@
     </svg>
 </button>
 <!-- Fim do botÃ£o de rolar para o topo da pÃ¡gina -->
+
+<!-- Botão Solicite uma Cotação -->
+<a class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao" style="display:none;">
+    <p class="text">
+        Solicite uma Proposta
+    </p>
+    <img class="girl" src="assets/svg/get-price-box-image.svg" alt="Solicite uma Proposta">
+    <span class="icon">
+        <img src="assets/svg/telephone-icon.svg" alt="Solicite uma Proposta">
+    </span>
+</a>
+<!-- Fim do botão Solicite uma Cotação -->
+
 <!-- Aceite de cookies -->
 <app-cookie-notice  class="app-cookie-notice" [class.show]="cookieAgree == 'not-agree'" (agree)="agreeCookieComponent()" [@cookieAgreeAnimation]="cookieAgree"></app-cookie-notice>
 <!-- Fim do aceite de cookies -->

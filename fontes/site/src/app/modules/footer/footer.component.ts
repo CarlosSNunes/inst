@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
     atendimentoPresencialCard: IconCardModel = new IconCardModel({
         type: 'icon',
         button: new ButtonModel({
-            text: 'Solicite uma Cotação',
+            text: 'Solicite uma Proposta',
             action: () => this.openSimulator(),
             target: '_self'
         }),

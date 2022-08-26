@@ -53,7 +53,7 @@ export const servicosPersonalizadosSectionModel = new IconCardsSectionModel({
     bigTitle: 'Soluções personalizadas em Medicina Ocupacional para a sua empresa',
     subDescription: 'Conte com os melhores serviços de Medicina Ocupacional. Todos eles seguem à risca as Normas Regulamentadoras (NRs). Confira quais são:',
     button: new ButtonModel({
-        text: 'Solicite uma Cotação',
+        text: 'Solicite uma Proposta',
         routerLink: '/fale-conosco/solicite-uma-cotacao',
         target: '_self',
         queryParams: {
@@ -97,10 +97,10 @@ export const firstCard: IconCardModel = new IconCardModel({
 });
 
 export const secondCard: IconCardModel = new IconCardModel({
-    title: 'Solicite uma Cotação',
+    title: 'Solicite uma Proposta',
     type: 'icon',
     button: new ButtonModel({
-        text: 'Clique e solicite cotação',
+        text: 'Clique e solicite proposta',
         routerLink: '/fale-conosco/solicite-uma-cotacao',
         target: '_self',
         queryParams: {
