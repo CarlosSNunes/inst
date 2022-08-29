@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap");
+
+$browser-context: 16;
+$asset-base-path: "..";
+$montserrat: "Montserrat", sans-serif;
+
+$color-map: (
+	_white: #ffffff,
+	_black: #000000,
+	_pink: #f26cac,
+	_green: (
+		200: #05b8b5,
+		500: #007d79,
+	),
+	_blue: (
+		100: #8dc0e8,
+		300: #1c8ddb,
+		400: #0079c8,
+		700: #00335b,
+		900: #0d1846,
+	),
+	_gray: (
+		100: #f7f5f2,
+		200: #C9C9C9,
+		500: #616161,
+		900: #21272a,
+	),
+	_orange: (
+		100: #ec8938,
+		500: #db3907,
+	),
+	_purple: (
+		100: #8a3ff5,
+		400: #6929c4,
+	),
+);
+
+@function clampBuilder($minFontSize, $maxFontSize, $minWidthPx: 325, $maxWidthPx: 1920) {
+	$pixelPerRem: 16;
+	$minWidth: calc($minWidthPx / $pixelPerRem);
+	$maxWidth: calc($maxWidthPx / $pixelPerRem);
+
+	$slope: calc(($maxFontSize - $minFontSize) / ($maxWidth - $minWidth));
+	$yAxisIntersection: -$minWidth * $slope + $minFontSize;
+
+	@return #{clamp(#{$minFontSize}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxFontSize}rem)};
+}
+
+@function rem($pixels, $context: $browser-context) {
+	@return #{calc($pixels/$context)}rem;
+}
+
+@function asset($type, $file) {
+	@return url($asset-base-path + "/" + $type + "/" + $file);
+}
+
+@function getImage($file) {
+	@return asset("img", $file);
+}
+
+@function getColor($color, $shade: "base", $map: $color-map) {
+	@if (map-has-key($map, $color)) {
+		$value: map-get($map, unquote($color));
+
+		@if type-of($value) == color {
+			@return $value;
+		}
+
+		@if (map-has-key($value, $shade)) {
+			@return map-get($value, $shade);
+		}
+	}
+
+	@return null;
+}
+
+@function ruleOfTree($currentValue) {
+	@return ($currentValue * 1330)/1920;
+}
+
+@mixin transition {
+	transition: all 0.4s ease;
+	transition-property: all;
+	transition-duration: 0.4s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+}
+
+@mixin titulo-grande {
+	font-size: clampBuilder(1.25, 2.5);
+	font-weight: 400;
+	line-height: 56px;
+
+	@include media-breakpoint-down(sm) {
+		line-height: 130%;
+		font-weight: 500;
+		letter-spacing: -0.02em;
+	}
+}

@@ -59,7 +59,8 @@
                             { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
                             { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
                             { "glob": "**/*", "input": "src/welcome-back", "output": "/welcome-back/" },
-                            { "glob": "**/*", "input": "src/tytocare", "output": "/tytocare/" }                                    
+                            { "glob": "**/*", "input": "src/tytocare", "output": "/tytocare/" },
+                            { "glob": "**/*", "input": "src/inspetorfrau", "output": "/inspetorfrau/" }                                  
                         ],
                         "styles": [
                             "src/styles.scss",
@@ -410,8 +411,8 @@
                         { "glob": "**/*", "input": "src/coronavirus", "output": "/coronavirus/" },
                         { "glob": "**/*", "input": "src/ocupacional", "output": "/ocupacional/" },
                         { "glob": "**/*", "input": "src/welcome-back", "output": "/welcome-back/" },
-                        { "glob": "**/*", "input": "src/tytocare", "output": "/tytocare/" } 
-
+                        { "glob": "**/*", "input": "src/tytocare", "output": "/tytocare/" },
+                        { "glob": "**/*", "input": "src/inspetorfrau", "output": "/inspetorfrau/" }
                     ],
                     "configurations": {
                         "production": {
