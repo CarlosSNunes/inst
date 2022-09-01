@@ -37,7 +37,7 @@ export class DifferentialComponent implements OnInit, AfterViewInit {
         this.onWindowResize();
     }
 
-    @HostListener('window:resize', ['$event'])
+    @HostListener('window:resize')
     onWindowResize() {
         this.getScreenWidth = window.innerWidth;
     }

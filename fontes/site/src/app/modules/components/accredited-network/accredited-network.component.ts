@@ -18,7 +18,7 @@ export class AccreditedNetworkComponent implements OnInit {
         this.onWindowResize();
     }
 
-    @HostListener('window:resize', ['$event'])
+    @HostListener('window:resize')
     onWindowResize() {
         if (window.innerWidth >= 1023) {
             this.mobileOrDesktop = 'btn btn-digital-cian secondary medium is-hidden-touch'

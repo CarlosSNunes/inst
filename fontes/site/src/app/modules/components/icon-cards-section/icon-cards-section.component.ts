@@ -20,7 +20,7 @@ export class IconCardsSectionComponent implements OnInit, OnChanges {
         this.onWindowResize();
     }
 
-    @HostListener('window:resize', ['$event'])
+    @HostListener('window:resize')
     onWindowResize() {
         this.getScreenWidth = window.innerWidth;
     }

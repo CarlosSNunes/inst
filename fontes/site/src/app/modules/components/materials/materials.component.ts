@@ -21,7 +21,7 @@ export class MaterialsComponent implements OnInit {
         this.onWindowResize();
     }
 
-    @HostListener('window:resize', ['$event'])
+    @HostListener('window:resize')
     onWindowResize() {
         this.getScreenWidth = window.innerWidth;
     }
