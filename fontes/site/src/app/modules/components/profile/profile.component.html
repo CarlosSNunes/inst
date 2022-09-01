@@ -37,12 +37,12 @@
                     <p class="content">
                         {{profile.description}}
                     </p>
-                    <a [routerLink]="[profile.link]" [title]="profile.title"
+                    <a *ngIf="getScreenWidth >= 1023" [routerLink]="[profile.link]" [title]="profile.title"
                         class="btn btn-navy secondary arrow-right medium is-hidden-touch">
                         {{profile.linkTitle}}
                     </a>
 
-                    <a [routerLink]="[profile.link]" [title]="profile.title"
+                    <a *ngIf="getScreenWidth < 1023" [routerLink]="[profile.link]" [title]="profile.title"
                         class="btn btn-navy tertiary arrow-right small is-hidden-desktop">
                         {{profile.linkTitle}}
                     </a>

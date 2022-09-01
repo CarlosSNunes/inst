@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import Profiles from './data/profiles';
 
 @Component({
@@ -9,9 +9,16 @@ import Profiles from './data/profiles';
 export class ProfileComponent implements OnInit {
     profiles = Profiles;
     @Input() backgroundColorClass: string = 'white-background-color';
+    public getScreenWidth: any;
     constructor() { }
 
     ngOnInit() {
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize')
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     setActiveProfile(index: number) {

@@ -35,7 +35,7 @@
                 <!--
                     Coluna de mídias sociais nas resoluções de tablet para cima
                 -->
-                <div class="column is-2 media-box is-hidden-touch">
+                <div *ngIf="getScreenWidth >= 1023" class="column is-2 media-box is-hidden-touch">
                     <div class="social-media-box">
                         <div class="columns flex-wrap">
                             <div class="column is-6 is-one-quarter-mobile">
@@ -77,7 +77,7 @@
             <!--
                 Coluna de mídias sociais nas resoluções de mobile para baixo
             -->
-            <div class="columns is-full is-hidden-desktop">
+            <div *ngIf="getScreenWidth < 1023" class="columns is-full is-hidden-desktop">
                 <div class="column is-full media-box">
                     <div class="social-media-box">
                         <div class="columns flex-wrap">
