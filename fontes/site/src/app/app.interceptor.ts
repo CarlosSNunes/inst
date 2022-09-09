@@ -6,8 +6,7 @@ import {
     HttpInterceptor,
     HttpHandler,
     HttpRequest,
-    HttpResponse,
-    HttpHeaders
+    HttpResponse
 } from "@angular/common/http";
 import { UsuarioService } from './services';
 import { environment } from 'src/environments/environment';
@@ -46,9 +45,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         if (request.url == environment.API_URL + '/Usuario/Autenticar/Site') {
             request = request.clone({
                 setHeaders: {
-                    Custom: 'institucional',
-                    "Strict-Transport-Security": "max-age=31536000",
-                    'X-XSS-Protection': '1; mode=block'
+                    Custom: 'institucional'
                 }
             });
             return next.handle(request)
@@ -65,9 +62,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                         request = request.clone({
                             setHeaders: {
                                 Custom: 'institucional',
-                                Authorization: `Bearer ${token}`,
-                                "Strict-Transport-Security": "max-age=31536000",
-                                'X-XSS-Protection': '1; mode=block'
+                                Authorization: `Bearer ${token}`
                             }
                         });
                         if (request.method !== 'GET') {
