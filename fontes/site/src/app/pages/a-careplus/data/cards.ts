@@ -70,7 +70,7 @@ export default [
         description: "Conheça a nossa Política de Privacidade e entenda como funciona nosso sistema de segurança de dados.",
         imagePath: "assets/svg/lock.svg",
         backgroundColorClass: "white-background-color",
-        routerLink: '/a-careplus/politica-de-privacidade',
+        routerLink: '/a-careplus/aviso-de-privacidade',
         hasCollapse:false
     }),
     new IconCardModel({
