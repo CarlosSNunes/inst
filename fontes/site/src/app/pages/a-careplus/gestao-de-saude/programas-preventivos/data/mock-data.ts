@@ -31,7 +31,8 @@ export const checkupDoViajante: InfoSectionModel = new InfoSectionModel({
     bigTitle: 'Check-up do Viajante',
     subDescriptions: [
         'Avaliação médica destinada a pessoas que farão viagens internacionais a lazer ou a trabalho para qualquer lugar do mundo, para tornar a sua viagem mais tranquila e segura.',
-        'O objetivo da consulta é orientar sobre a prevenção de doenças através do aconselhamento para cuidados básicos que visam reduzir a exposição a situações de risco de doenças, muitas vezes adquiridas após a ingestão de água ou de alimentos contaminados ou picadas de insetos, indicação de vacinas ou necessidade de medicação para profilaxia de doenças de acordo como o itinerário, sugestão de kit de medicamentos para serem levados na viagem, além de avaliar o estado de saúde antes da viagem. Ao final da consulta, você receberá um relatório resumido com as orientações e cuidados a serem tomados.',
+        'O objetivo da consulta é orientar sobre a prevenção de doenças através do aconselhamento para cuidados básicos que visam reduzir a exposição a situações de risco de doenças. As doenças podem ser adquiridas após a ingestão de água, de alimentos contaminados ou picadas de insetos.',
+        'Além disso, pode haver a indicação de vacinas ou a necessidade de medicação para profilaxia de doenças, sugestão de kit de medicamentos para serem levados na viagem, além de avaliar o estado de saúde antes da viagem.',
         '<strong>Lembre-se: o contato deve ser feito com no mínimo 30 dias antes da viagem.</strong>'
     ],
     imageSrc: 'assets/img/checkup-viajante.jpg',
