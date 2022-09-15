@@ -22,6 +22,7 @@ import * as express from 'express';
 import { join } from 'path';
 import https from 'https';
 import xFrameOptions from 'x-frame-options';
+import sts from 'strict-transport-security';
 import nocache from 'nocache';
 
 // Express server
@@ -32,6 +33,16 @@ app.use(compression())
 
 // X-frame-options
 app.use(xFrameOptions())
+
+//Strict-Transport-Security
+const globalSTS = sts.getSTS({'max-age':{'days': 31536000}});
+app.use(globalSTS);
+
+//X-XSS-Protection
+app.use((req, res, next) => {
+    res.setHeader("X-XSS-Protection", "1; mode=block");
+    next();
+  });
 
 // Remove all cache on requets
 app.use(nocache())
