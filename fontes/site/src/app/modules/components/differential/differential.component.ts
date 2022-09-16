@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID, Input, ChangeDetectorRef, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, Input, ChangeDetectorRef, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { DifferentialModel } from 'src/app/models';
 import { Subscription, interval } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -17,6 +17,7 @@ export class DifferentialComponent implements OnInit, AfterViewInit {
     diferentialsElements: NodeListOf<HTMLElement>;
     percentage: number = 0;
     percentageStoped: number = 0;
+    public getScreenWidth: any;
 
     @Input() backgroundColorClass: string = 'white-background-color';
     constructor(
@@ -33,6 +34,12 @@ export class DifferentialComponent implements OnInit, AfterViewInit {
             return differential
         });
         this.differentials[0].active = true;
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize')
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     ngAfterViewInit() {
@@ -78,7 +85,7 @@ export class DifferentialComponent implements OnInit, AfterViewInit {
             this.percentage = 0;
         }
         if (index == this.currentDifferential) {
-           return;
+            return;
         }
         this.stopSubscription()
         this.differentials = this.differentials.map((diff, i) => {

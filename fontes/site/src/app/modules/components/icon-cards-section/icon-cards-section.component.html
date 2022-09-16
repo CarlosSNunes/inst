@@ -6,7 +6,7 @@
                     <p class="small-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.smallTitle">
                         {{iconCardsSectionModel?.smallTitle}}
                     </p>
-                    
+
                     <h1 class="h4 big-title" [class.centered]="iconCardsSectionModel?.cendered" *ngIf="iconCardsSectionModel?.bigTitle && iconCardsSectionModel?.htag == 'h1'" [style.maxWidth.px]="iconCardsSectionModel?.bigTitleMaxWidth">
                         {{iconCardsSectionModel?.bigTitle}}
                     </h1>
@@ -48,13 +48,21 @@
                     <!--
                         Botões com routerLink
                     -->
-                    <a *ngIf="iconCardsSectionModel?.button?.routerLink" [routerLink]="iconCardsSectionModel?.button?.routerLink" [queryParams]="iconCardsSectionModel?.button?.queryParams" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.routerLink && getScreenWidth >= 1023"
+                        [routerLink]="iconCardsSectionModel?.button?.routerLink"
+                        [queryParams]="iconCardsSectionModel?.button?.queryParams"
+                        class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch"
+                        [title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
                     </a>
 
-                    <a *ngIf="iconCardsSectionModel?.button?.routerLink" [routerLink]="iconCardsSectionModel?.button?.routerLink" [queryParams]="iconCardsSectionModel?.button?.queryParams" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.routerLink && getScreenWidth < 1023"
+                    [routerLink]="iconCardsSectionModel?.button?.routerLink"
+                    [queryParams]="iconCardsSectionModel?.button?.queryParams"
+                    class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop"
+                    [title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
@@ -63,13 +71,13 @@
                     <!--
                         Botões com href
                     -->
-                    <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.link && getScreenWidth >= 1023" [href]="iconCardsSectionModel?.button?.link" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" [title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}
                     </a>
 
-                    <a *ngIf="iconCardsSectionModel?.button?.link" [href]="iconCardsSectionModel?.button?.link" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [title]="iconCardsSectionModel?.button?.text">
+                    <a *ngIf="iconCardsSectionModel?.button?.link && getScreenWidth < 1023" [href]="iconCardsSectionModel?.button?.link" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" [title]="iconCardsSectionModel?.button?.text">
                         {{
                             iconCardsSectionModel?.button?.text
                         }}

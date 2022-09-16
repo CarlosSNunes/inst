@@ -1,0 +1,23 @@
+section {
+    &#aviso-de-privacidade-section {
+        .container {
+            .app-sidebar {
+                height: 100%;
+                display: block;
+            }
+            .term-section {
+                margin-top: 22px;
+                &:first-child {
+                    margin-top: 0;
+                }
+                .big-title {
+                    max-width: 100%;
+                }
+            }
+
+            .cor-destaque{
+                color: #0079c8;
+            }
+        }
+    }
+}
