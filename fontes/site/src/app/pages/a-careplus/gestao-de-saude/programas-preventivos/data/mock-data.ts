@@ -30,9 +30,9 @@ export const checkupDoViajante: InfoSectionModel = new InfoSectionModel({
     smallTitle: 'Programas Preventivos',
     bigTitle: 'Check-up do Viajante',
     subDescriptions: [
-        'Avaliação médica destinada a pessoas que farão viagens internacionais a lazer ou a trabalho para qualquer lugar do mundo, para tornar a sua viagem mais tranquila e segura',
+        'Avaliação médica destinada a pessoas que farão viagens internacionais a lazer ou a trabalho para qualquer lugar do mundo, para tornar a sua viagem mais tranquila e segura.',
         'O objetivo da consulta é orientar sobre a prevenção de doenças através do aconselhamento para cuidados básicos que visam reduzir a exposição a situações de risco de doenças, muitas vezes adquiridas após a ingestão de água ou de alimentos contaminados ou picadas de insetos, indicação de vacinas ou necessidade de medicação para profilaxia de doenças de acordo como o itinerário, sugestão de kit de medicamentos para serem levados na viagem, além de avaliar o estado de saúde antes da viagem. Ao final da consulta, você receberá um relatório resumido com as orientações e cuidados a serem tomados.',
-        '<strong>Lembre-se: o formulário deve ser preenchido com no mínimo 30 dias de antecedência da viagem.</strong>'
+        '<strong>Lembre-se: o contato deve ser feito com no mínimo 30 dias antes da viagem.</strong>'
     ],
     imageSrc: 'assets/img/checkup-viajante.jpg',
     removeLine: false,
@@ -57,8 +57,8 @@ export const mommyCareSection = new InfoSectionModel({
     smallTitle: 'Programas Preventivos',
     bigTitle: 'Mommy Care',
     subDescriptions: [
-        'O Mommy Care é um programa de acompanhamento, acolhimento e orientação às gestantes realizado por meio de visitas em domicílio*, contatos telefônicos, troca de mensagens e teleconferência.',
-        'Durante todas as fases da gestação, obstetrizes e enfermeiras estão disponíveis para esclarecer dúvidas e solucionar as necessidades das beneficiárias.',
+        'O Mommy Care é um programa de acompanhamento, acolhimento e orientação às gestantes realizado por meio de visitas em domicílio*, contatos telefônicos, troca de mensagens e videoconferência.',
+        'Durante todas as fases da gestação, enfermeiros(as) obstetras estão disponíveis para o esclarecimento de dúvidas e orientações.',
         'Um dos destaques deste programa é a visita nutricional para introdução alimentar do bebê*.',
         '*As visitas presenciais serão realizadas apenas na Grande São Paulo, cidades do Rio de Janeiro e Belo Horizonte.'
     ],

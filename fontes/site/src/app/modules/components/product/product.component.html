@@ -69,11 +69,11 @@
     </div>
     <div class="columns">
         <div class="column has-text-centered">
-            <a class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" routerLink="/planos-e-produtos"
+            <a *ngIf="getScreenWidth >= 1023" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" routerLink="/planos-e-produtos"
                 title="Ver Planos e Produtos">
                 Ver Planos e Produtos
             </a>
-            <a class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop"
+            <a *ngIf="getScreenWidth < 1023" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop"
                 routerLink="/planos-e-produtos" title="Ver Planos e Produtos">
                 Ver Planos e Produtos
             </a>

@@ -55,7 +55,7 @@ export class BannerComponent implements OnInit {
         banners: BannerModel[],
         area: string
     }> = [];
-
+    public getScreenWidth: any;
     constructor(
         private bannerService: BannerService,
         private cdRef: ChangeDetectorRef,

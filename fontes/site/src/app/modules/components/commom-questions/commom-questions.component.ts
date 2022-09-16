@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-commom-questions',
@@ -8,11 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CommomQuestionsComponent implements OnInit {
     isBrowser: boolean = false;
     @Input() htag: string = 'h5';
-    constructor() {
-
-    }
+    public mobileOrDesktop: any;
+    constructor() { }
 
     ngOnInit() {
+        this.onWindowResize();
     }
 
+    @HostListener('window:resize')
+    onWindowResize() {
+        if (window.innerWidth >= 1023) {
+            this.mobileOrDesktop = 'btn btn-digital-cian secondary arrow-right medium is-hidden-touch'
+        } else {
+            this.mobileOrDesktop = 'btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop'
+        }
+    }
 }

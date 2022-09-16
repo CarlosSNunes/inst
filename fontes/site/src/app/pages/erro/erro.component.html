@@ -11,12 +11,11 @@
                         Você pode realizar uma busca em nosso site ou voltar para a nossa home principal. Você também
                         consegue navegar pelo nosso site através do cabeçalho.
                     </p>
-                    <a routerLink="/" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" title="Voltar para Home">
+                    <a *ngIf="getScreenWidth >= 1023" routerLink="/" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" title="Voltar para Home">
                         Voltar para Home
                     </a>
 
-
-                    <a routerLink="/" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" title="Voltar para Home">
+                    <a *ngIf="getScreenWidth < 1023" routerLink="/" class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" title="Voltar para Home">
                         Voltar para Home
                     </a>
                 </div>
