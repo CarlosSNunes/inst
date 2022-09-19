@@ -46,7 +46,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         if (request.url == environment.API_URL + '/Usuario/Autenticar/Site') {
             request = request.clone({
                 setHeaders: {
-                    Custom: 'institucional',
+                    Custom: 'institucional'
                 }
             });
             return next.handle(request)
@@ -63,7 +63,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
                         request = request.clone({
                             setHeaders: {
                                 Custom: 'institucional',
-                                Authorization: `Bearer ${token}`,
+                                Authorization: `Bearer ${token}`
                             }
                         });
                         if (request.method !== 'GET') {
