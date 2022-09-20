@@ -21,7 +21,7 @@ form {
                     }
                 }
             }
-            
+
             .btn.right {
                 float: right;
             }
@@ -84,14 +84,14 @@ form {
 
             .field .control input.checkbox {
                 &#aceiteDeTermos {
-                    width: 26px;
+                    width: 1.625rem;
                 }
 
                 + label.checkbox-label {
                     left: 0;
                     z-index: 0;
                     &:before {
-                        min-width: 26px;
+                        min-width: 1.625rem;
                     }
 
                     a {

@@ -23,7 +23,7 @@
 */
 
 nav.navbar:not(.is-home) {
-    height: 48px;
+    height: 3rem;
     z-index: 1000;
     .is-navbar-button:not(.login) {
         background: transparent;
@@ -184,7 +184,7 @@ nav.navbar:not(.is-home) {
                     span {
                         display: flex;
                         height: 100%;
-                        width: 45px;
+                        width: 2.813rem;
                         position: relative;
                         cursor: pointer;
                         &.disabled {
@@ -197,11 +197,11 @@ nav.navbar:not(.is-home) {
                             align-self: center;
                             &.small {
                                 width: 12px;
-                                height: 16px;
+                                height: 1rem;
                             }
                             &.big {
-                                width: 18px;
-                                height: 16px;
+                                width: 1.125rem;
+                                height: 1rem;
                             }
                         }
                     }
@@ -384,7 +384,7 @@ nav.is-home {
                 background-color: getColor(_bupa, _white);
                 top: 80%;
                 left: 0;
-                padding: 18px 25px;
+                padding: 1.125rem 1.563rem;
                 .column {
                     min-width: calc(800px / 3);
                     position: relative;

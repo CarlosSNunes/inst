@@ -24,8 +24,8 @@ html {
 /* line 7, node_modules/bootstrap/scss/_grid.scss */
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0.938rem;
+  padding-left: 0.938rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -44,10 +44,10 @@ html {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 7, node_modules/bootstrap/scss/_grid.scss */
   .container {
-    max-width: 960px;
+    max-width: 60rem;
   }
 }
 
@@ -61,8 +61,8 @@ html {
 /* line 13, node_modules/bootstrap/scss/_grid.scss */
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0.938rem;
+  padding-left: 0.938rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -81,10 +81,10 @@ html {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 24, node_modules/bootstrap/scss/_grid.scss */
   .container, .container-sm, .container-md, .container-lg {
-    max-width: 960px;
+    max-width: 60rem;
   }
 }
 
@@ -128,8 +128,8 @@ html {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0.938rem;
+  padding-left: 0.938rem;
 }
 
 /* line 31, node_modules/bootstrap/scss/mixins/_grid-framework.scss */
@@ -1023,7 +1023,7 @@ html {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 31, node_modules/bootstrap/scss/mixins/_grid-framework.scss */
   .col-lg {
     -ms-flex-preferred-size: 0;
@@ -1726,7 +1726,7 @@ html {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 12, node_modules/bootstrap/scss/utilities/_display.scss */
   .d-lg-none {
     display: none !important;
@@ -2465,7 +2465,7 @@ html {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 11, node_modules/bootstrap/scss/utilities/_flex.scss */
   .flex-lg-row {
     -webkit-box-orient: horizontal !important;
@@ -4243,7 +4243,7 @@ html {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 11, node_modules/bootstrap/scss/utilities/_spacing.scss */
   .m-lg-0 {
     margin: 0 !important;
@@ -5194,7 +5194,7 @@ html {
   left: 0;
   right: 0;
   bottom: 30px;
-  font-size: 17px;
+  font-size: 1.063rem;
   white-space: nowrap;
 }
 
@@ -5308,7 +5308,7 @@ html {
     opacity: 1;
   }
   to {
-    bottom: 60px;
+    bottom: 3.75rem;
     opacity: 0;
   }
 }
@@ -5319,7 +5319,7 @@ html {
     opacity: 1;
   }
   to {
-    bottom: 60px;
+    bottom: 3.75rem;
     opacity: 0;
   }
 }
@@ -5363,7 +5363,7 @@ a {
 @media (min-width: 1200px) {
   /* line 38, src/sass/main.scss */
   .container {
-    max-width: 1300px;
+    max-width: 81.25rem;
   }
 }
 
@@ -5424,7 +5424,7 @@ section {
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.063rem;
   color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5467,7 +5467,7 @@ section {
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.063rem;
   float: left;
 }
 
@@ -5541,7 +5541,7 @@ section {
     cursor: pointer;
     display: inline-block;
     float: right;
-    padding: 45px 20px;
+    padding: 2.813rem 1.25rem;
     position: relative;
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -5556,7 +5556,7 @@ section {
     position: relative;
     -webkit-transition: background 0.2s ease-out;
     transition: background 0.2s ease-out;
-    width: 18px;
+    width: 1.125rem;
   }
   /* line 193, src/sass/main.scss */
   .header.active .menu-icon .navicon:after, .header.active .menu-icon .navicon:before {
@@ -5626,14 +5626,14 @@ section {
   height: 44px;
   float: left;
   margin-top: 37px;
-  margin-bottom: 45px;
+  margin-bottom: 2.813rem;
   padding-left: 30.5px;
   padding-right: 30.5px;
   color: #545454;
   line-height: 44px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 81.25rem) {
   /* line 252, src/sass/main.scss */
   .header li a {
     color: #545454;
@@ -5725,7 +5725,7 @@ section {
   cursor: pointer;
   display: inline-block;
   float: right;
-  padding: 45px 20px;
+  padding: 2.813rem 1.25rem;
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -5741,7 +5741,7 @@ section {
   position: relative;
   -webkit-transition: background 0.2s ease-out;
   transition: background 0.2s ease-out;
-  width: 18px;
+  width: 1.125rem;
 }
 
 /* line 352, src/sass/main.scss */
@@ -5944,7 +5944,7 @@ section {
   left: calc(50% - 60px);
   color: #fff;
   width: 120px;
-  height: 60px;
+  height: 3.75rem;
   text-align: center;
   cursor: pointer;
 }
@@ -5954,7 +5954,7 @@ section {
   content: " ";
   background-image: url("../svg/arrow-down.svg");
   width: 120px;
-  height: 60px;
+  height: 3.75rem;
   background-repeat: no-repeat;
   background-position: center bottom;
   -webkit-animation-name: MOVE-BG;
@@ -6130,7 +6130,7 @@ section {
 
 /* line 843, src/sass/main.scss */
 #servicos #containerServicos .col-md-4 {
-  margin-bottom: 45px;
+  margin-bottom: 2.813rem;
 }
 
 @media (min-width: 768px) {
@@ -6285,7 +6285,7 @@ section {
 
 /* line 990, src/sass/main.scss */
 #unidades .contactItem.whatsapp {
-  font-size: 16px;
+  font-size: 1rem;
   color: #fff;
   margin-bottom: 30px;
   /* font-weight: 600; */
@@ -6309,7 +6309,7 @@ section {
   background: #00837b;
   color: #fff;
   letter-spacing: 0.1em;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 10px 13px;
   width: 341px;
   text-align: center;
@@ -6357,7 +6357,7 @@ section {
 /* line 1037, src/sass/main.scss */
 #unidades .contactItem.mail {
   background: url("../svg/mail.svg");
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 /* line 1043, src/sass/main.scss */
@@ -6435,7 +6435,7 @@ section {
 /* line 1101, src/sass/main.scss */
 #aqualywork .contactItem.mail {
   background: url("../svg/mail.svg");
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 /* line 1107, src/sass/main.scss */
@@ -6446,11 +6446,11 @@ section {
 @media (max-width: 991.98px) {
   /* line 1111, src/sass/main.scss */
   #aqualywork #itensAqualyworkContainer {
-    padding-top: 60px;
+    padding-top: 3.75rem;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 1111, src/sass/main.scss */
   #aqualywork #itensAqualyworkContainer {
     padding-top: 78px;
@@ -6486,7 +6486,7 @@ section {
   /* line 1128, src/sass/main.scss */
   #aqualywork #itensAqualyworkContainer .itensAqualywork h3 {
     font-size: 12px;
-    line-height: 17px;
+    line-height: 1.063rem;
   }
 }
 
@@ -6524,7 +6524,7 @@ section {
   display: none;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 1164, src/sass/main.scss */
   #aqualywork .sideImageDestop {
     display: block;
@@ -6549,7 +6549,7 @@ section {
 
 /* line 1186, src/sass/main.scss */
 #contato #containerServicos .col-md-4 {
-  margin-bottom: 45px;
+  margin-bottom: 2.813rem;
 }
 
 /* line 1190, src/sass/main.scss */
@@ -6629,7 +6629,7 @@ section {
   /* line 1252, src/sass/main.scss */
   #contato #contactBoxContainer {
     margin-top: 75px;
-    padding: 18px;
+    padding: 1.125rem;
   }
 }
 
@@ -6653,7 +6653,7 @@ section {
 /* line 1273, src/sass/main.scss */
 #contato #contactBoxContainer p {
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 33px;
   color: #333;
   padding: 0;
@@ -6675,7 +6675,7 @@ section {
 /* line 1288, src/sass/main.scss */
 #contato #contactBoxContainer .contactBox .contactItem {
   margin-bottom: 15px;
-  font-size: 16px;
+  font-size: 1rem;
   width: 100%;
   padding-left: 50px;
   background-repeat: no-repeat !important;
@@ -6692,7 +6692,7 @@ section {
 
 /* line 1303, src/sass/main.scss */
 #contato #contactBoxContainer .contactBox .contactItem.whatsapp {
-  font-size: 16px;
+  font-size: 1rem;
   color: #fff;
   margin-bottom: 30px;
   /* font-weight: 600; */
@@ -6716,7 +6716,7 @@ section {
   background: #00837b;
   color: #fff;
   letter-spacing: 0.1em;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 10px 13px;
   width: 341px;
   text-align: center;
@@ -6764,7 +6764,7 @@ section {
 /* line 1349, src/sass/main.scss */
 #contato #contactBoxContainer .contactBox .contactItem.mail {
   background: url("../svg/mail.svg");
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 @media (max-width: 991.98px) {
@@ -6795,7 +6795,7 @@ section {
 
 /* line 1377, src/sass/main.scss */
 #contato p {
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 0;
   margin-bottom: 20px;
 }
@@ -6841,7 +6841,7 @@ section {
 
 /* line 1420, src/sass/main.scss */
 input {
-  height: 48px;
+  height: 3rem;
   background: #ffffff;
   /* Bupa Grey 3 */
   border: 1px solid #c9c9c9;
@@ -6932,7 +6932,7 @@ textarea::placeholder {
 
 /* line 1465, src/sass/main.scss */
 select {
-  height: 48px;
+  height: 3rem;
   background: #ffffff;
   /* Bupa Grey 3 */
   border: 1px solid #c9c9c9;
@@ -6943,7 +6943,7 @@ select {
   padding-left: 20px;
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 20px;
   margin-bottom: 12px;
 }

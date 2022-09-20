@@ -68,8 +68,8 @@ section.sectionInfo {
                         &::before {
                             position: absolute;
                             content: "";
-                            width: 19px;
-                            height: 19px;
+                            width: 1.188rem;
+                            height: 1.188rem;
                             left: 0;
                             top: 0;
                             background-image: getSvg("list-star.svg");

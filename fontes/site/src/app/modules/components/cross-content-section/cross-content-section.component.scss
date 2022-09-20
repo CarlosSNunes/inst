@@ -71,7 +71,7 @@ section {
                             &:before {
                                 border: solid getColor(_bupa, _white);
                                 @include arrowElement(-45deg);
-                                right: 15px;
+                                right: 0.938rem;
                             }
                         }
                     }

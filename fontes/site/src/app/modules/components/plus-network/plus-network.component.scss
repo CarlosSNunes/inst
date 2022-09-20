@@ -145,8 +145,8 @@ section.is-rede-plus {
                             background-size: contain;
                             background-repeat: no-repeat;
                             background-position: center;
-                            width: 10px;
-                            height: 10px;
+                            width: 0.625rem;
+                            height: 0.625rem;
                             position: absolute;
                             top: calc(50% - 5.5px);
                             left: 12px;
@@ -174,7 +174,7 @@ section.is-rede-plus {
                         list-style: none;
                         padding: 0;
                         position: absolute;
-                        left: 45px;
+                        left: 2.813rem;
                         top: 0;
                         width: 100px;
                         height: 34px;
@@ -184,8 +184,8 @@ section.is-rede-plus {
                             padding: 0;
                             border-radius: 50%;
                             margin: 0 auto;
-                            width: 10px;
-                            height: 10px;
+                            width: 0.625rem;
+                            height: 0.625rem;
                             align-self: center;
                             background: getColor(_bupa, _grey-4);
                             cursor: pointer;
@@ -222,7 +222,7 @@ section.is-rede-plus {
                 align-items: center;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 16px;
+                font-size: 1rem;
                 line-height: 150%;
                 color: getColor(_bupa, _white);
                 svg {
@@ -362,7 +362,7 @@ section.is-rede-plus {
                     }
                 }
                 .stepper {
-                    bottom: 26px;
+                    bottom: 1.625rem;
                     .play-carrousel {
                         position: relative;
                         .play {
