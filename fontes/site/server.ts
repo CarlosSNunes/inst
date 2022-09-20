@@ -133,8 +133,8 @@ app.get('/carreiras_careers', (req, res) => {
     res.redirect(301, '/carreiras');
 });
 
-app.get('/a-careplus_privacy/politica-de-privacidade', (req, res) => {
-    res.redirect(301, '/a-careplus/politica-de-privacidade');
+app.get('/a-careplus_privacy/aviso-de-privacidade', (req, res) => {
+    res.redirect(301, '/a-careplus/aviso-de-privacidade');
 });
 
 app.get('/planos-de-saude/care-plus-empresarial.aspx', (req, res) => {
@@ -250,7 +250,7 @@ app.get('/planos-de-saude/DL/Contratos-reajuste-coletivo_Pool-RN-309_052014-a-04
 });
 
 app.get('/politica-privacidade.aspx', (req, res) => {
-    res.redirect(301, '/a-careplus/politica-de-privacidade');
+    res.redirect(301, '/a-careplus/aviso-de-privacidade');
 });
 
 app.get('/fale-conosco/imprensa.aspx', (req, res) => {
@@ -427,9 +427,6 @@ app.get('/inspetorfrau', (req, res) => {
 });
 app.get('/ocupacional', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/ocupacional/index.html');
-});
-app.get('/welcome-back', (req, res) => {
-    res.sendFile(process.cwd() + '/dist/browser/welcome-back/index.html');
 });
 app.get('/tytocare', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/tytocare/index.html');

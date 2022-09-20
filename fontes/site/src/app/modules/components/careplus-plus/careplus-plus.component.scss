@@ -20,11 +20,17 @@ section#careplus-plus {
     }
 }
 
+.mobile-or-desktop {
+    padding: 16px 24px;
+    font-size: 1em;
+    line-height: 150%;
+}
+
 @media (max-width: 1023px) {
     section#careplus-plus {
         .container {
             .text-columns {
-                .right-button{
+                .right-button {
                     position: relative;
                     padding-left: 0;
                     margin-top: 20px;
@@ -32,4 +38,8 @@ section#careplus-plus {
             }
         }
     }
-} 
+    .mobile-or-desktop {
+        padding: 16px 16px;
+        font-size: 0.75em;
+    }
+}

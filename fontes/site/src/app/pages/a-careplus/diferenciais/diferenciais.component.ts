@@ -64,7 +64,7 @@ export class DiferenciaisComponent implements OnInit {
             content: 'A Care Plus sabe que atendimento, acolhimento e humanização fazem toda a diferença na vida de quem contrata, usa e comercializa os nossos planos e produtos de saúde.'
         });
 
-        /* 
+        /*
             Open graph meta tags
         */
         this.meta.updateTag({
@@ -91,7 +91,7 @@ export class DiferenciaisComponent implements OnInit {
             content: `${environment.SELF_URL}/a-careplus/diferenciais`,
         });
 
-        /* 
+        /*
             Twitter meta tags
         */
 

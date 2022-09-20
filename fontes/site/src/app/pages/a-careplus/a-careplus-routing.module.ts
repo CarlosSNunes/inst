@@ -32,8 +32,8 @@ const routes: Routes = [
         loadChildren: () => import('./termos-e-condicoes/termos-e-condicoes.module').then(m => m.TermosECondicoesModule)
     },
     {
-        path: 'politica-de-privacidade',
-        loadChildren: () => import('./politica-de-privacidade/politica-de-privacidade.module').then(m => m.PoliticaDePrivacidadeModule)
+        path: 'aviso-de-privacidade',
+        loadChildren: () => import('./aviso-de-privacidade/aviso-de-privacidade.module').then(m => m.AvisoDePrivacidadeModule)
     },
     {
         path: 'rede-plus',
