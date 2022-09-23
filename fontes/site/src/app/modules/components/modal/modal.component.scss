@@ -21,7 +21,7 @@
         box-shadow: 0px 0.608796px 1.38363px rgba(getColor(_bupa, _black), 0.0196802), 0px 1.46302px 3.32505px rgba(getColor(_bupa, _black), 0.0282725), 0px 2.75474px 6.26078px rgba(getColor(_bupa, _black), 0.035), 0px 4.91399px 11.1682px rgba(getColor(_bupa, _black), 0.0417275), 0px 9.19107px 20.8888px rgba(getColor(_bupa, _black), 0.0503198), 0px 22px 50px rgba(getColor(_bupa, _black), 0.07);
         border-radius: 4px;
         padding: 40px 80px;
-        @media (max-width: 991px) {
+        @media (max-width: 61.938rem) {
             width: 80%;
             margin-left: 10%;
             max-height: 80%;
@@ -29,22 +29,22 @@
         }
         .times-icon {
             position: absolute;
-            right: 18px;
-            top: 18px;
-            width: 20px;
-            height: 20px;
+            right: 1.125rem;
+            top: 1.125rem;
+            width: 1.25rem;
+            height: 1.25rem;
             cursor: pointer;
             z-index: 3;
             .lines {
                 position: relative;
-                width: 20px;
-                height: 20px;
+                width: 1.25rem;
+                height: 1.25rem;
                 display: flex;
                 .first-line {
                     position: absolute;
                     left: 0;
                     align-self: center;
-                    width: 20px;
+                    width: 1.25rem;
                     height: 2px;
                     background-color: getColor(_bupa, _grey-2);
                     transform: rotate(-45deg);
@@ -53,7 +53,7 @@
                     position: absolute;
                     left: 0;
                     align-self: center;
-                    width: 20px;
+                    width: 1.25rem;
                     height: 2px;
                     background-color: getColor(_bupa, _grey-2);
                     transform: rotate(45deg);
@@ -70,14 +70,14 @@
         &.feedback {
             max-width: 628px;
             margin-left: calc(50% - (628px / 2));
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 width: 80%;
                 margin-left: 10%;
             }
         }
         &.table,
         &.content {
-            width: 1280px;
+            width: 80rem;
             margin-left: calc(50% - (1280px / 2));
             @media (max-width: 1380px) {
                 width: 80%;
@@ -89,7 +89,7 @@
             margin-left: calc(50% - (800px / 2));
             padding: 50px 0 0 0;
             background-color: getColor(_bupa, _digital-cian);
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 width: 80%;
                 margin-left: 10%;
             }
@@ -256,10 +256,10 @@
                 position: relative;
                 border: none;
             }
-            @media (max-width: 991px) {
-                max-height: 300px;
+            @media (max-width: 61.938rem) {
+                max-height: 18.75rem;
                 iframe {
-                    height: 300px;
+                    height: 18.75rem;
                 }
             }
         }

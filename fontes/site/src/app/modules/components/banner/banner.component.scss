@@ -30,8 +30,8 @@ section.home-banner {
                         background-size: contain;
                         background-repeat: no-repeat;
                         background-position: center;
-                        width: 10px;
-                        height: 10px;
+                        width: 0.625rem;
+                        height: 0.625rem;
                         position: absolute;
                         top: calc(50% - 5.5px);
                         left: 0;
@@ -74,8 +74,8 @@ section.home-banner {
                         padding: 0;
                         border-radius: 50%;
                         margin: 0 auto;
-                        width: 10px;
-                        height: 10px;
+                        width: 0.625rem;
+                        height: 0.625rem;
                         margin-top: 5.5px;
                         margin-bottom: 5.5px;
                         background: getColor(_bupa, _grey-4);
@@ -99,10 +99,10 @@ section.home-banner {
     }
 
     .breadcrumb-container {
-        margin-top: 60px;
+        margin-top: 3.75rem;
         .columns {
             .column {
-                padding: 0 16px 0 10%;
+                padding: 0 1rem 0 10%;
             }
         }
     }
@@ -147,7 +147,7 @@ section.home-banner {
         }
 
         .btn {
-            margin-top: 48px;
+            margin-top: 3rem;
         }
 
         .mouse-icon {

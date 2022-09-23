@@ -721,10 +721,10 @@ progress {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 20, node_modules/bootstrap/scss/_containers.scss */
   .container, .container-sm, .container-md, .container-lg {
-    max-width: 960px;
+    max-width: 60rem;
   }
 }
 
@@ -1575,7 +1575,7 @@ progress {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 72, node_modules/bootstrap/scss/mixins/_grid.scss */
   .col-lg {
     -webkit-box-flex: 1;
@@ -2979,7 +2979,7 @@ progress {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 166, node_modules/bootstrap/scss/_navbar.scss */
   .navbar-expand-lg {
     -ms-flex-wrap: nowrap;
@@ -3873,7 +3873,7 @@ progress {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 108, node_modules/bootstrap/scss/_list-group.scss */
   .list-group-horizontal-lg {
     -webkit-box-orient: horizontal;
@@ -4455,11 +4455,11 @@ progress {
   }
   /* line 173, node_modules/bootstrap/scss/_modal.scss */
   .modal-sm {
-    max-width: 300px;
+    max-width: 18.75rem;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 177, node_modules/bootstrap/scss/_modal.scss */
   .modal-lg,
   .modal-xl {
@@ -5583,7 +5583,7 @@ progress {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 24, node_modules/bootstrap/scss/helpers/_position.scss */
   .sticky-lg-top {
     position: sticky;
@@ -8730,7 +8730,7 @@ progress {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   /* line 50, node_modules/bootstrap/scss/mixins/_utilities.scss */
   .float-lg-start {
     float: left !important;
@@ -10996,7 +10996,7 @@ progress {
 /* line 15, src/assets/sass/main.scss */
 body {
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: #333333;
   font-weight: 400;
   line-height: 1.5;
@@ -11479,10 +11479,10 @@ header.mobile-oppened .logo-desk {
   display: block;
   position: relative;
   height: 36px;
-  width: 20px;
+  width: 1.25rem;
   background-color: transparent;
   border: 2px solid #ffffff;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   cursor: pointer;
   outline: none;
 }
@@ -11527,7 +11527,7 @@ header.mobile-oppened .logo-desk {
 @media (max-width: 575.98px) {
   /* line 341, src/assets/sass/main.scss */
   #teleconsulta2 {
-    padding: 60px 0;
+    padding: 3.75rem 0;
   }
 }
 
@@ -11551,7 +11551,7 @@ header.mobile-oppened .logo-desk {
 @media (max-width: 575.98px) {
   /* line 351, src/assets/sass/main.scss */
   #tytocare {
-    padding: 60px 0;
+    padding: 3.75rem 0;
   }
 }
 
@@ -11601,7 +11601,7 @@ header.mobile-oppened .logo-desk {
 @media (max-width: 575.98px) {
   /* line 378, src/assets/sass/main.scss */
   #comoUsar {
-    padding: 60px 0;
+    padding: 3.75rem 0;
   }
 }
 
@@ -11634,7 +11634,7 @@ header.mobile-oppened .logo-desk {
 @media (max-width: 575.98px) {
   /* line 396, src/assets/sass/main.scss */
   #mommyCare {
-    padding: 60px 0;
+    padding: 3.75rem 0;
   }
 }
 
@@ -11663,7 +11663,7 @@ header.mobile-oppened .logo-desk {
 @media (max-width: 575.98px) {
   /* line 411, src/assets/sass/main.scss */
   #mommyCare .article-1 {
-    padding-bottom: 60px;
+    padding-bottom: 3.75rem;
   }
 }
 
@@ -11697,7 +11697,7 @@ header.mobile-oppened .logo-desk {
 
 /* line 435, src/assets/sass/main.scss */
 #mommyCare .article-3 {
-  padding-top: 60px;
+  padding-top: 3.75rem;
 }
 
 /* line 437, src/assets/sass/main.scss */
@@ -11883,7 +11883,7 @@ header.mobile-oppened .logo-desk {
 @media (max-width: 575.98px) {
   /* line 545, src/assets/sass/main.scss */
   #faq {
-    padding: 60px 0;
+    padding: 3.75rem 0;
   }
 }
 
@@ -11895,7 +11895,7 @@ header.mobile-oppened .logo-desk {
 /* line 553, src/assets/sass/main.scss */
 #faq .title-faq {
   display: block;
-  margin: 0 auto 60px;
+  margin: 0 auto 3.75rem;
   max-width: 500px;
   text-align: center;
 }
@@ -11997,7 +11997,7 @@ footer .row.atendimento h4.atdm24, footer .row.atendimento .atdm24.h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 45px;
+  padding-left: 2.813rem;
   height: 40px;
   font-size: 12px;
   line-height: 150%;
@@ -12023,9 +12023,9 @@ footer .row.atendimento h4.atdm-presencial, footer .row.atendimento .atdm-presen
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 45px;
+  padding-left: 2.813rem;
   height: 40px;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 150%;
 }
 
@@ -12285,8 +12285,8 @@ footer .back {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 48px;
-  width: 48px;
+  height: 3rem;
+  width: 3rem;
   font-size: 1.25rem;
   position: fixed;
   bottom: 0;

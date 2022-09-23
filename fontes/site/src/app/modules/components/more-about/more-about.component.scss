@@ -15,7 +15,7 @@
         padding-right: 16px !important;
     }
     h2.title {
-        @media (max-width: 991px) {
+        @media (max-width: 61.938rem) {
             font-weight: 600;
             font-size: 2em;
         }
@@ -36,10 +36,10 @@
         flex-direction: column;
         justify-content: space-between;
         height: 70%;
-        min-height: 300px;
+        min-height: 18.75rem;
         padding: 40px 0;
         cursor: pointer;
-        @media (max-width: 991px) {
+        @media (max-width: 61.938rem) {
             min-height: 100%;
             padding: 10px 0;
         }
@@ -62,7 +62,7 @@
     p.content {
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 150%;
     }
     .saiba-mais {
