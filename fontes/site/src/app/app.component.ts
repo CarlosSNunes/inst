@@ -43,6 +43,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     invertColors: boolean = false;
     footer: HTMLElement;
     cookieAgree: string = 'agree';
+    scripts;
 
     constructor(
         private cdRef: ChangeDetectorRef,
@@ -75,6 +76,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
+        const elements: Element[] = Array.from(document.getElementsByTagName("script"));
+        elements.forEach((el: Element, index) => {
+            if (el.id === "") {
+                const hash: String = this.generateRandonString(5);
+                el.setAttribute("id", `${hash}_${index.toString()}`);
+            }
+        })
     }
 
     ngAfterViewInit() {
@@ -83,6 +91,15 @@ export class AppComponent implements OnInit, AfterViewInit {
             this.footer = this.document.querySelector('footer');
             this.inactivateServiceWorksers();
         }
+    }
+
+    private generateRandonString(length) {
+        var randonString = '';
+        var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (var i = 0; i < length; i++) {
+            randonString += char.charAt(Math.floor(Math.random() * char.length));
+        }
+        return randonString;
     }
 
     addAnchorListener() {
