@@ -115,7 +115,7 @@ section {
         .section.home-banner {
             height: 450px;
             #carousel-banner {
-                @media (min-width: 1024px) {
+                @media (min-width: 64rem) {
                     height: 450px !important;
                 }
                 .item {
@@ -142,7 +142,7 @@ section {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
     ::ng-deep {
         #last-posts {
             padding-bottom: 0;
@@ -178,7 +178,7 @@ section {
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1200px) {
+@media (min-width: 64rem) and (max-width: 1200px) {
     section {
         &#careplus-plus-filters {
             .container {

@@ -3,7 +3,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
 export default {
     id: 'clube-careplus',
     name: 'Clube Care Plus',
-    title: 'Clube Care Plus | De 30 a 200 Vidas | Plano de Saúde e Odontológico Premium | Care Plus',
+    title: 'Clube Care Plus | Plano de Saúde e Dental Premium | Care Plus',
     description: 'O Clube Care Plus apresenta plano de saúde e odontológico premium para empresas de 30 a 200 vidas e que estão crescendo e expandindo seus negócios.',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Clube Care Plus: planos de 30 a 200 vidas',

@@ -189,13 +189,13 @@ export const questionsMock = [
             </table>
             <p>  *  O Hospital São Luiz não está mais disponível para planos Especial II adquiridos a partir de junho de 2019.</p>
         </div>
-        
+
         <p class="sub-description">
             <strong>Rede Care Plus São Paulo | Laboratórios</strong>
         </p>
 
         <div class="tg-wrap">
-        
+
             <table class="tg">
                 <thead>
                     <tr>
@@ -413,7 +413,7 @@ export const questionsMock = [
                     Rede Plus
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 A Care Plus também oferece a Rede Plus, uma exclusiva seleção de médicos que possuem diferenciação curricular, estrutura de atendimento e relacionamento único com a Care Plus.
             </p>
@@ -449,7 +449,7 @@ export const questionsMock = [
             <p class="sub-description no-margin">
                 Se não encontrar seu médico de confiança na rede credenciada da Care Plus, você pode indicá-lo para ser credenciado.
             </p>
-            
+
             <p class="sub-description">
                 Para indicar um médico, acesse o ícone Beneficiário no site <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a>, acesse o menu Informações da Rede Credenciada clique em Indique seu Médico e preencha as informações solicitadas.
             </p>
@@ -457,7 +457,7 @@ export const questionsMock = [
             <p class="sub-description">
                 Após recebermos a indicação, entraremos em contato com o médico para verificar seu interesse e, caso positivo, daremos início ao processo de documentação e qualificação do prestador para verificar se está de acordo com nossas premissas técnicas e de qualidade para credenciamento.
             </p>
-            
+
             <p class="sub-description">
                 Você poderá acompanhar a situação de sua indicação acessando a Página do Beneficiário no Portal Care Plus > Seção Rede de Atendimento > Posição das Indicações.
             </p>
@@ -485,13 +485,13 @@ export const questionsMock = [
             <p class="sub-description">
                 Mas quando há necessidade da chamada de um especialista porque o médico do plantão entende que o quadro clínico assim o exige, é importante que o usuário ou familiar sempre questione se o médico acionado faz parte do CORPO DE RETAGUARDA e se vai atender via rede credenciada.
             </p>
-            
+
             <p class="sub-description">
                 Essa informação é disponibilizada ou fica absolutamente clara, muitas vezes, somente quando o beneficiário recebe a conta dos honorários médicos na alta hospitalar, o que causa estranheza e por vezes dificuldades financeiras.
             </p>
 
             <p class="sub-description">
-                As equipes médicas se respaldam na alegação de que ao entrar no hospital foi assinado um termo de reconhecimento de despesas de honorários, já que mesmo no caso de Hospitais de Rede que mantêm Corpo de Retaguarda Credenciado isto não impede que um médico não credenciado também seja acionado ou ainda alguma despesa não seja coberta pelo plano.
+            As equipes médicas são respaldadas pela alegação de que, ao entrar no hospital, foi assinado um termo de reconhecimento de despesas de honorários.
             </p>
 
             <p class="sub-description">
@@ -636,7 +636,7 @@ export const questionsMock = [
             </p>
 
             <p class="sub-description">
-                Se está grávida e deseja conhecer diferentes pediatras para decidir qual deles atenderá seu bebê, poderá passar em consultas com diferentes pediatras tanto pela livre escolha (a partir do 3º trimestre) e solicitar o reembolso, como também poderá passar com diferentes pediatras pela rede credenciada. 
+                Se está grávida e deseja conhecer diferentes pediatras para decidir qual deles atenderá seu bebê, poderá passar em consultas com diferentes pediatras tanto pela livre escolha (a partir do 3º trimestre) e solicitar o reembolso, como também poderá passar com diferentes pediatras pela rede credenciada.
             </p>
 
             <p class="sub-description">
