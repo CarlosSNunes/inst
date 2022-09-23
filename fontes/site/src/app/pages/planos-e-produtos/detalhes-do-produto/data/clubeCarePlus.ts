@@ -297,7 +297,7 @@ export default {
     }),
     clinicSection: new InfoSectionModel({
         smallTitle: 'CLÍNICAS',
-        bigTitle: 'Care Plus Clinic 1',
+        bigTitle: 'Care Plus Clinic',
         subDescriptions: [
             'As clínicas Care Plus Clinic foram desenvolvidas para oferecer aos nossos pacientes serviços de saúde com excelência técnica, conforto e qualidade excepcional de atendimento.',
             'Elas contam com o que há de mais moderno e eficiente, obedecendo ao mais alto grau de exigência para estabelecimentos de saúde determinado pela ANVISA, que assegura os mais rígidos padrões de qualidade e excelência.',
