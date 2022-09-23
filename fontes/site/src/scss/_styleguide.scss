@@ -6,8 +6,8 @@ Grid
 */
 
 .container {
-    max-width: 1280px;
-    padding: 0 16px;
+    max-width: 80rem;
+    padding: 0 1rem;
 }
 
 .columns {
@@ -38,7 +38,7 @@ Grid
 */
 
 section {
-    padding: 60px 0;
+    padding: 3.75rem 0;
     @media (max-width: 768px) {
         padding: 30px 0;
     }
@@ -91,7 +91,7 @@ section {
                 a {
                     border: 1px solid getColor(_bupa, _grey-3);
                     color: getColor(_bupa, _grey-2);
-                    height: 56px;
+                    height: 3.5rem;
                     border-radius: unset !important;
                     transition: color 0.4s ease-in-out, border 0.3s ease-in-out, background 0.3s ease-in-out;
                     &:hover {
@@ -172,7 +172,7 @@ select,
         &.has-icons-left,
         &.has-icons-right {
             .icon {
-                height: 56px;
+                height: 3.5rem;
                 pointer-events: stroke;
                 * {
                     color: getColor(_bupa, _grey-2);
@@ -182,7 +182,7 @@ select,
         }
         &.has-icons-right {
             input.is-touched+label {
-                left: 19px !important;
+                left: 1.188rem !important;
             }
             input {
                 padding-right: 38px !important;
@@ -193,7 +193,7 @@ select,
                 padding-left: 39px !important;
             }
             label {
-                left: 45px !important;
+                left: 2.813rem !important;
             }
             input:not([type="checkbox"]):not([type="radio"]).is-touched+label {
                 left: 40px !important;
@@ -205,10 +205,10 @@ select,
         input:not(.datetimepicker-dummy-input) {
             outline: none;
             transition: 0.2s ease-in-out;
-            padding: 15px 18px 0;
+            padding: 0.938rem 1.125rem 0;
             font-style: normal;
             font-weight: normal;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 20px;
             color: getColor(_bupa, _grey);
             border: 1px solid getColor(_bupa, _grey-2);
@@ -234,14 +234,14 @@ select,
             pointer-events: none;
             font-style: normal;
             font-weight: normal;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 20px;
             color: getColor(_bupa, _grey-2);
         }
         input,
         label:not(.file-label):not(.switch) {
             width: 100%;
-            height: 56px;
+            height: 3.5rem;
             margin-bottom: 0;
         }
         input,
@@ -267,13 +267,13 @@ select,
             line-height: 15px;
             top: -12px;
             pointer-events: none;
-            left: 19px;
+            left: 1.188rem;
         }
         .select {
-            height: 56px;
+            height: 3.5rem;
             width: 100%;
             select {
-                height: 56px;
+                height: 3.5rem;
                 width: 100%;
                 background: getColor(_bupa, _white);
                 border: 1px solid getColor(_bupa, _grey-2);
@@ -304,7 +304,7 @@ select,
             +label.checkbox-label {
                 font-style: normal;
                 font-weight: normal;
-                font-size: 16px;
+                font-size: 1rem;
                 line-height: 20px;
                 color: getColor(_bupa, _grey-2);
                 &:before {
@@ -314,8 +314,8 @@ select,
                     border-radius: 1px;
                     display: inline-block;
                     vertical-align: middle;
-                    width: 26px;
-                    height: 26px;
+                    width: 1.625rem;
+                    height: 1.625rem;
                     padding: 2px;
                     margin-right: 10px;
                     text-align: center;
@@ -388,8 +388,8 @@ select,
                     border: 1px solid getColor(_carePlus, _checkbox-border);
                     border-radius: 50px;
                     vertical-align: middle;
-                    width: 26px;
-                    height: 26px;
+                    width: 1.625rem;
+                    height: 1.625rem;
                     padding: 2px;
                     margin-right: 10px;
                     left: 0px;
@@ -397,7 +397,7 @@ select,
                     box-sizing: border-box;
                     position: absolute;
                     display: inline-block;
-                    min-width: 26px;
+                    min-width: 1.625rem;
                 }
             }
             &:checked+label.radio-label:before {
@@ -437,7 +437,7 @@ select,
         .switch {
             position: relative;
             display: inline-block;
-            width: 60px;
+            width: 3.75rem;
             height: 34px;
             pointer-events: unset;
             input {
@@ -471,8 +471,8 @@ select,
                 &:before {
                     position: absolute;
                     content: "";
-                    height: 26px;
-                    width: 26px;
+                    height: 1.625rem;
+                    width: 1.625rem;
                     left: 4px;
                     bottom: 4px;
                     background-color: getColor(_bupa, _white);
@@ -503,7 +503,7 @@ select,
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
-        line-height: 17px;
+        line-height: 1.063rem;
         color: getColor(_bupa, _grey-2);
         &.is-danger {
             color: getColor(_carePlus, _error);
@@ -532,7 +532,7 @@ select,
                 background: getColor(_bupa, _digital-cian);
                 border-radius: 2px;
                 padding: 16.5px 15px;
-                height: 48px;
+                height: 3rem;
                 border: unset;
                 * {
                     font-style: normal;
@@ -585,7 +585,7 @@ select,
     .file-name-with-extension {
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 20px;
         color: getColor(_bupa, _grey-2);
         position: relative;

@@ -39,7 +39,7 @@ section#materials {
                         color: getColor(_bupa, _navy);
                         .size {
                             font-weight: 300;
-                            font-size: 16px;
+                            font-size: 1rem;
                             line-height: getLineHeight("mbt");
                             color: getColor("_bupa", "_grey-2");
                             transition: color 0.3s ease-in-out;
@@ -56,12 +56,12 @@ section#materials {
                         color: getColor(_bupa, _digital-cian);
                         display: flex;
                         span {
-                            height: 17px;
+                            height: 1.063rem;
                             margin-left: 10px;
                             align-self: center;
 
                             svg {
-                                height: 17px;
+                                height: 1.063rem;
                             }
                         }
                     }

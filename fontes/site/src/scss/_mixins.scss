@@ -47,7 +47,7 @@
     position: absolute;
     align-self: center;
     top: calc(50% - 4px);
-    right: 24px;
+    right: 1.5rem;
     transform: rotate($transform);
     -webkit-transform: rotate($transform);
     transition: color 0.3s ease-in-out, border 0.3s ease-in-out, right 0.3s ease-in-out;

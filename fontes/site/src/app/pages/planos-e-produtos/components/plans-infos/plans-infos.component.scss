@@ -11,7 +11,7 @@ section#plans-details {
                 li {
                     position: relative;
                     display: inline-block;
-                    margin-left: 48px;
+                    margin-left: 3rem;
                     font-size: getSize("mbt");
                     line-height: getLineHeight("mbt");
                     color: getColor(_bupa, _grey-2);
@@ -88,8 +88,8 @@ section#plans-details {
                                     &::before {
                                         position: absolute;
                                         content: "";
-                                        width: 19px;
-                                        height: 19px;
+                                        width: 1.188rem;
+                                        height: 1.188rem;
                                         left: 0;
                                         top: 0;
                                         background-image: getSvg("list-star.svg");

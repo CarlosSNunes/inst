@@ -10,7 +10,7 @@
                 &.centered {
                     .big-title {
                         color: getColor(_bupa, _navy);
-                        max-width: 488px;
+                        max-width: 30.5rem;
                         text-align: left;
                     }
                     .sub-description {
@@ -319,7 +319,7 @@ section {
     }
 }
 
-@media (max-width: 992px){
+@media (max-width: 62rem){
     section {
         &#a-careplus-main-content {
             .container {

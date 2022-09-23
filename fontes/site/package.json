@@ -80,6 +80,7 @@
     "saturn-datepicker": "^8.0.5",
     "simple-parallax-js": "^5.5.1",
     "smoothscroll-polyfill": "^0.4.4",
+    "strict-transport-security": "^0.3.0",
     "tslib": "^1.10.0",
     "typeface-montserrat": "0.0.75",
     "url-polyfill": "^1.1.12",
