@@ -51,6 +51,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/home',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -60,17 +76,17 @@ export default [
                         fragment: 'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment: 'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment: 'planos'
+                    }),                    
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -109,7 +125,7 @@ export default [
                 routerLink: '/fale-conosco',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -174,6 +190,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/home',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -183,17 +215,17 @@ export default [
                         fragment: 'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment: 'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment: 'planos'
+                    }),                   
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -247,7 +279,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -312,6 +344,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/home',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -321,17 +369,17 @@ export default [
                         fragment: 'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment: 'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment: 'planos'
+                    }),                    
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -363,7 +411,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -428,6 +476,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/home',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -437,17 +501,17 @@ export default [
                         fragment: 'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment: 'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment: 'planos'
+                    }),                   
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -480,8 +544,8 @@ export default [
                         routerLink: '/carreiras/vagas',
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'http://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     }),
                 ]
@@ -491,7 +555,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({
@@ -556,6 +620,22 @@ export default [
                 ]
             }),
             new SubMenuItem({
+                title: 'Clínicas',
+                routerLink: '/home',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Care Plus Clinic',
+                        href: 'https://www.careplusclinic.com.br/',
+                        target: '_blank'
+                    }),
+                    new SubMenuItem({
+                        title: 'Prime Clinic',
+                        href: 'https://www.primeclinic.care/',
+                        target: '_blank'
+                    })                   
+                ]
+            }),
+            new SubMenuItem({
                 title: 'Planos e Produtos',
                 routerLink: '/planos-e-produtos',
                 subItems: [
@@ -565,17 +645,17 @@ export default [
                         fragment: 'planos'
                     }),
                     new SubMenuItem({
-                        title: 'Care Plus Dental',
-                        routerLink: '/planos-e-produtos',
-                        fragment: 'planos'
-                    }),
-                    new SubMenuItem({
                         title: 'Care Plus Ocupacional',
                         routerLink: '/planos-e-produtos/medicina-ocupacional'
                     }),
                     new SubMenuItem({
-                        title: 'Master International',
-                        href: 'https://www.masterinternational.com.br/',
+                        title: 'Care Plus Dental',
+                        routerLink: '/planos-e-produtos',
+                        fragment: 'planos'
+                    }),                    
+                    new SubMenuItem({
+                        title: 'Care Plus Dental - Individual',
+                        href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
@@ -603,7 +683,7 @@ export default [
                 routerLink: '/fale-conosco/solicite-uma-cotacao',
                 subItems: [
                     new SubMenuItem({
-                        title: 'Solicite uma Cotação',
+                        title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
                     }),
                     new SubMenuItem({

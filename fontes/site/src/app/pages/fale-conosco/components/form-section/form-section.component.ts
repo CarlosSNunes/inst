@@ -17,7 +17,7 @@ export class FormSectionComponent implements OnInit {
         private router: Router,
         private cdr: ChangeDetectorRef,
     ) {
-        this.setActiveChanel(0);
+        this.setActiveChanel(1);
         this.activatedRoute.params.subscribe(params => {
             if (params.id) {
                 const chanel = this.chanelForms.find(chanel => params.id == chanel.slug)

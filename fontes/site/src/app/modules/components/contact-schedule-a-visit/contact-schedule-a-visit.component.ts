@@ -13,35 +13,35 @@ export class ContactScheduleAVisitComponent implements OnInit {
     @Input() bigTitle: string = 'Entre em contato ou agende uma visita';
     @Input() htag: string = 'h5';
     @Input() firstCard: IconCardModel = new IconCardModel({
-        title: 'Central de Atendimento',
+        title: 'Proposta - Planos de Saúde',
         type: 'icon',
         button: new ButtonModel({
-            link: 'tel:011 4197-9000',
-            text: '(11) 4197-9000',
+            link: 'tel:011 99967-5467',
+            text: '(11) 99967-5467',
             target: '_self',
         }),
         imagePath: 'assets/svg/phone.svg',
         backgroundColorClass: this.backgroundColorClass
-    });
+    }); 
     @Input() secondCard: IconCardModel = new IconCardModel({
-        title: 'Solicite uma Cotação',
+        title: 'Solicite uma Proposta',
         type: 'icon',
         imagePath: 'assets/svg/calendar.svg',
         button: new ButtonModel({
             routerLink: '/fale-conosco/solicite-uma-cotacao',
-            text: 'Clique e solicite uma cotação',
+            text: 'Clique e solicite uma proposta',
             target: '_self',
         }),
         backgroundColorClass: this.backgroundColorClass
-    });
+    });  
     constructor(
         private windowRef: WindowRef,
         private router: Router
     ) { }
 
     ngOnInit() {
-        this.firstCard.backgroundColorClass = this.backgroundColorClass;
-        this.secondCard.backgroundColorClass = this.backgroundColorClass;
+        this.firstCard.backgroundColorClass = this.backgroundColorClass;   
+        this.secondCard.backgroundColorClass = this.backgroundColorClass;    
     }
 
     open(card: IconCardModel) {
