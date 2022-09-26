@@ -42,7 +42,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Aviso de Privacidade',
-                        routerLink: '/a-careplus/politica-de-privacidade'
+                        routerLink: '/a-careplus/aviso-de-privacidade'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -91,6 +91,16 @@ export default [
                     })
                 ]
             }),
+            new SubMenuItem({
+                title: 'Care Plus Store',
+                routerLink: '/Care Plus Store',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Loja Care Plus',
+                        href: 'https://store.careplus.com.br/'
+                    })
+                ]
+            }),            
             new SubMenuItem({
                 title: 'Carreiras',
                 routerLink: '/carreiras',
@@ -170,7 +180,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Aviso de Privacidade',
-                        routerLink: '/a-careplus/politica-de-privacidade'
+                        routerLink: '/a-careplus/aviso-de-privacidade'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -219,6 +229,16 @@ export default [
                     })
                 ]
             }),
+            new SubMenuItem({
+                title: 'Care Plus Store',
+                routerLink: '/Care Plus Store',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Loja Care Plus',
+                        href: 'https://store.careplus.com.br/'
+                    })
+                ]
+            }),                       
             new SubMenuItem({
                 title: 'Rede Plus',
                 routerLink: '/a-careplus/rede-plus'
@@ -314,7 +334,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Aviso de Privacidade',
-                        routerLink: '/a-careplus/politica-de-privacidade'
+                        routerLink: '/a-careplus/aviso-de-privacidade'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -362,7 +382,7 @@ export default [
                         target: '_blank'
                     })
                 ]
-            }),
+            }),           
             new SubMenuItem({
                 title: 'Rede Plus',
                 routerLink: '/a-careplus/rede-plus'
@@ -446,7 +466,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Aviso de Privacidade',
-                        routerLink: '/a-careplus/politica-de-privacidade'
+                        routerLink: '/a-careplus/aviso-de-privacidade'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -492,6 +512,16 @@ export default [
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
                         target: '_blank'
+                    })
+                ]
+            }),
+            new SubMenuItem({
+                title: 'Care Plus Store',
+                routerLink: '/Care Plus Store',
+                subItems: [
+                    new SubMenuItem({
+                        title: 'Loja Care Plus',
+                        href: 'https://store.careplus.com.br/'
                     })
                 ]
             }),
@@ -579,7 +609,7 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Aviso de Privacidade',
-                        routerLink: '/a-careplus/politica-de-privacidade'
+                        routerLink: '/a-careplus/aviso-de-privacidade'
                     }),
                     new SubMenuItem({
                         title: 'Resultados Financeiros',
@@ -627,7 +657,7 @@ export default [
                         target: '_blank'
                     })
                 ]
-            }),
+            }),            
             new SubMenuItem({
                 title: 'Carreiras',
                 routerLink: '/carreiras',

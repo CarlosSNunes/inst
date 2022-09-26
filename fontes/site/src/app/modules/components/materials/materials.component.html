@@ -24,10 +24,10 @@
                     <app-card class="app-card" [card]="card" *ngIf="card">
                         <div class="card-content">
                             <p class="card-title">
-                                {{card.title}} <span class="size" *ngIf="card?.size?.placeholder"> {{card.size.placeholder}}</span>
+                                {{card.title}}
                             </p>
                             <a [href]="card?.button?.link" title="Download" class="download-link" download [type]="card?.type == 'default' ? card?.size?.file_size != undefined ? 'application/pdf,' + 'length=' + card.size?.file_size : 'application/pdf' : card?.size?.file_size != undefined ? card.type + ','  + 'length=' + card.size?.file_size : card.type" >
-                                Download PDF
+                                Download PDF <span class="sizeLink" *ngIf="card?.size?.placeholder"> {{card.size.placeholder}}</span>
                                 <span>
                                     <img src="assets/svg/download.svg" alt="Download Documento">
                                 </span>
@@ -39,11 +39,11 @@
 
             <div class="columns">
                 <div class="column buttons-column">
-                    <a class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" routerLink="/a-careplus/materiais-de-saude" title="Ver todos os Materiais de Saúde">
+                    <a *ngIf="getScreenWidth >= 1023" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" routerLink="/a-careplus/materiais-de-saude" title="Ver todos os Materiais de Saúde">
                         Ver todos os Materiais de Saúde
                     </a>
 
-                    <a class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" routerLink="/a-careplus/materiais-de-saude" title="Ver todos os Materiais de Saúde">
+                    <a *ngIf="getScreenWidth < 1023" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" routerLink="/a-careplus/materiais-de-saude" title="Ver todos os Materiais de Saúde">
                         Ver todos os Materiais de Saúde
                     </a>
                 </div>

@@ -18,11 +18,11 @@
                         Buttons with routerLink
                     -->
 
-                    <a [routerLink]="planCardModel?.button?.routerLink" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="planCardModel?.button && planCardModel?.button?.routerLink" [title]="planCardModel?.button?.text">
+                    <a [routerLink]="planCardModel?.button?.routerLink" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="planCardModel?.button && planCardModel?.button?.routerLink && getScreenWidth >= 1023" [title]="planCardModel?.button?.text">
                         {{planCardModel?.button?.text}}
                     </a>
 
-                    <a [routerLink]="planCardModel?.button?.routerLink" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="planCardModel?.button && planCardModel?.button?.routerLink" [title]="planCardModel?.button?.text">
+                    <a [routerLink]="planCardModel?.button?.routerLink" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="planCardModel?.button && planCardModel?.button?.routerLink && getScreenWidth < 1023" [title]="planCardModel?.button?.text">
                         {{planCardModel?.button?.text}}
                     </a>
 
@@ -30,11 +30,11 @@
                         Buttons with href
                     -->
 
-                    <a target="_blank" [href]="planCardModel?.button?.link" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="planCardModel?.button && planCardModel?.button?.link" [title]="planCardModel?.button?.text + ' - opens in a new window'">
+                    <a target="_blank" [href]="planCardModel?.button?.link" class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch" *ngIf="planCardModel?.button && planCardModel?.button?.link && getScreenWidth >= 1023" [title]="planCardModel?.button?.text + ' - opens in a new window'">
                         {{planCardModel?.button?.text}}
                     </a>
 
-                    <a target="_blank" [href]="planCardModel?.button?.link" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="planCardModel?.button && planCardModel?.button?.link" [title]="planCardModel?.button?.text + ' - opens in a new window'">
+                    <a target="_blank" [href]="planCardModel?.button?.link" class="btn btn-digital-cian tertiary arrow-right small is-hidden-desktop" *ngIf="planCardModel?.button && planCardModel?.button?.link && getScreenWidth < 1023" [title]="planCardModel?.button?.text + ' - opens in a new window'">
                         {{planCardModel?.button?.text}}
                     </a>
                 </div>

@@ -62,34 +62,34 @@ export class ServicosOnlineComponent implements OnInit {
     }
 
     private setSEOInfos() {
-        this.title.setTitle('Serviços Online | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
+        this.title.setTitle('Serviços Online | Gestão de Saúde | Saúde e Dental | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'O mundo é digital, e a Care Plus também. Investimos em tecnologia, disponibilizando serviços online, para que os nossos beneficiários, empresas e parceiros tenham toda a facilidade e comodidade que merecem.'
         });
 
-         
-         /* 
+
+         /*
             Open graph meta tags
         */
             this.meta.updateTag({
                 name: "og:title",
                 content:
-                    'Serviços Online | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus',
+                    'Serviços Online | Gestão de Saúde | Saúde e Dental | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "og:type",
                 content:
                     "website",
             });
 
-    
+
             this.meta.updateTag({
                 name: "og:description",
                 content: 'O mundo é digital, e a Care Plus também. Investimos em tecnologia, disponibilizando serviços online, para que os nossos beneficiários, empresas e parceiros tenham toda a facilidade e comodidade que merecem.'
             });
-    
+
             this.meta.updateTag({
                 name: "og:url",
                 content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude/servicos-online`,
@@ -98,28 +98,28 @@ export class ServicosOnlineComponent implements OnInit {
                 name: "og:image",
                 content:`${environment.SELF_URL}/assets/img/servicos-online.jpg`,
             });
-    
-            /* 
+
+            /*
                 Twitter meta tags
             */
-    
+
             this.meta.updateTag({
                 name: "twitter:title",
                 content:
-                    'Serviços Online | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus',
+                    'Serviços Online | Gestão de Saúde | Saúde e Dental | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:card",
                 content:
                     "summary_large_image",
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:description",
                 content: 'O mundo é digital, e a Care Plus também. Investimos em tecnologia, disponibilizando serviços online, para que os nossos beneficiários, empresas e parceiros tenham toda a facilidade e comodidade que merecem.'
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:url",
                 content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude/servicos-online`,

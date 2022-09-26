@@ -20,7 +20,7 @@
         padding: 16px 16px;
         font-size: getSize("sbm");
         line-height: getLineHeight("p");
-        @media (max-width: 991px) {
+        @media (max-width: 61.938rem) {
             font-weight: 600;
             padding: 8px 16px;
         }
@@ -30,7 +30,7 @@
         padding: 16px 24px;
         font-size: getSize("p");
         line-height: getLineHeight("p");
-        @media (max-width: 991px) {
+        @media (max-width: 61.938rem) {
             font-weight: 600;
             padding: 8px 16px;
         }
@@ -40,7 +40,7 @@
         padding: 20px 32px;
         font-size: getSize("p");
         line-height: getLineHeight("p");
-        @media (max-width: 991px) {
+        @media (max-width: 61.938rem) {
             font-weight: 600;
             padding: 12px 24px;
         }
@@ -103,8 +103,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -179,7 +179,7 @@
                 En - Mobile digital orange primary button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         border: 3px solid getColor(_bupa, _digital-orange);
@@ -252,8 +252,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -330,7 +330,7 @@
                 En - Mobile digital orange secondary button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         border: 3px solid getColor(_bupa, _digital-orange);
@@ -433,9 +433,9 @@
                     position: absolute;
                     top: 50%;
                     z-index: 2;
-                    right: 24px;
-                    width: 10px;
-                    height: 10px;
+                    right: 1.5rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
                     margin-top: -5px;
                     border-radius: 50%;
                     border: 2px solid getColor(_bupa, _violet);
@@ -478,7 +478,7 @@
                             &:before {
                                 border: solid #992805;
                                 @include arrowElement(-45deg);
-                                right: 15px;
+                                right: 0.938rem;
                             }
                         }
                     }
@@ -513,7 +513,7 @@
                 En - Mobile tertiary digital orange button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         color: getColor(_bupa, _digital-orange);
@@ -621,8 +621,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -695,7 +695,7 @@
                 En - Mobile fuchsia primary button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         border: 3px solid getColor(_bupa, _fuchsia);
@@ -772,8 +772,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -846,7 +846,7 @@
                 En - Mobile secondary fuchsia button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         background-color: transparent;
@@ -948,9 +948,9 @@
                     position: absolute;
                     top: 50%;
                     z-index: 2;
-                    right: 24px;
-                    width: 10px;
-                    height: 10px;
+                    right: 1.5rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
                     margin-top: -5px;
                     border-radius: 50%;
                     border: 2px solid getColor(_bupa, _violet);
@@ -993,7 +993,7 @@
                             &:before {
                                 border: solid #9c2d6f;
                                 @include arrowElement(-45deg);
-                                right: 15px;
+                                right: 0.938rem;
                             }
                         }
                     }
@@ -1028,7 +1028,7 @@
                 En - Mobile tertiary fuchsia button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         color: getColor(_bupa, _violet);
@@ -1141,8 +1141,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -1214,7 +1214,7 @@
                 }
             }
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         border: 3px solid getColor(_bupa, _digital-cian);
@@ -1288,8 +1288,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -1361,7 +1361,7 @@
                 }
             }
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         color: getColor(_bupa, _digital-cian);
@@ -1463,9 +1463,9 @@
                     position: absolute;
                     top: 50%;
                     z-index: 2;
-                    right: 24px;
-                    width: 10px;
-                    height: 10px;
+                    right: 1.5rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
                     margin-top: -5px;
                     border-radius: 50%;
                     border: 2px solid getColor(_bupa, _digital-cian);
@@ -1508,7 +1508,7 @@
                             &:before {
                                 border: solid #00548c;
                                 @include arrowElement(-45deg);
-                                right: 15px;
+                                right: 0.938rem;
                             }
                         }
                     }
@@ -1543,7 +1543,7 @@
                 En - Mobile tertiary fuchsia button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         color: getColor(_bupa, _digital-cian);
@@ -1660,8 +1660,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -1733,7 +1733,7 @@
                 }
             }
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         border: 3px solid getColor(_bupa, _navy);
@@ -1807,8 +1807,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -1880,7 +1880,7 @@
                 }
             }
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 border: 3px solid getColor(_bupa, _navy);
                 color: getColor(_bupa, _navy);
                 background-color: transparent;
@@ -1980,9 +1980,9 @@
                     position: absolute;
                     top: 50%;
                     z-index: 2;
-                    right: 24px;
-                    width: 10px;
-                    height: 10px;
+                    right: 1.5rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
                     margin-top: -5px;
                     border-radius: 50%;
                     border: 2px solid getColor(_bupa, _navy);
@@ -2024,7 +2024,7 @@
                         &:before {
                             border: solid #00294c;
                             @include arrowElement(-45deg);
-                            right: 15px;
+                            right: 0.938rem;
                         }
                     }
 
@@ -2058,7 +2058,7 @@
                 En - Mobile tertiary fuchsia button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:hover {
                     color: getColor(_bupa, _navy);
                 }
@@ -2169,8 +2169,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -2245,7 +2245,7 @@
                 En - Mobile digital orange primary button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         border: 3px solid getColor(_bupa, _purple);
@@ -2318,8 +2318,8 @@
                     top: 50%;
                     z-index: 2;
                     left: 50%;
-                    width: 20px;
-                    height: 20px;
+                    width: 1.25rem;
+                    height: 1.25rem;
                     margin-top: -10px;
                     margin-left: -10px;
                     border-radius: 50%;
@@ -2396,7 +2396,7 @@
                 En - Mobile digital orange secondary button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         border: 3px solid getColor(_bupa, _purple);
@@ -2499,9 +2499,9 @@
                     position: absolute;
                     top: 50%;
                     z-index: 2;
-                    right: 24px;
-                    width: 10px;
-                    height: 10px;
+                    right: 1.5rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
                     margin-top: -5px;
                     border-radius: 50%;
                     border: 2px solid getColor(_bupa, _purple);
@@ -2544,7 +2544,7 @@
                             &:before {
                                 border: solid #4a1f70;
                                 @include arrowElement(-45deg);
-                                right: 15px;
+                                right: 0.938rem;
                             }
                         }
                     }
@@ -2579,7 +2579,7 @@
                 En - Mobile tertiary digital orange button.
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         color: getColor(_bupa, _purple);
@@ -2682,9 +2682,9 @@
                     position: absolute;
                     top: 50%;
                     z-index: 2;
-                    right: 24px;
-                    width: 10px;
-                    height: 10px;
+                    right: 1.5rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
                     margin-top: -5px;
                     border-radius: 50%;
                     border: 2px solid getColor(_bupa, _digital-cian);
@@ -2761,7 +2761,7 @@
                 en - Mobile primary white to digital cian button
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:not(:disabled) {
                     &:hover {
                         background-color: getColor(_bupa, _white);
@@ -2828,9 +2828,9 @@
                     position: absolute;
                     top: 50%;
                     z-index: 2;
-                    right: 24px;
-                    width: 10px;
-                    height: 10px;
+                    right: 1.5rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
                     margin-top: -5px;
                     border-radius: 50%;
                     border: 2px solid getColor(_bupa, _digital-cian);
@@ -2907,7 +2907,7 @@
                 en - Mobile secondary white to digital cian button
             */
 
-            @media (max-width: 991px) {
+            @media (max-width: 61.938rem) {
                 &:hover {
                     background-color: transparent;
                     color: getColor(_bupa, _white);

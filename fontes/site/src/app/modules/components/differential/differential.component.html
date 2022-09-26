@@ -6,7 +6,7 @@
                     *ngFor="let differential of differentials; let i = index;">
                     <img [src]="differential.image"
                         [alt]="'Diferenciais de ' + differentials[currentDifferential]?.title" />
-                    <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais"
+                    <a *ngIf="getScreenWidth >= 1023" routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais"
                         class="btn btn-digital-cian secondary arrow-right medium is-hidden-touch">
                         Conheça nossos Diferenciais
                     </a>
@@ -51,7 +51,7 @@
 
                     <div class="is-hidden-desktop mobile-image" [class.active]="differential.active"
                         *ngFor="let differential of differentials; let i = index;">
-                        <a routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais"
+                        <a *ngIf="getScreenWidth < 1023" routerLink="/a-careplus/diferenciais" title="Conheça nossos Diferenciais"
                             class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop">
                             Conheça nossos Diferenciais
                         </a>

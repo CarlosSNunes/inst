@@ -5,7 +5,7 @@
         box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
         border-radius: 2px;
         height: 120px;
-        margin-top: 48px;
+        margin-top: 3rem;
         margin-bottom: 64px;
         padding: 0 72px;
         .filter {
@@ -45,7 +45,7 @@
         column-gap: 32px;
         row-gap: 16px;
         div {
-            padding: 18px 16px;
+            padding: 1.125rem 1rem;
             background-color: getColor(_carePlus, _grey-5);
             display: flex;
             align-items: center;
@@ -167,7 +167,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
     #hospitals-list {
         padding: 0;
         .mobile-title {
@@ -240,7 +240,7 @@
             row-gap: 8px;
             padding-left: 16px;
             div {
-                min-height: 56px;
+                min-height: 3.5rem;
                 padding: 8px;
                 p {
                     font-size: 12px;

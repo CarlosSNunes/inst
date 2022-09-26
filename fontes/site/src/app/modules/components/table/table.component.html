@@ -13,13 +13,13 @@
                 <td *ngFor="let headItem of table?.headItems">
                     <p *ngIf="headItem.title != 'button'">{{bodyItem[headItem.title]}}</p>
                     <a *ngIf="headItem.title == 'button' && !bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [title]="bodyItem.button?.title">
-                        {{bodyItem.button?.title}}
+                        {{bodyItem.button?.title}} <span class="sizeLink" *ngIf="bodyItem?.size?.placeholder"> {{bodyItem.size.placeholder}}</span>
                         <span class="icon" *ngIf="bodyItem.button?.icon" [innerHtml]="bodyItem.button?.icon | safe">
                         </span>
                     </a>
 
                     <a *ngIf="headItem.title == 'button' && bodyItem?.button?.download" class="download-link" [href]="bodyItem?.button?.href" [title]="bodyItem.button?.title" download>
-                        {{bodyItem.button?.title}}
+                        {{bodyItem.button?.title}} <span class="sizeLink" *ngIf="bodyItem?.size?.placeholder"> {{bodyItem.size.placeholder}}</span>
                         <span class="icon" *ngIf="bodyItem.button?.icon" [innerHtml]="bodyItem.button?.icon | safe">
                         </span>
                     </a>

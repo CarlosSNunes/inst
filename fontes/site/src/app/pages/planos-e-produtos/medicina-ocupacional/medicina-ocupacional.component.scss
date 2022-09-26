@@ -66,22 +66,22 @@
 
     .whatsapp-btn {
         display: inline-flex;
-        margin-top: 20px;
+        margin-top: 1.25rem;
         img {
-            width: 20px;
-            height: 20px;
+            width: 1.25rem;
+            height: 1.25rem;
             align-self: center;
         }
 
         span {
-            margin-left: 20px;
+            margin-left: 1.25rem;
             align-self: center;
         }
     }
 
     .occupational-infos {
         display: flex;
-        padding: 26px 40px;
+        padding: 1.625rem 2.5rem;
         justify-content: space-between;
 
         li {

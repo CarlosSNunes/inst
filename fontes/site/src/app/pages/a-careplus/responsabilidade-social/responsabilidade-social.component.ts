@@ -52,22 +52,22 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         new InfoSectionModel({
             smallTitle: 'Multiplicadores de Sorriso',
 
-            subDescription: 'Anualmente, proporcionamos serviços odontológicos a crianças carentes em nossas clínicas do Rio de Janeiro e São Paulo. Dezenas de crianças recebem no dia da ação um tratamento odontológico gratuito, kits de higienização bucal e dicas de nutrição, tudo com muita alegria e amor.',
-            imageSrc: 'assets/img/multiplicadores-de-sorriso.png',
+            subDescription: 'Proporcionamos serviços odontológicos a crianças carentes em nossas clínicas do Rio de Janeiro e São Paulo. Dezenas de crianças recebem no dia da ação um tratamento odontológico gratuito, kits de higienização bucal e dicas de nutrição, tudo com muita alegria e amor.',
+            imageSrc: 'assets/img/Multiplicadores-de-sorrisos.png',
             reverse: true,
             alignCenter: true
         }),
         new InfoSectionModel({
             smallTitle: 'Instituto Devolver / Festival Miolo Mole / Hospital Pequeno Príncipe',
-            subDescription: 'Ao longo dos últimos anos doamos mais de R$ 2,5 milhões para iniciativas em diversas ONGs, como o Instituto Devolver e Doutores da Alegria (Festival Miolo Mole), e entidades ligadas a área da saúde como Hospital Pequeno Príncipe, que trata crianças carentes com câncer, além de bolsas de estudos na Faculdade de Medicina do Hospital Albert Einstein.',
-            imageSrc: 'assets/img/inst-devolver.png',
+            subDescription: 'Ao longo dos últimos anos doamos mais de R$ 2,5 milhões para iniciativas em ONGs, como o Instituto Devolver, Doutores da Alegria (Festival Miolo Mole) e entidades ligadas à saúde como Hospital Pequeno Príncipe, além de bolsas de estudos na Faculdade de Medicina do Hospital Albert Einstein.',
+            imageSrc: 'assets/img/inst-Devolver.png',
             reverse: false,
             alignCenter: true
         }),
         new InfoSectionModel({
             smallTitle: 'Diversidade e Aprendiz Legal',
             subDescription: 'Promovemos um ambiente de trabalho positivo que envolve uma cultura diversificada e inclusiva que capacita os colaboradores com ferramentas, treinamentos, informações, reconhecimentos e recompensas alinhadas às necessidades. Investimos, com consistência, neste ecossistema através do nosso programa de Diversidade e do nosso programa Aprendiz Legal, que atua e trabalha com jovens de diversas classes sociais.',
-            imageSrc: 'assets/img/diversidade.png',
+            imageSrc: 'assets/img/Diversidade.png',
             reverse: true,
             alignCenter: true
         }),
@@ -161,7 +161,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
         });
 
-         /* 
+         /*
             Open graph meta tags
         */
             this.meta.updateTag({
@@ -169,46 +169,46 @@ export class ResponsabilidadeSocialComponent implements OnInit {
                 content:
                     'Responsabilidade Social | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "og:type",
                 content:
                     "website",
             });
 
-    
+
             this.meta.updateTag({
                 name: "og:description",
                 content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
             });
-    
+
             this.meta.updateTag({
                 name: "og:url",
                 content: `${environment.SELF_URL}/a-careplus/responsabilidade-social`,
             });
-           
-    
-            /* 
+
+
+            /*
                 Twitter meta tags
             */
-    
+
             this.meta.updateTag({
                 name: "twitter:title",
                 content:
                     'Responsabilidade Social | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:card",
                 content:
                     "summary_large_image",
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:description",
                 content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:url",
                 content: `${environment.SELF_URL}/a-careplus/responsabilidade-social`,

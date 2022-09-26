@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 @import "~src/scss/_mixins";
 section.is-produto {
-    padding-top: 60px;
+    padding-top: 3.75rem;
     .section-category {
         color: getColor(_bupa, _digital-cian);
         text-transform: uppercase;
@@ -45,7 +45,7 @@ section.is-produto {
                 font-style: normal;
                 font-weight: 500;
                 transition: color 0.3s ease-in-out;
-                font-size: 26px;
+                font-size: 1.625rem;
             }
             h5.subtitle {
                 transition: color 0.3s ease-in-out;
@@ -89,7 +89,7 @@ section.is-produto {
                         &:before {
                             border: solid getColor(_bupa, _white);
                             @include arrowElement(-45deg);
-                            right: 15px;
+                            right: 0.938rem;
                         }
                     }
                 }
@@ -112,7 +112,7 @@ section.is-produto {
                         &:before {
                             border: solid getColor(_bupa, _white);
                             @include arrowElement(-45deg);
-                            right: 15px;
+                            right: 0.938rem;
                         }
                     }
                 }
@@ -135,7 +135,7 @@ section.is-produto {
                         &:before {
                             border: solid getColor(_bupa, _white);
                             @include arrowElement(-45deg);
-                            right: 15px;
+                            right: 0.938rem;
                         }
                     }
                 }
@@ -162,7 +162,7 @@ section.is-produto {
         }
     }
     .btn-digital-cian {
-        margin-top: 48px;
+        margin-top: 3rem;
         display: inline-flex;
     }
 }
@@ -179,7 +179,7 @@ section.is-produto {
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1200px) {
+@media (min-width: 64rem) and (max-width: 1200px) {
     section.is-produto {
         .products {
             .product-padding {

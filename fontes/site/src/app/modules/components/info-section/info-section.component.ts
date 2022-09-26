@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { InfoSectionModel, ContentModalModel } from 'src/app/models';
 import { ModalService } from 'src/app/services';
 import { Platform } from '@angular/cdk/platform';
@@ -17,6 +17,7 @@ export class InfoSectionComponent implements OnInit {
     @ViewChild('sectionInfoElement', { static: false }) sectionInfoElement: ElementRef<HTMLElement>;
     isBrowser: boolean = false;
     changeToBackground: boolean = false;
+    public getScreenWidth: any;
     constructor(
         private modalService: ModalService,
         @Inject(PLATFORM_ID) private platformId: Platform,
@@ -27,6 +28,12 @@ export class InfoSectionComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.onWindowResize();
+    }
+
+    @HostListener('window:resize')
+    onWindowResize() {
+        this.getScreenWidth = window.innerWidth;
     }
 
     ngAfterViewInit() {

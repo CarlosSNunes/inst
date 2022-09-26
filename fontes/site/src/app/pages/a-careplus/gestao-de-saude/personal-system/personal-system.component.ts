@@ -32,34 +32,34 @@ export class PersonalSystemComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle('Personal System | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus');
+        this.title.setTitle('Personal System | Gestão de Saúde | Saúde e Dental | Care Plus');
         this.meta.updateTag({
             name: 'description',
             content: 'A Care Plus apresenta o Personal System, um programa especializado na promoção de saúde e prevenção de doenças cardiovasculares, atendendo em clínicas próprias, rede credenciada e diretamente nas empresas.'
         });
 
-          
-         /* 
+
+         /*
             Open graph meta tags
         */
             this.meta.updateTag({
                 name: "og:title",
                 content:
-                    'Personal System | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus',
+                    'Personal System | Gestão de Saúde | Saúde e Dental | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "og:type",
                 content:
                     "website",
             });
 
-    
+
             this.meta.updateTag({
                 name: "og:description",
                 content: 'A Care Plus apresenta o Personal System, um programa especializado na promoção de saúde e prevenção de doenças cardiovasculares, atendendo em clínicas próprias, rede credenciada e diretamente nas empresas.'
             });
-    
+
             this.meta.updateTag({
                 name: "og:url",
                 content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude/personal-system`,
@@ -68,28 +68,28 @@ export class PersonalSystemComponent implements OnInit {
                 name: "og:image",
                 content:`${environment.SELF_URL}/assets/img/personal-system.jpg`,
             });
-    
-            /* 
+
+            /*
                 Twitter meta tags
             */
-    
+
             this.meta.updateTag({
                 name: "twitter:title",
                 content:
-                    'Personal System | Gestão de Saúde | Produtos de Saúde e Odontológicos | Care Plus',
+                    'Personal System | Gestão de Saúde | Saúde e Dental | Care PlusPlus',
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:card",
                 content:
                     "summary_large_image",
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:description",
                 content: 'A Care Plus apresenta o Personal System, um programa especializado na promoção de saúde e prevenção de doenças cardiovasculares, atendendo em clínicas próprias, rede credenciada e diretamente nas empresas.'
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:url",
                 content: `${environment.SELF_URL}/planos-e-produtos/gestao-de-saude/personal-system`,

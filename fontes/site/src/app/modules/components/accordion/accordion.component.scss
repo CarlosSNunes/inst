@@ -15,7 +15,7 @@
             padding: 28px 22px;
             font-style: normal;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 20px;
             color: getColor(_bupa, _grey);
             position: relative;
@@ -23,7 +23,7 @@
             word-break: break-word;
 
             &::before {
-                width: 18px;
+                width: 1.125rem;
                 height: 100%;
                 position: absolute;
                 background-image: getSvg("open.svg");
@@ -39,7 +39,7 @@
                 background: rgba(getColor(_bupa, _digital-cian), 0.1);
                 font-style: normal;
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 1rem;
                 line-height: 20px;
                 border-left: solid 3px getColor(_bupa, _digital-cian);
 
@@ -102,7 +102,7 @@
                     li {
                         font-style: normal;
                         font-weight: 400;
-                        font-size: 16px;
+                        font-size: 1rem;
                         line-height: 30px;
                         margin: 0;
                         color: getColor(_bupa, _gray-2);

@@ -1,7 +1,7 @@
 import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, SimpleBannerModel, BreadcrumbModel, HospitalList, Hospital } from 'src/app/models'; export default {
     id: 'careplus-soho',
     name: 'Care Plus Soho',
-    title: 'Care Plus SoHo | De 2 a 29 Vidas | Plano de Saúde e Odontológico Premium | Care Plus',
+    title: 'Care Plus SoHo | Plano de Saúde e Dental Premium | Care Plus',
     description: 'O Care Plus SoHo apresenta plano de saúde e odontológico premium para empresas de 2 a 29 vidas e que atuam em home office ou com operações mais enxutas.',
     simpleBannerModel: new SimpleBannerModel({
         title: 'Care Plus SoHo: planos de 2 a 29 vidas',

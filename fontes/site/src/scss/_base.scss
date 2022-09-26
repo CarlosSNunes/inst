@@ -2,7 +2,7 @@
 
 html,
 body {
-    font-size: 16px;
+    font-size: 1rem;
 
     &.using-mouse {
         outline: none;
@@ -53,7 +53,7 @@ p,
     }
 }
 .big-title {
-    max-width: 488px;
+    max-width: 30.5rem;
     margin-top: 8px;
     color: getColor(_bupa, _navy);
     font-weight: 600;
@@ -186,12 +186,12 @@ p,
 
 .get-price-box {
     position: fixed;
-    width: 300px;
-    height: 60px;
+    width: 18.75rem;
+    height: 3.75rem;
     background-color: getColor(_bupa, _fuchsia);
     display: flex;
-    padding: 16px 24px;
-    right: 32px;
+    padding: 1rem 1.5rem;
+    right: 2rem;
     bottom: 0;
     cursor: pointer;
     z-index: 204;
@@ -199,11 +199,11 @@ p,
     border: 3px solid getColor(_bupa, _fuchsia);
     border-bottom-width: 0;
     transition: background-color 0.3s ease-in-out;
-    
+
 
     &:hover {
         background-color: getColor(_bupa, _white);
-       
+
 
         .text {
             color: getColor(_bupa, _fuchsia);
@@ -221,10 +221,10 @@ p,
     }
 
     img.girl {
-        width: 48px;
-        height: 48px;
+        width: 3rem;
+        height: 3rem;
         position: absolute;
-        right: 24px;
+        right: 1.5rem;
         align-self: center;
         top: calc(50% - 24px);
     }
@@ -233,19 +233,19 @@ p,
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80rem) {
     .get-price-box {
         right: calc(100% - (100vw + 1216px) / 2);
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 63.938rem) {
     .get-price-box {
-        bottom: 94px;
-        right: 22px;
+        bottom: 5.875rem;
+        right: 1.375rem;
         position: fixed;
-        width: 68px;
-        height: 68px;
+        width: 4.25rem;
+        height: 4.25rem;
         padding: 0;
         border: none;
         border-radius: 100%;

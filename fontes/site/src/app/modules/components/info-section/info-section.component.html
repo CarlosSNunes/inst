@@ -66,12 +66,12 @@
 
                     <!-- Botões com routerLink-->
 
-                    <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
+                    <a *ngIf="sectionInfo?.button?.routerLink && getScreenWidth >= 1023" [routerLink]="[sectionInfo?.button?.routerLink]"
                         [queryParams]="sectionInfo?.button?.queryParams" class="btn medium is-hidden-touch"
                         [ngClass]="sectionInfo?.button?.class" [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
                     </a>
-                    <a *ngIf="sectionInfo?.button?.routerLink" [routerLink]="[sectionInfo?.button?.routerLink]"
+                    <a *ngIf="sectionInfo?.button?.routerLink && getScreenWidth < 1023" [routerLink]="[sectionInfo?.button?.routerLink]"
                         [queryParams]="sectionInfo?.button?.queryParams" [ngClass]="sectionInfo?.button?.touchClass"
                         class="btn tertiaty arrow-right small is-hidden-desktop" [title]="sectionInfo?.button?.text">
                         {{sectionInfo?.button?.text}}
@@ -79,12 +79,12 @@
 
                     <!-- Botões com href-->
 
-                    <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
+                    <a *ngIf="sectionInfo?.button?.link && getScreenWidth >= 1023" [href]="sectionInfo?.button?.link" target="_blank"
                         class="btn medium is-hidden-touch" [ngClass]="sectionInfo?.button?.class"
                         [title]="sectionInfo?.button?.text + ' - opens in a new window'">
                         {{sectionInfo?.button?.text}}
                     </a>
-                    <a *ngIf="sectionInfo?.button?.link" [href]="sectionInfo?.button?.link" target="_blank"
+                    <a *ngIf="sectionInfo?.button?.link && getScreenWidth < 1023" [href]="sectionInfo?.button?.link" target="_blank"
                         [ngClass]="sectionInfo?.button?.touchClass"
                         class="btn tertiaty arrow-right small is-hidden-desktop"
                         [title]="sectionInfo?.button?.text + ' - opens in a new window'">
