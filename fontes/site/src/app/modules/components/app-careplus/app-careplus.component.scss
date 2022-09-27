@@ -1,7 +1,7 @@
 @import "~src/scss/_variables";
 section#app-careplus {
     position: relative;
-    margin: 60px 0;
+    margin: 3.75rem 0;
     .container {
         .columns {
             .column {
@@ -47,8 +47,8 @@ section#app-careplus {
                             position: absolute;
                             content: "";
                             background-image: getSvg("list-star.svg");
-                            width: 19px;
-                            height: 19px;
+                            width: 1.188rem;
+                            height: 1.188rem;
                             align-self: center;
                             top: calc(50% - 9.5px);
                             left: 0;
@@ -75,7 +75,7 @@ section#app-careplus {
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1200px) {
+@media (min-width: 64rem) and (max-width: 1200px) {
     section#app-careplus {
         .container {
             .columns {
@@ -176,7 +176,7 @@ section#app-careplus {
                     &.image {
                         .smartphone {
                             border-radius: 24px;
-                            border-width: 10px;
+                            border-width: 0.625rem;
                             margin-top: 20px;
                             .content {
                                 border-radius: 14px;

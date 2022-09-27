@@ -52,9 +52,9 @@
                         span {
                             margin-left: 10px;
                             align-self: center;
-                            height: 17px;
+                            height: 1.063rem;
                             svg {
-                                height: 17px;
+                                height: 1.063rem;
                                 transition: fill 0.3s ease-in-out;
                                 path {
                                     transition: fill 0.3s ease-in-out;
@@ -66,4 +66,8 @@
             }
         }
     }
+}
+
+.sizeLink{
+    font-size: x-small;
 }

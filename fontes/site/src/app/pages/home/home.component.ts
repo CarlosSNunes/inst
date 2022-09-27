@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     }
 
     setSEOInfos() {
-        this.title.setTitle("Care Plus | Plano de Saúde e Odontológico Premium, Clínicas e Medicina Ocupacional");
+        this.title.setTitle("Care Plus | Plano de Saúde e Dental Premium, Clínicas e Ocupacional");
 
         this.meta.updateTag({
             name: "description",
@@ -64,13 +64,13 @@ export class HomeComponent implements OnInit {
                 "A Care Plus é uma operadora premium de saúde que oferece Plano de Saúde e Odontológico, Clínicas Odontológicas e Médicas, além de Medicina Ocupacional.",
         });
 
-        /* 
+        /*
             Open graph meta tags
         */
         this.meta.updateTag({
             name: "og:title",
             content:
-                "Care Plus | Plano de Saúde e Odontológico Premium, Clínicas e Medicina Ocupacional",
+                "Care Plus | Plano de Saúde e Dental Premium, Clínicas e Ocupacional",
         });
 
         this.meta.updateTag({
@@ -92,14 +92,14 @@ export class HomeComponent implements OnInit {
             content: `${environment.SELF_URL}/`,
         });
 
-        /* 
+        /*
             Twitter meta tags
         */
 
         this.meta.updateTag({
             name: "twitter:title",
             content:
-                "Care Plus | Plano de Saúde e Odontológico Premium, Clínicas e Medicina Ocupacional",
+                "Care Plus | Plano de Saúde e Dental Premium, Clínicas e Ocupacional",
         });
 
         this.meta.updateTag({

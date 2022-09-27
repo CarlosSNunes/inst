@@ -29,7 +29,7 @@
             font-size: getSize("p");
             line-height: 125%;
             color: getColor(_carePlus, _success);
-            margin-left: 17px;
+            margin-left: 1.063rem;
         }
 
         svg,
@@ -49,7 +49,7 @@
             font-size: getSize("p");
             line-height: 125%;
             color: getColor(_bupa, _digital-cian);
-            margin-left: 17px;
+            margin-left: 1.063rem;
         }
 
         svg,
@@ -66,10 +66,10 @@
         span {
             font-style: normal;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 20px;
             color: getColor(_carePlus, _warning);
-            margin-left: 17px;
+            margin-left: 1.063rem;
         }
 
         svg,
@@ -89,7 +89,7 @@
             font-size: getSize("p");
             line-height: 125%;
             color: getColor(_carePlus, _error);
-            margin-left: 17px;
+            margin-left: 1.063rem;
         }
 
         svg,

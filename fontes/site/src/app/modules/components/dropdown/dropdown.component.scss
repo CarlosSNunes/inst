@@ -12,11 +12,11 @@
         padding: 17px 15px;
         display: flex;
         justify-content: space-between;
-        height: 56px;
+        height: 3.5rem;
         transition: all 0.3s;
         p {
             font-weight: normal;
-            font-size: 18px;
+            font-size: 1.125rem;
             line-height: 22px;
             color: getColor(_bupa, _grey-2);
             white-space: nowrap;
@@ -58,7 +58,7 @@
         overflow-y: auto;
         p {
             font-weight: normal;
-            font-size: 18px;
+            font-size: 1.125rem;
             line-height: 22px;
             color: #2c2c2c;
             padding: 16px 20px;
@@ -74,19 +74,19 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
     #dropdown {
         .dropdown-select {
             padding: 12px 14px;
             p {
-                font-size: 16px;
+                font-size: 1rem;
                 line-height: 30px;
             }
         }
         .dropdown-list {
             p {
                 padding: 12px 14px;
-                font-size: 16px;
+                font-size: 1rem;
                 line-height: 30px;
             }
         }

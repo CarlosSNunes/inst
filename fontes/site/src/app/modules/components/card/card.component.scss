@@ -38,7 +38,7 @@
             .image {
                 position: absolute;
                 top: -15px;
-                left: 45px;
+                left: 2.813rem;
                 width: 75px;
                 max-height: 34px;
                 z-index: 1;
@@ -335,28 +335,28 @@
                 }
             }
             .content {
-                padding-top: 24px;
+                padding-top: 1.5rem;
                 height: auto;
 
                 .card-title {
-                    padding-left: 24px;
-                    padding-right: 24px;
+                    padding-left: 1.5rem;
+                    padding-right: 1.5rem;
                     font-size: getSize("p");
                     line-height: getLineHeight("p");
                     font-weight: 600;
                     color: getColor(_bupa, _grey);
                     margin-bottom: 0;
-                    min-height: 56px;
+                    min-height: 3.5rem;
 
                     @media (max-width: 1023px) {
-                        min-height: 48px;
+                        min-height: 3rem;
                     }
                 }
                 .card-description {
-                    padding-left: 24px;
-                    padding-right: 24px;
+                    padding-left: 1.5rem;
+                    padding-right: 1.5rem;
                     font-size: 14px;
-                    line-height: 24px;
+                    line-height: 1.5rem;
                     color: getColor(_bupa, _black);
                     margin-bottom: 0;
                     height: 77px;
@@ -429,7 +429,7 @@
                     color: getColor(_bupa, _navy);
 
                     .small {
-                        font-size: 16px;
+                        font-size: 1rem;
                         line-height: 150%;
                         display: block;
                     }

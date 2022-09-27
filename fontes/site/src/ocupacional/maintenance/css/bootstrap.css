@@ -29,7 +29,7 @@
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
+  --breakpoint-lg: 62rem;
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -543,8 +543,8 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0.938rem;
+  padding-left: 0.938rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -561,9 +561,9 @@ pre code {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .container {
-    max-width: 960px;
+    max-width: 60rem;
   }
 }
 
@@ -575,8 +575,8 @@ pre code {
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0.938rem;
+  padding-left: 0.938rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -593,9 +593,9 @@ pre code {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .container, .container-sm, .container-md, .container-lg {
-    max-width: 960px;
+    max-width: 60rem;
   }
 }
 
@@ -633,8 +633,8 @@ pre code {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0.938rem;
+  padding-left: 0.938rem;
 }
 
 .col {
@@ -1283,7 +1283,7 @@ pre code {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .col-lg {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
@@ -3267,7 +3267,7 @@ input[type="button"].btn-block {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .dropdown-menu-lg-left {
     right: auto;
     left: 0;
@@ -4186,7 +4186,7 @@ input[type="button"].btn-block {
 }
 
 .custom-range::-ms-fill-upper {
-  margin-right: 15px;
+  margin-right: 0.938rem;
   background-color: #dee2e6;
   border-radius: 1rem;
 }
@@ -4508,7 +4508,7 @@ input[type="button"].btn-block {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .navbar-expand-lg {
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
@@ -4857,20 +4857,20 @@ input[type="button"].btn-block {
     display: flex;
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: -0.938rem;
+    margin-left: -0.938rem;
   }
   .card-deck .card {
     -ms-flex: 1 0 0%;
     flex: 1 0 0%;
-    margin-right: 15px;
+    margin-right: 0.938rem;
     margin-bottom: 0;
-    margin-left: 15px;
+    margin-left: 0.938rem;
   }
 }
 
 .card-group > .card {
-  margin-bottom: 15px;
+  margin-bottom: 0.938rem;
 }
 
 @media (min-width: 576px) {
@@ -5625,7 +5625,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .list-group-horizontal-lg {
     -ms-flex-direction: row;
     flex-direction: row;
@@ -6109,11 +6109,11 @@ a.close.disabled {
     height: calc(100vh - 3.5rem);
   }
   .modal-sm {
-    max-width: 300px;
+    max-width: 18.75rem;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .modal-lg,
   .modal-xl {
     max-width: 800px;
@@ -6530,8 +6530,8 @@ a.close.disabled {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   background: no-repeat 50% / 100% 100%;
 }
 
@@ -7008,7 +7008,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .d-lg-none {
     display: none !important;
   }
@@ -7595,7 +7595,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .flex-lg-row {
     -ms-flex-direction: row !important;
     flex-direction: row !important;
@@ -7909,7 +7909,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .float-lg-left {
     float: left !important;
   }
@@ -9222,7 +9222,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .m-lg-0 {
     margin: 0 !important;
   }
@@ -9970,7 +9970,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .text-lg-left {
     text-align: left !important;
   }
@@ -10185,10 +10185,10 @@ a.text-dark:hover, a.text-dark:focus {
     size: a3;
   }
   body {
-    min-width: 992px !important;
+    min-width: 62rem !important;
   }
   .container {
-    min-width: 992px !important;
+    min-width: 62rem !important;
   }
   .navbar {
     display: none;

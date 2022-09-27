@@ -59,7 +59,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
         }),
         new InfoSectionModel({
             smallTitle: 'Instituto Devolver / Festival Miolo Mole / Hospital Pequeno Príncipe',
-            subDescription: 'Ao longo dos últimos anos doamos mais de R$ 2,5 milhões para iniciativas em diversas ONGs, como o Instituto Devolver e Doutores da Alegria (Festival Miolo Mole), e entidades ligadas a área da saúde como Hospital Pequeno Príncipe, que trata crianças carentes com câncer, além de bolsas de estudos na Faculdade de Medicina do Hospital Albert Einstein.',
+            subDescription: 'Ao longo dos últimos anos doamos mais de R$ 2,5 milhões para iniciativas em ONGs, como o Instituto Devolver, Doutores da Alegria (Festival Miolo Mole) e entidades ligadas à saúde como Hospital Pequeno Príncipe, além de bolsas de estudos na Faculdade de Medicina do Hospital Albert Einstein.',
             imageSrc: 'assets/img/inst-Devolver.png',
             reverse: false,
             alignCenter: true
@@ -161,7 +161,7 @@ export class ResponsabilidadeSocialComponent implements OnInit {
             content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
         });
 
-         /* 
+         /*
             Open graph meta tags
         */
             this.meta.updateTag({
@@ -169,46 +169,46 @@ export class ResponsabilidadeSocialComponent implements OnInit {
                 content:
                     'Responsabilidade Social | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "og:type",
                 content:
                     "website",
             });
 
-    
+
             this.meta.updateTag({
                 name: "og:description",
                 content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
             });
-    
+
             this.meta.updateTag({
                 name: "og:url",
                 content: `${environment.SELF_URL}/a-careplus/responsabilidade-social`,
             });
-           
-    
-            /* 
+
+
+            /*
                 Twitter meta tags
             */
-    
+
             this.meta.updateTag({
                 name: "twitter:title",
                 content:
                     'Responsabilidade Social | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:card",
                 content:
                     "summary_large_image",
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:description",
                 content: 'A Care Plus se preocupa com o seu papel na sociedade e, além de fornecer cobertura de saúde, trabalha para marcar a sua história com responsabilidade social.'
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:url",
                 content: `${environment.SELF_URL}/a-careplus/responsabilidade-social`,
