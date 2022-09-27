@@ -87,7 +87,7 @@
 
     .h3 {
         text-align: left;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: #00335b;
         position: relative;
         margin-bottom: 40px;
@@ -140,7 +140,7 @@
         margin: 24px 0;
 
         strong {
-            font-size: 20px;
+            font-size: 1.25rem;
             color: #00335b;
             font-weight: 500;
             a{
@@ -268,14 +268,14 @@
         padding: 0 16px;
 
         a {
-            font-size: 14px;
+            font-size: 0.875rem;
         }
 
         ul {
             margin-left: 0;
             li {
                 color: #fff;
-                font-size: 14px;
+                font-size: 0.875rem;
                 margin: 0;
                 margin-left: 1.625rem;
             }
@@ -285,17 +285,17 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
-        padding: 0 16px;
-        margin-top: 32px;
+        padding: 0 1rem;
+        margin-top: 2rem;
 
         a {
-            margin-right: 16px;
-            font-size: 14px;
+            margin-right: 1rem;
+            font-size: 0.875rem;
         }
 
         a + a {
             margin-right: 0;
-            margin-left: 16px;
+            margin-left: 1rem;
         }
     }
 
@@ -490,7 +490,7 @@
                     text-align: center;
                     text-transform: uppercase;
                     color: getColor(_bupa, _white);
-                    font-size: 11px;
+                    font-size: 0.688rem;
                     margin-top: 10px;
                 }
             }
@@ -602,7 +602,7 @@
                         text-align: center;
                         text-transform: uppercase;
                         color: getColor(_bupa, _white);
-                        font-size: 11px;
+                        font-size: 0.688rem;
                         margin-top: 5px;
                         margin-left: 10px;
                         margin-right: 10px;

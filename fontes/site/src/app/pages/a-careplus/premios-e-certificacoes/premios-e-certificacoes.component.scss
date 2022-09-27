@@ -2,14 +2,14 @@
 
 section {
     &#premios-e-certificacoes-premios-section {
-        padding-top: 120px;
+        padding-top: 7.5rem;
         .container {
             .big-title {
-                max-width: 614px;
+                max-width: 38.375rem;
             }
 
             .cards {
-                margin-top: 70px;
+                margin-top: 4.375rem;
             }
         }
     }
@@ -17,26 +17,26 @@ section {
     &#premios-e-certificacoes-certifications-section {
         .container {
             .big-title {
-                max-width: 614px;
+                max-width: 38.375rem;
             }
 
             .cards {
-                margin-top: 70px;
+                margin-top: 4.375rem;
             }
         }
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 63.938rem) {
     section {
         &#premios-e-certificacoes-premios-section {
             padding-top: 3.75rem;
             .container {
                 .cards {
-                    margin-top: 30px;
+                    margin-top: 1.875rem;
                     .column {
-                        padding-top: 15px;
-                        padding-bottom: 15px;
+                        padding-top: 0.938rem;
+                        padding-bottom: 0.938rem;
                     }
                 }
             }
@@ -44,10 +44,10 @@ section {
         &#premios-e-certificacoes-certifications-section {
             .container {
                 .cards {
-                    margin-top: 30px;
+                    margin-top: 1.875rem;
                     .column {
-                        padding-top: 15px;
-                        padding-bottom: 15px;
+                        padding-top: 0.938rem;
+                        padding-bottom: 0.938rem;
                     }
                 }
             }

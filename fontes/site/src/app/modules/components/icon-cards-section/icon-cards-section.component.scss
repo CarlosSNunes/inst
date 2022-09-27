@@ -11,7 +11,7 @@ section.iconCardsSection {
             &.centered {
                 margin: 8px auto 0 auto;
                 text-align: center;
-                max-width: 632px;
+                max-width: 39.5rem;
             }
         }
         .sub-description {
@@ -20,7 +20,7 @@ section.iconCardsSection {
             &.centered {
                 margin: 32px auto 0 auto;
                 text-align: center;
-                max-width: 592px;
+                max-width: 37rem;
             }
         }
         .button-column {
@@ -37,7 +37,7 @@ section.iconCardsSection {
             overflow-x: auto;
              ::ng-deep .app-card {
                 .content .card {
-                    min-width: 225px;
+                    min-width: 14.063rem;
                     .card-title {
                         font-weight: normal;
                     }
