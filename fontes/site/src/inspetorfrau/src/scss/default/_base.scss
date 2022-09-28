@@ -1,0 +1,320 @@
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  color: getColor(_gray);
+  font-family: $montserrat;
+  font-size: rem(16);
+  overflow-x: hidden;
+  width: 100%;
+  &.blocked {
+    overflow: hidden;
+  }
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+p {
+  font-size: rem(16);
+  line-height: 150%;
+}
+
+.btn {
+  background-color: getColor(_blue);
+  border-radius: 6px;
+  color: getColor(_white);
+  display: inline-block;
+  font-weight: 600;
+  font-size: rem(16);
+  line-height: 150%;
+  padding: 16px 24px;
+  @include transition();
+
+  span {
+    margin-left: 8px;
+  }
+
+  &:hover {
+    background-color: getColor(_blue, dark);
+    color: getColor(_white);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 10px getColor(_blue);
+    background-color: getColor(_blue, dark);
+    color: getColor(_white);
+  }
+
+  &.btn-seta {
+    span {
+      margin-left: 8px;
+      vertical-align: middle;
+      display: inline-block;
+      -webkit-transition: transform 0.3s ease-out;
+      -moz-transition: transform 0.3s ease-out;
+      -ms-transition: transform 0.3s ease-out;
+      -o-transition: transform 0.3s ease-out;
+      transition: transform 0.3s ease-out;
+    }
+
+    &:hover,
+    &:active {
+      span {
+        -webkit-transform: translateX(6px);
+        -moz-transform: translateX(6px);
+        -ms-transform: translateX(6px);
+        -o-transform: translateX(6px);
+        transform: translateX(6px);
+      }
+    }
+  }
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?nuc7pt");
+  src: url("../fonts/icomoon.eot?nuc7pt#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.woff2?nuc7pt") format("woff2"), url("../fonts/icomoon.ttf?nuc7pt") format("truetype"),
+    url("../fonts/icomoon.woff?nuc7pt") format("woff"), url("../fonts/icomoon.svg?nuc7pt#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "icomoon", sans-serif !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+  content: "\e90f";
+}
+.icon-youtube:before {
+  content: "\e90e";
+}
+.icon-instagram:before {
+  content: "\e90d";
+}
+.icon-linkedin:before {
+  content: "\e90c";
+}
+.icon-top:before {
+  content: "\e90b";
+}
+.icon-download:before {
+  content: "\e908";
+}
+.icon-prev:before {
+  content: "\e906";
+}
+.icon-next:before {
+  content: "\e907";
+}
+.icon-mascara:before {
+  content: "\e901";
+}
+.icon-empresa:before {
+  content: "\e902";
+}
+.icon-desk:before {
+  content: "\e903";
+}
+.icon-note:before {
+  content: "\e904";
+}
+.icon-seta:before {
+  content: "\e900";
+}
+.icon-minus:before {
+  content: "\e90a";
+}
+.icon-plus:before {
+  content: "\e909";
+}
+.icon-close:before {
+  content: "\e905";
+}
+
+.link-seta {
+  display: inline-block;
+  color: getColor(_blue);
+  font-weight: 500;
+  font-size: rem(16);
+  line-height: 120%;
+  letter-spacing: 2px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+
+  span {
+    margin-left: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    -webkit-transition: transform 0.3s ease-out;
+    -moz-transition: transform 0.3s ease-out;
+    -ms-transition: transform 0.3s ease-out;
+    -o-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+  }
+
+  &:hover,
+  &:active {
+    color: getColor(_blue, dark);
+    text-decoration: none;
+    span {
+      -webkit-transform: translateX(6px);
+      -moz-transform: translateX(6px);
+      -ms-transform: translateX(6px);
+      -o-transform: translateX(6px);
+      transform: translateX(6px);
+    }
+  }
+}
+
+#modalVideo {
+  .modal-body {
+    background-color: getColor(_blue, dark);
+    position: relative;
+
+    .close {
+      background-color: getColor(_white);
+      border-radius: 100%;
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      text-shadow: none;
+      font-size: rem(16);
+      color: getColor(_blue, dark);
+      position: absolute;
+      top: -40px;
+      right: 0;
+      @include transition();
+      &:hover,
+      &:focus {
+        color: getColor(_white);
+        background-color: getColor(_blue, dark);
+      }
+    }
+  }
+}
+
+.back {
+  background-color: getColor(_blue, dark);
+  color: getColor(_white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+  font-size: rem(20);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  @include transition();
+
+  &:hover,
+  &:focus {
+    color: getColor(_white);
+    text-decoration: none;
+  }
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.socialBox {
+  width: 90px;
+  position: fixed;
+  top: calc(50% - 120px);
+  left: 0;
+  float: left;
+  background-color: #ffffffba;
+  z-index: 10;
+  border-radius: 35px;
+  transform: scale(0.7);
+
+  ul {
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding-top: 50px;
+      margin: auto;
+      text-align: center;
+      cursor: pointer;
+
+      &.linkedin {
+        img {
+          width: 28px;
+          margin: auto;
+        }
+      }
+
+      &.instagram {
+        img {
+          width: 28px;
+          margin: auto;
+        }
+      }
+
+      &.youtube {
+        img {
+          width: 32px;
+          margin: auto;
+        }
+      }
+
+      &.facebook {
+        img {
+          width: 14px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+/*==================== MEDIA QUERIES ==================================*/
+
+@media (max-width: 991.98px) {
+  .redes {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .title1 {
+    font-size: rem(32);
+  }
+  .title2 {
+    font-size: rem(24);
+  }
+  .title3 {
+    font-size: rem(16);
+  }
+}

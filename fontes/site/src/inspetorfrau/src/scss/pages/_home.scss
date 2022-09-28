@@ -1,0 +1,1217 @@
+#banner {
+	background: getImage("_bg-home-mobile.png") no-repeat;
+	background-size: 100%;
+	height: 700px;
+	margin-top: 100px;
+	position: relative;
+
+	@include media-breakpoint-up(lg) {
+		background: getImage("_bg-home.png") no-repeat;
+		background-size: 98%;
+		height: calc(100vh + 100px);
+
+		margin-top: 113px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		height: calc(100vh + 45px);
+	}
+
+	.container-fluid {
+		height: 100%;
+	}
+
+	.row {
+		height: 95%;
+
+		@include media-breakpoint-up(xxl) {
+			height: 82%;
+		}
+	}
+
+	.container-banner {
+		color: getColor(_white);
+
+		@include media-breakpoint-down(md) {
+			padding: 70px 0 0 20px;
+		}
+
+		.banner-title {
+			font-size: clampBuilder(1.5, 2.7);
+			line-height: 130%;
+			font-weight: 700;
+
+			letter-spacing: -0.02em;
+
+			@include media-breakpoint-down(sm) {
+				font-size: 22px;
+			}
+
+			&:nth-child(1) {
+				margin-bottom: 0;
+			}
+
+			&:nth-child(2) {
+				font-weight: 400;
+			}
+
+			@include media-breakpoint-up(lg) {
+				line-height: 56px;
+			}
+		}
+
+		.btn {
+			margin-top: 1rem;
+			background: getColor(_purple, 100);
+		}
+	}
+
+	.container-man img {
+		width: 233px;
+		height: 503px;
+	}
+
+	@include media-breakpoint-down(md) {
+		.container-man {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			margin-top: 15px;
+
+			> img {
+				width: 65%;
+				height: 65%;
+			}
+		}
+	}
+}
+
+#tragoVerdades {
+	padding: calc(93px - 24px) 0 calc(152px - 40px);
+
+	@include media-breakpoint-down(sm) {
+		padding: 80px 8px;
+	}
+
+	.img-campanha {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		@include media-breakpoint-down(md) {
+			justify-content: flex-start;
+		}
+
+		img {
+			height: 151px;
+			width: 384px;
+		}
+	}
+
+	.campanha {
+		span {
+			color: getColor(_green, 500);
+			font-weight: 700;
+
+			&.titulo-pequeno {
+				font-size: rem(14);
+				line-height: 18px;
+			}
+		}
+
+		&-titulo {
+			font-size: clampBuilder(1.25, 2.5);
+			font-weight: 400;
+			line-height: 56px;
+			color: getColor(_blue, 900);
+
+			margin: 28px 0 24px 0;
+			width: 60%;
+
+			@include media-breakpoint-down(sm) {
+				line-height: 130%;
+				font-weight: 500;
+
+				margin: 12px 0 18px;
+				width: 100%;
+			}
+		}
+
+		p {
+			font-weight: 400;
+			font-size: rem(16);
+			line-height: 150%;
+
+			letter-spacing: -0.02em;
+			color: getColor(_gray, 900);
+		}
+	}
+}
+
+#principaisFraudes {
+	text-align: center;
+	position: relative;
+
+	background: getColor(_gray, 100);
+	padding: 152px 0;
+
+	@include media-breakpoint-down(sm) {
+		padding: 80px 8px 160px;
+	}
+
+	.container-principais-fraudes {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	span {
+		color: getColor(_green, 500);
+		font-weight: 700;
+	}
+
+	.titulo {
+		font-weight: 400;
+		line-height: 56px;
+		color: getColor(_blue, 900);
+
+		margin: 28px 0 24px 0;
+
+		@include titulo-grande();
+	}
+
+	.descricao {
+		font-weight: 400;
+		font-size: rem(16);
+		line-height: 150%;
+
+		letter-spacing: -0.02em;
+		color: getColor(_gray, 900);
+
+		@include media-breakpoint-up(md) {
+			width: 80%;
+		}
+	}
+
+	.grid-card {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		column-gap: 32px;
+		row-gap: 32px;
+
+		padding: 60px 0 0;
+
+		.card {
+			height: 552px;
+			width: calc(100vw / 3 - 115px);
+			border-radius: 0px;
+			border: none;
+			box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.05);
+
+			display: flex;
+			flex-direction: row;
+
+			@include media-breakpoint-up(lg) {
+				width: calc(1140px / 3 - 30px);
+			}
+
+			@include media-breakpoint-up(xxl) {
+				width: calc(1320px / 3 - 30px);
+			}
+
+			aside {
+				height: 100%;
+				width: 100%;
+				max-width: 97px;
+
+				position: absolute;
+
+				transition: ease-in-out 0.6s;
+
+				.icon {
+					position: absolute;
+					top: 50%;
+					left: 18px;
+
+					transform: translateY(-50%);
+					transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+					z-index: 20;
+
+					> img {
+						width: 64px;
+						height: 64px;
+						transition: all 1s;
+					}
+				}
+			}
+
+			.card-content {
+				position: relative;
+				width: 100%;
+
+				.title-center {
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					left: 100px;
+					padding: 0 24px;
+					text-align: left;
+					z-index: 10;
+					transition: ease-in-out 0.5s;
+
+					font-size: 18px;
+					font-weight: 500;
+					line-height: 26px;
+					letter-spacing: -0.02em;
+				}
+
+				.title {
+					margin: 100px 24px 0;
+					text-align: left;
+
+					transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+					opacity: 0;
+
+					z-index: 10;
+
+					p {
+						font-size: 18px;
+						line-height: 26px;
+						letter-spacing: -0.02em;
+						margin: 0 auto;
+						font-weight: 600;
+						color: getColor(_white);
+					}
+				}
+
+				.text {
+					letter-spacing: -0.02em;
+					line-height: 24px;
+					font-weight: 400;
+					font-size: 16px;
+					text-align: left;
+					color: getColor(_white);
+
+					box-sizing: border-box;
+
+					width: 100%;
+
+					margin: 0 auto;
+					padding: 20px 24px 0;
+
+					z-index: 20;
+					opacity: 0;
+
+					transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+				}
+			}
+
+			&:hover {
+				filter: drop-shadow(0px 14px 34px rgba(0, 0, 0, 0.25));
+				transition: filter 1s linear;
+
+				aside {
+					max-width: 100%;
+
+					> .icon {
+						top: 60px;
+						left: 5px;
+
+						> img {
+							transform: scale(0.5);
+						}
+					}
+				}
+
+				.card-content {
+					.title,
+					.text {
+						opacity: 1;
+					}
+				}
+
+				.title-center {
+					opacity: 0;
+				}
+			}
+
+			&:nth-child(1) {
+				aside {
+					background-color: getColor(_purple, 400);
+				}
+
+				.title-center {
+					color: getColor(_purple, 400);
+				}
+			}
+
+			&:nth-child(2) {
+				aside {
+					background-color: getColor(_pink);
+				}
+
+				.title-center {
+					color: getColor(_pink);
+				}
+			}
+
+			&:nth-child(3) {
+				aside {
+					background-color: getColor(_green, 500);
+				}
+
+				.title-center {
+					color: getColor(_green, 500);
+				}
+			}
+
+			&:nth-child(4) {
+				aside {
+					background-color: getColor(_blue, 900);
+				}
+
+				.title-center {
+					color: getColor(_blue, 900);
+				}
+			}
+
+			&:nth-child(5) {
+				aside {
+					background-color: getColor(_blue, 400);
+				}
+
+				.title-center {
+					color: getColor(_blue, 400);
+				}
+			}
+
+			&:nth-child(6) {
+				aside {
+					background-color: getColor(_orange, 100);
+				}
+
+				.title-center {
+					color: getColor(_orange, 100);
+				}
+			}
+
+			&:nth-child(7) {
+				aside {
+					background-color: getColor(_orange, 500);
+				}
+
+				.title-center {
+					color: getColor(_orange, 500);
+				}
+			}
+
+			&:nth-child(8) {
+				aside {
+					background-color: getColor(_blue, 100);
+				}
+
+				.title-center {
+					color: getColor(_blue, 100);
+				}
+			}
+		}
+
+		.slick-arrow {
+			top: calc(100% + 80px);
+		}
+	}
+
+	.item-digital {
+		position: absolute;
+
+		&.item-1 {
+			bottom: 19%;
+			right: 130px;
+			transform: rotate(60deg) scale(0.8);
+
+			@include media-breakpoint-down(md) {
+				left: 10px;
+				top: -65px;
+				transform: rotate(30deg) scale(0.6);
+			}
+		}
+
+		&.item-2 {
+			left: 100px;
+			top: 110px;
+			transform: rotate(5deg) scale(0.8);
+
+			@include media-breakpoint-down(md) {
+				left: 10px;
+				top: -65px;
+				transform: rotate(30deg) scale(0.6);
+			}
+		}
+
+		&.item-3 {
+			bottom: 220px;
+			right: 8%;
+			transform: rotate(60deg) scale(1.3);
+
+			@include media-breakpoint-down(md) {
+				display: none;
+			}
+		}
+	}
+}
+
+#impactos {
+	padding-top: 152px;
+	height: 1244px;
+	background: #8dc0e8;
+	position: relative;
+	text-align: center;
+
+	@include media-breakpoint-down(sm) {
+		height: 870px;
+		padding: 65px 20px 0;
+	}
+
+	.titulo {
+		font-weight: 400;
+		line-height: 56px;
+		color: getColor(_white);
+		white-space: pre-line;
+
+		padding: 24px 0 40px;
+
+		@include titulo-grande();
+	}
+
+	.main-image {
+		position: absolute;
+		bottom: -15px;
+		left: 50%;
+		transform: translate(-44%, 0);
+
+		@include media-breakpoint-down(md) {
+			bottom: -10px;
+			left: auto;
+			transform: translate(0);
+		}
+	}
+
+	.info {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		img {
+			width: 173px;
+			height: 173px;
+		}
+
+		@include media-breakpoint-down(md) {
+			img {
+				width: 70%;
+				height: 70%;
+			}
+		}
+
+		&:nth-child(1) {
+			bottom: 110px;
+			left: calc((100% / 5 - 130px));
+			width: 190px;
+		}
+
+		&:nth-child(2) {
+			bottom: 410px;
+			left: calc((100% / 3 - 160px));
+			width: 230px;
+		}
+
+		&:nth-child(3) {
+			bottom: 550px;
+			left: calc((100% / 2 - 100px));
+			width: 190px;
+		}
+
+		&:nth-child(4) {
+			bottom: 410px;
+			right: calc((100% / 3 - 160px));
+			width: 190px;
+		}
+
+		&:nth-child(5) {
+			bottom: 110px;
+			right: calc((100% / 5 - 130px));
+			width: 220px;
+		}
+
+		.description {
+			font-weight: 700;
+			font-size: 12px;
+			line-height: 18px;
+			padding-top: 12px;
+
+			color: getColor(_blue, 900);
+		}
+	}
+
+	.slick-arrow {
+		top: calc(100% + 40px);
+
+		&.slick-prev,
+		&.slick-next {
+			border: 1px solid getColor(_white);
+
+			&:before {
+				color: getColor(_white);
+			}
+		}
+	}
+}
+
+#comoEvitarFraudes {
+	min-height: 100vh;
+	height: 100%;
+
+	.descricao {
+		padding-top: calc(80px - 16px);
+
+		.titulo {
+			font-weight: 400;
+			line-height: 56px;
+			color: getColor(_blue, 900);
+
+			@include titulo-grande();
+
+			@include media-breakpoint-down(sm) {
+				width: 70%;
+			}
+		}
+
+		.titulo-pequeno {
+			color: getColor(_blue, 400);
+			margin-bottom: 24px;
+		}
+	}
+
+	.container-fraudes {
+		display: flex;
+		flex-direction: column;
+		row-gap: 12px;
+
+		height: 100%;
+		padding: 100px 75px;
+
+		background: getColor(_blue, 900);
+		color: getColor(_white);
+
+		@include media-breakpoint-down(sm) {
+			padding: 80px 20px;
+			row-gap: 32px;
+		}
+
+		.icon-fraudes {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				width: 64px;
+				height: 64px;
+			}
+
+			@include media-breakpoint-down(sm) {
+				padding: 0;
+				margin: 0;
+				align-items: flex-start;
+
+				img {
+					width: 50%;
+				}
+			}
+		}
+
+		.titulo-fraudes {
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 32px;
+
+			@include media-breakpoint-down(sm) {
+				font-weight: 500;
+				line-height: 130%;
+
+				letter-spacing: -0.02em;
+			}
+		}
+
+		.descricao-fraudes {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: -0.02em;
+
+			@include media-breakpoint-down(sm) {
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 130%;
+			}
+		}
+	}
+}
+
+#fiqueDeOlho {
+	position: relative;
+	padding: 120px 0;
+	background: getColor(_purple, 400);
+
+	.imagem-lupa img {
+		width: 663px;
+    height: 570px;
+
+		@include media-breakpoint-down(md) {
+			height: auto;
+		}
+	}
+
+	.item-digital {
+		position: absolute;
+
+		&.item-1 {
+			top: 25px;
+			left: 110px;
+			transform: rotate(360deg) scale(0.8);
+
+			@include media-breakpoint-down(md) {
+				left: 0;
+				top: 0;
+				transform: rotate(360deg) scale(0.5);
+			}
+		}
+
+		&.item-2 {
+			right: 5px;
+			bottom: 100px;
+			transform: rotate(290deg) scale(0.6);
+
+			@include media-breakpoint-down(md) {
+				bottom: -50px;
+				right: 5px;
+				transform: rotate(270deg) scale(0.4);
+			}
+		}
+	}
+
+	.description-column {
+		padding: 0 130px 0 70px;
+		color: getColor(_white);
+
+		@include media-breakpoint-down(md) {
+			padding: 80px 20px 0;
+		}
+
+		.titulo {
+			font-size: clampBuilder(1.25, 3.1);
+			font-weight: 400;
+			line-height: 64px;
+
+			@include media-breakpoint-down(sm) {
+				line-height: 130%;
+				font-weight: 500;
+				letter-spacing: -0.02em;
+			}
+		}
+
+		.descricao {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: -0.02em;
+			margin-bottom: 50px;
+			white-space: pre-line;
+
+			span {
+				font-weight: 700;
+				font-size: 14px;
+				line-height: 130%;
+			}
+		}
+
+		.btn-blue {
+			background: getColor(_blue, 400);
+			margin-bottom: 81px;
+
+			@include media-breakpoint-down(sm) {
+				width: 100%;
+				margin-bottom: 50px;
+			}
+		}
+
+		.group-images {
+			display: flex;
+
+			.logo-tragoVerdades {
+				height: 110px;
+				width: 279px;
+
+				margin-right: 30px;
+
+				@include media-breakpoint-down(sm) {
+					width: 60%;
+					height: 60%;
+				}
+			}
+
+			.logo-carePlus {
+				height: 102px;
+				width: 90px;
+				@include media-breakpoint-down(sm) {
+					width: 22%;
+				}
+			}
+		}
+	}
+}
+
+#artigoExclusivo {
+	height: 100%;
+	padding: 140px 0;
+
+	position: relative;
+
+	@include media-breakpoint-down(md) {
+		height: 800px;
+		padding: 80px 8px;
+	}
+
+	.group {
+		padding-left: calc(50vw - 584px);
+
+		.titulo-pequeno {
+			color: getColor(_pink);
+		}
+
+		.titulo-grande {
+			@include titulo-grande();
+			margin: 24px 0;
+		}
+
+		p {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150%;
+
+			letter-spacing: -0.02em;
+
+			margin-bottom: 40px;
+
+			span {
+				font-weight: 700;
+			}
+		}
+
+		.btn-pink {
+			background: getColor(_pink);
+			color: getColor(_white);
+
+			@include media-breakpoint-down(sm) {
+				width: 100%;
+			}
+		}
+	}
+
+	.item-digital {
+		position: absolute;
+
+		&.item-1 {
+			bottom: 90px;
+			left: 0;
+			transform: rotate(340deg) scale(0.56);
+
+			@include media-breakpoint-down(md) {
+				bottom: 170px;
+				left: 190px;
+				transform: rotate(380deg) scale(0.4);
+			}
+		}
+
+		&.item-2 {
+			top: 80px;
+			left: 44%;
+			transform: rotate(30deg) scale(0.6);
+
+			@include media-breakpoint-down(md) {
+				left: 25%;
+				top: 10px;
+				transform: rotate(30deg) scale(0.4);
+			}
+		}
+
+		&.item-3 {
+			bottom: 0;
+			right: 30%;
+
+			@include media-breakpoint-down(md) {
+				display: none;
+			}
+		}
+
+		&.item-4 {
+			top: 40px;
+			right: -65px;
+			transform: rotate(325deg) scale(0.45);
+
+			@include media-breakpoint-down(md) {
+				display: none;
+			}
+		}
+	}
+
+	.item-homem {
+		position: absolute;
+
+		&.item-1 {
+			right: -65px;
+			bottom: -80px;
+
+			transform: rotate(270deg) scale(1.2);
+
+			@include media-breakpoint-down(md) {
+				bottom: -100px;
+				right: -65px;
+				transform: rotate(270deg) scale(0.7);
+			}
+		}
+
+		&.item-2 {
+			right: 90px;
+			top: -230px;
+			transform: rotate(180deg) scale(0.7);
+			z-index: -1;
+
+			@include media-breakpoint-down(md) {
+				right: -60px;
+				top: -220px;
+				transform: rotate(180deg) scale(0.3);
+			}
+		}
+
+		&.item-3 {
+			bottom: -200px;
+			left: -60px;
+			transform: rotate(90deg) scale(0.6);
+
+			@include media-breakpoint-down(md) {
+				bottom: 0;
+				left: -100px;
+				transform: rotate(90deg) scale(0.4);
+			}
+		}
+	}
+}
+
+#fraudeDoReembolso {
+	height: 100%;
+	padding: 80px 0 140px;
+
+	@include media-breakpoint-down(sm) {
+		padding: 0;
+	}
+
+	.card {
+		background-color: getColor(_gray, 100);
+		border: none;
+		margin: 0 60px;
+
+		.column:nth-child(1) {
+			width: 60%;
+		}
+
+		.column:nth-child(2) {
+			width: 40%;
+		}
+
+		.box {
+			padding: 80px 100px;
+
+			@include media-breakpoint-down(md) {
+				padding: 80px 20px;
+			}
+
+			.titulo-pequeno {
+				color: getColor(_blue, 400);
+			}
+
+			.titulo-grande {
+				@include titulo-grande();
+
+				color: getColor(_blue, 900);
+
+				margin: 24px 0;
+			}
+
+			.descricao {
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 150%;
+
+				letter-spacing: -0.02em;
+
+				color: getColor(_gray, 900);
+			}
+		}
+
+		.image {
+			position: absolute;
+			right: -150px;
+			bottom: 70px;
+
+			@include media-breakpoint-down(md) {
+				position: relative;
+			}
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		.container {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	@include media-breakpoint-down(md) {
+		.card {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+.titulo-pequeno {
+	font-size: rem(14);
+	line-height: 18px;
+	font-weight: 700;
+	color: getColor(_blue, 900);
+}
+
+.back {
+	background-color: getColor(_blue, 400);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 48px;
+	width: 48px;
+	font-size: rem(20);
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	opacity: 0;
+	z-index: 8;
+	pointer-events: none;
+	@include transition();
+
+	&.show {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+.slick-arrow {
+	top: calc(100% + 10px);
+
+	&.slick-prev {
+		left: 33%;
+		border: 1px solid getColor(_blue, 400);
+		border-radius: 2px;
+		height: 38px;
+		width: 38px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include transition();
+
+		&:before {
+			color: getColor(_blue, 400);
+			content: "\e906";
+			font-family: "icomoon", sans-serif !important;
+			font-size: rem(32);
+			font-weight: 700;
+			opacity: 1;
+			@include transition();
+		}
+
+		&:hover {
+			border-color: getColor(_blue, 900);
+
+			&:before {
+				color: getColor(_blue, 900);
+			}
+		}
+	}
+
+	&.slick-next {
+		right: 33%;
+		left: auto;
+		border: 1px solid getColor(_blue, 400);
+		border-radius: 2px;
+		height: 38px;
+		width: 38px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include transition();
+
+		&:before {
+			content: "\e907";
+
+			color: getColor(_blue, 400);
+			font-family: "icomoon", sans-serif !important;
+			font-size: rem(32);
+			font-weight: 700;
+
+			opacity: 1;
+
+			@include transition();
+		}
+
+		&:hover {
+			border-color: getColor(_blue, dark);
+			&:before {
+				color: getColor(_blue, dark);
+			}
+		}
+	}
+}
+
+/*==================== MEDIA QUERIES ==================================*/
+
+@media (min-width: 1600px) {
+	#banner {
+		.container-man {
+			transform: scale(1.5);
+		}
+	}
+
+	#artigoExclusivo .group {
+		padding: 0 150px 0 0;
+	}
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1180px) and (orientation: landscape) {
+	#banner {
+		height: 80vh;
+
+		.container-banner {
+			margin-bottom: 60px;
+
+			.banner-title {
+				font-size: 28px;
+				line-height: 45px;
+			}
+		}
+
+		.container-man {
+			margin-bottom: 60px;
+
+			img {
+				width: 80%;
+			}
+		}
+
+		.row {
+			height: 79vh;
+		}
+	}
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1180px) and (orientation: portrait) {
+	#banner {
+		height: 105vh;
+
+		.row {
+			height: 100vh;
+
+			.container-banner {
+				margin-left: 12.3333%;
+			}
+		}
+	}
+
+	#impactos {
+		height: 1050px;
+	}
+
+	#artigoExclusivo {
+		height: 800px;
+		padding: 80px 8px;
+
+		.item-digital {
+			position: absolute;
+
+			&.item-1 {
+				bottom: 170px;
+				left: 190px;
+				transform: rotate(380deg) scale(0.4);
+			}
+
+			&.item-2 {
+				left: 25%;
+				top: 10px;
+				transform: rotate(30deg) scale(0.4);
+			}
+
+			&.item-3,
+			&.item-4 {
+				display: none;
+			}
+		}
+
+		.item-homem {
+			position: absolute;
+
+			&.item-1 {
+				bottom: -100px;
+				right: -65px;
+				transform: rotate(270deg) scale(0.7);
+			}
+
+			&.item-2 {
+				right: -60px;
+				top: -220px;
+				transform: rotate(180deg) scale(0.3);
+			}
+
+			&.item-3 {
+				bottom: 0;
+				left: -100px;
+				transform: rotate(90deg) scale(0.4);
+			}
+		}
+	}
+
+	#fraudeDoReembolso {
+		padding: 0;
+
+		.card {
+			margin: 0 60px 70px;
+
+			.box {
+				padding: 80px 20px;
+			}
+
+			.image {
+				position: relative;
+				right: -190px;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

@@ -433,6 +433,9 @@ app.get('*.*', express.static(DIST_FOLDER, {
 app.get('/coronavirus', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/coronavirus/index.html');
 });
+app.get('/inspetorfrau', (req, res) => {
+    res.sendFile(process.cwd() + '/dist/browser/inspetorfrau/index.html');
+});
 app.get('/ocupacional', (req, res) => {
     res.sendFile(process.cwd() + '/dist/browser/ocupacional/index.html');
 });
