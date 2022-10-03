@@ -7,6 +7,7 @@ import { VgControlsModule } from 'videogular2/compiled/src/controls/controls';
 import { VgOverlayPlayModule } from 'videogular2/compiled/src/overlay-play/overlay-play';
 import { VgBufferingModule } from 'videogular2/compiled/src/buffering/buffering';
 import { SliderModule, CardModule, SocialPostsModule, BreadcrumbModule, HeroBannerModule, CareplusPlusModule } from 'src/app/modules';
+import { AcessibilidadeComponent } from './acessibilidade/acessibilidade.component';
 
 @NgModule({
     declarations: [

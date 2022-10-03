@@ -1,0 +1,27 @@
+section {
+    &#acessibilidade-section {
+        .acss-section{
+            padding-bottom: 64px;
+       
+            h1{
+                margin-bottom: 80px;
+            }
+            .h3{
+                margin-top: 0;
+                font-weight: 600;
+            }
+            p{
+                margin-top: 24px;
+            }
+            ul{
+                margin-top: 24px;
+                list-style: disc;
+                padding-left: 17px;
+                li:not(:first-child){
+                    margin-top: 16px;
+                }
+            }
+         
+        }
+    }
+}
