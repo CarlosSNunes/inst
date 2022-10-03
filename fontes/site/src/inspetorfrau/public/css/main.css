@@ -7687,7 +7687,7 @@ footer .row.certificados .btn-ans {
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
-  font-size: 11px;
+  font-size: 0.688rem;
   margin-top: 10px;
 }
 footer .row.certificados .redes {
@@ -7725,7 +7725,7 @@ footer .row.legal-mobile span {
 }
 footer .row.legal-mobile span a {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 16px;
   text-decoration: none;
   padding: 20px 0;
@@ -8407,7 +8407,7 @@ footer .border-bottom {
 }
 #comoEvitarFraudes .container-fraudes .titulo-fraudes {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 32px;
 }
 @media (max-width: 575.98px) {
@@ -8426,7 +8426,7 @@ footer .border-bottom {
 @media (max-width: 575.98px) {
   #comoEvitarFraudes .container-fraudes .descricao-fraudes {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 130%;
   }
 }
@@ -8507,7 +8507,7 @@ footer .border-bottom {
 }
 #fiqueDeOlho .description-column .descricao span {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 130%;
 }
 #fiqueDeOlho .description-column .btn-blue {

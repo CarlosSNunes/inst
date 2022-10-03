@@ -637,7 +637,7 @@
 
 		.titulo-fraudes {
 			font-weight: 700;
-			font-size: 20px;
+			font-size: 1.25rem;
 			line-height: 32px;
 
 			@include media-breakpoint-down(sm) {
@@ -656,7 +656,7 @@
 
 			@include media-breakpoint-down(sm) {
 				font-weight: 500;
-				font-size: 14px;
+				font-size: 0.875rem;
 				line-height: 130%;
 			}
 		}
@@ -735,7 +735,7 @@
 
 			span {
 				font-weight: 700;
-				font-size: 14px;
+				font-size: 0.875rem;
 				line-height: 130%;
 			}
 		}
