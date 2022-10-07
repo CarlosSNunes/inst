@@ -2,7 +2,7 @@ import { BreadcrumbModel, FormSectionModel } from "src/app/models";
 
 export const chanelForms: FormSectionModel[] = [
     new FormSectionModel({
-        title: 'Solicite uma Cotação',
+        title: 'Solicite uma Proposta',
         id: 1,
         active: true,
         slug: 'solicite-uma-cotacao',
@@ -16,7 +16,7 @@ export const chanelForms: FormSectionModel[] = [
                 link: '/fale-conosco',
             }),
             new BreadcrumbModel({
-                name: 'Solicite uma Cotação',
+                name: 'Solicite uma Proposta',
                 link: '/fale-conosco/solicite-uma-cotacao',
                 active: true
             })
@@ -67,7 +67,7 @@ export const chanelForms: FormSectionModel[] = [
 ];
 
 export const activeChanel: FormSectionModel = new FormSectionModel({
-    title: 'Solicite uma Cotação',
+    title: 'Solicite uma Proposta',
     id: 1,
     active: true,
     slug: 'solicite-uma-cotacao',
@@ -81,7 +81,7 @@ export const activeChanel: FormSectionModel = new FormSectionModel({
             link: '/fale-conosco/solicite-uma-cotacao',
         }),
         new BreadcrumbModel({
-            name: 'Solicite uma Cotação',
+            name: 'Solicite uma Proposta',
             link: '/fale-conosco/solicite-uma-cotacao',
             active: true
         })

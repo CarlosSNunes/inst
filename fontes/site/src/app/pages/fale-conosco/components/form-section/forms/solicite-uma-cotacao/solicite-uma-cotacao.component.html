@@ -26,7 +26,7 @@
         
                 <div class="column is-full is-8-desktop">
                     <div class="columns flex-wrap">
-                        <div class="column is-full is-6 is-paddingless-vertical">
+                        <div class="column is-full is-6 is-paddingless-vertical" style="display:none;">
                             <div class="field">
                                 <div class="control">
                                     <input formControlName="planoSaude" (change)="updateFormValidation()" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" class="checkbox" id="00N5x00000Ef5wZ" name="00N5x00000Ef5wZ" type="checkbox" (change)="checkboxChange($event, 'planoSaude')">
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="column is-full is-6 is-paddingless-vertical">
+                        <div class="column is-full is-6">
                             <div class="field">
                                 <div class="control">
                                     <input formControlName="planoOdontologico" (change)="updateFormValidation()" [ngClass]="{ 'is-invalid' : form?.planoOdontologico?.errors }" class="checkbox" id="00N5x00000Ef5x8" name="00N5x00000Ef5x8" type="checkbox" (change)="checkboxChange($event, 'planoOdontologico')">
@@ -44,9 +44,10 @@
                                         Plano Odontológico
                                     </label>
                                 </div>
+                                
                             </div>
                         </div>
-                        <div class="column is-full is-6 is-paddingless-vertical">
+                        <div class="column is-full is-6">
                             <div class="field">
                                 <div class="control">
                                     <input formControlName="medicinaOcupacional" [ngClass]="{ 'is-invalid' : form?.medicinaOcupacional?.errors }" class="checkbox" id="00N5x00000Ef5xD" name="00N5x00000Ef5xD" type="checkbox" (change)="checkboxChange($event, 'medicinaOcupacional')">
@@ -56,11 +57,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="column is-full is 6" style="padding-top: 5px;" >
+                            <label style="font-style:italic; font-weight: bold; color: #808080; ">
+                                Para Planos de Saúde, ligue: (11) 99967-5467
+                            </label>                                   
+                        </div>
                         <div class="columns is-12">
                             <div class="field">
                                 <div *ngIf="soliciteUmaCotacaoForm.touched && soliciteUmaCotacaoForm?.errors?.requireAtLeastOne" class="errors">
                                     <p class="help is-danger">
-                                        Você deve selecionar ao menos um serviço para cotação
+                                        Você deve selecionar ao menos um serviço para proposta
                                     </p>
                                 </div>
                             </div>

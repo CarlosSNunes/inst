@@ -8,7 +8,7 @@ export const origins: {
 }[] = [
         {
             id: 'solicite-uma-cotacao',
-            message: 'Obrigado por enviar sua Solicitação de Cotação. A Care Plus, operadora líder em saúde premium no Brasil retornará sua solicitação o mais breve possível.',
+            message: 'Obrigado por enviar sua Solicitação de Proposta. A Care Plus, operadora líder em saúde premium no Brasil retornará sua solicitação o mais breve possível.',
             title: 'Obrigado | Fale Conosco | Care Plus',
             breadcrumbs: [
                 new BreadcrumbModel({
@@ -20,7 +20,7 @@ export const origins: {
                     link: '/fale-conosco',
                 }),
                 new BreadcrumbModel({
-                    name: 'Solicite uma Cotação',
+                    name: 'Solicite uma Proposta',
                     link: '/fale-conosco/solicite-uma-cotacao'
                 }),
                 new BreadcrumbModel({

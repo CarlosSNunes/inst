@@ -161,22 +161,12 @@
         </div>
         <div class="navbar-end">
             <div class="navbar-item">
-                <div class="buttons">
-                    <a *ngIf="subMenu.id == 'default'" class="btn btn-purple primary small" (click)="openSimulator()">
-                        Simule Planos e Produtos
-                    </a>
-
+                <div class="buttons">   
                     <a *ngIf="subMenu.id == 'beneficiario'" class="btn btn-purple primary small"
                         rel="noopener noreferrer" title="Entre em contato - opens in a new window"
                         [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
                         Entre em Contato
                     </a>
-
-                    <a *ngIf="subMenu.id == 'rh'" class="btn btn-purple primary small"
-                        routerLink="/fale-conosco/solicite-uma-cotacao">
-                        Solicite uma Cotação
-                    </a>
-
                     <a *ngIf="subMenu.id == 'corretor'" class="btn btn-purple primary small" rel="noopener noreferrer"
                         title="Entre em contato - opens in a new window"
                         [href]="careplusUrl + 'portal/modulos/atendimento/inclusaoDemandaContato.aspx'" target="_blank">
