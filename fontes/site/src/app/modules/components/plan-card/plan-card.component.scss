@@ -19,7 +19,7 @@ section.plan-card {
     }
 
     .info {
-        padding: 94px 0 94px 104px;
+        padding: 5.875rem 0 5.875rem 6.5rem;
         .info-title {
             font-weight: 500;
             line-height: 150%;
@@ -28,7 +28,7 @@ section.plan-card {
         }
 
         .info-sub-title {
-            margin-top: 8px;
+            margin-top: 0.5rem;
             font-weight: normal;
             font-size: getSize("mbt");
             line-height: getLineHeight("mbt");
@@ -77,7 +77,7 @@ section.plan-card {
                         }
 
                         img {
-                            max-height: 168px;
+                            max-height: 10.5rem;
                         }
                     }
                 }

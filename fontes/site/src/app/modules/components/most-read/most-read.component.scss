@@ -3,7 +3,7 @@
 #most-read {
     width: 100%;
     margin: auto;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
 
@@ -13,7 +13,7 @@
         color: getColor(_bupa, _digital-cian);
         text-transform: capitalize;
         font-weight: 500;
-        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
     }
 
     .description {
@@ -21,15 +21,15 @@
         line-height: getLineHeight("mbt");
         font-weight: 600;
         color: getColor(_bupa, _navy);
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
     }
 
     .post {
         display: flex;
         position: relative;
         cursor: pointer;
-        margin-bottom: 8px;
-        height: 80px;
+        margin-bottom: 0.5rem;
+        height: 5rem;
 
         img {
             width: 40%;
@@ -39,7 +39,7 @@
 
         .title {
             width: 60%;
-            padding: 0 16px;
+            padding: 0 1rem;
             display: flex;
             margin-bottom: 0;
             transition: background-color 0.3s ease-in-out;
@@ -51,12 +51,12 @@
         }
 
         &::after {
-            left: 0px;
+            left: 0rem;
             position: absolute;
             content: "";
             display: block;
-            height: 80px;
-            width: 3px;
+            height: 5rem;
+            width: 0.188rem;
             opacity: 0;
             background-color: getColor(_bupa, _digital-cian);
             transition: opacity 0.3s ease-in-out;
@@ -76,7 +76,7 @@
         }
 
         &:last-child {
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
         }
     }
 

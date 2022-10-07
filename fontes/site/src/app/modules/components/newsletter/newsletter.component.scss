@@ -2,20 +2,20 @@
 
 #newsletter{
     width: 100%;
-    padding: 24px 16px;
+    padding: 1.5rem 1rem;
     background-color: #f4f9fc;
 
-    
+
     /*somente para teste*/
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     /*somente para teste*/
 
     .title{
         font-size: getSize('mbt');
         line-height: getLineHeight('mbt');
         color: getColor(_bupa, _navy);
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
         font-weight: normal;
     }
     form{

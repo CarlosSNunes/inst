@@ -6,7 +6,7 @@ form {
                 justify-content: flex-end;
 
                 + .field {
-                    max-width: 304px;
+                    max-width: 19rem;
                     width: 100%;
                     float: right;
                 }
@@ -47,10 +47,10 @@ form {
         display: flex;
         flex-direction: column;
         label {
-            margin-bottom: 10px;
+            margin-bottom: 0.625rem;
 
             &:last-child {
-                font-size: 13px;
+                font-size: 0.813rem;
                 color: grey;
                 margin-bottom: 0;
                 font-style: italic;

@@ -5423,7 +5423,7 @@ section {
   background-color: #6a2ca1;
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.063rem;
   color: #ffffff;
   display: -webkit-box;
@@ -5466,7 +5466,7 @@ section {
   background-color: #0079c8;
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.063rem;
   float: left;
 }
@@ -5622,7 +5622,7 @@ section {
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   height: 44px;
   float: left;
   margin-top: 37px;
@@ -6067,7 +6067,7 @@ section {
 #eSocial p.eSocialDescription {
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 24px;
   color: #333333;
 }
@@ -6088,7 +6088,7 @@ section {
   position: relative;
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 24px;
   /* or 171% */
   color: #333333;
@@ -6165,7 +6165,7 @@ section {
 #servicos #containerServicos .boxServicos p {
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 24px;
   color: #333333;
   margin-right: 36px;
@@ -6295,7 +6295,7 @@ section {
 @media (max-width: 991.98px) {
   /* line 990, src/sass/main.scss */
   #unidades .contactItem.whatsapp {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
@@ -6340,7 +6340,7 @@ section {
 #unidades .contactItem.whatsapp a p {
   margin-left: 14px;
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #fff;
   line-height: 0;
   font-weight: bold;
@@ -6576,7 +6576,7 @@ section {
 #contato #containerServicos .boxServicos p {
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 24px;
   color: #333333;
   margin-right: 36px;
@@ -6644,7 +6644,7 @@ section {
 #contato #contactBoxContainer h3 {
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 28px;
   /* identical to box height, or 113% */
   color: #0079c8;
@@ -6663,7 +6663,7 @@ section {
 @media (max-width: 991.98px) {
   /* line 1273, src/sass/main.scss */
   #contato #contactBoxContainer p {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 
@@ -6702,7 +6702,7 @@ section {
 @media (max-width: 991.98px) {
   /* line 1303, src/sass/main.scss */
   #contato #contactBoxContainer .contactBox .contactItem.whatsapp {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
@@ -6747,7 +6747,7 @@ section {
 #contato #contactBoxContainer .contactBox .contactItem.whatsapp a p {
   margin-left: 14px;
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #fff;
   line-height: 0;
   font-weight: bold;
@@ -6770,7 +6770,7 @@ section {
 @media (max-width: 991.98px) {
   /* line 1349, src/sass/main.scss */
   #contato #contactBoxContainer .contactBox .contactItem.mail {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 
@@ -6852,7 +6852,7 @@ input {
   padding-left: 20px;
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 20px;
   margin-bottom: 12px;
 }
@@ -6897,7 +6897,7 @@ textarea {
   padding-left: 20px;
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 20px;
   margin-bottom: 12px;
   padding-top: 20px;
@@ -7019,7 +7019,7 @@ select::placeholder {
 /* line 1524, src/sass/main.scss */
 .error .message {
   height: 50px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: red;
   display: block;
 }

@@ -30,11 +30,11 @@ body {
     font-family: $mainFont, Roboto, "Helvetica Neue", sans-serif;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 63.938rem) {
     body {
         min-height: calc(100vh - 111px);
-        padding-top: 111px;
-        padding-bottom: 84px;
+        padding-top: 6.938rem;
+        padding-bottom: 5.25rem;
     }
 }
 

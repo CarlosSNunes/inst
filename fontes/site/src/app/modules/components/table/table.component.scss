@@ -8,11 +8,11 @@
         width: 100%;
         background-color: getColor(_bupa, _white);
         border: 1px solid getColor(_bupa, _grey-3);
-        border-radius: 4px;
+        border-radius: 0.25rem;
         th,
         td {
             text-align: left;
-            padding: 8px;
+            padding: 0.5rem;
             border: unset;
         }
         thead {
@@ -20,7 +20,7 @@
             tr {
                 background-color: rgba(getColor(_bupa, _digital-cian), 0.1);
                 th {
-                    padding: 22px 15px;
+                    padding: 1.375rem 0.938rem;
                     font-weight: 500;
                     font-size: getSize("p");
                     line-height: 100%;
@@ -35,7 +35,7 @@
                     background-color: #f2f2f2;
                 }
                 td {
-                    padding: 22px 15px;
+                    padding: 1.375rem 0.938rem;
                     font-weight: 500;
                     font-size: getSize("p");
                     line-height: 100%;
@@ -45,12 +45,12 @@
                         font-weight: 600;
                         font-size: getSize("p");
                         line-height: 120%;
-                        letter-spacing: 2px;
+                        letter-spacing: 0.125rem;
                         color: getColor(_bupa, _digital-cian);
                         display: flex;
                         transition: color 0.3s ease-in-out;
                         span {
-                            margin-left: 10px;
+                            margin-left: 0.625rem;
                             align-self: center;
                             height: 1.063rem;
                             svg {

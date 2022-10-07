@@ -1,7 +1,7 @@
 @import "~src/scss/_variables.scss";
 section#fac {
     .container {
-        max-width: 800px;
+        max-width: 50rem;
         .small-title {
             text-align: center;
         }
@@ -10,7 +10,7 @@ section#fac {
             max-width: 100%;
         }
         .sub-description {
-            max-width: 592px;
+            max-width: 37rem;
             text-align: center;
             margin: 32px auto 0 auto;
         }
@@ -21,7 +21,7 @@ section#fac {
             }
         }
         .app-accordion {
-            margin-top: 20px;
+            margin-top: 1.25rem;
             display: block;
         }
         .buttons-columns {
