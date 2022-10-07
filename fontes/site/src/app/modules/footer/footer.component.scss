@@ -284,6 +284,43 @@
     .sitemap-section {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        align-items: center;        
+        padding-left: 25px;
+        padding-right: 16px;
+        margin-top: 32px;
+
+        a {
+            margin-right: 16px;
+            font-size: 14px;
+        }
+
+        a + a {
+            margin-right: 0;
+            margin-left: 18px;
+        }
+    }
+    .contato-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        padding: 0 16px;
+        margin-top: 12px;
+        margin-bottom: 32px;
+
+        a {
+           
+            font-size: 14px;
+        }
+
+        a + a {
+            margin-right: 0;
+            margin-left: 16px;
+        }
+    }
+
+    .acessibilidade-section {
+        display: grid;
+        grid-template-columns: 1fr;
         align-items: center;
         padding: 0 1rem;
         margin-top: 2rem;

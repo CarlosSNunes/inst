@@ -34,6 +34,8 @@
         </li>
         <li><a routerLink="/a-careplus_privacy/aviso-de-privacidade" title="Aviso de Privacidade"
                 (click)="openned=!openned">Aviso de Privacidade</a></li>
+        <li ><a href="https://privacyportal-de.onetrust.com/webform/1008c9c1-5b06-4f60-b76e-80bb9f385e31/38944ca9-3aea-4529-96cb-f1e28bd0b9e2" target="_blank" title="Exer�a seus Direitos"
+                (click)="openned=!openned; openLink('https://privacyportal-de.onetrust.com/webform/1008c9c1-5b06-4f60-b76e-80bb9f385e31/38944ca9-3aea-4529-96cb-f1e28bd0b9e2')"  >Exer�a seus Direitos</a></li>
 
     </ul>
     <ul>
@@ -138,16 +140,27 @@
                 <a title="dun & brandstreet" id="dun-and-brandstreet-button">
                 </a>
             </div>
-        </div>
+        </div>  
+         <div class="contato-section columns is-hidden-up-tablet">
+            <div class="is-6">
+                <a routerLink="/a-careplus/acessibilidade" title="Acessibilidade">
+                    Acessibilidade
+                </a>
+            </div>
+            <div class="is-6">
+                <a rel="noopener" href="https://www.careplus.com.br/fale-conosco/contato" target="_blank"
+                    title="Contato - opens in a new window">
+                    Contato
+                </a>
+            </div>
+        </div>            
         <div class="privacy-section columns is-hidden-up-tablet">
             <div class="is-6">
                 <a routerLink="/a-careplus_privacy/aviso-de-privacidade" title="Aviso de Privacidade">
                     Aviso de Privacidade
                 </a>
             </div>
-            <ul>
-                <li></li>
-            </ul>
+           
             <div class="is-6">
                 <a routerLink="/a-careplus/termos-e-condicoes" title="Termos e Condições">
                     Termos & Condições
@@ -166,7 +179,7 @@
                     Sitemap
                 </a>
             </div>
-        </div>
+        </div> 
         <address class="contact-us">
             <nav class="nav-footer" role="navigation">
             <div class="columns is-hidden-down-tablet">
@@ -500,6 +513,9 @@
             </div>
             <hr class="last-divider is-hidden-up-tablet">
             <div class="column is-5 is-hidden-down-tablet">
+                <a routerLink="/a-careplus/acessibilidade" title="Acessibilidade">
+                    Acessibilidade
+                </a> |
                 <a routerLink="/a-careplus_privacy/aviso-de-privacidade" title="Aviso de Privacidade">
                     Aviso de Privacidade
                 </a> |
@@ -513,7 +529,12 @@
                 |
                 <a routerLink="/sitemap" title="Sitemap">
                     Sitemap
+                </a>|
+                <a rel="noopener" href="https://www.careplus.com.br/fale-conosco/contato" target="_blank"
+                title="Contato">
+                Contato
                 </a>
+
             </div>
             <div class="column by-neotix">
                 <p>
