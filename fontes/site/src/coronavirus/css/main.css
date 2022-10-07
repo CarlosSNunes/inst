@@ -3636,7 +3636,7 @@ to {
 }
 .modal__header .modal__close:before {
     content: "\2715";
-    font-size: 16px;
+    font-size: 1rem;
 }
 .modal__content {
     margin-top: 2rem;
@@ -3895,7 +3895,7 @@ to {
     background-color: #fff;
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.063rem;
     color: #0079c8;
     float: left;
@@ -4155,7 +4155,7 @@ to {
     display: block;
     text-decoration: none;
     font-style: normal;
-    font-size: 14px;
+    font-size: 0.875rem;
     height: 44px;
     float: left;
     margin-top: 37px;
@@ -4609,7 +4609,7 @@ to {
 #servicos #containerServicos .boxServicos p {
     font-style: normal;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 24px;
     color: #333;
     margin-right: 36px;
@@ -4812,7 +4812,7 @@ to {
     list-style: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 200%;
     margin-bottom: 16px;
     color: #333;
@@ -4842,7 +4842,7 @@ to {
     padding: 0;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 200%;
     color: #333;
 }
@@ -4871,7 +4871,7 @@ to {
     list-style: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 200%;
     color: #333;
     background: rgba(73, 184, 105, .1);
@@ -4892,7 +4892,7 @@ to {
     font-size: 1.063rem;
     line-height: 150%}
 .defaultSection .diagnostico-container .diagnostico li p {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 150%;
     color: #49b869;
 }
@@ -4901,7 +4901,7 @@ to {
     border: 1px solid rgba(255, 62, 29, .5);
 }
 .defaultSection .diagnostico-container .diagnostico li:last-child p {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 150%;
     color: #ff3e1d;
 }
@@ -4993,7 +4993,7 @@ to {
 .defaultSection .boxWithLine li .ps {
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 150%;
     color: #333;
 }
@@ -5026,7 +5026,7 @@ to {
     position: relative;
     padding-right: 40px;
     word-break: break-word;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 .defaultSection .docBox {
     height: 228.67px;
@@ -5034,12 +5034,12 @@ to {
     background-color: #fff;
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 150%;
     color: #00335b;
     padding-right: 16px;
     padding-left: 16px;
-    padding-top: 20px;
+    padding-top: 1.25rem;
     cursor: pointer;
     position: relative;
     margin-bottom: 46px;
@@ -5047,7 +5047,7 @@ to {
     transition: all .3s ease-in-out;
 }
 .defaultSection .docBox .title {
-    font-size: 20px;
+    font-size: 1.25rem;
     word-break: break-word;
 }
 @media (max-width:991.98px) {
@@ -5056,12 +5056,12 @@ to {
     margin-bottom: 1.625rem;
 }
 .defaultSection .docBox .title {
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
 }
 }.defaultSection .docBox svg {
     fill: #00335b;
-    margin-left: 16px;
+    margin-left: 1rem;
 }
 .defaultSection .docBox:hover {
     background: #0079c8;
@@ -5221,8 +5221,8 @@ to {
     list-style: none;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 16px;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
     color: #333;
 }
 #referencias .items li:before {
@@ -5376,8 +5376,8 @@ to {
 #contato #containerServicos .boxServicos p {
     font-style: normal;
     font-weight: 300;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
     color: #333;
     margin-right: 36px;
     margin-left: 36px;

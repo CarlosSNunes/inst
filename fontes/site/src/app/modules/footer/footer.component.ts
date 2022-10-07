@@ -111,11 +111,12 @@ export class FooterComponent implements OnInit, AfterViewInit {
         }
     }
 
-
-
     openSimulator() {
         this.simuladoresService.open();
     }
 
+    openLink(link){
+        window.open(link)
+    }   
 
 }

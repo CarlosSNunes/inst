@@ -16,18 +16,6 @@ export class TermosECondicoesComponent implements OnInit {
         new ElementModel({
             name: 'Termos de Uso',
             id: 'termos-de-uso-e-aviso-de-privacidade'
-        }),
-        new ElementModel({
-            name: 'Descrição do Serviço',
-            id: 'descricao-do-servico'
-        }),
-        new ElementModel({
-            name: 'Obrigações e Conduta do Usuário',
-            id: 'obrigacoes-e-conduta-do-usuario'
-        }),
-        new ElementModel({
-            name: 'Conta do Usuário, Identificação, Senha e Segurança',
-            id: 'conta-do-usuario-identificacao-senha-e-seguranca'
         })
     ];
     width: number = 1400;

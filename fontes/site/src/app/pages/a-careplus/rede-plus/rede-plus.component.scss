@@ -6,12 +6,12 @@ section {
             .columns {
                 .column {
                     &:first-child {
-                        padding-right: 170px;
+                        padding-right: 10.625rem;
                         position: relative;
                         .box-infos {
                             position: sticky;
                             position: -webkit-sticky;
-                            top: 15px;
+                            top: 0.938rem;
 
                             .big-title {
                                 position: relative;
@@ -19,11 +19,11 @@ section {
                                 &::before {
                                     position: absolute;
                                     content: "";
-                                    width: 170px;
-                                    height: 4px;
+                                    width: 10.625rem;
+                                    height: 0.25rem;
                                     background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                                     right: 0;
-                                    top: 40px;
+                                    top: 2.5rem;
                                     transform: translateX(95%);
                                 }
                             }
@@ -31,15 +31,15 @@ section {
                     }
                     &:last-child {
                         .blue-background-box {
-                            padding: 24px;
-                            margin-top: 28px;
+                            padding: 1.5rem;
+                            margin-top: 1.75rem;
                             .box-title {
                                 font-weight: 500;
                                 color: getColor(_bupa, _digital-cian);
                             }
 
                             .box-description {
-                                margin-top: 13px;
+                                margin-top: 0.813rem;
                                 color: getColor(_bupa, _grey-2);
                             }
                         }
@@ -57,10 +57,10 @@ section {
                 .columns {
                     .column {
                         &:first-child {
-                            padding-right: 80px;
+                            padding-right: 5rem;
                             .box-infos {
                                 &::before {
-                                    width: 70px;
+                                    width: 4.375rem;
                                 }
                             }
                         }
@@ -78,7 +78,7 @@ section {
                 .columns {
                     .column {
                         &:first-child {
-                            padding-right: 16px;
+                            padding-right: 1rem;
                             .box-infos {
                                 position: initial;
                                 .big-title {

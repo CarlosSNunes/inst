@@ -6,23 +6,23 @@ section {
         position: relative;
         .background {
             height: 57.42331288%;
-            max-height: 468px;
+            max-height: 29.25rem;
             width: 100%;
             position: absolute;
-            bottom: 151px;
+            bottom: 9.438rem;
         }
         .container {
             .big-title {
-                max-width: 1012px;
+                max-width: 63.25rem;
                 text-align: center;
                 margin: 0 auto;
             }
 
             .content-info {
-                height: 664px;
+                height: 41.5rem;
                 width: 100%;
                 position: relative;
-                margin-top: 75px;
+                margin-top: 4.688rem;
 
                 .info-box {
                     position: absolute;
@@ -31,7 +31,7 @@ section {
                     width: 30.26315789%;
                     background-color: getColor(_bupa, _digital-cian);
                     display: block;
-                    padding: 32px 34px;
+                    padding: 2rem 2.125rem;
                     z-index: 1;
                     .info-title {
                         font-weight: 600;
@@ -43,7 +43,7 @@ section {
                     .info-description {
                         font-size: getSize("p");
                         line-height: getLineHeight("p");
-                        margin-top: 8px;
+                        margin-top: 0.5rem;
                         color: getColor(_bupa, _white);
                     }
 
@@ -51,7 +51,7 @@ section {
                         float: right;
                         padding-bottom: 0;
                         padding-top: 0;
-                        margin-top: 8px;
+                        margin-top: 0.5rem;
                         color: getColor(_bupa, _white);
 
                         svg {
@@ -94,7 +94,7 @@ section {
                     img {
                         width: 100%;
                         object-fit: cover;
-                        height: 500px;
+                        height: 31.25rem;
                         @include animationCrossContent();
                     }
                 }
@@ -103,12 +103,12 @@ section {
     }
 }
 
-@media (min-width: 64rem) and (max-width: 1200px) {
+@media (min-width: 64rem) and (max-width: 75rem) {
     section {
         &.cross-content-section {
             .container {
                 .content-info {
-                    height: 568px;
+                    height: 35.5rem;
                 }
             }
         }
@@ -126,7 +126,7 @@ section {
             .container {
                 .content-info {
                     height: auto;
-                    margin-top: 30px;
+                    margin-top: 1.875rem;
                     .info-box {
                         width: 100%;
                         top: 0%;
@@ -135,7 +135,7 @@ section {
                         .btn-digital-cian.tertiary {
                             float: unset;
                             padding-left: 0;
-                            margin-top: 10px;
+                            margin-top: 0.625rem;
                         }
                     }
 

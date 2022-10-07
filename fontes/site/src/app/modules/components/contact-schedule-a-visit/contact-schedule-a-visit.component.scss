@@ -1,16 +1,16 @@
 @import "~src/scss/_variables";
 section#contact-schedule-a-visit {
     .container {
-        max-width: 880px;
+        max-width: 55rem;
         .big-title {
             text-align: center;
             margin: 0 auto;
         }
         .cards {
-            margin-top: 71px;
+            margin-top: 4.438rem;
              ::ng-deep .app-card {
                 .card {
-                    padding: 39px 26px 26px 26px;
+                    padding: 2.438rem 1.625rem 1.625rem 1.625rem;
                 }
             }
         }
@@ -21,7 +21,7 @@ section#contact-schedule-a-visit {
     section#contact-schedule-a-visit {
         .container {
             .cards {
-                margin-top: 30px;
+                margin-top: 1.875rem;
             }
         }
     }
