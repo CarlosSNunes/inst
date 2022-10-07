@@ -3636,7 +3636,7 @@ to {
 }
 .modal__header .modal__close:before {
     content: "\2715";
-    font-size: 16px;
+    font-size: 1rem;
 }
 .modal__content {
     margin-top: 2rem;
@@ -5039,7 +5039,7 @@ to {
     color: #00335b;
     padding-right: 16px;
     padding-left: 16px;
-    padding-top: 20px;
+    padding-top: 1.25rem;
     cursor: pointer;
     position: relative;
     margin-bottom: 46px;
@@ -5056,12 +5056,12 @@ to {
     margin-bottom: 1.625rem;
 }
 .defaultSection .docBox .title {
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
 }
 }.defaultSection .docBox svg {
     fill: #00335b;
-    margin-left: 16px;
+    margin-left: 1rem;
 }
 .defaultSection .docBox:hover {
     background: #0079c8;
@@ -5222,7 +5222,7 @@ to {
     font-style: normal;
     font-weight: 500;
     font-size: 0.875rem;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     color: #333;
 }
 #referencias .items li:before {
@@ -5377,7 +5377,7 @@ to {
     font-style: normal;
     font-weight: 300;
     font-size: 0.875rem;
-    line-height: 24px;
+    line-height: 1.5rem;
     color: #333;
     margin-right: 36px;
     margin-left: 36px;

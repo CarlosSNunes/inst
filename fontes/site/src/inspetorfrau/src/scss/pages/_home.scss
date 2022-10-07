@@ -293,7 +293,7 @@
 					letter-spacing: -0.02em;
 					line-height: 24px;
 					font-weight: 400;
-					font-size: 16px;
+					font-size: 1rem;
 					text-align: left;
 					color: getColor(_white);
 
@@ -638,7 +638,7 @@
 		.titulo-fraudes {
 			font-weight: 700;
 			font-size: 1.25rem;
-			line-height: 32px;
+			line-height: 2rem;
 
 			@include media-breakpoint-down(sm) {
 				font-weight: 500;
@@ -650,7 +650,7 @@
 
 		.descricao-fraudes {
 			font-weight: 400;
-			font-size: 16px;
+			font-size: 1rem;
 			line-height: 150%;
 			letter-spacing: -0.02em;
 
@@ -727,7 +727,7 @@
 
 		.descricao {
 			font-weight: 400;
-			font-size: 16px;
+			font-size: 1rem;
 			line-height: 150%;
 			letter-spacing: -0.02em;
 			margin-bottom: 50px;
@@ -801,7 +801,7 @@
 
 		p {
 			font-weight: 400;
-			font-size: 16px;
+			font-size: 1rem;
 			line-height: 150%;
 
 			letter-spacing: -0.02em;
@@ -955,7 +955,7 @@
 
 			.descricao {
 				font-weight: 400;
-				font-size: 16px;
+				font-size: 1rem;
 				line-height: 150%;
 
 				letter-spacing: -0.02em;

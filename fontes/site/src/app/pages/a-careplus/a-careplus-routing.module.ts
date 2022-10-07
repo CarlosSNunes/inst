@@ -36,6 +36,10 @@ const routes: Routes = [
         loadChildren: () => import('./aviso-de-privacidade/aviso-de-privacidade.module').then(m => m.AvisoDePrivacidadeModule)
     },
     {
+        path: 'acessibilidade',
+        loadChildren: () => import('./acessibilidade/acessibilidade.module').then(m => m.AcessibilidadeModule)
+    },
+    {
         path: 'rede-plus',
         loadChildren: () => import('./rede-plus/rede-plus.module').then(m => m.RedePlusModule)
     },

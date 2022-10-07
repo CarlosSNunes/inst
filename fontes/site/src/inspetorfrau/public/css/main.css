@@ -7549,7 +7549,7 @@ footer .row.atendimento h4.atdm-presencial {
           align-items: center;
   padding-left: 45px;
   height: 40px;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 150%;
 }
 @media (max-width: 767.98px) {
@@ -7726,7 +7726,7 @@ footer .row.legal-mobile span {
 footer .row.legal-mobile span a {
   font-weight: 400;
   font-size: 0.875rem;
-  line-height: 16px;
+  line-height: 1rem;
   text-decoration: none;
   padding: 20px 0;
   text-align: center;
@@ -8084,7 +8084,7 @@ footer .border-bottom {
   letter-spacing: -0.02em;
   line-height: 24px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   text-align: left;
   color: #ffffff;
   -webkit-box-sizing: border-box;
@@ -8419,7 +8419,7 @@ footer .border-bottom {
 }
 #comoEvitarFraudes .container-fraudes .descricao-fraudes {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 150%;
   letter-spacing: -0.02em;
 }
@@ -8499,7 +8499,7 @@ footer .border-bottom {
 }
 #fiqueDeOlho .description-column .descricao {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 150%;
   letter-spacing: -0.02em;
   margin-bottom: 50px;
@@ -8578,7 +8578,7 @@ footer .border-bottom {
 }
 #artigoExclusivo .group p {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 150%;
   letter-spacing: -0.02em;
   margin-bottom: 40px;
@@ -8740,7 +8740,7 @@ footer .border-bottom {
 }
 #fraudeDoReembolso .card .box .descricao {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 150%;
   letter-spacing: -0.02em;
   color: #21272a;

@@ -72,7 +72,7 @@ footer {
           align-items: center;
           padding-left: 45px;
           height: 40px;
-          font-size: 16px;
+          font-size: 1rem;
           line-height: 150%;
 
           @include media-breakpoint-down(md) {
@@ -241,7 +241,7 @@ footer {
           a {
             font-weight: 400;
             font-size: 0.875rem;
-            line-height: 16px;
+            line-height: 1rem;
             text-decoration: none;
 
             padding: 20px 0;

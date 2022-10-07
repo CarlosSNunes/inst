@@ -4,15 +4,15 @@ section#accredited-network {
     .container {
         .accredited-network-content {
             position: relative;
-            padding: 80px 100px;
+            padding: 5rem 6.25rem;
             .columns {
                 margin-bottom: 0;
             }
             .big-title {
-                margin-top: 6px;
+                margin-top: 0.375rem;
             }
             .description {
-                margin-top: 24px;
+                margin-top: 1.5rem;
             }
             .button-column {
                 display: flex;
@@ -26,7 +26,7 @@ section#accredited-network {
                 background-color: getColor(_bupa, _digital-cian);
                 content: "";
                 position: absolute;
-                height: 4px;
+                height: 0.25rem;
                 left: 0;
                 bottom: 0;
                 width: 100%;
@@ -46,7 +46,7 @@ section#accredited-network {
                 }
             }
             .accredited-network-content {
-                padding: 30px 32px;
+                padding: 30px 2rem;
                 margin: 0;
                 .button-column {
                     justify-content: unset;
