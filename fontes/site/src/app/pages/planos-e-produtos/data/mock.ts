@@ -64,11 +64,11 @@ export const iconCardsSectionModel: IconCardsSectionModel = new IconCardsSection
     
 });
 export const secondCard: IconCardModel = new IconCardModel({
-    title: 'Solicite uma Cotação',
+    title: 'Solicite uma Proposta',
     type: 'icon',
     button: new ButtonModel({
         routerLink: '/fale-conosco/solicite-uma-cotacao',
-        text: 'Clique e solicite cotação',
+        text: 'Clique e solicite proposta',
     }),
     imagePath: 'assets/svg/calendar.svg'
 });

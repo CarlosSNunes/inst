@@ -6,7 +6,7 @@ section {
             .box-infos {
                 position: sticky;
                 position: -webkit-sticky;
-                top: 15px;
+                top: 0.938rem;
 
                 .big-title {
                     position: relative;
@@ -14,11 +14,11 @@ section {
                     &::before {
                         position: absolute;
                         content: "";
-                        width: 114px;
-                        height: 4px;
+                        width: 7.125rem;
+                        height: 0.25rem;
                         background: linear-gradient(to left, #cdecfd 0%, getColor(_bupa, _digital-cian) 100%);
                         right: 0;
-                        top: 20px;
+                        top: 1.25rem;
                         transform: translateX(95%);
                     }
                 }

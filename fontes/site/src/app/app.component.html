@@ -15,17 +15,17 @@
 </button>
 <!-- Fim do botão de rolar para o topo da página -->
 
-<!-- Botão Solicite uma Cotação -->
-<a class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao">
+<!-- Bot�o Solicite uma Cota��o -->
+<a class="get-price-box" routerLink="/fale-conosco/solicite-uma-cotacao" style="display:none;">
     <p class="text">
-        Solicite uma Cotação
+        Solicite uma Proposta
     </p>
-    <img class="girl" src="assets/svg/get-price-box-image.svg" alt="Solicite uma Cotação">
+    <img class="girl" src="assets/svg/get-price-box-image.svg" alt="Solicite uma Proposta">
     <span class="icon">
-        <img src="assets/svg/telephone-icon.svg" alt="Solicite uma Cotação">
+        <img src="assets/svg/telephone-icon.svg" alt="Solicite uma Proposta">
     </span>
 </a>
-<!-- Fim do botão Solicite uma Cotação -->
+<!-- Fim do bot�o Solicite uma Cota��o -->
 
 <!-- Aceite de cookies -->
 <app-cookie-notice  class="app-cookie-notice" [class.show]="cookieAgree == 'not-agree'" (agree)="agreeCookieComponent()" [@cookieAgreeAnimation]="cookieAgree"></app-cookie-notice>

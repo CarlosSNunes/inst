@@ -33,7 +33,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         ],
         imageSrc: 'assets/img/sobre_plano_soho.png',
         button: new ButtonModel({
-            text: 'Solicite uma Cotação',
+            text: 'Solicite uma Proposta',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-soho',
@@ -168,7 +168,7 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         subDescription: 'Nosso plano odontológico também faz parte das classificações: Care Plus Soho, Clube Care Plus e Care Plus Empresarial, e se ajustam a todo e qualquer tamanho de empresa.',
         imageSrc: 'assets/img/bloco-plano-odontologico.jpg',
         button: new ButtonModel({
-            text: 'Solicite uma Cotação',
+            text: 'Solicite uma Proposta',
             routerLink: '/fale-conosco/solicite-uma-cotacao',
             queryParams: {
                 plano: 'careplus-soho',
@@ -242,13 +242,13 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         subDescriptions: [
             'As clínicas Care Plus Clinic foram desenvolvidas para oferecer aos nossos pacientes serviços de saúde com excelência técnica, conforto e qualidade excepcional de atendimento.',
             'Elas contam com o que há de mais moderno e eficiente, obedecendo ao mais alto grau de exigência para estabelecimentos de saúde determinado pela ANVISA, que assegura os mais rígidos padrões de qualidade e excelência.',
-            'Temos clínicas na Vila Olímpia e Brooklin, em São Paulo e no Barra Sul Shopping, no Rio de Janeiro.',
+            'Temos clínicas na Vila Olímpia e Brooklin, em São Paulo e no RioSul Shopping, no Rio de Janeiro.',
         ],
         button: new ButtonModel({
             text: 'Conheça a Care Plus Clinic',
             link: 'https://www.careplusclinic.com.br'
         }),
-        imageSrc: 'assets/img/bloco-clinicas.jpg',
+        imageSrc: 'assets/img/Imagem-site-CP-Clinic.jpg',
         reverse: true,
     }),
     // clinicInfos: {
@@ -276,11 +276,11 @@ import { IconCardModel, ButtonModel, IconCardsSectionModel, InfoSectionModel, Si
         imageSrc: 'assets/img/plane.jpg',
     }),
     secondCard: new IconCardModel({
-        title: 'Solicite uma Cotação',
+        title: 'Solicite uma Proposta',
         type: 'icon',
         button: new ButtonModel({
             routerLink: '/fale-conosco/solicite-uma-cotacao',
-            text: 'Clique e solicite cotação',
+            text: 'Clique e solicite proposta',
             target: '_self',
             queryParams: {
                 plano: 'careplus-soho',

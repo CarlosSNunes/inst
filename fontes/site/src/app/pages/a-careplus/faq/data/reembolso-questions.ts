@@ -68,18 +68,18 @@ export default [
                     </colgroup>
                     <tbody>
                         <tr>
-                            <td align="center" bgcolor="#CCCCCC">Código</td>
-                            <td colspan="3" align="center" bgcolor="#CCCCCC">Descrição</td>
+                            <td class="bg-color-table" align="center">Código</td>
+                            <td class="bg-color-table" colspan="3" align="center">Descrição</td>
                         </tr>
                         <tr>
                             <td>45020060</td>
                             <td colspan="3">HISTEROSCOPIA CIRÚRGICA COM RISSECTOSCÓPIO</td>
                         </tr>
                         <tr>
-                            <td bgcolor="#CCCCCC">Código</td>
-                            <td bgcolor="#CCCCCC">Qtde. MS (CH)</td>
-                            <td bgcolor="#CCCCCC">Cálculo (8 x TI x MS)</td>
-                            <td bgcolor="#CCCCCC">Limite R$</td>
+                            <td class="bg-color-table">Código</td>
+                            <td class="bg-color-table">Qtde. MS (CH)</td>
+                            <td class="bg-color-table">Cálculo (8 x TI x MS)</td>
+                            <td class="bg-color-table">Limite R$</td>
                         </tr>
                         <tr>
                             <td>CIRURGIÃO&nbsp;</td>

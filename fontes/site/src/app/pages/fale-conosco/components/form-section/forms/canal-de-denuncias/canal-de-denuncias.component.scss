@@ -16,7 +16,7 @@ form {
                     line-height: getLineHeight("p");
                     strong{
                         display: block;
-                        margin-top: 20px;
+                        margin-top: 1.25rem;
                         font-weight: bold;
                     }
                 }
@@ -31,15 +31,15 @@ form {
             }
 
             .obs {
-                margin-top: 10px;
+                margin-top: 0.625rem;
                 font-size: getSize("sbm");
                 color: getColor(_bupa, _grey-2);
             }
 
             .captcha-image {
-                width: 107px;
-                height: 35px;
-                border-radius: 5px;
+                width: 6.688rem;
+                height: 2.188rem;
+                border-radius: 0.313rem;
             }
 
             .code-infos {
@@ -71,14 +71,14 @@ form {
                 justify-content: flex-end;
 
                 + .field {
-                    max-width: 304px;
+                    max-width: 19rem;
                     width: 100%;
                     float: right;
                 }
             }
 
             .message {
-                margin-top: 32px;
+                margin-top: 2rem;
                 background-color: unset;
             }
 
