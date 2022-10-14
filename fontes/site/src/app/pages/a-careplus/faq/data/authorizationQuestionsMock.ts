@@ -7,7 +7,11 @@ export default [
             </p>
 
             <p class="sub-description">
-                As autorizações possuem validade de 30 dias a contar da data de emissão. Após esse prazo, para atualizar as informações e solicitar a emissão de nova autorização ou revalidar a autorização já emitida é preciso contatar a Central de Relacionamento 24 horas pelo 0800.13.2992, pois em alguns casos a renovação da senha pode ocorrer em até 24hs úteis, ou até ocorrer a necessidade da emissão de um novo pedido médico com validade de até 60 dias.
+                As autorizações possuem validade de 30 dias a contar da data de emissão. Após esse prazo, para atualizar as informações e solicitar a emissão de nova autorização ou revalidar a já emitida é preciso contatar a Central de Relacionamento 24 horas pelo 0800.013.2992.
+            </p>
+
+            <p class="sub-description">
+            Em alguns casos a renovação da senha pode ocorrer em até 24hs úteis, ou até ocorrer a necessidade da emissão de um novo pedido médico com validade de até 60 dias.
             </p>
         `
     },
@@ -178,7 +182,7 @@ export default [
                         <td class="tg-s6z2">Sim</td>
                         <td class="tg-s6z2">Sim</td>
                         </tr>
-                    
+
                         <tr>
                         <td class="tg-s6z2">Clube DA</td>
                         <td class="tg-s6z2">Não</td>
