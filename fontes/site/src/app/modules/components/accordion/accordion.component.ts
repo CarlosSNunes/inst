@@ -26,6 +26,23 @@ export class AccordionComponent implements OnInit, OnChanges {
     }
 
     ngOnInit() {
+        function geraStringAleatoria(tamanho: number) {
+            var stringAleatoria = "";
+            var caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            for (var i = 0; i < tamanho; i++) {
+                stringAleatoria += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+            }
+            return stringAleatoria;
+        };
+
+        const elementsA: Element[] = Array.from(document.getElementsByClassName("acc-heading"));
+        const elementsS: Element[] = Array.from(document.getElementsByClassName("acc-content"));
+
+        elementsA.forEach((el: Element, index) => {
+            const hash: String = geraStringAleatoria(8);
+            elementsS[index].setAttribute("id", `acc-${hash}_${index.toString()}`);
+            el.setAttribute("href", `#acc-${hash}_${index.toString()}`);
+        });
     }
 
     ngAfterViewInit() {

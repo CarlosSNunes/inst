@@ -143,3 +143,74 @@ body {
 .bg-color-table{
     background: #CCCCCC;
 }
+
+.display-none {
+    display: none;
+}
+
+.display-none-v {
+    display: none;
+    visibility: hidden;
+}
+
+.pointer-events {
+    pointer-events: none;
+}
+
+.text-decoration-underline {
+    text-decoration: underline;
+}
+
+.padding-top-10 {
+    padding-top: 10px;
+}
+
+.no-pad-font {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.bg-blue-thanks {
+    background-color: #039ee1;
+}
+
+.p-t-5{
+    padding-top: 5px;
+}
+
+.health-plans{
+    font-style:italic;
+    font-weight: bold;
+    color: #808080;
+}
+
+.margin-auto{
+    margin: auto;
+}
+
+.height-72{
+    height: 4.5rem;
+}
+
+.dis-flex{
+    display: flex;
+}
+
+.font-16{
+    font-size: 1rem;
+}
+
+.t-d-none{
+    text-decoration: none
+}
+
+.m-b-1-87{
+    margin-bottom: 1.875rem;
+}
+
+.list-dash li:before {
+    content: "–";
+    position: absolute;
+    /*change margin to move dash around*/
+    margin-left: -1em;
+  }

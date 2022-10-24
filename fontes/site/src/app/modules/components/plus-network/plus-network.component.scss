@@ -164,7 +164,7 @@ section.is-rede-plus {
                                 transition: stroke-dashoffset 0.1s linear;
                                 stroke: getColor(_bupa, _grey-4);
                             }
-                            #bar {
+                            .bar {
                                 stroke: getColor(_carePlus, _light-green);
                                 stroke-width: 3px;
                             }

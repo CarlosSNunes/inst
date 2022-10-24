@@ -74,7 +74,7 @@ export const gerenciamentoDeDoencasCronicas = new InfoSectionModel({
     bigTitle: 'Prevenção de Doenças Cardiovasculares',
     subDescriptions: [
         'Prevenir as doenças cardiovasculares deve ser uma prioridade na vida de homens e mulheres. Por isso, para apoiar essa premissa, a Gestão de Saúde desenvolveu um programa completo de cuidado com os beneficiários. <br/> Além de atendimento com equipe multidisciplinar na clínica Personal System para avaliação e orientação, os integrantes do programa têm acesso a uma série de vantagens e comodidades. Entre elas:',
-        '<ul><li>- Realização de exames (medição de taxa metabólica de repouso e bioimpedância) </li> <li> Atendimento online com nutricionistas e psicólogos </li> <li>- Descontos exclusivos nos parceiros de alimentação saudável e assessoria esportiva </li> <li>- Auxílio para aquisição de medicamentos e muito mais!</li>'
+        '<ul class="list-dash"><li> Realização de exames (medição de taxa metabólica de repouso e bioimpedância) </li> <li> Atendimento online com nutricionistas e psicólogos </li> <li> Descontos exclusivos nos parceiros de alimentação saudável e assessoria esportiva </li> <li> Auxílio para aquisição de medicamentos e muito mais!</li>'
     ],
     reverse: true,
     imageSrc: 'assets/img/prevencao-doencas.jpg',

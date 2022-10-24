@@ -22,7 +22,7 @@ export default [
                 Reembolso.
             </p>
 
-            <img src="https://www4.careplus.com.br/mkt/hotsite/bv_b/assets/images/img_reembolso_site2.jpg" alt="imagem-reembolso">
+            <img src="assets/img/img_reembolso_site2.jpg" alt="imagem-reembolso">
 
             <p class="sub-description">
                 <strong>
@@ -49,7 +49,7 @@ export default [
 
             <div class="tg-wrap">
                 <table border="1" table="" cellspacing="0" cellpadding="0">
-                <thead style="display: none;">
+                <thead class="display-none">
                 <tr>
                 </tr>
                 <tr>
