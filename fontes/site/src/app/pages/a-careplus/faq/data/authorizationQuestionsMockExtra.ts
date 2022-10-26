@@ -11,21 +11,21 @@ export default [
                 Para solicitar uma autorização, é necessário enviar os documentos digitalizados por meio de algum destes
                 procedimentos:
             </p>
-            
+
             <p class="sub-description no-margin">
                 <strong> 1. Pelo site </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> - no
                 menu Autorizações > Solicitação de Autorizações.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Documentos necessários:</strong>
             </p>
-            
+
             <p class="sub-description">
                 Prescrição médica ou odontológica original em nome do beneficiário emitida por profissional de especialidade
                 reconhecida pelo CRM ou CRO, constando:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     Carimbo do profissional com nome, CRM, CPF e especialidade;
@@ -37,11 +37,11 @@ export default [
                     CID ou Hipótese Diagnóstica.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>Importante:</strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     <strong>Nos casos de exames de genética,</strong> a prescrição médica deverá ser emitida por GENETICISTA, com a
@@ -66,20 +66,20 @@ export default [
             Para solicitar uma autorização de cirurgia de esterilização voluntária (laqueadura e vasectomia), envie os
             documentos digitalizados para uma destas opções:
             </p>
-            
+
             <p class="sub-description">
                 <strong> 1. Site - </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações > Solicitação de Autorizações.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Documentos necessários:</strong>
             </p>
-            
-            
+
+
             <p class="sub-description">
                 <strong>1.</strong> Pedido médico que conste:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     Nome completo do paciente;
@@ -103,33 +103,33 @@ export default [
                     Assinatura do solicitante.
                 </li>
             </ul>
-            
-            
+
+
             <p class="sub-description">
                 <strong>2.</strong> Certidão de Casamento ou Declaração de Convívio Marital ou Certidão de Nascimento de filhos em comum. *Certidão de nascimento dos filhos apenas se o solicitante for menor de 25 anos. *Caso o solicitante não seja casado, mas tenha mais de 25 anos ou 2 filhos vivos, deverá encaminhar para a Care Plus um documento escrito a próprio punho assinado, informando não ter relação afetiva no momento. *A certidão de casamento só será obrigatória se realmente o solicitante for casado legalmente ou tiver uma relação de união estável.
             </p>
-            
+
             <p class="sub-description">
                 <strong>3.</strong> Termo de Consentimento e Ciência assinado pelo(a) postulante e pelo(a) cônjuge, com firma devidamente reconhecida, declarando ciência e expressa anuência à realização do procedimento e dando vistas ao conhecimento dos riscos inerentes ao mesmo. <br/>
                 *Necessita ser datado e reconhecido em cartório com 60 dias antecedência da data da realização do procedimento.
             </p>
-            
+
             <p class="sub-description">
                 <strong>4.</strong> Relatório da consulta médica junto aos cônjuges ou ao postulante no caso de não haver relação conjugal em curso, sendo obrigatório constar o registro da data de sua realização e relato da comunicação dos riscos da cirurgia, possíveis efeitos colaterais, dificuldade de reversão e opções de contracepção reversíveis existentes.
             </p>
-            
+
             <p class="sub-description">
                 <strong>5.</strong> No caso de vasectomia: relatório do profissional responsável pela avaliação psicológica do paciente indicando não haver restrições quanto às suas condições de decisão acerca da realização do procedimento.
             </p>
-            
+
             <p class="sub-description">
                 <strong>6.</strong> No caso de laqueadura: não é necessária avaliação psicológica, apenas a apresentação das demais documentações.
             </p>
-            
+
             <p class="sub-description">
                 Obs.: É vedada a realização de laqueadura tubária em mulheres durante os períodos de parto ou aborto, exceto nos casos de comprovada necessidade pelo médico solicitante.
             </p>
-            
+
             <p class="sub-description">
                 Os documentos necessários fazem parte de uma exigência que está atrelada à Lei de Planejamento Familiar. Essa não é uma exigência/norma da Care Plus, mas temos que atendê-la, pois é uma notificação compulsória junto ao Estado.
             </p>
@@ -138,19 +138,19 @@ export default [
     {
         title: 'DIU',
         description: `
-            
+
             <p class="sub-description">
                 <strong>
-                    Documentos necessários para <span style="text-decoration:underline;">DIU hormonal:</span>
+                    Documentos necessários para <span class="text-decoration-underline">DIU hormonal:</span>
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     1. Pedido médico contendo:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Nome completo do paciente;
@@ -176,37 +176,37 @@ export default [
                     Consentimento.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     2. Data de realização do procedimento;
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 <strong>
                     3. Local a ser realizado o procedimento: ambulatorial ou internado?
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 <strong>
                     4. Cópia dos exames pré-implante: USG.
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
-                    Documentos necessários para <span style="text-decoration:underline;">DIU cobre:</span>
+                    Documentos necessários para <span class="text-decoration-underline">DIU cobre:</span>
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     1. Pedido Médico contendo:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Nome completo do paciente;
@@ -233,20 +233,20 @@ export default [
             Na indicação de alguma internação ou cirurgia, é necessário pedir que lhe seja entregue 2 pedidos/relatórios
             médicos, sendo um para que a equipe médica realize a cirurgia e outro para a internação hospitalar.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Na indicação de alguma internação ou cirurgia, é necessário pedir que lhe seja entregue 2 pedidos/relatórios
                     médicos, sendo um para que a equipe médica realize a cirurgia e outro para a internação hospitalar.
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     1. Relatório médico contendo:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     A patologia a ser tratada, tempo de existência e de acompanhamento;
@@ -258,14 +258,14 @@ export default [
                     Data prevista e prestador hospitalar de preferência.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     2. Laudos de exames que amparam a internação, o procedimento cirúrgico, o uso de materiais e a técnica adotada,
                     contendo:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Lista e orçamento de próteses, órteses e/ou materiais a serem utilizados;
@@ -278,13 +278,13 @@ export default [
                     justificando a necessidade do uso de ambiente hospitalar.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     3. Em caso de cirurgia bariátrica, também enviar para a Care Plus
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Pedido médico com hipótese diagnóstica e CID;
@@ -304,37 +304,37 @@ export default [
                     35 e 39,9 kg/m2).
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     4. Em caso de cirurgia de coluna, também enviar para a Care Plus:
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 • Relatório médico comprovando pelo menos 6 meses de tratamento conservador – fisioterapia, RPG, Acupuntura ou outra
                 terapia não cirúrgica; <br />
                 • Avaliação Complementar de Equipe Médica indicada pela Care Plus para análise e aprovação.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     5. Em caso de cirurgia de restauração de mama, também enviar para a Care Plus:
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 • Laudo e imagem da mamografia, ressonância magnética ou ultrassonografia de mamas que indiquem a existência de
                 nódulos mamários ou calcificações; <br />
                 • Laudo da biópsia do Anatomo Patológico da peça cirúrgica do Carcinoma in situ.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     6. Em caso de ESTERILIZAÇÃO VOLUNTÁRIA, é necessário o envio de:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Certidão de Casamento ou Declaração de Convívio Marital ou Certidão de Nascimento de filhos em comum;
@@ -356,11 +356,11 @@ export default [
                         xilocaína local 1 ou 2% e não de processo anestésico convencional.</strong>
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 A documentação deve dar entrada 60 (sessenta) dias antes da data programada para a cirurgia
             </p>
-            
+
             <p class="sub-description">
             <strong>Importante:</strong> as autorizações (senhas) possuem validade de 30 dias a contar da data de emissão, podendo ser revalidada após este período.
             </p>
@@ -374,17 +374,17 @@ export default [
             gestação, <strong>porém a Care Plus autoriza oito exames sem necessidade do envio da prescrição médica</strong> para
             analise de autorização prévia.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Até a 8ª Ultrassonografia obstétrica simples
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 Você deverá contatar a Central Care Plus através do telefone 0800.13.2992 com os seguintes documentos em mãos:
             </p>
-            
+
             <ol class="m-t-20">
                 <li>
                     <span><strong>Prescrição médica</strong> datada em nome da usuária constando procedimento a ser realizado, dados
@@ -396,17 +396,17 @@ export default [
                     </span>
                 </li>
             </ol>
-            
+
             <p class="sub-description">
                 A partir do 9ª Ultrasson
             </p>
-            
+
             <p class="sub-description">
                 <strong>Importante:</strong> No caso de outros procedimentos, como ultrassonografia morfológica, ultrassonografia
                 obstétrica com Doppler, dopplerfluxometria, tococardiografia, dentre outros, a documentação será a mesma relacionada
                 nos itens 1 e 2.
             </p>
-            
+
             <p class="sub-description">
                 Quanto a autorização de atendimento, orientamos a contatar a Central de Relacionamento Care Plus com antecedência da
                 data de realização do exame, para verificar se a liberação será conduzida através da Central de Relacionamento ou
@@ -422,13 +422,13 @@ export default [
                 Documentos necessários
             </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     1.Relatório Médico indicando:
                 </strong>
             </p>
-            
+
             <ul class="desc">
                 <li>
                     Patologia;
@@ -443,7 +443,7 @@ export default [
                     Diagnóstico ou CID10.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     2. Laudos de exames
@@ -451,14 +451,14 @@ export default [
                 que amparam a indicação – Anátomo Patológico da biópsia da peça extraída, ultrassonografia, mamografia, ressonância
                 magnética ou tomografia computadorizada.
             </p>
-            
-            
+
+
             <p class="sub-description">
                 <strong>
                     3. Relatório médico constando:
                 </strong>
             </p>
-            
+
             <ul class="desc">
                 <li>
                     a) Tipo da quimioterapia indicada, quantidade de sessões previstas e espaçamento em quantidade de dias entre cada ciclo;
@@ -470,14 +470,14 @@ export default [
                     c) Data e local previstos de sua realização.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     4. Para quimioterapia,
                 </strong>
                 é necessária a apresentação da prescrição médica constando:
             </p>
-            
+
             <ul class="desc">
                 <li>
                     a) Medicamentos quimioterápicos indicados e forma de ministração;
@@ -495,25 +495,25 @@ export default [
             Para solicitar uma autorização para estas terapias, envie os documentos abaixo digitalizados por e-mail ou pelo
             site:
             </p>
-            
+
             <p class="sub-description no-margin">
                 1. <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações >
                 Solicitação de Autorizações.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para fonoaudiologia
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     1. Pedido médico
                 </strong>
                 detentor de CRM ou relatório do fonoaudiólogo descrevendo que se trata da avaliação. Este documento deverá conter:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     Nome completo do paciente;
@@ -534,12 +534,12 @@ export default [
                     Assinatura do médico.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 2. Se sessões forem necessárias, o próprio profissional fonoaudiólogo poderá emitir o relatório para análise e senha
                 de autorização, contendo:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     Indicação clínica apontando a patologia, tempo de acompanhamento e a necessidade de tratamento;
@@ -558,90 +558,90 @@ export default [
                     que servirem de base para a abordagem.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para fisioterapia / RPG / aquaterapia
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 <strong>
                     • Relatório médico com data com:
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Indicação clínica apontando a patologia, tempo de acompanhamento e a necessidade de tratamento;
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Tipo do tratamento indicado e quantidade de sessões previstas;
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Data e local previstos de sua realização;
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Laudos de exames que amparam a indicação – radiografias, ressonâncias magnéticas, audiometrias, dentre outros que
                 servirem de base para a abordagem terapêutica;
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Quantidade de sessões necessárias.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para acupuntura
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 <strong>
                     • Relatório médico com data com:
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Indicação clínica apontando a patologia, tempo de acompanhamento e a necessidade de tratamento;
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Tipo do tratamento indicado e quantidade de sessões previstas;
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Data e local previstos de sua realização.
             </p>
-            
+
             <p class="sub-description no-margin">
                 - Laudos de exames que amparam a indicação – radiografias, ressonâncias magnéticas, audiometrias, dentre outros que
                 servirem de base para a abordagem terapêutica;
             </p>
-            
+
             <p class="sub-description no-margin">
                 - O tratamento de acupuntura pode ser feito apenas por um médico.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para solicitar novas sessões
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     No caso de fisioterapia, acupuntura e aquaterapia
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 A cada lote de 10 sessões, o paciente deverá encaminhar relatório emitido pelo Fisiatra ou médico ortopedista, em
                 que conste:
             </p>
-            
+
             <ul class="disc m-t-20">
                 <li>
                     Tratamento executado;
@@ -657,48 +657,48 @@ export default [
                     necessário.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     Para RPG
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 As liberações ocorrerão com o numero máximo de 10* sessões por senha liberada, a partir da solicitação da 11ª
                 sessão, será necessário apresentar:
             </p>
-            
+
             <p class="sub-description">
                 <strong>1.</strong> Laudo de exame de imagem que comprove o diagnóstico;
             </p>
-            
+
             <p class="sub-description no-margin">
                 <strong>2.</strong> Relatório médico contendo as seguintes informações:
             </p>
-            
+
             <p class="sub-description no-margin">
                 • Diagnóstico ou CID;
             </p>
-            
+
             <p class="sub-description no-margin">
                 • Justificativa para a prorrogação de sessões de RPG;
             </p>
-            
+
             <p class="sub-description no-margin">
                 • Previsão de duração do tratamento com RPG.
             </p>
-            
+
             <p class="sub-description">
                 * Entre a 5ª até a 10ª sessão, não será necessário pedir novo relatório médico, basta que o prestador de rede
                 solicite autorização diretamente à Care Plus para outras 5 sessões. A partir da solicitação da 20ª sessão, será
                 necessário um novo relatório médico e justificativa para prorrogação das sessões.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Obs.:</strong> É necessário que no pedido esteja a data inicial do tratamento.
             </p>
-            
+
             <p class="sub-description">
                 <strong>Importante:</strong> as autorizações (senhas) possuem validade de 30 dias a contar da data de emissão,
                 podendo ser revalidada após este período.
@@ -712,37 +712,37 @@ export default [
             Para solicitar autorização para psicoterapia, terapia ocupacional ou sessões com nutricionista, é necessário
             encaminhar os documentos digitalizados por um dos seguintes meios:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     <strong>Site - </strong> <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Autorizações >
                     Solicitação de Autorizações.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para terapia ocupacional
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 Solicitação de profissional com registro no CRM, constando CID 10 e/ou hipótese diagnóstica.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para consultas com nutricionista
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     • Para autorização das primeiras 6 consultas/sessões,
                 </strong>
                 é necessário somente informar local e data de realização para análise.
             </p>
-            
+
             <p class="sub-description no-margin">
                 <strong>
                     • Para autorização de mais consultas/sessões,
@@ -750,18 +750,18 @@ export default [
                 é necessário enviar o relatório do profissional médico (CRM) e/ou nutricionista (CRN) solicitante, constando CID-10
                 e/ou hipótese diagnostica.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários para psicoterapia / psicologia
                 </strong>
             </p>
-            
+
             <p class="sub-description">
                 Solicitação de profissional com registro no CRP, constando CID 10 e/ou hipótese diagnóstica e o seguinte documento
                 de acordo com o CID informado:
             </p>
-            
+
             <ul class="disc">
                 <li>
                     <strong>Para solicitações cujo CID informado dá direito a 18 sessões – </strong> relatório do psicólogo.
@@ -792,9 +792,9 @@ export default [
             Antes de aplicar uma vacina pela rede credenciada, é necessário solicitar uma autorização enviando o pedido médico
             digitalizado por e-mail ou pelo site:
             </p>
-            
+
             <ul class="disc m-t-22">
-            
+
                 <li>
                     <strong>
                         Site -
@@ -803,19 +803,19 @@ export default [
                     Autorizações.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 O pedido médico é fundamental, pois algumas vacinas implicam em riscos para determinados grupos de pacientes –
                 gestantes, autoimunes, dentre outros. Para aplicação de vacinas em crianças com até 12 meses de idade, não é
                 necessária autorização prévia.
             </p>
-            
+
             <p class="sub-description">
                 <strong>
                     Importante:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     O pedido médico deve ser datado e carimbado com nome do médico, CRM, CPF e especialidade
@@ -842,9 +842,9 @@ export default [
                 orais – domiciliares em continuidade ou início de tratamento. Esses medicamentos serão previamente autorizados e
                 então fornecidos em domicílio para os beneficiários solicitantes.
             </p>
-            
+
             <ul class="disc m-t-22">
-            
+
                 <li>
                     <strong>
                         Site -
@@ -853,46 +853,46 @@ export default [
                     Autorizações.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     Documentos necessários:
                 </strong>
             </p>
-            
+
             <ul class="disc m-t-22">
                 <li>
                     Prescrição médica (contendo de forma legível o nome completo do paciente, do medicamento, dosagem e posologia,
                     CID ou descrição da patologia, carimbo do CRM, nome e assinatura do solicitante.);
                 </li>
-            
+
                 <li>
                     Relatório médico (contendo a descrição detalhada da patologia, esquema terapêutico, histórico do tratamento e
                     laudos e imagens quando necessários);
                 </li>
-            
+
                 <li>
                     Local de entrega do medicamento e telefone de contato pessoal do beneficiário;
                 </li>
-            
+
                 <li>
                     Termo de Responsabilidade para o recebimento de medicamentos oncológicos orais assinado. Está disponível para
                     download no site <a href="https://www.careplus.com.br" target="_blank" title="opens in a new window">www.careplus.com.br</a> no menu Impressos após o login.
                 </li>
             </ul>
-            
+
             <p class="sub-description">
                 <strong>
                     Prazo
                 </strong>
             </p>
-            
+
             <p class="sub-description no-margin">
                 A solicitação <strong>será analisada em até 24 horas</strong> e, caso se enquadre nas diretrizes estabelecidas pela
                 ANS, será gerada uma senha de autorização onde o beneficiário estará ciente que sua solicitação foi analisada e o
                 medicamento <strong>será entregue em até 72 horas úteis </strong> no endereço informado.
             </p>
-            
+
             <p class="sub-description no-margin">
                 É importante ressaltar que os medicamentos oncológicos orais domiciliares cumprem diretrizes estabelecidas pela
                 própria ANS, podendo o beneficiário não estar contemplado com a medicação caso sua patologia não esteja dentro

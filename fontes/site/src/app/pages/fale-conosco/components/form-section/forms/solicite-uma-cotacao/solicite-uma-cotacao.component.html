@@ -6,15 +6,15 @@
                 <input type=hidden name="oid" value="00D300000001VCx">
                 <input type=hidden name="retURL" formControlName="retURL">
                 <input type=hidden name="recordType" value="012f2000000YOI6" id="recordType">
-                <div style="display:none;">
+                <div class="display-none">
                     <label for="lead_source">Fale Conosco</label>
                     <select id="lead_source" name="lead_source">
                         <option value="Fale Conosco">Fale Conosco</option>
                     </select>
                     <br>
                 </div>
-        
-        
+
+
                 <div class="column is-full is-4-desktop display-flex titulo-cotacao">
                     <label class="align-self-center">
                         Qual plano ou produto deseja cotar?
@@ -23,10 +23,10 @@
                         * Planos somente para pessoa jurídica a partir de dois titulares sem vínculo familiar
                     </label>
                 </div>
-        
+
                 <div class="column is-full is-8-desktop">
                     <div class="columns flex-wrap">
-                        <div class="column is-full is-6 is-paddingless-vertical" style="display:none;">
+                        <div class="column is-full is-6 is-paddingless-vertical" class="display-none">
                             <div class="field">
                                 <div class="control">
                                     <input formControlName="planoSaude" (change)="updateFormValidation()" [ngClass]="{ 'is-invalid' : form?.planoSaude?.errors }" class="checkbox" id="00N5x00000Ef5wZ" name="00N5x00000Ef5wZ" type="checkbox" (change)="checkboxChange($event, 'planoSaude')">
@@ -44,7 +44,7 @@
                                         Plano Odontológico
                                     </label>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="column is-full is-6">
@@ -57,10 +57,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="column is-full is 6" style="padding-top: 5px;" >
-                            <label style="font-style:italic; font-weight: bold; color: #808080; ">
+                        <div class="column is-full is 6 p-t-5" >
+                            <label class="health-plans">
                                 Para Planos de Saúde, ligue: (11) 99967-5467
-                            </label>                                   
+                            </label>
                         </div>
                         <div class="columns is-12">
                             <div class="field">
@@ -73,16 +73,16 @@
                         </div>
                     </div>
                 </div>
-        
-                <div class="column is-full is-4-desktop" style="margin: auto" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
+
+                <div class="column is-full is-4-desktop margin-auto" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
                     <label>
                         Qual o tamanho da sua empresa?
                     </label>
                 </div>
-        
+
                 <div class="column is-full is-8-desktop" *ngIf="form.planoSaude.value || form.planoOdontologico.value">
-        
-        
+
+
                     <div class="field">
                         <div class="control">
                             <div class="select">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-full is-6-desktop">
                     <div class="field">
                         <p class="control">
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-full is-6-desktop">
                     <div class="field">
                         <p class="control">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-full is-6-desktop">
                     <div class="field">
                         <p class="control">
@@ -144,8 +144,8 @@
                         </div>
                     </div>
                 </div>
-        
-        
+
+
                 <div class="column is-full is-6-desktop">
                     <div class="field">
                         <p class="control">
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-full is-12-desktop">
                     <div class="field">
                         <p class="control">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-full">
                     <div class="field">
                         <p class="control">
@@ -188,7 +188,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-full is-6-desktop">
                     <div class="field">
                         <div class="control">
@@ -197,7 +197,7 @@
                                 <span>
                                     Eu aceito os
                                     <a href="/a-careplus/aviso-de-privacidade" target="_blank" title="opens in a new window"> Termos
-                                
+
                                     </a> de Política de
                                     Privacidade.
                                 </span>
@@ -214,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-6-desktop is-full-touch">
                     <div id="captcha_element_solicite_uma_cotacao"></div>
                     <div class="field">
@@ -225,19 +225,19 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="column is-full">
                     <button class="btn btn-digital-cian secondary medium is-hidden-touch right" type="submit">
                         Enviar
                     </button>
-        
+
                     <button class="btn btn-digital-cian tertiary arrow-right medium is-hidden-desktop" type="submit">
                         Enviar
                     </button>
                 </div>
             </div>
         </div>
-        
+
         <div class="column is-full is-4-desktop">
             <div class="contact-info blue-background-color">
                 <div class="contact-content">
@@ -315,7 +315,7 @@
                 </div>
             </div>
         </div>
-      
+
         <div class="column is-full">
             <button class="btn btn-digital-cian secondary medium is-hidden-touch right" [disabled]="!soliciteUmaCotacaoForm.valid" type="submit">
                 Enviar
@@ -325,6 +325,6 @@
                 Enviar
             </button>
         </div>
-      
+
     </div>
 </form>

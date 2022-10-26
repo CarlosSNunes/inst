@@ -95,7 +95,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     private generateRandonString(length) {
         var randonString = '';
-        var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
         for (var i = 0; i < length; i++) {
             randonString += char.charAt(Math.floor(Math.random() * char.length));
         }

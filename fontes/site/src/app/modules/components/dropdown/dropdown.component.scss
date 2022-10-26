@@ -1,9 +1,10 @@
 @import "~src/scss/_variables.scss";
 
-#dropdown {
+.dropdown {
     position: relative;
     cursor: pointer;
     outline: none;
+    width: 200px;
     .dropdown-select {
         background: getColor(_bupa, _white);
         border: 1px solid getColor(_bupa, _grey-2);
@@ -14,6 +15,7 @@
         justify-content: space-between;
         height: 3.5rem;
         transition: all 0.3s;
+        width: 200px;
         p {
             font-weight: normal;
             font-size: 1.125rem;
@@ -43,9 +45,10 @@
     }
     .dropdown-list {
         position: absolute;
+        margin-top: 55px;
         background-color: getColor(_bupa, _white);
-        width: 100%;
         height: inherit;
+        width: 100%;
         z-index: 10;
         border: 1px solid #e0e0e0;
         box-sizing: border-box;
@@ -75,16 +78,20 @@
 }
 
 @media (max-width: 64rem) {
-    #dropdown {
+    .dropdown {
+        width: 140px;
         .dropdown-select {
-            padding: 12px 14px;
+            padding: 10px 10px;
+            width: 150px;
             p {
                 font-size: 1rem;
                 line-height: 30px;
             }
         }
         .dropdown-list {
+            margin-top: 100px;
             p {
+                width: 150px;
                 padding: 12px 14px;
                 font-size: 1rem;
                 line-height: 30px;
