@@ -1,5 +1,5 @@
 body {
-    background: url('../img/body-bg.png') no-repeat top right;
+    background: url("../img/body-bg.png") no-repeat top right;
     background-size: cover;
 }
 
@@ -33,11 +33,11 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 1.25rem;
-    color: #4F4F4F;
+    color: #4f4f4f;
 }
 
 .pagina-manutencao .linha {
-    border: 1px solid #0069B5;
+    border: 1px solid #0069b5;
     width: 78px;
     height: 2px;
     display: block;
@@ -52,15 +52,15 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 1.25rem;
-    color: #4F4F4F;
+    color: #4f4f4f;
 }
 
 .pagina-manutencao .links a.email {
-    background: url('../img/icon-email.png') no-repeat left center;
+    background: url("../img/icon-email.png") no-repeat left center;
 }
 
 .pagina-manutencao .links a.telefone {
-    background: url('../img/icon-telefone.png') no-repeat left center;
+    background: url("../img/icon-telefone.png") no-repeat left center;
 }
 
 .pagina-manutencao .footer {

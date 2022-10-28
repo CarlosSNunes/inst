@@ -317,7 +317,7 @@ nav.is-home {
     padding: 15px 16px;
     background: getColor(_bupa, _white);
     border-bottom: 1px solid getColor(_bupa, _grey-2);
-    z-index: unset;
+    z-index: unset;   
 
     .logo {
         width: 57px;
@@ -325,7 +325,7 @@ nav.is-home {
         max-width: 57px;
         padding: 0.5rem 0;
         margin-left: 16px;
-
+       
         .img-careplus {
             width: 57px;
             height: 72px;
@@ -342,7 +342,7 @@ nav.is-home {
         margin-left: auto;
         .navbar-item {
             padding-left: 16px;
-            padding-right: 16px;
+            padding-right: 10px;
             cursor: unset;
             position: relative;
             z-index: 999;
@@ -363,7 +363,7 @@ nav.is-home {
             .item {
                 font-style: normal;
                 font-weight: 500;
-                font-size: 0.875em;
+                font-size: 0.975em !important;
                 line-height: getSize("p");
                 color: getColor(_bupa, _grey);
                 display: inline-block;
