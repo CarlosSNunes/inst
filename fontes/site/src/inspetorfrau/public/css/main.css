@@ -7500,7 +7500,7 @@ footer .row.atendimento-mobile .box .icon-around {
 }
 footer .row.atendimento-mobile .box .text-around {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 130%;
   padding: 24px 20px;
   border: 1px solid #ffffff;
@@ -7528,7 +7528,7 @@ footer .row.atendimento h4.atdm24 {
           align-items: center;
   padding-left: 45px;
   height: 40px;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 150%;
 }
 @media (max-width: 767.98px) {
@@ -7635,7 +7635,7 @@ footer .row.certificados h4 {
     margin-bottom: 15px !important;
     margin-top: 30px;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 130%;
   }
 }
@@ -7734,7 +7734,7 @@ footer .row.legal-mobile span a {
 }
 footer .row.legal-mobile p {
   font-weight: 400;
-  font-size: 10px;
+  font-size: 0.625rem;
   line-height: 150%;
   padding: 0 26px;
   text-align: center;
@@ -7818,7 +7818,7 @@ footer .border-bottom {
 }
 @media (max-width: 575.98px) {
   #banner .container-banner .banner-title {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 }
 #banner .container-banner .banner-title:nth-child(1) {
@@ -8059,7 +8059,7 @@ footer .border-bottom {
   z-index: 10;
   -webkit-transition: ease-in-out 0.5s;
   transition: ease-in-out 0.5s;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 26px;
   letter-spacing: -0.02em;
@@ -8073,7 +8073,7 @@ footer .border-bottom {
   z-index: 10;
 }
 #principaisFraudes .grid-card .card .card-content .title p {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 26px;
   letter-spacing: -0.02em;
   margin: 0 auto;
@@ -8312,7 +8312,7 @@ footer .border-bottom {
 }
 #impactos .info .description {
   font-weight: 700;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 18px;
   padding-top: 12px;
   color: #0d1846;
@@ -8928,7 +8928,7 @@ footer .border-bottom {
     margin-bottom: 60px;
   }
   #banner .container-banner .banner-title {
-    font-size: 28px;
+    font-size: 1.75rem;
     line-height: 45px;
   }
   #banner .container-man {
