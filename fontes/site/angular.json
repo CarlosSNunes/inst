@@ -239,7 +239,10 @@
                                 "with": "src/environments/environment.qa-cp.ts"
                             }],
                             "baseHref": "/",
-                            "optimization": true,
+                            "optimization": {
+                                "scripts" : true,
+                                "styles": false                                
+                            },
                             "outputHashing": "all",
                             "sourceMap": false,
                             "extractCss": true,
@@ -432,7 +435,7 @@
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,
-                                "styles": true
+                                "styles": false
                             }
                         },
                         "homolog-windows": {
@@ -443,7 +446,7 @@
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,
-                                "styles": true
+                                "styles": false
                             }
                         },
                         "staging": {
@@ -454,7 +457,7 @@
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,
-                                "styles": true
+                                "styles": false
                             }
                         },
                         "staging-cp": {
@@ -465,7 +468,7 @@
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,
-                                "styles": true
+                                "styles": false
                             }
                         },
                         "uat-cp": {
@@ -476,7 +479,7 @@
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,
-                                "styles": true
+                                "styles": false
                             }
                         },
                         "qa-cp": {
@@ -487,7 +490,7 @@
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,
-                                "styles": true
+                                "styles": false
                             }
                         }
                     }
