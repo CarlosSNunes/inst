@@ -48,6 +48,10 @@ const routes: Routes = [
         loadChildren: () => import('./diferenciais/diferenciais.module').then(m => m.DiferenciaisModule)
     },
     {
+        path: 'politica-de-cookies',
+        loadChildren: () => import('./politica-de-cookies/politica-de-cookies.module').then(m => m.PoliticaDeCookiesModule)
+    },
+    {
         path: '**',
         redirectTo: '/404'
     }
