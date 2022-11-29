@@ -3968,7 +3968,7 @@ to {
     border-radius: 2px;
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 120%;
     letter-spacing: 2px;
     color: #077;
@@ -4115,7 +4115,7 @@ to {
     position: relative;
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 0.938rem;
     line-height: 15px;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -4351,7 +4351,7 @@ to {
     #topImage .textbox h1 {
     font-style: normal;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 120%;
     text-align: center;
     color: #00335b;
@@ -4360,7 +4360,7 @@ to {
     #topImage .textbox h1 {
     font-style: normal;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 120%;
     text-align: center;
     color: #00335b;
@@ -4369,7 +4369,7 @@ to {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 39px;
     text-align: center;
     max-width: 550px;
@@ -4472,7 +4472,7 @@ to {
 #topImage .textbox h1 {
     font-style: normal;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 120%;
     text-align: center;
     color: #00335b;
@@ -4504,7 +4504,7 @@ to {
 #informacoesGerais h2 {
     font-style: normal;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 120%;
     text-align: center;
     color: #00335b;
@@ -4601,7 +4601,7 @@ to {
     padding-left: 36px;
     font-style: normal;
     font-weight: 500;
-    font-size: 24.876px;
+    font-size: 1.555rem;
     line-height: 33px;
     color: #0079c8;
     padding-bottom: 15px;
@@ -4647,7 +4647,7 @@ to {
 #servicos h2 {
     font-style: normal;
     font-weight: 600;
-    font-size: 33px;
+    font-size: 2.063rem;
     line-height: 40px;
     color: #00335b;
     text-align: center;
@@ -4655,7 +4655,7 @@ to {
 #servicos .servicosDescription {
     font-style: normal;
     font-weight: 300;
-    font-size: 18.662px;
+    font-size: 1.166rem;
     line-height: 33px;
     text-align: center;
     color: #333;
@@ -4727,7 +4727,7 @@ to {
 }.defaultSection h4 {
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 120%;
     color: #0079c8;
     margin: 0;
@@ -4748,7 +4748,7 @@ to {
 }
 @media (max-width:991.98px) {
     .defaultSection h2 {
-    font-size: 22px;
+    font-size: 1.375rem;
 }
 }.defaultSection h2.titleWithThatThing {
     text-align: center;
@@ -5020,7 +5020,7 @@ to {
 }
 @media (max-width:991.98px) {
     .defaultSection .simpleList li {
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 }.defaultSection .simpleList li a {
     position: relative;
@@ -5193,7 +5193,7 @@ to {
 }#referencias h4 {
     color: #2b66ab;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 120%;
     text-transform: uppercase;
 }
@@ -5255,7 +5255,7 @@ to {
 #acoronavirus h2 {
     font-style: normal;
     font-weight: 600;
-    font-size: 33px;
+    font-size: 2.063rem;
     line-height: 40px;
     text-align: left;
     color: #00335b;
@@ -5263,7 +5263,7 @@ to {
 #acoronavirus p {
     font-style: normal;
     font-weight: 300;
-    font-size: 18.662px;
+    font-size: 1.166rem;
     line-height: 33px;
     color: #333;
 }
@@ -5307,14 +5307,14 @@ to {
 #acoronavirus #itensAcoronavirusContainer .itensAcoronavirus h3 {
     font-style: normal;
     font-weight: 500;
-    font-size: 18.662px;
+    font-size: 1.166rem;
     line-height: 23px;
     color: #333;
     width: 128px;
 }
 @media (max-width:991.98px) {
     #acoronavirus #itensAcoronavirusContainer .itensAcoronavirus h3 {
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 1.063rem;
 }
 }#acoronavirus #itensAcoronavirusContainer .itensAcoronavirus.equipe {
@@ -5368,7 +5368,7 @@ to {
     padding-left: 36px;
     font-style: normal;
     font-weight: 500;
-    font-size: 24.876px;
+    font-size: 1.555rem;
     line-height: 33px;
     color: #0079c8;
     padding-bottom: 15px;
@@ -5417,13 +5417,13 @@ to {
 #contato #contactBoxContainer h3 {
     font-style: normal;
     font-weight: 500;
-    font-size: 24.876px;
+    font-size: 1.555rem;
     line-height: 28px;
     color: #0079c8;
 }
 #contato #contactBoxContainer p {
     font-weight: 300;
-    font-size: 18.662px;
+    font-size: 1.166rem;
     line-height: 33px;
     color: #333;
     padding: 0;
@@ -5454,7 +5454,7 @@ to {
 #contato h2 {
     font-style: normal;
     font-weight: 600;
-    font-size: 33px;
+    font-size: 2.063rem;
     line-height: 40px;
     color: #00335b;
     text-align: left;
@@ -5462,7 +5462,7 @@ to {
 #contato .servicosDescription {
     font-style: normal;
     font-weight: 300;
-    font-size: 18.662px;
+    font-size: 1.166rem;
     line-height: 33px;
     text-align: center;
     color: #333;
@@ -5472,7 +5472,7 @@ to {
 #contato .mandatory {
     font-style: normal;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 15px;
     color: #747474;
     margin-bottom: 10px;
@@ -5481,7 +5481,7 @@ to {
     float: right;
 }
 #footer {
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 15px;
     color: #333;
     text-align: center;
@@ -5626,7 +5626,7 @@ footer:before {
 }footer p {
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #333;
 }
 @media (max-width:991.98px) {
