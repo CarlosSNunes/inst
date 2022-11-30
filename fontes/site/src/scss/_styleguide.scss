@@ -263,7 +263,7 @@ select,
         input:not([type="checkbox"]):not([type="radio"]):focus+label {
             font-style: normal;
             font-weight: normal;
-            font-size: 12px;
+            font-size: 0.75rem;
             line-height: 15px;
             top: -12px;
             pointer-events: none;
@@ -494,7 +494,7 @@ select,
         .error {
             font-style: normal;
             font-weight: normal;
-            font-size: 12px;
+            font-size: 0.75rem;
             line-height: 15px;
             color: getColor(_carePlus, _error);
         }
@@ -537,7 +537,7 @@ select,
                 * {
                     font-style: normal;
                     font-weight: 600;
-                    font-size: 12px;
+                    font-size: 0.75rem;
                     line-height: 15px;
                     letter-spacing: 3.5px;
                     color: getColor(_bupa, _white);
@@ -594,7 +594,7 @@ select,
     .file-size {
         font-style: normal;
         font-weight: normal;
-        font-size: 12px;
+        font-size: 0.75rem;
         line-height: 15px;
         color: getColor(_bupa, _grey-2);
     }

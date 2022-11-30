@@ -1,0 +1,27 @@
+section {
+    &#politica-de-cookies-section {
+        .container {
+            .app-sidebar {
+                height: 100%;
+                display: block;
+            }
+            .term-section {
+                margin-top: 1.375rem;
+                &:first-child {
+                    margin-top: 0;
+                }
+                .big-title {
+                    max-width: 100%;
+                }
+            }
+
+            .cor-destaque{
+                color: #0079c8;
+            }
+
+            .sub-title{
+                color: #808080;
+            }
+        }       
+    }
+}

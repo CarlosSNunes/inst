@@ -114,7 +114,7 @@
                 <div class="sub-menu columns" *ngIf="subMenuItem.subItems">
                     <div class="column is-6">
                         <ul class="items">
-                            <li *ngFor="let subItem of subMenuItem.subItems | slice:0:5">
+                            <li *ngFor="let subItem of subMenuItem.subItems | slice:0:6">
 
                                 <!--
                                     Itens com routerLink
@@ -134,9 +134,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="column is-6" *ngIf="subMenuItem.subItems.length > 5">
+                    <div class="column is-6" *ngIf="subMenuItem.subItems.length > 6">
                         <ul class="items">
-                            <li *ngFor="let subItem of subMenuItem.subItems | slice:5:10">
+                            <li *ngFor="let subItem of subMenuItem.subItems | slice:6:12">
 
                                 <!--
                                     Itens com routerLink

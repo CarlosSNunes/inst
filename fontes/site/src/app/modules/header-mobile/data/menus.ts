@@ -37,6 +37,10 @@ export default [
                         routerLink: '/a-careplus/materiais-de-saude'
                     }),
                     new SubMenuItem({
+                        title: 'Política de Cookies',
+                        routerLink: '/a-careplus/politica-de-cookies'
+                    }),
+                    new SubMenuItem({
                         title: 'Termos e Condições',
                         routerLink: '/a-careplus/termos-e-condicoes'
                     }),
@@ -174,6 +178,10 @@ export default [
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
                         routerLink: '/a-careplus/materiais-de-saude'
+                    }),
+                    new SubMenuItem({
+                        title: 'Política de Cookies',
+                        routerLink: '/a-careplus/politica-de-cookies'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',
@@ -330,6 +338,10 @@ export default [
                         routerLink: '/a-careplus/materiais-de-saude'
                     }),
                     new SubMenuItem({
+                        title: 'Política de Cookies',
+                        routerLink: '/a-careplus/politica-de-cookies'
+                    }),
+                    new SubMenuItem({
                         title: 'Termos e Condições',
                         routerLink: '/a-careplus/termos-e-condicoes'
                     }),
@@ -460,6 +472,10 @@ export default [
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
                         routerLink: '/a-careplus/materiais-de-saude'
+                    }),
+                    new SubMenuItem({
+                        title: 'Política de Cookies',
+                        routerLink: '/a-careplus/politica-de-cookies'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',
@@ -604,6 +620,10 @@ export default [
                     new SubMenuItem({
                         title: 'Materiais de Saúde',
                         routerLink: '/a-careplus/materiais-de-saude'
+                    }),
+                    new SubMenuItem({
+                        title: 'Política de Cookies',
+                        routerLink: '/a-careplus/politica-de-cookies'
                     }),
                     new SubMenuItem({
                         title: 'Termos e Condições',

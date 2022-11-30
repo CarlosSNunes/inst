@@ -145,4 +145,8 @@ export const routes: RouteModel[] = [
         route: '/sitemap',
         description: 'Sitemap'
     }),
+    new RouteModel({
+        route: '/a-careplus/politica-de-cookies',
+        description: 'A Care Plus - Política de Cookies'
+    }),
 ];
