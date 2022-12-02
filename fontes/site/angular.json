@@ -424,7 +424,7 @@
                             "sourceMap": false,
                             "optimization": {
                                 "scripts": false,
-                                "styles": true
+                                "styles": false
                             }
                         },
                         "homolog": {
