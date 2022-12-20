@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
+import { TagService } from './services';
 import { RedirectGuardService } from './services/redirect-guard/redirect-guard.service';
 
 const routes: Routes = [
@@ -98,11 +99,11 @@ const routes: Routes = [
     {
         path: 'a-careplus_privacy/aviso-de-privacidade',
         redirectTo: '/a-careplus/aviso-de-privacidade'
-    },  
+    },
     {
         path: 'a-careplus_privacy/politica-de-privacidade',
         redirectTo: '/a-careplus/aviso-de-privacidade'
-    },      
+    },
     { path: 'planos-de-saude/care-plus-empresarial.aspx', redirectTo: '/planos-e-produtos/careplus-empresarial' },
     { path: 'planos-de-saude/', redirectTo: '/planos-e-produtos' },
     { path: 'planos-odontologicos/dental-prime-clinic.aspx', redirectTo: '/planos-e-produtos' },
@@ -153,7 +154,7 @@ const routes: Routes = [
     { path: 'planos-de-saude/DL/RELACAO-DOS-CONTRATOS-COLETIVOS-DO-POOL-DE-RISCO-2016.pdf', redirectTo: '/a-careplus/materiais-de-saude' },
     { path: 'welcome-back', redirectTo: '/planos-e-produtos/medicina-ocupacional' },
     { path: 'politica-de-privacidade', redirectTo: '/a-careplus/aviso-de-privacidade' },
-   
+
     {
         path: 'canaldenuncias',
         canActivate: [RedirectGuardService],
@@ -304,6 +305,14 @@ const routes: Routes = [
         component: RedirectGuardService,
         data: {
             externalUrl: 'http://www8.careplus.com.br/soho/admin/login.aspx'
+        }
+    },
+    {
+        path: 'care-plus-store',
+        canActivate: [RedirectGuardService],
+        component: RedirectGuardService,
+        data: {
+            externalUrl: 'https://store.careplus.com.br/'
         }
     },
     {
