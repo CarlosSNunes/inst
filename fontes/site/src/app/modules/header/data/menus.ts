@@ -67,7 +67,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -81,13 +81,14 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
-                    }),                   
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
@@ -104,7 +105,7 @@ export default [
                         href: 'https://store.careplus.com.br/'
                     })
                 ]
-            }),            
+            }),
             new SubMenuItem({
                 title: 'Carreiras',
                 routerLink: '/carreiras',
@@ -126,11 +127,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [  
+                subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),                
+                    }),
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -209,7 +210,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -223,13 +224,14 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
-                    }),                   
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
@@ -246,7 +248,7 @@ export default [
                         href: 'https://store.careplus.com.br/'
                     })
                 ]
-            }),                       
+            }),
             new SubMenuItem({
                 title: 'Rede Plus',
                 routerLink: '/a-careplus/rede-plus'
@@ -284,11 +286,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [  
+                subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),                 
+                    }),
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -367,7 +369,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -381,20 +383,21 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
-                    }),                   
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
-            }),           
+            }),
             new SubMenuItem({
                 title: 'Rede Plus',
                 routerLink: '/a-careplus/rede-plus'
@@ -420,11 +423,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [  
+                subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),                 
+                    }),
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -503,7 +506,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -517,13 +520,14 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
-                    }),                    
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
@@ -567,11 +571,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [    
+                subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),               
+                    }),
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
@@ -650,7 +654,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -664,20 +668,21 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment:'planos'
-                    }),                   
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
-            }),            
+            }),
             new SubMenuItem({
                 title: 'Carreiras',
                 routerLink: '/carreiras',
@@ -699,11 +704,11 @@ export default [
             new SubMenuItem({
                 title: 'Fale Conosco',
                 routerLink: '/fale-conosco/contato',
-                subItems: [    
+                subItems: [
                     new SubMenuItem({
                         title: 'Solicite uma Proposta',
                         routerLink: '/fale-conosco/solicite-uma-cotacao',
-                    }),               
+                    }),
                     new SubMenuItem({
                         title: 'Contato',
                         routerLink: '/fale-conosco/contato',
