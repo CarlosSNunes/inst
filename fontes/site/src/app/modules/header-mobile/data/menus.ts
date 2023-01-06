@@ -67,7 +67,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -81,13 +81,14 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),                    
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
@@ -103,7 +104,7 @@ export default [
                         title: 'Loja Care Plus',
                         href: 'https://store.careplus.com.br/',
                         target: '_blank'
-                    }),                    
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -210,7 +211,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -224,13 +225,14 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),                   
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
@@ -247,7 +249,7 @@ export default [
                         href: 'https://store.careplus.com.br/'
                     })
                 ]
-            }),            
+            }),
             new SubMenuItem({
                 title: 'Rede Plus',
                 routerLink: '/a-careplus/rede-plus'
@@ -368,7 +370,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -382,13 +384,14 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),                    
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
@@ -504,7 +507,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -518,13 +521,14 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),                   
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
@@ -540,7 +544,7 @@ export default [
                         title: 'Loja Care Plus',
                         href: 'https://store.careplus.com.br/',
                         target: '_blank'
-                    }),                    
+                    }),
                 ]
             }),
             new SubMenuItem({
@@ -652,7 +656,7 @@ export default [
                         title: 'Prime Clinic',
                         href: 'https://www.primeclinic.care/',
                         target: '_blank'
-                    })                   
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -666,20 +670,21 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),                    
+                    }),
                     new SubMenuItem({
                         title: 'Care Plus Dental - Individual',
                         href: 'https://store.careplus.com.br/',
                         target: '_blank'
                     })
                 ]
-            }),           
+            }),
             new SubMenuItem({
                 title: 'Carreiras',
                 routerLink: '/carreiras',
