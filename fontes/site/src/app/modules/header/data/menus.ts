@@ -81,7 +81,8 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
@@ -223,7 +224,8 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
@@ -381,7 +383,8 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
@@ -517,7 +520,8 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
@@ -664,7 +668,8 @@ export default [
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Ocupacional',
-                        routerLink: '/planos-e-produtos/medicina-ocupacional'
+                        href: 'https://www.careplusocupacional.com.br/',
+                        target: '_blank'
                     }),
                     new SubMenuItem({
                         title: 'Care Plus Dental',
