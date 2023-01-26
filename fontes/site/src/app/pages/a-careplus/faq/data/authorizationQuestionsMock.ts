@@ -110,7 +110,9 @@ export default [
             </ul>
 
             <p class="sub-description">
-                A seguir vamos procurar apresentar a melhor forma para obter a autorização prévia para cada procedimento e quais documentos são necessários apresentar, observando-se que a Care Plus pode, conforme o caso, solicitar informações ou relatórios, laudos de exames ou outros documentos complementares, se assim forem necessários à análise de cobertura ou enquadramento.
+            A seguir apresentaremos a melhor forma para obter a autorização prévia para cada procedimento e quais documentos são necessários,
+            observando-se que a Care Plus pode, conforme o caso, solicitar informações ou relatórios, laudos de exames ou documentos complementares,
+            se assim forem necessários à análise de cobertura ou enquadramento.
             </p>
         `
     },
