@@ -1,0 +1,1 @@
+Powershell.exe -NoExit -file \instaladorCarePlus\uninstall.ps1
