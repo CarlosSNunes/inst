@@ -43,6 +43,10 @@ export class ResultadosFinanceirosComponent implements OnInit {
             value: 'all'
         },
         {
+            title: 'Resultados financeiros de 2022',
+            value: '2022'
+        },
+        {
             title: 'Resultados financeiros de 2021',
             value: '2021'
         },
@@ -109,7 +113,7 @@ export class ResultadosFinanceirosComponent implements OnInit {
             content: 'A Care Plus preza pela transparência e responsabilidade na prestação de contas. Aqui, você encontra os últimos resultados financeiros da Care Plus.'
         });
 
-         /* 
+         /*
             Open graph meta tags
         */
             this.meta.updateTag({
@@ -117,50 +121,50 @@ export class ResultadosFinanceirosComponent implements OnInit {
                 content:
                     'Resultados Financeiros | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "og:type",
                 content:
                     "website",
             });
 
-    
+
             this.meta.updateTag({
                 name: "og:description",
                 content: 'A Care Plus preza pela transparência e responsabilidade na prestação de contas. Aqui, você encontra os últimos resultados financeiros da Care Plus.'
             });
-    
+
             this.meta.updateTag({
                 name: "og:url",
                 content: `${environment.SELF_URL}/a-careplus/resultados-financeiros`,
             });
-           
+
             this.meta.updateTag({
                 name: "og:image",
                 content:`${environment.SELF_URL}/assets/img/banner-relatorios-financeiros.jpg`,
             });
-    
-            /* 
+
+            /*
                 Twitter meta tags
             */
-    
+
             this.meta.updateTag({
                 name: "twitter:title",
                 content:
                     'Resultados Financeiros | Care Plus',
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:card",
                 content:
                     "summary_large_image",
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:description",
                 content: 'A Care Plus preza pela transparência e responsabilidade na prestação de contas. Aqui, você encontra os últimos resultados financeiros da Care Plus.'
             });
-    
+
             this.meta.updateTag({
                 name: "twitter:url",
                 content: `${environment.SELF_URL}/a-careplus/resultados-financeiros`,
