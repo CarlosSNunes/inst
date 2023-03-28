@@ -88,23 +88,7 @@ export default [
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),
-                    new SubMenuItem({
-                        title: 'Care Plus Dental - Individual',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
                     })
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Care Plus Store',
-                routerLink: '/Care Plus Store',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Loja Care Plus',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
-                    }),
                 ]
             }),
             new SubMenuItem({
@@ -232,21 +216,6 @@ export default [
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),
-                    new SubMenuItem({
-                        title: 'Care Plus Dental - Individual',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
-                    })
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Care Plus Store',
-                routerLink: '/Care Plus Store',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Loja Care Plus',
-                        href: 'https://store.careplus.com.br/'
                     })
                 ]
             }),
@@ -391,11 +360,6 @@ export default [
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),
-                    new SubMenuItem({
-                        title: 'Care Plus Dental - Individual',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
                     })
                 ]
             }),
@@ -528,23 +492,7 @@ export default [
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),
-                    new SubMenuItem({
-                        title: 'Care Plus Dental - Individual',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
                     })
-                ]
-            }),
-            new SubMenuItem({
-                title: 'Care Plus Store',
-                routerLink: '/Care Plus Store',
-                subItems: [
-                    new SubMenuItem({
-                        title: 'Loja Care Plus',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
-                    }),
                 ]
             }),
             new SubMenuItem({
@@ -562,12 +510,7 @@ export default [
                     new SubMenuItem({
                         title: 'Vagas',
                         routerLink: '/carreiras/vagas',
-                    }),
-                    new SubMenuItem({
-                        title: 'Care Plus Dental - Individual',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
-                    }),
+                    })
                 ]
             }),
             new SubMenuItem({
@@ -677,11 +620,6 @@ export default [
                         title: 'Care Plus Dental',
                         routerLink: '/planos-e-produtos',
                         fragment: 'planos'
-                    }),
-                    new SubMenuItem({
-                        title: 'Care Plus Dental - Individual',
-                        href: 'https://store.careplus.com.br/',
-                        target: '_blank'
                     })
                 ]
             }),
