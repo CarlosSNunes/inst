@@ -15,21 +15,13 @@ export default [
             </p>
             
             <p class="sub-description">
-                Para solicitar uma prévia de reembolso, é necessário enviar alguns documentos para a Care Plus por e-mail ou pelo
+                Para solicitar uma prévia de reembolso, é necessário enviar alguns documentos para a Care Plus pelo
                 site:
             </p>
             
             <p class="sub-description">
             
             <ul class="disc m-t-22">
-                <li>
-                    <strong>
-                        E-mail -
-                    </strong>
-                    <a href="mailto:previa@careplus.com.br">
-                        previa@careplus.com.br
-                    </a>
-                </li>
                 <li>
                     <strong>
                         Site -
