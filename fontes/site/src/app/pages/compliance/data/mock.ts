@@ -65,6 +65,17 @@ export const materiais: CardModel[] = [
     }),
     new CardModel({
         type: 'default',
+        title: 'Contratos Coletivos do Pool de Risco 2023',
+        button: new ButtonModel({
+            link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2023.pdf',
+        }),
+        size: {
+            placeholder: '(196kb)',
+            file_size: '200704'
+        }
+    }),
+    new CardModel({
+        type: 'default',
         title: 'Contratos Coletivos do Pool de Risco 2022',
         button: new ButtonModel({
             link: 'assets/documents/contratos_coletivos_do_pool_de_risco_2022.pdf',
