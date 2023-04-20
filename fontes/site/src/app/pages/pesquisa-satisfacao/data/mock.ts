@@ -21,6 +21,28 @@ export const simpleBannerModel: SimpleBannerModel = new SimpleBannerModel({
 export const materiais = [
     new CardModel({
         type: 'default',
+        title: 'Pesquisa de Satisfação - 2023 (Base 2022)',
+        button: new ButtonModel({
+            link: 'assets/documents/pesquisa_de_satisfacao-2023_base_2022.pdf'
+        }),
+        size: {
+            placeholder: '(1.35mb)',
+            file_size: '1417216'
+        }
+    }),
+    new CardModel({
+        type: 'default',
+        title: 'Parecer de Auditoria – Pesquisa de Satisfação - 2023 (Base 2022)',
+        button: new ButtonModel({
+            link: 'assets/documents/parecer_de_auditoria_pesquisa_de_satisfacao-2023_base_2022.pdf'
+        }),
+        size: {
+            placeholder: '(216kb)',
+            file_size: '221184'
+        }
+    }),
+    new CardModel({
+        type: 'default',
         title: 'Pesquisa de Satisfação - 2022 (Base 2021)',
         button: new ButtonModel({
             link: 'assets/documents/pesquisa_de_satisfacao-2022_base_2021.pdf'
@@ -85,5 +107,5 @@ export const materiais = [
             file_size: '254982'
         }
     }),
-   
+
 ]
