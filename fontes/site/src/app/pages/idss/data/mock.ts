@@ -66,7 +66,19 @@ export const materiais = [
             placeholder: '(1.1mb)',
             file_size: '1065856'
         }
-    })
+    }),
+    new CardModel({
+        type: 'default',
+        title: 'IDSS 2022',
+        category: '2022',
+        button: new ButtonModel({
+            link: 'assets/documents/idsscareplus-2022.pdf'
+        }),
+        size: {
+            placeholder: '(248kb)',
+            file_size: '253952 '
+        }
+    }),
 ];
 
 export const tableMaterials = [
